@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsMobileTestBindingItems } from "./SyntheticsMobileTestBindingItems";
+import { SyntheticsMobileTestBindingRelation } from "./SyntheticsMobileTestBindingRelation";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsMobileTestBinding {
   /**
-   * Object describing the binding used for a mobile test.
+   * List of principals for a mobile test binding.
    */
-  "items"?: SyntheticsMobileTestBindingItems;
+  "principals"?: Array<string>;
+  /**
+   * The definition of `SyntheticsMobileTestBindingRelation` object.
+   */
+  "relation"?: SyntheticsMobileTestBindingRelation;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +36,13 @@ export class SyntheticsMobileTestBinding {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    items: {
-      baseName: "items",
-      type: "SyntheticsMobileTestBindingItems",
+    principals: {
+      baseName: "principals",
+      type: "Array<string>",
+    },
+    relation: {
+      baseName: "relation",
+      type: "SyntheticsMobileTestBindingRelation",
     },
     additionalProperties: {
       baseName: "additionalProperties",

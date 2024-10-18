@@ -7,13 +7,17 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Name of the property.
+ * The definition of `SyntheticsMobileStepParamsElementRelativePosition` object.
  */
-export class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
+export class SyntheticsMobileStepParamsElementRelativePosition {
   /**
-   * The `propertyNames` `pattern`.
+   * The `relativePosition` `x`.
    */
-  "pattern"?: string;
+  "x"?: number;
+  /**
+   * The `relativePosition` `y`.
+   */
+  "y"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,9 +35,15 @@ export class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pattern: {
-      baseName: "pattern",
-      type: "string",
+    x: {
+      baseName: "x",
+      type: "number",
+      format: "int64",
+    },
+    y: {
+      baseName: "y",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,7 +55,7 @@ export class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsMobileTestInitialApplicationArgumentsPropertyNames.attributeTypeMap;
+    return SyntheticsMobileStepParamsElementRelativePosition.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,18 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
+import { SyntheticsMobileStepParamsElementUserLocatorValuesItems } from "./SyntheticsMobileStepParamsElementUserLocatorValuesItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * CI/CD options for a Synthetic test.
+ * The definition of `SyntheticsMobileStepParamsElementUserLocator` object.
  */
-export class SyntheticsMobileTestCiOptions {
+export class SyntheticsMobileStepParamsElementUserLocator {
   /**
-   * Execution rule for a Synthetic test.
+   * The `userLocator` `failTestOnCannotLocate`.
    */
-  "executionRule": SyntheticsTestExecutionRule;
+  "failTestOnCannotLocate"?: boolean;
+  /**
+   * The `userLocator` `values`.
+   */
+  "values"?: Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,10 +36,13 @@ export class SyntheticsMobileTestCiOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    executionRule: {
-      baseName: "executionRule",
-      type: "SyntheticsTestExecutionRule",
-      required: true,
+    failTestOnCannotLocate: {
+      baseName: "failTestOnCannotLocate",
+      type: "boolean",
+    },
+    values: {
+      baseName: "values",
+      type: "Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +54,7 @@ export class SyntheticsMobileTestCiOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsMobileTestCiOptions.attributeTypeMap;
+    return SyntheticsMobileStepParamsElementUserLocator.attributeTypeMap;
   }
 
   public constructor() {}

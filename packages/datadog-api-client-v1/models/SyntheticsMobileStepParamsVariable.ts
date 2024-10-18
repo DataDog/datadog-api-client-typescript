@@ -3,22 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsTestOptionsSchedulingTimeframe } from "./SyntheticsTestOptionsSchedulingTimeframe";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object containing timeframes and timezone used for advanced scheduling.
+ * The definition of `SyntheticsMobileStepParamsVariable` object.
  */
-export class SyntheticsTestOptionsScheduling {
+export class SyntheticsMobileStepParamsVariable {
   /**
-   * Array containing objects describing the scheduling pattern to apply to each day.
+   * The `variable` `example`.
    */
-  "timeframes": Array<SyntheticsTestOptionsSchedulingTimeframe>;
+  "example"?: string;
   /**
-   * Timezone in which the timeframe is based.
+   * The `variable` `name`.
    */
-  "timezone": string;
+  "name": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,13 +35,12 @@ export class SyntheticsTestOptionsScheduling {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    timeframes: {
-      baseName: "timeframes",
-      type: "Array<SyntheticsTestOptionsSchedulingTimeframe>",
-      required: true,
+    example: {
+      baseName: "example",
+      type: "string",
     },
-    timezone: {
-      baseName: "timezone",
+    name: {
+      baseName: "name",
       type: "string",
       required: true,
     },
@@ -56,7 +54,7 @@ export class SyntheticsTestOptionsScheduling {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestOptionsScheduling.attributeTypeMap;
+    return SyntheticsMobileStepParamsVariable.attributeTypeMap;
   }
 
   public constructor() {}

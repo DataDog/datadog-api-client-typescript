@@ -7,12 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `SyntheticsMobileTestBindingItemsRole` object.
+ * The definition of `SyntheticsMobileStepParamsElementContextType` object.
  */
 
-export type SyntheticsMobileTestBindingItemsRole =
-  | typeof EDITOR
-  | typeof VIEWER
+export type SyntheticsMobileStepParamsElementContextType =
+  | typeof NATIVE
+  | typeof WEB
   | UnparsedObject;
-export const EDITOR = "editor";
-export const VIEWER = "viewer";
+export const NATIVE = "native";
+export const WEB = "web";
