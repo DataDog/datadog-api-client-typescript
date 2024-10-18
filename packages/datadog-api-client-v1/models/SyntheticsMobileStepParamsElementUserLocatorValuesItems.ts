@@ -3,18 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsMobileTestInitialApplicationArgumentsPropertyNames } from "./SyntheticsMobileTestInitialApplicationArgumentsPropertyNames";
+import { SyntheticsMobileStepParamsElementUserLocatorValuesItemsType } from "./SyntheticsMobileStepParamsElementUserLocatorValuesItemsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Initial application arguments for a mobile test.
+ * The definition of `SyntheticsMobileStepParamsElementUserLocatorValuesItems` object.
  */
-export class SyntheticsMobileTestInitialApplicationArguments {
+export class SyntheticsMobileStepParamsElementUserLocatorValuesItems {
   /**
-   * Name of the property.
+   * The definition of `SyntheticsMobileStepParamsElementUserLocatorValuesItemsType` object.
    */
-  "propertyNames"?: SyntheticsMobileTestInitialApplicationArgumentsPropertyNames;
+  "type"?: SyntheticsMobileStepParamsElementUserLocatorValuesItemsType;
+  /**
+   * The `SyntheticsMobileStepParamsElementUserLocatorValuesItems` `value`.
+   */
+  "value"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +36,13 @@ export class SyntheticsMobileTestInitialApplicationArguments {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    propertyNames: {
-      baseName: "propertyNames",
-      type: "SyntheticsMobileTestInitialApplicationArgumentsPropertyNames",
+    type: {
+      baseName: "type",
+      type: "SyntheticsMobileStepParamsElementUserLocatorValuesItemsType",
+    },
+    value: {
+      baseName: "value",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +54,7 @@ export class SyntheticsMobileTestInitialApplicationArguments {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsMobileTestInitialApplicationArguments.attributeTypeMap;
+    return SyntheticsMobileStepParamsElementUserLocatorValuesItems.attributeTypeMap;
   }
 
   public constructor() {}

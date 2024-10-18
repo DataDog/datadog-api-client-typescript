@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SyntheticsMobileStepParams } from "./SyntheticsMobileStepParams";
 import { SyntheticsMobileStepType } from "./SyntheticsMobileStepType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -26,15 +27,15 @@ export class SyntheticsMobileStep {
   /**
    * The name of the step.
    */
-  "name"?: string;
+  "name": string;
   /**
    * A boolean set to not take a screenshot for the step.
    */
   "noScreenshot"?: boolean;
   /**
-   * The parameters of the mobile step.
+   * The parameters of a mobile step.
    */
-  "params"?: any;
+  "params": SyntheticsMobileStepParams;
   /**
    * The public ID of the step.
    */
@@ -46,7 +47,7 @@ export class SyntheticsMobileStep {
   /**
    * Step type used in your mobile Synthetic test.
    */
-  "type"?: SyntheticsMobileStepType;
+  "type": SyntheticsMobileStepType;
 
   /**
    * A container for additional, undeclared properties.
@@ -79,6 +80,7 @@ export class SyntheticsMobileStep {
     name: {
       baseName: "name",
       type: "string",
+      required: true,
     },
     noScreenshot: {
       baseName: "noScreenshot",
@@ -86,7 +88,8 @@ export class SyntheticsMobileStep {
     },
     params: {
       baseName: "params",
-      type: "any",
+      type: "SyntheticsMobileStepParams",
+      required: true,
     },
     publicId: {
       baseName: "publicId",
@@ -100,6 +103,7 @@ export class SyntheticsMobileStep {
     type: {
       baseName: "type",
       type: "SyntheticsMobileStepType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

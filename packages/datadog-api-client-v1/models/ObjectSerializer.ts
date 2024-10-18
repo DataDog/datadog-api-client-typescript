@@ -450,13 +450,16 @@ import { SyntheticsListTestsResponse } from "./SyntheticsListTestsResponse";
 import { SyntheticsLocation } from "./SyntheticsLocation";
 import { SyntheticsLocations } from "./SyntheticsLocations";
 import { SyntheticsMobileStep } from "./SyntheticsMobileStep";
+import { SyntheticsMobileStepParams } from "./SyntheticsMobileStepParams";
+import { SyntheticsMobileStepParamsElement } from "./SyntheticsMobileStepParamsElement";
+import { SyntheticsMobileStepParamsElementRelativePosition } from "./SyntheticsMobileStepParamsElementRelativePosition";
+import { SyntheticsMobileStepParamsElementUserLocator } from "./SyntheticsMobileStepParamsElementUserLocator";
+import { SyntheticsMobileStepParamsElementUserLocatorValuesItems } from "./SyntheticsMobileStepParamsElementUserLocatorValuesItems";
+import { SyntheticsMobileStepParamsPositionsItems } from "./SyntheticsMobileStepParamsPositionsItems";
+import { SyntheticsMobileStepParamsVariable } from "./SyntheticsMobileStepParamsVariable";
 import { SyntheticsMobileTest } from "./SyntheticsMobileTest";
 import { SyntheticsMobileTestBinding } from "./SyntheticsMobileTestBinding";
-import { SyntheticsMobileTestBindingItems } from "./SyntheticsMobileTestBindingItems";
-import { SyntheticsMobileTestCiOptions } from "./SyntheticsMobileTestCiOptions";
 import { SyntheticsMobileTestConfig } from "./SyntheticsMobileTestConfig";
-import { SyntheticsMobileTestInitialApplicationArguments } from "./SyntheticsMobileTestInitialApplicationArguments";
-import { SyntheticsMobileTestInitialApplicationArgumentsPropertyNames } from "./SyntheticsMobileTestInitialApplicationArgumentsPropertyNames";
 import { SyntheticsMobileTestOptions } from "./SyntheticsMobileTestOptions";
 import { SyntheticsMobileTestOptionsMonitorOptions } from "./SyntheticsMobileTestOptionsMonitorOptions";
 import { SyntheticsMobileTestsMobileApplication } from "./SyntheticsMobileTestsMobileApplication";
@@ -1373,6 +1376,15 @@ const enumsMap: { [key: string]: any[] } = {
     "http_header",
     "http_status_code",
   ],
+  SyntheticsMobileStepParamsDirection: ["up", "down", "left", "right"],
+  SyntheticsMobileStepParamsElementContextType: ["native", "web"],
+  SyntheticsMobileStepParamsElementUserLocatorValuesItemsType: [
+    "accessibility-id",
+    "id",
+    "ios-predicate-string",
+    "ios-class-chain",
+    "xpath",
+  ],
   SyntheticsMobileStepType: [
     "assertElementContent",
     "assertScreenContains",
@@ -1392,7 +1404,7 @@ const enumsMap: { [key: string]: any[] } = {
     "typeText",
     "wait",
   ],
-  SyntheticsMobileTestBindingItemsRole: ["editor", "viewer"],
+  SyntheticsMobileTestBindingRelation: ["editor", "viewer"],
   SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName: [
     "show_all",
     "hide_all",
@@ -2117,15 +2129,20 @@ const typeMap: { [index: string]: any } = {
   SyntheticsLocation: SyntheticsLocation,
   SyntheticsLocations: SyntheticsLocations,
   SyntheticsMobileStep: SyntheticsMobileStep,
+  SyntheticsMobileStepParams: SyntheticsMobileStepParams,
+  SyntheticsMobileStepParamsElement: SyntheticsMobileStepParamsElement,
+  SyntheticsMobileStepParamsElementRelativePosition:
+    SyntheticsMobileStepParamsElementRelativePosition,
+  SyntheticsMobileStepParamsElementUserLocator:
+    SyntheticsMobileStepParamsElementUserLocator,
+  SyntheticsMobileStepParamsElementUserLocatorValuesItems:
+    SyntheticsMobileStepParamsElementUserLocatorValuesItems,
+  SyntheticsMobileStepParamsPositionsItems:
+    SyntheticsMobileStepParamsPositionsItems,
+  SyntheticsMobileStepParamsVariable: SyntheticsMobileStepParamsVariable,
   SyntheticsMobileTest: SyntheticsMobileTest,
   SyntheticsMobileTestBinding: SyntheticsMobileTestBinding,
-  SyntheticsMobileTestBindingItems: SyntheticsMobileTestBindingItems,
-  SyntheticsMobileTestCiOptions: SyntheticsMobileTestCiOptions,
   SyntheticsMobileTestConfig: SyntheticsMobileTestConfig,
-  SyntheticsMobileTestInitialApplicationArguments:
-    SyntheticsMobileTestInitialApplicationArguments,
-  SyntheticsMobileTestInitialApplicationArgumentsPropertyNames:
-    SyntheticsMobileTestInitialApplicationArgumentsPropertyNames,
   SyntheticsMobileTestOptions: SyntheticsMobileTestOptions,
   SyntheticsMobileTestOptionsMonitorOptions:
     SyntheticsMobileTestOptionsMonitorOptions,
