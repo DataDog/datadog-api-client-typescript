@@ -219,14 +219,6 @@ export class MonthlyUsageAttributionValues {
    */
   "estimatedIndexedLogsUsage"?: number;
   /**
-   * The percentage of estimated indexed spans usage by tag(s).
-   */
-  "estimatedIndexedSpansPercentage"?: number;
-  /**
-   * The estimated indexed spans usage by tag(s).
-   */
-  "estimatedIndexedSpansUsage"?: number;
-  /**
    * The percentage of estimated live ingested logs usage by tag(s).
    */
   "estimatedIngestedLogsPercentage"?: number;
@@ -234,14 +226,6 @@ export class MonthlyUsageAttributionValues {
    * The estimated live ingested logs usage by tag(s).
    */
   "estimatedIngestedLogsUsage"?: number;
-  /**
-   * The percentage of estimated ingested spans usage by tag(s).
-   */
-  "estimatedIngestedSpansPercentage"?: number;
-  /**
-   * The estimated ingested spans usage by tag(s).
-   */
-  "estimatedIngestedSpansUsage"?: number;
   /**
    * The percentage of estimated rum sessions usage by tag(s).
    */
@@ -847,16 +831,6 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
-    estimatedIndexedSpansPercentage: {
-      baseName: "estimated_indexed_spans_percentage",
-      type: "number",
-      format: "double",
-    },
-    estimatedIndexedSpansUsage: {
-      baseName: "estimated_indexed_spans_usage",
-      type: "number",
-      format: "double",
-    },
     estimatedIngestedLogsPercentage: {
       baseName: "estimated_ingested_logs_percentage",
       type: "number",
@@ -864,16 +838,6 @@ export class MonthlyUsageAttributionValues {
     },
     estimatedIngestedLogsUsage: {
       baseName: "estimated_ingested_logs_usage",
-      type: "number",
-      format: "double",
-    },
-    estimatedIngestedSpansPercentage: {
-      baseName: "estimated_ingested_spans_percentage",
-      type: "number",
-      format: "double",
-    },
-    estimatedIngestedSpansUsage: {
-      baseName: "estimated_ingested_spans_usage",
       type: "number",
       format: "double",
     },
