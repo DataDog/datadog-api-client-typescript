@@ -145,6 +145,13 @@ export class RequestContext {
     return this.body;
   }
 
+  /**
+   * Sets query parameters on the request URL
+   *
+   * @param name the name of the query parameter
+   * @param value the value of the query parameter
+   * @param collectionFormat the format of the query parameter See https://spec.openapis.org/oas/v3.0.2#style-values
+  */
   public setQueryParam(name: string, value: string | string[], collectionFormat: string): void {
     if (collectionFormat === "multi") {
       for (const val of value) {
