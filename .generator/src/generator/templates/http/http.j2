@@ -2,6 +2,7 @@ import { userAgent } from "../../../userAgent";
 // TODO: evaluate if we can easily get rid of this library
 import FormData from "form-data";
 import { isBrowser } from "../util";
+import { COLLECTION_FORMATS } from "../baseapi";
 
 /**
  * Interface for aborting fetch requests.
@@ -149,18 +150,12 @@ export class RequestContext {
       for (const val of value) {
         this.url.searchParams.append(name, val);
       }
-      return
-    }
-
-    if (collectionFormat === "csv") {
-      value = Array.isArray(value) ? value.join(",") : value;
-      this.url.searchParams.set(name, value);
+      return;
     }
 
     if (Array.isArray(value)) {
-      throw new Error(
-        `Unsupported query parameter value type for collectionFormat ${collectionFormat}`
-      );
+      const delimiter = COLLECTION_FORMATS[collectionFormat as keyof typeof COLLECTION_FORMATS];
+      value = value.join(delimiter);
     }
 
     return this.url.searchParams.set(name, value);
