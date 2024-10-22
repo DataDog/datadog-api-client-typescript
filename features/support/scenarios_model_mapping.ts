@@ -3688,6 +3688,54 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentTodoResponse",
     },
+    "v2.ListAWSAccounts": {
+        "awsAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AWSAccountsResponse",
+    },
+    "v2.CreateAWSAccount": {
+        "body": {
+            "type": "AWSAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSAccountResponse",
+    },
+    "v2.DeleteAWSAccount": {
+        "awsAccountConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetAWSAccount": {
+        "awsAccountConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AWSAccountResponse",
+    },
+    "v2.UpdateAWSAccount": {
+        "awsAccountConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AWSAccountPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSAccountResponse",
+    },
+    "v2.ListAWSNamespaces": {
+        "operationResponseType": "AWSNamespacesResponse",
+    },
+    "v2.GenerateNewExternalID": {
+        "operationResponseType": "AWSNewExternalIDResponse",
+    },
+    "v2.ListAWSLogServices": {
+        "operationResponseType": "AWSLogsServicesResponse",
+    },
     "v2.ListGCPSTSAccounts": {
         "operationResponseType": "GCPSTSServiceAccountsResponse",
     },
