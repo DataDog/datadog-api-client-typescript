@@ -9,7 +9,6 @@ Component,Licence,Copyright
 @types/jest,MIT,Copyright Microsoft Corporation
 @types/node,MIT,Copyright Microsoft Corporation
 @types/pako,MIT,Copyright Caleb Eggensperger Muhammet Öztürk
-@types/url-parse,MIT,Copyright Microsoft Corporation
 @typescript-eslint/eslint-plugin,MIT,Copyright (c) 2019 TypeScript ESLint and other contributors
 @typescript-eslint/parser,BSD-2-Clause,
 buffer-from,MIT,Copyright (c) 2016, 2018 Linus Unnebäck
@@ -31,6 +30,5 @@ prettier,MIT,Copyright © James Long and contributors
 ts-node,MIT,Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
 typedoc,Apache-2.0,Copyright (c) 2015 Sebastian Lenz Copyright (c) 2016-2021 TypeDoc Contributors.
 typescript,Apache-2.0,Copyright (c) Microsoft Corporation.
-url-parse,MIT,Copyright (c) 2015 Unshift.io, Arnout Kazemier,  the Contributors.
 loglevel,MIT,Copyright (c) 2013 Tim Perry
 zstd.ts,BSD-2-Clause,Copyright (c) [2021] [Beeno Tung (Tung Cheung Leong)]
