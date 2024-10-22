@@ -144,6 +144,7 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
+  EventsApiCreateEventRequest,
   EventsApiListEventsRequest,
   EventsApiSearchEventsRequest,
   EventsApi,
@@ -681,6 +682,23 @@ export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
 export { CaseUpdateStatus } from "./models/CaseUpdateStatus";
 export { CaseUpdateStatusAttributes } from "./models/CaseUpdateStatusAttributes";
 export { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
+export { ChangeEvent } from "./models/ChangeEvent";
+export { ChangeEventCategory } from "./models/ChangeEventCategory";
+export { ChangeEventCreateRequest } from "./models/ChangeEventCreateRequest";
+export { ChangeEventCreateRequestPayload } from "./models/ChangeEventCreateRequestPayload";
+export { ChangeEventCreateRequestType } from "./models/ChangeEventCreateRequestType";
+export { ChangeEventCreateResponse } from "./models/ChangeEventCreateResponse";
+export { ChangeEventCreateResponseAttributes } from "./models/ChangeEventCreateResponseAttributes";
+export { ChangeEventCreateResponseAttributesAttributes } from "./models/ChangeEventCreateResponseAttributesAttributes";
+export { ChangeEventCreateResponseAttributesAttributesEvt } from "./models/ChangeEventCreateResponseAttributesAttributesEvt";
+export { ChangeEventCreateResponsePayload } from "./models/ChangeEventCreateResponsePayload";
+export { ChangeEventCustomAttributes } from "./models/ChangeEventCustomAttributes";
+export { ChangeEventCustomAttributesAuthor } from "./models/ChangeEventCustomAttributesAuthor";
+export { ChangeEventCustomAttributesAuthorType } from "./models/ChangeEventCustomAttributesAuthorType";
+export { ChangeEventCustomAttributesChangedResource } from "./models/ChangeEventCustomAttributesChangedResource";
+export { ChangeEventCustomAttributesChangedResourceType } from "./models/ChangeEventCustomAttributesChangedResourceType";
+export { ChangeEventCustomAttributesImpactedResourcesItems } from "./models/ChangeEventCustomAttributesImpactedResourcesItems";
+export { ChangeEventCustomAttributesImpactedResourcesItemsType } from "./models/ChangeEventCustomAttributesImpactedResourcesItemsType";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
 export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
 export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
