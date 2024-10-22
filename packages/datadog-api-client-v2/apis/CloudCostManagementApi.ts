@@ -311,7 +311,8 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     if (filterManagementAccountId !== undefined) {
       requestContext.setQueryParam(
         "filter[management_account_id]",
-        ObjectSerializer.serialize(filterManagementAccountId, "string", "")
+        ObjectSerializer.serialize(filterManagementAccountId, "string", ""),
+        ""
       );
     }
 

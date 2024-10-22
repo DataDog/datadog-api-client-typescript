@@ -134,49 +134,57 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterQuery !== undefined) {
       requestContext.setQueryParam(
         "filter[query]",
-        ObjectSerializer.serialize(filterQuery, "string", "")
+        ObjectSerializer.serialize(filterQuery, "string", ""),
+        ""
       );
     }
     if (filterIndexes !== undefined) {
       requestContext.setQueryParam(
         "filter[indexes]",
-        ObjectSerializer.serialize(filterIndexes, "Array<string>", "")
+        ObjectSerializer.serialize(filterIndexes, "Array<string>", ""),
+        "csv"
       );
     }
     if (filterFrom !== undefined) {
       requestContext.setQueryParam(
         "filter[from]",
-        ObjectSerializer.serialize(filterFrom, "Date", "date-time")
+        ObjectSerializer.serialize(filterFrom, "Date", "date-time"),
+        ""
       );
     }
     if (filterTo !== undefined) {
       requestContext.setQueryParam(
         "filter[to]",
-        ObjectSerializer.serialize(filterTo, "Date", "date-time")
+        ObjectSerializer.serialize(filterTo, "Date", "date-time"),
+        ""
       );
     }
     if (filterStorageTier !== undefined) {
       requestContext.setQueryParam(
         "filter[storage_tier]",
-        ObjectSerializer.serialize(filterStorageTier, "LogsStorageTier", "")
+        ObjectSerializer.serialize(filterStorageTier, "LogsStorageTier", ""),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "LogsSort", "")
+        ObjectSerializer.serialize(sort, "LogsSort", ""),
+        ""
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", "")
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int32")
+        ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        ""
       );
     }
 
@@ -216,7 +224,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     if (ddtags !== undefined) {
       requestContext.setQueryParam(
         "ddtags",
-        ObjectSerializer.serialize(ddtags, "string", "")
+        ObjectSerializer.serialize(ddtags, "string", ""),
+        ""
       );
     }
 

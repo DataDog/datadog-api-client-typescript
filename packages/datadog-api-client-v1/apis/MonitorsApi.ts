@@ -50,7 +50,8 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     if (monitorIds !== undefined) {
       requestContext.setQueryParam(
         "monitor_ids",
-        ObjectSerializer.serialize(monitorIds, "Array<number>", "int64")
+        ObjectSerializer.serialize(monitorIds, "Array<number>", "int64"),
+        "csv"
       );
     }
 
@@ -135,7 +136,8 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     if (force !== undefined) {
       requestContext.setQueryParam(
         "force",
-        ObjectSerializer.serialize(force, "string", "")
+        ObjectSerializer.serialize(force, "string", ""),
+        ""
       );
     }
 
@@ -179,13 +181,15 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     if (groupStates !== undefined) {
       requestContext.setQueryParam(
         "group_states",
-        ObjectSerializer.serialize(groupStates, "string", "")
+        ObjectSerializer.serialize(groupStates, "string", ""),
+        ""
       );
     }
     if (withDowntimes !== undefined) {
       requestContext.setQueryParam(
         "with_downtimes",
-        ObjectSerializer.serialize(withDowntimes, "boolean", "")
+        ObjectSerializer.serialize(withDowntimes, "boolean", ""),
+        ""
       );
     }
 
@@ -226,49 +230,57 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     if (groupStates !== undefined) {
       requestContext.setQueryParam(
         "group_states",
-        ObjectSerializer.serialize(groupStates, "string", "")
+        ObjectSerializer.serialize(groupStates, "string", ""),
+        ""
       );
     }
     if (name !== undefined) {
       requestContext.setQueryParam(
         "name",
-        ObjectSerializer.serialize(name, "string", "")
+        ObjectSerializer.serialize(name, "string", ""),
+        ""
       );
     }
     if (tags !== undefined) {
       requestContext.setQueryParam(
         "tags",
-        ObjectSerializer.serialize(tags, "string", "")
+        ObjectSerializer.serialize(tags, "string", ""),
+        ""
       );
     }
     if (monitorTags !== undefined) {
       requestContext.setQueryParam(
         "monitor_tags",
-        ObjectSerializer.serialize(monitorTags, "string", "")
+        ObjectSerializer.serialize(monitorTags, "string", ""),
+        ""
       );
     }
     if (withDowntimes !== undefined) {
       requestContext.setQueryParam(
         "with_downtimes",
-        ObjectSerializer.serialize(withDowntimes, "boolean", "")
+        ObjectSerializer.serialize(withDowntimes, "boolean", ""),
+        ""
       );
     }
     if (idOffset !== undefined) {
       requestContext.setQueryParam(
         "id_offset",
-        ObjectSerializer.serialize(idOffset, "number", "int64")
+        ObjectSerializer.serialize(idOffset, "number", "int64"),
+        ""
       );
     }
     if (page !== undefined) {
       requestContext.setQueryParam(
         "page",
-        ObjectSerializer.serialize(page, "number", "int64")
+        ObjectSerializer.serialize(page, "number", "int64"),
+        ""
       );
     }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page_size",
-        ObjectSerializer.serialize(pageSize, "number", "int32")
+        ObjectSerializer.serialize(pageSize, "number", "int32"),
+        ""
       );
     }
 
@@ -305,25 +317,29 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
-        ObjectSerializer.serialize(query, "string", "")
+        ObjectSerializer.serialize(query, "string", ""),
+        ""
       );
     }
     if (page !== undefined) {
       requestContext.setQueryParam(
         "page",
-        ObjectSerializer.serialize(page, "number", "int64")
+        ObjectSerializer.serialize(page, "number", "int64"),
+        ""
       );
     }
     if (perPage !== undefined) {
       requestContext.setQueryParam(
         "per_page",
-        ObjectSerializer.serialize(perPage, "number", "int64")
+        ObjectSerializer.serialize(perPage, "number", "int64"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "string", "")
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
       );
     }
 
@@ -360,25 +376,29 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
-        ObjectSerializer.serialize(query, "string", "")
+        ObjectSerializer.serialize(query, "string", ""),
+        ""
       );
     }
     if (page !== undefined) {
       requestContext.setQueryParam(
         "page",
-        ObjectSerializer.serialize(page, "number", "int64")
+        ObjectSerializer.serialize(page, "number", "int64"),
+        ""
       );
     }
     if (perPage !== undefined) {
       requestContext.setQueryParam(
         "per_page",
-        ObjectSerializer.serialize(perPage, "number", "int64")
+        ObjectSerializer.serialize(perPage, "number", "int64"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "string", "")
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
       );
     }
 

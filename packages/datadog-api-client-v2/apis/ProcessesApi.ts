@@ -43,37 +43,43 @@ export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
     if (search !== undefined) {
       requestContext.setQueryParam(
         "search",
-        ObjectSerializer.serialize(search, "string", "")
+        ObjectSerializer.serialize(search, "string", ""),
+        ""
       );
     }
     if (tags !== undefined) {
       requestContext.setQueryParam(
         "tags",
-        ObjectSerializer.serialize(tags, "string", "")
+        ObjectSerializer.serialize(tags, "string", ""),
+        ""
       );
     }
     if (from !== undefined) {
       requestContext.setQueryParam(
         "from",
-        ObjectSerializer.serialize(from, "number", "int64")
+        ObjectSerializer.serialize(from, "number", "int64"),
+        ""
       );
     }
     if (to !== undefined) {
       requestContext.setQueryParam(
         "to",
-        ObjectSerializer.serialize(to, "number", "int64")
+        ObjectSerializer.serialize(to, "number", "int64"),
+        ""
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int32")
+        ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        ""
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", "")
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
       );
     }
 

@@ -523,19 +523,22 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     if (fromTs !== undefined) {
       requestContext.setQueryParam(
         "from_ts",
-        ObjectSerializer.serialize(fromTs, "number", "int64")
+        ObjectSerializer.serialize(fromTs, "number", "int64"),
+        ""
       );
     }
     if (toTs !== undefined) {
       requestContext.setQueryParam(
         "to_ts",
-        ObjectSerializer.serialize(toTs, "number", "int64")
+        ObjectSerializer.serialize(toTs, "number", "int64"),
+        ""
       );
     }
     if (probeDc !== undefined) {
       requestContext.setQueryParam(
         "probe_dc",
-        ObjectSerializer.serialize(probeDc, "Array<string>", "")
+        ObjectSerializer.serialize(probeDc, "Array<string>", ""),
+        "multi"
       );
     }
 
@@ -655,19 +658,22 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     if (fromTs !== undefined) {
       requestContext.setQueryParam(
         "from_ts",
-        ObjectSerializer.serialize(fromTs, "number", "int64")
+        ObjectSerializer.serialize(fromTs, "number", "int64"),
+        ""
       );
     }
     if (toTs !== undefined) {
       requestContext.setQueryParam(
         "to_ts",
-        ObjectSerializer.serialize(toTs, "number", "int64")
+        ObjectSerializer.serialize(toTs, "number", "int64"),
+        ""
       );
     }
     if (probeDc !== undefined) {
       requestContext.setQueryParam(
         "probe_dc",
-        ObjectSerializer.serialize(probeDc, "Array<string>", "")
+        ObjectSerializer.serialize(probeDc, "Array<string>", ""),
+        "multi"
       );
     }
 
@@ -987,13 +993,15 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page_size",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page_number",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
 

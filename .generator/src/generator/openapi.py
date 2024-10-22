@@ -403,6 +403,8 @@ def collection_format(parameter):
         explode = parameter.get("explode", True if style == "form" else False)
         return matrix.get((style, explode), "multi")
 
+    return ""
+
 
 def format_server(server, server_variables=None, path=""):
     url = server["url"] + path

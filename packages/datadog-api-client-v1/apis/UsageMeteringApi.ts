@@ -84,25 +84,29 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (sortDir !== undefined) {
       requestContext.setQueryParam(
         "sort_dir",
-        ObjectSerializer.serialize(sortDir, "UsageSortDirection", "")
+        ObjectSerializer.serialize(sortDir, "UsageSortDirection", ""),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "UsageSort", "")
+        ObjectSerializer.serialize(sort, "UsageSort", ""),
+        ""
       );
     }
 
@@ -153,13 +157,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
     if (usageType !== undefined) {
@@ -169,25 +175,29 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
           usageType,
           "HourlyUsageAttributionUsageType",
           ""
-        )
+        ),
+        ""
       );
     }
     if (nextRecordId !== undefined) {
       requestContext.setQueryParam(
         "next_record_id",
-        ObjectSerializer.serialize(nextRecordId, "string", "")
+        ObjectSerializer.serialize(nextRecordId, "string", ""),
+        ""
       );
     }
     if (tagBreakdownKeys !== undefined) {
       requestContext.setQueryParam(
         "tag_breakdown_keys",
-        ObjectSerializer.serialize(tagBreakdownKeys, "string", "")
+        ObjectSerializer.serialize(tagBreakdownKeys, "string", ""),
+        ""
       );
     }
     if (includeDescendants !== undefined) {
       requestContext.setQueryParam(
         "include_descendants",
-        ObjectSerializer.serialize(includeDescendants, "boolean", "")
+        ObjectSerializer.serialize(includeDescendants, "boolean", ""),
+        ""
       );
     }
 
@@ -230,13 +240,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -279,13 +291,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -325,25 +339,29 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (sortDir !== undefined) {
       requestContext.setQueryParam(
         "sort_dir",
-        ObjectSerializer.serialize(sortDir, "UsageSortDirection", "")
+        ObjectSerializer.serialize(sortDir, "UsageSortDirection", ""),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "UsageSort", "")
+        ObjectSerializer.serialize(sort, "UsageSort", ""),
+        ""
       );
     }
 
@@ -396,13 +414,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startMonth !== undefined) {
       requestContext.setQueryParam(
         "start_month",
-        ObjectSerializer.serialize(startMonth, "Date", "date-time")
+        ObjectSerializer.serialize(startMonth, "Date", "date-time"),
+        ""
       );
     }
     if (endMonth !== undefined) {
       requestContext.setQueryParam(
         "end_month",
-        ObjectSerializer.serialize(endMonth, "Date", "date-time")
+        ObjectSerializer.serialize(endMonth, "Date", "date-time"),
+        ""
       );
     }
     if (fields !== undefined) {
@@ -412,13 +432,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
           fields,
           "MonthlyUsageAttributionSupportedMetrics",
           ""
-        )
+        ),
+        ""
       );
     }
     if (sortDirection !== undefined) {
       requestContext.setQueryParam(
         "sort_direction",
-        ObjectSerializer.serialize(sortDirection, "UsageSortDirection", "")
+        ObjectSerializer.serialize(sortDirection, "UsageSortDirection", ""),
+        ""
       );
     }
     if (sortName !== undefined) {
@@ -428,25 +450,29 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
           sortName,
           "MonthlyUsageAttributionSupportedMetrics",
           ""
-        )
+        ),
+        ""
       );
     }
     if (tagBreakdownKeys !== undefined) {
       requestContext.setQueryParam(
         "tag_breakdown_keys",
-        ObjectSerializer.serialize(tagBreakdownKeys, "string", "")
+        ObjectSerializer.serialize(tagBreakdownKeys, "string", ""),
+        ""
       );
     }
     if (nextRecordId !== undefined) {
       requestContext.setQueryParam(
         "next_record_id",
-        ObjectSerializer.serialize(nextRecordId, "string", "")
+        ObjectSerializer.serialize(nextRecordId, "string", ""),
+        ""
       );
     }
     if (includeDescendants !== undefined) {
       requestContext.setQueryParam(
         "include_descendants",
-        ObjectSerializer.serialize(includeDescendants, "boolean", "")
+        ObjectSerializer.serialize(includeDescendants, "boolean", ""),
+        ""
       );
     }
 
@@ -561,13 +587,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -610,13 +638,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -654,13 +684,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (month !== undefined) {
       requestContext.setQueryParam(
         "month",
-        ObjectSerializer.serialize(month, "Date", "date-time")
+        ObjectSerializer.serialize(month, "Date", "date-time"),
+        ""
       );
     }
     if (includeConnectedAccounts !== undefined) {
       requestContext.setQueryParam(
         "include_connected_accounts",
-        ObjectSerializer.serialize(includeConnectedAccounts, "boolean", "")
+        ObjectSerializer.serialize(includeConnectedAccounts, "boolean", ""),
+        ""
       );
     }
 
@@ -703,13 +735,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -755,13 +789,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -804,13 +840,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -853,13 +891,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -902,13 +942,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -951,13 +993,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1000,13 +1044,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1049,13 +1095,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1098,13 +1146,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1147,13 +1197,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1197,19 +1249,22 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
     if (indexName !== undefined) {
       requestContext.setQueryParam(
         "index_name",
-        ObjectSerializer.serialize(indexName, "Array<string>", "")
+        ObjectSerializer.serialize(indexName, "Array<string>", ""),
+        "multi"
       );
     }
 
@@ -1252,13 +1307,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1301,13 +1358,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1350,13 +1409,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1399,13 +1460,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1448,13 +1511,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1498,19 +1563,22 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
     if (type !== undefined) {
       requestContext.setQueryParam(
         "type",
-        ObjectSerializer.serialize(type, "string", "")
+        ObjectSerializer.serialize(type, "string", ""),
+        ""
       );
     }
 
@@ -1553,13 +1621,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1602,13 +1672,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1651,13 +1723,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1702,25 +1776,29 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startMonth !== undefined) {
       requestContext.setQueryParam(
         "start_month",
-        ObjectSerializer.serialize(startMonth, "Date", "date-time")
+        ObjectSerializer.serialize(startMonth, "Date", "date-time"),
+        ""
       );
     }
     if (endMonth !== undefined) {
       requestContext.setQueryParam(
         "end_month",
-        ObjectSerializer.serialize(endMonth, "Date", "date-time")
+        ObjectSerializer.serialize(endMonth, "Date", "date-time"),
+        ""
       );
     }
     if (includeOrgDetails !== undefined) {
       requestContext.setQueryParam(
         "include_org_details",
-        ObjectSerializer.serialize(includeOrgDetails, "boolean", "")
+        ObjectSerializer.serialize(includeOrgDetails, "boolean", ""),
+        ""
       );
     }
     if (includeConnectedAccounts !== undefined) {
       requestContext.setQueryParam(
         "include_connected_accounts",
-        ObjectSerializer.serialize(includeConnectedAccounts, "boolean", "")
+        ObjectSerializer.serialize(includeConnectedAccounts, "boolean", ""),
+        ""
       );
     }
 
@@ -1763,13 +1841,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1812,13 +1892,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1861,13 +1943,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1910,13 +1994,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (startHr !== undefined) {
       requestContext.setQueryParam(
         "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
+        ObjectSerializer.serialize(startHr, "Date", "date-time"),
+        ""
       );
     }
     if (endHr !== undefined) {
       requestContext.setQueryParam(
         "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
+        ObjectSerializer.serialize(endHr, "Date", "date-time"),
+        ""
       );
     }
 
@@ -1957,31 +2043,36 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     if (month !== undefined) {
       requestContext.setQueryParam(
         "month",
-        ObjectSerializer.serialize(month, "Date", "date-time")
+        ObjectSerializer.serialize(month, "Date", "date-time"),
+        ""
       );
     }
     if (day !== undefined) {
       requestContext.setQueryParam(
         "day",
-        ObjectSerializer.serialize(day, "Date", "date-time")
+        ObjectSerializer.serialize(day, "Date", "date-time"),
+        ""
       );
     }
     if (names !== undefined) {
       requestContext.setQueryParam(
         "names",
-        ObjectSerializer.serialize(names, "Array<string>", "")
+        ObjectSerializer.serialize(names, "Array<string>", ""),
+        "multi"
       );
     }
     if (limit !== undefined) {
       requestContext.setQueryParam(
         "limit",
-        ObjectSerializer.serialize(limit, "number", "int32")
+        ObjectSerializer.serialize(limit, "number", "int32"),
+        ""
       );
     }
     if (nextRecordId !== undefined) {
       requestContext.setQueryParam(
         "next_record_id",
-        ObjectSerializer.serialize(nextRecordId, "string", "")
+        ObjectSerializer.serialize(nextRecordId, "string", ""),
+        ""
       );
     }
 

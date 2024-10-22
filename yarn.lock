@@ -1208,11 +1208,6 @@
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
   integrity sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==
 
-"@types/url-parse@^1.4.3":
-  version "1.4.3"
-  resolved "https://registry.npmjs.org/@types/url-parse/-/url-parse-1.4.3.tgz"
-  integrity sha512-4kHAkbV/OfW2kb5BLVUuUMoumB3CP8rHqlw48aHvFy5tf9ER0AfOonBlX29l/DD68G70DmyhRlSYfQPSYpC5Vw==
-
 "@types/uuid@8.3.4":
   version "8.3.4"
   resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.3.4.tgz#bd86a43617df0594787d38b735f55c805becf1bc"
@@ -5136,7 +5131,7 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-url-parse@^1.4.3, url-parse@^1.5.3:
+url-parse@^1.5.3:
   version "1.5.9"
   resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.9.tgz#05ff26484a0b5e4040ac64dcee4177223d74675e"
   integrity sha512-HpOvhKBvre8wYez+QhHcYiVvVmeF6DVnuSOOPhe3cTum3BnqHhvKaZm8FU5yTiOu/Jut2ZpB2rA/SbBA1JIGlQ==

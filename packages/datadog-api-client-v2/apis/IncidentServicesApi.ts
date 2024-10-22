@@ -144,7 +144,8 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "IncidentRelatedObject", "")
+        ObjectSerializer.serialize(include, "IncidentRelatedObject", ""),
+        ""
       );
     }
 
@@ -186,25 +187,29 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "IncidentRelatedObject", "")
+        ObjectSerializer.serialize(include, "IncidentRelatedObject", ""),
+        ""
       );
     }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", "")
+        ObjectSerializer.serialize(filter, "string", ""),
+        ""
       );
     }
 

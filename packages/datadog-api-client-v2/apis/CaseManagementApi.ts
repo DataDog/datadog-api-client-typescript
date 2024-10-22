@@ -366,31 +366,36 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (sortField !== undefined) {
       requestContext.setQueryParam(
         "sort[field]",
-        ObjectSerializer.serialize(sortField, "CaseSortableField", "")
+        ObjectSerializer.serialize(sortField, "CaseSortableField", ""),
+        ""
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", "")
+        ObjectSerializer.serialize(filter, "string", ""),
+        ""
       );
     }
     if (sortAsc !== undefined) {
       requestContext.setQueryParam(
         "sort[asc]",
-        ObjectSerializer.serialize(sortAsc, "boolean", "")
+        ObjectSerializer.serialize(sortAsc, "boolean", ""),
+        ""
       );
     }
 
