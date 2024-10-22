@@ -241,31 +241,36 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterGroups !== undefined) {
       requestContext.setQueryParam(
         "filter[groups]",
-        ObjectSerializer.serialize(filterGroups, "string", "")
+        ObjectSerializer.serialize(filterGroups, "string", ""),
+        ""
       );
     }
     if (filterHoursAgo !== undefined) {
       requestContext.setQueryParam(
         "filter[hours_ago]",
-        ObjectSerializer.serialize(filterHoursAgo, "number", "int32")
+        ObjectSerializer.serialize(filterHoursAgo, "number", "int32"),
+        ""
       );
     }
     if (filterNumAggregations !== undefined) {
       requestContext.setQueryParam(
         "filter[num_aggregations]",
-        ObjectSerializer.serialize(filterNumAggregations, "number", "int32")
+        ObjectSerializer.serialize(filterNumAggregations, "number", "int32"),
+        ""
       );
     }
     if (filterPct !== undefined) {
       requestContext.setQueryParam(
         "filter[pct]",
-        ObjectSerializer.serialize(filterPct, "boolean", "")
+        ObjectSerializer.serialize(filterPct, "boolean", ""),
+        ""
       );
     }
     if (filterTimespanH !== undefined) {
       requestContext.setQueryParam(
         "filter[timespan_h]",
-        ObjectSerializer.serialize(filterTimespanH, "number", "int32")
+        ObjectSerializer.serialize(filterTimespanH, "number", "int32"),
+        ""
       );
     }
 
@@ -308,7 +313,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (windowSeconds !== undefined) {
       requestContext.setQueryParam(
         "window[seconds]",
-        ObjectSerializer.serialize(windowSeconds, "number", "int64")
+        ObjectSerializer.serialize(windowSeconds, "number", "int64"),
+        ""
       );
     }
 
@@ -415,13 +421,15 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterConfigured !== undefined) {
       requestContext.setQueryParam(
         "filter[configured]",
-        ObjectSerializer.serialize(filterConfigured, "boolean", "")
+        ObjectSerializer.serialize(filterConfigured, "boolean", ""),
+        ""
       );
     }
     if (filterTagsConfigured !== undefined) {
       requestContext.setQueryParam(
         "filter[tags_configured]",
-        ObjectSerializer.serialize(filterTagsConfigured, "string", "")
+        ObjectSerializer.serialize(filterTagsConfigured, "string", ""),
+        ""
       );
     }
     if (filterMetricType !== undefined) {
@@ -431,31 +439,36 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
           filterMetricType,
           "MetricTagConfigurationMetricTypeCategory",
           ""
-        )
+        ),
+        ""
       );
     }
     if (filterIncludePercentiles !== undefined) {
       requestContext.setQueryParam(
         "filter[include_percentiles]",
-        ObjectSerializer.serialize(filterIncludePercentiles, "boolean", "")
+        ObjectSerializer.serialize(filterIncludePercentiles, "boolean", ""),
+        ""
       );
     }
     if (filterQueried !== undefined) {
       requestContext.setQueryParam(
         "filter[queried]",
-        ObjectSerializer.serialize(filterQueried, "boolean", "")
+        ObjectSerializer.serialize(filterQueried, "boolean", ""),
+        ""
       );
     }
     if (filterTags !== undefined) {
       requestContext.setQueryParam(
         "filter[tags]",
-        ObjectSerializer.serialize(filterTags, "string", "")
+        ObjectSerializer.serialize(filterTags, "string", ""),
+        ""
       );
     }
     if (windowSeconds !== undefined) {
       requestContext.setQueryParam(
         "window[seconds]",
-        ObjectSerializer.serialize(windowSeconds, "number", "int64")
+        ObjectSerializer.serialize(windowSeconds, "number", "int64"),
+        ""
       );
     }
 

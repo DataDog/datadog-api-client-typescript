@@ -133,49 +133,57 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     if (start !== undefined) {
       requestContext.setQueryParam(
         "start",
-        ObjectSerializer.serialize(start, "number", "int64")
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
       );
     }
     if (end !== undefined) {
       requestContext.setQueryParam(
         "end",
-        ObjectSerializer.serialize(end, "number", "int64")
+        ObjectSerializer.serialize(end, "number", "int64"),
+        ""
       );
     }
     if (priority !== undefined) {
       requestContext.setQueryParam(
         "priority",
-        ObjectSerializer.serialize(priority, "EventPriority", "")
+        ObjectSerializer.serialize(priority, "EventPriority", ""),
+        ""
       );
     }
     if (sources !== undefined) {
       requestContext.setQueryParam(
         "sources",
-        ObjectSerializer.serialize(sources, "string", "")
+        ObjectSerializer.serialize(sources, "string", ""),
+        ""
       );
     }
     if (tags !== undefined) {
       requestContext.setQueryParam(
         "tags",
-        ObjectSerializer.serialize(tags, "string", "")
+        ObjectSerializer.serialize(tags, "string", ""),
+        ""
       );
     }
     if (unaggregated !== undefined) {
       requestContext.setQueryParam(
         "unaggregated",
-        ObjectSerializer.serialize(unaggregated, "boolean", "")
+        ObjectSerializer.serialize(unaggregated, "boolean", ""),
+        ""
       );
     }
     if (excludeAggregate !== undefined) {
       requestContext.setQueryParam(
         "exclude_aggregate",
-        ObjectSerializer.serialize(excludeAggregate, "boolean", "")
+        ObjectSerializer.serialize(excludeAggregate, "boolean", ""),
+        ""
       );
     }
     if (page !== undefined) {
       requestContext.setQueryParam(
         "page",
-        ObjectSerializer.serialize(page, "number", "int32")
+        ObjectSerializer.serialize(page, "number", "int32"),
+        ""
       );
     }
 

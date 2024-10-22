@@ -599,7 +599,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (snapshotTimestamp !== undefined) {
       requestContext.setQueryParam(
         "snapshot_timestamp",
-        ObjectSerializer.serialize(snapshotTimestamp, "number", "int64")
+        ObjectSerializer.serialize(snapshotTimestamp, "number", "int64"),
+        ""
       );
     }
 
@@ -792,73 +793,85 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64")
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
       );
     }
     if (snapshotTimestamp !== undefined) {
       requestContext.setQueryParam(
         "snapshot_timestamp",
-        ObjectSerializer.serialize(snapshotTimestamp, "number", "int64")
+        ObjectSerializer.serialize(snapshotTimestamp, "number", "int64"),
+        ""
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", "")
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
       );
     }
     if (filterTags !== undefined) {
       requestContext.setQueryParam(
         "filter[tags]",
-        ObjectSerializer.serialize(filterTags, "string", "")
+        ObjectSerializer.serialize(filterTags, "string", ""),
+        ""
       );
     }
     if (filterEvaluationChangedAt !== undefined) {
       requestContext.setQueryParam(
         "filter[evaluation_changed_at]",
-        ObjectSerializer.serialize(filterEvaluationChangedAt, "string", "")
+        ObjectSerializer.serialize(filterEvaluationChangedAt, "string", ""),
+        ""
       );
     }
     if (filterMuted !== undefined) {
       requestContext.setQueryParam(
         "filter[muted]",
-        ObjectSerializer.serialize(filterMuted, "boolean", "")
+        ObjectSerializer.serialize(filterMuted, "boolean", ""),
+        ""
       );
     }
     if (filterRuleId !== undefined) {
       requestContext.setQueryParam(
         "filter[rule_id]",
-        ObjectSerializer.serialize(filterRuleId, "string", "")
+        ObjectSerializer.serialize(filterRuleId, "string", ""),
+        ""
       );
     }
     if (filterRuleName !== undefined) {
       requestContext.setQueryParam(
         "filter[rule_name]",
-        ObjectSerializer.serialize(filterRuleName, "string", "")
+        ObjectSerializer.serialize(filterRuleName, "string", ""),
+        ""
       );
     }
     if (filterResourceType !== undefined) {
       requestContext.setQueryParam(
         "filter[resource_type]",
-        ObjectSerializer.serialize(filterResourceType, "string", "")
+        ObjectSerializer.serialize(filterResourceType, "string", ""),
+        ""
       );
     }
     if (filterDiscoveryTimestamp !== undefined) {
       requestContext.setQueryParam(
         "filter[discovery_timestamp]",
-        ObjectSerializer.serialize(filterDiscoveryTimestamp, "string", "")
+        ObjectSerializer.serialize(filterDiscoveryTimestamp, "string", ""),
+        ""
       );
     }
     if (filterEvaluation !== undefined) {
       requestContext.setQueryParam(
         "filter[evaluation]",
-        ObjectSerializer.serialize(filterEvaluation, "FindingEvaluation", "")
+        ObjectSerializer.serialize(filterEvaluation, "FindingEvaluation", ""),
+        ""
       );
     }
     if (filterStatus !== undefined) {
       requestContext.setQueryParam(
         "filter[status]",
-        ObjectSerializer.serialize(filterStatus, "FindingStatus", "")
+        ObjectSerializer.serialize(filterStatus, "FindingStatus", ""),
+        ""
       );
     }
     if (filterVulnerabilityType !== undefined) {
@@ -868,7 +881,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
           filterVulnerabilityType,
           "Array<FindingVulnerabilityType>",
           ""
-        )
+        ),
+        "multi"
       );
     }
 
@@ -929,13 +943,15 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
 
@@ -974,37 +990,43 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterQuery !== undefined) {
       requestContext.setQueryParam(
         "filter[query]",
-        ObjectSerializer.serialize(filterQuery, "string", "")
+        ObjectSerializer.serialize(filterQuery, "string", ""),
+        ""
       );
     }
     if (filterFrom !== undefined) {
       requestContext.setQueryParam(
         "filter[from]",
-        ObjectSerializer.serialize(filterFrom, "Date", "date-time")
+        ObjectSerializer.serialize(filterFrom, "Date", "date-time"),
+        ""
       );
     }
     if (filterTo !== undefined) {
       requestContext.setQueryParam(
         "filter[to]",
-        ObjectSerializer.serialize(filterTo, "Date", "date-time")
+        ObjectSerializer.serialize(filterTo, "Date", "date-time"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "SecurityMonitoringSignalsSort", "")
+        ObjectSerializer.serialize(sort, "SecurityMonitoringSignalsSort", ""),
+        ""
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", "")
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int32")
+        ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        ""
       );
     }
 

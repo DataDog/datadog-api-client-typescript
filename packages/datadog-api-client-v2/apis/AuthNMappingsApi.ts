@@ -156,31 +156,40 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "AuthNMappingsSort", "")
+        ObjectSerializer.serialize(sort, "AuthNMappingsSort", ""),
+        ""
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", "")
+        ObjectSerializer.serialize(filter, "string", ""),
+        ""
       );
     }
     if (resourceType !== undefined) {
       requestContext.setQueryParam(
         "resource_type",
-        ObjectSerializer.serialize(resourceType, "AuthNMappingResourceType", "")
+        ObjectSerializer.serialize(
+          resourceType,
+          "AuthNMappingResourceType",
+          ""
+        ),
+        ""
       );
     }
 

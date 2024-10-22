@@ -1,8 +1,8 @@
 import { userAgent } from "../../../userAgent";
 // TODO: evaluate if we can easily get rid of this library
 import FormData from "form-data";
-import URLParse from "url-parse";
 import { isBrowser } from "../util";
+import { COLLECTION_FORMATS } from "../baseapi";
 
 /**
  * Interface for aborting fetch requests.
@@ -88,7 +88,7 @@ export interface HttpConfiguration {
 export class RequestContext {
   private headers: { [key: string]: string } = {};
   private body: RequestBody = undefined;
-  private url: URLParse;
+  private url: URL;
   private httpConfig: HttpConfiguration = {};
 
   /**
@@ -101,7 +101,7 @@ export class RequestContext {
     url: string,
     private httpMethod: HttpMethod
   ) {
-    this.url = new URLParse(url, true);
+    this.url = new URL(url);
     if (!isBrowser) {
       this.headers = { "user-agent": userAgent };
     }
@@ -120,7 +120,7 @@ export class RequestContext {
    *
    */
   public setUrl(url: string): void {
-    this.url = new URLParse(url, true);
+    this.url = new URL(url);
   }
 
   /**
@@ -148,10 +148,32 @@ export class RequestContext {
     return this.body;
   }
 
-  public setQueryParam(name: string, value: string): void {
-    const queryObj = this.url.query;
-    queryObj[name] = value;
-    this.url.set("query", queryObj);
+  /**
+   * Sets query parameters on the request URL
+   *
+   * @param name the name of the query parameter
+   * @param value the value of the query parameter
+   * @param collectionFormat the format of the query parameter See https://spec.openapis.org/oas/v3.0.2#style-values
+   */
+  public setQueryParam(
+    name: string,
+    value: string | string[],
+    collectionFormat: string
+  ): void {
+    if (collectionFormat === "multi") {
+      for (const val of value) {
+        this.url.searchParams.append(name, val);
+      }
+      return;
+    }
+
+    if (Array.isArray(value)) {
+      const delimiter =
+        COLLECTION_FORMATS[collectionFormat as keyof typeof COLLECTION_FORMATS];
+      value = value.join(delimiter);
+    }
+
+    return this.url.searchParams.set(name, value);
   }
 
   /**

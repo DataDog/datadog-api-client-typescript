@@ -88,61 +88,71 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64")
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
       );
     }
     if (filterId !== undefined) {
       requestContext.setQueryParam(
         "filter[id]",
-        ObjectSerializer.serialize(filterId, "string", "")
+        ObjectSerializer.serialize(filterId, "string", ""),
+        ""
       );
     }
     if (filterRef !== undefined) {
       requestContext.setQueryParam(
         "filter[ref]",
-        ObjectSerializer.serialize(filterRef, "string", "")
+        ObjectSerializer.serialize(filterRef, "string", ""),
+        ""
       );
     }
     if (filterName !== undefined) {
       requestContext.setQueryParam(
         "filter[name]",
-        ObjectSerializer.serialize(filterName, "string", "")
+        ObjectSerializer.serialize(filterName, "string", ""),
+        ""
       );
     }
     if (filterKind !== undefined) {
       requestContext.setQueryParam(
         "filter[kind]",
-        ObjectSerializer.serialize(filterKind, "string", "")
+        ObjectSerializer.serialize(filterKind, "string", ""),
+        ""
       );
     }
     if (filterOwner !== undefined) {
       requestContext.setQueryParam(
         "filter[owner]",
-        ObjectSerializer.serialize(filterOwner, "string", "")
+        ObjectSerializer.serialize(filterOwner, "string", ""),
+        ""
       );
     }
     if (filterRelationType !== undefined) {
       requestContext.setQueryParam(
         "filter[relation][type]",
-        ObjectSerializer.serialize(filterRelationType, "RelationType", "")
+        ObjectSerializer.serialize(filterRelationType, "RelationType", ""),
+        ""
       );
     }
     if (filterExcludeSnapshot !== undefined) {
       requestContext.setQueryParam(
         "filter[exclude_snapshot]",
-        ObjectSerializer.serialize(filterExcludeSnapshot, "string", "")
+        ObjectSerializer.serialize(filterExcludeSnapshot, "string", ""),
+        ""
       );
     }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "IncludeType", "")
+        ObjectSerializer.serialize(include, "IncludeType", ""),
+        ""
       );
     }
 

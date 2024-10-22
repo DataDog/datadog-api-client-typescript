@@ -81,7 +81,8 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     if (deviceId !== undefined) {
       requestContext.setQueryParam(
         "device_id",
-        ObjectSerializer.serialize(deviceId, "string", "")
+        ObjectSerializer.serialize(deviceId, "string", ""),
+        ""
       );
     }
 
@@ -117,25 +118,29 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "string", "")
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
       );
     }
     if (filterTag !== undefined) {
       requestContext.setQueryParam(
         "filter[tag]",
-        ObjectSerializer.serialize(filterTag, "string", "")
+        ObjectSerializer.serialize(filterTag, "string", ""),
+        ""
       );
     }
 

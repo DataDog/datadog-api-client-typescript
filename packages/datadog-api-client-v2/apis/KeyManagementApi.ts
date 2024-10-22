@@ -240,7 +240,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "string", "")
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
       );
     }
 
@@ -282,7 +283,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "string", "")
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
       );
     }
 
@@ -359,67 +361,82 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "APIKeysSort", "")
+        ObjectSerializer.serialize(sort, "APIKeysSort", ""),
+        ""
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", "")
+        ObjectSerializer.serialize(filter, "string", ""),
+        ""
       );
     }
     if (filterCreatedAtStart !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][start]",
-        ObjectSerializer.serialize(filterCreatedAtStart, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtStart, "string", ""),
+        ""
       );
     }
     if (filterCreatedAtEnd !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][end]",
-        ObjectSerializer.serialize(filterCreatedAtEnd, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtEnd, "string", ""),
+        ""
       );
     }
     if (filterModifiedAtStart !== undefined) {
       requestContext.setQueryParam(
         "filter[modified_at][start]",
-        ObjectSerializer.serialize(filterModifiedAtStart, "string", "")
+        ObjectSerializer.serialize(filterModifiedAtStart, "string", ""),
+        ""
       );
     }
     if (filterModifiedAtEnd !== undefined) {
       requestContext.setQueryParam(
         "filter[modified_at][end]",
-        ObjectSerializer.serialize(filterModifiedAtEnd, "string", "")
+        ObjectSerializer.serialize(filterModifiedAtEnd, "string", ""),
+        ""
       );
     }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "string", "")
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
       );
     }
     if (filterRemoteConfigReadEnabled !== undefined) {
       requestContext.setQueryParam(
         "filter[remote_config_read_enabled]",
-        ObjectSerializer.serialize(filterRemoteConfigReadEnabled, "boolean", "")
+        ObjectSerializer.serialize(
+          filterRemoteConfigReadEnabled,
+          "boolean",
+          ""
+        ),
+        ""
       );
     }
     if (filterCategory !== undefined) {
       requestContext.setQueryParam(
         "filter[category]",
-        ObjectSerializer.serialize(filterCategory, "string", "")
+        ObjectSerializer.serialize(filterCategory, "string", ""),
+        ""
       );
     }
 
@@ -458,43 +475,50 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "ApplicationKeysSort", "")
+        ObjectSerializer.serialize(sort, "ApplicationKeysSort", ""),
+        ""
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", "")
+        ObjectSerializer.serialize(filter, "string", ""),
+        ""
       );
     }
     if (filterCreatedAtStart !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][start]",
-        ObjectSerializer.serialize(filterCreatedAtStart, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtStart, "string", ""),
+        ""
       );
     }
     if (filterCreatedAtEnd !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][end]",
-        ObjectSerializer.serialize(filterCreatedAtEnd, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtEnd, "string", ""),
+        ""
       );
     }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "string", "")
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
       );
     }
 
@@ -533,43 +557,50 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "ApplicationKeysSort", "")
+        ObjectSerializer.serialize(sort, "ApplicationKeysSort", ""),
+        ""
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", "")
+        ObjectSerializer.serialize(filter, "string", ""),
+        ""
       );
     }
     if (filterCreatedAtStart !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][start]",
-        ObjectSerializer.serialize(filterCreatedAtStart, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtStart, "string", ""),
+        ""
       );
     }
     if (filterCreatedAtEnd !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][end]",
-        ObjectSerializer.serialize(filterCreatedAtEnd, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtEnd, "string", ""),
+        ""
       );
     }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "string", "")
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
       );
     }
 

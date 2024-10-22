@@ -154,13 +154,15 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64")
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
       );
     }
 

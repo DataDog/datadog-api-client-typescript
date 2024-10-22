@@ -89,19 +89,22 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (from !== undefined) {
       requestContext.setQueryParam(
         "from",
-        ObjectSerializer.serialize(from, "number", "int64")
+        ObjectSerializer.serialize(from, "number", "int64"),
+        ""
       );
     }
     if (host !== undefined) {
       requestContext.setQueryParam(
         "host",
-        ObjectSerializer.serialize(host, "string", "")
+        ObjectSerializer.serialize(host, "string", ""),
+        ""
       );
     }
     if (tagFilter !== undefined) {
       requestContext.setQueryParam(
         "tag_filter",
-        ObjectSerializer.serialize(tagFilter, "string", "")
+        ObjectSerializer.serialize(tagFilter, "string", ""),
+        ""
       );
     }
 
@@ -140,7 +143,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (q !== undefined) {
       requestContext.setQueryParam(
         "q",
-        ObjectSerializer.serialize(q, "string", "")
+        ObjectSerializer.serialize(q, "string", ""),
+        ""
       );
     }
 
@@ -191,19 +195,22 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (from !== undefined) {
       requestContext.setQueryParam(
         "from",
-        ObjectSerializer.serialize(from, "number", "int64")
+        ObjectSerializer.serialize(from, "number", "int64"),
+        ""
       );
     }
     if (to !== undefined) {
       requestContext.setQueryParam(
         "to",
-        ObjectSerializer.serialize(to, "number", "int64")
+        ObjectSerializer.serialize(to, "number", "int64"),
+        ""
       );
     }
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
-        ObjectSerializer.serialize(query, "string", "")
+        ObjectSerializer.serialize(query, "string", ""),
+        ""
       );
     }
 

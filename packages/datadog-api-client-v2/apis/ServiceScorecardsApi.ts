@@ -198,61 +198,71 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
       );
     }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "string", "")
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
       );
     }
     if (fieldsOutcome !== undefined) {
       requestContext.setQueryParam(
         "fields[outcome]",
-        ObjectSerializer.serialize(fieldsOutcome, "string", "")
+        ObjectSerializer.serialize(fieldsOutcome, "string", ""),
+        ""
       );
     }
     if (fieldsRule !== undefined) {
       requestContext.setQueryParam(
         "fields[rule]",
-        ObjectSerializer.serialize(fieldsRule, "string", "")
+        ObjectSerializer.serialize(fieldsRule, "string", ""),
+        ""
       );
     }
     if (filterOutcomeServiceName !== undefined) {
       requestContext.setQueryParam(
         "filter[outcome][service_name]",
-        ObjectSerializer.serialize(filterOutcomeServiceName, "string", "")
+        ObjectSerializer.serialize(filterOutcomeServiceName, "string", ""),
+        ""
       );
     }
     if (filterOutcomeState !== undefined) {
       requestContext.setQueryParam(
         "filter[outcome][state]",
-        ObjectSerializer.serialize(filterOutcomeState, "string", "")
+        ObjectSerializer.serialize(filterOutcomeState, "string", ""),
+        ""
       );
     }
     if (filterRuleEnabled !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][enabled]",
-        ObjectSerializer.serialize(filterRuleEnabled, "boolean", "")
+        ObjectSerializer.serialize(filterRuleEnabled, "boolean", ""),
+        ""
       );
     }
     if (filterRuleId !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][id]",
-        ObjectSerializer.serialize(filterRuleId, "string", "")
+        ObjectSerializer.serialize(filterRuleId, "string", ""),
+        ""
       );
     }
     if (filterRuleName !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][name]",
-        ObjectSerializer.serialize(filterRuleName, "string", "")
+        ObjectSerializer.serialize(filterRuleName, "string", ""),
+        ""
       );
     }
 
@@ -300,61 +310,71 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
       );
     }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "string", "")
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
       );
     }
     if (filterRuleId !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][id]",
-        ObjectSerializer.serialize(filterRuleId, "string", "")
+        ObjectSerializer.serialize(filterRuleId, "string", ""),
+        ""
       );
     }
     if (filterRuleEnabled !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][enabled]",
-        ObjectSerializer.serialize(filterRuleEnabled, "boolean", "")
+        ObjectSerializer.serialize(filterRuleEnabled, "boolean", ""),
+        ""
       );
     }
     if (filterRuleCustom !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][custom]",
-        ObjectSerializer.serialize(filterRuleCustom, "boolean", "")
+        ObjectSerializer.serialize(filterRuleCustom, "boolean", ""),
+        ""
       );
     }
     if (filterRuleName !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][name]",
-        ObjectSerializer.serialize(filterRuleName, "string", "")
+        ObjectSerializer.serialize(filterRuleName, "string", ""),
+        ""
       );
     }
     if (filterRuleDescription !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][description]",
-        ObjectSerializer.serialize(filterRuleDescription, "string", "")
+        ObjectSerializer.serialize(filterRuleDescription, "string", ""),
+        ""
       );
     }
     if (fieldsRule !== undefined) {
       requestContext.setQueryParam(
         "fields[rule]",
-        ObjectSerializer.serialize(fieldsRule, "string", "")
+        ObjectSerializer.serialize(fieldsRule, "string", ""),
+        ""
       );
     }
     if (fieldsScorecard !== undefined) {
       requestContext.setQueryParam(
         "fields[scorecard]",
-        ObjectSerializer.serialize(fieldsScorecard, "string", "")
+        ObjectSerializer.serialize(fieldsScorecard, "string", ""),
+        ""
       );
     }
 

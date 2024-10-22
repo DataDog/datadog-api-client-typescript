@@ -46,37 +46,43 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterQuery !== undefined) {
       requestContext.setQueryParam(
         "filter[query]",
-        ObjectSerializer.serialize(filterQuery, "string", "")
+        ObjectSerializer.serialize(filterQuery, "string", ""),
+        ""
       );
     }
     if (filterFrom !== undefined) {
       requestContext.setQueryParam(
         "filter[from]",
-        ObjectSerializer.serialize(filterFrom, "string", "")
+        ObjectSerializer.serialize(filterFrom, "string", ""),
+        ""
       );
     }
     if (filterTo !== undefined) {
       requestContext.setQueryParam(
         "filter[to]",
-        ObjectSerializer.serialize(filterTo, "string", "")
+        ObjectSerializer.serialize(filterTo, "string", ""),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "EventsSort", "")
+        ObjectSerializer.serialize(sort, "EventsSort", ""),
+        ""
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", "")
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int32")
+        ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        ""
       );
     }
 

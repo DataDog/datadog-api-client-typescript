@@ -434,25 +434,29 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "GetTeamMembershipsSort", "")
+        ObjectSerializer.serialize(sort, "GetTeamMembershipsSort", ""),
+        ""
       );
     }
     if (filterKeyword !== undefined) {
       requestContext.setQueryParam(
         "filter[keyword]",
-        ObjectSerializer.serialize(filterKeyword, "string", "")
+        ObjectSerializer.serialize(filterKeyword, "string", ""),
+        ""
       );
     }
 
@@ -560,43 +564,50 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "ListTeamsSort", "")
+        ObjectSerializer.serialize(sort, "ListTeamsSort", ""),
+        ""
       );
     }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "Array<ListTeamsInclude>", "")
+        ObjectSerializer.serialize(include, "Array<ListTeamsInclude>", ""),
+        "multi"
       );
     }
     if (filterKeyword !== undefined) {
       requestContext.setQueryParam(
         "filter[keyword]",
-        ObjectSerializer.serialize(filterKeyword, "string", "")
+        ObjectSerializer.serialize(filterKeyword, "string", ""),
+        ""
       );
     }
     if (filterMe !== undefined) {
       requestContext.setQueryParam(
         "filter[me]",
-        ObjectSerializer.serialize(filterMe, "boolean", "")
+        ObjectSerializer.serialize(filterMe, "boolean", ""),
+        ""
       );
     }
     if (fieldsTeam !== undefined) {
       requestContext.setQueryParam(
         "fields[team]",
-        ObjectSerializer.serialize(fieldsTeam, "Array<TeamsField>", "")
+        ObjectSerializer.serialize(fieldsTeam, "Array<TeamsField>", ""),
+        "csv"
       );
     }
 

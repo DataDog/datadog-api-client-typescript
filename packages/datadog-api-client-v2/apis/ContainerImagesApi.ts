@@ -42,31 +42,36 @@ export class ContainerImagesApiRequestFactory extends BaseAPIRequestFactory {
     if (filterTags !== undefined) {
       requestContext.setQueryParam(
         "filter[tags]",
-        ObjectSerializer.serialize(filterTags, "string", "")
+        ObjectSerializer.serialize(filterTags, "string", ""),
+        ""
       );
     }
     if (groupBy !== undefined) {
       requestContext.setQueryParam(
         "group_by",
-        ObjectSerializer.serialize(groupBy, "string", "")
+        ObjectSerializer.serialize(groupBy, "string", ""),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "string", "")
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
       );
     }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int32")
+        ObjectSerializer.serialize(pageSize, "number", "int32"),
+        ""
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", "")
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
       );
     }
 
