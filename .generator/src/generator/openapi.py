@@ -402,7 +402,7 @@ def collection_format(parameter):
         style = parameter.get("style", in_to_style[in_])
         explode = parameter.get("explode", True if style == "form" else False)
         return matrix.get((style, explode), "multi")
-    
+
     return ""
 
 

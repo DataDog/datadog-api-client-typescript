@@ -149,13 +149,21 @@ export class RequestContext {
       for (const val of value) {
         this.url.searchParams.append(name, val);
       }
-    } else {
-      if (Array.isArray(value)) {
-        value = value.join(",");
-      }
-  
+      return
+    }
+
+    if (collectionFormat === "csv") {
+      value = Array.isArray(value) ? value.join(",") : value;
       this.url.searchParams.set(name, value);
     }
+
+    if (Array.isArray(value)) {
+      throw new Error(
+        `Unsupported query parameter value type for collectionFormat ${collectionFormat}`
+      );
+    }
+
+    return this.url.searchParams.set(name, value);
   }
 
   /**
