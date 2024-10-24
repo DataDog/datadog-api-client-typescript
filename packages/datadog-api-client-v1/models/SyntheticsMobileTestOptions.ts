@@ -4,9 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsMobileTestBinding } from "./SyntheticsMobileTestBinding";
-import { SyntheticsMobileTestCiOptions } from "./SyntheticsMobileTestCiOptions";
 import { SyntheticsMobileTestOptionsMonitorOptions } from "./SyntheticsMobileTestOptionsMonitorOptions";
 import { SyntheticsMobileTestsMobileApplication } from "./SyntheticsMobileTestsMobileApplication";
+import { SyntheticsTestCiOptions } from "./SyntheticsTestCiOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestOptionsScheduling } from "./SyntheticsTestOptionsScheduling";
 
@@ -17,7 +17,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsMobileTestOptions {
   /**
-   * The `SyntheticsMobileTestOptions` `allowApplicationCrash`.
+   * A boolean to set if an application crash would mark the test as failed.
    */
   "allowApplicationCrash"?: boolean;
   /**
@@ -27,17 +27,17 @@ export class SyntheticsMobileTestOptions {
   /**
    * CI/CD options for a Synthetic test.
    */
-  "ci"?: SyntheticsMobileTestCiOptions;
+  "ci"?: SyntheticsTestCiOptions;
   /**
-   * The `SyntheticsMobileTestOptions` `defaultStepTimeout`.
+   * The defaultStepTimeout for steps of a mobile test in seconds.
    */
   "defaultStepTimeout"?: number;
   /**
    * For mobile test, array with the different device IDs used to run the test.
    */
-  "deviceIds"?: Array<string>;
+  "deviceIds": Array<string>;
   /**
-   * The `SyntheticsMobileTestOptions` `disableAutoAcceptAlert`.
+   * A boolean to disable auto accepting alerts.
    */
   "disableAutoAcceptAlert"?: boolean;
   /**
@@ -47,7 +47,7 @@ export class SyntheticsMobileTestOptions {
   /**
    * Mobile application for mobile synthetics test.
    */
-  "mobileApplication"?: SyntheticsMobileTestsMobileApplication;
+  "mobileApplication": SyntheticsMobileTestsMobileApplication;
   /**
    * The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
    */
@@ -62,7 +62,7 @@ export class SyntheticsMobileTestOptions {
    */
   "monitorPriority"?: number;
   /**
-   * The `SyntheticsMobileTestOptions` `noScreenshot`.
+   * A boolean set to not take a screenshot for the step.
    */
   "noScreenshot"?: boolean;
   /**
@@ -80,9 +80,9 @@ export class SyntheticsMobileTestOptions {
   /**
    * The frequency at which to run the Synthetic test (in seconds).
    */
-  "tickEvery"?: number;
+  "tickEvery": number;
   /**
-   * The `SyntheticsMobileTestOptions` `verbosity`.
+   * The level of verbosity for the mobile test.
    */
   "verbosity"?: number;
 
@@ -112,7 +112,7 @@ export class SyntheticsMobileTestOptions {
     },
     ci: {
       baseName: "ci",
-      type: "SyntheticsMobileTestCiOptions",
+      type: "SyntheticsTestCiOptions",
     },
     defaultStepTimeout: {
       baseName: "defaultStepTimeout",
@@ -122,6 +122,7 @@ export class SyntheticsMobileTestOptions {
     deviceIds: {
       baseName: "device_ids",
       type: "Array<string>",
+      required: true,
     },
     disableAutoAcceptAlert: {
       baseName: "disableAutoAcceptAlert",
@@ -135,6 +136,7 @@ export class SyntheticsMobileTestOptions {
     mobileApplication: {
       baseName: "mobileApplication",
       type: "SyntheticsMobileTestsMobileApplication",
+      required: true,
     },
     monitorName: {
       baseName: "monitor_name",
@@ -168,6 +170,7 @@ export class SyntheticsMobileTestOptions {
     tickEvery: {
       baseName: "tick_every",
       type: "number",
+      required: true,
       format: "int64",
     },
     verbosity: {

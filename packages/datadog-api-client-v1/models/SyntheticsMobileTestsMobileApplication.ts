@@ -14,15 +14,15 @@ export class SyntheticsMobileTestsMobileApplication {
   /**
    * Application ID of the mobile application.
    */
-  "applicationId"?: string;
+  "applicationId": string;
   /**
    * Reference ID of the mobile application.
    */
-  "referenceId"?: string;
+  "referenceId": string;
   /**
    * Reference type for the mobile application for a mobile synthetics test.
    */
-  "referenceType"?: SyntheticsMobileTestsMobileApplicationReferenceType;
+  "referenceType": SyntheticsMobileTestsMobileApplicationReferenceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,14 +43,17 @@ export class SyntheticsMobileTestsMobileApplication {
     applicationId: {
       baseName: "applicationId",
       type: "string",
+      required: true,
     },
     referenceId: {
       baseName: "referenceId",
       type: "string",
+      required: true,
     },
     referenceType: {
       baseName: "referenceType",
       type: "SyntheticsMobileTestsMobileApplicationReferenceType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

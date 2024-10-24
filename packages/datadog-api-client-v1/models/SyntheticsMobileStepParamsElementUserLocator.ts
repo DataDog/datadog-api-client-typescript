@@ -3,18 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsMobileTestInitialApplicationArgumentsPropertyNames } from "./SyntheticsMobileTestInitialApplicationArgumentsPropertyNames";
+import { SyntheticsMobileStepParamsElementUserLocatorValuesItems } from "./SyntheticsMobileStepParamsElementUserLocatorValuesItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Initial application arguments for a mobile test.
+ * UserLocator for the element.
  */
-export class SyntheticsMobileTestInitialApplicationArguments {
+export class SyntheticsMobileStepParamsElementUserLocator {
   /**
-   * Name of the property.
+   * Flag if the the test should fail if the element can not be found.
    */
-  "propertyNames"?: SyntheticsMobileTestInitialApplicationArgumentsPropertyNames;
+  "failTestOnCannotLocate"?: boolean;
+  /**
+   * Values of the User Locator.
+   */
+  "values"?: Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +36,13 @@ export class SyntheticsMobileTestInitialApplicationArguments {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    propertyNames: {
-      baseName: "propertyNames",
-      type: "SyntheticsMobileTestInitialApplicationArgumentsPropertyNames",
+    failTestOnCannotLocate: {
+      baseName: "failTestOnCannotLocate",
+      type: "boolean",
+    },
+    values: {
+      baseName: "values",
+      type: "Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +54,7 @@ export class SyntheticsMobileTestInitialApplicationArguments {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsMobileTestInitialApplicationArguments.attributeTypeMap;
+    return SyntheticsMobileStepParamsElementUserLocator.attributeTypeMap;
   }
 
   public constructor() {}

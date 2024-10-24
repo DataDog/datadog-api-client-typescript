@@ -13,15 +13,15 @@ export class SyntheticsTestOptionsSchedulingTimeframe {
   /**
    * Number representing the day of the week.
    */
-  "day"?: number;
+  "day": number;
   /**
    * The hour of the day on which scheduling starts.
    */
-  "from"?: string;
+  "from": string;
   /**
    * The hour of the day on which scheduling ends.
    */
-  "to"?: string;
+  "to": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,15 +42,18 @@ export class SyntheticsTestOptionsSchedulingTimeframe {
     day: {
       baseName: "day",
       type: "number",
+      required: true,
       format: "int32",
     },
     from: {
       baseName: "from",
       type: "string",
+      required: true,
     },
     to: {
       baseName: "to",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

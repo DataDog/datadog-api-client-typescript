@@ -20,7 +20,7 @@ export class SyntheticsMobileTest {
    */
   "config": SyntheticsMobileTestConfig;
   /**
-   * The `SyntheticsMobileTest` `device_ids`.
+   * Array with the different device IDs used to run the test.
    */
   "deviceIds"?: Array<string>;
   /**
