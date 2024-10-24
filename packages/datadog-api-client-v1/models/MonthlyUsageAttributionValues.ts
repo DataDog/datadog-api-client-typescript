@@ -211,14 +211,6 @@ export class MonthlyUsageAttributionValues {
    */
   "errorTrackingUsage"?: number;
   /**
-   * The percentage of estimated live indexed logs usage by tag(s).
-   */
-  "estimatedIndexedLogsPercentage"?: number;
-  /**
-   * The estimated live indexed logs usage by tag(s).
-   */
-  "estimatedIndexedLogsUsage"?: number;
-  /**
    * The percentage of estimated indexed spans usage by tag(s).
    */
   "estimatedIndexedSpansPercentage"?: number;
@@ -227,14 +219,6 @@ export class MonthlyUsageAttributionValues {
    */
   "estimatedIndexedSpansUsage"?: number;
   /**
-   * The percentage of estimated live ingested logs usage by tag(s).
-   */
-  "estimatedIngestedLogsPercentage"?: number;
-  /**
-   * The estimated live ingested logs usage by tag(s).
-   */
-  "estimatedIngestedLogsUsage"?: number;
-  /**
    * The percentage of estimated ingested spans usage by tag(s).
    */
   "estimatedIngestedSpansPercentage"?: number;
@@ -242,14 +226,6 @@ export class MonthlyUsageAttributionValues {
    * The estimated ingested spans usage by tag(s).
    */
   "estimatedIngestedSpansUsage"?: number;
-  /**
-   * The percentage of estimated rum sessions usage by tag(s).
-   */
-  "estimatedRumSessionsPercentage"?: number;
-  /**
-   * The estimated rum sessions usage by tag(s).
-   */
-  "estimatedRumSessionsUsage"?: number;
   /**
    * The percentage of Fargate usage by tags.
    */
@@ -837,16 +813,6 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
-    estimatedIndexedLogsPercentage: {
-      baseName: "estimated_indexed_logs_percentage",
-      type: "number",
-      format: "double",
-    },
-    estimatedIndexedLogsUsage: {
-      baseName: "estimated_indexed_logs_usage",
-      type: "number",
-      format: "double",
-    },
     estimatedIndexedSpansPercentage: {
       baseName: "estimated_indexed_spans_percentage",
       type: "number",
@@ -857,16 +823,6 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
-    estimatedIngestedLogsPercentage: {
-      baseName: "estimated_ingested_logs_percentage",
-      type: "number",
-      format: "double",
-    },
-    estimatedIngestedLogsUsage: {
-      baseName: "estimated_ingested_logs_usage",
-      type: "number",
-      format: "double",
-    },
     estimatedIngestedSpansPercentage: {
       baseName: "estimated_ingested_spans_percentage",
       type: "number",
@@ -874,16 +830,6 @@ export class MonthlyUsageAttributionValues {
     },
     estimatedIngestedSpansUsage: {
       baseName: "estimated_ingested_spans_usage",
-      type: "number",
-      format: "double",
-    },
-    estimatedRumSessionsPercentage: {
-      baseName: "estimated_rum_sessions_percentage",
-      type: "number",
-      format: "double",
-    },
-    estimatedRumSessionsUsage: {
-      baseName: "estimated_rum_sessions_usage",
       type: "number",
       format: "double",
     },

@@ -39,11 +39,8 @@ export type HourlyUsageAttributionUsageType =
   | typeof DBM_QUERIES_USAGE
   | typeof ERROR_TRACKING_USAGE
   | typeof ERROR_TRACKING_PERCENTAGE
-  | typeof ESTIMATED_INDEXED_LOGS_USAGE
   | typeof ESTIMATED_INDEXED_SPANS_USAGE
-  | typeof ESTIMATED_INGESTED_LOGS_USAGE
   | typeof ESTIMATED_INGESTED_SPANS_USAGE
-  | typeof ESTIMATED_RUM_SESSIONS_USAGE
   | typeof FARGATE_USAGE
   | typeof FUNCTIONS_USAGE
   | typeof INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE
@@ -117,11 +114,8 @@ export const DBM_HOSTS_USAGE = "dbm_hosts_usage";
 export const DBM_QUERIES_USAGE = "dbm_queries_usage";
 export const ERROR_TRACKING_USAGE = "error_tracking_usage";
 export const ERROR_TRACKING_PERCENTAGE = "error_tracking_percentage";
-export const ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage";
 export const ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage";
-export const ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage";
 export const ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage";
-export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";
 export const FARGATE_USAGE = "fargate_usage";
 export const FUNCTIONS_USAGE = "functions_usage";
 export const INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE =

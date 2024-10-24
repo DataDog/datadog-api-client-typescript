@@ -57,10 +57,6 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof DBM_QUERIES_USAGE
   | typeof ERROR_TRACKING_USAGE
   | typeof ERROR_TRACKING_PERCENTAGE
-  | typeof ESTIMATED_INDEXED_LOGS_USAGE
-  | typeof ESTIMATED_INDEXED_LOGS_PERCENTAGE
-  | typeof ESTIMATED_INGESTED_LOGS_USAGE
-  | typeof ESTIMATED_INGESTED_LOGS_PERCENTAGE
   | typeof ESTIMATED_INDEXED_SPANS_USAGE
   | typeof ESTIMATED_INDEXED_SPANS_PERCENTAGE
   | typeof ESTIMATED_INGESTED_SPANS_USAGE
@@ -99,8 +95,6 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof SERVERLESS_APPS_PERCENTAGE
   | typeof SNMP_USAGE
   | typeof SNMP_PERCENTAGE
-  | typeof ESTIMATED_RUM_SESSIONS_USAGE
-  | typeof ESTIMATED_RUM_SESSIONS_PERCENTAGE
   | typeof UNIVERSAL_SERVICE_MONITORING_USAGE
   | typeof UNIVERSAL_SERVICE_MONITORING_PERCENTAGE
   | typeof VULN_MANAGEMENT_HOSTS_USAGE
@@ -208,12 +202,6 @@ export const DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage";
 export const DBM_QUERIES_USAGE = "dbm_queries_usage";
 export const ERROR_TRACKING_USAGE = "error_tracking_usage";
 export const ERROR_TRACKING_PERCENTAGE = "error_tracking_percentage";
-export const ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage";
-export const ESTIMATED_INDEXED_LOGS_PERCENTAGE =
-  "estimated_indexed_logs_percentage";
-export const ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage";
-export const ESTIMATED_INGESTED_LOGS_PERCENTAGE =
-  "estimated_ingested_logs_percentage";
 export const ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage";
 export const ESTIMATED_INDEXED_SPANS_PERCENTAGE =
   "estimated_indexed_spans_percentage";
@@ -258,9 +246,6 @@ export const SERVERLESS_APPS_USAGE = "serverless_apps_usage";
 export const SERVERLESS_APPS_PERCENTAGE = "serverless_apps_percentage";
 export const SNMP_USAGE = "snmp_usage";
 export const SNMP_PERCENTAGE = "snmp_percentage";
-export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";
-export const ESTIMATED_RUM_SESSIONS_PERCENTAGE =
-  "estimated_rum_sessions_percentage";
 export const UNIVERSAL_SERVICE_MONITORING_USAGE =
   "universal_service_monitoring_usage";
 export const UNIVERSAL_SERVICE_MONITORING_PERCENTAGE =
