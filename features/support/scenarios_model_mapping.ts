@@ -3492,6 +3492,45 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentResponse",
     },
+    "v2.ListIncidentTypes": {
+        "includeDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTypeListResponse",
+    },
+    "v2.CreateIncidentType": {
+        "body": {
+            "type": "IncidentTypeCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTypeResponse",
+    },
+    "v2.DeleteIncidentType": {
+        "incidentTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetIncidentType": {
+        "incidentTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTypeResponse",
+    },
+    "v2.UpdateIncidentType": {
+        "incidentTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentTypePatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTypeResponse",
+    },
     "v2.SearchIncidents": {
         "include": {
             "type": "IncidentRelatedObject",

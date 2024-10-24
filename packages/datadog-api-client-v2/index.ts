@@ -197,21 +197,26 @@ export {
   IncidentsApiCreateIncidentRequest,
   IncidentsApiCreateIncidentIntegrationRequest,
   IncidentsApiCreateIncidentTodoRequest,
+  IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiDeleteIncidentRequest,
   IncidentsApiDeleteIncidentIntegrationRequest,
   IncidentsApiDeleteIncidentTodoRequest,
+  IncidentsApiDeleteIncidentTypeRequest,
   IncidentsApiGetIncidentRequest,
   IncidentsApiGetIncidentIntegrationRequest,
   IncidentsApiGetIncidentTodoRequest,
+  IncidentsApiGetIncidentTypeRequest,
   IncidentsApiListIncidentAttachmentsRequest,
   IncidentsApiListIncidentIntegrationsRequest,
   IncidentsApiListIncidentTodosRequest,
+  IncidentsApiListIncidentTypesRequest,
   IncidentsApiListIncidentsRequest,
   IncidentsApiSearchIncidentsRequest,
   IncidentsApiUpdateIncidentRequest,
   IncidentsApiUpdateIncidentAttachmentsRequest,
   IncidentsApiUpdateIncidentIntegrationRequest,
   IncidentsApiUpdateIncidentTodoRequest,
+  IncidentsApiUpdateIncidentTypeRequest,
   IncidentsApi,
 } from "./apis/IncidentsApi";
 
@@ -1231,6 +1236,16 @@ export { IncidentTodoResponseData } from "./models/IncidentTodoResponseData";
 export { IncidentTodoResponseIncludedItem } from "./models/IncidentTodoResponseIncludedItem";
 export { IncidentTodoType } from "./models/IncidentTodoType";
 export { IncidentType } from "./models/IncidentType";
+export { IncidentTypeAttributes } from "./models/IncidentTypeAttributes";
+export { IncidentTypeCreateData } from "./models/IncidentTypeCreateData";
+export { IncidentTypeCreateRequest } from "./models/IncidentTypeCreateRequest";
+export { IncidentTypeListResponse } from "./models/IncidentTypeListResponse";
+export { IncidentTypeObject } from "./models/IncidentTypeObject";
+export { IncidentTypePatchData } from "./models/IncidentTypePatchData";
+export { IncidentTypePatchRequest } from "./models/IncidentTypePatchRequest";
+export { IncidentTypeResponse } from "./models/IncidentTypeResponse";
+export { IncidentTypeType } from "./models/IncidentTypeType";
+export { IncidentTypeUpdateAttributes } from "./models/IncidentTypeUpdateAttributes";
 export { IncidentUpdateAttributes } from "./models/IncidentUpdateAttributes";
 export { IncidentUpdateData } from "./models/IncidentUpdateData";
 export { IncidentUpdateRelationships } from "./models/IncidentUpdateRelationships";
