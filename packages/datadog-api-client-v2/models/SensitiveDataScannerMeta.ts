@@ -19,11 +19,11 @@ export class SensitiveDataScannerMeta {
    */
   "groupCountLimit"?: number;
   /**
-   * Whether or not scanned events are highlighted in Logs or RUM for the org.
+   * (Deprecated) Whether or not scanned events are highlighted in Logs or RUM for the org.
    */
   "hasHighlightEnabled"?: boolean;
   /**
-   * Whether or not scanned events have multi-pass enabled.
+   * (Deprecated) Whether or not scanned events have multi-pass enabled.
    */
   "hasMultiPassEnabled"?: boolean;
   /**
