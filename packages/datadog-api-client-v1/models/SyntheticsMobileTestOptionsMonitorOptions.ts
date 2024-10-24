@@ -17,7 +17,7 @@ export class SyntheticsMobileTestOptionsMonitorOptions {
    */
   "escalationMessage"?: string;
   /**
-   * The definition of `SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName` object.
+   * The name of the preset for the notification for the monitor.
    */
   "notificationPresetName"?: SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName;
   /**
@@ -26,7 +26,7 @@ export class SyntheticsMobileTestOptionsMonitorOptions {
    */
   "renotifyInterval"?: number;
   /**
-   * The `SyntheticsMobileTestOptionsMonitorOptions` `renotify_occurrences`.
+   * The number renotify_occurrences for the test.
    */
   "renotifyOccurrences"?: number;
 
