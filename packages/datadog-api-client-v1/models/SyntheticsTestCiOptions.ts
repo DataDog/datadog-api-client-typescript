@@ -14,7 +14,7 @@ export class SyntheticsTestCiOptions {
   /**
    * Execution rule for a Synthetic test.
    */
-  "executionRule"?: SyntheticsTestExecutionRule;
+  "executionRule": SyntheticsTestExecutionRule;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +35,7 @@ export class SyntheticsTestCiOptions {
     executionRule: {
       baseName: "executionRule",
       type: "SyntheticsTestExecutionRule",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

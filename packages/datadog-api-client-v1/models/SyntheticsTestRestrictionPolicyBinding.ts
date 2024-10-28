@@ -3,18 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
+import { SyntheticsTestRestrictionPolicyBindingRelation } from "./SyntheticsTestRestrictionPolicyBindingRelation";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * CI/CD options for a Synthetic test.
+ * Objects describing the binding used for a mobile test.
  */
-export class SyntheticsMobileTestCiOptions {
+export class SyntheticsTestRestrictionPolicyBinding {
   /**
-   * Execution rule for a Synthetic test.
+   * List of principals for a mobile test binding.
    */
-  "executionRule": SyntheticsTestExecutionRule;
+  "principals"?: Array<string>;
+  /**
+   * The type of relation for the binding.
+   */
+  "relation"?: SyntheticsTestRestrictionPolicyBindingRelation;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,10 +36,13 @@ export class SyntheticsMobileTestCiOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    executionRule: {
-      baseName: "executionRule",
-      type: "SyntheticsTestExecutionRule",
-      required: true,
+    principals: {
+      baseName: "principals",
+      type: "Array<string>",
+    },
+    relation: {
+      baseName: "relation",
+      type: "SyntheticsTestRestrictionPolicyBindingRelation",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +54,7 @@ export class SyntheticsMobileTestCiOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsMobileTestCiOptions.attributeTypeMap;
+    return SyntheticsTestRestrictionPolicyBinding.attributeTypeMap;
   }
 
   public constructor() {}

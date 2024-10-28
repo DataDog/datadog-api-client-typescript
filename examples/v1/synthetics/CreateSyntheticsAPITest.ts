@@ -31,7 +31,9 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       },
       deviceIds: ["chrome.laptop_large"],
       httpVersion: "http1",
-      monitorOptions: {},
+      monitorOptions: {
+        notificationPresetName: "show_all",
+      },
       restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
       retry: {},
       rumSettings: {

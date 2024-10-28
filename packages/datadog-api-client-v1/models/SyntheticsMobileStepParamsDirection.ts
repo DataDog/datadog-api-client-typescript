@@ -7,12 +7,16 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `SyntheticsMobileTestBindingItemsRole` object.
+ * The direction of the scroll for a `scrollToElement` step type.
  */
 
-export type SyntheticsMobileTestBindingItemsRole =
-  | typeof EDITOR
-  | typeof VIEWER
+export type SyntheticsMobileStepParamsDirection =
+  | typeof UP
+  | typeof DOWN
+  | typeof LEFT
+  | typeof RIGHT
   | UnparsedObject;
-export const EDITOR = "editor";
-export const VIEWER = "viewer";
+export const UP = "up";
+export const DOWN = "down";
+export const LEFT = "left";
+export const RIGHT = "right";
