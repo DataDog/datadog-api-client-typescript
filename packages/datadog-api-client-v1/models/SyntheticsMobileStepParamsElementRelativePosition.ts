@@ -3,18 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsMobileTestInitialApplicationArgumentsPropertyNames } from "./SyntheticsMobileTestInitialApplicationArgumentsPropertyNames";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Initial application arguments for a mobile test.
+ * Position of the action relative to the element.
  */
-export class SyntheticsMobileTestInitialApplicationArguments {
+export class SyntheticsMobileStepParamsElementRelativePosition {
   /**
-   * Name of the property.
+   * The `relativePosition` on the `x` axis for the element.
    */
-  "propertyNames"?: SyntheticsMobileTestInitialApplicationArgumentsPropertyNames;
+  "x"?: number;
+  /**
+   * The `relativePosition` on the `y` axis for the element.
+   */
+  "y"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +35,15 @@ export class SyntheticsMobileTestInitialApplicationArguments {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    propertyNames: {
-      baseName: "propertyNames",
-      type: "SyntheticsMobileTestInitialApplicationArgumentsPropertyNames",
+    x: {
+      baseName: "x",
+      type: "number",
+      format: "int64",
+    },
+    y: {
+      baseName: "y",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +55,7 @@ export class SyntheticsMobileTestInitialApplicationArguments {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsMobileTestInitialApplicationArguments.attributeTypeMap;
+    return SyntheticsMobileStepParamsElementRelativePosition.attributeTypeMap;
   }
 
   public constructor() {}

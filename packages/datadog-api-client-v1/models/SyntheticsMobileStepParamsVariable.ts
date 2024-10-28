@@ -3,18 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsMobileTestBindingItems } from "./SyntheticsMobileTestBindingItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Objects describing the binding used for a mobile test.
+ * Variable object for `extractVariable` step type.
  */
-export class SyntheticsMobileTestBinding {
+export class SyntheticsMobileStepParamsVariable {
   /**
-   * Object describing the binding used for a mobile test.
+   * An example for the variable.
    */
-  "items"?: SyntheticsMobileTestBindingItems;
+  "example": string;
+  /**
+   * The variable name.
+   */
+  "name": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +35,15 @@ export class SyntheticsMobileTestBinding {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    items: {
-      baseName: "items",
-      type: "SyntheticsMobileTestBindingItems",
+    example: {
+      baseName: "example",
+      type: "string",
+      required: true,
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +55,7 @@ export class SyntheticsMobileTestBinding {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsMobileTestBinding.attributeTypeMap;
+    return SyntheticsMobileStepParamsVariable.attributeTypeMap;
   }
 
   public constructor() {}

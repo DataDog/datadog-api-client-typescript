@@ -450,15 +450,16 @@ import { SyntheticsListTestsResponse } from "./SyntheticsListTestsResponse";
 import { SyntheticsLocation } from "./SyntheticsLocation";
 import { SyntheticsLocations } from "./SyntheticsLocations";
 import { SyntheticsMobileStep } from "./SyntheticsMobileStep";
+import { SyntheticsMobileStepParams } from "./SyntheticsMobileStepParams";
+import { SyntheticsMobileStepParamsElement } from "./SyntheticsMobileStepParamsElement";
+import { SyntheticsMobileStepParamsElementRelativePosition } from "./SyntheticsMobileStepParamsElementRelativePosition";
+import { SyntheticsMobileStepParamsElementUserLocator } from "./SyntheticsMobileStepParamsElementUserLocator";
+import { SyntheticsMobileStepParamsElementUserLocatorValuesItems } from "./SyntheticsMobileStepParamsElementUserLocatorValuesItems";
+import { SyntheticsMobileStepParamsPositionsItems } from "./SyntheticsMobileStepParamsPositionsItems";
+import { SyntheticsMobileStepParamsVariable } from "./SyntheticsMobileStepParamsVariable";
 import { SyntheticsMobileTest } from "./SyntheticsMobileTest";
-import { SyntheticsMobileTestBinding } from "./SyntheticsMobileTestBinding";
-import { SyntheticsMobileTestBindingItems } from "./SyntheticsMobileTestBindingItems";
-import { SyntheticsMobileTestCiOptions } from "./SyntheticsMobileTestCiOptions";
 import { SyntheticsMobileTestConfig } from "./SyntheticsMobileTestConfig";
-import { SyntheticsMobileTestInitialApplicationArguments } from "./SyntheticsMobileTestInitialApplicationArguments";
-import { SyntheticsMobileTestInitialApplicationArgumentsPropertyNames } from "./SyntheticsMobileTestInitialApplicationArgumentsPropertyNames";
 import { SyntheticsMobileTestOptions } from "./SyntheticsMobileTestOptions";
-import { SyntheticsMobileTestOptionsMonitorOptions } from "./SyntheticsMobileTestOptionsMonitorOptions";
 import { SyntheticsMobileTestsMobileApplication } from "./SyntheticsMobileTestsMobileApplication";
 import { SyntheticsParsingOptions } from "./SyntheticsParsingOptions";
 import { SyntheticsPatchTestBody } from "./SyntheticsPatchTestBody";
@@ -489,6 +490,7 @@ import { SyntheticsTestRequestBodyFile } from "./SyntheticsTestRequestBodyFile";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
+import { SyntheticsTestRestrictionPolicyBinding } from "./SyntheticsTestRestrictionPolicyBinding";
 import { SyntheticsTestUptime } from "./SyntheticsTestUptime";
 import { SyntheticsTiming } from "./SyntheticsTiming";
 import { SyntheticsTriggerBody } from "./SyntheticsTriggerBody";
@@ -819,11 +821,8 @@ const enumsMap: { [key: string]: any[] } = {
     "dbm_queries_usage",
     "error_tracking_usage",
     "error_tracking_percentage",
-    "estimated_indexed_logs_usage",
     "estimated_indexed_spans_usage",
-    "estimated_ingested_logs_usage",
     "estimated_ingested_spans_usage",
-    "estimated_rum_sessions_usage",
     "fargate_usage",
     "functions_usage",
     "incident_management_monthly_active_users_usage",
@@ -1040,10 +1039,6 @@ const enumsMap: { [key: string]: any[] } = {
     "dbm_queries_usage",
     "error_tracking_usage",
     "error_tracking_percentage",
-    "estimated_indexed_logs_usage",
-    "estimated_indexed_logs_percentage",
-    "estimated_ingested_logs_usage",
-    "estimated_ingested_logs_percentage",
     "estimated_indexed_spans_usage",
     "estimated_indexed_spans_percentage",
     "estimated_ingested_spans_usage",
@@ -1082,8 +1077,6 @@ const enumsMap: { [key: string]: any[] } = {
     "serverless_apps_percentage",
     "snmp_usage",
     "snmp_percentage",
-    "estimated_rum_sessions_usage",
-    "estimated_rum_sessions_percentage",
     "universal_service_monitoring_usage",
     "universal_service_monitoring_percentage",
     "vuln_management_hosts_usage",
@@ -1373,6 +1366,15 @@ const enumsMap: { [key: string]: any[] } = {
     "http_header",
     "http_status_code",
   ],
+  SyntheticsMobileStepParamsDirection: ["up", "down", "left", "right"],
+  SyntheticsMobileStepParamsElementContextType: ["native", "web"],
+  SyntheticsMobileStepParamsElementUserLocatorValuesItemsType: [
+    "accessibility-id",
+    "id",
+    "ios-predicate-string",
+    "ios-class-chain",
+    "xpath",
+  ],
   SyntheticsMobileStepType: [
     "assertElementContent",
     "assertScreenContains",
@@ -1391,13 +1393,6 @@ const enumsMap: { [key: string]: any[] } = {
     "toggleWiFi",
     "typeText",
     "wait",
-  ],
-  SyntheticsMobileTestBindingItemsRole: ["editor", "viewer"],
-  SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName: [
-    "show_all",
-    "hide_all",
-    "hide_query",
-    "hide_handles",
   ],
   SyntheticsMobileTestType: ["mobile"],
   SyntheticsMobileTestsMobileApplicationReferenceType: ["latest", "version"],
@@ -1454,6 +1449,12 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsTestExecutionRule: ["blocking", "non_blocking", "skipped"],
   SyntheticsTestMonitorStatus: [0, 1, 2],
   SyntheticsTestOptionsHTTPVersion: ["http1", "http2", "any"],
+  SyntheticsTestOptionsMonitorOptionsNotificationPresetName: [
+    "show_all",
+    "hide_all",
+    "hide_query",
+    "hide_handles",
+  ],
   SyntheticsTestPauseStatus: ["live", "paused"],
   SyntheticsTestProcessStatus: [
     "not_scheduled",
@@ -1471,6 +1472,7 @@ const enumsMap: { [key: string]: any[] } = {
     "application/octet-stream",
     "multipart/form-data",
   ],
+  SyntheticsTestRestrictionPolicyBindingRelation: ["editor", "viewer"],
   SyntheticsWarningType: ["user_locator"],
   TableWidgetCellDisplayMode: ["number", "bar"],
   TableWidgetDefinitionType: ["query_table"],
@@ -2117,18 +2119,20 @@ const typeMap: { [index: string]: any } = {
   SyntheticsLocation: SyntheticsLocation,
   SyntheticsLocations: SyntheticsLocations,
   SyntheticsMobileStep: SyntheticsMobileStep,
+  SyntheticsMobileStepParams: SyntheticsMobileStepParams,
+  SyntheticsMobileStepParamsElement: SyntheticsMobileStepParamsElement,
+  SyntheticsMobileStepParamsElementRelativePosition:
+    SyntheticsMobileStepParamsElementRelativePosition,
+  SyntheticsMobileStepParamsElementUserLocator:
+    SyntheticsMobileStepParamsElementUserLocator,
+  SyntheticsMobileStepParamsElementUserLocatorValuesItems:
+    SyntheticsMobileStepParamsElementUserLocatorValuesItems,
+  SyntheticsMobileStepParamsPositionsItems:
+    SyntheticsMobileStepParamsPositionsItems,
+  SyntheticsMobileStepParamsVariable: SyntheticsMobileStepParamsVariable,
   SyntheticsMobileTest: SyntheticsMobileTest,
-  SyntheticsMobileTestBinding: SyntheticsMobileTestBinding,
-  SyntheticsMobileTestBindingItems: SyntheticsMobileTestBindingItems,
-  SyntheticsMobileTestCiOptions: SyntheticsMobileTestCiOptions,
   SyntheticsMobileTestConfig: SyntheticsMobileTestConfig,
-  SyntheticsMobileTestInitialApplicationArguments:
-    SyntheticsMobileTestInitialApplicationArguments,
-  SyntheticsMobileTestInitialApplicationArgumentsPropertyNames:
-    SyntheticsMobileTestInitialApplicationArgumentsPropertyNames,
   SyntheticsMobileTestOptions: SyntheticsMobileTestOptions,
-  SyntheticsMobileTestOptionsMonitorOptions:
-    SyntheticsMobileTestOptionsMonitorOptions,
   SyntheticsMobileTestsMobileApplication:
     SyntheticsMobileTestsMobileApplication,
   SyntheticsParsingOptions: SyntheticsParsingOptions,
@@ -2165,6 +2169,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTestRequestCertificate: SyntheticsTestRequestCertificate,
   SyntheticsTestRequestCertificateItem: SyntheticsTestRequestCertificateItem,
   SyntheticsTestRequestProxy: SyntheticsTestRequestProxy,
+  SyntheticsTestRestrictionPolicyBinding:
+    SyntheticsTestRestrictionPolicyBinding,
   SyntheticsTestUptime: SyntheticsTestUptime,
   SyntheticsTiming: SyntheticsTiming,
   SyntheticsTriggerBody: SyntheticsTriggerBody,
