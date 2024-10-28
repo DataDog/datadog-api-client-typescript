@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SyntheticsTestOptionsMonitorOptionsNotificationPresetName } from "./SyntheticsTestOptionsMonitorOptionsNotificationPresetName";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,10 +13,22 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsTestOptionsMonitorOptions {
   /**
+   * Message to include in the escalation notification.
+   */
+  "escalationMessage"?: string;
+  /**
+   * The name of the preset for the notification for the monitor.
+   */
+  "notificationPresetName"?: SyntheticsTestOptionsMonitorOptionsNotificationPresetName;
+  /**
    * Time interval before renotifying if the test is still failing
    * (in minutes).
    */
   "renotifyInterval"?: number;
+  /**
+   * The number of times to renotify if the test is still failing.
+   */
+  "renotifyOccurrences"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -33,8 +46,21 @@ export class SyntheticsTestOptionsMonitorOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    escalationMessage: {
+      baseName: "escalation_message",
+      type: "string",
+    },
+    notificationPresetName: {
+      baseName: "notification_preset_name",
+      type: "SyntheticsTestOptionsMonitorOptionsNotificationPresetName",
+    },
     renotifyInterval: {
       baseName: "renotify_interval",
+      type: "number",
+      format: "int64",
+    },
+    renotifyOccurrences: {
+      baseName: "renotify_occurrences",
       type: "number",
       format: "int64",
     },

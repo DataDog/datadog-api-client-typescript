@@ -7,10 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName` object.
+ * The name of the preset for the notification for the monitor.
  */
 
-export type SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName =
+export type SyntheticsTestOptionsMonitorOptionsNotificationPresetName =
   | typeof SHOW_ALL
   | typeof HIDE_ALL
   | typeof HIDE_QUERY

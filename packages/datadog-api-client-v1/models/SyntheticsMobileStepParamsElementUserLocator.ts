@@ -3,22 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsMobileTestBindingItemsRole } from "./SyntheticsMobileTestBindingItemsRole";
+import { SyntheticsMobileStepParamsElementUserLocatorValuesItems } from "./SyntheticsMobileStepParamsElementUserLocatorValuesItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object describing the binding used for a mobile test.
+ * User locator to find the element.
  */
-export class SyntheticsMobileTestBindingItems {
+export class SyntheticsMobileStepParamsElementUserLocator {
   /**
-   * List of principals for a mobile test binding.
+   * Whether if the the test should fail if the element cannot be found.
    */
-  "principals"?: Array<string>;
+  "failTestOnCannotLocate"?: boolean;
   /**
-   * The definition of `SyntheticsMobileTestBindingItemsRole` object.
+   * Values of the user locator.
    */
-  "role"?: SyntheticsMobileTestBindingItemsRole;
+  "values"?: Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,13 +36,13 @@ export class SyntheticsMobileTestBindingItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    principals: {
-      baseName: "principals",
-      type: "Array<string>",
+    failTestOnCannotLocate: {
+      baseName: "failTestOnCannotLocate",
+      type: "boolean",
     },
-    role: {
-      baseName: "role",
-      type: "SyntheticsMobileTestBindingItemsRole",
+    values: {
+      baseName: "values",
+      type: "Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +54,7 @@ export class SyntheticsMobileTestBindingItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsMobileTestBindingItems.attributeTypeMap;
+    return SyntheticsMobileStepParamsElementUserLocator.attributeTypeMap;
   }
 
   public constructor() {}
