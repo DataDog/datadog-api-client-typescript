@@ -532,6 +532,15 @@ import { IncidentTodoPatchRequest } from "./IncidentTodoPatchRequest";
 import { IncidentTodoRelationships } from "./IncidentTodoRelationships";
 import { IncidentTodoResponse } from "./IncidentTodoResponse";
 import { IncidentTodoResponseData } from "./IncidentTodoResponseData";
+import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
+import { IncidentTypeCreateData } from "./IncidentTypeCreateData";
+import { IncidentTypeCreateRequest } from "./IncidentTypeCreateRequest";
+import { IncidentTypeListResponse } from "./IncidentTypeListResponse";
+import { IncidentTypeObject } from "./IncidentTypeObject";
+import { IncidentTypePatchData } from "./IncidentTypePatchData";
+import { IncidentTypePatchRequest } from "./IncidentTypePatchRequest";
+import { IncidentTypeResponse } from "./IncidentTypeResponse";
+import { IncidentTypeUpdateAttributes } from "./IncidentTypeUpdateAttributes";
 import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
 import { IncidentUpdateData } from "./IncidentUpdateData";
 import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
@@ -1525,6 +1534,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentTodoAnonymousAssigneeSource: ["slack", "microsoft_teams"],
   IncidentTodoType: ["incident_todos"],
   IncidentType: ["incidents"],
+  IncidentTypeType: ["incident_types"],
   IncidentUserDefinedFieldType: ["user_defined_field"],
   IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
@@ -2496,6 +2506,15 @@ const typeMap: { [index: string]: any } = {
   IncidentTodoRelationships: IncidentTodoRelationships,
   IncidentTodoResponse: IncidentTodoResponse,
   IncidentTodoResponseData: IncidentTodoResponseData,
+  IncidentTypeAttributes: IncidentTypeAttributes,
+  IncidentTypeCreateData: IncidentTypeCreateData,
+  IncidentTypeCreateRequest: IncidentTypeCreateRequest,
+  IncidentTypeListResponse: IncidentTypeListResponse,
+  IncidentTypeObject: IncidentTypeObject,
+  IncidentTypePatchData: IncidentTypePatchData,
+  IncidentTypePatchRequest: IncidentTypePatchRequest,
+  IncidentTypeResponse: IncidentTypeResponse,
+  IncidentTypeUpdateAttributes: IncidentTypeUpdateAttributes,
   IncidentUpdateAttributes: IncidentUpdateAttributes,
   IncidentUpdateData: IncidentUpdateData,
   IncidentUpdateRelationships: IncidentUpdateRelationships,
