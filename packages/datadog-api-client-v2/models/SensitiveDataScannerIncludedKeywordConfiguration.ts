@@ -23,6 +23,11 @@ export class SensitiveDataScannerIncludedKeywordConfiguration {
    * The number of keywords in the list must be less than or equal to 30.
    */
   "keywords": Array<string>;
+  /**
+   * Should the rule use the underlying standard pattern keyword configuration. If set to `true`, the rule must be tied
+   * to a standard pattern. If set to `false`, the specified keywords and `character_count` are applied.
+   */
+  "useRecommendedKeywords"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -50,6 +55,10 @@ export class SensitiveDataScannerIncludedKeywordConfiguration {
       baseName: "keywords",
       type: "Array<string>",
       required: true,
+    },
+    useRecommendedKeywords: {
+      baseName: "use_recommended_keywords",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
