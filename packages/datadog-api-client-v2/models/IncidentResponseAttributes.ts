@@ -56,6 +56,10 @@ export class IncidentResponseAttributes {
    */
   "fields"?: { [key: string]: IncidentFieldAttributes };
   /**
+   * A unique identifier that represents an incident type.
+   */
+  "incidentTypeUuid"?: string;
+  /**
    * Timestamp when the incident was last modified.
    */
   "modified"?: Date;
@@ -171,6 +175,10 @@ export class IncidentResponseAttributes {
     fields: {
       baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
+    },
+    incidentTypeUuid: {
+      baseName: "incident_type_uuid",
+      type: "string",
     },
     modified: {
       baseName: "modified",
