@@ -3352,6 +3352,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DashboardListUpdateItemsResponse",
     },
+    "v2.GetDomainAllowlist": {
+        "operationResponseType": "DomainAllowlistResponse",
+    },
+    "v2.PatchDomainAllowlist": {
+        "body": {
+            "type": "DomainAllowlistRequest",
+            "format": "",
+            },
+        "operationResponseType": "DomainAllowlistResponse",
+    },
     "v2.CreateDORADeployment": {
         "body": {
             "type": "DORADeploymentRequest",
