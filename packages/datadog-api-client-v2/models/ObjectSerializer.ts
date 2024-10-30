@@ -297,6 +297,12 @@ import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { DeviceAttributes } from "./DeviceAttributes";
 import { DeviceAttributesInterfaceStatuses } from "./DeviceAttributesInterfaceStatuses";
 import { DevicesListData } from "./DevicesListData";
+import { DomainAllowlist } from "./DomainAllowlist";
+import { DomainAllowlistAttributes } from "./DomainAllowlistAttributes";
+import { DomainAllowlistRequest } from "./DomainAllowlistRequest";
+import { DomainAllowlistResponse } from "./DomainAllowlistResponse";
+import { DomainAllowlistResponseData } from "./DomainAllowlistResponseData";
+import { DomainAllowlistResponseDataAttributes } from "./DomainAllowlistResponseDataAttributes";
 import { DowntimeCreateRequest } from "./DowntimeCreateRequest";
 import { DowntimeCreateRequestAttributes } from "./DowntimeCreateRequestAttributes";
 import { DowntimeCreateRequestData } from "./DowntimeCreateRequestData";
@@ -1431,6 +1437,7 @@ const enumsMap: { [key: string]: any[] } = {
     "host_timeboard",
   ],
   DetailedFindingType: ["detailed_finding"],
+  DomainAllowlistType: ["domain_allowlist"],
   DowntimeIncludedMonitorType: ["monitors"],
   DowntimeNotifyEndStateActions: ["canceled", "expired"],
   DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
@@ -2247,6 +2254,12 @@ const typeMap: { [index: string]: any } = {
   DeviceAttributes: DeviceAttributes,
   DeviceAttributesInterfaceStatuses: DeviceAttributesInterfaceStatuses,
   DevicesListData: DevicesListData,
+  DomainAllowlist: DomainAllowlist,
+  DomainAllowlistAttributes: DomainAllowlistAttributes,
+  DomainAllowlistRequest: DomainAllowlistRequest,
+  DomainAllowlistResponse: DomainAllowlistResponse,
+  DomainAllowlistResponseData: DomainAllowlistResponseData,
+  DomainAllowlistResponseDataAttributes: DomainAllowlistResponseDataAttributes,
   DowntimeCreateRequest: DowntimeCreateRequest,
   DowntimeCreateRequestAttributes: DowntimeCreateRequestAttributes,
   DowntimeCreateRequestData: DowntimeCreateRequestData,

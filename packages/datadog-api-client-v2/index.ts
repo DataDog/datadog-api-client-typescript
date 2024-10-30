@@ -134,6 +134,11 @@ export {
 } from "./apis/DashboardListsApi";
 
 export {
+  DomainAllowlistApiPatchDomainAllowlistRequest,
+  DomainAllowlistApi,
+} from "./apis/DomainAllowlistApi";
+
+export {
   DowntimesApiCancelDowntimeRequest,
   DowntimesApiCreateDowntimeRequest,
   DowntimesApiGetDowntimeRequest,
@@ -927,6 +932,13 @@ export { DetailedFindingType } from "./models/DetailedFindingType";
 export { DeviceAttributes } from "./models/DeviceAttributes";
 export { DeviceAttributesInterfaceStatuses } from "./models/DeviceAttributesInterfaceStatuses";
 export { DevicesListData } from "./models/DevicesListData";
+export { DomainAllowlist } from "./models/DomainAllowlist";
+export { DomainAllowlistAttributes } from "./models/DomainAllowlistAttributes";
+export { DomainAllowlistRequest } from "./models/DomainAllowlistRequest";
+export { DomainAllowlistResponse } from "./models/DomainAllowlistResponse";
+export { DomainAllowlistResponseData } from "./models/DomainAllowlistResponseData";
+export { DomainAllowlistResponseDataAttributes } from "./models/DomainAllowlistResponseDataAttributes";
+export { DomainAllowlistType } from "./models/DomainAllowlistType";
 export { DORADeploymentRequest } from "./models/DORADeploymentRequest";
 export { DORADeploymentRequestAttributes } from "./models/DORADeploymentRequestAttributes";
 export { DORADeploymentRequestData } from "./models/DORADeploymentRequestData";
