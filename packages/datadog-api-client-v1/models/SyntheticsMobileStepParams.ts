@@ -7,6 +7,7 @@ import { SyntheticsCheckType } from "./SyntheticsCheckType";
 import { SyntheticsMobileStepParamsDirection } from "./SyntheticsMobileStepParamsDirection";
 import { SyntheticsMobileStepParamsElement } from "./SyntheticsMobileStepParamsElement";
 import { SyntheticsMobileStepParamsPositionsItems } from "./SyntheticsMobileStepParamsPositionsItems";
+import { SyntheticsMobileStepParamsValue } from "./SyntheticsMobileStepParamsValue";
 import { SyntheticsMobileStepParamsVariable } from "./SyntheticsMobileStepParamsVariable";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -34,7 +35,7 @@ export class SyntheticsMobileStepParams {
   /**
    * Boolean to change the state of the wifi for a `toggleWiFi` step type.
    */
-  "enable"?: boolean;
+  "enabled"?: boolean;
   /**
    * Maximum number of scrolls to do for a `scrollToElement` step type.
    */
@@ -48,9 +49,9 @@ export class SyntheticsMobileStepParams {
    */
   "subtestPublicId"?: string;
   /**
-   * Values used in the step. Used in multiple step types.
+   * Values used in the step for in multiple step types.
    */
-  "value"?: string;
+  "value"?: SyntheticsMobileStepParamsValue;
   /**
    * Variable object for `extractVariable` step type.
    */
@@ -101,8 +102,8 @@ export class SyntheticsMobileStepParams {
       baseName: "element",
       type: "SyntheticsMobileStepParamsElement",
     },
-    enable: {
-      baseName: "enable",
+    enabled: {
+      baseName: "enabled",
       type: "boolean",
     },
     maxScrolls: {
@@ -120,7 +121,7 @@ export class SyntheticsMobileStepParams {
     },
     value: {
       baseName: "value",
-      type: "string",
+      type: "SyntheticsMobileStepParamsValue",
     },
     variable: {
       baseName: "variable",
@@ -133,12 +134,12 @@ export class SyntheticsMobileStepParams {
     x: {
       baseName: "x",
       type: "number",
-      format: "int64",
+      format: "double",
     },
     y: {
       baseName: "y",
       type: "number",
-      format: "int64",
+      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
