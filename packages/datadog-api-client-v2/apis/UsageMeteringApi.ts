@@ -18,6 +18,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { ActiveBillingDimensionsResponse } from "../models/ActiveBillingDimensionsResponse";
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { BillingDimensionsMappingResponse } from "../models/BillingDimensionsMappingResponse";
 import { CostByOrgResponse } from "../models/CostByOrgResponse";
 import { HourlyUsageResponse } from "../models/HourlyUsageResponse";
 import { MonthlyCostAttributionResponse } from "../models/MonthlyCostAttributionResponse";
@@ -52,6 +53,57 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339"
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getBillingDimensionMapping(
+    filterMonth?: Date,
+    filterView?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getBillingDimensionMapping'");
+    if (!_config.unstableOperations["v2.getBillingDimensionMapping"]) {
+      throw new Error(
+        "Unstable operation 'getBillingDimensionMapping' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/billing_dimension_mapping";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.getBillingDimensionMapping")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterMonth !== undefined) {
+      requestContext.setQueryParam(
+        "filter[month]",
+        ObjectSerializer.serialize(filterMonth, "Date", "date-time")
+      );
+    }
+    if (filterView !== undefined) {
+      requestContext.setQueryParam(
+        "filter[view]",
+        ObjectSerializer.serialize(filterView, "string", "")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -721,6 +773,70 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getBillingDimensionMapping
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getBillingDimensionMapping(
+    response: ResponseContext
+  ): Promise<BillingDimensionsMappingResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: BillingDimensionsMappingResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "BillingDimensionsMappingResponse"
+        ) as BillingDimensionsMappingResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: BillingDimensionsMappingResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "BillingDimensionsMappingResponse",
+          ""
+        ) as BillingDimensionsMappingResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCostByOrg
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1282,6 +1398,19 @@ export class UsageMeteringApiResponseProcessor {
   }
 }
 
+export interface UsageMeteringApiGetBillingDimensionMappingRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, and for mappings beginning this month. Defaults to the current month.
+   * @type Date
+   */
+  filterMonth?: Date;
+  /**
+   * String to specify whether to retrieve active billing dimension mappings for the contract or for all available mappings. Allowed views have the string `active` or `all`. Defaults to `active`.
+   * @type string
+   */
+  filterView?: string;
+}
+
 export interface UsageMeteringApiGetCostByOrgRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month.
@@ -1543,6 +1672,34 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getActiveBillingDimensions(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a mapping of billing dimensions to the corresponding keys for the supported usage metering public API endpoints.
+   * Mapping data is updated on a monthly cadence.
+   *
+   * This endpoint is only accessible to [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+   * @param param The request object
+   */
+  public getBillingDimensionMapping(
+    param: UsageMeteringApiGetBillingDimensionMappingRequest = {},
+    options?: Configuration
+  ): Promise<BillingDimensionsMappingResponse> {
+    const requestContextPromise =
+      this.requestFactory.getBillingDimensionMapping(
+        param.filterMonth,
+        param.filterView,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getBillingDimensionMapping(
             responseContext
           );
         });

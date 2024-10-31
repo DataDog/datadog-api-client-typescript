@@ -74,6 +74,10 @@ import { AzureUCConfigPostRequest } from "./AzureUCConfigPostRequest";
 import { AzureUCConfigPostRequestAttributes } from "./AzureUCConfigPostRequestAttributes";
 import { AzureUCConfigsResponse } from "./AzureUCConfigsResponse";
 import { BillConfig } from "./BillConfig";
+import { BillingDimensionsMappingBodyItem } from "./BillingDimensionsMappingBodyItem";
+import { BillingDimensionsMappingBodyItemAttributes } from "./BillingDimensionsMappingBodyItemAttributes";
+import { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./BillingDimensionsMappingBodyItemAttributesEndpointsItems";
+import { BillingDimensionsMappingResponse } from "./BillingDimensionsMappingResponse";
 import { BulkMuteFindingsRequest } from "./BulkMuteFindingsRequest";
 import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
 import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
@@ -1363,6 +1367,10 @@ const enumsMap: { [key: string]: any[] } = {
   AzureUCConfigPairType: ["azure_uc_configs"],
   AzureUCConfigPatchRequestType: ["azure_uc_config_patch_request"],
   AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
+  BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus: [
+    "OK",
+    "NOT_FOUND",
+  ],
   CIAppAggregateSortType: ["alphabetical", "measure"],
   CIAppAggregationFunction: [
     "count",
@@ -2024,6 +2032,12 @@ const typeMap: { [index: string]: any } = {
   AzureUCConfigPostRequestAttributes: AzureUCConfigPostRequestAttributes,
   AzureUCConfigsResponse: AzureUCConfigsResponse,
   BillConfig: BillConfig,
+  BillingDimensionsMappingBodyItem: BillingDimensionsMappingBodyItem,
+  BillingDimensionsMappingBodyItemAttributes:
+    BillingDimensionsMappingBodyItemAttributes,
+  BillingDimensionsMappingBodyItemAttributesEndpointsItems:
+    BillingDimensionsMappingBodyItemAttributesEndpointsItems,
+  BillingDimensionsMappingResponse: BillingDimensionsMappingResponse,
   BulkMuteFindingsRequest: BulkMuteFindingsRequest,
   BulkMuteFindingsRequestAttributes: BulkMuteFindingsRequestAttributes,
   BulkMuteFindingsRequestData: BulkMuteFindingsRequestData,
