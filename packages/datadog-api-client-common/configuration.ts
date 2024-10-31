@@ -228,6 +228,7 @@ export function createConfiguration(
       "v2.listAPIs": false,
       "v2.updateOpenAPI": false,
       "v2.getActiveBillingDimensions": false,
+      "v2.getBillingDimensionMapping": false,
       "v2.getMonthlyCostAttribution": false,
       "v2.createDORADeployment": false,
       "v2.createDORAIncident": false,

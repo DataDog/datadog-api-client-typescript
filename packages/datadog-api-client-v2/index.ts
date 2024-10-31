@@ -530,6 +530,7 @@ export {
 } from "./apis/TeamsApi";
 
 export {
+  UsageMeteringApiGetBillingDimensionMappingRequest,
   UsageMeteringApiGetCostByOrgRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
   UsageMeteringApiGetHistoricalCostByOrgRequest,
@@ -663,6 +664,11 @@ export { AzureUCConfigPostRequestAttributes } from "./models/AzureUCConfigPostRe
 export { AzureUCConfigPostRequestType } from "./models/AzureUCConfigPostRequestType";
 export { AzureUCConfigsResponse } from "./models/AzureUCConfigsResponse";
 export { BillConfig } from "./models/BillConfig";
+export { BillingDimensionsMappingBodyItem } from "./models/BillingDimensionsMappingBodyItem";
+export { BillingDimensionsMappingBodyItemAttributes } from "./models/BillingDimensionsMappingBodyItemAttributes";
+export { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./models/BillingDimensionsMappingBodyItemAttributesEndpointsItems";
+export { BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus } from "./models/BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus";
+export { BillingDimensionsMappingResponse } from "./models/BillingDimensionsMappingResponse";
 export { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
 export { BulkMuteFindingsRequestAttributes } from "./models/BulkMuteFindingsRequestAttributes";
 export { BulkMuteFindingsRequestData } from "./models/BulkMuteFindingsRequestData";
