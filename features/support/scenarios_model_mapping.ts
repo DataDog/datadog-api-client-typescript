@@ -3072,13 +3072,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AwsCURConfigsResponse",
     },
-    "v2.ListAWSRelatedAccounts": {
-        "filterManagementAccountId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "AWSRelatedAccountsResponse",
-    },
     "v2.ListCostAzureUCConfigs": {
         "operationResponseType": "AzureUCConfigsResponse",
     },

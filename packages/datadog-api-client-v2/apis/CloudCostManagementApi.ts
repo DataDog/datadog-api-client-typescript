@@ -21,7 +21,6 @@ import { AwsCURConfigPatchRequest } from "../models/AwsCURConfigPatchRequest";
 import { AwsCURConfigPostRequest } from "../models/AwsCURConfigPostRequest";
 import { AwsCURConfigResponse } from "../models/AwsCURConfigResponse";
 import { AwsCURConfigsResponse } from "../models/AwsCURConfigsResponse";
-import { AWSRelatedAccountsResponse } from "../models/AWSRelatedAccountsResponse";
 import { AzureUCConfigPairsResponse } from "../models/AzureUCConfigPairsResponse";
 import { AzureUCConfigPatchRequest } from "../models/AzureUCConfigPatchRequest";
 import { AzureUCConfigPostRequest } from "../models/AzureUCConfigPostRequest";
@@ -269,51 +268,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async listAWSRelatedAccounts(
-    filterManagementAccountId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'filterManagementAccountId' is not null or undefined
-    if (
-      filterManagementAccountId === null ||
-      filterManagementAccountId === undefined
-    ) {
-      throw new RequiredError(
-        "filterManagementAccountId",
-        "listAWSRelatedAccounts"
-      );
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/cost/aws_related_accounts";
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.listAWSRelatedAccounts")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-    if (filterManagementAccountId !== undefined) {
-      requestContext.setQueryParam(
-        "filter[management_account_id]",
-        ObjectSerializer.serialize(filterManagementAccountId, "string", "")
-      );
-    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -960,68 +914,6 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to listAWSRelatedAccounts
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async listAWSRelatedAccounts(
-    response: ResponseContext
-  ): Promise<AWSRelatedAccountsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: AWSRelatedAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AWSRelatedAccountsResponse"
-      ) as AWSRelatedAccountsResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AWSRelatedAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AWSRelatedAccountsResponse",
-        ""
-      ) as AWSRelatedAccountsResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to listCostAWSCURConfigs
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1417,14 +1309,6 @@ export interface CloudCostManagementApiGetCustomCostsFileRequest {
   fileId: string;
 }
 
-export interface CloudCostManagementApiListAWSRelatedAccountsRequest {
-  /**
-   * The ID of the management account to filter by.
-   * @type string
-   */
-  filterManagementAccountId: string;
-}
-
 export interface CloudCostManagementApiUpdateCostAWSCURConfigRequest {
   /**
    * Cloud Account id.
@@ -1617,27 +1501,6 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getCustomCostsFile(responseContext);
-        });
-    });
-  }
-
-  /**
-   * List the AWS accounts in an organization by calling 'organizations:ListAccounts' from the specified management account.
-   * @param param The request object
-   */
-  public listAWSRelatedAccounts(
-    param: CloudCostManagementApiListAWSRelatedAccountsRequest,
-    options?: Configuration
-  ): Promise<AWSRelatedAccountsResponse> {
-    const requestContextPromise = this.requestFactory.listAWSRelatedAccounts(
-      param.filterManagementAccountId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listAWSRelatedAccounts(responseContext);
         });
     });
   }

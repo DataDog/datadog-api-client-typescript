@@ -10,9 +10,6 @@ import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
 import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
 import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
-import { AWSRelatedAccount } from "./AWSRelatedAccount";
-import { AWSRelatedAccountAttributes } from "./AWSRelatedAccountAttributes";
-import { AWSRelatedAccountsResponse } from "./AWSRelatedAccountsResponse";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
@@ -1330,7 +1327,6 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
-  AWSRelatedAccountType: ["aws_account"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   ApplicationKeysSort: [
@@ -1968,9 +1964,6 @@ const typeMap: { [index: string]: any } = {
   APIKeysResponse: APIKeysResponse,
   APIKeysResponseMeta: APIKeysResponseMeta,
   APIKeysResponseMetaPage: APIKeysResponseMetaPage,
-  AWSRelatedAccount: AWSRelatedAccount,
-  AWSRelatedAccountAttributes: AWSRelatedAccountAttributes,
-  AWSRelatedAccountsResponse: AWSRelatedAccountsResponse,
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
