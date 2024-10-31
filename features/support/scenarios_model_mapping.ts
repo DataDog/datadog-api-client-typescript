@@ -5304,6 +5304,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RUMEventsResponse",
     },
+    "v2.ListRumMetrics": {
+        "operationResponseType": "RumMetricsResponse",
+    },
+    "v2.CreateRumMetric": {
+        "body": {
+            "type": "RumMetricCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumMetricResponse",
+    },
+    "v2.DeleteRumMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetRumMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RumMetricResponse",
+    },
+    "v2.UpdateRumMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RumMetricUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumMetricResponse",
+    },
     "v2.ListScorecardOutcomes": {
         "pageSize": {
             "type": "number",
