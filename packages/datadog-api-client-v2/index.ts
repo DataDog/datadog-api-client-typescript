@@ -81,7 +81,6 @@ export {
   CloudCostManagementApiDeleteCostAzureUCConfigRequest,
   CloudCostManagementApiDeleteCustomCostsFileRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
-  CloudCostManagementApiListAWSRelatedAccountsRequest,
   CloudCostManagementApiUpdateCostAWSCURConfigRequest,
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApiUploadCustomCostsFileRequest,
@@ -645,10 +644,6 @@ export { AwsCURConfigPostRequestType } from "./models/AwsCURConfigPostRequestTyp
 export { AwsCURConfigResponse } from "./models/AwsCURConfigResponse";
 export { AwsCURConfigsResponse } from "./models/AwsCURConfigsResponse";
 export { AwsCURConfigType } from "./models/AwsCURConfigType";
-export { AWSRelatedAccount } from "./models/AWSRelatedAccount";
-export { AWSRelatedAccountAttributes } from "./models/AWSRelatedAccountAttributes";
-export { AWSRelatedAccountsResponse } from "./models/AWSRelatedAccountsResponse";
-export { AWSRelatedAccountType } from "./models/AWSRelatedAccountType";
 export { AzureUCConfig } from "./models/AzureUCConfig";
 export { AzureUCConfigPair } from "./models/AzureUCConfigPair";
 export { AzureUCConfigPairAttributes } from "./models/AzureUCConfigPairAttributes";
