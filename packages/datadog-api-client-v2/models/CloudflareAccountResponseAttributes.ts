@@ -19,7 +19,7 @@ export class CloudflareAccountResponseAttributes {
    */
   "name": string;
   /**
-   * An allowlist of resources to restrict pulling metrics for including `'web', 'dns', 'lb' (load balancer), 'worker'`.
+   * An allowlist of resources, such as `web`, `dns`, `lb` (load balancer), `worker`, that restricts pulling metrics from those resources.
    */
   "resources"?: Array<string>;
   /**
