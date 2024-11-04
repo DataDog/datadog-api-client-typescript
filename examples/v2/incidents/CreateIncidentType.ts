@@ -12,9 +12,10 @@ const params: v2.IncidentsApiCreateIncidentTypeRequest = {
   body: {
     data: {
       attributes: {
-        description: "8d4bbb66dccf2456",
-        isDefault: true,
-        name: "8d4bbb66dccf2456",
+        description:
+          "Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.",
+        isDefault: false,
+        name: "Security Incident",
       },
       type: "incident_types",
     },
