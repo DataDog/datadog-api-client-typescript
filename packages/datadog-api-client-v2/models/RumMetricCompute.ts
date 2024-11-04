@@ -17,11 +17,12 @@ export class RumMetricCompute {
   "aggregationType": RumMetricComputeAggregationType;
   /**
    * Toggle to include or exclude percentile aggregations for distribution metrics.
-   * Only present when the `aggregation_type` is `distribution`.
+   * Only present when `aggregation_type` is `distribution`.
    */
   "includePercentiles"?: boolean;
   /**
-   * The path to the value the rum-based metric will aggregate on (only used if the aggregation type is a "distribution").
+   * The path to the value the rum-based metric will aggregate on.
+   * Only present when `aggregation_type` is `distribution`.
    */
   "path"?: string;
 

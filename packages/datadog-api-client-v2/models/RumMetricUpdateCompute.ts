@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 export class RumMetricUpdateCompute {
   /**
    * Toggle to include or exclude percentile aggregations for distribution metrics.
-   * Only present when the `aggregation_type` is `distribution`.
+   * Only present when `aggregation_type` is `distribution`.
    */
   "includePercentiles"?: boolean;
 

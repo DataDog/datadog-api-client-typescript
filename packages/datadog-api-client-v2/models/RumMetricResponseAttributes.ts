@@ -32,7 +32,7 @@ export class RumMetricResponseAttributes {
    */
   "groupBy"?: Array<RumMetricResponseGroupBy>;
   /**
-   * The rule to count updatable events. Is only set if "event_type" is "sessions" or "views".
+   * The rule to count updatable events. Is only set if `event_type` is `session` or `view`.
    */
   "uniqueness"?: RumMetricResponseUniqueness;
 

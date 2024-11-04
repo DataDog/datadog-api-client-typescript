@@ -15,7 +15,7 @@ export class RumMetricResponseGroupBy {
    */
   "path"?: string;
   /**
-   * Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
+   * Eventual name of the tag that gets created. By default, `path` is used as the tag name.
    */
   "tagName"?: string;
 
