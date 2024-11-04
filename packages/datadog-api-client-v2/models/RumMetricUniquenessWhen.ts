@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * When to count updatable events. "match" when the event is first seen, or "end" when the event is complete.
+ * When to count updatable events. `match` when the event is first seen, or `end` when the event is complete.
  */
 
 export type RumMetricUniquenessWhen =
