@@ -131,7 +131,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "string", "")
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
       );
     }
 
@@ -168,25 +169,29 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     if (currentOnly !== undefined) {
       requestContext.setQueryParam(
         "current_only",
-        ObjectSerializer.serialize(currentOnly, "boolean", "")
+        ObjectSerializer.serialize(currentOnly, "boolean", ""),
+        ""
       );
     }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "string", "")
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64")
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
       );
     }
 
@@ -231,13 +236,15 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64")
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
       );
     }
 

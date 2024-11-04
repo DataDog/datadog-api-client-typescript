@@ -160,61 +160,71 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     if (authorHandle !== undefined) {
       requestContext.setQueryParam(
         "author_handle",
-        ObjectSerializer.serialize(authorHandle, "string", "")
+        ObjectSerializer.serialize(authorHandle, "string", ""),
+        ""
       );
     }
     if (excludeAuthorHandle !== undefined) {
       requestContext.setQueryParam(
         "exclude_author_handle",
-        ObjectSerializer.serialize(excludeAuthorHandle, "string", "")
+        ObjectSerializer.serialize(excludeAuthorHandle, "string", ""),
+        ""
       );
     }
     if (start !== undefined) {
       requestContext.setQueryParam(
         "start",
-        ObjectSerializer.serialize(start, "number", "int64")
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
       );
     }
     if (count !== undefined) {
       requestContext.setQueryParam(
         "count",
-        ObjectSerializer.serialize(count, "number", "int64")
+        ObjectSerializer.serialize(count, "number", "int64"),
+        ""
       );
     }
     if (sortField !== undefined) {
       requestContext.setQueryParam(
         "sort_field",
-        ObjectSerializer.serialize(sortField, "string", "")
+        ObjectSerializer.serialize(sortField, "string", ""),
+        ""
       );
     }
     if (sortDir !== undefined) {
       requestContext.setQueryParam(
         "sort_dir",
-        ObjectSerializer.serialize(sortDir, "string", "")
+        ObjectSerializer.serialize(sortDir, "string", ""),
+        ""
       );
     }
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
-        ObjectSerializer.serialize(query, "string", "")
+        ObjectSerializer.serialize(query, "string", ""),
+        ""
       );
     }
     if (includeCells !== undefined) {
       requestContext.setQueryParam(
         "include_cells",
-        ObjectSerializer.serialize(includeCells, "boolean", "")
+        ObjectSerializer.serialize(includeCells, "boolean", ""),
+        ""
       );
     }
     if (isTemplate !== undefined) {
       requestContext.setQueryParam(
         "is_template",
-        ObjectSerializer.serialize(isTemplate, "boolean", "")
+        ObjectSerializer.serialize(isTemplate, "boolean", ""),
+        ""
       );
     }
     if (type !== undefined) {
       requestContext.setQueryParam(
         "type",
-        ObjectSerializer.serialize(type, "string", "")
+        ObjectSerializer.serialize(type, "string", ""),
+        ""
       );
     }
 

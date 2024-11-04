@@ -57,49 +57,57 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
     if (metricQuery !== undefined) {
       requestContext.setQueryParam(
         "metric_query",
-        ObjectSerializer.serialize(metricQuery, "string", "")
+        ObjectSerializer.serialize(metricQuery, "string", ""),
+        ""
       );
     }
     if (start !== undefined) {
       requestContext.setQueryParam(
         "start",
-        ObjectSerializer.serialize(start, "number", "int64")
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
       );
     }
     if (end !== undefined) {
       requestContext.setQueryParam(
         "end",
-        ObjectSerializer.serialize(end, "number", "int64")
+        ObjectSerializer.serialize(end, "number", "int64"),
+        ""
       );
     }
     if (eventQuery !== undefined) {
       requestContext.setQueryParam(
         "event_query",
-        ObjectSerializer.serialize(eventQuery, "string", "")
+        ObjectSerializer.serialize(eventQuery, "string", ""),
+        ""
       );
     }
     if (graphDef !== undefined) {
       requestContext.setQueryParam(
         "graph_def",
-        ObjectSerializer.serialize(graphDef, "string", "")
+        ObjectSerializer.serialize(graphDef, "string", ""),
+        ""
       );
     }
     if (title !== undefined) {
       requestContext.setQueryParam(
         "title",
-        ObjectSerializer.serialize(title, "string", "")
+        ObjectSerializer.serialize(title, "string", ""),
+        ""
       );
     }
     if (height !== undefined) {
       requestContext.setQueryParam(
         "height",
-        ObjectSerializer.serialize(height, "number", "int64")
+        ObjectSerializer.serialize(height, "number", "int64"),
+        ""
       );
     }
     if (width !== undefined) {
       requestContext.setQueryParam(
         "width",
-        ObjectSerializer.serialize(width, "number", "int64")
+        ObjectSerializer.serialize(width, "number", "int64"),
+        ""
       );
     }
 

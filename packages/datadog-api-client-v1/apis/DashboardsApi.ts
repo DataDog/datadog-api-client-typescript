@@ -372,13 +372,15 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page_size",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page_number",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
 
@@ -415,25 +417,29 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterShared !== undefined) {
       requestContext.setQueryParam(
         "filter[shared]",
-        ObjectSerializer.serialize(filterShared, "boolean", "")
+        ObjectSerializer.serialize(filterShared, "boolean", ""),
+        ""
       );
     }
     if (filterDeleted !== undefined) {
       requestContext.setQueryParam(
         "filter[deleted]",
-        ObjectSerializer.serialize(filterDeleted, "boolean", "")
+        ObjectSerializer.serialize(filterDeleted, "boolean", ""),
+        ""
       );
     }
     if (count !== undefined) {
       requestContext.setQueryParam(
         "count",
-        ObjectSerializer.serialize(count, "number", "int64")
+        ObjectSerializer.serialize(count, "number", "int64"),
+        ""
       );
     }
     if (start !== undefined) {
       requestContext.setQueryParam(
         "start",
-        ObjectSerializer.serialize(start, "number", "int64")
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
       );
     }
 

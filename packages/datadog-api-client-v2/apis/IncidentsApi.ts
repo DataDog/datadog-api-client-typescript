@@ -470,7 +470,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "Array<IncidentRelatedObject>", "")
+        ObjectSerializer.serialize(include, "Array<IncidentRelatedObject>", ""),
+        "csv"
       );
     }
 
@@ -663,7 +664,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
           include,
           "Array<IncidentAttachmentRelatedObject>",
           ""
-        )
+        ),
+        "csv"
       );
     }
     if (filterAttachmentType !== undefined) {
@@ -673,7 +675,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
           filterAttachmentType,
           "Array<IncidentAttachmentAttachmentType>",
           ""
-        )
+        ),
+        "csv"
       );
     }
 
@@ -755,19 +758,22 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "Array<IncidentRelatedObject>", "")
+        ObjectSerializer.serialize(include, "Array<IncidentRelatedObject>", ""),
+        "csv"
       );
     }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
       );
     }
 
@@ -846,7 +852,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (includeDeleted !== undefined) {
       requestContext.setQueryParam(
         "include_deleted",
-        ObjectSerializer.serialize(includeDeleted, "boolean", "")
+        ObjectSerializer.serialize(includeDeleted, "boolean", ""),
+        ""
       );
     }
 
@@ -894,31 +901,36 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "IncidentRelatedObject", "")
+        ObjectSerializer.serialize(include, "IncidentRelatedObject", ""),
+        ""
       );
     }
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
-        ObjectSerializer.serialize(query, "string", "")
+        ObjectSerializer.serialize(query, "string", ""),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "IncidentSearchSortOrder", "")
+        ObjectSerializer.serialize(sort, "IncidentSearchSortOrder", ""),
+        ""
       );
     }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
       );
     }
 
@@ -972,7 +984,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "Array<IncidentRelatedObject>", "")
+        ObjectSerializer.serialize(include, "Array<IncidentRelatedObject>", ""),
+        "csv"
       );
     }
 
@@ -1043,7 +1056,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
           include,
           "Array<IncidentAttachmentRelatedObject>",
           ""
-        )
+        ),
+        "csv"
       );
     }
 

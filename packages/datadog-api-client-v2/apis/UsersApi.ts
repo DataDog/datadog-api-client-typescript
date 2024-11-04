@@ -267,37 +267,43 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "string", "")
+        ObjectSerializer.serialize(sort, "string", ""),
+        ""
       );
     }
     if (sortDir !== undefined) {
       requestContext.setQueryParam(
         "sort_dir",
-        ObjectSerializer.serialize(sortDir, "QuerySortOrder", "")
+        ObjectSerializer.serialize(sortDir, "QuerySortOrder", ""),
+        ""
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", "")
+        ObjectSerializer.serialize(filter, "string", ""),
+        ""
       );
     }
     if (filterStatus !== undefined) {
       requestContext.setQueryParam(
         "filter[status]",
-        ObjectSerializer.serialize(filterStatus, "string", "")
+        ObjectSerializer.serialize(filterStatus, "string", ""),
+        ""
       );
     }
 

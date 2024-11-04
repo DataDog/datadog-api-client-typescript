@@ -55,7 +55,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     if (ids !== undefined) {
       requestContext.setQueryParam(
         "ids",
-        ObjectSerializer.serialize(ids, "string", "")
+        ObjectSerializer.serialize(ids, "string", ""),
+        ""
       );
     }
 
@@ -140,7 +141,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     if (force !== undefined) {
       requestContext.setQueryParam(
         "force",
-        ObjectSerializer.serialize(force, "string", "")
+        ObjectSerializer.serialize(force, "string", ""),
+        ""
       );
     }
 
@@ -229,7 +231,8 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     if (withConfiguredAlertIds !== undefined) {
       requestContext.setQueryParam(
         "with_configured_alert_ids",
-        ObjectSerializer.serialize(withConfiguredAlertIds, "boolean", "")
+        ObjectSerializer.serialize(withConfiguredAlertIds, "boolean", ""),
+        ""
       );
     }
 
@@ -319,25 +322,29 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     if (fromTs !== undefined) {
       requestContext.setQueryParam(
         "from_ts",
-        ObjectSerializer.serialize(fromTs, "number", "int64")
+        ObjectSerializer.serialize(fromTs, "number", "int64"),
+        ""
       );
     }
     if (toTs !== undefined) {
       requestContext.setQueryParam(
         "to_ts",
-        ObjectSerializer.serialize(toTs, "number", "int64")
+        ObjectSerializer.serialize(toTs, "number", "int64"),
+        ""
       );
     }
     if (target !== undefined) {
       requestContext.setQueryParam(
         "target",
-        ObjectSerializer.serialize(target, "number", "double")
+        ObjectSerializer.serialize(target, "number", "double"),
+        ""
       );
     }
     if (applyCorrection !== undefined) {
       requestContext.setQueryParam(
         "apply_correction",
-        ObjectSerializer.serialize(applyCorrection, "boolean", "")
+        ObjectSerializer.serialize(applyCorrection, "boolean", ""),
+        ""
       );
     }
 
@@ -376,37 +383,43 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     if (ids !== undefined) {
       requestContext.setQueryParam(
         "ids",
-        ObjectSerializer.serialize(ids, "string", "")
+        ObjectSerializer.serialize(ids, "string", ""),
+        ""
       );
     }
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
-        ObjectSerializer.serialize(query, "string", "")
+        ObjectSerializer.serialize(query, "string", ""),
+        ""
       );
     }
     if (tagsQuery !== undefined) {
       requestContext.setQueryParam(
         "tags_query",
-        ObjectSerializer.serialize(tagsQuery, "string", "")
+        ObjectSerializer.serialize(tagsQuery, "string", ""),
+        ""
       );
     }
     if (metricsQuery !== undefined) {
       requestContext.setQueryParam(
         "metrics_query",
-        ObjectSerializer.serialize(metricsQuery, "string", "")
+        ObjectSerializer.serialize(metricsQuery, "string", ""),
+        ""
       );
     }
     if (limit !== undefined) {
       requestContext.setQueryParam(
         "limit",
-        ObjectSerializer.serialize(limit, "number", "int64")
+        ObjectSerializer.serialize(limit, "number", "int64"),
+        ""
       );
     }
     if (offset !== undefined) {
       requestContext.setQueryParam(
         "offset",
-        ObjectSerializer.serialize(offset, "number", "int64")
+        ObjectSerializer.serialize(offset, "number", "int64"),
+        ""
       );
     }
 
@@ -443,25 +456,29 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
-        ObjectSerializer.serialize(query, "string", "")
+        ObjectSerializer.serialize(query, "string", ""),
+        ""
       );
     }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (includeFacets !== undefined) {
       requestContext.setQueryParam(
         "include_facets",
-        ObjectSerializer.serialize(includeFacets, "boolean", "")
+        ObjectSerializer.serialize(includeFacets, "boolean", ""),
+        ""
       );
     }
 

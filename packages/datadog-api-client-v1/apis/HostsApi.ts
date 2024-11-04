@@ -43,7 +43,8 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     if (from !== undefined) {
       requestContext.setQueryParam(
         "from",
-        ObjectSerializer.serialize(from, "number", "int64")
+        ObjectSerializer.serialize(from, "number", "int64"),
+        ""
       );
     }
 
@@ -84,49 +85,57 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", "")
+        ObjectSerializer.serialize(filter, "string", ""),
+        ""
       );
     }
     if (sortField !== undefined) {
       requestContext.setQueryParam(
         "sort_field",
-        ObjectSerializer.serialize(sortField, "string", "")
+        ObjectSerializer.serialize(sortField, "string", ""),
+        ""
       );
     }
     if (sortDir !== undefined) {
       requestContext.setQueryParam(
         "sort_dir",
-        ObjectSerializer.serialize(sortDir, "string", "")
+        ObjectSerializer.serialize(sortDir, "string", ""),
+        ""
       );
     }
     if (start !== undefined) {
       requestContext.setQueryParam(
         "start",
-        ObjectSerializer.serialize(start, "number", "int64")
+        ObjectSerializer.serialize(start, "number", "int64"),
+        ""
       );
     }
     if (count !== undefined) {
       requestContext.setQueryParam(
         "count",
-        ObjectSerializer.serialize(count, "number", "int64")
+        ObjectSerializer.serialize(count, "number", "int64"),
+        ""
       );
     }
     if (from !== undefined) {
       requestContext.setQueryParam(
         "from",
-        ObjectSerializer.serialize(from, "number", "int64")
+        ObjectSerializer.serialize(from, "number", "int64"),
+        ""
       );
     }
     if (includeMutedHostsData !== undefined) {
       requestContext.setQueryParam(
         "include_muted_hosts_data",
-        ObjectSerializer.serialize(includeMutedHostsData, "boolean", "")
+        ObjectSerializer.serialize(includeMutedHostsData, "boolean", ""),
+        ""
       );
     }
     if (includeHostsMetadata !== undefined) {
       requestContext.setQueryParam(
         "include_hosts_metadata",
-        ObjectSerializer.serialize(includeHostsMetadata, "boolean", "")
+        ObjectSerializer.serialize(includeHostsMetadata, "boolean", ""),
+        ""
       );
     }
 
