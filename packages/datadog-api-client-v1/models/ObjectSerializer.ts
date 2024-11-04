@@ -2420,6 +2420,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthOauthClient",
     "SyntheticsBasicAuthOauthROP",
   ],
+  SyntheticsMobileStepParamsValue: ["string", "number"],
   SyntheticsTestRequestPort: ["number", "string"],
   TableWidgetTextFormatReplace: [
     "TableWidgetTextFormatReplaceAll",

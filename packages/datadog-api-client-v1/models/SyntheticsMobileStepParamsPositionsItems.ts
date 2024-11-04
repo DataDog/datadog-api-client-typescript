@@ -38,12 +38,12 @@ export class SyntheticsMobileStepParamsPositionsItems {
     x: {
       baseName: "x",
       type: "number",
-      format: "int64",
+      format: "double",
     },
     y: {
       baseName: "y",
       type: "number",
-      format: "int64",
+      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",

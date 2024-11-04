@@ -3,27 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AWSRelatedAccountAttributes } from "./AWSRelatedAccountAttributes";
-import { AWSRelatedAccountType } from "./AWSRelatedAccountType";
+import { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./BillingDimensionsMappingBodyItemAttributesEndpointsItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS related account.
+ * Mapping of billing dimensions to endpoint keys.
  */
-export class AWSRelatedAccount {
+export class BillingDimensionsMappingBodyItemAttributes {
   /**
-   * Attributes for an AWS related account.
+   * List of supported endpoints with their keys mapped to the billing_dimension.
    */
-  "attributes"?: AWSRelatedAccountAttributes;
+  "endpoints"?: Array<BillingDimensionsMappingBodyItemAttributesEndpointsItems>;
   /**
-   * The AWS account ID.
+   * Label used for the billing dimension in the Plan & Usage charts.
    */
-  "id": string;
+  "inAppLabel"?: string;
   /**
-   * Type of AWS related account.
+   * Month in ISO-8601 format, UTC, and precise to the second: `[YYYY-MM-DDThh:mm:ss]`.
    */
-  "type": AWSRelatedAccountType;
+  "timestamp"?: Date;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,19 +40,18 @@ export class AWSRelatedAccount {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSRelatedAccountAttributes",
+    endpoints: {
+      baseName: "endpoints",
+      type: "Array<BillingDimensionsMappingBodyItemAttributesEndpointsItems>",
     },
-    id: {
-      baseName: "id",
+    inAppLabel: {
+      baseName: "in_app_label",
       type: "string",
-      required: true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSRelatedAccountType",
-      required: true,
+    timestamp: {
+      baseName: "timestamp",
+      type: "Date",
+      format: "date-time",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +63,7 @@ export class AWSRelatedAccount {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSRelatedAccount.attributeTypeMap;
+    return BillingDimensionsMappingBodyItemAttributes.attributeTypeMap;
   }
 
   public constructor() {}

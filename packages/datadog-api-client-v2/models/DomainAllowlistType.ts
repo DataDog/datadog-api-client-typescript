@@ -7,8 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of AWS related account.
+ * Email domain allowlist allowlist type.
  */
 
-export type AWSRelatedAccountType = typeof AWS_ACCOUNT | UnparsedObject;
-export const AWS_ACCOUNT = "aws_account";
+export type DomainAllowlistType = typeof DOMAIN_ALLOWLIST | UnparsedObject;
+export const DOMAIN_ALLOWLIST = "domain_allowlist";

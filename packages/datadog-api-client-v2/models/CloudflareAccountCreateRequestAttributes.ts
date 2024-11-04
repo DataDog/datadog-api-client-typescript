@@ -23,7 +23,7 @@ export class CloudflareAccountCreateRequestAttributes {
    */
   "name": string;
   /**
-   * An allowlist of resources to restrict pulling metrics for.
+   * An allowlist of resources to restrict pulling metrics for including `'web', 'dns', 'lb' (load balancer), 'worker'`.
    */
   "resources"?: Array<string>;
   /**

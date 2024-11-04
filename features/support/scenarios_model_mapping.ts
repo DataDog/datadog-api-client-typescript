@@ -3072,13 +3072,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AwsCURConfigsResponse",
     },
-    "v2.ListAWSRelatedAccounts": {
-        "filterManagementAccountId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "AWSRelatedAccountsResponse",
-    },
     "v2.ListCostAzureUCConfigs": {
         "operationResponseType": "AzureUCConfigsResponse",
     },
@@ -3182,6 +3175,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "date-time",
             },
         "operationResponseType": "UsageApplicationSecurityMonitoringResponse",
+    },
+    "v2.GetBillingDimensionMapping": {
+        "filterMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterView": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "BillingDimensionsMappingResponse",
     },
     "v2.GetCostByOrg": {
         "startMonth": {
@@ -3352,6 +3356,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DashboardListUpdateItemsResponse",
     },
+    "v2.GetDomainAllowlist": {
+        "operationResponseType": "DomainAllowlistResponse",
+    },
+    "v2.PatchDomainAllowlist": {
+        "body": {
+            "type": "DomainAllowlistRequest",
+            "format": "",
+            },
+        "operationResponseType": "DomainAllowlistResponse",
+    },
     "v2.CreateDORADeployment": {
         "body": {
             "type": "DORADeploymentRequest",
@@ -3491,6 +3505,45 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentResponse",
+    },
+    "v2.ListIncidentTypes": {
+        "includeDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTypeListResponse",
+    },
+    "v2.CreateIncidentType": {
+        "body": {
+            "type": "IncidentTypeCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTypeResponse",
+    },
+    "v2.DeleteIncidentType": {
+        "incidentTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetIncidentType": {
+        "incidentTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTypeResponse",
+    },
+    "v2.UpdateIncidentType": {
+        "incidentTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentTypePatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTypeResponse",
     },
     "v2.SearchIncidents": {
         "include": {
@@ -5254,6 +5307,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "RUMEventsResponse",
+    },
+    "v2.ListRumMetrics": {
+        "operationResponseType": "RumMetricsResponse",
+    },
+    "v2.CreateRumMetric": {
+        "body": {
+            "type": "RumMetricCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumMetricResponse",
+    },
+    "v2.DeleteRumMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetRumMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RumMetricResponse",
+    },
+    "v2.UpdateRumMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RumMetricUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumMetricResponse",
     },
     "v2.ListScorecardOutcomes": {
         "pageSize": {

@@ -3,21 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DomainAllowlist } from "./DomainAllowlist";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for an AWS related account.
+ * Request containing the desired email domain allowlist configuration.
  */
-export class AWSRelatedAccountAttributes {
+export class DomainAllowlistRequest {
   /**
-   * Whether or not the AWS account has a Datadog integration.
+   * The email domain allowlist for an org.
    */
-  "hasDatadogIntegration"?: boolean;
-  /**
-   * The name of the AWS account.
-   */
-  "name"?: string;
+  "data": DomainAllowlist;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,13 +32,10 @@ export class AWSRelatedAccountAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    hasDatadogIntegration: {
-      baseName: "has_datadog_integration",
-      type: "boolean",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "DomainAllowlist",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +47,7 @@ export class AWSRelatedAccountAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSRelatedAccountAttributes.attributeTypeMap;
+    return DomainAllowlistRequest.attributeTypeMap;
   }
 
   public constructor() {}

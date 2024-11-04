@@ -10,9 +10,6 @@ import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
 import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
 import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
-import { AWSRelatedAccount } from "./AWSRelatedAccount";
-import { AWSRelatedAccountAttributes } from "./AWSRelatedAccountAttributes";
-import { AWSRelatedAccountsResponse } from "./AWSRelatedAccountsResponse";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
@@ -74,6 +71,10 @@ import { AzureUCConfigPostRequest } from "./AzureUCConfigPostRequest";
 import { AzureUCConfigPostRequestAttributes } from "./AzureUCConfigPostRequestAttributes";
 import { AzureUCConfigsResponse } from "./AzureUCConfigsResponse";
 import { BillConfig } from "./BillConfig";
+import { BillingDimensionsMappingBodyItem } from "./BillingDimensionsMappingBodyItem";
+import { BillingDimensionsMappingBodyItemAttributes } from "./BillingDimensionsMappingBodyItemAttributes";
+import { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./BillingDimensionsMappingBodyItemAttributesEndpointsItems";
+import { BillingDimensionsMappingResponse } from "./BillingDimensionsMappingResponse";
 import { BulkMuteFindingsRequest } from "./BulkMuteFindingsRequest";
 import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
 import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
@@ -297,6 +298,12 @@ import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { DeviceAttributes } from "./DeviceAttributes";
 import { DeviceAttributesInterfaceStatuses } from "./DeviceAttributesInterfaceStatuses";
 import { DevicesListData } from "./DevicesListData";
+import { DomainAllowlist } from "./DomainAllowlist";
+import { DomainAllowlistAttributes } from "./DomainAllowlistAttributes";
+import { DomainAllowlistRequest } from "./DomainAllowlistRequest";
+import { DomainAllowlistResponse } from "./DomainAllowlistResponse";
+import { DomainAllowlistResponseData } from "./DomainAllowlistResponseData";
+import { DomainAllowlistResponseDataAttributes } from "./DomainAllowlistResponseDataAttributes";
 import { DowntimeCreateRequest } from "./DowntimeCreateRequest";
 import { DowntimeCreateRequestAttributes } from "./DowntimeCreateRequestAttributes";
 import { DowntimeCreateRequestData } from "./DowntimeCreateRequestData";
@@ -532,6 +539,15 @@ import { IncidentTodoPatchRequest } from "./IncidentTodoPatchRequest";
 import { IncidentTodoRelationships } from "./IncidentTodoRelationships";
 import { IncidentTodoResponse } from "./IncidentTodoResponse";
 import { IncidentTodoResponseData } from "./IncidentTodoResponseData";
+import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
+import { IncidentTypeCreateData } from "./IncidentTypeCreateData";
+import { IncidentTypeCreateRequest } from "./IncidentTypeCreateRequest";
+import { IncidentTypeListResponse } from "./IncidentTypeListResponse";
+import { IncidentTypeObject } from "./IncidentTypeObject";
+import { IncidentTypePatchData } from "./IncidentTypePatchData";
+import { IncidentTypePatchRequest } from "./IncidentTypePatchRequest";
+import { IncidentTypeResponse } from "./IncidentTypeResponse";
+import { IncidentTypeUpdateAttributes } from "./IncidentTypeUpdateAttributes";
 import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
 import { IncidentUpdateData } from "./IncidentUpdateData";
 import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
@@ -929,6 +945,25 @@ import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
 import { RuleAttributes } from "./RuleAttributes";
 import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
+import { RumMetricCompute } from "./RumMetricCompute";
+import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
+import { RumMetricCreateData } from "./RumMetricCreateData";
+import { RumMetricCreateRequest } from "./RumMetricCreateRequest";
+import { RumMetricFilter } from "./RumMetricFilter";
+import { RumMetricGroupBy } from "./RumMetricGroupBy";
+import { RumMetricResponse } from "./RumMetricResponse";
+import { RumMetricResponseAttributes } from "./RumMetricResponseAttributes";
+import { RumMetricResponseCompute } from "./RumMetricResponseCompute";
+import { RumMetricResponseData } from "./RumMetricResponseData";
+import { RumMetricResponseFilter } from "./RumMetricResponseFilter";
+import { RumMetricResponseGroupBy } from "./RumMetricResponseGroupBy";
+import { RumMetricResponseUniqueness } from "./RumMetricResponseUniqueness";
+import { RumMetricUniqueness } from "./RumMetricUniqueness";
+import { RumMetricUpdateAttributes } from "./RumMetricUpdateAttributes";
+import { RumMetricUpdateCompute } from "./RumMetricUpdateCompute";
+import { RumMetricUpdateData } from "./RumMetricUpdateData";
+import { RumMetricUpdateRequest } from "./RumMetricUpdateRequest";
+import { RumMetricsResponse } from "./RumMetricsResponse";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { SLOReportPostResponse } from "./SLOReportPostResponse";
@@ -1292,7 +1327,6 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
-  AWSRelatedAccountType: ["aws_account"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   ApplicationKeysSort: [
@@ -1329,6 +1363,10 @@ const enumsMap: { [key: string]: any[] } = {
   AzureUCConfigPairType: ["azure_uc_configs"],
   AzureUCConfigPatchRequestType: ["azure_uc_config_patch_request"],
   AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
+  BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus: [
+    "OK",
+    "NOT_FOUND",
+  ],
   CIAppAggregateSortType: ["alphabetical", "measure"],
   CIAppAggregationFunction: [
     "count",
@@ -1422,6 +1460,7 @@ const enumsMap: { [key: string]: any[] } = {
     "host_timeboard",
   ],
   DetailedFindingType: ["detailed_finding"],
+  DomainAllowlistType: ["domain_allowlist"],
   DowntimeIncludedMonitorType: ["monitors"],
   DowntimeNotifyEndStateActions: ["canceled", "expired"],
   DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
@@ -1525,6 +1564,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentTodoAnonymousAssigneeSource: ["slack", "microsoft_teams"],
   IncidentTodoType: ["incident_todos"],
   IncidentType: ["incidents"],
+  IncidentTypeType: ["incident_types"],
   IncidentUserDefinedFieldType: ["user_defined_field"],
   IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
@@ -1667,6 +1707,18 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RolesType: ["roles"],
   RuleType: ["rule"],
+  RumMetricComputeAggregationType: ["count", "distribution"],
+  RumMetricEventType: [
+    "session",
+    "view",
+    "action",
+    "error",
+    "resource",
+    "long_task",
+    "vital",
+  ],
+  RumMetricType: ["rum_metrics"],
+  RumMetricUniquenessWhen: ["match", "end"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   SLOReportInterval: ["weekly", "monthly"],
   SLOReportStatus: [
@@ -1912,9 +1964,6 @@ const typeMap: { [index: string]: any } = {
   APIKeysResponse: APIKeysResponse,
   APIKeysResponseMeta: APIKeysResponseMeta,
   APIKeysResponseMetaPage: APIKeysResponseMetaPage,
-  AWSRelatedAccount: AWSRelatedAccount,
-  AWSRelatedAccountAttributes: AWSRelatedAccountAttributes,
-  AWSRelatedAccountsResponse: AWSRelatedAccountsResponse,
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
@@ -1976,6 +2025,12 @@ const typeMap: { [index: string]: any } = {
   AzureUCConfigPostRequestAttributes: AzureUCConfigPostRequestAttributes,
   AzureUCConfigsResponse: AzureUCConfigsResponse,
   BillConfig: BillConfig,
+  BillingDimensionsMappingBodyItem: BillingDimensionsMappingBodyItem,
+  BillingDimensionsMappingBodyItemAttributes:
+    BillingDimensionsMappingBodyItemAttributes,
+  BillingDimensionsMappingBodyItemAttributesEndpointsItems:
+    BillingDimensionsMappingBodyItemAttributesEndpointsItems,
+  BillingDimensionsMappingResponse: BillingDimensionsMappingResponse,
   BulkMuteFindingsRequest: BulkMuteFindingsRequest,
   BulkMuteFindingsRequestAttributes: BulkMuteFindingsRequestAttributes,
   BulkMuteFindingsRequestData: BulkMuteFindingsRequestData,
@@ -2237,6 +2292,12 @@ const typeMap: { [index: string]: any } = {
   DeviceAttributes: DeviceAttributes,
   DeviceAttributesInterfaceStatuses: DeviceAttributesInterfaceStatuses,
   DevicesListData: DevicesListData,
+  DomainAllowlist: DomainAllowlist,
+  DomainAllowlistAttributes: DomainAllowlistAttributes,
+  DomainAllowlistRequest: DomainAllowlistRequest,
+  DomainAllowlistResponse: DomainAllowlistResponse,
+  DomainAllowlistResponseData: DomainAllowlistResponseData,
+  DomainAllowlistResponseDataAttributes: DomainAllowlistResponseDataAttributes,
   DowntimeCreateRequest: DowntimeCreateRequest,
   DowntimeCreateRequestAttributes: DowntimeCreateRequestAttributes,
   DowntimeCreateRequestData: DowntimeCreateRequestData,
@@ -2496,6 +2557,15 @@ const typeMap: { [index: string]: any } = {
   IncidentTodoRelationships: IncidentTodoRelationships,
   IncidentTodoResponse: IncidentTodoResponse,
   IncidentTodoResponseData: IncidentTodoResponseData,
+  IncidentTypeAttributes: IncidentTypeAttributes,
+  IncidentTypeCreateData: IncidentTypeCreateData,
+  IncidentTypeCreateRequest: IncidentTypeCreateRequest,
+  IncidentTypeListResponse: IncidentTypeListResponse,
+  IncidentTypeObject: IncidentTypeObject,
+  IncidentTypePatchData: IncidentTypePatchData,
+  IncidentTypePatchRequest: IncidentTypePatchRequest,
+  IncidentTypeResponse: IncidentTypeResponse,
+  IncidentTypeUpdateAttributes: IncidentTypeUpdateAttributes,
   IncidentUpdateAttributes: IncidentUpdateAttributes,
   IncidentUpdateData: IncidentUpdateData,
   IncidentUpdateRelationships: IncidentUpdateRelationships,
@@ -2922,6 +2992,25 @@ const typeMap: { [index: string]: any } = {
   RolesResponse: RolesResponse,
   RuleAttributes: RuleAttributes,
   RuleOutcomeRelationships: RuleOutcomeRelationships,
+  RumMetricCompute: RumMetricCompute,
+  RumMetricCreateAttributes: RumMetricCreateAttributes,
+  RumMetricCreateData: RumMetricCreateData,
+  RumMetricCreateRequest: RumMetricCreateRequest,
+  RumMetricFilter: RumMetricFilter,
+  RumMetricGroupBy: RumMetricGroupBy,
+  RumMetricResponse: RumMetricResponse,
+  RumMetricResponseAttributes: RumMetricResponseAttributes,
+  RumMetricResponseCompute: RumMetricResponseCompute,
+  RumMetricResponseData: RumMetricResponseData,
+  RumMetricResponseFilter: RumMetricResponseFilter,
+  RumMetricResponseGroupBy: RumMetricResponseGroupBy,
+  RumMetricResponseUniqueness: RumMetricResponseUniqueness,
+  RumMetricUniqueness: RumMetricUniqueness,
+  RumMetricUpdateAttributes: RumMetricUpdateAttributes,
+  RumMetricUpdateCompute: RumMetricUpdateCompute,
+  RumMetricUpdateData: RumMetricUpdateData,
+  RumMetricUpdateRequest: RumMetricUpdateRequest,
+  RumMetricsResponse: RumMetricsResponse,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
   SLOReportPostResponse: SLOReportPostResponse,

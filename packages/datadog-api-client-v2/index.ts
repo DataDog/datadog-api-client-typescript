@@ -81,7 +81,6 @@ export {
   CloudCostManagementApiDeleteCostAzureUCConfigRequest,
   CloudCostManagementApiDeleteCustomCostsFileRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
-  CloudCostManagementApiListAWSRelatedAccountsRequest,
   CloudCostManagementApiUpdateCostAWSCURConfigRequest,
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApiUploadCustomCostsFileRequest,
@@ -132,6 +131,11 @@ export {
   DashboardListsApiUpdateDashboardListItemsRequest,
   DashboardListsApi,
 } from "./apis/DashboardListsApi";
+
+export {
+  DomainAllowlistApiPatchDomainAllowlistRequest,
+  DomainAllowlistApi,
+} from "./apis/DomainAllowlistApi";
 
 export {
   DowntimesApiCancelDowntimeRequest,
@@ -197,21 +201,26 @@ export {
   IncidentsApiCreateIncidentRequest,
   IncidentsApiCreateIncidentIntegrationRequest,
   IncidentsApiCreateIncidentTodoRequest,
+  IncidentsApiCreateIncidentTypeRequest,
   IncidentsApiDeleteIncidentRequest,
   IncidentsApiDeleteIncidentIntegrationRequest,
   IncidentsApiDeleteIncidentTodoRequest,
+  IncidentsApiDeleteIncidentTypeRequest,
   IncidentsApiGetIncidentRequest,
   IncidentsApiGetIncidentIntegrationRequest,
   IncidentsApiGetIncidentTodoRequest,
+  IncidentsApiGetIncidentTypeRequest,
   IncidentsApiListIncidentAttachmentsRequest,
   IncidentsApiListIncidentIntegrationsRequest,
   IncidentsApiListIncidentTodosRequest,
+  IncidentsApiListIncidentTypesRequest,
   IncidentsApiListIncidentsRequest,
   IncidentsApiSearchIncidentsRequest,
   IncidentsApiUpdateIncidentRequest,
   IncidentsApiUpdateIncidentAttachmentsRequest,
   IncidentsApiUpdateIncidentIntegrationRequest,
   IncidentsApiUpdateIncidentTodoRequest,
+  IncidentsApiUpdateIncidentTypeRequest,
   IncidentsApi,
 } from "./apis/IncidentsApi";
 
@@ -387,6 +396,14 @@ export {
 } from "./apis/RolesApi";
 
 export {
+  RumMetricsApiCreateRumMetricRequest,
+  RumMetricsApiDeleteRumMetricRequest,
+  RumMetricsApiGetRumMetricRequest,
+  RumMetricsApiUpdateRumMetricRequest,
+  RumMetricsApi,
+} from "./apis/RumMetricsApi";
+
+export {
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
@@ -512,6 +529,7 @@ export {
 } from "./apis/TeamsApi";
 
 export {
+  UsageMeteringApiGetBillingDimensionMappingRequest,
   UsageMeteringApiGetCostByOrgRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
   UsageMeteringApiGetHistoricalCostByOrgRequest,
@@ -626,10 +644,6 @@ export { AwsCURConfigPostRequestType } from "./models/AwsCURConfigPostRequestTyp
 export { AwsCURConfigResponse } from "./models/AwsCURConfigResponse";
 export { AwsCURConfigsResponse } from "./models/AwsCURConfigsResponse";
 export { AwsCURConfigType } from "./models/AwsCURConfigType";
-export { AWSRelatedAccount } from "./models/AWSRelatedAccount";
-export { AWSRelatedAccountAttributes } from "./models/AWSRelatedAccountAttributes";
-export { AWSRelatedAccountsResponse } from "./models/AWSRelatedAccountsResponse";
-export { AWSRelatedAccountType } from "./models/AWSRelatedAccountType";
 export { AzureUCConfig } from "./models/AzureUCConfig";
 export { AzureUCConfigPair } from "./models/AzureUCConfigPair";
 export { AzureUCConfigPairAttributes } from "./models/AzureUCConfigPairAttributes";
@@ -645,6 +659,11 @@ export { AzureUCConfigPostRequestAttributes } from "./models/AzureUCConfigPostRe
 export { AzureUCConfigPostRequestType } from "./models/AzureUCConfigPostRequestType";
 export { AzureUCConfigsResponse } from "./models/AzureUCConfigsResponse";
 export { BillConfig } from "./models/BillConfig";
+export { BillingDimensionsMappingBodyItem } from "./models/BillingDimensionsMappingBodyItem";
+export { BillingDimensionsMappingBodyItemAttributes } from "./models/BillingDimensionsMappingBodyItemAttributes";
+export { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./models/BillingDimensionsMappingBodyItemAttributesEndpointsItems";
+export { BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus } from "./models/BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus";
+export { BillingDimensionsMappingResponse } from "./models/BillingDimensionsMappingResponse";
 export { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
 export { BulkMuteFindingsRequestAttributes } from "./models/BulkMuteFindingsRequestAttributes";
 export { BulkMuteFindingsRequestData } from "./models/BulkMuteFindingsRequestData";
@@ -922,6 +941,13 @@ export { DetailedFindingType } from "./models/DetailedFindingType";
 export { DeviceAttributes } from "./models/DeviceAttributes";
 export { DeviceAttributesInterfaceStatuses } from "./models/DeviceAttributesInterfaceStatuses";
 export { DevicesListData } from "./models/DevicesListData";
+export { DomainAllowlist } from "./models/DomainAllowlist";
+export { DomainAllowlistAttributes } from "./models/DomainAllowlistAttributes";
+export { DomainAllowlistRequest } from "./models/DomainAllowlistRequest";
+export { DomainAllowlistResponse } from "./models/DomainAllowlistResponse";
+export { DomainAllowlistResponseData } from "./models/DomainAllowlistResponseData";
+export { DomainAllowlistResponseDataAttributes } from "./models/DomainAllowlistResponseDataAttributes";
+export { DomainAllowlistType } from "./models/DomainAllowlistType";
 export { DORADeploymentRequest } from "./models/DORADeploymentRequest";
 export { DORADeploymentRequestAttributes } from "./models/DORADeploymentRequestAttributes";
 export { DORADeploymentRequestData } from "./models/DORADeploymentRequestData";
@@ -1231,6 +1257,16 @@ export { IncidentTodoResponseData } from "./models/IncidentTodoResponseData";
 export { IncidentTodoResponseIncludedItem } from "./models/IncidentTodoResponseIncludedItem";
 export { IncidentTodoType } from "./models/IncidentTodoType";
 export { IncidentType } from "./models/IncidentType";
+export { IncidentTypeAttributes } from "./models/IncidentTypeAttributes";
+export { IncidentTypeCreateData } from "./models/IncidentTypeCreateData";
+export { IncidentTypeCreateRequest } from "./models/IncidentTypeCreateRequest";
+export { IncidentTypeListResponse } from "./models/IncidentTypeListResponse";
+export { IncidentTypeObject } from "./models/IncidentTypeObject";
+export { IncidentTypePatchData } from "./models/IncidentTypePatchData";
+export { IncidentTypePatchRequest } from "./models/IncidentTypePatchRequest";
+export { IncidentTypeResponse } from "./models/IncidentTypeResponse";
+export { IncidentTypeType } from "./models/IncidentTypeType";
+export { IncidentTypeUpdateAttributes } from "./models/IncidentTypeUpdateAttributes";
 export { IncidentUpdateAttributes } from "./models/IncidentUpdateAttributes";
 export { IncidentUpdateData } from "./models/IncidentUpdateData";
 export { IncidentUpdateRelationships } from "./models/IncidentUpdateRelationships";
@@ -1718,6 +1754,29 @@ export { RUMGroupBy } from "./models/RUMGroupBy";
 export { RUMGroupByHistogram } from "./models/RUMGroupByHistogram";
 export { RUMGroupByMissing } from "./models/RUMGroupByMissing";
 export { RUMGroupByTotal } from "./models/RUMGroupByTotal";
+export { RumMetricCompute } from "./models/RumMetricCompute";
+export { RumMetricComputeAggregationType } from "./models/RumMetricComputeAggregationType";
+export { RumMetricCreateAttributes } from "./models/RumMetricCreateAttributes";
+export { RumMetricCreateData } from "./models/RumMetricCreateData";
+export { RumMetricCreateRequest } from "./models/RumMetricCreateRequest";
+export { RumMetricEventType } from "./models/RumMetricEventType";
+export { RumMetricFilter } from "./models/RumMetricFilter";
+export { RumMetricGroupBy } from "./models/RumMetricGroupBy";
+export { RumMetricResponse } from "./models/RumMetricResponse";
+export { RumMetricResponseAttributes } from "./models/RumMetricResponseAttributes";
+export { RumMetricResponseCompute } from "./models/RumMetricResponseCompute";
+export { RumMetricResponseData } from "./models/RumMetricResponseData";
+export { RumMetricResponseFilter } from "./models/RumMetricResponseFilter";
+export { RumMetricResponseGroupBy } from "./models/RumMetricResponseGroupBy";
+export { RumMetricResponseUniqueness } from "./models/RumMetricResponseUniqueness";
+export { RumMetricsResponse } from "./models/RumMetricsResponse";
+export { RumMetricType } from "./models/RumMetricType";
+export { RumMetricUniqueness } from "./models/RumMetricUniqueness";
+export { RumMetricUniquenessWhen } from "./models/RumMetricUniquenessWhen";
+export { RumMetricUpdateAttributes } from "./models/RumMetricUpdateAttributes";
+export { RumMetricUpdateCompute } from "./models/RumMetricUpdateCompute";
+export { RumMetricUpdateData } from "./models/RumMetricUpdateData";
+export { RumMetricUpdateRequest } from "./models/RumMetricUpdateRequest";
 export { RUMQueryFilter } from "./models/RUMQueryFilter";
 export { RUMQueryOptions } from "./models/RUMQueryOptions";
 export { RUMQueryPageOptions } from "./models/RUMQueryPageOptions";

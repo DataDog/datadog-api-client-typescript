@@ -967,6 +967,7 @@ export { SyntheticsMobileStepParamsElementUserLocator } from "./models/Synthetic
 export { SyntheticsMobileStepParamsElementUserLocatorValuesItems } from "./models/SyntheticsMobileStepParamsElementUserLocatorValuesItems";
 export { SyntheticsMobileStepParamsElementUserLocatorValuesItemsType } from "./models/SyntheticsMobileStepParamsElementUserLocatorValuesItemsType";
 export { SyntheticsMobileStepParamsPositionsItems } from "./models/SyntheticsMobileStepParamsPositionsItems";
+export { SyntheticsMobileStepParamsValue } from "./models/SyntheticsMobileStepParamsValue";
 export { SyntheticsMobileStepParamsVariable } from "./models/SyntheticsMobileStepParamsVariable";
 export { SyntheticsMobileStepType } from "./models/SyntheticsMobileStepType";
 export { SyntheticsMobileTest } from "./models/SyntheticsMobileTest";
