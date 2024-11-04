@@ -46,37 +46,43 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
     if (filterQuery !== undefined) {
       requestContext.setQueryParam(
         "filter[query]",
-        ObjectSerializer.serialize(filterQuery, "string", "")
+        ObjectSerializer.serialize(filterQuery, "string", ""),
+        ""
       );
     }
     if (filterFrom !== undefined) {
       requestContext.setQueryParam(
         "filter[from]",
-        ObjectSerializer.serialize(filterFrom, "Date", "date-time")
+        ObjectSerializer.serialize(filterFrom, "Date", "date-time"),
+        ""
       );
     }
     if (filterTo !== undefined) {
       requestContext.setQueryParam(
         "filter[to]",
-        ObjectSerializer.serialize(filterTo, "Date", "date-time")
+        ObjectSerializer.serialize(filterTo, "Date", "date-time"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "AuditLogsSort", "")
+        ObjectSerializer.serialize(sort, "AuditLogsSort", ""),
+        ""
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", "")
+        ObjectSerializer.serialize(pageCursor, "string", ""),
+        ""
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int32")
+        ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        ""
       );
     }
 

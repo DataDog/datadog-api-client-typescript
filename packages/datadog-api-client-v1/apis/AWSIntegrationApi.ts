@@ -364,19 +364,22 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     if (accountId !== undefined) {
       requestContext.setQueryParam(
         "account_id",
-        ObjectSerializer.serialize(accountId, "string", "")
+        ObjectSerializer.serialize(accountId, "string", ""),
+        ""
       );
     }
     if (roleName !== undefined) {
       requestContext.setQueryParam(
         "role_name",
-        ObjectSerializer.serialize(roleName, "string", "")
+        ObjectSerializer.serialize(roleName, "string", ""),
+        ""
       );
     }
     if (accessKeyId !== undefined) {
       requestContext.setQueryParam(
         "access_key_id",
-        ObjectSerializer.serialize(accessKeyId, "string", "")
+        ObjectSerializer.serialize(accessKeyId, "string", ""),
+        ""
       );
     }
 
@@ -438,7 +441,8 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     if (accountId !== undefined) {
       requestContext.setQueryParam(
         "account_id",
-        ObjectSerializer.serialize(accountId, "string", "")
+        ObjectSerializer.serialize(accountId, "string", ""),
+        ""
       );
     }
 
@@ -479,19 +483,22 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     if (accountId !== undefined) {
       requestContext.setQueryParam(
         "account_id",
-        ObjectSerializer.serialize(accountId, "string", "")
+        ObjectSerializer.serialize(accountId, "string", ""),
+        ""
       );
     }
     if (roleName !== undefined) {
       requestContext.setQueryParam(
         "role_name",
-        ObjectSerializer.serialize(roleName, "string", "")
+        ObjectSerializer.serialize(roleName, "string", ""),
+        ""
       );
     }
     if (accessKeyId !== undefined) {
       requestContext.setQueryParam(
         "access_key_id",
-        ObjectSerializer.serialize(accessKeyId, "string", "")
+        ObjectSerializer.serialize(accessKeyId, "string", ""),
+        ""
       );
     }
 

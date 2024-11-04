@@ -195,13 +195,15 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     if (currentOnly !== undefined) {
       requestContext.setQueryParam(
         "current_only",
-        ObjectSerializer.serialize(currentOnly, "boolean", "")
+        ObjectSerializer.serialize(currentOnly, "boolean", ""),
+        ""
       );
     }
     if (withCreator !== undefined) {
       requestContext.setQueryParam(
         "with_creator",
-        ObjectSerializer.serialize(withCreator, "boolean", "")
+        ObjectSerializer.serialize(withCreator, "boolean", ""),
+        ""
       );
     }
 

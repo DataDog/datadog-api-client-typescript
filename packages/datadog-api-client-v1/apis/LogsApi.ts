@@ -93,7 +93,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     if (ddtags !== undefined) {
       requestContext.setQueryParam(
         "ddtags",
-        ObjectSerializer.serialize(ddtags, "string", "")
+        ObjectSerializer.serialize(ddtags, "string", ""),
+        ""
       );
     }
 

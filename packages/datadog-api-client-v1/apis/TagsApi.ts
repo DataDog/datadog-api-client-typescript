@@ -56,7 +56,8 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     if (source !== undefined) {
       requestContext.setQueryParam(
         "source",
-        ObjectSerializer.serialize(source, "string", "")
+        ObjectSerializer.serialize(source, "string", ""),
+        ""
       );
     }
 
@@ -109,7 +110,8 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     if (source !== undefined) {
       requestContext.setQueryParam(
         "source",
-        ObjectSerializer.serialize(source, "string", "")
+        ObjectSerializer.serialize(source, "string", ""),
+        ""
       );
     }
 
@@ -151,7 +153,8 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     if (source !== undefined) {
       requestContext.setQueryParam(
         "source",
-        ObjectSerializer.serialize(source, "string", "")
+        ObjectSerializer.serialize(source, "string", ""),
+        ""
       );
     }
 
@@ -184,7 +187,8 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     if (source !== undefined) {
       requestContext.setQueryParam(
         "source",
-        ObjectSerializer.serialize(source, "string", "")
+        ObjectSerializer.serialize(source, "string", ""),
+        ""
       );
     }
 
@@ -233,7 +237,8 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     if (source !== undefined) {
       requestContext.setQueryParam(
         "source",
-        ObjectSerializer.serialize(source, "string", "")
+        ObjectSerializer.serialize(source, "string", ""),
+        ""
       );
     }
 

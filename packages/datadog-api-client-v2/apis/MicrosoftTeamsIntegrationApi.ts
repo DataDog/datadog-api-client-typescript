@@ -206,13 +206,15 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     if (tenantId !== undefined) {
       requestContext.setQueryParam(
         "tenant_id",
-        ObjectSerializer.serialize(tenantId, "string", "")
+        ObjectSerializer.serialize(tenantId, "string", ""),
+        ""
       );
     }
     if (name !== undefined) {
       requestContext.setQueryParam(
         "name",
-        ObjectSerializer.serialize(name, "string", "")
+        ObjectSerializer.serialize(name, "string", ""),
+        ""
       );
     }
 

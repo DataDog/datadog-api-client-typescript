@@ -250,37 +250,43 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "ApplicationKeysSort", "")
+        ObjectSerializer.serialize(sort, "ApplicationKeysSort", ""),
+        ""
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", "")
+        ObjectSerializer.serialize(filter, "string", ""),
+        ""
       );
     }
     if (filterCreatedAtStart !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][start]",
-        ObjectSerializer.serialize(filterCreatedAtStart, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtStart, "string", ""),
+        ""
       );
     }
     if (filterCreatedAtEnd !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][end]",
-        ObjectSerializer.serialize(filterCreatedAtEnd, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtEnd, "string", ""),
+        ""
       );
     }
 
