@@ -555,11 +555,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'queryScalarData'");
-    if (!_config.unstableOperations["v2.queryScalarData"]) {
-      throw new Error("Unstable operation 'queryScalarData' is disabled");
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "queryScalarData");
@@ -601,11 +596,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'queryTimeseriesData'");
-    if (!_config.unstableOperations["v2.queryTimeseriesData"]) {
-      throw new Error("Unstable operation 'queryTimeseriesData' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
