@@ -7,14 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Determines whether or not the batch has passed, failed, or is in progress.
+ * Determines whether the batch has passed, failed, or is in progress.
  */
 
-export type SyntheticsStatus =
+export type SyntheticsBatchStatus =
   | typeof PASSED
-  | typeof skipped
-  | typeof failed
+  | typeof SKIPPED
+  | typeof FAILED
   | UnparsedObject;
 export const PASSED = "passed";
-export const skipped = "skipped";
-export const failed = "failed";
+export const SKIPPED = "skipped";
+export const FAILED = "failed";
