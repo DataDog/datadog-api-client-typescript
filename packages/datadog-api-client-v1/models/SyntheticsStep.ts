@@ -16,6 +16,14 @@ export class SyntheticsStep {
    */
   "allowFailure"?: boolean;
   /**
+   * A boolean set to always execute this step even if the previous step failed or was skipped.
+   */
+  "alwaysExecute"?: boolean;
+  /**
+   * A boolean set to exit the test if the step succeeds.
+   */
+  "exitIfSucceed"?: boolean;
+  /**
    * A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
    */
   "isCritical"?: boolean;
@@ -24,7 +32,7 @@ export class SyntheticsStep {
    */
   "name"?: string;
   /**
-   * A boolean set to not take a screenshot for the step.
+   * A boolean set to skip taking a screenshot for the step.
    */
   "noScreenshot"?: boolean;
   /**
@@ -58,6 +66,14 @@ export class SyntheticsStep {
   static readonly attributeTypeMap: AttributeTypeMap = {
     allowFailure: {
       baseName: "allowFailure",
+      type: "boolean",
+    },
+    alwaysExecute: {
+      baseName: "alwaysExecute",
+      type: "boolean",
+    },
+    exitIfSucceed: {
+      baseName: "exitIfSucceed",
       type: "boolean",
     },
     isCritical: {
