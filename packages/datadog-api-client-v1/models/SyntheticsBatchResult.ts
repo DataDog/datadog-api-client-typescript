@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SyntheticsBatchStatus } from "./SyntheticsBatchStatus";
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
-import { SyntheticsStatus } from "./SyntheticsStatus";
 import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
 
@@ -39,9 +39,9 @@ export class SyntheticsBatchResult {
    */
   "retries"?: number;
   /**
-   * Determines whether or not the batch has passed, failed, or is in progress.
+   * Determines whether the batch has passed, failed, or is in progress.
    */
-  "status"?: SyntheticsStatus;
+  "status"?: SyntheticsBatchStatus;
   /**
    * Name of the test.
    */
@@ -99,7 +99,7 @@ export class SyntheticsBatchResult {
     },
     status: {
       baseName: "status",
-      type: "SyntheticsStatus",
+      type: "SyntheticsBatchStatus",
     },
     testName: {
       baseName: "test_name",

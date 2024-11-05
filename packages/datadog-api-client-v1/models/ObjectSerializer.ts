@@ -1277,6 +1277,7 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsBasicAuthOauthTokenApiAuthentication: ["header", "body"],
   SyntheticsBasicAuthSigv4Type: ["sigv4"],
   SyntheticsBasicAuthWebType: ["web"],
+  SyntheticsBatchStatus: ["passed", "skipped", "failed"],
   SyntheticsBrowserErrorType: ["network", "js"],
   SyntheticsBrowserTestFailureCode: [
     "API_REQUEST_FAILURE",
@@ -1405,7 +1406,6 @@ const enumsMap: { [key: string]: any[] } = {
     "test",
   ],
   SyntheticsPlayingTab: [-1, 0, 1, 2, 3],
-  SyntheticsStatus: ["passed", "skipped", "failed"],
   SyntheticsStepType: [
     "assertCurrentUrl",
     "assertElementAttribute",

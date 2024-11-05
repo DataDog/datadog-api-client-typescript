@@ -4,8 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsBatchResult } from "./SyntheticsBatchResult";
+import { SyntheticsBatchStatus } from "./SyntheticsBatchStatus";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
-import { SyntheticsStatus } from "./SyntheticsStatus";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -22,9 +22,9 @@ export class SyntheticsBatchDetailsData {
    */
   "results"?: Array<SyntheticsBatchResult>;
   /**
-   * Determines whether or not the batch has passed, failed, or is in progress.
+   * Determines whether the batch has passed, failed, or is in progress.
    */
-  "status"?: SyntheticsStatus;
+  "status"?: SyntheticsBatchStatus;
 
   /**
    * A container for additional, undeclared properties.
@@ -52,7 +52,7 @@ export class SyntheticsBatchDetailsData {
     },
     status: {
       baseName: "status",
-      type: "SyntheticsStatus",
+      type: "SyntheticsBatchStatus",
     },
     additionalProperties: {
       baseName: "additionalProperties",

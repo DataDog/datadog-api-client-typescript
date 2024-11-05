@@ -909,6 +909,7 @@ export { SyntheticsBasicAuthWebType } from "./models/SyntheticsBasicAuthWebType"
 export { SyntheticsBatchDetails } from "./models/SyntheticsBatchDetails";
 export { SyntheticsBatchDetailsData } from "./models/SyntheticsBatchDetailsData";
 export { SyntheticsBatchResult } from "./models/SyntheticsBatchResult";
+export { SyntheticsBatchStatus } from "./models/SyntheticsBatchStatus";
 export { SyntheticsBrowserError } from "./models/SyntheticsBrowserError";
 export { SyntheticsBrowserErrorType } from "./models/SyntheticsBrowserErrorType";
 export { SyntheticsBrowserTest } from "./models/SyntheticsBrowserTest";
@@ -991,7 +992,6 @@ export { SyntheticsPrivateLocationSecretsConfigDecryption } from "./models/Synth
 export { SyntheticsSSLCertificate } from "./models/SyntheticsSSLCertificate";
 export { SyntheticsSSLCertificateIssuer } from "./models/SyntheticsSSLCertificateIssuer";
 export { SyntheticsSSLCertificateSubject } from "./models/SyntheticsSSLCertificateSubject";
-export { SyntheticsStatus } from "./models/SyntheticsStatus";
 export { SyntheticsStep } from "./models/SyntheticsStep";
 export { SyntheticsStepDetail } from "./models/SyntheticsStepDetail";
 export { SyntheticsStepDetailWarning } from "./models/SyntheticsStepDetailWarning";
