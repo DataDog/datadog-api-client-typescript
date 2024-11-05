@@ -1110,6 +1110,7 @@ export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
+export { GCPMetricNamespaceConfig } from "./models/GCPMetricNamespaceConfig";
 export { GCPServiceAccountMeta } from "./models/GCPServiceAccountMeta";
 export { GCPServiceAccountType } from "./models/GCPServiceAccountType";
 export { GCPSTSDelegateAccount } from "./models/GCPSTSDelegateAccount";
