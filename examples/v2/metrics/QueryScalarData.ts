@@ -5,7 +5,6 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.queryScalarData"] = true;
 const apiInstance = new v2.MetricsApi(configuration);
 
 const params: v2.MetricsApiQueryScalarDataRequest = {
