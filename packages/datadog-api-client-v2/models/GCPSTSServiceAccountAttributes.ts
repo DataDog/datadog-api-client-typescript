@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -43,6 +44,10 @@ export class GCPSTSServiceAccountAttributes {
    * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.
    */
   "isSecurityCommandCenterEnabled"?: boolean;
+  /**
+   * Configurations for GCP metric namespaces.
+   */
+  "metricNamespaceConfigs"?: Array<GCPMetricNamespaceConfig>;
   /**
    * When enabled, Datadog scans for all resources in your GCP environment.
    */
@@ -95,6 +100,10 @@ export class GCPSTSServiceAccountAttributes {
     isSecurityCommandCenterEnabled: {
       baseName: "is_security_command_center_enabled",
       type: "boolean",
+    },
+    metricNamespaceConfigs: {
+      baseName: "metric_namespace_configs",
+      type: "Array<GCPMetricNamespaceConfig>",
     },
     resourceCollectionEnabled: {
       baseName: "resource_collection_enabled",

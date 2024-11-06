@@ -423,6 +423,7 @@ import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
+import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
 import { GCPSTSDelegateAccount } from "./GCPSTSDelegateAccount";
 import { GCPSTSDelegateAccountAttributes } from "./GCPSTSDelegateAccountAttributes";
 import { GCPSTSDelegateAccountResponse } from "./GCPSTSDelegateAccountResponse";
@@ -2429,6 +2430,7 @@ const typeMap: { [index: string]: any } = {
   FullAPIKeyAttributes: FullAPIKeyAttributes,
   FullApplicationKey: FullApplicationKey,
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
+  GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
   GCPSTSDelegateAccount: GCPSTSDelegateAccount,
   GCPSTSDelegateAccountAttributes: GCPSTSDelegateAccountAttributes,
   GCPSTSDelegateAccountResponse: GCPSTSDelegateAccountResponse,
