@@ -251,9 +251,17 @@ export class UsageSummaryDateOrg {
    */
   "dbmQueriesAvgSum"?: number;
   /**
+   * Shows the sum of all Error Tracking error events over all hours in the current date for the given org.
+   */
+  "errorTrackingErrorEventsSum"?: number;
+  /**
    * Shows the sum of all Error Tracking events over all hours in the current date for the given org.
    */
   "errorTrackingEventsSum"?: number;
+  /**
+   * Shows the sum of all Error Tracking RUM error events over all hours in the current date for the given org.
+   */
+  "errorTrackingRumErrorEventsSum"?: number;
   /**
    * The average task count for Fargate.
    */
@@ -897,8 +905,18 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    errorTrackingErrorEventsSum: {
+      baseName: "error_tracking_error_events_sum",
+      type: "number",
+      format: "int64",
+    },
     errorTrackingEventsSum: {
       baseName: "error_tracking_events_sum",
+      type: "number",
+      format: "int64",
+    },
+    errorTrackingRumErrorEventsSum: {
+      baseName: "error_tracking_rum_error_events_sum",
       type: "number",
       format: "int64",
     },
