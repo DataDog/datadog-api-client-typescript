@@ -253,9 +253,17 @@ export class UsageSummaryResponse {
    */
   "endDate"?: Date;
   /**
+   * Shows the sum of all Error Tracking error events over all hours in the current month for all organizations.
+   */
+  "errorTrackingErrorEventsAggSum"?: number;
+  /**
    * Shows the sum of all Error Tracking events over all hours in the current months for all organizations.
    */
   "errorTrackingEventsAggSum"?: number;
+  /**
+   * Shows the sum of all Error Tracking RUM error events over all hours in the current month for all organizations.
+   */
+  "errorTrackingRumErrorEventsAggSum"?: number;
   /**
    * Shows the average of all Fargate tasks over all hours in the current month for all organizations.
    */
@@ -921,8 +929,18 @@ export class UsageSummaryResponse {
       type: "Date",
       format: "date-time",
     },
+    errorTrackingErrorEventsAggSum: {
+      baseName: "error_tracking_error_events_agg_sum",
+      type: "number",
+      format: "int64",
+    },
     errorTrackingEventsAggSum: {
       baseName: "error_tracking_events_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    errorTrackingRumErrorEventsAggSum: {
+      baseName: "error_tracking_rum_error_events_agg_sum",
       type: "number",
       format: "int64",
     },
