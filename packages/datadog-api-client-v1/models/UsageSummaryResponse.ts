@@ -231,7 +231,11 @@ export class UsageSummaryResponse {
   /**
    * Shows the average of all distinct Cloud Workload Security containers over all hours in the current month for all organizations.
    */
-  "cwsContainersAvgSum"?: number;
+  "cwsContainerAvgSum"?: number;
+  /**
+   * Shows the average of all distinct Cloud Workload Security Fargate tasks over all hours in the current month for all organizations.
+   */
+  "cwsFargateTaskAvgSum"?: number;
   /**
    * Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current month for all organizations.
    */
@@ -899,8 +903,13 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
-    cwsContainersAvgSum: {
-      baseName: "cws_containers_avg_sum",
+    cwsContainerAvgSum: {
+      baseName: "cws_container_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    cwsFargateTaskAvgSum: {
+      baseName: "cws_fargate_task_avg_sum",
       type: "number",
       format: "int64",
     },

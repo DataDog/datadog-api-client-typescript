@@ -32,6 +32,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof CUSTOM_INGESTED_TIMESERIES_USAGE
   | typeof CUSTOM_TIMESERIES_USAGE
   | typeof CWS_CONTAINERS_USAGE
+  | typeof CWS_FARGATE_TASK_USAGE
   | typeof CWS_HOSTS_USAGE
   | typeof DATA_JOBS_MONITORING_USAGE
   | typeof DATA_STREAM_MONITORING_USAGE
@@ -107,6 +108,7 @@ export const CUSTOM_INGESTED_TIMESERIES_USAGE =
   "custom_ingested_timeseries_usage";
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CWS_CONTAINERS_USAGE = "cws_containers_usage";
+export const CWS_FARGATE_TASK_USAGE = "cws_fargate_task_usage";
 export const CWS_HOSTS_USAGE = "cws_hosts_usage";
 export const DATA_JOBS_MONITORING_USAGE = "data_jobs_monitoring_usage";
 export const DATA_STREAM_MONITORING_USAGE = "data_stream_monitoring_usage";
