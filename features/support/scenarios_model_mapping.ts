@@ -5061,6 +5061,60 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
+    "v2.ListHistoricalJobs": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListHistoricalJobsResponse",
+    },
+    "v2.RunHistoricalJob": {
+        "body": {
+            "type": "RunHistoricalJobRequest",
+            "format": "",
+            },
+        "operationResponseType": "JobCreateResponse",
+    },
+    "v2.ConvertJobResultToSignal": {
+        "body": {
+            "type": "ConvertJobResultsToSignalsRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.DeleteHistoricalJob": {
+        "jobId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetHistoricalJob": {
+        "jobId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "HistoricalJobResponse",
+    },
+    "v2.CancelHistoricalJob": {
+        "jobId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
     "v2.ListPowerpacks": {
         "pageLimit": {
             "type": "number",

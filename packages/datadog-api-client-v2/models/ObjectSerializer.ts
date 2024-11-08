@@ -126,6 +126,7 @@ import { CIAppTestsBucketResponse } from "./CIAppTestsBucketResponse";
 import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 import { CIAppWarning } from "./CIAppWarning";
+import { CalculatedField } from "./CalculatedField";
 import { Case } from "./Case";
 import { CaseAssign } from "./CaseAssign";
 import { CaseAssignAttributes } from "./CaseAssignAttributes";
@@ -225,6 +226,9 @@ import { ContainerMeta } from "./ContainerMeta";
 import { ContainerMetaPage } from "./ContainerMetaPage";
 import { ContainersResponse } from "./ContainersResponse";
 import { ContainersResponseLinks } from "./ContainersResponseLinks";
+import { ConvertJobResultsToSignalsAttributes } from "./ConvertJobResultsToSignalsAttributes";
+import { ConvertJobResultsToSignalsData } from "./ConvertJobResultsToSignalsData";
+import { ConvertJobResultsToSignalsRequest } from "./ConvertJobResultsToSignalsRequest";
 import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
@@ -448,6 +452,10 @@ import { HTTPCIAppErrors } from "./HTTPCIAppErrors";
 import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogErrors } from "./HTTPLogErrors";
 import { HTTPLogItem } from "./HTTPLogItem";
+import { HistoricalJobListMeta } from "./HistoricalJobListMeta";
+import { HistoricalJobResponse } from "./HistoricalJobResponse";
+import { HistoricalJobResponseAttributes } from "./HistoricalJobResponseAttributes";
+import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
 import { HourlyUsage } from "./HourlyUsage";
 import { HourlyUsageAttributes } from "./HourlyUsageAttributes";
 import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
@@ -564,6 +572,10 @@ import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
 import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
 import { JiraIssue } from "./JiraIssue";
 import { JiraIssueResult } from "./JiraIssueResult";
+import { JobCreateResponse } from "./JobCreateResponse";
+import { JobCreateResponseData } from "./JobCreateResponseData";
+import { JobDefinition } from "./JobDefinition";
+import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { ListAPIsResponse } from "./ListAPIsResponse";
@@ -581,6 +593,7 @@ import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
+import { ListHistoricalJobsResponse } from "./ListHistoricalJobsResponse";
 import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
 import { ListRulesResponse } from "./ListRulesResponse";
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
@@ -965,6 +978,9 @@ import { RumMetricUpdateCompute } from "./RumMetricUpdateCompute";
 import { RumMetricUpdateData } from "./RumMetricUpdateData";
 import { RumMetricUpdateRequest } from "./RumMetricUpdateRequest";
 import { RumMetricsResponse } from "./RumMetricsResponse";
+import { RunHistoricalJobRequest } from "./RunHistoricalJobRequest";
+import { RunHistoricalJobRequestAttributes } from "./RunHistoricalJobRequestAttributes";
+import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { SLOReportPostResponse } from "./SLOReportPostResponse";
@@ -1430,6 +1446,9 @@ const enumsMap: { [key: string]: any[] } = {
   ContainerMetaPageType: ["cursor_limit"],
   ContainerType: ["container"],
   ContentEncoding: ["identity", "gzip", "deflate"],
+  ConvertJobResultsToSignalsDataType: [
+    "historicalDetectionsJobResultSignalConversion",
+  ],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
   CustomDestinationAttributeTagsRestrictionListType: [
@@ -1532,6 +1551,7 @@ const enumsMap: { [key: string]: any[] } = {
     "email",
     "-email",
   ],
+  HistoricalJobDataType: ["historicalDetectionsJob"],
   HourlyUsageType: [
     "app_sec_host_count",
     "observability_pipelines_bytes_processed",
@@ -1720,6 +1740,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RumMetricType: ["rum_metrics"],
   RumMetricUniquenessWhen: ["match", "end"],
+  RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   SLOReportInterval: ["weekly", "monthly"],
   SLOReportStatus: [
@@ -2087,6 +2108,7 @@ const typeMap: { [index: string]: any } = {
   CIAppTestsGroupBy: CIAppTestsGroupBy,
   CIAppTestsQueryFilter: CIAppTestsQueryFilter,
   CIAppWarning: CIAppWarning,
+  CalculatedField: CalculatedField,
   Case: Case,
   CaseAssign: CaseAssign,
   CaseAssignAttributes: CaseAssignAttributes,
@@ -2204,6 +2226,9 @@ const typeMap: { [index: string]: any } = {
   ContainerMetaPage: ContainerMetaPage,
   ContainersResponse: ContainersResponse,
   ContainersResponseLinks: ContainersResponseLinks,
+  ConvertJobResultsToSignalsAttributes: ConvertJobResultsToSignalsAttributes,
+  ConvertJobResultsToSignalsData: ConvertJobResultsToSignalsData,
+  ConvertJobResultsToSignalsRequest: ConvertJobResultsToSignalsRequest,
   CostAttributionAggregatesBody: CostAttributionAggregatesBody,
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
@@ -2455,6 +2480,10 @@ const typeMap: { [index: string]: any } = {
   HTTPLogError: HTTPLogError,
   HTTPLogErrors: HTTPLogErrors,
   HTTPLogItem: HTTPLogItem,
+  HistoricalJobListMeta: HistoricalJobListMeta,
+  HistoricalJobResponse: HistoricalJobResponse,
+  HistoricalJobResponseAttributes: HistoricalJobResponseAttributes,
+  HistoricalJobResponseData: HistoricalJobResponseData,
   HourlyUsage: HourlyUsage,
   HourlyUsageAttributes: HourlyUsageAttributes,
   HourlyUsageMeasurement: HourlyUsageMeasurement,
@@ -2583,6 +2612,10 @@ const typeMap: { [index: string]: any } = {
   JiraIntegrationMetadataIssuesItem: JiraIntegrationMetadataIssuesItem,
   JiraIssue: JiraIssue,
   JiraIssueResult: JiraIssueResult,
+  JobCreateResponse: JobCreateResponse,
+  JobCreateResponseData: JobCreateResponseData,
+  JobDefinition: JobDefinition,
+  JobDefinitionFromRule: JobDefinitionFromRule,
   LeakedKey: LeakedKey,
   LeakedKeyAttributes: LeakedKeyAttributes,
   ListAPIsResponse: ListAPIsResponse,
@@ -2600,6 +2633,7 @@ const typeMap: { [index: string]: any } = {
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
+  ListHistoricalJobsResponse: ListHistoricalJobsResponse,
   ListPowerpacksResponse: ListPowerpacksResponse,
   ListRulesResponse: ListRulesResponse,
   ListRulesResponseDataItem: ListRulesResponseDataItem,
@@ -3013,6 +3047,9 @@ const typeMap: { [index: string]: any } = {
   RumMetricUpdateData: RumMetricUpdateData,
   RumMetricUpdateRequest: RumMetricUpdateRequest,
   RumMetricsResponse: RumMetricsResponse,
+  RunHistoricalJobRequest: RunHistoricalJobRequest,
+  RunHistoricalJobRequestAttributes: RunHistoricalJobRequestAttributes,
+  RunHistoricalJobRequestData: RunHistoricalJobRequestData,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
   SLOReportPostResponse: SLOReportPostResponse,
