@@ -45,6 +45,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof CUSTOM_INGESTED_TIMESERIES_PERCENTAGE
   | typeof CWS_CONTAINERS_PERCENTAGE
   | typeof CWS_CONTAINERS_USAGE
+  | typeof CWS_FARGATE_TASK_PERCENTAGE
+  | typeof CWS_FARGATE_TASK_USAGE
   | typeof CWS_HOSTS_PERCENTAGE
   | typeof CWS_HOSTS_USAGE
   | typeof DATA_JOBS_MONITORING_USAGE
@@ -188,6 +190,8 @@ export const CUSTOM_INGESTED_TIMESERIES_PERCENTAGE =
   "custom_ingested_timeseries_percentage";
 export const CWS_CONTAINERS_PERCENTAGE = "cws_containers_percentage";
 export const CWS_CONTAINERS_USAGE = "cws_containers_usage";
+export const CWS_FARGATE_TASK_PERCENTAGE = "cws_fargate_task_percentage";
+export const CWS_FARGATE_TASK_USAGE = "cws_fargate_task_usage";
 export const CWS_HOSTS_PERCENTAGE = "cws_hosts_percentage";
 export const CWS_HOSTS_USAGE = "cws_hosts_usage";
 export const DATA_JOBS_MONITORING_USAGE = "data_jobs_monitoring_usage";

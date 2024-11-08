@@ -235,6 +235,10 @@ export class UsageSummaryDateOrg {
    */
   "cwsContainerCountAvg"?: number;
   /**
+   * Shows the average of all distinct Cloud Workload Security Fargate tasks over all hours in the current date for the given org.
+   */
+  "cwsFargateTaskAvg"?: number;
+  /**
    * Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current date for the given org.
    */
   "cwsHostTop99p"?: number;
@@ -882,6 +886,11 @@ export class UsageSummaryDateOrg {
     },
     cwsContainerCountAvg: {
       baseName: "cws_container_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    cwsFargateTaskAvg: {
+      baseName: "cws_fargate_task_avg",
       type: "number",
       format: "int64",
     },

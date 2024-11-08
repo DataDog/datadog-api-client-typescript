@@ -171,6 +171,14 @@ export class MonthlyUsageAttributionValues {
    */
   "cwsContainersUsage"?: number;
   /**
+   * The percentage of Cloud Workload Security Fargate task usage by tag(s).
+   */
+  "cwsFargateTaskPercentage"?: number;
+  /**
+   * The Cloud Workload Security Fargate task usage by tag(s).
+   */
+  "cwsFargateTaskUsage"?: number;
+  /**
    * The percentage of Cloud Workload Security host usage by tag(s).
    */
   "cwsHostsPercentage"?: number;
@@ -760,6 +768,16 @@ export class MonthlyUsageAttributionValues {
     },
     cwsContainersUsage: {
       baseName: "cws_containers_usage",
+      type: "number",
+      format: "double",
+    },
+    cwsFargateTaskPercentage: {
+      baseName: "cws_fargate_task_percentage",
+      type: "number",
+      format: "double",
+    },
+    cwsFargateTaskUsage: {
+      baseName: "cws_fargate_task_usage",
       type: "number",
       format: "double",
     },
