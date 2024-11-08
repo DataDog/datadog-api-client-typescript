@@ -5,8 +5,8 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.runHistoricalJob"] = true;
 configuration.unstableOperations["v2.cancelHistoricalJob"] = true;
+configuration.unstableOperations["v2.runHistoricalJob"] = true;
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 // there is a valid "historical_job" in the system
