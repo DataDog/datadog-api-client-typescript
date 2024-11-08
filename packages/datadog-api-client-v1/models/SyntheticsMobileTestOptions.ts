@@ -82,7 +82,7 @@ export class SyntheticsMobileTestOptions {
    */
   "tickEvery": number;
   /**
-   * The level of verbosity for the mobile test.
+   * The level of verbosity for the mobile test. This field can not be set by a user.
    */
   "verbosity"?: number;
 
