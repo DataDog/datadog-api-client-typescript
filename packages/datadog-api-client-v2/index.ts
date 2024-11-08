@@ -404,11 +404,14 @@ export {
 } from "./apis/RumMetricsApi";
 
 export {
+  SecurityMonitoringApiCancelHistoricalJobRequest,
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiConvertJobResultToSignalRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
+  SecurityMonitoringApiDeleteHistoricalJobRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
@@ -416,14 +419,17 @@ export {
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
   SecurityMonitoringApiGetFindingRequest,
+  SecurityMonitoringApiGetHistoricalJobRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiListFindingsRequest,
+  SecurityMonitoringApiListHistoricalJobsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiMuteFindingsRequest,
+  SecurityMonitoringApiRunHistoricalJobRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
@@ -672,6 +678,7 @@ export { BulkMuteFindingsRequestMetaFindings } from "./models/BulkMuteFindingsRe
 export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequestProperties";
 export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
 export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
+export { CalculatedField } from "./models/CalculatedField";
 export { Case } from "./models/Case";
 export { Case3rdPartyTicketStatus } from "./models/Case3rdPartyTicketStatus";
 export { CaseAssign } from "./models/CaseAssign";
@@ -859,6 +866,10 @@ export { ContainersResponse } from "./models/ContainersResponse";
 export { ContainersResponseLinks } from "./models/ContainersResponseLinks";
 export { ContainerType } from "./models/ContainerType";
 export { ContentEncoding } from "./models/ContentEncoding";
+export { ConvertJobResultsToSignalsAttributes } from "./models/ConvertJobResultsToSignalsAttributes";
+export { ConvertJobResultsToSignalsData } from "./models/ConvertJobResultsToSignalsData";
+export { ConvertJobResultsToSignalsDataType } from "./models/ConvertJobResultsToSignalsDataType";
+export { ConvertJobResultsToSignalsRequest } from "./models/ConvertJobResultsToSignalsRequest";
 export { CostAttributionAggregatesBody } from "./models/CostAttributionAggregatesBody";
 export { CostAttributionType } from "./models/CostAttributionType";
 export { CostByOrg } from "./models/CostByOrg";
@@ -1133,6 +1144,11 @@ export { GetInterfacesData } from "./models/GetInterfacesData";
 export { GetInterfacesResponse } from "./models/GetInterfacesResponse";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
+export { HistoricalJobDataType } from "./models/HistoricalJobDataType";
+export { HistoricalJobListMeta } from "./models/HistoricalJobListMeta";
+export { HistoricalJobResponse } from "./models/HistoricalJobResponse";
+export { HistoricalJobResponseAttributes } from "./models/HistoricalJobResponseAttributes";
+export { HistoricalJobResponseData } from "./models/HistoricalJobResponseData";
 export { HourlyUsage } from "./models/HourlyUsage";
 export { HourlyUsageAttributes } from "./models/HourlyUsageAttributes";
 export { HourlyUsageMeasurement } from "./models/HourlyUsageMeasurement";
@@ -1292,6 +1308,10 @@ export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
 export { JiraIssue } from "./models/JiraIssue";
 export { JiraIssueResult } from "./models/JiraIssueResult";
+export { JobCreateResponse } from "./models/JobCreateResponse";
+export { JobCreateResponseData } from "./models/JobCreateResponseData";
+export { JobDefinition } from "./models/JobDefinition";
+export { JobDefinitionFromRule } from "./models/JobDefinitionFromRule";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { LeakedKey } from "./models/LeakedKey";
@@ -1313,6 +1333,7 @@ export { ListEntityCatalogResponseLinks } from "./models/ListEntityCatalogRespon
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
+export { ListHistoricalJobsResponse } from "./models/ListHistoricalJobsResponse";
 export { ListPowerpacksResponse } from "./models/ListPowerpacksResponse";
 export { ListRulesResponse } from "./models/ListRulesResponse";
 export { ListRulesResponseDataItem } from "./models/ListRulesResponseDataItem";
@@ -1789,6 +1810,10 @@ export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 export { RUMSort } from "./models/RUMSort";
 export { RUMSortOrder } from "./models/RUMSortOrder";
 export { RUMWarning } from "./models/RUMWarning";
+export { RunHistoricalJobRequest } from "./models/RunHistoricalJobRequest";
+export { RunHistoricalJobRequestAttributes } from "./models/RunHistoricalJobRequestAttributes";
+export { RunHistoricalJobRequestData } from "./models/RunHistoricalJobRequestData";
+export { RunHistoricalJobRequestDataType } from "./models/RunHistoricalJobRequestDataType";
 export { SAMLAssertionAttribute } from "./models/SAMLAssertionAttribute";
 export { SAMLAssertionAttributeAttributes } from "./models/SAMLAssertionAttributeAttributes";
 export { SAMLAssertionAttributesType } from "./models/SAMLAssertionAttributesType";
