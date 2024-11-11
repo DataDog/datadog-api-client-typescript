@@ -776,6 +776,8 @@ const enumsMap: { [key: string]: any[] } = {
   FormulaAndFunctionSLOMeasure: [
     "good_events",
     "bad_events",
+    "good_minutes",
+    "bad_minutes",
     "slo_status",
     "error_budget_remaining",
     "burn_rate",
