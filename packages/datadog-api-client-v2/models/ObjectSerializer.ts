@@ -10,6 +10,39 @@ import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
 import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
 import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
+import { AWSAccountCreateRequest } from "./AWSAccountCreateRequest";
+import { AWSAccountCreateRequestAttributes } from "./AWSAccountCreateRequestAttributes";
+import { AWSAccountCreateRequestData } from "./AWSAccountCreateRequestData";
+import { AWSAccountResponse } from "./AWSAccountResponse";
+import { AWSAccountResponseAttributes } from "./AWSAccountResponseAttributes";
+import { AWSAccountResponseData } from "./AWSAccountResponseData";
+import { AWSAccountUpdateRequest } from "./AWSAccountUpdateRequest";
+import { AWSAccountUpdateRequestAttributes } from "./AWSAccountUpdateRequestAttributes";
+import { AWSAccountUpdateRequestData } from "./AWSAccountUpdateRequestData";
+import { AWSAccountsResponse } from "./AWSAccountsResponse";
+import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
+import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
+import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
+import { AWSLogsConfig } from "./AWSLogsConfig";
+import { AWSLogsServicesResponse } from "./AWSLogsServicesResponse";
+import { AWSLogsServicesResponseAttributes } from "./AWSLogsServicesResponseAttributes";
+import { AWSLogsServicesResponseData } from "./AWSLogsServicesResponseData";
+import { AWSMetricsConfig } from "./AWSMetricsConfig";
+import { AWSNamespaceFiltersExcludeAll } from "./AWSNamespaceFiltersExcludeAll";
+import { AWSNamespaceFiltersExcludeOnly } from "./AWSNamespaceFiltersExcludeOnly";
+import { AWSNamespaceFiltersIncludeAll } from "./AWSNamespaceFiltersIncludeAll";
+import { AWSNamespaceFiltersIncludeOnly } from "./AWSNamespaceFiltersIncludeOnly";
+import { AWSNamespaceTagFilter } from "./AWSNamespaceTagFilter";
+import { AWSNamespacesResponse } from "./AWSNamespacesResponse";
+import { AWSNamespacesResponseAttributes } from "./AWSNamespacesResponseAttributes";
+import { AWSNamespacesResponseData } from "./AWSNamespacesResponseData";
+import { AWSNewExternalIDResponse } from "./AWSNewExternalIDResponse";
+import { AWSNewExternalIDResponseAttributes } from "./AWSNewExternalIDResponseAttributes";
+import { AWSNewExternalIDResponseData } from "./AWSNewExternalIDResponseData";
+import { AWSRegionsIncludeAll } from "./AWSRegionsIncludeAll";
+import { AWSRegionsIncludeOnly } from "./AWSRegionsIncludeOnly";
+import { AWSResourcesConfig } from "./AWSResourcesConfig";
+import { AWSTracesConfig } from "./AWSTracesConfig";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
@@ -1305,6 +1338,8 @@ import { WorklflowCancelInstanceResponseData } from "./WorklflowCancelInstanceRe
 import { WorklflowGetInstanceResponse } from "./WorklflowGetInstanceResponse";
 import { WorklflowGetInstanceResponseData } from "./WorklflowGetInstanceResponseData";
 import { WorklflowGetInstanceResponseDataAttributes } from "./WorklflowGetInstanceResponseDataAttributes";
+import { XRayServicesIncludeAll } from "./XRayServicesIncludeAll";
+import { XRayServicesIncludeOnly } from "./XRayServicesIncludeOnly";
 import {
   dateFromRFC3339String,
   dateToRFC3339String,
@@ -1344,6 +1379,11 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
+  AWSAccountPartition: ["aws", "aws-cn", "aws-us-gov"],
+  AWSAccountType: ["account"],
+  AWSLogsServicesResponseDataType: ["logs_services"],
+  AWSNamespacesResponseDataType: ["namespaces"],
+  AWSNewExternalIDResponseDataType: ["external_id"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   ApplicationKeysSort: [
@@ -1986,6 +2026,39 @@ const typeMap: { [index: string]: any } = {
   APIKeysResponse: APIKeysResponse,
   APIKeysResponseMeta: APIKeysResponseMeta,
   APIKeysResponseMetaPage: APIKeysResponseMetaPage,
+  AWSAccountCreateRequest: AWSAccountCreateRequest,
+  AWSAccountCreateRequestAttributes: AWSAccountCreateRequestAttributes,
+  AWSAccountCreateRequestData: AWSAccountCreateRequestData,
+  AWSAccountResponse: AWSAccountResponse,
+  AWSAccountResponseAttributes: AWSAccountResponseAttributes,
+  AWSAccountResponseData: AWSAccountResponseData,
+  AWSAccountUpdateRequest: AWSAccountUpdateRequest,
+  AWSAccountUpdateRequestAttributes: AWSAccountUpdateRequestAttributes,
+  AWSAccountUpdateRequestData: AWSAccountUpdateRequestData,
+  AWSAccountsResponse: AWSAccountsResponse,
+  AWSAuthConfigKeys: AWSAuthConfigKeys,
+  AWSAuthConfigRole: AWSAuthConfigRole,
+  AWSLambdaForwarderConfig: AWSLambdaForwarderConfig,
+  AWSLogsConfig: AWSLogsConfig,
+  AWSLogsServicesResponse: AWSLogsServicesResponse,
+  AWSLogsServicesResponseAttributes: AWSLogsServicesResponseAttributes,
+  AWSLogsServicesResponseData: AWSLogsServicesResponseData,
+  AWSMetricsConfig: AWSMetricsConfig,
+  AWSNamespaceFiltersExcludeAll: AWSNamespaceFiltersExcludeAll,
+  AWSNamespaceFiltersExcludeOnly: AWSNamespaceFiltersExcludeOnly,
+  AWSNamespaceFiltersIncludeAll: AWSNamespaceFiltersIncludeAll,
+  AWSNamespaceFiltersIncludeOnly: AWSNamespaceFiltersIncludeOnly,
+  AWSNamespaceTagFilter: AWSNamespaceTagFilter,
+  AWSNamespacesResponse: AWSNamespacesResponse,
+  AWSNamespacesResponseAttributes: AWSNamespacesResponseAttributes,
+  AWSNamespacesResponseData: AWSNamespacesResponseData,
+  AWSNewExternalIDResponse: AWSNewExternalIDResponse,
+  AWSNewExternalIDResponseAttributes: AWSNewExternalIDResponseAttributes,
+  AWSNewExternalIDResponseData: AWSNewExternalIDResponseData,
+  AWSRegionsIncludeAll: AWSRegionsIncludeAll,
+  AWSRegionsIncludeOnly: AWSRegionsIncludeOnly,
+  AWSResourcesConfig: AWSResourcesConfig,
+  AWSTracesConfig: AWSTracesConfig,
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
@@ -3429,10 +3502,20 @@ const typeMap: { [index: string]: any } = {
   WorklflowGetInstanceResponseData: WorklflowGetInstanceResponseData,
   WorklflowGetInstanceResponseDataAttributes:
     WorklflowGetInstanceResponseDataAttributes,
+  XRayServicesIncludeAll: XRayServicesIncludeAll,
+  XRayServicesIncludeOnly: XRayServicesIncludeOnly,
 };
 
 const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User", "LeakedKey"],
+  AWSAuthConfig: ["AWSAuthConfigKeys", "AWSAuthConfigRole"],
+  AWSNamespaceFilters: [
+    "AWSNamespaceFiltersExcludeAll",
+    "AWSNamespaceFiltersExcludeOnly",
+    "AWSNamespaceFiltersIncludeAll",
+    "AWSNamespaceFiltersIncludeOnly",
+  ],
+  AWSRegions: ["AWSRegionsIncludeAll", "AWSRegionsIncludeOnly"],
   ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
   AuthNMappingCreateRelationships: [
     "AuthNMappingRelationshipToRole",
@@ -3635,6 +3718,7 @@ const oneOfMap: { [index: string]: string[] } = {
   UpsertCatalogEntityResponseIncludedItem: ["EntityResponseIncludedSchema"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
   UserTeamIncluded: ["User", "Team"],
+  XRayServicesList: ["XRayServicesIncludeAll", "XRayServicesIncludeOnly"],
 };
 
 export class ObjectSerializer {
