@@ -14,7 +14,7 @@ export class SyntheticsTestRestrictionPolicyBinding {
   /**
    * List of principals for a mobile test binding.
    */
-  "principal"?: Array<string>;
+  "principals"?: Array<string>;
   /**
    * The type of relation for the binding.
    */
@@ -36,8 +36,8 @@ export class SyntheticsTestRestrictionPolicyBinding {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    principal: {
-      baseName: "principal",
+    principals: {
+      baseName: "principals",
       type: "Array<string>",
     },
     relation: {
