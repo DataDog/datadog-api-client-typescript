@@ -666,6 +666,7 @@ const enumsMap: { [key: string]: any[] } = {
     "custom",
     "network_elb",
     "lambda",
+    "step_functions",
   ],
   AccessRole: ["st", "adm", "ro", "ERROR"],
   AlertGraphWidgetDefinitionType: ["alert_graph"],
