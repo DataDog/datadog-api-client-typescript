@@ -10,7 +10,6 @@ const apiInstance = new v1.DashboardsApi(configuration);
 const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     description: undefined,
-    isReadOnly: false,
     layoutType: "ordered",
     notifyList: [],
     reflowType: "auto",

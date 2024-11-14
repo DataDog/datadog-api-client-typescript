@@ -43,7 +43,6 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
     ],
     templateVariables: [],
     layoutType: "free",
-    isReadOnly: false,
     notifyList: [],
   },
 };

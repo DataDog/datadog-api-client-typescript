@@ -86,7 +86,6 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
     ],
     templateVariables: [],
     layoutType: "ordered",
-    isReadOnly: false,
     notifyList: [],
   },
 };
