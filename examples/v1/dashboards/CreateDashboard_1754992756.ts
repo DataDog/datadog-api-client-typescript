@@ -40,7 +40,6 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
       },
     ],
     description: "description",
-    isReadOnly: false,
   },
 };
 
