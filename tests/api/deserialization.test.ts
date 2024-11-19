@@ -83,76 +83,50 @@ test('TestDeserializationUnknownNestedOneOfInList', () => {
 
 test('TestDeserializationUnknownNestedEnumInList', () => {
   const data = `
-  {
-      "status": "live",
-      "public_id": "2fx-64b-fb8",
-      "tags": [
-          "mini-website",
-          "team:synthetics",
-          "firefox",
-          "synthetics-ci-browser",
-          "edge",
-          "chrome"
-      ],
-      "locations": [
-          "aws:ap-northeast-1",
-          "aws:eu-north-1",
-          "aws:eu-west-3",
-          "aws:eu-central-1"
-      ],
-      "message": "This mini-website check failed, please investigate why. @slack-synthetics-ops-worker",
-      "name": "Mini Website - Click Trap",
-      "monitor_id": 7647262,
-      "type": "browser",
-      "created_at": "2018-12-20T13:19:23.734004+00:00",
-      "modified_at": "2021-06-30T15:46:49.387631+00:00",
-      "config": {
-          "variables": [],
-          "setCookie": "",
-          "request": {
-              "url": "http://34.95.79.70/click-trap",
-              "headers": {},
-              "method": "GET"
-          },
-          "assertions": [],
-          "configVariables": []
-      },
-      "options": {
-          "ci": {
-              "executionRule": "blocking"
-          },
-          "retry": {
-              "count": 1,
-              "interval": 1000
-          },
-          "min_location_failed": 1,
-          "min_failure_duration": 0,
-          "noScreenshot": false,
-          "tick_every": 300,
-          "forwardProxy": false,
-          "disableCors": false,
-          "device_ids": [
-              "chrome.laptop_large",
-              "firefox.laptop_large",
-              "A non existent device ID"
-          ],
-          "monitor_options": {
-              "renotify_interval": 360
-          },
-          "ignoreServerCertificateError": true
-      }
-  }
+{
+    "data": {
+        "type": "downtime",
+        "attributes": {
+            "mute_first_recovery_notification": false,
+            "schedule": {
+                "end": null,
+                "start": "2024-11-10T03:12:35.223223+00:00"
+            },
+            "notify_end_types": [
+                "expired"
+            ],
+            "status": "active",
+            "monitor_identifier": {
+                "monitor_tags": [
+                    "*"
+                ]
+            },
+            "display_timezone": "UTC",
+            "notify_end_states": [
+                "warn",
+                "alert",
+                "not an end state"
+            ],
+            "created": "2024-11-10T03:12:35.241213+00:00",
+            "modified": "2024-11-10T03:12:35.241213+00:00",
+            "canceled": null,
+            "message": null,
+            "scope": "host:java-hostsMuteErrorsTest-local-1731208355"
+        },
+        "id": "a5546ef7-fea3-4a1b-b82e-04f8067f655a"
+    }
+}
   `;
 
 
-  const result = ObjectSerializerV1.deserialize(
-    ObjectSerializerV1.parse(data, "application/json"),
-    "SyntheticsBrowserTest",
+  const result = ObjectSerializerV2.deserialize(
+    ObjectSerializerV2.parse(data, "application/json"),
+    "DowntimeResponse",
     "");
 
     expect(result._unparsed).toBe(true);
-    expect(result.options.deviceIds.length).toBe(3);
-    expect(result.options.deviceIds[2]._data).toBe("A non existent device ID");
+    expect(result.data.attributes.notifyEndStates.length).toBe(3);
+    expect(result.data.attributes.notifyEndStates[2]._data).toBe("not an end state");
   }
 );
 
