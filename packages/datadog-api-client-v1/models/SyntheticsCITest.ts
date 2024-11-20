@@ -5,7 +5,6 @@
  */
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
-import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -37,7 +36,7 @@ export class SyntheticsCITest {
   /**
    * For browser test, array with the different device IDs used to run the test.
    */
-  "deviceIds"?: Array<SyntheticsDeviceID>;
+  "deviceIds"?: Array<string>;
   /**
    * For API HTTP test, whether or not the test should follow redirects.
    */
@@ -109,7 +108,7 @@ export class SyntheticsCITest {
     },
     deviceIds: {
       baseName: "deviceIds",
-      type: "Array<SyntheticsDeviceID>",
+      type: "Array<string>",
     },
     followRedirects: {
       baseName: "followRedirects",

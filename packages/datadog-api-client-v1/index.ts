@@ -940,7 +940,6 @@ export { SyntheticsDeletedTest } from "./models/SyntheticsDeletedTest";
 export { SyntheticsDeleteTestsPayload } from "./models/SyntheticsDeleteTestsPayload";
 export { SyntheticsDeleteTestsResponse } from "./models/SyntheticsDeleteTestsResponse";
 export { SyntheticsDevice } from "./models/SyntheticsDevice";
-export { SyntheticsDeviceID } from "./models/SyntheticsDeviceID";
 export { SyntheticsFetchUptimesPayload } from "./models/SyntheticsFetchUptimesPayload";
 export { SyntheticsGetAPITestLatestResultsResponse } from "./models/SyntheticsGetAPITestLatestResultsResponse";
 export { SyntheticsGetBrowserTestLatestResultsResponse } from "./models/SyntheticsGetBrowserTestLatestResultsResponse";

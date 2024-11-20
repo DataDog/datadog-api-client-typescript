@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -18,7 +17,7 @@ export class SyntheticsDevice {
   /**
    * The device ID.
    */
-  "id": SyntheticsDeviceID;
+  "id": string;
   /**
    * Whether or not the device is a mobile.
    */
@@ -56,7 +55,7 @@ export class SyntheticsDevice {
     },
     id: {
       baseName: "id",
-      type: "SyntheticsDeviceID",
+      type: "string",
       required: true,
     },
     isMobile: {
