@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +13,7 @@ export class SyntheticsTriggerCITestRunResult {
   /**
    * The device ID.
    */
-  "device"?: SyntheticsDeviceID;
+  "device"?: string;
   /**
    * The location ID of the test run.
    */
@@ -46,7 +45,7 @@ export class SyntheticsTriggerCITestRunResult {
   static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
       baseName: "device",
-      type: "SyntheticsDeviceID",
+      type: "string",
     },
     location: {
       baseName: "location",

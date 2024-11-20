@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsBrowserTestRumSettings } from "./SyntheticsBrowserTestRumSettings";
-import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestCiOptions } from "./SyntheticsTestCiOptions";
 import { SyntheticsTestOptionsHTTPVersion } from "./SyntheticsTestOptionsHTTPVersion";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
@@ -37,7 +36,7 @@ export class SyntheticsTestOptions {
   /**
    * For browser test, array with the different device IDs used to run the test.
    */
-  "deviceIds"?: Array<SyntheticsDeviceID>;
+  "deviceIds"?: Array<string>;
   /**
    * Whether or not to disable CORS mechanism.
    */
@@ -161,7 +160,7 @@ export class SyntheticsTestOptions {
     },
     deviceIds: {
       baseName: "device_ids",
-      type: "Array<SyntheticsDeviceID>",
+      type: "Array<string>",
     },
     disableCors: {
       baseName: "disableCors",
