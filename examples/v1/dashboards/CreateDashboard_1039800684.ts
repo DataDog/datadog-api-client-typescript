@@ -22,10 +22,16 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                   width: "auto",
                   field: "timestamp",
                 },
+                {
+                  width: "auto",
+                  field: "message",
+                  isClusteringPatternFieldPath: true,
+                },
               ],
               query: {
                 dataSource: "logs_pattern_stream",
                 queryString: "",
+                clusteringPatternFieldPath: "message",
                 groupBy: [
                   {
                     facet: "service",
