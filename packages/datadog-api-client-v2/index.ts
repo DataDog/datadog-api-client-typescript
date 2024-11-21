@@ -159,6 +159,7 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
+  EventsApiCreateEventRequest,
   EventsApiListEventsRequest,
   EventsApiSearchEventsRequest,
   EventsApi,
@@ -759,6 +760,13 @@ export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
 export { CaseUpdateStatus } from "./models/CaseUpdateStatus";
 export { CaseUpdateStatusAttributes } from "./models/CaseUpdateStatusAttributes";
 export { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
+export { ChangeEventCustomAttributes } from "./models/ChangeEventCustomAttributes";
+export { ChangeEventCustomAttributesAuthor } from "./models/ChangeEventCustomAttributesAuthor";
+export { ChangeEventCustomAttributesAuthorType } from "./models/ChangeEventCustomAttributesAuthorType";
+export { ChangeEventCustomAttributesChangedResource } from "./models/ChangeEventCustomAttributesChangedResource";
+export { ChangeEventCustomAttributesChangedResourceType } from "./models/ChangeEventCustomAttributesChangedResourceType";
+export { ChangeEventCustomAttributesImpactedResourcesItems } from "./models/ChangeEventCustomAttributesImpactedResourcesItems";
+export { ChangeEventCustomAttributesImpactedResourcesItemsType } from "./models/ChangeEventCustomAttributesImpactedResourcesItemsType";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
 export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
 export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
@@ -1117,6 +1125,17 @@ export { EntityV3SystemKind } from "./models/EntityV3SystemKind";
 export { EntityV3SystemSpec } from "./models/EntityV3SystemSpec";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
+export { EventCategory } from "./models/EventCategory";
+export { EventCreateRequest } from "./models/EventCreateRequest";
+export { EventCreateRequestPayload } from "./models/EventCreateRequestPayload";
+export { EventCreateRequestType } from "./models/EventCreateRequestType";
+export { EventCreateResponse } from "./models/EventCreateResponse";
+export { EventCreateResponseAttributes } from "./models/EventCreateResponseAttributes";
+export { EventCreateResponseAttributesAttributes } from "./models/EventCreateResponseAttributesAttributes";
+export { EventCreateResponseAttributesAttributesEvt } from "./models/EventCreateResponseAttributesAttributesEvt";
+export { EventCreateResponsePayload } from "./models/EventCreateResponsePayload";
+export { EventPayload } from "./models/EventPayload";
+export { EventPayloadAttributes } from "./models/EventPayloadAttributes";
 export { EventPriority } from "./models/EventPriority";
 export { EventResponse } from "./models/EventResponse";
 export { EventResponseAttributes } from "./models/EventResponseAttributes";

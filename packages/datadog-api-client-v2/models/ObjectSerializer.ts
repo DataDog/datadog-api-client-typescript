@@ -182,6 +182,10 @@ import { CaseUpdateStatusRequest } from "./CaseUpdateStatusRequest";
 import { CasesResponse } from "./CasesResponse";
 import { CasesResponseMeta } from "./CasesResponseMeta";
 import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
+import { ChangeEventCustomAttributes } from "./ChangeEventCustomAttributes";
+import { ChangeEventCustomAttributesAuthor } from "./ChangeEventCustomAttributesAuthor";
+import { ChangeEventCustomAttributesChangedResource } from "./ChangeEventCustomAttributesChangedResource";
+import { ChangeEventCustomAttributesImpactedResourcesItems } from "./ChangeEventCustomAttributesImpactedResourcesItems";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
@@ -418,6 +422,14 @@ import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
 import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
+import { EventCreateRequest } from "./EventCreateRequest";
+import { EventCreateRequestPayload } from "./EventCreateRequestPayload";
+import { EventCreateResponse } from "./EventCreateResponse";
+import { EventCreateResponseAttributes } from "./EventCreateResponseAttributes";
+import { EventCreateResponseAttributesAttributes } from "./EventCreateResponseAttributesAttributes";
+import { EventCreateResponseAttributesAttributesEvt } from "./EventCreateResponseAttributesAttributesEvt";
+import { EventCreateResponsePayload } from "./EventCreateResponsePayload";
+import { EventPayload } from "./EventPayload";
 import { EventResponse } from "./EventResponse";
 import { EventResponseAttributes } from "./EventResponseAttributes";
 import { EventsCompute } from "./EventsCompute";
@@ -1473,6 +1485,9 @@ const enumsMap: { [key: string]: any[] } = {
   CaseSortableField: ["created_at", "priority", "status"],
   CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
   CaseType: ["STANDARD"],
+  ChangeEventCustomAttributesAuthorType: ["user", "system"],
+  ChangeEventCustomAttributesChangedResourceType: ["feature_flag"],
+  ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
   CloudConfigurationRuleType: ["cloud_configuration"],
   CloudCostActivityType: ["cloud_cost_activity"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
@@ -1531,6 +1546,8 @@ const enumsMap: { [key: string]: any[] } = {
   EntityV3QueueKind: ["queue"],
   EntityV3ServiceKind: ["service"],
   EntityV3SystemKind: ["system"],
+  EventCategory: ["change"],
+  EventCreateRequestType: ["event"],
   EventPriority: ["normal", "low"],
   EventStatusType: [
     "failure",
@@ -2204,6 +2221,12 @@ const typeMap: { [index: string]: any } = {
   CasesResponse: CasesResponse,
   CasesResponseMeta: CasesResponseMeta,
   CasesResponseMetaPagination: CasesResponseMetaPagination,
+  ChangeEventCustomAttributes: ChangeEventCustomAttributes,
+  ChangeEventCustomAttributesAuthor: ChangeEventCustomAttributesAuthor,
+  ChangeEventCustomAttributesChangedResource:
+    ChangeEventCustomAttributesChangedResource,
+  ChangeEventCustomAttributesImpactedResourcesItems:
+    ChangeEventCustomAttributesImpactedResourcesItems,
   ChargebackBreakdown: ChargebackBreakdown,
   CloudConfigurationComplianceRuleOptions:
     CloudConfigurationComplianceRuleOptions,
@@ -2486,6 +2509,16 @@ const typeMap: { [index: string]: any } = {
   EntityV3SystemSpec: EntityV3SystemSpec,
   Event: Event,
   EventAttributes: EventAttributes,
+  EventCreateRequest: EventCreateRequest,
+  EventCreateRequestPayload: EventCreateRequestPayload,
+  EventCreateResponse: EventCreateResponse,
+  EventCreateResponseAttributes: EventCreateResponseAttributes,
+  EventCreateResponseAttributesAttributes:
+    EventCreateResponseAttributesAttributes,
+  EventCreateResponseAttributesAttributesEvt:
+    EventCreateResponseAttributesAttributesEvt,
+  EventCreateResponsePayload: EventCreateResponsePayload,
+  EventPayload: EventPayload,
   EventResponse: EventResponse,
   EventResponseAttributes: EventResponseAttributes,
   EventsCompute: EventsCompute,
@@ -3582,6 +3615,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "EntityV3Queue",
     "EntityV3System",
   ],
+  EventPayloadAttributes: ["ChangeEventCustomAttributes"],
   IncidentAttachmentAttributes: [
     "IncidentAttachmentPostmortemAttributes",
     "IncidentAttachmentLinkAttributes",

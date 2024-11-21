@@ -1,4 +1,7 @@
-import { BaseAPIRequestFactory } from "../../datadog-api-client-common/baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   applySecurityAuthentication,
@@ -14,13 +17,54 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { EventCreateRequestPayload } from "../models/EventCreateRequestPayload";
+import { EventCreateResponsePayload } from "../models/EventCreateResponsePayload";
 import { EventResponse } from "../models/EventResponse";
 import { EventsListRequest } from "../models/EventsListRequest";
 import { EventsListResponse } from "../models/EventsListResponse";
 import { EventsRequestPage } from "../models/EventsRequestPage";
 import { EventsSort } from "../models/EventsSort";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 
 export class EventsApiRequestFactory extends BaseAPIRequestFactory {
+  public async createEvent(
+    body: EventCreateRequestPayload,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createEvent");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/events";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.EventsApi.createEvent")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "EventCreateRequestPayload", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
+
+    return requestContext;
+  }
+
   public async listEvents(
     filterQuery?: string,
     filterFrom?: string,
@@ -134,6 +178,87 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class EventsApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createEvent
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createEvent(
+    response: ResponseContext
+  ): Promise<EventCreateResponsePayload> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: EventCreateResponsePayload = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EventCreateResponsePayload"
+      ) as EventCreateResponsePayload;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: EventCreateResponsePayload = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EventCreateResponsePayload",
+        ""
+      ) as EventCreateResponsePayload;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -259,6 +384,14 @@ export class EventsApiResponseProcessor {
   }
 }
 
+export interface EventsApiCreateEventRequest {
+  /**
+   * Event request object
+   * @type EventCreateRequestPayload
+   */
+  body: EventCreateRequestPayload;
+}
+
 export interface EventsApiListEventsRequest {
   /**
    * Search query following events syntax.
@@ -314,6 +447,27 @@ export class EventsApi {
       requestFactory || new EventsApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new EventsApiResponseProcessor();
+  }
+
+  /**
+   * This endpoint allows you to post events. Only events with `change` category are under General Availability.
+   * @param param The request object
+   */
+  public createEvent(
+    param: EventsApiCreateEventRequest,
+    options?: Configuration
+  ): Promise<EventCreateResponsePayload> {
+    const requestContextPromise = this.requestFactory.createEvent(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createEvent(responseContext);
+        });
+    });
   }
 
   /**
