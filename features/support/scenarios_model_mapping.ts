@@ -3477,6 +3477,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "EventsListResponse",
     },
+    "v2.CreateEvent": {
+        "body": {
+            "type": "EventCreateRequestPayload",
+            "format": "",
+            },
+        "operationResponseType": "EventCreateResponsePayload",
+    },
     "v2.SearchEvents": {
         "body": {
             "type": "EventsListRequest",
