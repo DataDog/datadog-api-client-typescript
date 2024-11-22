@@ -24,6 +24,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof CI_TEST_INDEXED_SPANS_USAGE
   | typeof CI_VISIBILITY_ITR_USAGE
   | typeof CLOUD_SIEM_USAGE
+  | typeof CODE_SECURITY_HOST_USAGE
   | typeof CONTAINER_EXCL_AGENT_USAGE
   | typeof CONTAINER_USAGE
   | typeof CSPM_CONTAINERS_USAGE
@@ -99,6 +100,7 @@ export const CI_PIPELINE_INDEXED_SPANS_USAGE =
 export const CI_TEST_INDEXED_SPANS_USAGE = "ci_test_indexed_spans_usage";
 export const CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage";
 export const CLOUD_SIEM_USAGE = "cloud_siem_usage";
+export const CODE_SECURITY_HOST_USAGE = "code_security_host_usage";
 export const CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage";
 export const CONTAINER_USAGE = "container_usage";
 export const CSPM_CONTAINERS_USAGE = "cspm_containers_usage";
