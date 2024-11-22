@@ -103,6 +103,10 @@ export class SecurityMonitoringStandardRuleResponse {
    */
   "updateAuthorId"?: number;
   /**
+   * The date the rule was last updated, in milliseconds.
+   */
+  "updatedAt"?: number;
+  /**
    * The version of the rule.
    */
   "version"?: number;
@@ -208,6 +212,11 @@ export class SecurityMonitoringStandardRuleResponse {
     },
     updateAuthorId: {
       baseName: "updateAuthorId",
+      type: "number",
+      format: "int64",
+    },
+    updatedAt: {
+      baseName: "updatedAt",
       type: "number",
       format: "int64",
     },
