@@ -3,9 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AWSNamespaceFiltersExcludeAll } from "./AWSNamespaceFiltersExcludeAll";
 import { AWSNamespaceFiltersExcludeOnly } from "./AWSNamespaceFiltersExcludeOnly";
-import { AWSNamespaceFiltersIncludeAll } from "./AWSNamespaceFiltersIncludeAll";
 import { AWSNamespaceFiltersIncludeOnly } from "./AWSNamespaceFiltersIncludeOnly";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
@@ -15,8 +13,6 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type AWSNamespaceFilters =
-  | AWSNamespaceFiltersExcludeAll
   | AWSNamespaceFiltersExcludeOnly
-  | AWSNamespaceFiltersIncludeAll
   | AWSNamespaceFiltersIncludeOnly
   | UnparsedObject;
