@@ -450,7 +450,9 @@ export class EventsApi {
   }
 
   /**
-   * This endpoint allows you to post events. Only events with `change` category are under General Availability.
+   * This endpoint allows you to post events.
+   *
+   * Only events with **`change` category** are under General Availability. Refer to [Change Tracking](https://docs.datadoghq.com/change_tracking) for further details.
    * @param param The request object
    */
   public createEvent(
