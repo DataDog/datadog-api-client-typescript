@@ -28,9 +28,7 @@ import { AWSLogsServicesResponse } from "./AWSLogsServicesResponse";
 import { AWSLogsServicesResponseAttributes } from "./AWSLogsServicesResponseAttributes";
 import { AWSLogsServicesResponseData } from "./AWSLogsServicesResponseData";
 import { AWSMetricsConfig } from "./AWSMetricsConfig";
-import { AWSNamespaceFiltersExcludeAll } from "./AWSNamespaceFiltersExcludeAll";
 import { AWSNamespaceFiltersExcludeOnly } from "./AWSNamespaceFiltersExcludeOnly";
-import { AWSNamespaceFiltersIncludeAll } from "./AWSNamespaceFiltersIncludeAll";
 import { AWSNamespaceFiltersIncludeOnly } from "./AWSNamespaceFiltersIncludeOnly";
 import { AWSNamespaceTagFilter } from "./AWSNamespaceTagFilter";
 import { AWSNamespacesResponse } from "./AWSNamespacesResponse";
@@ -2061,9 +2059,7 @@ const typeMap: { [index: string]: any } = {
   AWSLogsServicesResponseAttributes: AWSLogsServicesResponseAttributes,
   AWSLogsServicesResponseData: AWSLogsServicesResponseData,
   AWSMetricsConfig: AWSMetricsConfig,
-  AWSNamespaceFiltersExcludeAll: AWSNamespaceFiltersExcludeAll,
   AWSNamespaceFiltersExcludeOnly: AWSNamespaceFiltersExcludeOnly,
-  AWSNamespaceFiltersIncludeAll: AWSNamespaceFiltersIncludeAll,
   AWSNamespaceFiltersIncludeOnly: AWSNamespaceFiltersIncludeOnly,
   AWSNamespaceTagFilter: AWSNamespaceTagFilter,
   AWSNamespacesResponse: AWSNamespacesResponse,
@@ -3543,9 +3539,7 @@ const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User", "LeakedKey"],
   AWSAuthConfig: ["AWSAuthConfigKeys", "AWSAuthConfigRole"],
   AWSNamespaceFilters: [
-    "AWSNamespaceFiltersExcludeAll",
     "AWSNamespaceFiltersExcludeOnly",
-    "AWSNamespaceFiltersIncludeAll",
     "AWSNamespaceFiltersIncludeOnly",
   ],
   AWSRegions: ["AWSRegionsIncludeAll", "AWSRegionsIncludeOnly"],

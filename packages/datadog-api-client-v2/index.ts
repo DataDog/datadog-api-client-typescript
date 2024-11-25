@@ -685,9 +685,7 @@ export { AWSLogsServicesResponseData } from "./models/AWSLogsServicesResponseDat
 export { AWSLogsServicesResponseDataType } from "./models/AWSLogsServicesResponseDataType";
 export { AWSMetricsConfig } from "./models/AWSMetricsConfig";
 export { AWSNamespaceFilters } from "./models/AWSNamespaceFilters";
-export { AWSNamespaceFiltersExcludeAll } from "./models/AWSNamespaceFiltersExcludeAll";
 export { AWSNamespaceFiltersExcludeOnly } from "./models/AWSNamespaceFiltersExcludeOnly";
-export { AWSNamespaceFiltersIncludeAll } from "./models/AWSNamespaceFiltersIncludeAll";
 export { AWSNamespaceFiltersIncludeOnly } from "./models/AWSNamespaceFiltersIncludeOnly";
 export { AWSNamespacesResponse } from "./models/AWSNamespacesResponse";
 export { AWSNamespacesResponseAttributes } from "./models/AWSNamespacesResponseAttributes";
