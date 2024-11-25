@@ -1,5 +1,5 @@
 /**
- * Send pipeline job event returns "Request accepted for processing" response
+ * Send running pipeline event returns "Request accepted for processing" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -12,15 +12,18 @@ const params: v2.CIVisibilityPipelinesApiCreateCIAppPipelineEventRequest = {
     data: {
       attributes: {
         resource: {
-          level: "job",
-          id: "cf9456de-8b9e-4c27-aa79-27b1e78c1a33",
-          name: "Build image",
-          pipelineUniqueId: "3eacb6f3-ff04-4e10-8a9c-46e6d054024a",
-          pipelineName: "Deploy to AWS",
+          level: "pipeline",
+          uniqueId: "3eacb6f3-ff04-4e10-8a9c-46e6d054024a",
+          name: "Deploy to AWS",
+          url: "https://my-ci-provider.example/pipelines/my-pipeline/run/1",
           start: new Date(new Date().getTime() + -120 * 1000),
-          end: new Date(new Date().getTime() + -30 * 1000),
-          status: "error",
-          url: "https://my-ci-provider.example/jobs/my-jobs/run/1",
+          status: "running",
+          partialRetry: false,
+          git: {
+            repositoryUrl: "https://github.com/DataDog/datadog-agent",
+            sha: "7f263865994b76066c4612fd1965215e7dcb4cd2",
+            authorEmail: "john.doe@email.com",
+          },
         },
       },
       type: "cipipeline_resource_request",
