@@ -64,7 +64,7 @@ export class SecurityMonitoringSignalRuleResponse {
    */
   "name"?: string;
   /**
-   * Options on rules.
+   * Options.
    */
   "options"?: SecurityMonitoringRuleOptions;
   /**

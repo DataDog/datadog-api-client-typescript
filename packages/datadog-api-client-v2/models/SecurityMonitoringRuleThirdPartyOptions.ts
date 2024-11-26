@@ -9,7 +9,7 @@ import { SecurityMonitoringThirdPartyRootQuery } from "./SecurityMonitoringThird
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Options on third party rules.
+ * Options on third party detection method.
  */
 export class SecurityMonitoringRuleThirdPartyOptions {
   /**

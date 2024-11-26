@@ -46,7 +46,7 @@ export class SecurityMonitoringRuleUpdatePayload {
    */
   "name"?: string;
   /**
-   * Options on rules.
+   * Options.
    */
   "options"?: SecurityMonitoringRuleOptions;
   /**

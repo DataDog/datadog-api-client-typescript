@@ -42,7 +42,7 @@ export class SecurityMonitoringStandardRulePayload {
    */
   "name": string;
   /**
-   * Options on rules.
+   * Options.
    */
   "options": SecurityMonitoringRuleOptions;
   /**

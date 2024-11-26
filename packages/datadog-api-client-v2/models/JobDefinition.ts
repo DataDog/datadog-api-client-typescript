@@ -46,7 +46,7 @@ export class JobDefinition {
    */
   "name": string;
   /**
-   * Options on rules.
+   * Options.
    */
   "options"?: SecurityMonitoringRuleOptions;
   /**
@@ -54,7 +54,7 @@ export class JobDefinition {
    */
   "queries": Array<SecurityMonitoringStandardRuleQuery>;
   /**
-   * Reference tables for the rule.
+   * Reference tables used in the queries.
    */
   "referenceTables"?: Array<SecurityMonitoringReferenceTable>;
   /**
@@ -62,7 +62,7 @@ export class JobDefinition {
    */
   "tags"?: Array<string>;
   /**
-   * Cases for generating results from third-party rules. Only available for third-party rules.
+   * Cases for generating results from third-party detection method. Only available for third-party detection method.
    */
   "thirdPartyCases"?: Array<SecurityMonitoringThirdPartyRuleCaseCreate>;
   /**
