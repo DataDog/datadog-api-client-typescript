@@ -11,7 +11,7 @@ import { SecurityMonitoringRuleNewValueOptionsLearningThreshold } from "./Securi
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Options on new value rules.
+ * Options on new value detection method.
  */
 export class SecurityMonitoringRuleNewValueOptions {
   /**

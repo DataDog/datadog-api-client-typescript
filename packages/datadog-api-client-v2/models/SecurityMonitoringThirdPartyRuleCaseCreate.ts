@@ -16,7 +16,7 @@ export class SecurityMonitoringThirdPartyRuleCaseCreate {
    */
   "name"?: string;
   /**
-   * Notification targets for each rule case.
+   * Notification targets for each case.
    */
   "notifications"?: Array<string>;
   /**

@@ -42,7 +42,7 @@ export class SecurityMonitoringStandardRuleTestPayload {
    */
   "name": string;
   /**
-   * Options on rules.
+   * Options.
    */
   "options": SecurityMonitoringRuleOptions;
   /**

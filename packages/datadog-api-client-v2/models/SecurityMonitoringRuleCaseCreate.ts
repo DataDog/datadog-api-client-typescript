@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SecurityMonitoringRuleCaseCreate {
   /**
-   * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated
+   * A case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated
    * based on the event counts in the previously defined queries.
    */
   "condition"?: string;
@@ -21,7 +21,7 @@ export class SecurityMonitoringRuleCaseCreate {
    */
   "name"?: string;
   /**
-   * Notification targets for each rule case.
+   * Notification targets.
    */
   "notifications"?: Array<string>;
   /**

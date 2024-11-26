@@ -16,7 +16,7 @@ import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRul
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Options on rules.
+ * Options.
  */
 export class SecurityMonitoringRuleOptions {
   /**
@@ -36,7 +36,7 @@ export class SecurityMonitoringRuleOptions {
   "detectionMethod"?: SecurityMonitoringRuleDetectionMethod;
   /**
    * A time window is specified to match when at least one of the cases matches true. This is a sliding window
-   * and evaluates in real time. For third party rules, this field is not used.
+   * and evaluates in real time. For third party detection method, this field is not used.
    */
   "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
   /**
@@ -44,12 +44,12 @@ export class SecurityMonitoringRuleOptions {
    */
   "hardcodedEvaluatorType"?: SecurityMonitoringRuleHardcodedEvaluatorType;
   /**
-   * Options on impossible travel rules.
+   * Options on impossible travel detection method.
    */
   "impossibleTravelOptions"?: SecurityMonitoringRuleImpossibleTravelOptions;
   /**
    * Once a signal is generated, the signal will remain “open” if a case is matched at least once within
-   * this keep alive window. For third party rules, this field is not used.
+   * this keep alive window. For third party detection method, this field is not used.
    */
   "keepAlive"?: SecurityMonitoringRuleKeepAlive;
   /**
@@ -58,11 +58,11 @@ export class SecurityMonitoringRuleOptions {
    */
   "maxSignalDuration"?: SecurityMonitoringRuleMaxSignalDuration;
   /**
-   * Options on new value rules.
+   * Options on new value detection method.
    */
   "newValueOptions"?: SecurityMonitoringRuleNewValueOptions;
   /**
-   * Options on third party rules.
+   * Options on third party detection method.
    */
   "thirdPartyRuleOptions"?: SecurityMonitoringRuleThirdPartyOptions;
 

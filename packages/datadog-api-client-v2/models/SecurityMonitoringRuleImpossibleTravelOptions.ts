@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Options on impossible travel rules.
+ * Options on impossible travel detection method.
  */
 export class SecurityMonitoringRuleImpossibleTravelOptions {
   /**
