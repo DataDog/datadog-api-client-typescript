@@ -8,11 +8,11 @@ import { AWSNewExternalIDResponseData } from "./AWSNewExternalIDResponseData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS External ID response body
+ * AWS External ID response body.
  */
 export class AWSNewExternalIDResponse {
   /**
-   * AWS External ID response body
+   * AWS External ID response body.
    */
   "data": AWSNewExternalIDResponseData;
 

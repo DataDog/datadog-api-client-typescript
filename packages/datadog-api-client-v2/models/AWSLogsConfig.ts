@@ -8,11 +8,12 @@ import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Logs config
+ * AWS Logs Collection config.
  */
 export class AWSLogsConfig {
   /**
-   * AWS Lambda forwarder
+   * Log Autosubscription configuration for Datadog Forwarder Lambda functions. Automatically set up triggers for existing
+   * and new logs for some services, ensuring no logs from new resources are missed and saving time spent on manual configuration.
    */
   "lambdaForwarder"?: AWSLambdaForwarderConfig;
 

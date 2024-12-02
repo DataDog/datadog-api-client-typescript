@@ -9,7 +9,7 @@ import { AWSRegionsIncludeOnly } from "./AWSRegionsIncludeOnly";
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Regions to collect data from
+ * AWS Regions to collect data from. Defaults to `include_all`.
  */
 
 export type AWSRegions =

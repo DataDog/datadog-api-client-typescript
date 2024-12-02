@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Include all regions
+ * Include all regions. Defaults to `true`.
  */
 export class AWSRegionsIncludeAll {
   /**
-   * Include all regions
+   * Include all regions.
    */
   "includeAll": boolean;
 
