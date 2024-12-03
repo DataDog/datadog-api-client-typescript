@@ -144,6 +144,13 @@ export {
 } from "./apis/DashboardListsApi";
 
 export {
+  DataDeletionApiCancelDataDeletionRequestRequest,
+  DataDeletionApiCreateDataDeletionRequestRequest,
+  DataDeletionApiGetDataDeletionRequestsRequest,
+  DataDeletionApi,
+} from "./apis/DataDeletionApi";
+
+export {
   DomainAllowlistApiPatchDomainAllowlistRequest,
   DomainAllowlistApi,
 } from "./apis/DomainAllowlistApi";
@@ -730,6 +737,7 @@ export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequ
 export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
 export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
 export { CalculatedField } from "./models/CalculatedField";
+export { CancelDataDeletionResponseBody } from "./models/CancelDataDeletionResponseBody";
 export { Case } from "./models/Case";
 export { Case3rdPartyTicketStatus } from "./models/Case3rdPartyTicketStatus";
 export { CaseAssign } from "./models/CaseAssign";
@@ -934,6 +942,10 @@ export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
 export { CostByOrgType } from "./models/CostByOrgType";
+export { CreateDataDeletionRequestBody } from "./models/CreateDataDeletionRequestBody";
+export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDeletionRequestBodyAttributes";
+export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
+export { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
 export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
@@ -1003,6 +1015,9 @@ export { DashboardListItems } from "./models/DashboardListItems";
 export { DashboardListUpdateItemsRequest } from "./models/DashboardListUpdateItemsRequest";
 export { DashboardListUpdateItemsResponse } from "./models/DashboardListUpdateItemsResponse";
 export { DashboardType } from "./models/DashboardType";
+export { DataDeletionResponseItem } from "./models/DataDeletionResponseItem";
+export { DataDeletionResponseItemAttributes } from "./models/DataDeletionResponseItemAttributes";
+export { DataDeletionResponseMeta } from "./models/DataDeletionResponseMeta";
 export { DataScalarColumn } from "./models/DataScalarColumn";
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
@@ -1205,6 +1220,7 @@ export { GCPSTSServiceAccountResponse } from "./models/GCPSTSServiceAccountRespo
 export { GCPSTSServiceAccountsResponse } from "./models/GCPSTSServiceAccountsResponse";
 export { GCPSTSServiceAccountUpdateRequest } from "./models/GCPSTSServiceAccountUpdateRequest";
 export { GCPSTSServiceAccountUpdateRequestData } from "./models/GCPSTSServiceAccountUpdateRequestData";
+export { GetDataDeletionsResponseBody } from "./models/GetDataDeletionsResponseBody";
 export { GetDeviceAttributes } from "./models/GetDeviceAttributes";
 export { GetDeviceData } from "./models/GetDeviceData";
 export { GetDeviceResponse } from "./models/GetDeviceResponse";

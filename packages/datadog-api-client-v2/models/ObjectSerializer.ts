@@ -158,6 +158,7 @@ import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 import { CIAppWarning } from "./CIAppWarning";
 import { CalculatedField } from "./CalculatedField";
+import { CancelDataDeletionResponseBody } from "./CancelDataDeletionResponseBody";
 import { Case } from "./Case";
 import { CaseAssign } from "./CaseAssign";
 import { CaseAssignAttributes } from "./CaseAssignAttributes";
@@ -268,6 +269,10 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
+import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
+import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
+import { CreateDataDeletionResponseBody } from "./CreateDataDeletionResponseBody";
 import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
@@ -331,6 +336,9 @@ import { DashboardListItemResponse } from "./DashboardListItemResponse";
 import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
+import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
+import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
+import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
 import { DataScalarColumn } from "./DataScalarColumn";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
@@ -483,6 +491,7 @@ import { GCPSTSServiceAccountUpdateRequest } from "./GCPSTSServiceAccountUpdateR
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
+import { GetDataDeletionsResponseBody } from "./GetDataDeletionsResponseBody";
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
 import { GetDeviceData } from "./GetDeviceData";
 import { GetDeviceResponse } from "./GetDeviceResponse";
@@ -2195,6 +2204,7 @@ const typeMap: { [index: string]: any } = {
   CIAppTestsQueryFilter: CIAppTestsQueryFilter,
   CIAppWarning: CIAppWarning,
   CalculatedField: CalculatedField,
+  CancelDataDeletionResponseBody: CancelDataDeletionResponseBody,
   Case: Case,
   CaseAssign: CaseAssign,
   CaseAssignAttributes: CaseAssignAttributes,
@@ -2325,6 +2335,11 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CreateDataDeletionRequestBody: CreateDataDeletionRequestBody,
+  CreateDataDeletionRequestBodyAttributes:
+    CreateDataDeletionRequestBodyAttributes,
+  CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
+  CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
   CreateOpenAPIResponse: CreateOpenAPIResponse,
   CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
   CreateOpenAPIResponseData: CreateOpenAPIResponseData,
@@ -2404,6 +2419,9 @@ const typeMap: { [index: string]: any } = {
   DashboardListItems: DashboardListItems,
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
+  DataDeletionResponseItem: DataDeletionResponseItem,
+  DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
+  DataDeletionResponseMeta: DataDeletionResponseMeta,
   DataScalarColumn: DataScalarColumn,
   DetailedFinding: DetailedFinding,
   DetailedFindingAttributes: DetailedFindingAttributes,
@@ -2570,6 +2588,7 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
+  GetDataDeletionsResponseBody: GetDataDeletionsResponseBody,
   GetDeviceAttributes: GetDeviceAttributes,
   GetDeviceData: GetDeviceData,
   GetDeviceResponse: GetDeviceResponse,
