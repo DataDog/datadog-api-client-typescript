@@ -25,7 +25,6 @@ import { AzureUCConfigPairsResponse } from "../models/AzureUCConfigPairsResponse
 import { AzureUCConfigPatchRequest } from "../models/AzureUCConfigPatchRequest";
 import { AzureUCConfigPostRequest } from "../models/AzureUCConfigPostRequest";
 import { AzureUCConfigsResponse } from "../models/AzureUCConfigsResponse";
-import { CloudCostActivityResponse } from "../models/CloudCostActivityResponse";
 import { CustomCostsFileGetResponse } from "../models/CustomCostsFileGetResponse";
 import { CustomCostsFileLineItem } from "../models/CustomCostsFileLineItem";
 import { CustomCostsFileListResponse } from "../models/CustomCostsFileListResponse";
@@ -208,31 +207,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       .getServer("v2.CloudCostManagementApi.deleteCustomCostsFile")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async getCloudCostActivity(
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // Path Params
-    const localVarPath = "/api/v2/cost/enabled";
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.getCloudCostActivity")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -784,64 +758,6 @@ export class CloudCostManagementApiResponseProcessor {
         "void",
         ""
       ) as void;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to getCloudCostActivity
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getCloudCostActivity(
-    response: ResponseContext
-  ): Promise<CloudCostActivityResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: CloudCostActivityResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CloudCostActivityResponse"
-      ) as CloudCostActivityResponse;
-      return body;
-    }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudCostActivityResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CloudCostActivityResponse",
-        ""
-      ) as CloudCostActivityResponse;
       return body;
     }
 
@@ -1462,24 +1378,6 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteCustomCostsFile(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Get the Cloud Cost Management activity.
-   * @param param The request object
-   */
-  public getCloudCostActivity(
-    options?: Configuration
-  ): Promise<CloudCostActivityResponse> {
-    const requestContextPromise =
-      this.requestFactory.getCloudCostActivity(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getCloudCostActivity(responseContext);
         });
     });
   }
