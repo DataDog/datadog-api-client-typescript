@@ -3124,9 +3124,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CustomCostsFileGetResponse",
     },
-    "v2.GetCloudCostActivity": {
-        "operationResponseType": "CloudCostActivityResponse",
-    },
     "v2.GetActiveBillingDimensions": {
         "operationResponseType": "ActiveBillingDimensionsResponse",
     },

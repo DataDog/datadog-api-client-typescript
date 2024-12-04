@@ -849,10 +849,6 @@ export { CloudConfigurationRuleCreatePayload } from "./models/CloudConfiguration
 export { CloudConfigurationRuleOptions } from "./models/CloudConfigurationRuleOptions";
 export { CloudConfigurationRulePayload } from "./models/CloudConfigurationRulePayload";
 export { CloudConfigurationRuleType } from "./models/CloudConfigurationRuleType";
-export { CloudCostActivity } from "./models/CloudCostActivity";
-export { CloudCostActivityAttributes } from "./models/CloudCostActivityAttributes";
-export { CloudCostActivityResponse } from "./models/CloudCostActivityResponse";
-export { CloudCostActivityType } from "./models/CloudCostActivityType";
 export { CloudflareAccountCreateRequest } from "./models/CloudflareAccountCreateRequest";
 export { CloudflareAccountCreateRequestAttributes } from "./models/CloudflareAccountCreateRequestAttributes";
 export { CloudflareAccountCreateRequestData } from "./models/CloudflareAccountCreateRequestData";
