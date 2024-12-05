@@ -455,7 +455,7 @@ export class DataDeletionApi {
   }
 
   /**
-   * Creates a data deletion request by providing a query and a time frame targeting the proper data.
+   * Creates a data deletion request by providing a query and a timeframe targeting the proper data.
    * @param param The request object
    */
   public createDataDeletionRequest(
