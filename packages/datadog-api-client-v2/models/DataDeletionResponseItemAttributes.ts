@@ -27,7 +27,7 @@ export class DataDeletionResponseItemAttributes {
    */
   "indexes"?: Array<string>;
   /**
-   * Whether the deletion request is fully created or not.
+   * Whether the deletion request is fully created or not. It can take several minutes to fully create a deletion request depending on the target query and timeframe.
    */
   "isCreated": boolean;
   /**

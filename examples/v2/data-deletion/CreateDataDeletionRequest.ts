@@ -12,7 +12,7 @@ const params: v2.DataDeletionApiCreateDataDeletionRequestRequest = {
     data: {
       attributes: {
         from: 1672527600000,
-        indexes: ["index-1", "index-2"],
+        indexes: ["test-index", "test-index-2"],
         query: {
           host: "abc",
           service: "xyz",
