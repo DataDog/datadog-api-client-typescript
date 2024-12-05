@@ -24,11 +24,11 @@ export class WidgetLayout {
    */
   "width": number;
   /**
-   * The position of the widget on the x (horizontal) axis. Should be a non-negative integer.
+   * The position of the widget on the x (horizontal) axis. Should be a non-negative number.
    */
   "x": number;
   /**
-   * The position of the widget on the y (vertical) axis. Should be a non-negative integer.
+   * The position of the widget on the y (vertical) axis. Should be a non-negative number.
    */
   "y": number;
 
@@ -68,13 +68,13 @@ export class WidgetLayout {
       baseName: "x",
       type: "number",
       required: true,
-      format: "int64",
+      format: "double",
     },
     y: {
       baseName: "y",
       type: "number",
       required: true,
-      format: "int64",
+      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
