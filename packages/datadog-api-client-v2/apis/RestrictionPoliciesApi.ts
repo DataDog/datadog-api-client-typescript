@@ -327,7 +327,7 @@ export class RestrictionPoliciesApiResponseProcessor {
 
 export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`.
    * @type string
    */
   resourceId: string;
@@ -335,7 +335,7 @@ export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`.
    * @type string
    */
   resourceId: string;
@@ -343,7 +343,7 @@ export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiUpdateRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`.
    * @type string
    */
   resourceId: string;
@@ -423,6 +423,7 @@ export class RestrictionPoliciesApi {
    * - Dashboards: `dashboard`
    * - Notebooks: `notebook`
    * - Powerpacks: `powerpack`
+   * - Reference Tables: `reference-table`
    * - Security Rules: `security-rule`
    * - Service Level Objectives: `slo`
    * - Synthetic Global Variables: `synthetics-global-variable`
@@ -442,6 +443,7 @@ export class RestrictionPoliciesApi {
    * Synthetic Tests             | `viewer`, `editor`
    * Synthetic Private Locations | `viewer`, `editor`
    * Monitors                    | `viewer`, `editor`
+   * Reference Tables            | `viewer`, `editor`
    * @param param The request object
    */
   public updateRestrictionPolicy(
