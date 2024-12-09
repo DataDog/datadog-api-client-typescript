@@ -9,11 +9,11 @@ import { AWSNamespacesResponseDataType } from "./AWSNamespacesResponseDataType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Namespaces response body
+ * AWS Namespaces response data.
  */
 export class AWSNamespacesResponseData {
   /**
-   * AWS Namespaces response body
+   * AWS Namespaces response attributes.
    */
   "attributes"?: AWSNamespacesResponseAttributes;
   /**

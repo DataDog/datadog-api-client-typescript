@@ -8,11 +8,11 @@ import { AWSAccountUpdateRequestData } from "./AWSAccountUpdateRequestData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Account Update Request body
+ * AWS Account Update Request body.
  */
 export class AWSAccountUpdateRequest {
   /**
-   * AWS Account Update Request data
+   * AWS Account Update Request data.
    */
   "data": AWSAccountUpdateRequestData;
 
