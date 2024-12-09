@@ -9,7 +9,7 @@ import { XRayServicesIncludeOnly } from "./XRayServicesIncludeOnly";
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * AWS X-Ray services to collect traces from
+ * AWS X-Ray services to collect traces from. Defaults to `include_only`.
  */
 
 export type XRayServicesList =

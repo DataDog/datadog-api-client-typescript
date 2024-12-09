@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Namespaces response body
+ * AWS Namespaces response attributes.
  */
 export class AWSNamespacesResponseAttributes {
   /**
-   * AWS CloudWatch namespace
+   * AWS CloudWatch namespace.
    */
   "namespaces": Array<string>;
 

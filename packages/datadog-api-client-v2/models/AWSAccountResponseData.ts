@@ -9,15 +9,17 @@ import { AWSAccountType } from "./AWSAccountType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Account Response body
+ * AWS Account response data.
  */
 export class AWSAccountResponseData {
   /**
-   * The AWS Account Integration Config
+   * AWS Account response attributes.
    */
   "attributes"?: AWSAccountResponseAttributes;
   /**
-   * Unique Datadog ID of the AWS Account Integration Config
+   * Unique Datadog ID of the AWS Account Integration Config.
+   * To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
+   * endpoint and query by AWS Account ID.
    */
   "id": string;
   /**

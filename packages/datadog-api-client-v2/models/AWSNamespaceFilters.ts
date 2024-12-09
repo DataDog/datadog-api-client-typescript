@@ -9,7 +9,7 @@ import { AWSNamespaceFiltersIncludeOnly } from "./AWSNamespaceFiltersIncludeOnly
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Metrics namespace filters
+ * AWS Metrics namespace filters. Defaults to `exclude_only`.
  */
 
 export type AWSNamespaceFilters =
