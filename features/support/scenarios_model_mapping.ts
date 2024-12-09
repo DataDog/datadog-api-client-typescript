@@ -2636,6 +2636,102 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RetentionFilterResponse",
     },
+    "v2.DeleteApps": {
+        "body": {
+            "type": "DeleteAppsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DeleteAppsResponse",
+    },
+    "v2.ListApps": {
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "page": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterUserName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterUserUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "filterName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterDeployed": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterTags": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFavorite": {
+            "type": "boolean",
+            "format": "",
+            },
+        "sort": {
+            "type": "Array<AppsSortField>",
+            "format": "",
+            },
+        "operationResponseType": "ListAppsResponse",
+    },
+    "v2.CreateApp": {
+        "body": {
+            "type": "CreateAppRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateAppResponse",
+    },
+    "v2.DeleteApp": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeleteAppResponse",
+    },
+    "v2.GetApp": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetAppResponse",
+    },
+    "v2.UpdateApp": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateAppRequest",
+            "format": "",
+            },
+        "operationResponseType": "UpdateAppResponse",
+    },
+    "v2.DisableApp": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DisableAppResponse",
+    },
+    "v2.DeployApp": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeployAppResponse",
+    },
     "v2.ListAuditLogs": {
         "filterQuery": {
             "type": "string",
