@@ -60,6 +60,8 @@ const params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
     steps: [
       {
         allowFailure: false,
+        alwaysExecute: true,
+        exitIfSucceed: true,
         isCritical: true,
         name: "Refresh page",
         params: {},
