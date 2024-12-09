@@ -28,6 +28,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
               target: 200,
             },
           ],
+          exitIfSucceed: true,
           extractedValues: [
             {
               field: "server",
