@@ -193,9 +193,6 @@ import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurat
 import { CloudConfigurationRuleCreatePayload } from "./CloudConfigurationRuleCreatePayload";
 import { CloudConfigurationRuleOptions } from "./CloudConfigurationRuleOptions";
 import { CloudConfigurationRulePayload } from "./CloudConfigurationRulePayload";
-import { CloudCostActivity } from "./CloudCostActivity";
-import { CloudCostActivityAttributes } from "./CloudCostActivityAttributes";
-import { CloudCostActivityResponse } from "./CloudCostActivityResponse";
 import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
@@ -1496,7 +1493,6 @@ const enumsMap: { [key: string]: any[] } = {
   ChangeEventCustomAttributesChangedResourceType: ["feature_flag"],
   ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
   CloudConfigurationRuleType: ["cloud_configuration"],
-  CloudCostActivityType: ["cloud_cost_activity"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   CloudflareAccountType: ["cloudflare-accounts"],
   ConfluentAccountType: ["confluent-cloud-accounts"],
@@ -2243,9 +2239,6 @@ const typeMap: { [index: string]: any } = {
   CloudConfigurationRuleCreatePayload: CloudConfigurationRuleCreatePayload,
   CloudConfigurationRuleOptions: CloudConfigurationRuleOptions,
   CloudConfigurationRulePayload: CloudConfigurationRulePayload,
-  CloudCostActivity: CloudCostActivity,
-  CloudCostActivityAttributes: CloudCostActivityAttributes,
-  CloudCostActivityResponse: CloudCostActivityResponse,
   CloudWorkloadSecurityAgentRuleAction: CloudWorkloadSecurityAgentRuleAction,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,
