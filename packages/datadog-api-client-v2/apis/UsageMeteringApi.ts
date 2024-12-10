@@ -1876,7 +1876,7 @@ export class UsageMeteringApi {
    * END
    * ```
    *
-   * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+   * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/). This endpoint is not available in the Government (US1-FED) site.
    * @param param The request object
    */
   public getMonthlyCostAttribution(
