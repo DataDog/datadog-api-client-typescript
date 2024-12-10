@@ -4462,6 +4462,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "number",
             "format": "int64",
             },
+        "pageSize": {
+            "type": "number",
+            "format": "int32",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "MetricsAndMetricTagConfigurationsResponse",
     },
     "v2.DeleteBulkTagsMetricsConfiguration": {
