@@ -7,15 +7,15 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Resources config
+ * AWS Resources Collection config.
  */
 export class AWSResourcesConfig {
   /**
-   * Whether Datadog collects cloud security posture management resources from your AWS account.
+   * Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations, identity risks, and compliance violations. Defaults to `false`. Requires `extended_collection` to be set to `true`.
    */
   "cloudSecurityPostureManagementCollection"?: boolean;
   /**
-   * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection`.
+   * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Defaults to `true`. Required for `cloud_security_posture_management_collection`.
    */
   "extendedCollection"?: boolean;
 

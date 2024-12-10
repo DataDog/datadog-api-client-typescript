@@ -14,43 +14,44 @@ import { AWSTracesConfig } from "./AWSTracesConfig";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The AWS Account Integration Config to be created
+ * The AWS Account Integration Config to be created.
  */
 export class AWSAccountCreateRequestAttributes {
   /**
-   * Tags to apply to all metrics in the account
+   * Tags to apply to all hosts and metrics reporting for this account. Defaults to `[]`.
    */
   "accountTags"?: Array<string>;
   /**
-   * AWS Authentication config
+   * AWS Authentication config.
    */
   "authConfig": AWSAuthConfig;
   /**
-   * AWS Account ID
+   * AWS Account ID.
    */
   "awsAccountId": string;
   /**
-   * AWS Account partition
+   * AWS partition your AWS account is scoped to. Defaults to `aws`.
+   * See [Partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html) in the AWS documentation for more information.
    */
   "awsPartition": AWSAccountPartition;
   /**
-   * AWS Regions to collect data from
+   * AWS Regions to collect data from. Defaults to `include_all`.
    */
   "awsRegions"?: AWSRegions;
   /**
-   * AWS Logs config
+   * AWS Logs Collection config.
    */
   "logsConfig"?: AWSLogsConfig;
   /**
-   * AWS Metrics config
+   * AWS Metrics Collection config.
    */
   "metricsConfig"?: AWSMetricsConfig;
   /**
-   * AWS Resources config
+   * AWS Resources Collection config.
    */
   "resourcesConfig"?: AWSResourcesConfig;
   /**
-   * AWS Traces config
+   * AWS Traces Collection config.
    */
   "tracesConfig"?: AWSTracesConfig;
 

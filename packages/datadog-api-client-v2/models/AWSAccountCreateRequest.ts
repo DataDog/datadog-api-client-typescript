@@ -8,11 +8,11 @@ import { AWSAccountCreateRequestData } from "./AWSAccountCreateRequestData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Account Create Request body
+ * AWS Account Create Request body.
  */
 export class AWSAccountCreateRequest {
   /**
-   * AWS Account Create Request data
+   * AWS Account Create Request data.
    */
   "data": AWSAccountCreateRequestData;
 

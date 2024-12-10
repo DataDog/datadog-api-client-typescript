@@ -9,11 +9,11 @@ import { AWSAccountType } from "./AWSAccountType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Account Create Request data
+ * AWS Account Create Request data.
  */
 export class AWSAccountCreateRequestData {
   /**
-   * The AWS Account Integration Config to be created
+   * The AWS Account Integration Config to be created.
    */
   "attributes": AWSAccountCreateRequestAttributes;
   /**

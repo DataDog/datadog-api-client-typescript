@@ -7,15 +7,15 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Authentication config for role-based account
+ * AWS Authentication config to integrate your account using an IAM role.
  */
 export class AWSAuthConfigRole {
   /**
-   * AWS IAM External ID for associated role
+   * AWS IAM External ID for associated role.
    */
   "externalId"?: string;
   /**
-   * AWS IAM Role name
+   * AWS IAM Role name.
    */
   "roleName": string;
 

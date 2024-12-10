@@ -8,11 +8,11 @@ import { AWSAccountResponseData } from "./AWSAccountResponseData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Account response body
+ * AWS Account response body.
  */
 export class AWSAccountResponse {
   /**
-   * AWS Account Response body
+   * AWS Account response data.
    */
   "data": AWSAccountResponseData;
 
