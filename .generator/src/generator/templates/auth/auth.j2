@@ -21,7 +21,7 @@ export interface TokenProvider {
   getToken(): Promise<string> | string;
 }
 
-{%- for name, schema in openapi.components.securitySchemes.items()  %}
+{%- for name, schema in openapi.components.securitySchemes.items() if schema.scheme != "bearer" %}
 
 /**
  * Applies {{ schema.type }} authentication to the request context.
@@ -88,7 +88,7 @@ export class {{ name|camel_case }}Authentication implements SecurityAuthenticati
 {%- endfor %}
 
 export type AuthMethods = {
-  {%- for name, schema in openapi.components.securitySchemes.items() %}
+  {%- for name, schema in openapi.components.securitySchemes.items() if schema.scheme != "bearer" %}
   "{{ name }}"?: SecurityAuthentication{%- if loop.nextitem %},{%- endif %}
   {%- endfor %}
 }
@@ -99,7 +99,7 @@ export type HttpBearerConfiguration = { tokenProvider: TokenProvider };
 export type OAuth2Configuration = { accessToken: string };
 
 export type AuthMethodsConfiguration = {
-  {%- for name, schema in openapi.components.securitySchemes.items() %}
+  {%- for name, schema in openapi.components.securitySchemes.items() if schema.scheme != "bearer" %}
   "{{ name }}"?: {% if schema.type == "apiKey" %}ApiKeyConfiguration{%-endif %}{% if schema.type == "basic" %}HttpBasicConfiguration{%- endif %}{% if schema.type == "bearer" %}HttpBearerConfiguration{%- endif %}{% if schema.type == "oauth2" %}OAuth2Configuration{%- endif %}{%- if loop.nextitem %},{%- endif %}
   {%- endfor %}
 }
@@ -115,7 +115,7 @@ export function configureAuthMethods(config: AuthMethodsConfiguration | undefine
     return authMethods;
   }
 
-  {%- for name, schema in openapi.components.securitySchemes.items() %}
+  {%- for name, schema in openapi.components.securitySchemes.items() if schema.scheme != "bearer" %}
 
   if (config["{{ name }}"]) {
     authMethods["{{ name }}"] = new {{ name|camel_case }}Authentication(
