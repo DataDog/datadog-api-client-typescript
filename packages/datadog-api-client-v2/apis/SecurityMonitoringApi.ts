@@ -182,7 +182,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -4824,6 +4823,8 @@ export class SecurityMonitoringApi {
 
   /**
    * Get a list of findings. These include both misconfigurations and identity risks.
+   *
+   * **Note**: To filter and return only identity risks, add the following query parameter: `?filter[tags]=dd_rule_type:ciem`
    *
    * ### Filtering
    *

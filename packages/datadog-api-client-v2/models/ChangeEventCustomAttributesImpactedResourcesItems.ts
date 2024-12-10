@@ -3,23 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CloudCostActivityAttributes } from "./CloudCostActivityAttributes";
-import { CloudCostActivityType } from "./CloudCostActivityType";
+import { ChangeEventCustomAttributesImpactedResourcesItemsType } from "./ChangeEventCustomAttributesImpactedResourcesItemsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Cloud Cost Activity.
+ * Object representing a uniquely identified resource. Only the resource type `service` is supported.
  */
-export class CloudCostActivity {
+export class ChangeEventCustomAttributesImpactedResourcesItems {
   /**
-   * Attributes for Cloud Cost activity.
+   * Resource's name.
    */
-  "attributes": CloudCostActivityAttributes;
+  "name": string;
   /**
-   * Type of Cloud Cost Activity.
+   * Resource's type.
    */
-  "type": CloudCostActivityType;
+  "type": ChangeEventCustomAttributesImpactedResourcesItemsType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +36,14 @@ export class CloudCostActivity {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CloudCostActivityAttributes",
+    name: {
+      baseName: "name",
+      type: "string",
       required: true,
     },
     type: {
       baseName: "type",
-      type: "CloudCostActivityType",
+      type: "ChangeEventCustomAttributesImpactedResourcesItemsType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +56,7 @@ export class CloudCostActivity {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudCostActivity.attributeTypeMap;
+    return ChangeEventCustomAttributesImpactedResourcesItems.attributeTypeMap;
   }
 
   public constructor() {}

@@ -28,9 +28,7 @@ import { AWSLogsServicesResponse } from "./AWSLogsServicesResponse";
 import { AWSLogsServicesResponseAttributes } from "./AWSLogsServicesResponseAttributes";
 import { AWSLogsServicesResponseData } from "./AWSLogsServicesResponseData";
 import { AWSMetricsConfig } from "./AWSMetricsConfig";
-import { AWSNamespaceFiltersExcludeAll } from "./AWSNamespaceFiltersExcludeAll";
 import { AWSNamespaceFiltersExcludeOnly } from "./AWSNamespaceFiltersExcludeOnly";
-import { AWSNamespaceFiltersIncludeAll } from "./AWSNamespaceFiltersIncludeAll";
 import { AWSNamespaceFiltersIncludeOnly } from "./AWSNamespaceFiltersIncludeOnly";
 import { AWSNamespaceTagFilter } from "./AWSNamespaceTagFilter";
 import { AWSNamespacesResponse } from "./AWSNamespacesResponse";
@@ -129,9 +127,10 @@ import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
 import { CIAppHostInfo } from "./CIAppHostInfo";
 import { CIAppPipelineEvent } from "./CIAppPipelineEvent";
 import { CIAppPipelineEventAttributes } from "./CIAppPipelineEventAttributes";
+import { CIAppPipelineEventFinishedPipeline } from "./CIAppPipelineEventFinishedPipeline";
+import { CIAppPipelineEventInProgressPipeline } from "./CIAppPipelineEventInProgressPipeline";
 import { CIAppPipelineEventJob } from "./CIAppPipelineEventJob";
 import { CIAppPipelineEventParentPipeline } from "./CIAppPipelineEventParentPipeline";
-import { CIAppPipelineEventPipeline } from "./CIAppPipelineEventPipeline";
 import { CIAppPipelineEventPreviousPipeline } from "./CIAppPipelineEventPreviousPipeline";
 import { CIAppPipelineEventStage } from "./CIAppPipelineEventStage";
 import { CIAppPipelineEventStep } from "./CIAppPipelineEventStep";
@@ -160,6 +159,7 @@ import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 import { CIAppWarning } from "./CIAppWarning";
 import { CalculatedField } from "./CalculatedField";
+import { CancelDataDeletionResponseBody } from "./CancelDataDeletionResponseBody";
 import { Case } from "./Case";
 import { CaseAssign } from "./CaseAssign";
 import { CaseAssignAttributes } from "./CaseAssignAttributes";
@@ -182,6 +182,10 @@ import { CaseUpdateStatusRequest } from "./CaseUpdateStatusRequest";
 import { CasesResponse } from "./CasesResponse";
 import { CasesResponseMeta } from "./CasesResponseMeta";
 import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
+import { ChangeEventCustomAttributes } from "./ChangeEventCustomAttributes";
+import { ChangeEventCustomAttributesAuthor } from "./ChangeEventCustomAttributesAuthor";
+import { ChangeEventCustomAttributesChangedResource } from "./ChangeEventCustomAttributesChangedResource";
+import { ChangeEventCustomAttributesImpactedResourcesItems } from "./ChangeEventCustomAttributesImpactedResourcesItems";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
@@ -190,9 +194,6 @@ import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurat
 import { CloudConfigurationRuleCreatePayload } from "./CloudConfigurationRuleCreatePayload";
 import { CloudConfigurationRuleOptions } from "./CloudConfigurationRuleOptions";
 import { CloudConfigurationRulePayload } from "./CloudConfigurationRulePayload";
-import { CloudCostActivity } from "./CloudCostActivity";
-import { CloudCostActivityAttributes } from "./CloudCostActivityAttributes";
-import { CloudCostActivityResponse } from "./CloudCostActivityResponse";
 import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
@@ -266,6 +267,10 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
+import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
+import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
+import { CreateDataDeletionResponseBody } from "./CreateDataDeletionResponseBody";
 import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
@@ -329,6 +334,9 @@ import { DashboardListItemResponse } from "./DashboardListItemResponse";
 import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
+import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
+import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
+import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
 import { DataScalarColumn } from "./DataScalarColumn";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
@@ -418,6 +426,14 @@ import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
 import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
+import { EventCreateRequest } from "./EventCreateRequest";
+import { EventCreateRequestPayload } from "./EventCreateRequestPayload";
+import { EventCreateResponse } from "./EventCreateResponse";
+import { EventCreateResponseAttributes } from "./EventCreateResponseAttributes";
+import { EventCreateResponseAttributesAttributes } from "./EventCreateResponseAttributesAttributes";
+import { EventCreateResponseAttributesAttributesEvt } from "./EventCreateResponseAttributesAttributesEvt";
+import { EventCreateResponsePayload } from "./EventCreateResponsePayload";
+import { EventPayload } from "./EventPayload";
 import { EventResponse } from "./EventResponse";
 import { EventResponseAttributes } from "./EventResponseAttributes";
 import { EventsCompute } from "./EventsCompute";
@@ -473,6 +489,7 @@ import { GCPSTSServiceAccountUpdateRequest } from "./GCPSTSServiceAccountUpdateR
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
+import { GetDataDeletionsResponseBody } from "./GetDataDeletionsResponseBody";
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
 import { GetDeviceData } from "./GetDeviceData";
 import { GetDeviceResponse } from "./GetDeviceResponse";
@@ -1448,6 +1465,7 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppCreatePipelineEventRequestDataType: ["cipipeline_resource_request"],
   CIAppPipelineEventJobLevel: ["job"],
   CIAppPipelineEventJobStatus: ["success", "error", "canceled", "skipped"],
+  CIAppPipelineEventPipelineInProgressStatus: ["running"],
   CIAppPipelineEventPipelineLevel: ["pipeline"],
   CIAppPipelineEventPipelineStatus: [
     "success",
@@ -1473,8 +1491,10 @@ const enumsMap: { [key: string]: any[] } = {
   CaseSortableField: ["created_at", "priority", "status"],
   CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
   CaseType: ["STANDARD"],
+  ChangeEventCustomAttributesAuthorType: ["user", "system"],
+  ChangeEventCustomAttributesChangedResourceType: ["feature_flag"],
+  ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
   CloudConfigurationRuleType: ["cloud_configuration"],
-  CloudCostActivityType: ["cloud_cost_activity"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   CloudflareAccountType: ["cloudflare-accounts"],
   ConfluentAccountType: ["confluent-cloud-accounts"],
@@ -1531,6 +1551,8 @@ const enumsMap: { [key: string]: any[] } = {
   EntityV3QueueKind: ["queue"],
   EntityV3ServiceKind: ["service"],
   EntityV3SystemKind: ["system"],
+  EventCategory: ["change"],
+  EventCreateRequestType: ["event"],
   EventPriority: ["normal", "low"],
   EventStatusType: [
     "failure",
@@ -2044,9 +2066,7 @@ const typeMap: { [index: string]: any } = {
   AWSLogsServicesResponseAttributes: AWSLogsServicesResponseAttributes,
   AWSLogsServicesResponseData: AWSLogsServicesResponseData,
   AWSMetricsConfig: AWSMetricsConfig,
-  AWSNamespaceFiltersExcludeAll: AWSNamespaceFiltersExcludeAll,
   AWSNamespaceFiltersExcludeOnly: AWSNamespaceFiltersExcludeOnly,
-  AWSNamespaceFiltersIncludeAll: AWSNamespaceFiltersIncludeAll,
   AWSNamespaceFiltersIncludeOnly: AWSNamespaceFiltersIncludeOnly,
   AWSNamespaceTagFilter: AWSNamespaceTagFilter,
   AWSNamespacesResponse: AWSNamespacesResponse,
@@ -2149,9 +2169,10 @@ const typeMap: { [index: string]: any } = {
   CIAppHostInfo: CIAppHostInfo,
   CIAppPipelineEvent: CIAppPipelineEvent,
   CIAppPipelineEventAttributes: CIAppPipelineEventAttributes,
+  CIAppPipelineEventFinishedPipeline: CIAppPipelineEventFinishedPipeline,
+  CIAppPipelineEventInProgressPipeline: CIAppPipelineEventInProgressPipeline,
   CIAppPipelineEventJob: CIAppPipelineEventJob,
   CIAppPipelineEventParentPipeline: CIAppPipelineEventParentPipeline,
-  CIAppPipelineEventPipeline: CIAppPipelineEventPipeline,
   CIAppPipelineEventPreviousPipeline: CIAppPipelineEventPreviousPipeline,
   CIAppPipelineEventStage: CIAppPipelineEventStage,
   CIAppPipelineEventStep: CIAppPipelineEventStep,
@@ -2182,6 +2203,7 @@ const typeMap: { [index: string]: any } = {
   CIAppTestsQueryFilter: CIAppTestsQueryFilter,
   CIAppWarning: CIAppWarning,
   CalculatedField: CalculatedField,
+  CancelDataDeletionResponseBody: CancelDataDeletionResponseBody,
   Case: Case,
   CaseAssign: CaseAssign,
   CaseAssignAttributes: CaseAssignAttributes,
@@ -2204,6 +2226,12 @@ const typeMap: { [index: string]: any } = {
   CasesResponse: CasesResponse,
   CasesResponseMeta: CasesResponseMeta,
   CasesResponseMetaPagination: CasesResponseMetaPagination,
+  ChangeEventCustomAttributes: ChangeEventCustomAttributes,
+  ChangeEventCustomAttributesAuthor: ChangeEventCustomAttributesAuthor,
+  ChangeEventCustomAttributesChangedResource:
+    ChangeEventCustomAttributesChangedResource,
+  ChangeEventCustomAttributesImpactedResourcesItems:
+    ChangeEventCustomAttributesImpactedResourcesItems,
   ChargebackBreakdown: ChargebackBreakdown,
   CloudConfigurationComplianceRuleOptions:
     CloudConfigurationComplianceRuleOptions,
@@ -2214,9 +2242,6 @@ const typeMap: { [index: string]: any } = {
   CloudConfigurationRuleCreatePayload: CloudConfigurationRuleCreatePayload,
   CloudConfigurationRuleOptions: CloudConfigurationRuleOptions,
   CloudConfigurationRulePayload: CloudConfigurationRulePayload,
-  CloudCostActivity: CloudCostActivity,
-  CloudCostActivityAttributes: CloudCostActivityAttributes,
-  CloudCostActivityResponse: CloudCostActivityResponse,
   CloudWorkloadSecurityAgentRuleAction: CloudWorkloadSecurityAgentRuleAction,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,
@@ -2306,6 +2331,11 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CreateDataDeletionRequestBody: CreateDataDeletionRequestBody,
+  CreateDataDeletionRequestBodyAttributes:
+    CreateDataDeletionRequestBodyAttributes,
+  CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
+  CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
   CreateOpenAPIResponse: CreateOpenAPIResponse,
   CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
   CreateOpenAPIResponseData: CreateOpenAPIResponseData,
@@ -2385,6 +2415,9 @@ const typeMap: { [index: string]: any } = {
   DashboardListItems: DashboardListItems,
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
+  DataDeletionResponseItem: DataDeletionResponseItem,
+  DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
+  DataDeletionResponseMeta: DataDeletionResponseMeta,
   DataScalarColumn: DataScalarColumn,
   DetailedFinding: DetailedFinding,
   DetailedFindingAttributes: DetailedFindingAttributes,
@@ -2486,6 +2519,16 @@ const typeMap: { [index: string]: any } = {
   EntityV3SystemSpec: EntityV3SystemSpec,
   Event: Event,
   EventAttributes: EventAttributes,
+  EventCreateRequest: EventCreateRequest,
+  EventCreateRequestPayload: EventCreateRequestPayload,
+  EventCreateResponse: EventCreateResponse,
+  EventCreateResponseAttributes: EventCreateResponseAttributes,
+  EventCreateResponseAttributesAttributes:
+    EventCreateResponseAttributesAttributes,
+  EventCreateResponseAttributesAttributesEvt:
+    EventCreateResponseAttributesAttributesEvt,
+  EventCreateResponsePayload: EventCreateResponsePayload,
+  EventPayload: EventPayload,
   EventResponse: EventResponse,
   EventResponseAttributes: EventResponseAttributes,
   EventsCompute: EventsCompute,
@@ -2541,6 +2584,7 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
+  GetDataDeletionsResponseBody: GetDataDeletionsResponseBody,
   GetDeviceAttributes: GetDeviceAttributes,
   GetDeviceData: GetDeviceData,
   GetDeviceResponse: GetDeviceResponse,
@@ -3510,9 +3554,7 @@ const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User", "LeakedKey"],
   AWSAuthConfig: ["AWSAuthConfigKeys", "AWSAuthConfigRole"],
   AWSNamespaceFilters: [
-    "AWSNamespaceFiltersExcludeAll",
     "AWSNamespaceFiltersExcludeOnly",
-    "AWSNamespaceFiltersIncludeAll",
     "AWSNamespaceFiltersIncludeOnly",
   ],
   AWSRegions: ["AWSRegionsIncludeAll", "AWSRegionsIncludeOnly"],
@@ -3539,6 +3581,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   CIAppGroupByMissing: ["string", "number"],
   CIAppGroupByTotal: ["boolean", "string", "number"],
+  CIAppPipelineEventPipeline: [
+    "CIAppPipelineEventFinishedPipeline",
+    "CIAppPipelineEventInProgressPipeline",
+  ],
   ContainerImageItem: ["ContainerImage", "ContainerImageGroup"],
   ContainerItem: ["Container", "ContainerGroup"],
   CustomDestinationForwardDestination: [
@@ -3582,6 +3628,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "EntityV3Queue",
     "EntityV3System",
   ],
+  EventPayloadAttributes: ["ChangeEventCustomAttributes"],
   IncidentAttachmentAttributes: [
     "IncidentAttachmentPostmortemAttributes",
     "IncidentAttachmentLinkAttributes",

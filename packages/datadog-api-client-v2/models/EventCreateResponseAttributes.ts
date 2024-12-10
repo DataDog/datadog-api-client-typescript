@@ -3,17 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { EventCreateResponseAttributesAttributes } from "./EventCreateResponseAttributesAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Include all namespaces
+ * JSON object containing all events attributes and their associated values.
  */
-export class AWSNamespaceFiltersIncludeAll {
+export class EventCreateResponseAttributes {
   /**
-   * Include all namespaces
+   * JSON object of attributes from your events.
    */
-  "includeAll": boolean;
+  "attributes"?: EventCreateResponseAttributesAttributes;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,10 +32,9 @@ export class AWSNamespaceFiltersIncludeAll {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeAll: {
-      baseName: "include_all",
-      type: "boolean",
-      required: true,
+    attributes: {
+      baseName: "attributes",
+      type: "EventCreateResponseAttributesAttributes",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +46,7 @@ export class AWSNamespaceFiltersIncludeAll {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSNamespaceFiltersIncludeAll.attributeTypeMap;
+    return EventCreateResponseAttributes.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,17 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { EventCreateResponseAttributesAttributesEvt } from "./EventCreateResponseAttributesAttributesEvt";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for Cloud Cost activity.
+ * JSON object of attributes from your events.
  */
-export class CloudCostActivityAttributes {
+export class EventCreateResponseAttributesAttributes {
   /**
-   * Whether or not the cloud account is enabled.
+   * JSON object of event system attributes.
    */
-  "isEnabled": boolean;
+  "evt"?: EventCreateResponseAttributesAttributesEvt;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,10 +32,9 @@ export class CloudCostActivityAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
-      required: true,
+    evt: {
+      baseName: "evt",
+      type: "EventCreateResponseAttributesAttributesEvt",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +46,7 @@ export class CloudCostActivityAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudCostActivityAttributes.attributeTypeMap;
+    return EventCreateResponseAttributesAttributes.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,17 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Exclude all namespaces
+ * Object needed to create a data deletion request.
  */
-export class AWSNamespaceFiltersExcludeAll {
+export class CreateDataDeletionRequestBody {
   /**
-   * Exclude all namespaces
+   * Data needed to create a data deletion request.
    */
-  "excludeAll": boolean;
+  "data": CreateDataDeletionRequestBodyData;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,9 +32,9 @@ export class AWSNamespaceFiltersExcludeAll {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    excludeAll: {
-      baseName: "exclude_all",
-      type: "boolean",
+    data: {
+      baseName: "data",
+      type: "CreateDataDeletionRequestBodyData",
       required: true,
     },
     additionalProperties: {
@@ -46,7 +47,7 @@ export class AWSNamespaceFiltersExcludeAll {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSNamespaceFiltersExcludeAll.attributeTypeMap;
+    return CreateDataDeletionRequestBody.attributeTypeMap;
   }
 
   public constructor() {}

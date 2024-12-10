@@ -3124,9 +3124,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CustomCostsFileGetResponse",
     },
-    "v2.GetCloudCostActivity": {
-        "operationResponseType": "CloudCostActivityResponse",
-    },
     "v2.GetActiveBillingDimensions": {
         "operationResponseType": "ActiveBillingDimensionsResponse",
     },
@@ -3356,6 +3353,47 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DashboardListUpdateItemsResponse",
     },
+    "v2.CreateDataDeletionRequest": {
+        "product": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CreateDataDeletionRequestBody",
+            "format": "",
+            },
+        "operationResponseType": "CreateDataDeletionResponseBody",
+    },
+    "v2.GetDataDeletionRequests": {
+        "nextPage": {
+            "type": "string",
+            "format": "",
+            },
+        "product": {
+            "type": "string",
+            "format": "",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "status": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "GetDataDeletionsResponseBody",
+    },
+    "v2.CancelDataDeletionRequest": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CancelDataDeletionResponseBody",
+    },
     "v2.GetDomainAllowlist": {
         "operationResponseType": "DomainAllowlistResponse",
     },
@@ -3476,6 +3514,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int32",
             },
         "operationResponseType": "EventsListResponse",
+    },
+    "v2.CreateEvent": {
+        "body": {
+            "type": "EventCreateRequestPayload",
+            "format": "",
+            },
+        "operationResponseType": "EventCreateResponsePayload",
     },
     "v2.SearchEvents": {
         "body": {

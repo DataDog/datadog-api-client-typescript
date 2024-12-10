@@ -16,6 +16,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ListStreamQuery {
   /**
+   * Specifies the field for logs pattern clustering. Usable only with logs_pattern_stream.
+   */
+  "clusteringPatternFieldPath"?: string;
+  /**
    * Compute configuration for the List Stream Widget. Compute can be used only with the logs_transaction_stream (from 1 to 5 items) list stream source.
    */
   "compute"?: Array<ListStreamComputeItems>;
@@ -64,6 +68,10 @@ export class ListStreamQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    clusteringPatternFieldPath: {
+      baseName: "clustering_pattern_field_path",
+      type: "string",
+    },
     compute: {
       baseName: "compute",
       type: "Array<ListStreamComputeItems>",

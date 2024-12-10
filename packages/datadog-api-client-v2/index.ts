@@ -144,6 +144,13 @@ export {
 } from "./apis/DashboardListsApi";
 
 export {
+  DataDeletionApiCancelDataDeletionRequestRequest,
+  DataDeletionApiCreateDataDeletionRequestRequest,
+  DataDeletionApiGetDataDeletionRequestsRequest,
+  DataDeletionApi,
+} from "./apis/DataDeletionApi";
+
+export {
   DomainAllowlistApiPatchDomainAllowlistRequest,
   DomainAllowlistApi,
 } from "./apis/DomainAllowlistApi";
@@ -159,6 +166,7 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
+  EventsApiCreateEventRequest,
   EventsApiListEventsRequest,
   EventsApiSearchEventsRequest,
   EventsApi,
@@ -684,9 +692,7 @@ export { AWSLogsServicesResponseData } from "./models/AWSLogsServicesResponseDat
 export { AWSLogsServicesResponseDataType } from "./models/AWSLogsServicesResponseDataType";
 export { AWSMetricsConfig } from "./models/AWSMetricsConfig";
 export { AWSNamespaceFilters } from "./models/AWSNamespaceFilters";
-export { AWSNamespaceFiltersExcludeAll } from "./models/AWSNamespaceFiltersExcludeAll";
 export { AWSNamespaceFiltersExcludeOnly } from "./models/AWSNamespaceFiltersExcludeOnly";
-export { AWSNamespaceFiltersIncludeAll } from "./models/AWSNamespaceFiltersIncludeAll";
 export { AWSNamespaceFiltersIncludeOnly } from "./models/AWSNamespaceFiltersIncludeOnly";
 export { AWSNamespacesResponse } from "./models/AWSNamespacesResponse";
 export { AWSNamespacesResponseAttributes } from "./models/AWSNamespacesResponseAttributes";
@@ -731,6 +737,7 @@ export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequ
 export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
 export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
 export { CalculatedField } from "./models/CalculatedField";
+export { CancelDataDeletionResponseBody } from "./models/CancelDataDeletionResponseBody";
 export { Case } from "./models/Case";
 export { Case3rdPartyTicketStatus } from "./models/Case3rdPartyTicketStatus";
 export { CaseAssign } from "./models/CaseAssign";
@@ -759,6 +766,13 @@ export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
 export { CaseUpdateStatus } from "./models/CaseUpdateStatus";
 export { CaseUpdateStatusAttributes } from "./models/CaseUpdateStatusAttributes";
 export { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
+export { ChangeEventCustomAttributes } from "./models/ChangeEventCustomAttributes";
+export { ChangeEventCustomAttributesAuthor } from "./models/ChangeEventCustomAttributesAuthor";
+export { ChangeEventCustomAttributesAuthorType } from "./models/ChangeEventCustomAttributesAuthorType";
+export { ChangeEventCustomAttributesChangedResource } from "./models/ChangeEventCustomAttributesChangedResource";
+export { ChangeEventCustomAttributesChangedResourceType } from "./models/ChangeEventCustomAttributesChangedResourceType";
+export { ChangeEventCustomAttributesImpactedResourcesItems } from "./models/ChangeEventCustomAttributesImpactedResourcesItems";
+export { ChangeEventCustomAttributesImpactedResourcesItemsType } from "./models/ChangeEventCustomAttributesImpactedResourcesItemsType";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
 export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
 export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
@@ -782,11 +796,14 @@ export { CIAppGroupByTotal } from "./models/CIAppGroupByTotal";
 export { CIAppHostInfo } from "./models/CIAppHostInfo";
 export { CIAppPipelineEvent } from "./models/CIAppPipelineEvent";
 export { CIAppPipelineEventAttributes } from "./models/CIAppPipelineEventAttributes";
+export { CIAppPipelineEventFinishedPipeline } from "./models/CIAppPipelineEventFinishedPipeline";
+export { CIAppPipelineEventInProgressPipeline } from "./models/CIAppPipelineEventInProgressPipeline";
 export { CIAppPipelineEventJob } from "./models/CIAppPipelineEventJob";
 export { CIAppPipelineEventJobLevel } from "./models/CIAppPipelineEventJobLevel";
 export { CIAppPipelineEventJobStatus } from "./models/CIAppPipelineEventJobStatus";
 export { CIAppPipelineEventParentPipeline } from "./models/CIAppPipelineEventParentPipeline";
 export { CIAppPipelineEventPipeline } from "./models/CIAppPipelineEventPipeline";
+export { CIAppPipelineEventPipelineInProgressStatus } from "./models/CIAppPipelineEventPipelineInProgressStatus";
 export { CIAppPipelineEventPipelineLevel } from "./models/CIAppPipelineEventPipelineLevel";
 export { CIAppPipelineEventPipelineStatus } from "./models/CIAppPipelineEventPipelineStatus";
 export { CIAppPipelineEventPreviousPipeline } from "./models/CIAppPipelineEventPreviousPipeline";
@@ -835,10 +852,6 @@ export { CloudConfigurationRuleCreatePayload } from "./models/CloudConfiguration
 export { CloudConfigurationRuleOptions } from "./models/CloudConfigurationRuleOptions";
 export { CloudConfigurationRulePayload } from "./models/CloudConfigurationRulePayload";
 export { CloudConfigurationRuleType } from "./models/CloudConfigurationRuleType";
-export { CloudCostActivity } from "./models/CloudCostActivity";
-export { CloudCostActivityAttributes } from "./models/CloudCostActivityAttributes";
-export { CloudCostActivityResponse } from "./models/CloudCostActivityResponse";
-export { CloudCostActivityType } from "./models/CloudCostActivityType";
 export { CloudflareAccountCreateRequest } from "./models/CloudflareAccountCreateRequest";
 export { CloudflareAccountCreateRequestAttributes } from "./models/CloudflareAccountCreateRequestAttributes";
 export { CloudflareAccountCreateRequestData } from "./models/CloudflareAccountCreateRequestData";
@@ -928,6 +941,10 @@ export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
 export { CostByOrgType } from "./models/CostByOrgType";
+export { CreateDataDeletionRequestBody } from "./models/CreateDataDeletionRequestBody";
+export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDeletionRequestBodyAttributes";
+export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
+export { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
 export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
@@ -997,6 +1014,9 @@ export { DashboardListItems } from "./models/DashboardListItems";
 export { DashboardListUpdateItemsRequest } from "./models/DashboardListUpdateItemsRequest";
 export { DashboardListUpdateItemsResponse } from "./models/DashboardListUpdateItemsResponse";
 export { DashboardType } from "./models/DashboardType";
+export { DataDeletionResponseItem } from "./models/DataDeletionResponseItem";
+export { DataDeletionResponseItemAttributes } from "./models/DataDeletionResponseItemAttributes";
+export { DataDeletionResponseMeta } from "./models/DataDeletionResponseMeta";
 export { DataScalarColumn } from "./models/DataScalarColumn";
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
@@ -1117,6 +1137,17 @@ export { EntityV3SystemKind } from "./models/EntityV3SystemKind";
 export { EntityV3SystemSpec } from "./models/EntityV3SystemSpec";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
+export { EventCategory } from "./models/EventCategory";
+export { EventCreateRequest } from "./models/EventCreateRequest";
+export { EventCreateRequestPayload } from "./models/EventCreateRequestPayload";
+export { EventCreateRequestType } from "./models/EventCreateRequestType";
+export { EventCreateResponse } from "./models/EventCreateResponse";
+export { EventCreateResponseAttributes } from "./models/EventCreateResponseAttributes";
+export { EventCreateResponseAttributesAttributes } from "./models/EventCreateResponseAttributesAttributes";
+export { EventCreateResponseAttributesAttributesEvt } from "./models/EventCreateResponseAttributesAttributesEvt";
+export { EventCreateResponsePayload } from "./models/EventCreateResponsePayload";
+export { EventPayload } from "./models/EventPayload";
+export { EventPayloadAttributes } from "./models/EventPayloadAttributes";
 export { EventPriority } from "./models/EventPriority";
 export { EventResponse } from "./models/EventResponse";
 export { EventResponseAttributes } from "./models/EventResponseAttributes";
@@ -1188,6 +1219,7 @@ export { GCPSTSServiceAccountResponse } from "./models/GCPSTSServiceAccountRespo
 export { GCPSTSServiceAccountsResponse } from "./models/GCPSTSServiceAccountsResponse";
 export { GCPSTSServiceAccountUpdateRequest } from "./models/GCPSTSServiceAccountUpdateRequest";
 export { GCPSTSServiceAccountUpdateRequestData } from "./models/GCPSTSServiceAccountUpdateRequestData";
+export { GetDataDeletionsResponseBody } from "./models/GetDataDeletionsResponseBody";
 export { GetDeviceAttributes } from "./models/GetDeviceAttributes";
 export { GetDeviceData } from "./models/GetDeviceData";
 export { GetDeviceResponse } from "./models/GetDeviceResponse";

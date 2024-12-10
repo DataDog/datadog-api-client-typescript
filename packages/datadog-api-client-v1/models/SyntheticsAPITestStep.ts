@@ -24,6 +24,10 @@ export class SyntheticsAPITestStep {
    */
   "assertions": Array<SyntheticsAssertion>;
   /**
+   * Determines whether or not to exit the test if the step succeeds.
+   */
+  "exitIfSucceed"?: boolean;
+  /**
    * Array of values to parse and save as variables from the response.
    */
   "extractedValues"?: Array<SyntheticsParsingOptions>;
@@ -73,6 +77,10 @@ export class SyntheticsAPITestStep {
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
       required: true,
+    },
+    exitIfSucceed: {
+      baseName: "exitIfSucceed",
+      type: "boolean",
     },
     extractedValues: {
       baseName: "extractedValues",

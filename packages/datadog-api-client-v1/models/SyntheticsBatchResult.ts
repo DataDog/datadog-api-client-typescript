@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsBatchStatus } from "./SyntheticsBatchStatus";
-import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
 
@@ -17,7 +16,7 @@ export class SyntheticsBatchResult {
   /**
    * The device ID.
    */
-  "device"?: SyntheticsDeviceID;
+  "device"?: string;
   /**
    * Total duration in millisecond of the test.
    */
@@ -73,7 +72,7 @@ export class SyntheticsBatchResult {
   static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
       baseName: "device",
-      type: "SyntheticsDeviceID",
+      type: "string",
     },
     duration: {
       baseName: "duration",

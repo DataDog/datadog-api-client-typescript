@@ -7,8 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of Cloud Cost Activity.
+ * Event category to identify the type of event. Only the value `change` is supported. Support for other categories are coming. please reach out to datadog support if you're interested.
  */
 
-export type CloudCostActivityType = typeof CLOUD_COST_ACTIVITY | UnparsedObject;
-export const CLOUD_COST_ACTIVITY = "cloud_cost_activity";
+export type EventCategory = typeof CHANGE | UnparsedObject;
+export const CHANGE = "change";

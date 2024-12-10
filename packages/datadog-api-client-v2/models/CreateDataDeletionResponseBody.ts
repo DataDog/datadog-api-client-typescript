@@ -3,18 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CloudCostActivity } from "./CloudCostActivity";
+import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
+import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response for Cloud Cost activity.
+ * The response from the create data deletion request endpoint.
  */
-export class CloudCostActivityResponse {
+export class CreateDataDeletionResponseBody {
   /**
-   * Cloud Cost Activity.
+   * The created data deletion request information.
    */
-  "data"?: CloudCostActivity;
+  "data"?: DataDeletionResponseItem;
+  /**
+   * The metadata of the data deletion response.
+   */
+  "meta"?: DataDeletionResponseMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +39,11 @@ export class CloudCostActivityResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "CloudCostActivity",
+      type: "DataDeletionResponseItem",
+    },
+    meta: {
+      baseName: "meta",
+      type: "DataDeletionResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +55,7 @@ export class CloudCostActivityResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudCostActivityResponse.attributeTypeMap;
+    return CreateDataDeletionResponseBody.attributeTypeMap;
   }
 
   public constructor() {}
