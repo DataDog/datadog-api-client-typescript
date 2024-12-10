@@ -12,14 +12,14 @@ const params: v2.CIVisibilityPipelinesApiCreateCIAppPipelineEventRequest = {
     data: {
       attributes: {
         resource: {
-          end: new Date(new Date().getTime() + -30 * 1000),
           level: "pipeline",
-          name: "Deploy to AWS",
-          partialRetry: false,
-          start: new Date(new Date().getTime() + -120 * 1000),
-          status: "success",
           uniqueId: "3eacb6f3-ff04-4e10-8a9c-46e6d054024a",
+          name: "Deploy to AWS",
           url: "https://my-ci-provider.example/pipelines/my-pipeline/run/1",
+          start: new Date(new Date().getTime() + -120 * 1000),
+          end: new Date(new Date().getTime() + -30 * 1000),
+          status: "success",
+          partialRetry: false,
           git: {
             repositoryUrl: "https://github.com/DataDog/datadog-agent",
             sha: "7f263865994b76066c4612fd1965215e7dcb4cd2",
