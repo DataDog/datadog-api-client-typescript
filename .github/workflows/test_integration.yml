@@ -31,15 +31,6 @@ jobs:
       !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/') &&
       contains(github.event.pull_request.labels.*.name, 'ci/integrations')) ||
       github.event_name == 'schedule'
-    services:
-      datadog-agent:
-        image: gcr.io/datadoghq/agent:latest
-        ports:
-          - 8126:8126
-        env:
-          DD_API_KEY: ${{ secrets.DD_API_KEY }}
-          DD_HOSTNAME: "none"
-          DD_INSIDE_CI: "true"
     steps:
       - name: Get GitHub App token
         if: github.event_name == 'pull_request'
@@ -69,7 +60,6 @@ jobs:
         shell: bash
         env:
           CI: "true"
-          DD_AGENT_HOST: localhost
           DD_ENV: prod
           DD_SERVICE: datadog-api-client-typescript
           DD_TAGS: "team:integrations-tools-and-libraries"
@@ -78,6 +68,9 @@ jobs:
           DD_TEST_CLIENT_APP_KEY: ${{ secrets.DD_CLIENT_APP_KEY }}
           RECORD: "none"
           SLEEP_AFTER_REQUEST: "${{ vars.SLEEP_AFTER_REQUEST }}"
+          DD_CIVISIBILITY_AGENTLESS_ENABLED: true
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
+          NODE_OPTIONS: -r dd-trace/ci/init
       - name: Post failure status check
         if: failure() && github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')
         uses: DataDog/github-actions/post-status-check@v2

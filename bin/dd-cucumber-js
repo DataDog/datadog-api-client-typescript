@@ -1,6 +1,3 @@
 #!/usr/bin/env node
 
-if (process.env.DD_AGENT_HOST != undefined) {
-    require('dd-trace/ci/init');
-}
 require('@cucumber/cucumber/lib/cli/run').default();

@@ -89,7 +89,7 @@
     "@typescript-eslint/parser": "^5.54.0",
     "chai": "^4.3.7",
     "chai-quantifiers": "^1.0.17",
-    "dd-trace": "^5.28.0",
+    "dd-trace": "4.52.0",
     "eslint": "^8.43.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
