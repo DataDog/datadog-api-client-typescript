@@ -736,7 +736,8 @@ export interface AWSIntegrationApiCreateAWSAccountRequest {
 
 export interface AWSIntegrationApiDeleteAWSAccountRequest {
   /**
-   * Unique Datadog ID of the AWS Account Integration Config
+   * Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the
+   * [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
    * @type string
    */
   awsAccountConfigId: string;
@@ -744,7 +745,8 @@ export interface AWSIntegrationApiDeleteAWSAccountRequest {
 
 export interface AWSIntegrationApiGetAWSAccountRequest {
   /**
-   * Unique Datadog ID of the AWS Account Integration Config
+   * Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the
+   * [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
    * @type string
    */
   awsAccountConfigId: string;
@@ -752,7 +754,7 @@ export interface AWSIntegrationApiGetAWSAccountRequest {
 
 export interface AWSIntegrationApiListAWSAccountsRequest {
   /**
-   * Optional query filter accounts by AWS Account ID
+   * Optional query parameter to filter accounts by AWS Account ID. If not provided, all accounts are returned.
    * @type string
    */
   awsAccountId?: string;
@@ -760,7 +762,8 @@ export interface AWSIntegrationApiListAWSAccountsRequest {
 
 export interface AWSIntegrationApiUpdateAWSAccountRequest {
   /**
-   * Unique Datadog ID of the AWS Account Integration Config
+   * Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account, use the
+   * [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations) endpoint and query by AWS Account ID.
    * @type string
    */
   awsAccountConfigId: string;
@@ -827,7 +830,7 @@ export class AWSIntegrationApi {
   }
 
   /**
-   * Delete an AWS Account Integration Config
+   * Delete an AWS Account Integration Config by config ID.
    * @param param The request object
    */
   public deleteAWSAccount(
@@ -848,7 +851,7 @@ export class AWSIntegrationApi {
   }
 
   /**
-   * Get an AWS Account Integration Config
+   * Get an AWS Account Integration Config by config ID.
    * @param param The request object
    */
   public getAWSAccount(
@@ -908,7 +911,7 @@ export class AWSIntegrationApi {
   }
 
   /**
-   * Update an AWS Account Integration Config
+   * Update an AWS Account Integration Config by config ID.
    * @param param The request object
    */
   public updateAWSAccount(

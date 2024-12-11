@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Include only these regions
+ * Include only these regions.
  */
 export class AWSRegionsIncludeOnly {
   /**
-   * Include only these regions
+   * Include only these regions.
    */
   "includeOnly": Array<string>;
 

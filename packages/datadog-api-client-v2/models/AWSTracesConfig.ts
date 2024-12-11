@@ -8,11 +8,11 @@ import { XRayServicesList } from "./XRayServicesList";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Traces config
+ * AWS Traces Collection config.
  */
 export class AWSTracesConfig {
   /**
-   * AWS X-Ray services to collect traces from
+   * AWS X-Ray services to collect traces from. Defaults to `include_only`.
    */
   "xrayServices"?: XRayServicesList;
 
