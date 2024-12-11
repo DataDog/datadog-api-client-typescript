@@ -11,7 +11,7 @@ function wrap(method: any) {
     return tracer.trace(
       "fetch",
       { type: "http", resource: request.getUrl() },
-      (span: any, callback?: (error?: Error) => string) => {
+      (span: any, callback?: (error?: Error) => void) => {
         const carrier: { [name: string]: string }  = {};
         tracer.inject(span, HTTP_HEADERS, carrier);
         for (const name in carrier) {
