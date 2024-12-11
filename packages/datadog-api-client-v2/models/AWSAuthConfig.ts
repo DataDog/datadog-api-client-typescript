@@ -9,7 +9,7 @@ import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Authentication config
+ * AWS Authentication config.
  */
 
 export type AWSAuthConfig =

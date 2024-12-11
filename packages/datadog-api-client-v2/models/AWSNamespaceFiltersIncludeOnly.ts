@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Include only these namespaces
+ * Include only these namespaces.
  */
 export class AWSNamespaceFiltersIncludeOnly {
   /**
-   * Include only these namespaces
+   * Include only these namespaces.
    */
   "includeOnly": Array<string>;
 

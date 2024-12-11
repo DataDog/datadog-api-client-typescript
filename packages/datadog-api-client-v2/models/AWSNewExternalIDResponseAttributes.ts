@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS External ID response body
+ * AWS External ID response body.
  */
 export class AWSNewExternalIDResponseAttributes {
   /**
-   * AWS IAM External ID for associated role
+   * AWS IAM External ID for associated role.
    */
   "externalId": string;
 

@@ -7,15 +7,15 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Authentication config for key-based account
+ * AWS Authentication config to integrate your account using an access key pair.
  */
 export class AWSAuthConfigKeys {
   /**
-   * AWS Access Key ID
+   * AWS Access Key ID.
    */
   "accessKeyId": string;
   /**
-   * AWS Secret Access Key
+   * AWS Secret Access Key.
    */
   "secretAccessKey"?: string;
 

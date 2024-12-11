@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Include only these services
+ * Include only these services. Defaults to `[]`.
  */
 export class XRayServicesIncludeOnly {
   /**
-   * Include only these services
+   * Include only these services.
    */
   "includeOnly": Array<string>;
 

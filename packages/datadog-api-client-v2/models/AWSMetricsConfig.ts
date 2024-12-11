@@ -9,31 +9,31 @@ import { AWSNamespaceTagFilter } from "./AWSNamespaceTagFilter";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * AWS Metrics config
+ * AWS Metrics Collection config.
  */
 export class AWSMetricsConfig {
   /**
-   * Enable EC2 automute for AWS metrics
+   * Enable EC2 automute for AWS metrics. Defaults to `true`.
    */
   "automuteEnabled"?: boolean;
   /**
-   * Enable CloudWatch alarms collection
+   * Enable CloudWatch alarms collection. Defaults to `false`.
    */
   "collectCloudwatchAlarms"?: boolean;
   /**
-   * Enable custom metrics collection
+   * Enable custom metrics collection. Defaults to `false`.
    */
   "collectCustomMetrics"?: boolean;
   /**
-   * Enable AWS metrics collection
+   * Enable AWS metrics collection. Defaults to `true`.
    */
   "enabled"?: boolean;
   /**
-   * AWS Metrics namespace filters
+   * AWS Metrics namespace filters. Defaults to `exclude_only`.
    */
   "namespaceFilters"?: AWSNamespaceFilters;
   /**
-   * AWS Metrics tag filters list
+   * AWS Metrics collection tag filters list. Defaults to `[]`.
    */
   "tagFilters"?: Array<AWSNamespaceTagFilter>;
 
