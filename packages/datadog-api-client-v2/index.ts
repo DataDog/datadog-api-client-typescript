@@ -1550,11 +1550,14 @@ export { MetricIngestedIndexedVolumeAttributes } from "./models/MetricIngestedIn
 export { MetricIngestedIndexedVolumeType } from "./models/MetricIngestedIndexedVolumeType";
 export { MetricIntakeType } from "./models/MetricIntakeType";
 export { MetricMetadata } from "./models/MetricMetadata";
+export { MetricMetaPage } from "./models/MetricMetaPage";
+export { MetricMetaPageType } from "./models/MetricMetaPageType";
 export { MetricMonitorAsset } from "./models/MetricMonitorAsset";
 export { MetricMonitorType } from "./models/MetricMonitorType";
 export { MetricNotebookAsset } from "./models/MetricNotebookAsset";
 export { MetricNotebookType } from "./models/MetricNotebookType";
 export { MetricOrigin } from "./models/MetricOrigin";
+export { MetricPaginationMeta } from "./models/MetricPaginationMeta";
 export { MetricPayload } from "./models/MetricPayload";
 export { MetricPoint } from "./models/MetricPoint";
 export { MetricResource } from "./models/MetricResource";
@@ -1563,6 +1566,7 @@ export { MetricsAndMetricTagConfigurations } from "./models/MetricsAndMetricTagC
 export { MetricsAndMetricTagConfigurationsResponse } from "./models/MetricsAndMetricTagConfigurationsResponse";
 export { MetricsDataSource } from "./models/MetricsDataSource";
 export { MetricSeries } from "./models/MetricSeries";
+export { MetricsListResponseLinks } from "./models/MetricsListResponseLinks";
 export { MetricSLOAsset } from "./models/MetricSLOAsset";
 export { MetricSLOType } from "./models/MetricSLOType";
 export { MetricsScalarQuery } from "./models/MetricsScalarQuery";

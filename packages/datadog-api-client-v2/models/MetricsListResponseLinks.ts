@@ -3,28 +3,33 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { MetricPaginationMeta } from "./MetricPaginationMeta";
-import { MetricsAndMetricTagConfigurations } from "./MetricsAndMetricTagConfigurations";
-import { MetricsListResponseLinks } from "./MetricsListResponseLinks";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response object that includes metrics and metric tag configurations.
+ * Pagination links. Only present if pagination query parameters were provided.
  */
-export class MetricsAndMetricTagConfigurationsResponse {
+export class MetricsListResponseLinks {
   /**
-   * Array of metrics and metric tag configurations.
+   * Link to the first page.
    */
-  "data"?: Array<MetricsAndMetricTagConfigurations>;
+  "first"?: string;
   /**
-   * Pagination links. Only present if pagination query parameters were provided.
+   * Link to the last page.
    */
-  "links"?: MetricsListResponseLinks;
+  "last"?: string;
   /**
-   * Response metadata object.
+   * Link to the next page.
    */
-  "meta"?: MetricPaginationMeta;
+  "next"?: string;
+  /**
+   * Link to previous page.
+   */
+  "prev"?: string;
+  /**
+   * Link to current page.
+   */
+  "self"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,17 +47,25 @@ export class MetricsAndMetricTagConfigurationsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<MetricsAndMetricTagConfigurations>",
+    first: {
+      baseName: "first",
+      type: "string",
     },
-    links: {
-      baseName: "links",
-      type: "MetricsListResponseLinks",
+    last: {
+      baseName: "last",
+      type: "string",
     },
-    meta: {
-      baseName: "meta",
-      type: "MetricPaginationMeta",
+    next: {
+      baseName: "next",
+      type: "string",
+    },
+    prev: {
+      baseName: "prev",
+      type: "string",
+    },
+    self: {
+      baseName: "self",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +77,7 @@ export class MetricsAndMetricTagConfigurationsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsAndMetricTagConfigurationsResponse.attributeTypeMap;
+    return MetricsListResponseLinks.attributeTypeMap;
   }
 
   public constructor() {}
