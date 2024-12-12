@@ -26,6 +26,7 @@ import { MetricBulkTagConfigResponse } from "../models/MetricBulkTagConfigRespon
 import { MetricContentEncoding } from "../models/MetricContentEncoding";
 import { MetricEstimateResponse } from "../models/MetricEstimateResponse";
 import { MetricPayload } from "../models/MetricPayload";
+import { MetricsAndMetricTagConfigurations } from "../models/MetricsAndMetricTagConfigurations";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
 import { MetricSuggestedTagsAndAggregationsResponse } from "../models/MetricSuggestedTagsAndAggregationsResponse";
 import { MetricTagConfigurationCreateRequest } from "../models/MetricTagConfigurationCreateRequest";
@@ -403,6 +404,8 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     filterQueried?: boolean,
     filterTags?: string,
     windowSeconds?: number,
+    pageSize?: number,
+    pageCursor?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -468,6 +471,20 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "window[seconds]",
         ObjectSerializer.serialize(windowSeconds, "number", "int64"),
+        ""
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int32"),
+        ""
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", ""),
         ""
       );
     }
@@ -1817,6 +1834,18 @@ export interface MetricsApiListTagConfigurationsRequest {
    * @type number
    */
   windowSeconds?: number;
+  /**
+   * Maximum number of results returned.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * String to query the next page of results.
+   * This key is provided with each valid response from the API in `meta.pagination.next_cursor`.
+   * Once the `meta.pagination.next_cursor` key is null, all pages have been retrieved.
+   * @type string
+   */
+  pageCursor?: string;
 }
 
 export interface MetricsApiListTagsByMetricNameRequest {
@@ -2093,6 +2122,9 @@ export class MetricsApi {
 
   /**
    * Returns all metrics that can be configured in the Metrics Summary page or with Metrics without Limits™ (matching additional filters if specified).
+   * Optionally, paginate by using the `page[cursor]` and/or `page[size]` query parameters.
+   * To fetch the first page, pass in a query parameter with either a valid `page[size]` or an empty cursor like `page[cursor]=`. To fetch the next page, pass in the `next_cursor` value from the response as the new `page[cursor]` value.
+   * Once the `meta.pagination.next_cursor` value is null, all pages have been retrieved.
    * @param param The request object
    */
   public listTagConfigurations(
@@ -2107,6 +2139,8 @@ export class MetricsApi {
       param.filterQueried,
       param.filterTags,
       param.windowSeconds,
+      param.pageSize,
+      param.pageCursor,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -2116,6 +2150,66 @@ export class MetricsApi {
           return this.responseProcessor.listTagConfigurations(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listTagConfigurations returning a generator with all the items.
+   */
+  public async *listTagConfigurationsWithPagination(
+    param: MetricsApiListTagConfigurationsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<MetricsAndMetricTagConfigurations> {
+    let pageSize = 10000;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listTagConfigurations(
+        param.filterConfigured,
+        param.filterTagsConfigured,
+        param.filterMetricType,
+        param.filterIncludePercentiles,
+        param.filterQueried,
+        param.filterTags,
+        param.windowSeconds,
+        param.pageSize,
+        param.pageCursor,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listTagConfigurations(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPagination = cursorMeta.pagination;
+      if (cursorMetaPagination === undefined) {
+        break;
+      }
+      const cursorMetaPaginationNextCursor = cursorMetaPagination.nextCursor;
+      if (cursorMetaPaginationNextCursor === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPaginationNextCursor;
+    }
   }
 
   /**

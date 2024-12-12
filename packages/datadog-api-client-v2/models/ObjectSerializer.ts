@@ -742,10 +742,12 @@ import { MetricEstimateAttributes } from "./MetricEstimateAttributes";
 import { MetricEstimateResponse } from "./MetricEstimateResponse";
 import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
 import { MetricIngestedIndexedVolumeAttributes } from "./MetricIngestedIndexedVolumeAttributes";
+import { MetricMetaPage } from "./MetricMetaPage";
 import { MetricMetadata } from "./MetricMetadata";
 import { MetricMonitorAsset } from "./MetricMonitorAsset";
 import { MetricNotebookAsset } from "./MetricNotebookAsset";
 import { MetricOrigin } from "./MetricOrigin";
+import { MetricPaginationMeta } from "./MetricPaginationMeta";
 import { MetricPayload } from "./MetricPayload";
 import { MetricPoint } from "./MetricPoint";
 import { MetricResource } from "./MetricResource";
@@ -765,6 +767,7 @@ import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdate
 import { MetricTagConfigurationUpdateRequest } from "./MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
+import { MetricsListResponseLinks } from "./MetricsListResponseLinks";
 import { MetricsScalarQuery } from "./MetricsScalarQuery";
 import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
 import { MicrosoftTeamsChannelInfoResponseAttributes } from "./MicrosoftTeamsChannelInfoResponseAttributes";
@@ -1694,6 +1697,7 @@ const enumsMap: { [key: string]: any[] } = {
   MetricEstimateType: ["count_or_gauge", "distribution", "percentile"],
   MetricIngestedIndexedVolumeType: ["metric_volumes"],
   MetricIntakeType: [0, 1, 2, 3],
+  MetricMetaPageType: ["cursor_limit"],
   MetricMonitorType: ["monitors"],
   MetricNotebookType: ["notebooks"],
   MetricSLOType: ["slos"],
@@ -2850,10 +2854,12 @@ const typeMap: { [index: string]: any } = {
   MetricEstimateResponse: MetricEstimateResponse,
   MetricIngestedIndexedVolume: MetricIngestedIndexedVolume,
   MetricIngestedIndexedVolumeAttributes: MetricIngestedIndexedVolumeAttributes,
+  MetricMetaPage: MetricMetaPage,
   MetricMetadata: MetricMetadata,
   MetricMonitorAsset: MetricMonitorAsset,
   MetricNotebookAsset: MetricNotebookAsset,
   MetricOrigin: MetricOrigin,
+  MetricPaginationMeta: MetricPaginationMeta,
   MetricPayload: MetricPayload,
   MetricPoint: MetricPoint,
   MetricResource: MetricResource,
@@ -2877,6 +2883,7 @@ const typeMap: { [index: string]: any } = {
   MetricVolumesResponse: MetricVolumesResponse,
   MetricsAndMetricTagConfigurationsResponse:
     MetricsAndMetricTagConfigurationsResponse,
+  MetricsListResponseLinks: MetricsListResponseLinks,
   MetricsScalarQuery: MetricsScalarQuery,
   MetricsTimeseriesQuery: MetricsTimeseriesQuery,
   MicrosoftTeamsChannelInfoResponseAttributes:
