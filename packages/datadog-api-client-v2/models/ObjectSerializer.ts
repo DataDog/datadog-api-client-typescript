@@ -1808,7 +1808,7 @@ const enumsMap: { [key: string]: any[] } = {
   RumMetricUniquenessWhen: ["match", "end"],
   RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
-  SLOReportInterval: ["weekly", "monthly"],
+  SLOReportInterval: ["daily", "weekly", "monthly"],
   SLOReportStatus: [
     "in_progress",
     "completed",

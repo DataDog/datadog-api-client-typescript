@@ -10,6 +10,11 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * The frequency at which report data is to be generated.
  */
 
-export type SLOReportInterval = typeof WEEKLY | typeof MONTHLY | UnparsedObject;
+export type SLOReportInterval =
+  | typeof DAILY
+  | typeof WEEKLY
+  | typeof MONTHLY
+  | UnparsedObject;
+export const DAILY = "daily";
 export const WEEKLY = "weekly";
 export const MONTHLY = "monthly";
