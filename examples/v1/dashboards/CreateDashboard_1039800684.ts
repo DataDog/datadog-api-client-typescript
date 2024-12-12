@@ -25,7 +25,6 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                 {
                   width: "auto",
                   field: "message",
-                  isClusteringPatternFieldPath: true,
                 },
               ],
               query: {

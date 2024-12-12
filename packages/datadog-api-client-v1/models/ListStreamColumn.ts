@@ -16,10 +16,6 @@ export class ListStreamColumn {
    */
   "field": string;
   /**
-   * Identifies the clustering pattern field column, usable only with logs_pattern_stream.
-   */
-  "isClusteringPatternFieldPath"?: boolean;
-  /**
    * Widget column width.
    */
   "width": ListStreamColumnWidth;
@@ -44,10 +40,6 @@ export class ListStreamColumn {
       baseName: "field",
       type: "string",
       required: true,
-    },
-    isClusteringPatternFieldPath: {
-      baseName: "is_clustering_pattern_field_path",
-      type: "boolean",
     },
     width: {
       baseName: "width",
