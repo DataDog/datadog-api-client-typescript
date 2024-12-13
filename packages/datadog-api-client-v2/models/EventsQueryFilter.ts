@@ -15,7 +15,7 @@ export class EventsQueryFilter {
    */
   "from"?: string;
   /**
-   * The search query following the event search syntax.
+   * The search query following the [event search syntax](https://docs.datadoghq.com/service_management/events/explorer/searching).
    */
   "query"?: string;
   /**
