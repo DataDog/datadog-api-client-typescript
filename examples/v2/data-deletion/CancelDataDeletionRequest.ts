@@ -5,6 +5,7 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
+configuration.unstableOperations["v2.cancelDataDeletionRequest"] = true;
 const apiInstance = new v2.DataDeletionApi(configuration);
 
 // there is a valid "deletion_request" in the system

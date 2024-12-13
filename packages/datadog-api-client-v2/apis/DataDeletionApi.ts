@@ -29,6 +29,13 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'cancelDataDeletionRequest'");
+    if (!_config.unstableOperations["v2.cancelDataDeletionRequest"]) {
+      throw new Error(
+        "Unstable operation 'cancelDataDeletionRequest' is disabled"
+      );
+    }
+
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
       throw new RequiredError("id", "cancelDataDeletionRequest");
@@ -62,6 +69,13 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createDataDeletionRequest'");
+    if (!_config.unstableOperations["v2.createDataDeletionRequest"]) {
+      throw new Error(
+        "Unstable operation 'createDataDeletionRequest' is disabled"
+      );
+    }
 
     // verify required parameter 'product' is not null or undefined
     if (product === null || product === undefined) {
@@ -115,6 +129,13 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getDataDeletionRequests'");
+    if (!_config.unstableOperations["v2.getDataDeletionRequests"]) {
+      throw new Error(
+        "Unstable operation 'getDataDeletionRequests' is disabled"
+      );
+    }
 
     // Path Params
     const localVarPath = "/api/v2/deletion/requests";
