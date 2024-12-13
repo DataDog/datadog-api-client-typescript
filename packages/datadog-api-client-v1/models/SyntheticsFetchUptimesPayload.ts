@@ -15,7 +15,7 @@ export class SyntheticsFetchUptimesPayload {
    */
   "fromTs": number;
   /**
-   * An array of Synthetic test IDs you want to delete.
+   * An array of Synthetic test IDs you want uptimes for.
    */
   "publicIds": Array<string>;
   /**
