@@ -107,6 +107,14 @@ export class MonthlyUsageAttributionValues {
    */
   "cloudSiemUsage"?: number;
   /**
+   * The percentage of Code Security host usage by tags.
+   */
+  "codeSecurityHostPercentage"?: number;
+  /**
+   * The Code Security host usage by tags.
+   */
+  "codeSecurityHostUsage"?: number;
+  /**
    * The percentage of container usage without the Datadog Agent by tag(s).
    */
   "containerExclAgentPercentage"?: number;
@@ -688,6 +696,16 @@ export class MonthlyUsageAttributionValues {
     },
     cloudSiemUsage: {
       baseName: "cloud_siem_usage",
+      type: "number",
+      format: "double",
+    },
+    codeSecurityHostPercentage: {
+      baseName: "code_security_host_percentage",
+      type: "number",
+      format: "double",
+    },
+    codeSecurityHostUsage: {
+      baseName: "code_security_host_usage",
       type: "number",
       format: "double",
     },
