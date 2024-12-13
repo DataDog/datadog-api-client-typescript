@@ -132,6 +132,10 @@ export class UsageSummaryDate {
    */
   "codeAnalysisScaCommittersHwm"?: number;
   /**
+   * Shows the 99th percentile of all Code Security hosts over all hours in the current date for the given org.
+   */
+  "codeSecurityHostTop99p"?: number;
+  /**
    * Shows the average of all distinct containers over all hours in the current date for all organizations.
    */
   "containerAvg"?: number;
@@ -735,6 +739,11 @@ export class UsageSummaryDate {
     },
     codeAnalysisScaCommittersHwm: {
       baseName: "code_analysis_sca_committers_hwm",
+      type: "number",
+      format: "int64",
+    },
+    codeSecurityHostTop99p: {
+      baseName: "code_security_host_top99p",
       type: "number",
       format: "int64",
     },
