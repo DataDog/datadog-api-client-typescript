@@ -158,6 +158,7 @@ import { CIAppTestsBucketResponse } from "./CIAppTestsBucketResponse";
 import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 import { CIAppWarning } from "./CIAppWarning";
+import { CSMAgentsMetadata } from "./CSMAgentsMetadata";
 import { CalculatedField } from "./CalculatedField";
 import { CancelDataDeletionResponseBody } from "./CancelDataDeletionResponseBody";
 import { Case } from "./Case";
@@ -279,6 +280,9 @@ import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
 import { CreateRuleResponseData } from "./CreateRuleResponseData";
 import { Creator } from "./Creator";
+import { CsmAgentData } from "./CsmAgentData";
+import { CsmAgentsAttributes } from "./CsmAgentsAttributes";
+import { CsmAgentsResponse } from "./CsmAgentsResponse";
 import { CustomCostGetResponseMeta } from "./CustomCostGetResponseMeta";
 import { CustomCostListResponseMeta } from "./CustomCostListResponseMeta";
 import { CustomCostUploadResponseMeta } from "./CustomCostUploadResponseMeta";
@@ -1488,6 +1492,7 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppSortOrder: ["asc", "desc"],
   CIAppTestEventTypeName: ["citest"],
   CIAppTestLevel: ["session", "module", "suite", "test"],
+  CSMAgentsType: ["datadog_agent"],
   Case3rdPartyTicketStatus: ["IN_PROGRESS", "COMPLETED", "FAILED"],
   CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
   CaseResourceType: ["case"],
@@ -1732,6 +1737,7 @@ const enumsMap: { [key: string]: any[] } = {
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
+  OrderDirection: ["asc", "desc"],
   OrgConfigType: ["org_configs"],
   OrganizationsType: ["orgs"],
   OutcomeType: ["outcome"],
@@ -2206,6 +2212,7 @@ const typeMap: { [index: string]: any } = {
   CIAppTestsGroupBy: CIAppTestsGroupBy,
   CIAppTestsQueryFilter: CIAppTestsQueryFilter,
   CIAppWarning: CIAppWarning,
+  CSMAgentsMetadata: CSMAgentsMetadata,
   CalculatedField: CalculatedField,
   CancelDataDeletionResponseBody: CancelDataDeletionResponseBody,
   Case: Case,
@@ -2348,6 +2355,9 @@ const typeMap: { [index: string]: any } = {
   CreateRuleResponse: CreateRuleResponse,
   CreateRuleResponseData: CreateRuleResponseData,
   Creator: Creator,
+  CsmAgentData: CsmAgentData,
+  CsmAgentsAttributes: CsmAgentsAttributes,
+  CsmAgentsResponse: CsmAgentsResponse,
   CustomCostGetResponseMeta: CustomCostGetResponseMeta,
   CustomCostListResponseMeta: CustomCostListResponseMeta,
   CustomCostUploadResponseMeta: CustomCostUploadResponseMeta,

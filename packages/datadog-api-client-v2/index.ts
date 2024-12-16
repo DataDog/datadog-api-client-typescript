@@ -58,6 +58,12 @@ export {
 } from "./apis/CIVisibilityTestsApi";
 
 export {
+  CSMAgentsApiListAllCSMAgentsRequest,
+  CSMAgentsApiListAllCSMServerlessAgentsRequest,
+  CSMAgentsApi,
+} from "./apis/CSMAgentsApi";
+
+export {
   CSMThreatsApiCreateCSMThreatsAgentRuleRequest,
   CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest,
   CSMThreatsApiDeleteCSMThreatsAgentRuleRequest,
@@ -953,6 +959,11 @@ export { CreateRuleRequestData } from "./models/CreateRuleRequestData";
 export { CreateRuleResponse } from "./models/CreateRuleResponse";
 export { CreateRuleResponseData } from "./models/CreateRuleResponseData";
 export { Creator } from "./models/Creator";
+export { CsmAgentData } from "./models/CsmAgentData";
+export { CsmAgentsAttributes } from "./models/CsmAgentsAttributes";
+export { CSMAgentsMetadata } from "./models/CSMAgentsMetadata";
+export { CsmAgentsResponse } from "./models/CsmAgentsResponse";
+export { CSMAgentsType } from "./models/CSMAgentsType";
 export { CustomCostGetResponseMeta } from "./models/CustomCostGetResponseMeta";
 export { CustomCostListResponseMeta } from "./models/CustomCostListResponseMeta";
 export { CustomCostsFileGetResponse } from "./models/CustomCostsFileGetResponse";
@@ -1666,6 +1677,7 @@ export { OpsgenieServiceType } from "./models/OpsgenieServiceType";
 export { OpsgenieServiceUpdateAttributes } from "./models/OpsgenieServiceUpdateAttributes";
 export { OpsgenieServiceUpdateData } from "./models/OpsgenieServiceUpdateData";
 export { OpsgenieServiceUpdateRequest } from "./models/OpsgenieServiceUpdateRequest";
+export { OrderDirection } from "./models/OrderDirection";
 export { Organization } from "./models/Organization";
 export { OrganizationAttributes } from "./models/OrganizationAttributes";
 export { OrganizationsType } from "./models/OrganizationsType";

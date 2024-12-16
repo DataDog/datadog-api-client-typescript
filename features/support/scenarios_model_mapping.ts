@@ -3313,6 +3313,44 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProjectedCostResponse",
     },
+    "v2.ListAllCSMAgents": {
+        "page": {
+            "type": "number",
+            "format": "int32",
+            },
+        "size": {
+            "type": "number",
+            "format": "int32",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "orderDirection": {
+            "type": "OrderDirection",
+            "format": "",
+            },
+        "operationResponseType": "CsmAgentsResponse",
+    },
+    "v2.ListAllCSMServerlessAgents": {
+        "page": {
+            "type": "number",
+            "format": "int32",
+            },
+        "size": {
+            "type": "number",
+            "format": "int32",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "orderDirection": {
+            "type": "OrderDirection",
+            "format": "",
+            },
+        "operationResponseType": "CsmAgentsResponse",
+    },
     "v2.DeleteDashboardListItems": {
         "dashboardListId": {
             "type": "number",
