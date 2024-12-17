@@ -44,6 +44,11 @@ import { AWSTracesConfig } from "./AWSTracesConfig";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
+import { AppBuilderError } from "./AppBuilderError";
+import { AppBuilderErrorErrorsItems } from "./AppBuilderErrorErrorsItems";
+import { AppBuilderErrorErrorsItemsSource } from "./AppBuilderErrorErrorsItemsSource";
+import { AppBuilderEvent } from "./AppBuilderEvent";
+import { AppMeta } from "./AppMeta";
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 import { ApplicationKeyCreateRequest } from "./ApplicationKeyCreateRequest";
@@ -219,6 +224,10 @@ import { CloudflareAccountUpdateRequest } from "./CloudflareAccountUpdateRequest
 import { CloudflareAccountUpdateRequestAttributes } from "./CloudflareAccountUpdateRequestAttributes";
 import { CloudflareAccountUpdateRequestData } from "./CloudflareAccountUpdateRequestData";
 import { CloudflareAccountsResponse } from "./CloudflareAccountsResponse";
+import { Component } from "./Component";
+import { ComponentGrid } from "./ComponentGrid";
+import { ComponentGridProperties } from "./ComponentGridProperties";
+import { ComponentProperties } from "./ComponentProperties";
 import { ConfluentAccountCreateRequest } from "./ConfluentAccountCreateRequest";
 import { ConfluentAccountCreateRequestAttributes } from "./ConfluentAccountCreateRequestAttributes";
 import { ConfluentAccountCreateRequestData } from "./ConfluentAccountCreateRequestData";
@@ -268,6 +277,11 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CreateAppRequest } from "./CreateAppRequest";
+import { CreateAppRequestData } from "./CreateAppRequestData";
+import { CreateAppRequestDataAttributes } from "./CreateAppRequestDataAttributes";
+import { CreateAppResponse } from "./CreateAppResponse";
+import { CreateAppResponseData } from "./CreateAppResponseData";
 import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
@@ -283,6 +297,9 @@ import { Creator } from "./Creator";
 import { CsmAgentData } from "./CsmAgentData";
 import { CsmAgentsAttributes } from "./CsmAgentsAttributes";
 import { CsmAgentsResponse } from "./CsmAgentsResponse";
+import { CustomConnection } from "./CustomConnection";
+import { CustomConnectionAttributes } from "./CustomConnectionAttributes";
+import { CustomConnectionAttributesOnPremRunner } from "./CustomConnectionAttributesOnPremRunner";
 import { CustomCostGetResponseMeta } from "./CustomCostGetResponseMeta";
 import { CustomCostListResponseMeta } from "./CustomCostListResponseMeta";
 import { CustomCostUploadResponseMeta } from "./CustomCostUploadResponseMeta";
@@ -342,11 +359,30 @@ import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
 import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
 import { DataScalarColumn } from "./DataScalarColumn";
+import { DeleteAppResponse } from "./DeleteAppResponse";
+import { DeleteAppResponseData } from "./DeleteAppResponseData";
+import { DeleteAppsRequest } from "./DeleteAppsRequest";
+import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
+import { DeleteAppsResponse } from "./DeleteAppsResponse";
+import { DeleteAppsResponseDataItems } from "./DeleteAppsResponseDataItems";
+import { DeployAppResponse } from "./DeployAppResponse";
+import { DeployAppResponseData } from "./DeployAppResponseData";
+import { DeployAppResponseDataAttributes } from "./DeployAppResponseDataAttributes";
+import { DeploymentIncluded } from "./DeploymentIncluded";
+import { DeploymentIncludedAttributes } from "./DeploymentIncludedAttributes";
+import { DeploymentIncludedMeta } from "./DeploymentIncludedMeta";
+import { DeploymentMeta } from "./DeploymentMeta";
+import { DeploymentRelationship } from "./DeploymentRelationship";
+import { DeploymentRelationshipData } from "./DeploymentRelationshipData";
+import { DeploymentRelationshipMeta } from "./DeploymentRelationshipMeta";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { DeviceAttributes } from "./DeviceAttributes";
 import { DeviceAttributesInterfaceStatuses } from "./DeviceAttributesInterfaceStatuses";
 import { DevicesListData } from "./DevicesListData";
+import { DisableAppResponse } from "./DisableAppResponse";
+import { DisableAppResponseData } from "./DisableAppResponseData";
+import { DisableAppResponseDataAttributes } from "./DisableAppResponseDataAttributes";
 import { DomainAllowlist } from "./DomainAllowlist";
 import { DomainAllowlistAttributes } from "./DomainAllowlistAttributes";
 import { DomainAllowlistRequest } from "./DomainAllowlistRequest";
@@ -493,6 +529,10 @@ import { GCPSTSServiceAccountUpdateRequest } from "./GCPSTSServiceAccountUpdateR
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
+import { GetAppResponse } from "./GetAppResponse";
+import { GetAppResponseData } from "./GetAppResponseData";
+import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
+import { GetAppResponseRelationship } from "./GetAppResponseRelationship";
 import { GetDataDeletionsResponseBody } from "./GetDataDeletionsResponseBody";
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
 import { GetDeviceData } from "./GetDeviceData";
@@ -618,6 +658,12 @@ import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
 import { IncidentUserAttributes } from "./IncidentUserAttributes";
 import { IncidentUserData } from "./IncidentUserData";
 import { IncidentsResponse } from "./IncidentsResponse";
+import { InputSchema } from "./InputSchema";
+import { InputSchemaData } from "./InputSchemaData";
+import { InputSchemaDataAttributes } from "./InputSchemaDataAttributes";
+import { InputSchemaDataAttributesParametersItems } from "./InputSchemaDataAttributesParametersItems";
+import { InputSchemaDataAttributesParametersItemsData } from "./InputSchemaDataAttributesParametersItemsData";
+import { InputSchemaDataAttributesParametersItemsDataAttributes } from "./InputSchemaDataAttributesParametersItemsDataAttributes";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { InterfaceAttributes } from "./InterfaceAttributes";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
@@ -638,6 +684,12 @@ import { ListAPIsResponseDataAttributes } from "./ListAPIsResponseDataAttributes
 import { ListAPIsResponseMeta } from "./ListAPIsResponseMeta";
 import { ListAPIsResponseMetaPagination } from "./ListAPIsResponseMetaPagination";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
+import { ListAppsResponse } from "./ListAppsResponse";
+import { ListAppsResponseDataItems } from "./ListAppsResponseDataItems";
+import { ListAppsResponseDataItemsAttributes } from "./ListAppsResponseDataItemsAttributes";
+import { ListAppsResponseDataItemsRelationships } from "./ListAppsResponseDataItemsRelationships";
+import { ListAppsResponseMeta } from "./ListAppsResponseMeta";
+import { ListAppsResponseMetaPage } from "./ListAppsResponseMetaPage";
 import { ListDevicesResponse } from "./ListDevicesResponse";
 import { ListDevicesResponseMetadata } from "./ListDevicesResponseMetadata";
 import { ListDevicesResponseMetadataPage } from "./ListDevicesResponseMetadataPage";
@@ -899,6 +951,7 @@ import { ProjectedCost } from "./ProjectedCost";
 import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
 import { ProjectsResponse } from "./ProjectsResponse";
+import { Query } from "./Query";
 import { QueryFormula } from "./QueryFormula";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
@@ -1052,6 +1105,9 @@ import { ScalarFormulaRequestAttributes } from "./ScalarFormulaRequestAttributes
 import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
 import { ScalarMeta } from "./ScalarMeta";
 import { ScalarResponse } from "./ScalarResponse";
+import { Script } from "./Script";
+import { ScriptData } from "./ScriptData";
+import { ScriptDataAttributes } from "./ScriptDataAttributes";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -1303,6 +1359,13 @@ import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
 import { Unit } from "./Unit";
+import { UpdateAppRequest } from "./UpdateAppRequest";
+import { UpdateAppRequestData } from "./UpdateAppRequestData";
+import { UpdateAppRequestDataAttributes } from "./UpdateAppRequestDataAttributes";
+import { UpdateAppResponse } from "./UpdateAppResponse";
+import { UpdateAppResponseData } from "./UpdateAppResponseData";
+import { UpdateAppResponseDataAttributes } from "./UpdateAppResponseDataAttributes";
+import { UpdateAppResponseRelationship } from "./UpdateAppResponseRelationship";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
 import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
@@ -1410,6 +1473,28 @@ const enumsMap: { [key: string]: any[] } = {
   AWSNewExternalIDResponseDataType: ["external_id"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
+  AppBuilderEventName: [
+    "pageChange",
+    "tableRowClick",
+    "_tableRowButtonClick",
+    "change",
+    "submit",
+    "click",
+    "toggleOpen",
+    "close",
+    "open",
+    "executionFinished",
+  ],
+  AppBuilderEventType: [
+    "custom",
+    "setComponentState",
+    "triggerQuery",
+    "openModal",
+    "closeModal",
+    "openUrl",
+    "downloadFile",
+    "setStateVariableValue",
+  ],
   ApplicationKeysSort: [
     "created_at",
     "-created_at",
@@ -1419,6 +1504,16 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   ApplicationKeysType: ["application_keys"],
+  AppsSortField: [
+    "name",
+    "created_at",
+    "updated_at",
+    "user_name",
+    "-name",
+    "-created_at",
+    "-updated_at",
+    "-user_name",
+  ],
   AuditLogsEventType: ["audit"],
   AuditLogsResponseStatus: ["done", "timeout"],
   AuditLogsSort: ["timestamp", "-timestamp"],
@@ -1505,6 +1600,29 @@ const enumsMap: { [key: string]: any[] } = {
   CloudConfigurationRuleType: ["cloud_configuration"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   CloudflareAccountType: ["cloudflare-accounts"],
+  ComponentGridType: ["grid"],
+  ComponentType: [
+    "table",
+    "textInput",
+    "textArea",
+    "button",
+    "text",
+    "select",
+    "modal",
+    "schemaForm",
+    "checkbox",
+    "tabs",
+    "vegaChart",
+    "radioButtons",
+    "numberInput",
+    "fileInput",
+    "jsonInput",
+    "gridCell",
+    "dateRangePicker",
+    "search",
+    "container",
+    "calloutValue",
+  ],
   ConfluentAccountType: ["confluent-cloud-accounts"],
   ConfluentResourceType: ["confluent-cloud-resources"],
   ContainerGroupType: ["container_group"],
@@ -1519,6 +1637,9 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
+  CreateAppRequestDataType: ["appDefinitions"],
+  CreateAppResponseDataType: ["appDefinitions"],
+  CustomConnectionType: ["custom_connections"],
   CustomDestinationAttributeTagsRestrictionListType: [
     "ALLOW_LIST",
     "BLOCK_LIST",
@@ -1547,7 +1668,14 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
+  DeleteAppResponseDataType: ["appDefinitions"],
+  DeleteAppsRequestDataItemsType: ["appDefinitions"],
+  DeleteAppsResponseDataItemsType: ["appDefinitions"],
+  DeployAppResponseDataType: ["deployment"],
+  DeploymentIncludedType: ["deployment"],
+  DeploymentRelationshipDataType: ["deployment"],
   DetailedFindingType: ["detailed_finding"],
+  DisableAppResponseDataType: ["deployment"],
   DomainAllowlistType: ["domain_allowlist"],
   DowntimeIncludedMonitorType: ["monitors"],
   DowntimeNotifyEndStateActions: ["canceled", "expired"],
@@ -1611,6 +1739,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
   GCPServiceAccountType: ["gcp_service_account"],
+  GetAppResponseDataType: ["appDefinitions"],
   GetTeamMembershipsSort: [
     "manager_name",
     "-manager_name",
@@ -1658,8 +1787,10 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentTypeType: ["incident_types"],
   IncidentUserDefinedFieldType: ["user_defined_field"],
   IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
+  InputSchemaDataType: ["inputSchema"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
   LeakedKeyType: ["leaked_keys"],
+  ListAppsResponseDataItemsType: ["appDefinitions"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
   LogType: ["log"],
@@ -1747,6 +1878,7 @@ const enumsMap: { [key: string]: any[] } = {
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
   QuerySortOrder: ["asc", "desc"],
+  QueryType: ["action", "stateVariable", "dataTransform"],
   RUMAggregateSortType: ["alphabetical", "measure"],
   RUMAggregationFunction: [
     "count",
@@ -1826,6 +1958,7 @@ const enumsMap: { [key: string]: any[] } = {
   ScalarFormulaRequestType: ["scalar_request"],
   ScalarFormulaResponseType: ["scalar_response"],
   ScorecardType: ["scorecard"],
+  ScriptDataType: ["scripts"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
@@ -2017,6 +2150,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
+  UpdateAppRequestDataType: ["appDefinitions"],
+  UpdateAppResponseDataType: ["appDefinitions"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
   UserResourceType: ["user"],
@@ -2092,6 +2227,11 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
+  AppBuilderError: AppBuilderError,
+  AppBuilderErrorErrorsItems: AppBuilderErrorErrorsItems,
+  AppBuilderErrorErrorsItemsSource: AppBuilderErrorErrorsItemsSource,
+  AppBuilderEvent: AppBuilderEvent,
+  AppMeta: AppMeta,
   ApplicationKeyCreateAttributes: ApplicationKeyCreateAttributes,
   ApplicationKeyCreateData: ApplicationKeyCreateData,
   ApplicationKeyCreateRequest: ApplicationKeyCreateRequest,
@@ -2290,6 +2430,10 @@ const typeMap: { [index: string]: any } = {
     CloudflareAccountUpdateRequestAttributes,
   CloudflareAccountUpdateRequestData: CloudflareAccountUpdateRequestData,
   CloudflareAccountsResponse: CloudflareAccountsResponse,
+  Component: Component,
+  ComponentGrid: ComponentGrid,
+  ComponentGridProperties: ComponentGridProperties,
+  ComponentProperties: ComponentProperties,
   ConfluentAccountCreateRequest: ConfluentAccountCreateRequest,
   ConfluentAccountCreateRequestAttributes:
     ConfluentAccountCreateRequestAttributes,
@@ -2342,6 +2486,11 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CreateAppRequest: CreateAppRequest,
+  CreateAppRequestData: CreateAppRequestData,
+  CreateAppRequestDataAttributes: CreateAppRequestDataAttributes,
+  CreateAppResponse: CreateAppResponse,
+  CreateAppResponseData: CreateAppResponseData,
   CreateDataDeletionRequestBody: CreateDataDeletionRequestBody,
   CreateDataDeletionRequestBodyAttributes:
     CreateDataDeletionRequestBodyAttributes,
@@ -2358,6 +2507,10 @@ const typeMap: { [index: string]: any } = {
   CsmAgentData: CsmAgentData,
   CsmAgentsAttributes: CsmAgentsAttributes,
   CsmAgentsResponse: CsmAgentsResponse,
+  CustomConnection: CustomConnection,
+  CustomConnectionAttributes: CustomConnectionAttributes,
+  CustomConnectionAttributesOnPremRunner:
+    CustomConnectionAttributesOnPremRunner,
   CustomCostGetResponseMeta: CustomCostGetResponseMeta,
   CustomCostListResponseMeta: CustomCostListResponseMeta,
   CustomCostUploadResponseMeta: CustomCostUploadResponseMeta,
@@ -2433,11 +2586,30 @@ const typeMap: { [index: string]: any } = {
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
   DataDeletionResponseMeta: DataDeletionResponseMeta,
   DataScalarColumn: DataScalarColumn,
+  DeleteAppResponse: DeleteAppResponse,
+  DeleteAppResponseData: DeleteAppResponseData,
+  DeleteAppsRequest: DeleteAppsRequest,
+  DeleteAppsRequestDataItems: DeleteAppsRequestDataItems,
+  DeleteAppsResponse: DeleteAppsResponse,
+  DeleteAppsResponseDataItems: DeleteAppsResponseDataItems,
+  DeployAppResponse: DeployAppResponse,
+  DeployAppResponseData: DeployAppResponseData,
+  DeployAppResponseDataAttributes: DeployAppResponseDataAttributes,
+  DeploymentIncluded: DeploymentIncluded,
+  DeploymentIncludedAttributes: DeploymentIncludedAttributes,
+  DeploymentIncludedMeta: DeploymentIncludedMeta,
+  DeploymentMeta: DeploymentMeta,
+  DeploymentRelationship: DeploymentRelationship,
+  DeploymentRelationshipData: DeploymentRelationshipData,
+  DeploymentRelationshipMeta: DeploymentRelationshipMeta,
   DetailedFinding: DetailedFinding,
   DetailedFindingAttributes: DetailedFindingAttributes,
   DeviceAttributes: DeviceAttributes,
   DeviceAttributesInterfaceStatuses: DeviceAttributesInterfaceStatuses,
   DevicesListData: DevicesListData,
+  DisableAppResponse: DisableAppResponse,
+  DisableAppResponseData: DisableAppResponseData,
+  DisableAppResponseDataAttributes: DisableAppResponseDataAttributes,
   DomainAllowlist: DomainAllowlist,
   DomainAllowlistAttributes: DomainAllowlistAttributes,
   DomainAllowlistRequest: DomainAllowlistRequest,
@@ -2598,6 +2770,10 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
+  GetAppResponse: GetAppResponse,
+  GetAppResponseData: GetAppResponseData,
+  GetAppResponseDataAttributes: GetAppResponseDataAttributes,
+  GetAppResponseRelationship: GetAppResponseRelationship,
   GetDataDeletionsResponseBody: GetDataDeletionsResponseBody,
   GetDeviceAttributes: GetDeviceAttributes,
   GetDeviceData: GetDeviceData,
@@ -2735,6 +2911,15 @@ const typeMap: { [index: string]: any } = {
   IncidentUserAttributes: IncidentUserAttributes,
   IncidentUserData: IncidentUserData,
   IncidentsResponse: IncidentsResponse,
+  InputSchema: InputSchema,
+  InputSchemaData: InputSchemaData,
+  InputSchemaDataAttributes: InputSchemaDataAttributes,
+  InputSchemaDataAttributesParametersItems:
+    InputSchemaDataAttributesParametersItems,
+  InputSchemaDataAttributesParametersItemsData:
+    InputSchemaDataAttributesParametersItemsData,
+  InputSchemaDataAttributesParametersItemsDataAttributes:
+    InputSchemaDataAttributesParametersItemsDataAttributes,
   IntakePayloadAccepted: IntakePayloadAccepted,
   InterfaceAttributes: InterfaceAttributes,
   JSONAPIErrorItem: JSONAPIErrorItem,
@@ -2755,6 +2940,13 @@ const typeMap: { [index: string]: any } = {
   ListAPIsResponseMeta: ListAPIsResponseMeta,
   ListAPIsResponseMetaPagination: ListAPIsResponseMetaPagination,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
+  ListAppsResponse: ListAppsResponse,
+  ListAppsResponseDataItems: ListAppsResponseDataItems,
+  ListAppsResponseDataItemsAttributes: ListAppsResponseDataItemsAttributes,
+  ListAppsResponseDataItemsRelationships:
+    ListAppsResponseDataItemsRelationships,
+  ListAppsResponseMeta: ListAppsResponseMeta,
+  ListAppsResponseMetaPage: ListAppsResponseMetaPage,
   ListDevicesResponse: ListDevicesResponse,
   ListDevicesResponseMetadata: ListDevicesResponseMetadata,
   ListDevicesResponseMetadataPage: ListDevicesResponseMetadataPage,
@@ -3039,6 +3231,7 @@ const typeMap: { [index: string]: any } = {
   ProjectedCostAttributes: ProjectedCostAttributes,
   ProjectedCostResponse: ProjectedCostResponse,
   ProjectsResponse: ProjectsResponse,
+  Query: Query,
   QueryFormula: QueryFormula,
   RUMAggregateBucketValueTimeseriesPoint:
     RUMAggregateBucketValueTimeseriesPoint,
@@ -3198,6 +3391,9 @@ const typeMap: { [index: string]: any } = {
   ScalarFormulaResponseAtrributes: ScalarFormulaResponseAtrributes,
   ScalarMeta: ScalarMeta,
   ScalarResponse: ScalarResponse,
+  Script: Script,
+  ScriptData: ScriptData,
+  ScriptDataAttributes: ScriptDataAttributes,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
   SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
@@ -3502,6 +3698,13 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
   Unit: Unit,
+  UpdateAppRequest: UpdateAppRequest,
+  UpdateAppRequestData: UpdateAppRequestData,
+  UpdateAppRequestDataAttributes: UpdateAppRequestDataAttributes,
+  UpdateAppResponse: UpdateAppResponse,
+  UpdateAppResponseData: UpdateAppResponseData,
+  UpdateAppResponseDataAttributes: UpdateAppResponseDataAttributes,
+  UpdateAppResponseRelationship: UpdateAppResponseRelationship,
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
   UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
   UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
@@ -3602,6 +3805,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "CIAppPipelineEventFinishedPipeline",
     "CIAppPipelineEventInProgressPipeline",
   ],
+  ComponentGridPropertiesIsVisible: ["string", "boolean"],
+  ComponentPropertiesIsVisible: ["boolean", "string"],
   ContainerImageItem: ["ContainerImage", "ContainerImageGroup"],
   ContainerItem: ["Container", "ContainerGroup"],
   CustomDestinationForwardDestination: [
