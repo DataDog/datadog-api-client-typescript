@@ -55,7 +55,7 @@ export class UsageSummaryDateOrg {
    */
   "auditTrailEnabledHwm"?: number;
   /**
-   * The average profiled task count for Fargate Profiling.
+   * The average total count for Fargate Container Profiler over all hours in the current month for the given org.
    */
   "avgProfiledFargateTasks"?: number;
   /**
@@ -270,6 +270,14 @@ export class UsageSummaryDateOrg {
    * Shows the sum of all Error Tracking RUM error events over all hours in the current date for the given org.
    */
   "errorTrackingRumErrorEventsSum"?: number;
+  /**
+   * The average number of Profiling Fargate tasks over all hours in the current month for the given org.
+   */
+  "fargateContainerProfilerProfilingFargateAvg"?: number;
+  /**
+   * The average number of Profiling Fargate Elastic Kubernetes Service tasks over all hours in the current month for the given org.
+   */
+  "fargateContainerProfilerProfilingFargateEksAvg"?: number;
   /**
    * The average task count for Fargate.
    */
@@ -935,6 +943,16 @@ export class UsageSummaryDateOrg {
     },
     errorTrackingRumErrorEventsSum: {
       baseName: "error_tracking_rum_error_events_sum",
+      type: "number",
+      format: "int64",
+    },
+    fargateContainerProfilerProfilingFargateAvg: {
+      baseName: "fargate_container_profiler_profiling_fargate_avg",
+      type: "number",
+      format: "int64",
+    },
+    fargateContainerProfilerProfilingFargateEksAvg: {
+      baseName: "fargate_container_profiler_profiling_fargate_eks_avg",
       type: "number",
       format: "int64",
     },

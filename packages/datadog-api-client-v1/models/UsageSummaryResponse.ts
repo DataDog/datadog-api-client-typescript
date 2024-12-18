@@ -49,7 +49,7 @@ export class UsageSummaryResponse {
    */
   "auditTrailEnabledHwmSum"?: number;
   /**
-   * Shows the average of all profiled Fargate tasks over all hours in the current month for all organizations.
+   * The average total count for Fargate Container Profiler over all hours in the current month for all organizations.
    */
   "avgProfiledFargateTasksSum"?: number;
   /**
@@ -272,6 +272,14 @@ export class UsageSummaryResponse {
    * Shows the sum of all Error Tracking RUM error events over all hours in the current month for all organizations.
    */
   "errorTrackingRumErrorEventsAggSum"?: number;
+  /**
+   * The average number of Profiling Fargate tasks over all hours in the current month for all organizations.
+   */
+  "fargateContainerProfilerProfilingFargateAvgSum"?: number;
+  /**
+   * The average number of Profiling Fargate Elastic Kubernetes Service tasks over all hours in the current month for all organizations.
+   */
+  "fargateContainerProfilerProfilingFargateEksAvgSum"?: number;
   /**
    * Shows the average of all Fargate tasks over all hours in the current month for all organizations.
    */
@@ -959,6 +967,16 @@ export class UsageSummaryResponse {
     },
     errorTrackingRumErrorEventsAggSum: {
       baseName: "error_tracking_rum_error_events_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    fargateContainerProfilerProfilingFargateAvgSum: {
+      baseName: "fargate_container_profiler_profiling_fargate_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    fargateContainerProfilerProfilingFargateEksAvgSum: {
+      baseName: "fargate_container_profiler_profiling_fargate_eks_avg_sum",
       type: "number",
       format: "int64",
     },
