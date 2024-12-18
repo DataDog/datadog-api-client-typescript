@@ -7,16 +7,17 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Dictionary containing the key `excluded_resource_providers` which has to be a list of Microsoft Azure Resource Provider names.
- * This feature is currently being beta tested.
- * In order to enable all resource providers for metric collection, pass:
- * `metrics_config: {"excluded_resource_providers": []}` (i.e., an empty list for `excluded_resource_providers`).
+ * Configuration settings applied to resources from the specified Azure resource provider.
  */
-export class AzureAccountMetricsConfig {
+export class ResourceProviderConfig {
   /**
-   * List of Microsoft Azure Resource Providers to exclude from metric collection.
+   * Collect metrics for resources from this provider.
    */
-  "excludedResourceProviders"?: Array<string>;
+  "metricsEnabled"?: boolean;
+  /**
+   * The provider namespace to apply this configuration to.
+   */
+  "namespace"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,9 +35,13 @@ export class AzureAccountMetricsConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    excludedResourceProviders: {
-      baseName: "excluded_resource_providers",
-      type: "Array<string>",
+    metricsEnabled: {
+      baseName: "metrics_enabled",
+      type: "boolean",
+    },
+    namespace: {
+      baseName: "namespace",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +53,7 @@ export class AzureAccountMetricsConfig {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AzureAccountMetricsConfig.attributeTypeMap;
+    return ResourceProviderConfig.attributeTypeMap;
   }
 
   public constructor() {}

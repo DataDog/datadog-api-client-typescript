@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AzureAccountMetricsConfig } from "./AzureAccountMetricsConfig";
+import { ResourceProviderConfig } from "./ResourceProviderConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -52,12 +52,13 @@ export class AzureAccount {
    */
   "hostFilters"?: string;
   /**
-   * Dictionary containing the key `excluded_resource_providers` which has to be a list of Microsoft Azure Resource Provider names.
-   * This feature is currently being beta tested.
-   * In order to enable all resource providers for metric collection, pass:
-   * `metrics_config: {"excluded_resource_providers": []}` (i.e., an empty list for `excluded_resource_providers`).
+   * Enable Azure metrics for your organization.
    */
-  "metricsConfig"?: AzureAccountMetricsConfig;
+  "metricsEnabled"?: boolean;
+  /**
+   * Enable Azure metrics for your organization for resource providers where no resource provider config is specified.
+   */
+  "metricsEnabledDefault"?: boolean;
   /**
    * Your New Azure web application ID.
    */
@@ -71,9 +72,17 @@ export class AzureAccount {
    */
   "resourceCollectionEnabled"?: boolean;
   /**
+   * Configuration settings applied to resources from the specified Azure resource providers.
+   */
+  "resourceProviderConfigs"?: Array<ResourceProviderConfig>;
+  /**
    * Your Azure Active Directory ID.
    */
   "tenantName"?: string;
+  /**
+   * Enable azure.usage metrics for your organization.
+   */
+  "usageMetricsEnabled"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -127,9 +136,13 @@ export class AzureAccount {
       baseName: "host_filters",
       type: "string",
     },
-    metricsConfig: {
-      baseName: "metrics_config",
-      type: "AzureAccountMetricsConfig",
+    metricsEnabled: {
+      baseName: "metrics_enabled",
+      type: "boolean",
+    },
+    metricsEnabledDefault: {
+      baseName: "metrics_enabled_default",
+      type: "boolean",
     },
     newClientId: {
       baseName: "new_client_id",
@@ -143,9 +156,17 @@ export class AzureAccount {
       baseName: "resource_collection_enabled",
       type: "boolean",
     },
+    resourceProviderConfigs: {
+      baseName: "resource_provider_configs",
+      type: "Array<ResourceProviderConfig>",
+    },
     tenantName: {
       baseName: "tenant_name",
       type: "string",
+    },
+    usageMetricsEnabled: {
+      baseName: "usage_metrics_enabled",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",

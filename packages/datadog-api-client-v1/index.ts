@@ -374,7 +374,6 @@ export { AWSTagFilterCreateRequest } from "./models/AWSTagFilterCreateRequest";
 export { AWSTagFilterDeleteRequest } from "./models/AWSTagFilterDeleteRequest";
 export { AWSTagFilterListResponse } from "./models/AWSTagFilterListResponse";
 export { AzureAccount } from "./models/AzureAccount";
-export { AzureAccountMetricsConfig } from "./models/AzureAccountMetricsConfig";
 export { CancelDowntimesByScopeRequest } from "./models/CancelDowntimesByScopeRequest";
 export { CanceledDowntimesIds } from "./models/CanceledDowntimesIds";
 export { ChangeWidgetDefinition } from "./models/ChangeWidgetDefinition";
@@ -728,6 +727,7 @@ export { QueryValueWidgetDefinition } from "./models/QueryValueWidgetDefinition"
 export { QueryValueWidgetDefinitionType } from "./models/QueryValueWidgetDefinitionType";
 export { QueryValueWidgetRequest } from "./models/QueryValueWidgetRequest";
 export { ReferenceTableLogsLookupProcessor } from "./models/ReferenceTableLogsLookupProcessor";
+export { ResourceProviderConfig } from "./models/ResourceProviderConfig";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { RunWorkflowWidgetDefinition } from "./models/RunWorkflowWidgetDefinition";
 export { RunWorkflowWidgetDefinitionType } from "./models/RunWorkflowWidgetDefinitionType";

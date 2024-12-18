@@ -18,13 +18,19 @@ const params: v1.AzureIntegrationApiUpdateAzureHostFiltersRequest = {
     customMetricsEnabled: true,
     errors: ["*"],
     hostFilters: "key:value,filter:example",
-    metricsConfig: {
-      excludedResourceProviders: ["Microsoft.Sql", "Microsoft.Cdn"],
-    },
+    metricsEnabled: true,
+    metricsEnabledDefault: true,
     newClientId: "new1c7f6-1234-5678-9101-3fcbf464test",
     newTenantName: "new1c44-1234-5678-9101-cc00736ftest",
     resourceCollectionEnabled: true,
+    resourceProviderConfigs: [
+      {
+        metricsEnabled: true,
+        namespace: "Microsoft.Compute",
+      },
+    ],
     tenantName: "testc44-1234-5678-9101-cc00736ftest",
+    usageMetricsEnabled: true,
   },
 };
 
