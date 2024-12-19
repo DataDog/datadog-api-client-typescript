@@ -2306,6 +2306,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.Validate": {
         "operationResponseType": "AuthenticationValidationResponse",
     },
+    "v2.ListAwsScanOptions": {
+        "operationResponseType": "AwsScanOptionsResponse",
+    },
     "v2.ListAPIKeys": {
         "pageSize": {
             "type": "number",
