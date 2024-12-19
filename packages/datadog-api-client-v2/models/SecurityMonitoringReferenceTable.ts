@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Reference table for the rule.
+ * Reference tables used in the queries.
  */
 export class SecurityMonitoringReferenceTable {
   /**
@@ -23,7 +23,7 @@ export class SecurityMonitoringReferenceTable {
    */
   "logFieldPath"?: string;
   /**
-   * The name of the rule query to apply the reference table to.
+   * The name of the query to apply the reference table to.
    */
   "ruleQueryName"?: string;
   /**

@@ -3,10 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { SecurityMonitoringRuleDetectionMethod } from "./SecurityMonitoringRuleDetectionMethod";
 import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRuleEvaluationWindow";
-import { SecurityMonitoringRuleHardcodedEvaluatorType } from "./SecurityMonitoringRuleHardcodedEvaluatorType";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
 import { SecurityMonitoringRuleKeepAlive } from "./SecurityMonitoringRuleKeepAlive";
 import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRuleMaxSignalDuration";
@@ -16,20 +14,9 @@ import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRul
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Options.
+ * Job options.
  */
-export class SecurityMonitoringRuleOptions {
-  /**
-   * Options for cloud_configuration rules.
-   * Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
-   */
-  "complianceRuleOptions"?: CloudConfigurationComplianceRuleOptions;
-  /**
-   * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce signal noise.
-   * The severity is decreased by one level: `CRITICAL` in production becomes `HIGH` in non-production, `HIGH` becomes `MEDIUM` and so on. `INFO` remains `INFO`.
-   * The decrement is applied when the environment tag of the signal starts with `staging`, `test` or `dev`.
-   */
-  "decreaseCriticalityBasedOnEnv"?: boolean;
+export class HistoricalJobOptions {
   /**
    * The detection method.
    */
@@ -39,10 +26,6 @@ export class SecurityMonitoringRuleOptions {
    * and evaluates in real time. For third party detection method, this field is not used.
    */
   "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
-  /**
-   * Hardcoded evaluator type.
-   */
-  "hardcodedEvaluatorType"?: SecurityMonitoringRuleHardcodedEvaluatorType;
   /**
    * Options on impossible travel detection method.
    */
@@ -82,14 +65,6 @@ export class SecurityMonitoringRuleOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    complianceRuleOptions: {
-      baseName: "complianceRuleOptions",
-      type: "CloudConfigurationComplianceRuleOptions",
-    },
-    decreaseCriticalityBasedOnEnv: {
-      baseName: "decreaseCriticalityBasedOnEnv",
-      type: "boolean",
-    },
     detectionMethod: {
       baseName: "detectionMethod",
       type: "SecurityMonitoringRuleDetectionMethod",
@@ -98,10 +73,6 @@ export class SecurityMonitoringRuleOptions {
       baseName: "evaluationWindow",
       type: "SecurityMonitoringRuleEvaluationWindow",
       format: "int32",
-    },
-    hardcodedEvaluatorType: {
-      baseName: "hardcodedEvaluatorType",
-      type: "SecurityMonitoringRuleHardcodedEvaluatorType",
     },
     impossibleTravelOptions: {
       baseName: "impossibleTravelOptions",
@@ -135,7 +106,7 @@ export class SecurityMonitoringRuleOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleOptions.attributeTypeMap;
+    return HistoricalJobOptions.attributeTypeMap;
   }
 
   public constructor() {}

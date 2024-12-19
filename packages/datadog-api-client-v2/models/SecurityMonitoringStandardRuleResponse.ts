@@ -75,7 +75,7 @@ export class SecurityMonitoringStandardRuleResponse {
    */
   "name"?: string;
   /**
-   * Options on rules.
+   * Options.
    */
   "options"?: SecurityMonitoringRuleOptions;
   /**
