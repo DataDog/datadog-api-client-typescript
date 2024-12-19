@@ -469,6 +469,8 @@ export {
   SecurityMonitoringApiListHistoricalJobsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
+  SecurityMonitoringApiListVulnerabilitiesRequest,
+  SecurityMonitoringApiListVulnerableAssetsRequest,
   SecurityMonitoringApiMuteFindingsRequest,
   SecurityMonitoringApiRunHistoricalJobRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
@@ -614,6 +616,7 @@ export { ActiveBillingDimensionsAttributes } from "./models/ActiveBillingDimensi
 export { ActiveBillingDimensionsBody } from "./models/ActiveBillingDimensionsBody";
 export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimensionsResponse";
 export { ActiveBillingDimensionsType } from "./models/ActiveBillingDimensionsType";
+export { Advisory } from "./models/Advisory";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { APIKeyCreateAttributes } from "./models/APIKeyCreateAttributes";
 export { APIKeyCreateData } from "./models/APIKeyCreateData";
@@ -651,6 +654,13 @@ export { ApplicationKeyUpdateData } from "./models/ApplicationKeyUpdateData";
 export { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
 export { AppMeta } from "./models/AppMeta";
 export { AppsSortField } from "./models/AppsSortField";
+export { Asset } from "./models/Asset";
+export { AssetAttributes } from "./models/AssetAttributes";
+export { AssetAttributesOperatingSystem } from "./models/AssetAttributesOperatingSystem";
+export { AssetAttributesRisks } from "./models/AssetAttributesRisks";
+export { AssetAttributesVersion } from "./models/AssetAttributesVersion";
+export { AssetEntityType } from "./models/AssetEntityType";
+export { AssetType } from "./models/AssetType";
 export { AuditLogsEvent } from "./models/AuditLogsEvent";
 export { AuditLogsEventAttributes } from "./models/AuditLogsEventAttributes";
 export { AuditLogsEventsResponse } from "./models/AuditLogsEventsResponse";
@@ -908,6 +918,7 @@ export { CloudWorkloadSecurityAgentRuleUpdateAttributes } from "./models/CloudWo
 export { CloudWorkloadSecurityAgentRuleUpdateData } from "./models/CloudWorkloadSecurityAgentRuleUpdateData";
 export { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./models/CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 export { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./models/CloudWorkloadSecurityAgentRuleUpdateRequest";
+export { CodeLocation } from "./models/CodeLocation";
 export { Component } from "./models/Component";
 export { ComponentGrid } from "./models/ComponentGrid";
 export { ComponentGridProperties } from "./models/ComponentGridProperties";
@@ -1057,6 +1068,7 @@ export { CustomDestinationType } from "./models/CustomDestinationType";
 export { CustomDestinationUpdateRequest } from "./models/CustomDestinationUpdateRequest";
 export { CustomDestinationUpdateRequestAttributes } from "./models/CustomDestinationUpdateRequestAttributes";
 export { CustomDestinationUpdateRequestDefinition } from "./models/CustomDestinationUpdateRequestDefinition";
+export { CVSS } from "./models/CVSS";
 export { DashboardListAddItemsRequest } from "./models/DashboardListAddItemsRequest";
 export { DashboardListAddItemsResponse } from "./models/DashboardListAddItemsResponse";
 export { DashboardListDeleteItemsRequest } from "./models/DashboardListDeleteItemsRequest";
@@ -1081,6 +1093,7 @@ export { DeleteAppsRequestDataItemsType } from "./models/DeleteAppsRequestDataIt
 export { DeleteAppsResponse } from "./models/DeleteAppsResponse";
 export { DeleteAppsResponseDataItems } from "./models/DeleteAppsResponseDataItems";
 export { DeleteAppsResponseDataItemsType } from "./models/DeleteAppsResponseDataItemsType";
+export { DependencyLocation } from "./models/DependencyLocation";
 export { DeployAppResponse } from "./models/DeployAppResponse";
 export { DeployAppResponseData } from "./models/DeployAppResponseData";
 export { DeployAppResponseDataAttributes } from "./models/DeployAppResponseDataAttributes";
@@ -1162,6 +1175,7 @@ export { DowntimeStatus } from "./models/DowntimeStatus";
 export { DowntimeUpdateRequest } from "./models/DowntimeUpdateRequest";
 export { DowntimeUpdateRequestAttributes } from "./models/DowntimeUpdateRequestAttributes";
 export { DowntimeUpdateRequestData } from "./models/DowntimeUpdateRequestData";
+export { Ecosystem } from "./models/Ecosystem";
 export { EntityAttributes } from "./models/EntityAttributes";
 export { EntityData } from "./models/EntityData";
 export { EntityMeta } from "./models/EntityMeta";
@@ -1215,6 +1229,7 @@ export { EntityV3System } from "./models/EntityV3System";
 export { EntityV3SystemDatadog } from "./models/EntityV3SystemDatadog";
 export { EntityV3SystemKind } from "./models/EntityV3SystemKind";
 export { EntityV3SystemSpec } from "./models/EntityV3SystemSpec";
+export { EPSS } from "./models/EPSS";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
 export { EventCategory } from "./models/EventCategory";
@@ -1495,6 +1510,8 @@ export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { LeakedKey } from "./models/LeakedKey";
 export { LeakedKeyAttributes } from "./models/LeakedKeyAttributes";
 export { LeakedKeyType } from "./models/LeakedKeyType";
+export { Library } from "./models/Library";
+export { Links } from "./models/Links";
 export { ListAPIsResponse } from "./models/ListAPIsResponse";
 export { ListAPIsResponseData } from "./models/ListAPIsResponseData";
 export { ListAPIsResponseDataAttributes } from "./models/ListAPIsResponseDataAttributes";
@@ -1528,6 +1545,8 @@ export { ListTagsResponseData } from "./models/ListTagsResponseData";
 export { ListTagsResponseDataAttributes } from "./models/ListTagsResponseDataAttributes";
 export { ListTeamsInclude } from "./models/ListTeamsInclude";
 export { ListTeamsSort } from "./models/ListTeamsSort";
+export { ListVulnerabilitiesResponse } from "./models/ListVulnerabilitiesResponse";
+export { ListVulnerableAssetsResponse } from "./models/ListVulnerableAssetsResponse";
 export { Log } from "./models/Log";
 export { LogAttributes } from "./models/LogAttributes";
 export { LogsAggregateBucket } from "./models/LogsAggregateBucket";
@@ -1603,6 +1622,7 @@ export { LogsSortOrder } from "./models/LogsSortOrder";
 export { LogsStorageTier } from "./models/LogsStorageTier";
 export { LogsWarning } from "./models/LogsWarning";
 export { LogType } from "./models/LogType";
+export { Metadata } from "./models/Metadata";
 export { Metric } from "./models/Metric";
 export { MetricActiveConfigurationType } from "./models/MetricActiveConfigurationType";
 export { MetricAllTags } from "./models/MetricAllTags";
@@ -1885,6 +1905,7 @@ export { RelationshipToUserTeamTeamData } from "./models/RelationshipToUserTeamT
 export { RelationshipToUserTeamUser } from "./models/RelationshipToUserTeamUser";
 export { RelationshipToUserTeamUserData } from "./models/RelationshipToUserTeamUserData";
 export { RelationType } from "./models/RelationType";
+export { Remediation } from "./models/Remediation";
 export { ReorderRetentionFiltersRequest } from "./models/ReorderRetentionFiltersRequest";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { RestrictionPolicy } from "./models/RestrictionPolicy";
@@ -2250,6 +2271,7 @@ export { ServiceDefinitionV2SlackType } from "./models/ServiceDefinitionV2SlackT
 export { ServiceDefinitionV2Version } from "./models/ServiceDefinitionV2Version";
 export { ServiceNowTicket } from "./models/ServiceNowTicket";
 export { ServiceNowTicketResult } from "./models/ServiceNowTicketResult";
+export { Severity } from "./models/Severity";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { SloReportCreateRequest } from "./models/SloReportCreateRequest";
@@ -2323,6 +2345,7 @@ export { SpansSortOrder } from "./models/SpansSortOrder";
 export { SpansType } from "./models/SpansType";
 export { SpansWarning } from "./models/SpansWarning";
 export { State } from "./models/State";
+export { Status } from "./models/Status";
 export { Team } from "./models/Team";
 export { TeamAttributes } from "./models/TeamAttributes";
 export { TeamCreate } from "./models/TeamCreate";
@@ -2370,6 +2393,7 @@ export { TimeseriesQuery } from "./models/TimeseriesQuery";
 export { TimeseriesResponse } from "./models/TimeseriesResponse";
 export { TimeseriesResponseAttributes } from "./models/TimeseriesResponseAttributes";
 export { TimeseriesResponseSeries } from "./models/TimeseriesResponseSeries";
+export { Tool } from "./models/Tool";
 export { Unit } from "./models/Unit";
 export { UpdateAppRequest } from "./models/UpdateAppRequest";
 export { UpdateAppRequestData } from "./models/UpdateAppRequestData";
@@ -2439,6 +2463,17 @@ export { UserTeamUserType } from "./models/UserTeamUserType";
 export { UserUpdateAttributes } from "./models/UserUpdateAttributes";
 export { UserUpdateData } from "./models/UserUpdateData";
 export { UserUpdateRequest } from "./models/UserUpdateRequest";
+export { Vulnerability } from "./models/Vulnerability";
+export { VulnerabilityAttributes } from "./models/VulnerabilityAttributes";
+export { VulnerabilityAttributesCvss } from "./models/VulnerabilityAttributesCvss";
+export { VulnerabilityAttributesDependencyLocations } from "./models/VulnerabilityAttributesDependencyLocations";
+export { VulnerabilityEntityType } from "./models/VulnerabilityEntityType";
+export { VulnerabilityRelationships } from "./models/VulnerabilityRelationships";
+export { VulnerabilityRelationshipsAffects } from "./models/VulnerabilityRelationshipsAffects";
+export { VulnerabilityRelationshipsAffectsData } from "./models/VulnerabilityRelationshipsAffectsData";
+export { VulnerabilityRelationshipsAffectsDataType } from "./models/VulnerabilityRelationshipsAffectsDataType";
+export { VulnerabilityRisks } from "./models/VulnerabilityRisks";
+export { VulnerabilityType } from "./models/VulnerabilityType";
 export { WidgetLiveSpan } from "./models/WidgetLiveSpan";
 export { WorkflowInstanceCreateMeta } from "./models/WorkflowInstanceCreateMeta";
 export { WorkflowInstanceCreateRequest } from "./models/WorkflowInstanceCreateRequest";
