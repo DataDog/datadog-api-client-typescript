@@ -4,11 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CalculatedField } from "./CalculatedField";
-import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
+import { HistoricalJobOptions } from "./HistoricalJobOptions";
+import { HistoricalJobQuery } from "./HistoricalJobQuery";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
-import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
-import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -26,10 +25,6 @@ export class JobDefinition {
    */
   "cases": Array<SecurityMonitoringRuleCaseCreate>;
   /**
-   * Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
-   */
-  "filters"?: Array<SecurityMonitoringFilter>;
-  /**
    * Starting time of data analyzed by the job.
    */
   "from": number;
@@ -46,15 +41,15 @@ export class JobDefinition {
    */
   "name": string;
   /**
-   * Options on rules.
+   * Job options.
    */
-  "options"?: SecurityMonitoringRuleOptions;
+  "options"?: HistoricalJobOptions;
   /**
    * Queries for selecting logs analyzed by the job.
    */
-  "queries": Array<SecurityMonitoringStandardRuleQuery>;
+  "queries": Array<HistoricalJobQuery>;
   /**
-   * Reference tables for the rule.
+   * Reference tables used in the queries.
    */
   "referenceTables"?: Array<SecurityMonitoringReferenceTable>;
   /**
@@ -62,7 +57,7 @@ export class JobDefinition {
    */
   "tags"?: Array<string>;
   /**
-   * Cases for generating results from third-party rules. Only available for third-party rules.
+   * Cases for generating results from third-party detection method. Only available for third-party detection method.
    */
   "thirdPartyCases"?: Array<SecurityMonitoringThirdPartyRuleCaseCreate>;
   /**
@@ -99,10 +94,6 @@ export class JobDefinition {
       type: "Array<SecurityMonitoringRuleCaseCreate>",
       required: true,
     },
-    filters: {
-      baseName: "filters",
-      type: "Array<SecurityMonitoringFilter>",
-    },
     from: {
       baseName: "from",
       type: "number",
@@ -126,11 +117,11 @@ export class JobDefinition {
     },
     options: {
       baseName: "options",
-      type: "SecurityMonitoringRuleOptions",
+      type: "HistoricalJobOptions",
     },
     queries: {
       baseName: "queries",
-      type: "Array<SecurityMonitoringStandardRuleQuery>",
+      type: "Array<HistoricalJobQuery>",
       required: true,
     },
     referenceTables: {

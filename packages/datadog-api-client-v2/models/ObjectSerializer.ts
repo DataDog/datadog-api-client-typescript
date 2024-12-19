@@ -547,6 +547,8 @@ import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogErrors } from "./HTTPLogErrors";
 import { HTTPLogItem } from "./HTTPLogItem";
 import { HistoricalJobListMeta } from "./HistoricalJobListMeta";
+import { HistoricalJobOptions } from "./HistoricalJobOptions";
+import { HistoricalJobQuery } from "./HistoricalJobQuery";
 import { HistoricalJobResponse } from "./HistoricalJobResponse";
 import { HistoricalJobResponseAttributes } from "./HistoricalJobResponseAttributes";
 import { HistoricalJobResponseData } from "./HistoricalJobResponseData";
@@ -2788,6 +2790,8 @@ const typeMap: { [index: string]: any } = {
   HTTPLogErrors: HTTPLogErrors,
   HTTPLogItem: HTTPLogItem,
   HistoricalJobListMeta: HistoricalJobListMeta,
+  HistoricalJobOptions: HistoricalJobOptions,
+  HistoricalJobQuery: HistoricalJobQuery,
   HistoricalJobResponse: HistoricalJobResponse,
   HistoricalJobResponseAttributes: HistoricalJobResponseAttributes,
   HistoricalJobResponseData: HistoricalJobResponseData,

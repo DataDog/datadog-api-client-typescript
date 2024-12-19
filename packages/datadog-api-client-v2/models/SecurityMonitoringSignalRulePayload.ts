@@ -40,7 +40,7 @@ export class SecurityMonitoringSignalRulePayload {
    */
   "name": string;
   /**
-   * Options on rules.
+   * Options.
    */
   "options": SecurityMonitoringRuleOptions;
   /**

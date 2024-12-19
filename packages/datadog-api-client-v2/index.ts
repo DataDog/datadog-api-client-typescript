@@ -1315,6 +1315,8 @@ export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
 export { HistoricalJobDataType } from "./models/HistoricalJobDataType";
 export { HistoricalJobListMeta } from "./models/HistoricalJobListMeta";
+export { HistoricalJobOptions } from "./models/HistoricalJobOptions";
+export { HistoricalJobQuery } from "./models/HistoricalJobQuery";
 export { HistoricalJobResponse } from "./models/HistoricalJobResponse";
 export { HistoricalJobResponseAttributes } from "./models/HistoricalJobResponseAttributes";
 export { HistoricalJobResponseData } from "./models/HistoricalJobResponseData";
