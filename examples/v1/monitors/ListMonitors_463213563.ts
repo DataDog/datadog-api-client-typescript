@@ -1,5 +1,5 @@
 /**
- * Get all monitor details returns "OK" response with pagination
+ * Get all monitors returns "OK" response with pagination
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";

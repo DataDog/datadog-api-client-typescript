@@ -1,5 +1,5 @@
 /**
- * Get all monitor details returns "OK" response
+ * Get all monitors returns "OK" response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
