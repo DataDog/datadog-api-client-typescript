@@ -1,5 +1,5 @@
 /**
- * Get all monitor details with tags
+ * Get all monitors with tags
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";

@@ -1668,7 +1668,7 @@ export class MonitorsApi {
   }
 
   /**
-   * Get details about the specified monitor from your organization.
+   * Get all monitors from your organization.
    * @param param The request object
    */
   public listMonitors(
