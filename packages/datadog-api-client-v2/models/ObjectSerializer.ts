@@ -669,6 +669,7 @@ import { InputSchemaDataAttributesParametersItemsDataAttributes } from "./InputS
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { InterfaceAttributes } from "./InterfaceAttributes";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
 import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
@@ -2927,6 +2928,7 @@ const typeMap: { [index: string]: any } = {
   IntakePayloadAccepted: IntakePayloadAccepted,
   InterfaceAttributes: InterfaceAttributes,
   JSONAPIErrorItem: JSONAPIErrorItem,
+  JSONAPIErrorItemSource: JSONAPIErrorItemSource,
   JSONAPIErrorResponse: JSONAPIErrorResponse,
   JiraIntegrationMetadata: JiraIntegrationMetadata,
   JiraIntegrationMetadataIssuesItem: JiraIntegrationMetadataIssuesItem,
