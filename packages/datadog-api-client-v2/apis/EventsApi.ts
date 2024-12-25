@@ -42,28 +42,13 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/events";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.EventsApi.createEvent")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    if (!_config.baseServer) {
+      throw new Error("Base server configuration is missing");
+    }
+    const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
-    requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "EventCreateRequestPayload", ""),
-      contentType
-    );
-    requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    requestContext.setHeaderParam("Content-Type", "application/json");
+    requestContext.setBody(JSON.stringify(body));
 
     return requestContext;
   }
