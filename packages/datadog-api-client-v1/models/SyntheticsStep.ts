@@ -40,6 +40,10 @@ export class SyntheticsStep {
    */
   "params"?: any;
   /**
+   * The public ID of the step.
+   */
+  "publicId"?: string;
+  /**
    * The time before declaring a step failed.
    */
   "timeout"?: number;
@@ -91,6 +95,10 @@ export class SyntheticsStep {
     params: {
       baseName: "params",
       type: "any",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
     timeout: {
       baseName: "timeout",
