@@ -293,14 +293,14 @@ Then(
 Then(
   "the response {string} has field {string}",
   function (this: World, responsePath: string, field: string) {
-    expect(pathLookup(this.response, responsePath)).to.have.property(field);
+    expect(pathLookup(this.response, responsePath)).to.have.property(field.toAttributeName());
   }
 );
 
 Then(
   "the response {string} does not have field {string}",
   function (this: World, responsePath: string, field: string) {
-    expect(pathLookup(this.response, responsePath)).to.not.have.property(field);
+    expect(pathLookup(this.response, responsePath)).to.not.have.property(field.toAttributeName());
   }
 );
 
