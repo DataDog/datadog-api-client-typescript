@@ -17,6 +17,7 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { AssetType } from "../models/AssetType";
 import { BulkMuteFindingsRequest } from "../models/BulkMuteFindingsRequest";
 import { BulkMuteFindingsResponse } from "../models/BulkMuteFindingsResponse";
 import { ConvertJobResultsToSignalsRequest } from "../models/ConvertJobResultsToSignalsRequest";
@@ -30,6 +31,8 @@ import { JobCreateResponse } from "../models/JobCreateResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListFindingsResponse } from "../models/ListFindingsResponse";
 import { ListHistoricalJobsResponse } from "../models/ListHistoricalJobsResponse";
+import { ListVulnerabilitiesResponse } from "../models/ListVulnerabilitiesResponse";
+import { ListVulnerableAssetsResponse } from "../models/ListVulnerableAssetsResponse";
 import { RunHistoricalJobRequest } from "../models/RunHistoricalJobRequest";
 import { SecurityFilterCreateRequest } from "../models/SecurityFilterCreateRequest";
 import { SecurityFilterResponse } from "../models/SecurityFilterResponse";
@@ -58,6 +61,11 @@ import { SecurityMonitoringSuppressionCreateRequest } from "../models/SecurityMo
 import { SecurityMonitoringSuppressionResponse } from "../models/SecurityMonitoringSuppressionResponse";
 import { SecurityMonitoringSuppressionsResponse } from "../models/SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringSuppressionUpdateRequest } from "../models/SecurityMonitoringSuppressionUpdateRequest";
+import { VulnerabilityEcosystem } from "../models/VulnerabilityEcosystem";
+import { VulnerabilitySeverity } from "../models/VulnerabilitySeverity";
+import { VulnerabilityStatus } from "../models/VulnerabilityStatus";
+import { VulnerabilityTool } from "../models/VulnerabilityTool";
+import { VulnerabilityType } from "../models/VulnerabilityType";
 
 export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   public async cancelHistoricalJob(
@@ -1297,6 +1305,576 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listVulnerabilities(
+    pageToken?: string,
+    pageNumber?: number,
+    filterType?: VulnerabilityType,
+    filterCvssBaseScoreOp?: number,
+    filterCvssBaseSeverity?: VulnerabilitySeverity,
+    filterCvssBaseVector?: string,
+    filterCvssDatadogScoreOp?: number,
+    filterCvssDatadogSeverity?: VulnerabilitySeverity,
+    filterCvssDatadogVector?: string,
+    filterStatus?: VulnerabilityStatus,
+    filterTool?: VulnerabilityTool,
+    filterLibraryName?: string,
+    filterLibraryVersion?: string,
+    filterAdvisoryId?: string,
+    filterRisksExploitationProbability?: boolean,
+    filterRisksPocExploitAvailable?: boolean,
+    filterRisksExploitAvailable?: boolean,
+    filterRisksEpssScoreOp?: number,
+    filterRisksEpssSeverity?: VulnerabilitySeverity,
+    filterLanguage?: string,
+    filterEcosystem?: VulnerabilityEcosystem,
+    filterCodeLocationLocation?: string,
+    filterCodeLocationFilePath?: string,
+    filterCodeLocationMethod?: string,
+    filterFixAvailable?: boolean,
+    filterRepoDigests?: string,
+    filterAssetName?: string,
+    filterAssetType?: AssetType,
+    filterAssetVersionFirst?: string,
+    filterAssetVersionLast?: string,
+    filterAssetRepositoryUrl?: string,
+    filterAssetRisksInProduction?: boolean,
+    filterAssetRisksUnderAttack?: boolean,
+    filterAssetRisksIsPubliclyAccessible?: boolean,
+    filterAssetRisksHasPrivilegedAccess?: boolean,
+    filterAssetRisksHasAccessToSensitiveData?: boolean,
+    filterAssetEnvironments?: string,
+    filterAssetArch?: string,
+    filterAssetOperatingSystemName?: string,
+    filterAssetOperatingSystemVersion?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listVulnerabilities'");
+    if (!_config.unstableOperations["v2.listVulnerabilities"]) {
+      throw new Error("Unstable operation 'listVulnerabilities' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/vulnerabilities";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listVulnerabilities")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageToken !== undefined) {
+      requestContext.setQueryParam(
+        "page[token]",
+        ObjectSerializer.serialize(pageToken, "string", ""),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (filterType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[type]",
+        ObjectSerializer.serialize(filterType, "VulnerabilityType", ""),
+        ""
+      );
+    }
+    if (filterCvssBaseScoreOp !== undefined) {
+      requestContext.setQueryParam(
+        "filter[cvss.base.score][`$op`]",
+        ObjectSerializer.serialize(filterCvssBaseScoreOp, "number", "double"),
+        ""
+      );
+    }
+    if (filterCvssBaseSeverity !== undefined) {
+      requestContext.setQueryParam(
+        "filter[cvss.base.severity]",
+        ObjectSerializer.serialize(
+          filterCvssBaseSeverity,
+          "VulnerabilitySeverity",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterCvssBaseVector !== undefined) {
+      requestContext.setQueryParam(
+        "filter[cvss.base.vector]",
+        ObjectSerializer.serialize(filterCvssBaseVector, "string", ""),
+        ""
+      );
+    }
+    if (filterCvssDatadogScoreOp !== undefined) {
+      requestContext.setQueryParam(
+        "filter[cvss.datadog.score][`$op`]",
+        ObjectSerializer.serialize(
+          filterCvssDatadogScoreOp,
+          "number",
+          "double"
+        ),
+        ""
+      );
+    }
+    if (filterCvssDatadogSeverity !== undefined) {
+      requestContext.setQueryParam(
+        "filter[cvss.datadog.severity]",
+        ObjectSerializer.serialize(
+          filterCvssDatadogSeverity,
+          "VulnerabilitySeverity",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterCvssDatadogVector !== undefined) {
+      requestContext.setQueryParam(
+        "filter[cvss.datadog.vector]",
+        ObjectSerializer.serialize(filterCvssDatadogVector, "string", ""),
+        ""
+      );
+    }
+    if (filterStatus !== undefined) {
+      requestContext.setQueryParam(
+        "filter[status]",
+        ObjectSerializer.serialize(filterStatus, "VulnerabilityStatus", ""),
+        ""
+      );
+    }
+    if (filterTool !== undefined) {
+      requestContext.setQueryParam(
+        "filter[tool]",
+        ObjectSerializer.serialize(filterTool, "VulnerabilityTool", ""),
+        ""
+      );
+    }
+    if (filterLibraryName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[library.name]",
+        ObjectSerializer.serialize(filterLibraryName, "string", ""),
+        ""
+      );
+    }
+    if (filterLibraryVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[library.version]",
+        ObjectSerializer.serialize(filterLibraryVersion, "string", ""),
+        ""
+      );
+    }
+    if (filterAdvisoryId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[advisory_id]",
+        ObjectSerializer.serialize(filterAdvisoryId, "string", ""),
+        ""
+      );
+    }
+    if (filterRisksExploitationProbability !== undefined) {
+      requestContext.setQueryParam(
+        "filter[risks.exploitation_probability]",
+        ObjectSerializer.serialize(
+          filterRisksExploitationProbability,
+          "boolean",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterRisksPocExploitAvailable !== undefined) {
+      requestContext.setQueryParam(
+        "filter[risks.poc_exploit_available]",
+        ObjectSerializer.serialize(
+          filterRisksPocExploitAvailable,
+          "boolean",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterRisksExploitAvailable !== undefined) {
+      requestContext.setQueryParam(
+        "filter[risks.exploit_available]",
+        ObjectSerializer.serialize(filterRisksExploitAvailable, "boolean", ""),
+        ""
+      );
+    }
+    if (filterRisksEpssScoreOp !== undefined) {
+      requestContext.setQueryParam(
+        "filter[risks.epss.score][`$op`]",
+        ObjectSerializer.serialize(filterRisksEpssScoreOp, "number", "double"),
+        ""
+      );
+    }
+    if (filterRisksEpssSeverity !== undefined) {
+      requestContext.setQueryParam(
+        "filter[risks.epss.severity]",
+        ObjectSerializer.serialize(
+          filterRisksEpssSeverity,
+          "VulnerabilitySeverity",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterLanguage !== undefined) {
+      requestContext.setQueryParam(
+        "filter[language]",
+        ObjectSerializer.serialize(filterLanguage, "string", ""),
+        ""
+      );
+    }
+    if (filterEcosystem !== undefined) {
+      requestContext.setQueryParam(
+        "filter[ecosystem]",
+        ObjectSerializer.serialize(
+          filterEcosystem,
+          "VulnerabilityEcosystem",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterCodeLocationLocation !== undefined) {
+      requestContext.setQueryParam(
+        "filter[code_location.location]",
+        ObjectSerializer.serialize(filterCodeLocationLocation, "string", ""),
+        ""
+      );
+    }
+    if (filterCodeLocationFilePath !== undefined) {
+      requestContext.setQueryParam(
+        "filter[code_location.file_path]",
+        ObjectSerializer.serialize(filterCodeLocationFilePath, "string", ""),
+        ""
+      );
+    }
+    if (filterCodeLocationMethod !== undefined) {
+      requestContext.setQueryParam(
+        "filter[code_location.method]",
+        ObjectSerializer.serialize(filterCodeLocationMethod, "string", ""),
+        ""
+      );
+    }
+    if (filterFixAvailable !== undefined) {
+      requestContext.setQueryParam(
+        "filter[fix_available]",
+        ObjectSerializer.serialize(filterFixAvailable, "boolean", ""),
+        ""
+      );
+    }
+    if (filterRepoDigests !== undefined) {
+      requestContext.setQueryParam(
+        "filter[repo_digests]",
+        ObjectSerializer.serialize(filterRepoDigests, "string", ""),
+        ""
+      );
+    }
+    if (filterAssetName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.name]",
+        ObjectSerializer.serialize(filterAssetName, "string", ""),
+        ""
+      );
+    }
+    if (filterAssetType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.type]",
+        ObjectSerializer.serialize(filterAssetType, "AssetType", ""),
+        ""
+      );
+    }
+    if (filterAssetVersionFirst !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.version.first]",
+        ObjectSerializer.serialize(filterAssetVersionFirst, "string", ""),
+        ""
+      );
+    }
+    if (filterAssetVersionLast !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.version.last]",
+        ObjectSerializer.serialize(filterAssetVersionLast, "string", ""),
+        ""
+      );
+    }
+    if (filterAssetRepositoryUrl !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.repository_url]",
+        ObjectSerializer.serialize(filterAssetRepositoryUrl, "string", ""),
+        ""
+      );
+    }
+    if (filterAssetRisksInProduction !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.risks.in_production]",
+        ObjectSerializer.serialize(filterAssetRisksInProduction, "boolean", ""),
+        ""
+      );
+    }
+    if (filterAssetRisksUnderAttack !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.risks.under_attack]",
+        ObjectSerializer.serialize(filterAssetRisksUnderAttack, "boolean", ""),
+        ""
+      );
+    }
+    if (filterAssetRisksIsPubliclyAccessible !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.risks.is_publicly_accessible]",
+        ObjectSerializer.serialize(
+          filterAssetRisksIsPubliclyAccessible,
+          "boolean",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterAssetRisksHasPrivilegedAccess !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.risks.has_privileged_access]",
+        ObjectSerializer.serialize(
+          filterAssetRisksHasPrivilegedAccess,
+          "boolean",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterAssetRisksHasAccessToSensitiveData !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.risks.has_access_to_sensitive_data]",
+        ObjectSerializer.serialize(
+          filterAssetRisksHasAccessToSensitiveData,
+          "boolean",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterAssetEnvironments !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.environments]",
+        ObjectSerializer.serialize(filterAssetEnvironments, "string", ""),
+        ""
+      );
+    }
+    if (filterAssetArch !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.arch]",
+        ObjectSerializer.serialize(filterAssetArch, "string", ""),
+        ""
+      );
+    }
+    if (filterAssetOperatingSystemName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.operating_system.name]",
+        ObjectSerializer.serialize(
+          filterAssetOperatingSystemName,
+          "string",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterAssetOperatingSystemVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.operating_system.version]",
+        ObjectSerializer.serialize(
+          filterAssetOperatingSystemVersion,
+          "string",
+          ""
+        ),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listVulnerableAssets(
+    pageToken?: string,
+    pageNumber?: number,
+    filterName?: string,
+    filterType?: AssetType,
+    filterVersionFirst?: string,
+    filterVersionLast?: string,
+    filterRepositoryUrl?: string,
+    filterRisksInProduction?: boolean,
+    filterRisksUnderAttack?: boolean,
+    filterRisksIsPubliclyAccessible?: boolean,
+    filterRisksHasPrivilegedAccess?: boolean,
+    filterRisksHasAccessToSensitiveData?: boolean,
+    filterEnvironments?: string,
+    filterArch?: string,
+    filterOperatingSystemName?: string,
+    filterOperatingSystemVersion?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listVulnerableAssets'");
+    if (!_config.unstableOperations["v2.listVulnerableAssets"]) {
+      throw new Error("Unstable operation 'listVulnerableAssets' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/assets";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listVulnerableAssets")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageToken !== undefined) {
+      requestContext.setQueryParam(
+        "page[token]",
+        ObjectSerializer.serialize(pageToken, "string", ""),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (filterName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[name]",
+        ObjectSerializer.serialize(filterName, "string", ""),
+        ""
+      );
+    }
+    if (filterType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[type]",
+        ObjectSerializer.serialize(filterType, "AssetType", ""),
+        ""
+      );
+    }
+    if (filterVersionFirst !== undefined) {
+      requestContext.setQueryParam(
+        "filter[version.first]",
+        ObjectSerializer.serialize(filterVersionFirst, "string", ""),
+        ""
+      );
+    }
+    if (filterVersionLast !== undefined) {
+      requestContext.setQueryParam(
+        "filter[version.last]",
+        ObjectSerializer.serialize(filterVersionLast, "string", ""),
+        ""
+      );
+    }
+    if (filterRepositoryUrl !== undefined) {
+      requestContext.setQueryParam(
+        "filter[repository_url]",
+        ObjectSerializer.serialize(filterRepositoryUrl, "string", ""),
+        ""
+      );
+    }
+    if (filterRisksInProduction !== undefined) {
+      requestContext.setQueryParam(
+        "filter[risks.in_production]",
+        ObjectSerializer.serialize(filterRisksInProduction, "boolean", ""),
+        ""
+      );
+    }
+    if (filterRisksUnderAttack !== undefined) {
+      requestContext.setQueryParam(
+        "filter[risks.under_attack]",
+        ObjectSerializer.serialize(filterRisksUnderAttack, "boolean", ""),
+        ""
+      );
+    }
+    if (filterRisksIsPubliclyAccessible !== undefined) {
+      requestContext.setQueryParam(
+        "filter[risks.is_publicly_accessible]",
+        ObjectSerializer.serialize(
+          filterRisksIsPubliclyAccessible,
+          "boolean",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterRisksHasPrivilegedAccess !== undefined) {
+      requestContext.setQueryParam(
+        "filter[risks.has_privileged_access]",
+        ObjectSerializer.serialize(
+          filterRisksHasPrivilegedAccess,
+          "boolean",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterRisksHasAccessToSensitiveData !== undefined) {
+      requestContext.setQueryParam(
+        "filter[risks.has_access_to_sensitive_data]",
+        ObjectSerializer.serialize(
+          filterRisksHasAccessToSensitiveData,
+          "boolean",
+          ""
+        ),
+        ""
+      );
+    }
+    if (filterEnvironments !== undefined) {
+      requestContext.setQueryParam(
+        "filter[environments]",
+        ObjectSerializer.serialize(filterEnvironments, "string", ""),
+        ""
+      );
+    }
+    if (filterArch !== undefined) {
+      requestContext.setQueryParam(
+        "filter[arch]",
+        ObjectSerializer.serialize(filterArch, "string", ""),
+        ""
+      );
+    }
+    if (filterOperatingSystemName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[operating_system.name]",
+        ObjectSerializer.serialize(filterOperatingSystemName, "string", ""),
+        ""
+      );
+    }
+    if (filterOperatingSystemVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[operating_system.version]",
+        ObjectSerializer.serialize(filterOperatingSystemVersion, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -3359,6 +3937,176 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listVulnerabilities
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listVulnerabilities(
+    response: ResponseContext
+  ): Promise<ListVulnerabilitiesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListVulnerabilitiesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListVulnerabilitiesResponse"
+      ) as ListVulnerabilitiesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListVulnerabilitiesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListVulnerabilitiesResponse",
+        ""
+      ) as ListVulnerabilitiesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listVulnerableAssets
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listVulnerableAssets(
+    response: ResponseContext
+  ): Promise<ListVulnerableAssetsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListVulnerableAssetsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListVulnerableAssetsResponse"
+      ) as ListVulnerableAssetsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListVulnerableAssetsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListVulnerableAssetsResponse",
+        ""
+      ) as ListVulnerableAssetsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to muteFindings
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4249,6 +4997,292 @@ export interface SecurityMonitoringApiListSecurityMonitoringSignalsRequest {
   pageLimit?: number;
 }
 
+export interface SecurityMonitoringApiListVulnerabilitiesRequest {
+  /**
+   * Its value must come from the `links` section of the response of the first request. Do not manually edit it.
+   * @type string
+   */
+  pageToken?: string;
+  /**
+   * The page number to be retrieved. It should be equal or greater than `1`
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Filter by vulnerability type.
+   * @type VulnerabilityType
+   */
+  filterType?: VulnerabilityType;
+  /**
+   * Filter by vulnerability base (i.e. from the original advisory) severity score.
+   * @type number
+   */
+  filterCvssBaseScoreOp?: number;
+  /**
+   * Filter by vulnerability base severity.
+   * @type VulnerabilitySeverity
+   */
+  filterCvssBaseSeverity?: VulnerabilitySeverity;
+  /**
+   * Filter by vulnerability base CVSS vector.
+   * @type string
+   */
+  filterCvssBaseVector?: string;
+  /**
+   * Filter by vulnerability Datadog severity score.
+   * @type number
+   */
+  filterCvssDatadogScoreOp?: number;
+  /**
+   * Filter by vulnerability Datadog severity.
+   * @type VulnerabilitySeverity
+   */
+  filterCvssDatadogSeverity?: VulnerabilitySeverity;
+  /**
+   * Filter by vulnerability Datadog CVSS vector.
+   * @type string
+   */
+  filterCvssDatadogVector?: string;
+  /**
+   * Filter by the status of the vulnerability.
+   * @type VulnerabilityStatus
+   */
+  filterStatus?: VulnerabilityStatus;
+  /**
+   * Filter by the tool of the vulnerability.
+   * @type VulnerabilityTool
+   */
+  filterTool?: VulnerabilityTool;
+  /**
+   * Filter by library name.
+   * @type string
+   */
+  filterLibraryName?: string;
+  /**
+   * Filter by library version.
+   * @type string
+   */
+  filterLibraryVersion?: string;
+  /**
+   * Filter by advisory ID.
+   * @type string
+   */
+  filterAdvisoryId?: string;
+  /**
+   * Filter by exploitation probability.
+   * @type boolean
+   */
+  filterRisksExploitationProbability?: boolean;
+  /**
+   * Filter by POC exploit availability.
+   * @type boolean
+   */
+  filterRisksPocExploitAvailable?: boolean;
+  /**
+   * Filter by public exploit availability.
+   * @type boolean
+   */
+  filterRisksExploitAvailable?: boolean;
+  /**
+   * Filter by vulnerability [EPSS](https://www.first.org/epss/) severity score.
+   * @type number
+   */
+  filterRisksEpssScoreOp?: number;
+  /**
+   * Filter by vulnerability [EPSS](https://www.first.org/epss/) severity.
+   * @type VulnerabilitySeverity
+   */
+  filterRisksEpssSeverity?: VulnerabilitySeverity;
+  /**
+   * Filter by language.
+   * @type string
+   */
+  filterLanguage?: string;
+  /**
+   * Filter by ecosystem.
+   * @type VulnerabilityEcosystem
+   */
+  filterEcosystem?: VulnerabilityEcosystem;
+  /**
+   * Filter by vulnerability location.
+   * @type string
+   */
+  filterCodeLocationLocation?: string;
+  /**
+   * Filter by vulnerability file path.
+   * @type string
+   */
+  filterCodeLocationFilePath?: string;
+  /**
+   * Filter by method.
+   * @type string
+   */
+  filterCodeLocationMethod?: string;
+  /**
+   * Filter by fix availability.
+   * @type boolean
+   */
+  filterFixAvailable?: boolean;
+  /**
+   * Filter by vulnerability `repo_digest` (when the vulnerability is related to `Image` asset).
+   * @type string
+   */
+  filterRepoDigests?: string;
+  /**
+   * Filter by asset name.
+   * @type string
+   */
+  filterAssetName?: string;
+  /**
+   * Filter by asset type.
+   * @type AssetType
+   */
+  filterAssetType?: AssetType;
+  /**
+   * Filter by the first version of the asset this vulnerability has been detected on.
+   * @type string
+   */
+  filterAssetVersionFirst?: string;
+  /**
+   * Filter by the last version of the asset this vulnerability has been detected on.
+   * @type string
+   */
+  filterAssetVersionLast?: string;
+  /**
+   * Filter by the repository url associated to the asset.
+   * @type string
+   */
+  filterAssetRepositoryUrl?: string;
+  /**
+   * Filter whether the asset is in production or not.
+   * @type boolean
+   */
+  filterAssetRisksInProduction?: boolean;
+  /**
+   * Filter whether the asset is under attack or not.
+   * @type boolean
+   */
+  filterAssetRisksUnderAttack?: boolean;
+  /**
+   * Filter whether the asset is publicly accessible or not.
+   * @type boolean
+   */
+  filterAssetRisksIsPubliclyAccessible?: boolean;
+  /**
+   * Filter whether the asset is publicly accessible or not.
+   * @type boolean
+   */
+  filterAssetRisksHasPrivilegedAccess?: boolean;
+  /**
+   * Filter whether the asset  has access to sensitive data or not.
+   * @type boolean
+   */
+  filterAssetRisksHasAccessToSensitiveData?: boolean;
+  /**
+   * Filter by asset environments.
+   * @type string
+   */
+  filterAssetEnvironments?: string;
+  /**
+   * Filter by asset architecture.
+   * @type string
+   */
+  filterAssetArch?: string;
+  /**
+   * Filter by asset operating system name.
+   * @type string
+   */
+  filterAssetOperatingSystemName?: string;
+  /**
+   * Filter by asset operating system version.
+   * @type string
+   */
+  filterAssetOperatingSystemVersion?: string;
+}
+
+export interface SecurityMonitoringApiListVulnerableAssetsRequest {
+  /**
+   * Its value must come from the `links` section of the response of the first request. Do not manually edit it.
+   * @type string
+   */
+  pageToken?: string;
+  /**
+   * The page number to be retrieved. It should be equal or greater than `1`
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Filter by name.
+   * @type string
+   */
+  filterName?: string;
+  /**
+   * Filter by type.
+   * @type AssetType
+   */
+  filterType?: AssetType;
+  /**
+   * Filter by the first version of the asset since it has been vulnerable.
+   * @type string
+   */
+  filterVersionFirst?: string;
+  /**
+   * Filter by the last detected version of the asset.
+   * @type string
+   */
+  filterVersionLast?: string;
+  /**
+   * Filter by the repository url associated to the asset.
+   * @type string
+   */
+  filterRepositoryUrl?: string;
+  /**
+   * Filter whether the asset is in production or not.
+   * @type boolean
+   */
+  filterRisksInProduction?: boolean;
+  /**
+   * Filter whether the asset (Service) is under attack or not.
+   * @type boolean
+   */
+  filterRisksUnderAttack?: boolean;
+  /**
+   * Filter whether the asset (Host) is publicly accessible or not.
+   * @type boolean
+   */
+  filterRisksIsPubliclyAccessible?: boolean;
+  /**
+   * Filter whether the asset (Host) has privileged access or not.
+   * @type boolean
+   */
+  filterRisksHasPrivilegedAccess?: boolean;
+  /**
+   * Filter whether the asset (Host)  has access to sensitive data or not.
+   * @type boolean
+   */
+  filterRisksHasAccessToSensitiveData?: boolean;
+  /**
+   * Filter by environment.
+   * @type string
+   */
+  filterEnvironments?: string;
+  /**
+   * Filter by architecture.
+   * @type string
+   */
+  filterArch?: string;
+  /**
+   * Filter by operating system name.
+   * @type string
+   */
+  filterOperatingSystemName?: string;
+  /**
+   * Filter by operating system version.
+   * @type string
+   */
+  filterOperatingSystemVersion?: string;
+}
+
 export interface SecurityMonitoringApiMuteFindingsRequest {
   /**
    * ### Attributes
@@ -5122,6 +6156,193 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.listSecurityMonitoringSuppressions(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get a list of vulnerabilities.
+   *
+   * ### Pagination
+   *
+   * Pagination is enabled by default in both `vulnerabilities` and `assets`. The size of the page varies depending on the endpoint and cannot be modified. To automate the request of the next page, you can use the links section in the response.
+   *
+   * This endpoint will return paginated responses. The pages are stored in the links section of the response:
+   *
+   * ```JSON
+   * {
+   *   "data": [...],
+   *   "meta": {...},
+   *   "links": {
+   *     "self": "https://.../api/v2/security/vulnerabilities",
+   *     "first": "https://.../api/v2/security/vulnerabilities?page[number]=1&page[token]=abc",
+   *     "last": "https://.../api/v2/security/vulnerabilities?page[number]=43&page[token]=abc",
+   *     "next": "https://.../api/v2/security/vulnerabilities?page[number]=2&page[token]=abc"
+   *   }
+   * }
+   * ```
+   *
+   *
+   * - `links.previous` is empty if the first page is requested.
+   * - `links.next` is empty if the last page is requested.
+   *
+   * #### Token
+   *
+   * Vulnerabilities can be created, updated or deleted at any point in time.
+   *
+   * Upon the first request, a token is created to ensure consistency across subsequent paginated requests.
+   *
+   * A token is valid only for 24 hours.
+   *
+   * #### First request
+   *
+   * We consider a request to be the first request when there is no `page[token]` parameter.
+   *
+   * The response of this first request contains the newly created token in the `links` section.
+   *
+   * This token can then be used in the subsequent paginated requests.
+   *
+   * #### Subsequent requests
+   *
+   * Any request containing valid `page[token]` and `page[number]` parameters will be considered a subsequent request.
+   *
+   * If the `token` is invalid, a `404` response will be returned.
+   *
+   * If the page `number` is invalid, a `400` response will be returned.
+   *
+   * ### Filtering
+   *
+   * The request can include some filter parameters to filter the data to be retrieved. The format of the filter parameters follows the [JSON:API format](https://jsonapi.org/format/#fetching-filtering): `filter[$prop_name]`, where `prop_name` is the property name in the entity being filtered by.
+   *
+   * All filters can include multiple values, where data will be filtered with an OR clause: `filter[title]=Title1,Title2` will filter all vulnerabilities where title is equal to `Title1` OR `Title2`.
+   *
+   * String filters are case sensitive.
+   *
+   * Boolean filters accept `true` or `false` as values.
+   *
+   * Number filters must include an operator as a second filter input: `filter[$prop_name][$operator]`. For example, for the vulnerabilities endpoint: `filter[cvss.base.score][lte]=8`.
+   *
+   * Available operators are: `eq` (==), `lt` (<), `lte` (<=), `gt` (>) and `gte` (>=).
+   *
+   * ### Metadata
+   *
+   * Following [JSON:API format](https://jsonapi.org/format/#document-meta), object including non-standard meta-information.
+   *
+   * This endpoint includes the meta member in the response. For more details on each of the properties included in this section, check the endpoints response tables.
+   *
+   * ```JSON
+   * {
+   *   "data": [...],
+   *   "meta": {
+   *     "total": 1500,
+   *     "count": 18732,
+   *     "token": "some_token"
+   *   },
+   *   "links": {...}
+   * }
+   * ```
+   * @param param The request object
+   */
+  public listVulnerabilities(
+    param: SecurityMonitoringApiListVulnerabilitiesRequest = {},
+    options?: Configuration
+  ): Promise<ListVulnerabilitiesResponse> {
+    const requestContextPromise = this.requestFactory.listVulnerabilities(
+      param.pageToken,
+      param.pageNumber,
+      param.filterType,
+      param.filterCvssBaseScoreOp,
+      param.filterCvssBaseSeverity,
+      param.filterCvssBaseVector,
+      param.filterCvssDatadogScoreOp,
+      param.filterCvssDatadogSeverity,
+      param.filterCvssDatadogVector,
+      param.filterStatus,
+      param.filterTool,
+      param.filterLibraryName,
+      param.filterLibraryVersion,
+      param.filterAdvisoryId,
+      param.filterRisksExploitationProbability,
+      param.filterRisksPocExploitAvailable,
+      param.filterRisksExploitAvailable,
+      param.filterRisksEpssScoreOp,
+      param.filterRisksEpssSeverity,
+      param.filterLanguage,
+      param.filterEcosystem,
+      param.filterCodeLocationLocation,
+      param.filterCodeLocationFilePath,
+      param.filterCodeLocationMethod,
+      param.filterFixAvailable,
+      param.filterRepoDigests,
+      param.filterAssetName,
+      param.filterAssetType,
+      param.filterAssetVersionFirst,
+      param.filterAssetVersionLast,
+      param.filterAssetRepositoryUrl,
+      param.filterAssetRisksInProduction,
+      param.filterAssetRisksUnderAttack,
+      param.filterAssetRisksIsPubliclyAccessible,
+      param.filterAssetRisksHasPrivilegedAccess,
+      param.filterAssetRisksHasAccessToSensitiveData,
+      param.filterAssetEnvironments,
+      param.filterAssetArch,
+      param.filterAssetOperatingSystemName,
+      param.filterAssetOperatingSystemVersion,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listVulnerabilities(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a list of vulnerable assets.
+   *
+   * ### Pagination
+   *
+   * Please review the [Pagination section for the "List Vulnerabilities"](#pagination) endpoint.
+   *
+   * ### Filtering
+   *
+   * Please review the [Filtering section for the "List Vulnerabilities"](#filtering) endpoint.
+   *
+   * ### Metadata
+   *
+   * Please review the [Metadata section for the "List Vulnerabilities"](#metadata) endpoint.
+   * @param param The request object
+   */
+  public listVulnerableAssets(
+    param: SecurityMonitoringApiListVulnerableAssetsRequest = {},
+    options?: Configuration
+  ): Promise<ListVulnerableAssetsResponse> {
+    const requestContextPromise = this.requestFactory.listVulnerableAssets(
+      param.pageToken,
+      param.pageNumber,
+      param.filterName,
+      param.filterType,
+      param.filterVersionFirst,
+      param.filterVersionLast,
+      param.filterRepositoryUrl,
+      param.filterRisksInProduction,
+      param.filterRisksUnderAttack,
+      param.filterRisksIsPubliclyAccessible,
+      param.filterRisksHasPrivilegedAccess,
+      param.filterRisksHasAccessToSensitiveData,
+      param.filterEnvironments,
+      param.filterArch,
+      param.filterOperatingSystemName,
+      param.filterOperatingSystemVersion,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listVulnerableAssets(responseContext);
         });
     });
   }
