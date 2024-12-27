@@ -5070,6 +5070,236 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GetFindingResponse",
     },
+    "v2.ListVulnerableAssets": {
+        "pageToken": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterType": {
+            "type": "AssetType",
+            "format": "",
+            },
+        "filterVersionFirst": {
+            "type": "string",
+            "format": "",
+            },
+        "filterVersionLast": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRepositoryUrl": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRisksInProduction": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksUnderAttack": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksIsPubliclyAccessible": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksHasPrivilegedAccess": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksHasAccessToSensitiveData": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterEnvironments": {
+            "type": "string",
+            "format": "",
+            },
+        "filterArch": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOperatingSystemName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOperatingSystemVersion": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListVulnerableAssetsResponse",
+    },
+    "v2.ListVulnerabilities": {
+        "pageToken": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterType": {
+            "type": "VulnerabilityType",
+            "format": "",
+            },
+        "filterCvssBaseScoreOp": {
+            "type": "number",
+            "format": "double",
+            },
+        "filterCvssBaseSeverity": {
+            "type": "VulnerabilitySeverity",
+            "format": "",
+            },
+        "filterCvssBaseVector": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCvssDatadogScoreOp": {
+            "type": "number",
+            "format": "double",
+            },
+        "filterCvssDatadogSeverity": {
+            "type": "VulnerabilitySeverity",
+            "format": "",
+            },
+        "filterCvssDatadogVector": {
+            "type": "string",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "VulnerabilityStatus",
+            "format": "",
+            },
+        "filterTool": {
+            "type": "VulnerabilityTool",
+            "format": "",
+            },
+        "filterLibraryName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterLibraryVersion": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAdvisoryId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRisksExploitationProbability": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksPocExploitAvailable": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksExploitAvailable": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksEpssScoreOp": {
+            "type": "number",
+            "format": "double",
+            },
+        "filterRisksEpssSeverity": {
+            "type": "VulnerabilitySeverity",
+            "format": "",
+            },
+        "filterLanguage": {
+            "type": "string",
+            "format": "",
+            },
+        "filterEcosystem": {
+            "type": "VulnerabilityEcosystem",
+            "format": "",
+            },
+        "filterCodeLocationLocation": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCodeLocationFilePath": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCodeLocationMethod": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFixAvailable": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRepoDigests": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetType": {
+            "type": "AssetType",
+            "format": "",
+            },
+        "filterAssetVersionFirst": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetVersionLast": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetRepositoryUrl": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetRisksInProduction": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterAssetRisksUnderAttack": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterAssetRisksIsPubliclyAccessible": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterAssetRisksHasPrivilegedAccess": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterAssetRisksHasAccessToSensitiveData": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterAssetEnvironments": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetArch": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetOperatingSystemName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetOperatingSystemVersion": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListVulnerabilitiesResponse",
+    },
     "v2.ListSecurityFilters": {
         "operationResponseType": "SecurityFiltersResponse",
     },

@@ -44,6 +44,7 @@ import { AWSTracesConfig } from "./AWSTracesConfig";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
+import { Advisory } from "./Advisory";
 import { AppBuilderError } from "./AppBuilderError";
 import { AppBuilderErrorErrorsItems } from "./AppBuilderErrorErrorsItems";
 import { AppBuilderErrorErrorsItemsSource } from "./AppBuilderErrorErrorsItemsSource";
@@ -59,6 +60,11 @@ import { ApplicationKeyResponseMetaPage } from "./ApplicationKeyResponseMetaPage
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
+import { Asset } from "./Asset";
+import { AssetAttributes } from "./AssetAttributes";
+import { AssetAttributesOperatingSystem } from "./AssetAttributesOperatingSystem";
+import { AssetAttributesRisks } from "./AssetAttributesRisks";
+import { AssetAttributesVersion } from "./AssetAttributesVersion";
 import { AuditLogsEvent } from "./AuditLogsEvent";
 import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
 import { AuditLogsEventsResponse } from "./AuditLogsEventsResponse";
@@ -164,6 +170,7 @@ import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 import { CIAppWarning } from "./CIAppWarning";
 import { CSMAgentsMetadata } from "./CSMAgentsMetadata";
+import { CVSS } from "./CVSS";
 import { CalculatedField } from "./CalculatedField";
 import { CancelDataDeletionResponseBody } from "./CancelDataDeletionResponseBody";
 import { Case } from "./Case";
@@ -224,6 +231,7 @@ import { CloudflareAccountUpdateRequest } from "./CloudflareAccountUpdateRequest
 import { CloudflareAccountUpdateRequestAttributes } from "./CloudflareAccountUpdateRequestAttributes";
 import { CloudflareAccountUpdateRequestData } from "./CloudflareAccountUpdateRequestData";
 import { CloudflareAccountsResponse } from "./CloudflareAccountsResponse";
+import { CodeLocation } from "./CodeLocation";
 import { Component } from "./Component";
 import { ComponentGrid } from "./ComponentGrid";
 import { ComponentGridProperties } from "./ComponentGridProperties";
@@ -365,6 +373,7 @@ import { DeleteAppsRequest } from "./DeleteAppsRequest";
 import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 import { DeleteAppsResponse } from "./DeleteAppsResponse";
 import { DeleteAppsResponseDataItems } from "./DeleteAppsResponseDataItems";
+import { DependencyLocation } from "./DependencyLocation";
 import { DeployAppResponse } from "./DeployAppResponse";
 import { DeployAppResponseData } from "./DeployAppResponseData";
 import { DeployAppResponseDataAttributes } from "./DeployAppResponseDataAttributes";
@@ -417,6 +426,7 @@ import { DowntimeScheduleRecurrencesUpdateRequest } from "./DowntimeScheduleRecu
 import { DowntimeUpdateRequest } from "./DowntimeUpdateRequest";
 import { DowntimeUpdateRequestAttributes } from "./DowntimeUpdateRequestAttributes";
 import { DowntimeUpdateRequestData } from "./DowntimeUpdateRequestData";
+import { EPSS } from "./EPSS";
 import { EntityAttributes } from "./EntityAttributes";
 import { EntityData } from "./EntityData";
 import { EntityMeta } from "./EntityMeta";
@@ -680,6 +690,8 @@ import { JobDefinition } from "./JobDefinition";
 import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
+import { Library } from "./Library";
+import { Links } from "./Links";
 import { ListAPIsResponse } from "./ListAPIsResponse";
 import { ListAPIsResponseData } from "./ListAPIsResponseData";
 import { ListAPIsResponseDataAttributes } from "./ListAPIsResponseDataAttributes";
@@ -709,6 +721,8 @@ import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
 import { ListTagsResponse } from "./ListTagsResponse";
 import { ListTagsResponseData } from "./ListTagsResponseData";
 import { ListTagsResponseDataAttributes } from "./ListTagsResponseDataAttributes";
+import { ListVulnerabilitiesResponse } from "./ListVulnerabilitiesResponse";
+import { ListVulnerableAssetsResponse } from "./ListVulnerableAssetsResponse";
 import { Log } from "./Log";
 import { LogAttributes } from "./LogAttributes";
 import { LogsAggregateBucket } from "./LogsAggregateBucket";
@@ -765,6 +779,7 @@ import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
 import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
 import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
+import { Metadata } from "./Metadata";
 import { Metric } from "./Metric";
 import { MetricAllTags } from "./MetricAllTags";
 import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
@@ -1029,6 +1044,7 @@ import { RelationshipToUserTeamTeamData } from "./RelationshipToUserTeamTeamData
 import { RelationshipToUserTeamUser } from "./RelationshipToUserTeamUser";
 import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
+import { Remediation } from "./Remediation";
 import { ReorderRetentionFiltersRequest } from "./ReorderRetentionFiltersRequest";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RestrictionPolicy } from "./RestrictionPolicy";
@@ -1414,6 +1430,14 @@ import { UserUpdateData } from "./UserUpdateData";
 import { UserUpdateRequest } from "./UserUpdateRequest";
 import { UsersRelationship } from "./UsersRelationship";
 import { UsersResponse } from "./UsersResponse";
+import { Vulnerability } from "./Vulnerability";
+import { VulnerabilityAttributes } from "./VulnerabilityAttributes";
+import { VulnerabilityAttributesCvss } from "./VulnerabilityAttributesCvss";
+import { VulnerabilityAttributesDependencyLocations } from "./VulnerabilityAttributesDependencyLocations";
+import { VulnerabilityRelationships } from "./VulnerabilityRelationships";
+import { VulnerabilityRelationshipsAffects } from "./VulnerabilityRelationshipsAffects";
+import { VulnerabilityRelationshipsAffectsData } from "./VulnerabilityRelationshipsAffectsData";
+import { VulnerabilityRisks } from "./VulnerabilityRisks";
 import { WorkflowInstanceCreateMeta } from "./WorkflowInstanceCreateMeta";
 import { WorkflowInstanceCreateRequest } from "./WorkflowInstanceCreateRequest";
 import { WorkflowInstanceCreateResponse } from "./WorkflowInstanceCreateResponse";
@@ -1516,6 +1540,8 @@ const enumsMap: { [key: string]: any[] } = {
     "-updated_at",
     "-user_name",
   ],
+  AssetEntityType: ["assets"],
+  AssetType: ["Repository", "Service", "Host", "HostImage", "Image"],
   AuditLogsEventType: ["audit"],
   AuditLogsResponseStatus: ["done", "timeout"],
   AuditLogsSort: ["timestamp", "-timestamp"],
@@ -2163,6 +2189,80 @@ const enumsMap: { [key: string]: any[] } = {
   UserTeamType: ["team_memberships"],
   UserTeamUserType: ["users"],
   UsersType: ["users"],
+  VulnerabilitiesType: ["vulnerabilities"],
+  VulnerabilityEcosystem: [
+    "PyPI",
+    "Maven",
+    "NuGet",
+    "Npm",
+    "RubyGems",
+    "Go",
+    "Packagist",
+    "Ddeb",
+    "Rpm",
+    "Apk",
+    "Windows",
+  ],
+  VulnerabilitySeverity: [
+    "Unknown",
+    "None",
+    "Low",
+    "Medium",
+    "High",
+    "Critical",
+  ],
+  VulnerabilityStatus: [
+    "Open",
+    "Muted",
+    "Remediated",
+    "InProgress",
+    "AutoClosed",
+  ],
+  VulnerabilityTool: ["IAST", "SCA", "Infra"],
+  VulnerabilityType: [
+    "AdminConsoleActive",
+    "CodeInjection",
+    "CommandInjection",
+    "ComponentWithKnownVulnerability",
+    "DangerousWorkflows",
+    "DefaultAppDeployed",
+    "DefaultHtmlEscapeInvalid",
+    "DirectoryListingLeak",
+    "EmailHtmlInjection",
+    "EndOfLife",
+    "HardcodedPassword",
+    "HardcodedSecret",
+    "HeaderInjection",
+    "HstsHeaderMissing",
+    "InsecureAuthProtocol",
+    "InsecureCookie",
+    "InsecureJspLayout",
+    "LdapInjection",
+    "MaliciousPackage",
+    "MandatoryRemediation",
+    "NoHttpOnlyCookie",
+    "NoSameSiteCookie",
+    "NoSqlMongoDbInjection",
+    "PathTraversal",
+    "ReflectionInjection",
+    "RiskyLicense",
+    "SessionRewriting",
+    "SessionTimeout",
+    "SqlInjection",
+    "Ssrf",
+    "StackTraceLeak",
+    "TrustBoundaryViolation",
+    "Unmaintained",
+    "UntrustedDeserialization",
+    "UnvalidatedRedirect",
+    "VerbTampering",
+    "WeakCipher",
+    "WeakHash",
+    "WeakRandomness",
+    "XContentTypeHeaderMissing",
+    "XPathInjection",
+    "Xss",
+  ],
   WidgetLiveSpan: [
     "1m",
     "5m",
@@ -2229,6 +2329,7 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
+  Advisory: Advisory,
   AppBuilderError: AppBuilderError,
   AppBuilderErrorErrorsItems: AppBuilderErrorErrorsItems,
   AppBuilderErrorErrorsItemsSource: AppBuilderErrorErrorsItemsSource,
@@ -2244,6 +2345,11 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
+  Asset: Asset,
+  AssetAttributes: AssetAttributes,
+  AssetAttributesOperatingSystem: AssetAttributesOperatingSystem,
+  AssetAttributesRisks: AssetAttributesRisks,
+  AssetAttributesVersion: AssetAttributesVersion,
   AuditLogsEvent: AuditLogsEvent,
   AuditLogsEventAttributes: AuditLogsEventAttributes,
   AuditLogsEventsResponse: AuditLogsEventsResponse,
@@ -2355,6 +2461,7 @@ const typeMap: { [index: string]: any } = {
   CIAppTestsQueryFilter: CIAppTestsQueryFilter,
   CIAppWarning: CIAppWarning,
   CSMAgentsMetadata: CSMAgentsMetadata,
+  CVSS: CVSS,
   CalculatedField: CalculatedField,
   CancelDataDeletionResponseBody: CancelDataDeletionResponseBody,
   Case: Case,
@@ -2432,6 +2539,7 @@ const typeMap: { [index: string]: any } = {
     CloudflareAccountUpdateRequestAttributes,
   CloudflareAccountUpdateRequestData: CloudflareAccountUpdateRequestData,
   CloudflareAccountsResponse: CloudflareAccountsResponse,
+  CodeLocation: CodeLocation,
   Component: Component,
   ComponentGrid: ComponentGrid,
   ComponentGridProperties: ComponentGridProperties,
@@ -2594,6 +2702,7 @@ const typeMap: { [index: string]: any } = {
   DeleteAppsRequestDataItems: DeleteAppsRequestDataItems,
   DeleteAppsResponse: DeleteAppsResponse,
   DeleteAppsResponseDataItems: DeleteAppsResponseDataItems,
+  DependencyLocation: DependencyLocation,
   DeployAppResponse: DeployAppResponse,
   DeployAppResponseData: DeployAppResponseData,
   DeployAppResponseDataAttributes: DeployAppResponseDataAttributes,
@@ -2651,6 +2760,7 @@ const typeMap: { [index: string]: any } = {
   DowntimeUpdateRequest: DowntimeUpdateRequest,
   DowntimeUpdateRequestAttributes: DowntimeUpdateRequestAttributes,
   DowntimeUpdateRequestData: DowntimeUpdateRequestData,
+  EPSS: EPSS,
   EntityAttributes: EntityAttributes,
   EntityData: EntityData,
   EntityMeta: EntityMeta,
@@ -2938,6 +3048,8 @@ const typeMap: { [index: string]: any } = {
   JobDefinitionFromRule: JobDefinitionFromRule,
   LeakedKey: LeakedKey,
   LeakedKeyAttributes: LeakedKeyAttributes,
+  Library: Library,
+  Links: Links,
   ListAPIsResponse: ListAPIsResponse,
   ListAPIsResponseData: ListAPIsResponseData,
   ListAPIsResponseDataAttributes: ListAPIsResponseDataAttributes,
@@ -2968,6 +3080,8 @@ const typeMap: { [index: string]: any } = {
   ListTagsResponse: ListTagsResponse,
   ListTagsResponseData: ListTagsResponseData,
   ListTagsResponseDataAttributes: ListTagsResponseDataAttributes,
+  ListVulnerabilitiesResponse: ListVulnerabilitiesResponse,
+  ListVulnerableAssetsResponse: ListVulnerableAssetsResponse,
   Log: Log,
   LogAttributes: LogAttributes,
   LogsAggregateBucket: LogsAggregateBucket,
@@ -3025,6 +3139,7 @@ const typeMap: { [index: string]: any } = {
   LogsWarning: LogsWarning,
   MSTeamsIntegrationMetadata: MSTeamsIntegrationMetadata,
   MSTeamsIntegrationMetadataTeamsItem: MSTeamsIntegrationMetadataTeamsItem,
+  Metadata: Metadata,
   Metric: Metric,
   MetricAllTags: MetricAllTags,
   MetricAllTagsAttributes: MetricAllTagsAttributes,
@@ -3317,6 +3432,7 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUserTeamUser: RelationshipToUserTeamUser,
   RelationshipToUserTeamUserData: RelationshipToUserTeamUserData,
   RelationshipToUsers: RelationshipToUsers,
+  Remediation: Remediation,
   ReorderRetentionFiltersRequest: ReorderRetentionFiltersRequest,
   ResponseMetaAttributes: ResponseMetaAttributes,
   RestrictionPolicy: RestrictionPolicy,
@@ -3756,6 +3872,15 @@ const typeMap: { [index: string]: any } = {
   UserUpdateRequest: UserUpdateRequest,
   UsersRelationship: UsersRelationship,
   UsersResponse: UsersResponse,
+  Vulnerability: Vulnerability,
+  VulnerabilityAttributes: VulnerabilityAttributes,
+  VulnerabilityAttributesCvss: VulnerabilityAttributesCvss,
+  VulnerabilityAttributesDependencyLocations:
+    VulnerabilityAttributesDependencyLocations,
+  VulnerabilityRelationships: VulnerabilityRelationships,
+  VulnerabilityRelationshipsAffects: VulnerabilityRelationshipsAffects,
+  VulnerabilityRelationshipsAffectsData: VulnerabilityRelationshipsAffectsData,
+  VulnerabilityRisks: VulnerabilityRisks,
   WorkflowInstanceCreateMeta: WorkflowInstanceCreateMeta,
   WorkflowInstanceCreateRequest: WorkflowInstanceCreateRequest,
   WorkflowInstanceCreateResponse: WorkflowInstanceCreateResponse,
