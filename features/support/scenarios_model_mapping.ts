@@ -5754,6 +5754,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "allowSelfLockout": {
+            "type": "string",
+            "format": "",
+            },
         "body": {
             "type": "RestrictionPolicyUpdateRequest",
             "format": "",
