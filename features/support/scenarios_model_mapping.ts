@@ -3447,6 +3447,15 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CsmAgentsResponse",
     },
+    "v2.GetCSMCloudAccountsCoverageAnalysis": {
+        "operationResponseType": "CsmCloudAccountsCoverageAnalysisResponse",
+    },
+    "v2.GetCSMHostsAndContainersCoverageAnalysis": {
+        "operationResponseType": "CsmHostsAndContainersCoverageAnalysisResponse",
+    },
+    "v2.GetCSMServerlessCoverageAnalysis": {
+        "operationResponseType": "CsmServerlessCoverageAnalysisResponse",
+    },
     "v2.DeleteDashboardListItems": {
         "dashboardListId": {
             "type": "number",

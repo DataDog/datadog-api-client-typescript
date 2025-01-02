@@ -305,6 +305,16 @@ import { Creator } from "./Creator";
 import { CsmAgentData } from "./CsmAgentData";
 import { CsmAgentsAttributes } from "./CsmAgentsAttributes";
 import { CsmAgentsResponse } from "./CsmAgentsResponse";
+import { CsmCloudAccountsCoverageAnalysisAttributes } from "./CsmCloudAccountsCoverageAnalysisAttributes";
+import { CsmCloudAccountsCoverageAnalysisData } from "./CsmCloudAccountsCoverageAnalysisData";
+import { CsmCloudAccountsCoverageAnalysisResponse } from "./CsmCloudAccountsCoverageAnalysisResponse";
+import { CsmCoverageAnalysis } from "./CsmCoverageAnalysis";
+import { CsmHostsAndContainersCoverageAnalysisAttributes } from "./CsmHostsAndContainersCoverageAnalysisAttributes";
+import { CsmHostsAndContainersCoverageAnalysisData } from "./CsmHostsAndContainersCoverageAnalysisData";
+import { CsmHostsAndContainersCoverageAnalysisResponse } from "./CsmHostsAndContainersCoverageAnalysisResponse";
+import { CsmServerlessCoverageAnalysisAttributes } from "./CsmServerlessCoverageAnalysisAttributes";
+import { CsmServerlessCoverageAnalysisData } from "./CsmServerlessCoverageAnalysisData";
+import { CsmServerlessCoverageAnalysisResponse } from "./CsmServerlessCoverageAnalysisResponse";
 import { CustomConnection } from "./CustomConnection";
 import { CustomConnectionAttributes } from "./CustomConnectionAttributes";
 import { CustomConnectionAttributesOnPremRunner } from "./CustomConnectionAttributesOnPremRunner";
@@ -2617,6 +2627,22 @@ const typeMap: { [index: string]: any } = {
   CsmAgentData: CsmAgentData,
   CsmAgentsAttributes: CsmAgentsAttributes,
   CsmAgentsResponse: CsmAgentsResponse,
+  CsmCloudAccountsCoverageAnalysisAttributes:
+    CsmCloudAccountsCoverageAnalysisAttributes,
+  CsmCloudAccountsCoverageAnalysisData: CsmCloudAccountsCoverageAnalysisData,
+  CsmCloudAccountsCoverageAnalysisResponse:
+    CsmCloudAccountsCoverageAnalysisResponse,
+  CsmCoverageAnalysis: CsmCoverageAnalysis,
+  CsmHostsAndContainersCoverageAnalysisAttributes:
+    CsmHostsAndContainersCoverageAnalysisAttributes,
+  CsmHostsAndContainersCoverageAnalysisData:
+    CsmHostsAndContainersCoverageAnalysisData,
+  CsmHostsAndContainersCoverageAnalysisResponse:
+    CsmHostsAndContainersCoverageAnalysisResponse,
+  CsmServerlessCoverageAnalysisAttributes:
+    CsmServerlessCoverageAnalysisAttributes,
+  CsmServerlessCoverageAnalysisData: CsmServerlessCoverageAnalysisData,
+  CsmServerlessCoverageAnalysisResponse: CsmServerlessCoverageAnalysisResponse,
   CustomConnection: CustomConnection,
   CustomConnectionAttributes: CustomConnectionAttributes,
   CustomConnectionAttributesOnPremRunner:
