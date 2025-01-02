@@ -539,6 +539,16 @@ import { GCPSTSServiceAccountUpdateRequest } from "./GCPSTSServiceAccountUpdateR
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
+import { GCPUsageCostConfig } from "./GCPUsageCostConfig";
+import { GCPUsageCostConfigAttributes } from "./GCPUsageCostConfigAttributes";
+import { GCPUsageCostConfigPatchData } from "./GCPUsageCostConfigPatchData";
+import { GCPUsageCostConfigPatchRequest } from "./GCPUsageCostConfigPatchRequest";
+import { GCPUsageCostConfigPatchRequestAttributes } from "./GCPUsageCostConfigPatchRequestAttributes";
+import { GCPUsageCostConfigPostData } from "./GCPUsageCostConfigPostData";
+import { GCPUsageCostConfigPostRequest } from "./GCPUsageCostConfigPostRequest";
+import { GCPUsageCostConfigPostRequestAttributes } from "./GCPUsageCostConfigPostRequestAttributes";
+import { GCPUsageCostConfigResponse } from "./GCPUsageCostConfigResponse";
+import { GCPUsageCostConfigsResponse } from "./GCPUsageCostConfigsResponse";
 import { GetAppResponse } from "./GetAppResponse";
 import { GetAppResponseData } from "./GetAppResponseData";
 import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
@@ -1767,6 +1777,9 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
   GCPServiceAccountType: ["gcp_service_account"],
+  GCPUsageCostConfigPatchRequestType: ["gcp_usage_cost_config_patch_request"],
+  GCPUsageCostConfigPostRequestType: ["gcp_usage_cost_config_post_request"],
+  GCPUsageCostConfigType: ["gcp_usage_cost_config"],
   GetAppResponseDataType: ["appDefinitions"],
   GetTeamMembershipsSort: [
     "manager_name",
@@ -2882,6 +2895,18 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
+  GCPUsageCostConfig: GCPUsageCostConfig,
+  GCPUsageCostConfigAttributes: GCPUsageCostConfigAttributes,
+  GCPUsageCostConfigPatchData: GCPUsageCostConfigPatchData,
+  GCPUsageCostConfigPatchRequest: GCPUsageCostConfigPatchRequest,
+  GCPUsageCostConfigPatchRequestAttributes:
+    GCPUsageCostConfigPatchRequestAttributes,
+  GCPUsageCostConfigPostData: GCPUsageCostConfigPostData,
+  GCPUsageCostConfigPostRequest: GCPUsageCostConfigPostRequest,
+  GCPUsageCostConfigPostRequestAttributes:
+    GCPUsageCostConfigPostRequestAttributes,
+  GCPUsageCostConfigResponse: GCPUsageCostConfigResponse,
+  GCPUsageCostConfigsResponse: GCPUsageCostConfigsResponse,
   GetAppResponse: GetAppResponse,
   GetAppResponseData: GetAppResponseData,
   GetAppResponseDataAttributes: GetAppResponseDataAttributes,
