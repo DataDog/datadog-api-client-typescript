@@ -48,6 +48,10 @@ export class SecurityMonitoringSuppressionAttributes {
    */
   "ruleQuery"?: string;
   /**
+   * A Unix millisecond timestamp giving the start date for the suppression rule. After this date, it starts suppressing signals.
+   */
+  "startDate"?: number;
+  /**
    * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and not triggered. Same syntax as the queries to search signals in the signal explorer.
    */
   "suppressionQuery"?: string;
@@ -117,6 +121,11 @@ export class SecurityMonitoringSuppressionAttributes {
     ruleQuery: {
       baseName: "rule_query",
       type: "string",
+    },
+    startDate: {
+      baseName: "start_date",
+      type: "number",
+      format: "int64",
     },
     suppressionQuery: {
       baseName: "suppression_query",
