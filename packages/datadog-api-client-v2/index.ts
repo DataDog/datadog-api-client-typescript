@@ -79,6 +79,8 @@ export {
   CSMAgentsApi,
 } from "./apis/CSMAgentsApi";
 
+export { CSMCoverageAnalysisApi } from "./apis/CSMCoverageAnalysisApi";
+
 export {
   CSMThreatsApiCreateCSMThreatsAgentRuleRequest,
   CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest,
@@ -1014,6 +1016,16 @@ export { CsmAgentsAttributes } from "./models/CsmAgentsAttributes";
 export { CSMAgentsMetadata } from "./models/CSMAgentsMetadata";
 export { CsmAgentsResponse } from "./models/CsmAgentsResponse";
 export { CSMAgentsType } from "./models/CSMAgentsType";
+export { CsmCloudAccountsCoverageAnalysisAttributes } from "./models/CsmCloudAccountsCoverageAnalysisAttributes";
+export { CsmCloudAccountsCoverageAnalysisData } from "./models/CsmCloudAccountsCoverageAnalysisData";
+export { CsmCloudAccountsCoverageAnalysisResponse } from "./models/CsmCloudAccountsCoverageAnalysisResponse";
+export { CsmCoverageAnalysis } from "./models/CsmCoverageAnalysis";
+export { CsmHostsAndContainersCoverageAnalysisAttributes } from "./models/CsmHostsAndContainersCoverageAnalysisAttributes";
+export { CsmHostsAndContainersCoverageAnalysisData } from "./models/CsmHostsAndContainersCoverageAnalysisData";
+export { CsmHostsAndContainersCoverageAnalysisResponse } from "./models/CsmHostsAndContainersCoverageAnalysisResponse";
+export { CsmServerlessCoverageAnalysisAttributes } from "./models/CsmServerlessCoverageAnalysisAttributes";
+export { CsmServerlessCoverageAnalysisData } from "./models/CsmServerlessCoverageAnalysisData";
+export { CsmServerlessCoverageAnalysisResponse } from "./models/CsmServerlessCoverageAnalysisResponse";
 export { CustomConnection } from "./models/CustomConnection";
 export { CustomConnectionAttributes } from "./models/CustomConnectionAttributes";
 export { CustomConnectionAttributesOnPremRunner } from "./models/CustomConnectionAttributesOnPremRunner";
