@@ -1,5 +1,5 @@
 /**
- * Get a list of logs returns "OK" response
+ * Search logs (GET) returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

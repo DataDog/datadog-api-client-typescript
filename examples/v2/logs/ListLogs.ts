@@ -1,5 +1,5 @@
 /**
- * Search logs returns "OK" response
+ * Search logs (POST) returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -10,15 +10,21 @@ const apiInstance = new v2.LogsApi(configuration);
 const params: v2.LogsApiListLogsRequest = {
   body: {
     filter: {
-      query: "datadog-agent",
-      indexes: ["main"],
-      from: "2020-09-17T11:48:36+01:00",
-      to: "2020-09-17T12:48:36+01:00",
+      from: "now-15m",
+      indexes: ["main", "web"],
+      query: "service:web* AND @http.status_code:[200 TO 299]",
+      storageTier: "indexes",
+      to: "now",
+    },
+    options: {
+      timezone: "GMT",
+    },
+    page: {
+      cursor:
+        "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
+      limit: 25,
     },
     sort: "timestamp",
-    page: {
-      limit: 5,
-    },
   },
 };
 
