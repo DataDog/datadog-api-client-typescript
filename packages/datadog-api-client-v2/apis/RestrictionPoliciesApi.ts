@@ -92,6 +92,7 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
   public async updateRestrictionPolicy(
     resourceId: string,
     body: RestrictionPolicyUpdateRequest,
+    allowSelfLockout?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -118,6 +119,15 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (allowSelfLockout !== undefined) {
+      requestContext.setQueryParam(
+        "allow_self_lockout",
+        ObjectSerializer.serialize(allowSelfLockout, "string", ""),
+        ""
+      );
+    }
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -352,6 +362,11 @@ export interface RestrictionPoliciesApiUpdateRestrictionPolicyRequest {
    * @type RestrictionPolicyUpdateRequest
    */
   body: RestrictionPolicyUpdateRequest;
+  /**
+   * Allows admins (users with the `user_access_manage` permission) to remove their own access from the resource if set to `true`. By default, this is set to `false`, preventing admins from locking themselves out.
+   * @type string
+   */
+  allowSelfLockout?: string;
 }
 
 export class RestrictionPoliciesApi {
@@ -453,6 +468,7 @@ export class RestrictionPoliciesApi {
     const requestContextPromise = this.requestFactory.updateRestrictionPolicy(
       param.resourceId,
       param.body,
+      param.allowSelfLockout,
       options
     );
     return requestContextPromise.then((requestContext) => {
