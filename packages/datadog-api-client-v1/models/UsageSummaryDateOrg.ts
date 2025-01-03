@@ -259,6 +259,58 @@ export class UsageSummaryDateOrg {
    */
   "dbmQueriesAvgSum"?: number;
   /**
+   * Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in the current date for the given org.
+   */
+  "ephInfraHostAgentSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts on Alibaba over all hours in the current date for the given org.
+   */
+  "ephInfraHostAlibabaSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts on AWS over all hours in the current date for the given org.
+   */
+  "ephInfraHostAwsSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts on Azure over all hours in the current date for the given org.
+   */
+  "ephInfraHostAzureSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the current date for the given org.
+   */
+  "ephInfraHostEntSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts on GCP over all hours in the current date for the given org.
+   */
+  "ephInfraHostGcpSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts on Heroku over all hours in the current date for the given org.
+   */
+  "ephInfraHostHerokuSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts with only Azure App Services over all hours in the current date for the given org.
+   */
+  "ephInfraHostOnlyAasSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts with only vSphere over all hours in the current date for the given org.
+   */
+  "ephInfraHostOnlyVsphereSum"?: number;
+  /**
+   * Shows the sum of all ephemeral APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
+   */
+  "ephInfraHostOpentelemetryApmSum"?: number;
+  /**
+   * Shows the sum of all ephemeral hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
+   */
+  "ephInfraHostOpentelemetrySum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Pro over all hours in the current date for the given org.
+   */
+  "ephInfraHostProSum"?: number;
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current date for the given org.
+   */
+  "ephInfraHostProplusSum"?: number;
+  /**
    * Shows the sum of all Error Tracking error events over all hours in the current date for the given org.
    */
   "errorTrackingErrorEventsSum"?: number;
@@ -928,6 +980,71 @@ export class UsageSummaryDateOrg {
     },
     dbmQueriesAvgSum: {
       baseName: "dbm_queries_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostAgentSum: {
+      baseName: "eph_infra_host_agent_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostAlibabaSum: {
+      baseName: "eph_infra_host_alibaba_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostAwsSum: {
+      baseName: "eph_infra_host_aws_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostAzureSum: {
+      baseName: "eph_infra_host_azure_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostEntSum: {
+      baseName: "eph_infra_host_ent_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostGcpSum: {
+      baseName: "eph_infra_host_gcp_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostHerokuSum: {
+      baseName: "eph_infra_host_heroku_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostOnlyAasSum: {
+      baseName: "eph_infra_host_only_aas_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostOnlyVsphereSum: {
+      baseName: "eph_infra_host_only_vsphere_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostOpentelemetryApmSum: {
+      baseName: "eph_infra_host_opentelemetry_apm_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostOpentelemetrySum: {
+      baseName: "eph_infra_host_opentelemetry_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostProSum: {
+      baseName: "eph_infra_host_pro_sum",
+      type: "number",
+      format: "int64",
+    },
+    ephInfraHostProplusSum: {
+      baseName: "eph_infra_host_proplus_sum",
       type: "number",
       format: "int64",
     },
