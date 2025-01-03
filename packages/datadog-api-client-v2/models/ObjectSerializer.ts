@@ -45,9 +45,6 @@ import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttr
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
 import { Advisory } from "./Advisory";
-import { AppBuilderError } from "./AppBuilderError";
-import { AppBuilderErrorErrorsItems } from "./AppBuilderErrorErrorsItems";
-import { AppBuilderErrorErrorsItemsSource } from "./AppBuilderErrorErrorsItemsSource";
 import { AppBuilderEvent } from "./AppBuilderEvent";
 import { AppMeta } from "./AppMeta";
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
@@ -2340,9 +2337,6 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   Advisory: Advisory,
-  AppBuilderError: AppBuilderError,
-  AppBuilderErrorErrorsItems: AppBuilderErrorErrorsItems,
-  AppBuilderErrorErrorsItemsSource: AppBuilderErrorErrorsItemsSource,
   AppBuilderEvent: AppBuilderEvent,
   AppMeta: AppMeta,
   ApplicationKeyCreateAttributes: ApplicationKeyCreateAttributes,
