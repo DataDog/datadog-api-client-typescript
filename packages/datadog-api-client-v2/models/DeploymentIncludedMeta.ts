@@ -59,6 +59,7 @@ export class DeploymentIncludedMeta {
     userUuid: {
       baseName: "user_uuid",
       type: "string",
+      format: "uuid",
     },
     additionalProperties: {
       baseName: "additionalProperties",
