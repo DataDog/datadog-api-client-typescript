@@ -5755,7 +5755,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "allowSelfLockout": {
-            "type": "string",
+            "type": "boolean",
             "format": "",
             },
         "body": {

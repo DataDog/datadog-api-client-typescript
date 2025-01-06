@@ -92,7 +92,7 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
   public async updateRestrictionPolicy(
     resourceId: string,
     body: RestrictionPolicyUpdateRequest,
-    allowSelfLockout?: string,
+    allowSelfLockout?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -124,7 +124,7 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     if (allowSelfLockout !== undefined) {
       requestContext.setQueryParam(
         "allow_self_lockout",
-        ObjectSerializer.serialize(allowSelfLockout, "string", ""),
+        ObjectSerializer.serialize(allowSelfLockout, "boolean", ""),
         ""
       );
     }
@@ -364,9 +364,9 @@ export interface RestrictionPoliciesApiUpdateRestrictionPolicyRequest {
   body: RestrictionPolicyUpdateRequest;
   /**
    * Allows admins (users with the `user_access_manage` permission) to remove their own access from the resource if set to `true`. By default, this is set to `false`, preventing admins from locking themselves out.
-   * @type string
+   * @type boolean
    */
-  allowSelfLockout?: string;
+  allowSelfLockout?: boolean;
 }
 
 export class RestrictionPoliciesApi {
