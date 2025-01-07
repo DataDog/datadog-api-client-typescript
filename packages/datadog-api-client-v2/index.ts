@@ -1510,6 +1510,7 @@ export { JobCreateResponseData } from "./models/JobCreateResponseData";
 export { JobDefinition } from "./models/JobDefinition";
 export { JobDefinitionFromRule } from "./models/JobDefinitionFromRule";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
+export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { LeakedKey } from "./models/LeakedKey";
 export { LeakedKeyAttributes } from "./models/LeakedKeyAttributes";

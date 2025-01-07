@@ -3,34 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * API error response body
+ * References to the source of the error.
  */
-export class JSONAPIErrorItem {
+export class JSONAPIErrorItemSource {
   /**
-   * A human-readable explanation specific to this occurrence of the error.
+   * A string indicating the name of a single request header which caused the error.
    */
-  "detail"?: string;
+  "header"?: string;
   /**
-   * Non-standard meta-information about the error
+   * A string indicating which URI query parameter caused the error.
    */
-  "meta"?: { [key: string]: any };
+  "parameter"?: string;
   /**
-   * References to the source of the error.
+   * A JSON pointer to the value in the request document that caused the error.
    */
-  "source"?: JSONAPIErrorItemSource;
-  /**
-   * Status code of the response.
-   */
-  "status"?: string;
-  /**
-   * Short human-readable summary of the error.
-   */
-  "title"?: string;
+  "pointer"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -48,24 +39,16 @@ export class JSONAPIErrorItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    detail: {
-      baseName: "detail",
+    header: {
+      baseName: "header",
       type: "string",
     },
-    meta: {
-      baseName: "meta",
-      type: "{ [key: string]: any; }",
-    },
-    source: {
-      baseName: "source",
-      type: "JSONAPIErrorItemSource",
-    },
-    status: {
-      baseName: "status",
+    parameter: {
+      baseName: "parameter",
       type: "string",
     },
-    title: {
-      baseName: "title",
+    pointer: {
+      baseName: "pointer",
       type: "string",
     },
     additionalProperties: {
@@ -78,7 +61,7 @@ export class JSONAPIErrorItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return JSONAPIErrorItem.attributeTypeMap;
+    return JSONAPIErrorItemSource.attributeTypeMap;
   }
 
   public constructor() {}
