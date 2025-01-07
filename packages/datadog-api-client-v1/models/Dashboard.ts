@@ -62,8 +62,6 @@ export class Dashboard {
   "reflowType"?: DashboardReflowType;
   /**
    * A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
-   *
-   * This property is deprecated; please use the [Restriction Policies API](https://docs.datadoghq.com/api/latest/restriction-policies/) instead to manage write authorization for individual dashboards.
    */
   "restrictedRoles"?: Array<string>;
   /**
