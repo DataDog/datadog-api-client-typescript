@@ -27,6 +27,8 @@ export {
 
 export { AWSLogsIntegrationApi } from "./apis/AWSLogsIntegrationApi";
 
+export { AgentlessScanningApi } from "./apis/AgentlessScanningApi";
+
 export {
   AppsApiCreateAppRequest,
   AppsApiDeleteAppRequest,
@@ -742,6 +744,10 @@ export { AWSRegions } from "./models/AWSRegions";
 export { AWSRegionsIncludeAll } from "./models/AWSRegionsIncludeAll";
 export { AWSRegionsIncludeOnly } from "./models/AWSRegionsIncludeOnly";
 export { AWSResourcesConfig } from "./models/AWSResourcesConfig";
+export { AwsScanOptionsAttributes } from "./models/AwsScanOptionsAttributes";
+export { AwsScanOptionsData } from "./models/AwsScanOptionsData";
+export { AwsScanOptionsResponse } from "./models/AwsScanOptionsResponse";
+export { AwsScanOptionsType } from "./models/AwsScanOptionsType";
 export { AWSTracesConfig } from "./models/AWSTracesConfig";
 export { AzureUCConfig } from "./models/AzureUCConfig";
 export { AzureUCConfigPair } from "./models/AzureUCConfigPair";

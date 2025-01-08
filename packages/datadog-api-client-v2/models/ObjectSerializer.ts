@@ -98,6 +98,9 @@ import { AwsCURConfigPostRequest } from "./AwsCURConfigPostRequest";
 import { AwsCURConfigPostRequestAttributes } from "./AwsCURConfigPostRequestAttributes";
 import { AwsCURConfigResponse } from "./AwsCURConfigResponse";
 import { AwsCURConfigsResponse } from "./AwsCURConfigsResponse";
+import { AwsScanOptionsAttributes } from "./AwsScanOptionsAttributes";
+import { AwsScanOptionsData } from "./AwsScanOptionsData";
+import { AwsScanOptionsResponse } from "./AwsScanOptionsResponse";
 import { AzureUCConfig } from "./AzureUCConfig";
 import { AzureUCConfigPair } from "./AzureUCConfigPair";
 import { AzureUCConfigPairAttributes } from "./AzureUCConfigPairAttributes";
@@ -1572,6 +1575,7 @@ const enumsMap: { [key: string]: any[] } = {
   AwsCURConfigPatchRequestType: ["aws_cur_config_patch_request"],
   AwsCURConfigPostRequestType: ["aws_cur_config_post_request"],
   AwsCURConfigType: ["aws_cur_config"],
+  AwsScanOptionsType: ["aws_scan_options"],
   AzureUCConfigPairType: ["azure_uc_configs"],
   AzureUCConfigPatchRequestType: ["azure_uc_config_patch_request"],
   AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
@@ -2391,6 +2395,9 @@ const typeMap: { [index: string]: any } = {
   AwsCURConfigPostRequestAttributes: AwsCURConfigPostRequestAttributes,
   AwsCURConfigResponse: AwsCURConfigResponse,
   AwsCURConfigsResponse: AwsCURConfigsResponse,
+  AwsScanOptionsAttributes: AwsScanOptionsAttributes,
+  AwsScanOptionsData: AwsScanOptionsData,
+  AwsScanOptionsResponse: AwsScanOptionsResponse,
   AzureUCConfig: AzureUCConfig,
   AzureUCConfigPair: AzureUCConfigPair,
   AzureUCConfigPairAttributes: AzureUCConfigPairAttributes,
