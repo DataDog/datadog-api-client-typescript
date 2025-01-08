@@ -30,11 +30,15 @@ export { AWSLogsIntegrationApi } from "./apis/AWSLogsIntegrationApi";
 export { AgentlessScanningApi } from "./apis/AgentlessScanningApi";
 
 export {
+  AppDeploymentApiDeployAppRequest,
+  AppDeploymentApiDisableAppRequest,
+  AppDeploymentApi,
+} from "./apis/AppDeploymentApi";
+
+export {
   AppsApiCreateAppRequest,
   AppsApiDeleteAppRequest,
   AppsApiDeleteAppsRequest,
-  AppsApiDeployAppRequest,
-  AppsApiDisableAppRequest,
   AppsApiGetAppRequest,
   AppsApiListAppsRequest,
   AppsApiUpdateAppRequest,
@@ -633,6 +637,9 @@ export { APIKeyUpdateAttributes } from "./models/APIKeyUpdateAttributes";
 export { APIKeyUpdateData } from "./models/APIKeyUpdateData";
 export { APIKeyUpdateRequest } from "./models/APIKeyUpdateRequest";
 export { ApmRetentionFilterType } from "./models/ApmRetentionFilterType";
+export { AppBuilderError } from "./models/AppBuilderError";
+export { AppBuilderErrorErrorsItems } from "./models/AppBuilderErrorErrorsItems";
+export { AppBuilderErrorErrorsItemsSource } from "./models/AppBuilderErrorErrorsItemsSource";
 export { AppBuilderEvent } from "./models/AppBuilderEvent";
 export { AppBuilderEventName } from "./models/AppBuilderEventName";
 export { AppBuilderEventType } from "./models/AppBuilderEventType";

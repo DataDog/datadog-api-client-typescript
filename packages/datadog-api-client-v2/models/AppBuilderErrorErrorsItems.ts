@@ -3,29 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AppBuilderErrorErrorsItemsSource } from "./AppBuilderErrorErrorsItemsSource";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `DeploymentIncludedMeta` object.
+ * The definition of `AppBuilderErrorErrorsItems` object.
  */
-export class DeploymentIncludedMeta {
+export class AppBuilderErrorErrorsItems {
   /**
-   * The `meta` `created_at`.
+   * The `items` `detail`.
    */
-  "createdAt"?: string;
+  "detail"?: string;
   /**
-   * The `meta` `user_id`.
+   * The definition of `AppBuilderErrorErrorsItemsSource` object.
    */
-  "userId"?: number;
-  /**
-   * The `meta` `user_name`.
-   */
-  "userName"?: string;
-  /**
-   * The `meta` `user_uuid`.
-   */
-  "userUuid"?: string;
+  "source"?: AppBuilderErrorErrorsItemsSource;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,22 +36,13 @@ export class DeploymentIncludedMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
+    detail: {
+      baseName: "detail",
       type: "string",
     },
-    userId: {
-      baseName: "user_id",
-      type: "number",
-      format: "int64",
-    },
-    userName: {
-      baseName: "user_name",
-      type: "string",
-    },
-    userUuid: {
-      baseName: "user_uuid",
-      type: "string",
+    source: {
+      baseName: "source",
+      type: "AppBuilderErrorErrorsItemsSource",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -70,7 +54,7 @@ export class DeploymentIncludedMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DeploymentIncludedMeta.attributeTypeMap;
+    return AppBuilderErrorErrorsItems.attributeTypeMap;
   }
 
   public constructor() {}

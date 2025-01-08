@@ -104,7 +104,6 @@ export class AppMeta {
     userUuid: {
       baseName: "user_uuid",
       type: "string",
-      format: "uuid",
     },
     version: {
       baseName: "version",

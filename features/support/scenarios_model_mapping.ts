@@ -2661,7 +2661,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "filterUserUuid": {
             "type": "string",
-            "format": "uuid",
+            "format": "",
             },
         "filterName": {
             "type": "string",
@@ -2680,10 +2680,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "filterFavorite": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterSelfService": {
             "type": "boolean",
             "format": "",
             },
@@ -2709,10 +2705,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v2.GetApp": {
         "appId": {
-            "type": "string",
-            "format": "",
-            },
-        "version": {
             "type": "string",
             "format": "",
             },

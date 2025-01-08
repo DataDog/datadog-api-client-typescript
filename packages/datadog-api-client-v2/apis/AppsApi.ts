@@ -17,16 +17,14 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { AppBuilderError } from "../models/AppBuilderError";
 import { AppsSortField } from "../models/AppsSortField";
 import { CreateAppRequest } from "../models/CreateAppRequest";
 import { CreateAppResponse } from "../models/CreateAppResponse";
 import { DeleteAppResponse } from "../models/DeleteAppResponse";
 import { DeleteAppsRequest } from "../models/DeleteAppsRequest";
 import { DeleteAppsResponse } from "../models/DeleteAppsResponse";
-import { DeployAppResponse } from "../models/DeployAppResponse";
-import { DisableAppResponse } from "../models/DisableAppResponse";
 import { GetAppResponse } from "../models/GetAppResponse";
-import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListAppsResponse } from "../models/ListAppsResponse";
 import { UpdateAppRequest } from "../models/UpdateAppRequest";
 import { UpdateAppResponse } from "../models/UpdateAppResponse";
@@ -162,85 +160,8 @@ export class AppsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async deployApp(
-    appId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'deployApp'");
-    if (!_config.unstableOperations["v2.deployApp"]) {
-      throw new Error("Unstable operation 'deployApp' is disabled");
-    }
-
-    // verify required parameter 'appId' is not null or undefined
-    if (appId === null || appId === undefined) {
-      throw new RequiredError("appId", "deployApp");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/app-builder/apps/{app_id}/deployment".replace(
-      "{app_id}",
-      encodeURIComponent(String(appId))
-    );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AppsApi.deployApp")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async disableApp(
-    appId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'disableApp'");
-    if (!_config.unstableOperations["v2.disableApp"]) {
-      throw new Error("Unstable operation 'disableApp' is disabled");
-    }
-
-    // verify required parameter 'appId' is not null or undefined
-    if (appId === null || appId === undefined) {
-      throw new RequiredError("appId", "disableApp");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/app-builder/apps/{app_id}/deployment".replace(
-      "{app_id}",
-      encodeURIComponent(String(appId))
-    );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AppsApi.disableApp")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
   public async getApp(
     appId: string,
-    version?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -268,15 +189,6 @@ export class AppsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-    if (version !== undefined) {
-      requestContext.setQueryParam(
-        "version",
-        ObjectSerializer.serialize(version, "string", ""),
-        ""
-      );
-    }
-
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -296,7 +208,6 @@ export class AppsApiRequestFactory extends BaseAPIRequestFactory {
     filterDeployed?: boolean,
     filterTags?: string,
     filterFavorite?: boolean,
-    filterSelfService?: boolean,
     sort?: Array<AppsSortField>,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -342,7 +253,7 @@ export class AppsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterUserUuid !== undefined) {
       requestContext.setQueryParam(
         "filter[user_uuid]",
-        ObjectSerializer.serialize(filterUserUuid, "string", "uuid"),
+        ObjectSerializer.serialize(filterUserUuid, "string", ""),
         ""
       );
     }
@@ -378,13 +289,6 @@ export class AppsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[favorite]",
         ObjectSerializer.serialize(filterFavorite, "boolean", ""),
-        ""
-      );
-    }
-    if (filterSelfService !== undefined) {
-      requestContext.setQueryParam(
-        "filter[self_service]",
-        ObjectSerializer.serialize(filterSelfService, "boolean", ""),
         ""
       );
     }
@@ -487,23 +391,20 @@ export class AppsApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: JSONAPIErrorResponse;
+      let body: AppBuilderError;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
-        ) as JSONAPIErrorResponse;
+          "AppBuilderError"
+        ) as AppBuilderError;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
+        throw new ApiException<AppBuilderError>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+      throw new ApiException<AppBuilderError>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
@@ -573,23 +474,20 @@ export class AppsApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: JSONAPIErrorResponse;
+      let body: AppBuilderError;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
-        ) as JSONAPIErrorResponse;
+          "AppBuilderError"
+        ) as AppBuilderError;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
+        throw new ApiException<AppBuilderError>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+      throw new ApiException<AppBuilderError>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
@@ -658,23 +556,20 @@ export class AppsApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: JSONAPIErrorResponse;
+      let body: AppBuilderError;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
-        ) as JSONAPIErrorResponse;
+          "AppBuilderError"
+        ) as AppBuilderError;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
+        throw new ApiException<AppBuilderError>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+      throw new ApiException<AppBuilderError>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
@@ -718,176 +613,6 @@ export class AppsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to deployApp
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async deployApp(
-    response: ResponseContext
-  ): Promise<DeployAppResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 201) {
-      const body: DeployAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeployAppResponse"
-      ) as DeployAppResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: JSONAPIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "JSONAPIErrorResponse"
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
-    }
-    if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DeployAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DeployAppResponse",
-        ""
-      ) as DeployAppResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to disableApp
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async disableApp(
-    response: ResponseContext
-  ): Promise<DisableAppResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: DisableAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DisableAppResponse"
-      ) as DisableAppResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: JSONAPIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "JSONAPIErrorResponse"
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
-    }
-    if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DisableAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DisableAppResponse",
-        ""
-      ) as DisableAppResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to getApp
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -911,23 +636,20 @@ export class AppsApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: JSONAPIErrorResponse;
+      let body: AppBuilderError;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
-        ) as JSONAPIErrorResponse;
+          "AppBuilderError"
+        ) as AppBuilderError;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
+        throw new ApiException<AppBuilderError>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+      throw new ApiException<AppBuilderError>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
@@ -990,23 +712,20 @@ export class AppsApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: JSONAPIErrorResponse;
+      let body: AppBuilderError;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
-        ) as JSONAPIErrorResponse;
+          "AppBuilderError"
+        ) as AppBuilderError;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
+        throw new ApiException<AppBuilderError>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+      throw new ApiException<AppBuilderError>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
@@ -1071,23 +790,20 @@ export class AppsApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: JSONAPIErrorResponse;
+      let body: AppBuilderError;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "JSONAPIErrorResponse"
-        ) as JSONAPIErrorResponse;
+          "AppBuilderError"
+        ) as AppBuilderError;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
+        throw new ApiException<AppBuilderError>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+      throw new ApiException<AppBuilderError>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
@@ -1149,84 +865,60 @@ export interface AppsApiDeleteAppsRequest {
   body: DeleteAppsRequest;
 }
 
-export interface AppsApiDeployAppRequest {
-  /**
-   * @type string
-   */
-  appId: string;
-}
-
-export interface AppsApiDisableAppRequest {
-  /**
-   * @type string
-   */
-  appId: string;
-}
-
 export interface AppsApiGetAppRequest {
   /**
    * @type string
    */
   appId: string;
-  /**
-   * @type string
-   */
-  version?: string;
 }
 
 export interface AppsApiListAppsRequest {
   /**
-   * The number of apps to return per page.
+   * The number of apps to return per page
    * @type number
    */
   limit?: number;
   /**
-   * The page number to return.
+   * The page number to return
    * @type number
    */
   page?: number;
   /**
-   * Filter apps by the app creator. Usually the user's email.
+   * The `AppsFilter` `user_name`.
    * @type string
    */
   filterUserName?: string;
   /**
-   * Filter apps by the app creator's UUID.
+   * The `AppsFilter` `user_uuid`.
    * @type string
    */
   filterUserUuid?: string;
   /**
-   * Filter by app name.
+   * The `AppsFilter` `name`.
    * @type string
    */
   filterName?: string;
   /**
-   * Filter apps by the app name or the app creator.
+   * The `AppsFilter` `query`.
    * @type string
    */
   filterQuery?: string;
   /**
-   * Filter apps by whether they are published.
+   * The `AppsFilter` `deployed`.
    * @type boolean
    */
   filterDeployed?: boolean;
   /**
-   * Filter apps by tags.
+   * The `AppsFilter` `tags`.
    * @type string
    */
   filterTags?: string;
   /**
-   * Filter apps by whether you have added them to your favorites.
+   * The `AppsFilter` `favorite`.
    * @type boolean
    */
   filterFavorite?: boolean;
   /**
-   * Filter apps by whether they are enabled for self-service.
-   * @type boolean
-   */
-  filterSelfService?: boolean;
-  /**
-   * The fields and direction to sort apps by.
    * @type Array<AppsSortField>
    */
   sort?: Array<AppsSortField>;
@@ -1324,48 +1016,6 @@ export class AppsApi {
   }
 
   /**
-   * Deploy (publish) an app by ID
-   * @param param The request object
-   */
-  public deployApp(
-    param: AppsApiDeployAppRequest,
-    options?: Configuration
-  ): Promise<DeployAppResponse> {
-    const requestContextPromise = this.requestFactory.deployApp(
-      param.appId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deployApp(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Disable an app by ID
-   * @param param The request object
-   */
-  public disableApp(
-    param: AppsApiDisableAppRequest,
-    options?: Configuration
-  ): Promise<DisableAppResponse> {
-    const requestContextPromise = this.requestFactory.disableApp(
-      param.appId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.disableApp(responseContext);
-        });
-    });
-  }
-
-  /**
    * Get the full definition of an app by ID
    * @param param The request object
    */
@@ -1375,7 +1025,6 @@ export class AppsApi {
   ): Promise<GetAppResponse> {
     const requestContextPromise = this.requestFactory.getApp(
       param.appId,
-      param.version,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -1405,7 +1054,6 @@ export class AppsApi {
       param.filterDeployed,
       param.filterTags,
       param.filterFavorite,
-      param.filterSelfService,
       param.sort,
       options
     );

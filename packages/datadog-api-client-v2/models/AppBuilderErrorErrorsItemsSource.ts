@@ -7,25 +7,17 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `DeploymentIncludedMeta` object.
+ * The definition of `AppBuilderErrorErrorsItemsSource` object.
  */
-export class DeploymentIncludedMeta {
+export class AppBuilderErrorErrorsItemsSource {
   /**
-   * The `meta` `created_at`.
+   * The `source` `parameter`.
    */
-  "createdAt"?: string;
+  "parameter"?: string;
   /**
-   * The `meta` `user_id`.
+   * The `source` `pointer`.
    */
-  "userId"?: number;
-  /**
-   * The `meta` `user_name`.
-   */
-  "userName"?: string;
-  /**
-   * The `meta` `user_uuid`.
-   */
-  "userUuid"?: string;
+  "pointer"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,21 +35,12 @@ export class DeploymentIncludedMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
+    parameter: {
+      baseName: "parameter",
       type: "string",
     },
-    userId: {
-      baseName: "user_id",
-      type: "number",
-      format: "int64",
-    },
-    userName: {
-      baseName: "user_name",
-      type: "string",
-    },
-    userUuid: {
-      baseName: "user_uuid",
+    pointer: {
+      baseName: "pointer",
       type: "string",
     },
     additionalProperties: {
@@ -70,7 +53,7 @@ export class DeploymentIncludedMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DeploymentIncludedMeta.attributeTypeMap;
+    return AppBuilderErrorErrorsItemsSource.attributeTypeMap;
   }
 
   public constructor() {}
