@@ -426,7 +426,7 @@ export interface SpansApiListSpansGetRequest {
    */
   pageCursor?: string;
   /**
-   * Maximum number of spans in the response.
+   * Maximum number of spans in the response. Defaults to 10 and allows up to 5000.
    * @type number
    */
   pageLimit?: number;
