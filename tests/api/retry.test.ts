@@ -9,7 +9,7 @@ import {
 describe("IsomorphicFetchHttpLibrary Retry Test", () => {
 
     const fakeRequestContext = new RequestContext("https://retry.test.com",HttpMethod.GET);
-    const httpLibrary = new IsomorphicFetchHttpLibrary({fetch: null});
+    const httpLibrary = new IsomorphicFetchHttpLibrary();
     httpLibrary['sleep'] = jest.fn(() => Promise.resolve());
     httpLibrary.enableRetry = true;
     httpLibrary.maxRetries = 3;

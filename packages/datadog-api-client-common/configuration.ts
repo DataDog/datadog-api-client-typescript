@@ -213,7 +213,7 @@ export function createConfiguration(
     conf.baseServer,
     conf.serverIndex || 0,
     conf.operationServerIndices || {},
-    conf.httpApi || new DefaultHttpLibrary({ fetch: conf.fetch }),
+    conf.httpApi || new DefaultHttpLibrary(),
     configureAuthMethods(authMethods),
     conf.httpConfig || {},
     conf.debug,
@@ -312,6 +312,7 @@ export function createConfiguration(
   configuration.httpApi.maxRetries = configuration.maxRetries;
   configuration.httpApi.backoffBase = configuration.backoffBase;
   configuration.httpApi.backoffMultiplier = configuration.backoffMultiplier;
+  configuration.httpApi.fetch = conf.fetch;
   return configuration;
 }
 

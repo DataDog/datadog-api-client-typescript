@@ -274,6 +274,7 @@ export interface HttpLibrary {
   backoffBase?: number;
   backoffMultiplier?: number;
   debug?: boolean;
+  fetch?: any;
   zstdCompressorCallback?: ZstdCompressorCallback;
   send(request: RequestContext): Promise<ResponseContext>;
 }
