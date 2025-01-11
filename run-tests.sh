@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Save the original NODE_OPTIONS value
+ORIGINAL_NODE_OPTIONS=$NODE_OPTIONS
+# Set NODE_OPTIONS to empty
+export NODE_OPTIONS=""
+
 function finish {
     rm -rf @rerun.txt
 }
@@ -14,6 +19,9 @@ set +e
 # Check licenses
 yarn run check-licenses || exit 1
 
+
+# Reset NODE_OPTIONS to its original value, just for the tests
+export NODE_OPTIONS=$ORIGINAL_NODE_OPTIONS
 
 # Run unit tests
 if [ "${RECORD:-false}" == "false" ]; then
