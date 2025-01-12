@@ -3,23 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AppDefinitionType } from "./AppDefinitionType";
 import { CreateAppRequestDataAttributes } from "./CreateAppRequestDataAttributes";
-import { CreateAppRequestDataType } from "./CreateAppRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateAppRequestData` object.
+ * The data object containing the app definition.
  */
 export class CreateAppRequestData {
   /**
-   * The definition of `CreateAppRequestDataAttributes` object.
+   * App definition attributes such as name, description, and components.
    */
   "attributes"?: CreateAppRequestDataAttributes;
   /**
-   * The definition of `CreateAppRequestDataType` object.
+   * The app definition type.
    */
-  "type": CreateAppRequestDataType;
+  "type": AppDefinitionType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,7 +43,7 @@ export class CreateAppRequestData {
     },
     type: {
       baseName: "type",
-      type: "CreateAppRequestDataType",
+      type: "AppDefinitionType",
       required: true,
     },
     additionalProperties: {

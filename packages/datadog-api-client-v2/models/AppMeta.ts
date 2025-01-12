@@ -7,47 +7,47 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `AppMeta` object.
+ * Metadata of an app.
  */
 export class AppMeta {
   /**
-   * The `AppMeta` `created_at`.
+   * Timestamp of when the app was created.
    */
-  "createdAt"?: string;
+  "createdAt"?: Date;
   /**
-   * The `AppMeta` `deleted_at`.
+   * Timestamp of when the app was deleted.
    */
-  "deletedAt"?: string;
+  "deletedAt"?: Date;
   /**
-   * The `AppMeta` `org_id`.
+   * The Datadog organization ID that owns the app.
    */
   "orgId"?: number;
   /**
-   * The `AppMeta` `run_as_user`.
+   * The user ID under which queries from the app are run. If unspecified, the app runs as the user who created the app.
    */
   "runAsUser"?: string;
   /**
-   * The `AppMeta` `updated_at`.
+   * Timestamp of when the app was last updated.
    */
-  "updatedAt"?: string;
+  "updatedAt"?: Date;
   /**
-   * The `AppMeta` `updated_since_deployment`.
+   * Whether the app has been updated since it was last published. Published apps are pinned to a specific version and do not automatically update when the app is updated.
    */
   "updatedSinceDeployment"?: boolean;
   /**
-   * The `AppMeta` `user_id`.
+   * The ID of the user who created the app.
    */
   "userId"?: number;
   /**
-   * The `AppMeta` `user_name`.
+   * The name (or email address) of the user who created the app.
    */
   "userName"?: string;
   /**
-   * The `AppMeta` `user_uuid`.
+   * The UUID of the user who created the app.
    */
   "userUuid"?: string;
   /**
-   * The `AppMeta` `version`.
+   * The version number of the app. This starts at 1 and increments with each update.
    */
   "version"?: number;
 
@@ -69,11 +69,13 @@ export class AppMeta {
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
-      type: "string",
+      type: "Date",
+      format: "date-time",
     },
     deletedAt: {
       baseName: "deleted_at",
-      type: "string",
+      type: "Date",
+      format: "date-time",
     },
     orgId: {
       baseName: "org_id",
@@ -86,7 +88,8 @@ export class AppMeta {
     },
     updatedAt: {
       baseName: "updated_at",
-      type: "string",
+      type: "Date",
+      format: "date-time",
     },
     updatedSinceDeployment: {
       baseName: "updated_since_deployment",

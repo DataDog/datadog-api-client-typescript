@@ -3,23 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DeploymentMetadata } from "./DeploymentMetadata";
 import { DeploymentRelationshipData } from "./DeploymentRelationshipData";
-import { DeploymentRelationshipMeta } from "./DeploymentRelationshipMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `DeploymentRelationship` object.
+ * Information pointing to the app's publication status.
  */
 export class DeploymentRelationship {
   /**
-   * The definition of `DeploymentRelationshipData` object.
+   * Data object containing the deployment ID.
    */
   "data"?: DeploymentRelationshipData;
   /**
-   * The definition of `DeploymentRelationshipMeta` object.
+   * Metadata object containing the publication creation information.
    */
-  "meta"?: DeploymentRelationshipMeta;
+  "meta"?: DeploymentMetadata;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,7 +43,7 @@ export class DeploymentRelationship {
     },
     meta: {
       baseName: "meta",
-      type: "DeploymentRelationshipMeta",
+      type: "DeploymentMetadata",
     },
     additionalProperties: {
       baseName: "additionalProperties",

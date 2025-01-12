@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `ComponentType` object.
+ * The UI component type.
  */
 
 export type ComponentType =

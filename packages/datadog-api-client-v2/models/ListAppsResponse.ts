@@ -3,26 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DeploymentIncluded } from "./DeploymentIncluded";
+import { Deployment } from "./Deployment";
 import { ListAppsResponseDataItems } from "./ListAppsResponseDataItems";
 import { ListAppsResponseMeta } from "./ListAppsResponseMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `ListAppsResponse` object.
+ * A paginated list of apps matching the specified filters and sorting.
  */
 export class ListAppsResponse {
   /**
-   * The `ListAppsResponse` `data`.
+   * An array of app definitions.
    */
   "data"?: Array<ListAppsResponseDataItems>;
   /**
-   * The `ListAppsResponse` `included`.
+   * Data on the version of the app that was published.
    */
-  "included"?: Array<DeploymentIncluded>;
+  "included"?: Array<Deployment>;
   /**
-   * The definition of `ListAppsResponseMeta` object.
+   * Pagination metadata.
    */
   "meta"?: ListAppsResponseMeta;
 
@@ -48,7 +48,7 @@ export class ListAppsResponse {
     },
     included: {
       baseName: "included",
-      type: "Array<DeploymentIncluded>",
+      type: "Array<Deployment>",
     },
     meta: {
       baseName: "meta",
