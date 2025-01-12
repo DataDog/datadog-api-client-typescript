@@ -3,22 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DeleteAppsResponseDataItemsType } from "./DeleteAppsResponseDataItemsType";
+import { AppDefinitionType } from "./AppDefinitionType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `DeleteAppsResponseDataItems` object.
+ * An object containing the ID of a deleted app.
  */
 export class DeleteAppsResponseDataItems {
   /**
-   * The `items` `id`.
+   * The ID of the deleted app.
    */
   "id": string;
   /**
-   * The definition of `DeleteAppsResponseDataItemsType` object.
+   * The app definition type.
    */
-  "type": DeleteAppsResponseDataItemsType;
+  "type": AppDefinitionType;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,10 +40,11 @@ export class DeleteAppsResponseDataItems {
       baseName: "id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "DeleteAppsResponseDataItemsType",
+      type: "AppDefinitionType",
       required: true,
     },
     additionalProperties: {

@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `QueryType` object.
+ * The query type.
  */
 
 export type QueryType =

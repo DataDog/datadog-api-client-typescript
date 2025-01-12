@@ -3,22 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CreateAppResponseDataType } from "./CreateAppResponseDataType";
+import { AppDefinitionType } from "./AppDefinitionType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateAppResponseData` object.
+ * The data object containing the app ID.
  */
 export class CreateAppResponseData {
   /**
-   * The `data` `id`.
+   * The ID of the created app.
    */
   "id": string;
   /**
-   * The definition of `CreateAppResponseDataType` object.
+   * The app definition type.
    */
-  "type": CreateAppResponseDataType;
+  "type": AppDefinitionType;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,10 +40,11 @@ export class CreateAppResponseData {
       baseName: "id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "CreateAppResponseDataType",
+      type: "AppDefinitionType",
       required: true,
     },
     additionalProperties: {

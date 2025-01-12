@@ -4,32 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AppMeta } from "./AppMeta";
-import { DeploymentIncluded } from "./DeploymentIncluded";
+import { AppRelationship } from "./AppRelationship";
+import { Deployment } from "./Deployment";
 import { GetAppResponseData } from "./GetAppResponseData";
-import { GetAppResponseRelationship } from "./GetAppResponseRelationship";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `GetAppResponse` object.
+ * The full app definition response object.
  */
 export class GetAppResponse {
   /**
-   * The definition of `GetAppResponseData` object.
+   * The data object containing the app definition.
    */
   "data"?: GetAppResponseData;
   /**
-   * The `GetAppResponse` `included`.
+   * Data on the version of the app that was published.
    */
-  "included"?: Array<DeploymentIncluded>;
+  "included"?: Array<Deployment>;
   /**
-   * The definition of `AppMeta` object.
+   * Metadata of an app.
    */
   "meta"?: AppMeta;
   /**
-   * The definition of `GetAppResponseRelationship` object.
+   * The app's publication relationship and custom connections.
    */
-  "relationship"?: GetAppResponseRelationship;
+  "relationship"?: AppRelationship;
 
   /**
    * A container for additional, undeclared properties.
@@ -53,7 +53,7 @@ export class GetAppResponse {
     },
     included: {
       baseName: "included",
-      type: "Array<DeploymentIncluded>",
+      type: "Array<Deployment>",
     },
     meta: {
       baseName: "meta",
@@ -61,7 +61,7 @@ export class GetAppResponse {
     },
     relationship: {
       baseName: "relationship",
-      type: "GetAppResponseRelationship",
+      type: "AppRelationship",
     },
     additionalProperties: {
       baseName: "additionalProperties",

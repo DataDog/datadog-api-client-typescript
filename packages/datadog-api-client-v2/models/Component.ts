@@ -10,27 +10,27 @@ import { ComponentType } from "./ComponentType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `Component` object.
+ * [Definition of a UI component in the app](https://docs.datadoghq.com/service_management/app_builder/components/)
  */
 export class Component {
   /**
-   * The `Component` `events`.
+   * Events to listen for on the UI component.
    */
   "events"?: Array<AppBuilderEvent>;
   /**
-   * The `Component` `id`.
+   * The ID of the UI component. This property is deprecated, use `name` to identify individual components instead.
    */
   "id"?: string;
   /**
-   * The `Component` `name`.
+   * A unique identifier for this UI component. The name will also be visible in the app editor.
    */
   "name": string;
   /**
-   * The definition of `ComponentProperties` object.
+   * Properties of a UI component. Different component types can have its own additional unique properties. See [the components documentation](https://docs.datadoghq.com/service_management/app_builder/components/) for more details on the various components and their properties.
    */
   "properties": ComponentProperties;
   /**
-   * The definition of `ComponentType` object.
+   * The UI component type.
    */
   "type": ComponentType;
 

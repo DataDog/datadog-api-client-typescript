@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CustomConnectionType` object.
+ * The custom connection type.
  */
 
 export type CustomConnectionType = typeof CUSTOM_CONNECTIONS | UnparsedObject;
