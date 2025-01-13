@@ -17,17 +17,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public maxRetries!: number;
   public backoffBase!: number;
   public backoffMultiplier!: number;
-  #fetch: any;
-
-  constructor({ fetch: customFetch }: { fetch?: any }) {
-    this.#fetch =
-      customFetch ||
-      // On non-node environments, use native fetch if available.
-      // `cross-fetch` incorrectly assumes all browsers have XHR available.
-      // See https://github.com/lquixada/cross-fetch/issues/78
-      // TODO: Remove once once above issue is resolved.
-      (!isNode && typeof fetch === "function" ? fetch : crossFetch);
-  }
+  public fetch: any;
 
   public send(request: RequestContext): Promise<ResponseContext> {
     if (this.debug) {
@@ -84,7 +74,15 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       signal: request.getHttpConfig().signal,
     };
     try {
-      const resp = await this.#fetch(request.getUrl(), fetchOptions);
+      const fetchFunction =
+        this.fetch ||
+        // On non-node environments, use native fetch if available.
+        // `cross-fetch` incorrectly assumes all browsers have XHR available.
+        // See https://github.com/lquixada/cross-fetch/issues/78
+        // TODO: Remove once once above issue is resolved.
+        (!isNode && typeof fetch === "function" ? fetch : crossFetch);
+
+      const resp = await fetchFunction(request.getUrl(), fetchOptions);
       const responseHeaders: { [name: string]: string } = {};
       resp.headers.forEach((value: string, name: string) => {
         responseHeaders[name] = value;
