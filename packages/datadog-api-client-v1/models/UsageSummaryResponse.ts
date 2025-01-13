@@ -569,9 +569,21 @@ export class UsageSummaryResponse {
    */
   "rumMobileLiteSessionCountReactnativeAggSum"?: number;
   /**
-   * Shows the sum of all mobile RUM lite sessions on Roku over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
+   * Shows the sum of all mobile RUM lite sessions on Roku over all hours within the current month for all organizations (To be introduced on October 1st, 2024).
    */
   "rumMobileLiteSessionCountRokuAggSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM replay sessions on Android over all hours within the current month for all organizations.
+   */
+  "rumMobileReplaySessionCountAndroidAggSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM replay sessions on iOS over all hours within the current month for all organizations.
+   */
+  "rumMobileReplaySessionCountIosAggSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM replay sessions on React Native over all hours within the current month for all organizations.
+   */
+  "rumMobileReplaySessionCountReactnativeAggSum"?: number;
   /**
    * Shows the sum of all RUM Session Replay counts over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
    */
@@ -1393,6 +1405,21 @@ export class UsageSummaryResponse {
     },
     rumMobileLiteSessionCountRokuAggSum: {
       baseName: "rum_mobile_lite_session_count_roku_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileReplaySessionCountAndroidAggSum: {
+      baseName: "rum_mobile_replay_session_count_android_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileReplaySessionCountIosAggSum: {
+      baseName: "rum_mobile_replay_session_count_ios_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileReplaySessionCountReactnativeAggSum: {
+      baseName: "rum_mobile_replay_session_count_reactnative_agg_sum",
       type: "number",
       format: "int64",
     },
