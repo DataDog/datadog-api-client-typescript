@@ -452,6 +452,7 @@ export {
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
+  SecurityMonitoringApiDeleteCustomFrameworkRequest,
   SecurityMonitoringApiDeleteHistoricalJobRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
@@ -1079,6 +1080,7 @@ export { CustomDestinationType } from "./models/CustomDestinationType";
 export { CustomDestinationUpdateRequest } from "./models/CustomDestinationUpdateRequest";
 export { CustomDestinationUpdateRequestAttributes } from "./models/CustomDestinationUpdateRequestAttributes";
 export { CustomDestinationUpdateRequestDefinition } from "./models/CustomDestinationUpdateRequestDefinition";
+export { CustomFrameworkMetadata } from "./models/CustomFrameworkMetadata";
 export { CVSS } from "./models/CVSS";
 export { DashboardListAddItemsRequest } from "./models/DashboardListAddItemsRequest";
 export { DashboardListAddItemsResponse } from "./models/DashboardListAddItemsResponse";
@@ -1104,6 +1106,7 @@ export { DeleteAppsRequestDataItemsType } from "./models/DeleteAppsRequestDataIt
 export { DeleteAppsResponse } from "./models/DeleteAppsResponse";
 export { DeleteAppsResponseDataItems } from "./models/DeleteAppsResponseDataItems";
 export { DeleteAppsResponseDataItemsType } from "./models/DeleteAppsResponseDataItemsType";
+export { DeleteCustomFrameworkResponse } from "./models/DeleteCustomFrameworkResponse";
 export { DependencyLocation } from "./models/DependencyLocation";
 export { DeployAppResponse } from "./models/DeployAppResponse";
 export { DeployAppResponseData } from "./models/DeployAppResponseData";

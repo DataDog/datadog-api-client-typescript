@@ -21,6 +21,7 @@ import { AssetType } from "../models/AssetType";
 import { BulkMuteFindingsRequest } from "../models/BulkMuteFindingsRequest";
 import { BulkMuteFindingsResponse } from "../models/BulkMuteFindingsResponse";
 import { ConvertJobResultsToSignalsRequest } from "../models/ConvertJobResultsToSignalsRequest";
+import { DeleteCustomFrameworkResponse } from "../models/DeleteCustomFrameworkResponse";
 import { Finding } from "../models/Finding";
 import { FindingEvaluation } from "../models/FindingEvaluation";
 import { FindingStatus } from "../models/FindingStatus";
@@ -373,6 +374,53 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       contentType
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteCustomFramework(
+    orgId: string,
+    handle: string,
+    version: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'orgId' is not null or undefined
+    if (orgId === null || orgId === undefined) {
+      throw new RequiredError("orgId", "deleteCustomFramework");
+    }
+
+    // verify required parameter 'handle' is not null or undefined
+    if (handle === null || handle === undefined) {
+      throw new RequiredError("handle", "deleteCustomFramework");
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError("version", "deleteCustomFramework");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/orgs/{org_id}/cloud_security_management/custom_frameworks/{handle}/{version}"
+        .replace("{org_id}", encodeURIComponent(String(orgId)))
+        .replace("{handle}", encodeURIComponent(String(handle)))
+        .replace("{version}", encodeURIComponent(String(version)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.deleteCustomFramework")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -2768,6 +2816,68 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteCustomFramework
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteCustomFramework(
+    response: ResponseContext
+  ): Promise<DeleteCustomFrameworkResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DeleteCustomFrameworkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeleteCustomFrameworkResponse"
+      ) as DeleteCustomFrameworkResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DeleteCustomFrameworkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeleteCustomFrameworkResponse",
+        ""
+      ) as DeleteCustomFrameworkResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteHistoricalJob
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4736,6 +4846,24 @@ export interface SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest
   body: SecurityMonitoringSuppressionCreateRequest;
 }
 
+export interface SecurityMonitoringApiDeleteCustomFrameworkRequest {
+  /**
+   * The ID of the organization.
+   * @type string
+   */
+  orgId: string;
+  /**
+   * The framework handle.
+   * @type string
+   */
+  handle: string;
+  /**
+   * The framework version.
+   * @type string
+   */
+  version: string;
+}
+
 export interface SecurityMonitoringApiDeleteHistoricalJobRequest {
   /**
    * The ID of the job.
@@ -5554,6 +5682,29 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.createSecurityMonitoringSuppression(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Delete a custom framework.
+   * @param param The request object
+   */
+  public deleteCustomFramework(
+    param: SecurityMonitoringApiDeleteCustomFrameworkRequest,
+    options?: Configuration
+  ): Promise<DeleteCustomFrameworkResponse> {
+    const requestContextPromise = this.requestFactory.deleteCustomFramework(
+      param.orgId,
+      param.handle,
+      param.version,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCustomFramework(responseContext);
         });
     });
   }
