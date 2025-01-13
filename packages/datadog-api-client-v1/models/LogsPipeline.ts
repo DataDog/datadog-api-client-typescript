@@ -17,6 +17,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class LogsPipeline {
   /**
+   * A description of the pipeline.
+   */
+  "description"?: string;
+  /**
    * Filter for logs.
    */
   "filter"?: LogsFilter;
@@ -41,6 +45,10 @@ export class LogsPipeline {
    */
   "processors"?: Array<LogsProcessor>;
   /**
+   * A list of tags associated with the pipeline.
+   */
+  "tags"?: Array<string>;
+  /**
    * Type of pipeline.
    */
   "type"?: string;
@@ -61,6 +69,10 @@ export class LogsPipeline {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     filter: {
       baseName: "filter",
       type: "LogsFilter",
@@ -85,6 +97,10 @@ export class LogsPipeline {
     processors: {
       baseName: "processors",
       type: "Array<LogsProcessor>",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     type: {
       baseName: "type",

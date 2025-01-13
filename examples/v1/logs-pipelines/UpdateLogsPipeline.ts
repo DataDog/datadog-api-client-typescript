@@ -29,6 +29,7 @@ rule_name_2 bar
         type: "grok-parser",
       },
     ],
+    tags: [],
   },
   pipelineId: "pipeline_id",
 };
