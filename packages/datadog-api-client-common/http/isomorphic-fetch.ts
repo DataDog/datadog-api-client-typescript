@@ -80,9 +80,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         // `cross-fetch` incorrectly assumes all browsers have XHR available.
         // See https://github.com/lquixada/cross-fetch/issues/78
         // TODO: Remove once once above issue is resolved.
-        (!isNode && typeof fetch === "function")
-          ? fetch
-          : crossFetch;
+        (!isNode && typeof fetch === "function" ? fetch : crossFetch);
 
       const resp = await fetchFunction(request.getUrl(), fetchOptions);
       const responseHeaders: { [name: string]: string } = {};
