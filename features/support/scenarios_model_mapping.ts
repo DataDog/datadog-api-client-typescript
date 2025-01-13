@@ -4874,148 +4874,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "void",
     },
-    "v2.ListPermissions": {
-        "operationResponseType": "PermissionsResponse",
-    },
-    "v2.ListRoles": {
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "sort": {
-            "type": "RolesSort",
-            "format": "",
-            },
-        "filter": {
+    "v2.DeleteCustomFramework": {
+        "orgId": {
             "type": "string",
             "format": "",
             },
-        "filterId": {
+        "handle": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "RolesResponse",
-    },
-    "v2.CreateRole": {
-        "body": {
-            "type": "RoleCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "RoleCreateResponse",
-    },
-    "v2.DeleteRole": {
-        "roleId": {
+        "version": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
-    },
-    "v2.GetRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "RoleResponse",
-    },
-    "v2.UpdateRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "RoleUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "RoleUpdateResponse",
-    },
-    "v2.CloneRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "RoleCloneRequest",
-            "format": "",
-            },
-        "operationResponseType": "RoleResponse",
-    },
-    "v2.RemovePermissionFromRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "RelationshipToPermission",
-            "format": "",
-            },
-        "operationResponseType": "PermissionsResponse",
-    },
-    "v2.ListRolePermissions": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "PermissionsResponse",
-    },
-    "v2.AddPermissionToRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "RelationshipToPermission",
-            "format": "",
-            },
-        "operationResponseType": "PermissionsResponse",
-    },
-    "v2.RemoveUserFromRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "RelationshipToUser",
-            "format": "",
-            },
-        "operationResponseType": "UsersResponse",
-    },
-    "v2.ListRoleUsers": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "sort": {
-            "type": "string",
-            "format": "",
-            },
-        "filter": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "UsersResponse",
-    },
-    "v2.AddUserToRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "RelationshipToUser",
-            "format": "",
-            },
-        "operationResponseType": "UsersResponse",
+        "operationResponseType": "DeleteCustomFrameworkResponse",
     },
     "v2.ListFindings": {
         "pageLimit": {
@@ -5599,6 +5471,149 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "void",
+    },
+    "v2.ListPermissions": {
+        "operationResponseType": "PermissionsResponse",
+    },
+    "v2.ListRoles": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "RolesSort",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RolesResponse",
+    },
+    "v2.CreateRole": {
+        "body": {
+            "type": "RoleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RoleCreateResponse",
+    },
+    "v2.DeleteRole": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetRole": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RoleResponse",
+    },
+    "v2.UpdateRole": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RoleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RoleUpdateResponse",
+    },
+    "v2.CloneRole": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RoleCloneRequest",
+            "format": "",
+            },
+        "operationResponseType": "RoleResponse",
+    },
+    "v2.RemovePermissionFromRole": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToPermission",
+            "format": "",
+            },
+        "operationResponseType": "PermissionsResponse",
+    },
+    "v2.ListRolePermissions": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PermissionsResponse",
+    },
+    "v2.AddPermissionToRole": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToPermission",
+            "format": "",
+            },
+        "operationResponseType": "PermissionsResponse",
+    },
+    "v2.RemoveUserFromRole": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToUser",
+            "format": "",
+            },
+        "operationResponseType": "UsersResponse",
+    },
+    "v2.ListRoleUsers": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UsersResponse",
+    },
+    "v2.AddUserToRole": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToUser",
+            "format": "",
+            },
+        "operationResponseType": "UsersResponse",
     },
     "v2.ListPowerpacks": {
         "pageLimit": {

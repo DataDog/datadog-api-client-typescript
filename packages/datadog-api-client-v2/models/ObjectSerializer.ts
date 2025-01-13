@@ -352,6 +352,7 @@ import { CustomDestinationUpdateRequest } from "./CustomDestinationUpdateRequest
 import { CustomDestinationUpdateRequestAttributes } from "./CustomDestinationUpdateRequestAttributes";
 import { CustomDestinationUpdateRequestDefinition } from "./CustomDestinationUpdateRequestDefinition";
 import { CustomDestinationsResponse } from "./CustomDestinationsResponse";
+import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
 import { DORADeploymentRequest } from "./DORADeploymentRequest";
 import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
 import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
@@ -383,6 +384,7 @@ import { DeleteAppsRequest } from "./DeleteAppsRequest";
 import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 import { DeleteAppsResponse } from "./DeleteAppsResponse";
 import { DeleteAppsResponseDataItems } from "./DeleteAppsResponseDataItems";
+import { DeleteCustomFrameworkResponse } from "./DeleteCustomFrameworkResponse";
 import { DependencyLocation } from "./DependencyLocation";
 import { DeployAppResponse } from "./DeployAppResponse";
 import { DeployAppResponseData } from "./DeployAppResponseData";
@@ -2699,6 +2701,7 @@ const typeMap: { [index: string]: any } = {
   CustomDestinationUpdateRequestDefinition:
     CustomDestinationUpdateRequestDefinition,
   CustomDestinationsResponse: CustomDestinationsResponse,
+  CustomFrameworkMetadata: CustomFrameworkMetadata,
   DORADeploymentRequest: DORADeploymentRequest,
   DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
   DORADeploymentRequestData: DORADeploymentRequestData,
@@ -2730,6 +2733,7 @@ const typeMap: { [index: string]: any } = {
   DeleteAppsRequestDataItems: DeleteAppsRequestDataItems,
   DeleteAppsResponse: DeleteAppsResponse,
   DeleteAppsResponseDataItems: DeleteAppsResponseDataItems,
+  DeleteCustomFrameworkResponse: DeleteCustomFrameworkResponse,
   DependencyLocation: DependencyLocation,
   DeployAppResponse: DeployAppResponse,
   DeployAppResponseData: DeployAppResponseData,
