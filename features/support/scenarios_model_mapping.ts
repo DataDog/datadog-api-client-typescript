@@ -2306,6 +2306,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.Validate": {
         "operationResponseType": "AuthenticationValidationResponse",
     },
+    "v2.CreateActionConnection": {
+        "body": {
+            "type": "CreateActionConnectionRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateActionConnectionResponse",
+    },
+    "v2.DeleteActionConnection": {
+        "connectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetActionConnection": {
+        "connectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetActionConnectionResponse",
+    },
+    "v2.UpdateActionConnection": {
+        "connectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateActionConnectionRequest",
+            "format": "",
+            },
+        "operationResponseType": "UpdateActionConnectionResponse",
+    },
     "v2.ListAwsScanOptions": {
         "operationResponseType": "AwsScanOptionsResponse",
     },
