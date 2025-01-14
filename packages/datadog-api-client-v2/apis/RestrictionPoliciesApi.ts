@@ -337,7 +337,7 @@ export class RestrictionPoliciesApiResponseProcessor {
 
 export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
    * @type string
    */
   resourceId: string;
@@ -345,7 +345,7 @@ export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
    * @type string
    */
   resourceId: string;
@@ -353,7 +353,7 @@ export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiUpdateRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
    * @type string
    */
   resourceId: string;
@@ -445,6 +445,10 @@ export class RestrictionPoliciesApi {
    * - Synthetic Tests: `synthetics-test`
    * - Synthetic Private Locations: `synthetics-private-location`
    * - Monitors: `monitor`
+   * - Workflows: `workflow`
+   * - App Builder Apps: `app-builder-app`
+   * - Connections: `connection`
+   * - Connection Groups: `connection-group`
    *
    * #### Supported relations for resources
    * Resource Type               | Supported Relations
@@ -459,6 +463,10 @@ export class RestrictionPoliciesApi {
    * Synthetic Private Locations | `viewer`, `editor`
    * Monitors                    | `viewer`, `editor`
    * Reference Tables            | `viewer`, `editor`
+   * Workflows                   | `viewer`, `editor`
+   * App Builder Apps            | `viewer`, `runner`, `editor`
+   * Connections                 | `viewer`, `resolver`, `editor`
+   * Connection Groups           | `viewer`, `editor`
    * @param param The request object
    */
   public updateRestrictionPolicy(
