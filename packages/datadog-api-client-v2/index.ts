@@ -449,6 +449,7 @@ export {
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
+  SecurityMonitoringApiCreateCustomFrameworkRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
@@ -476,6 +477,7 @@ export {
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiUpdateCustomFrameworkRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
@@ -998,6 +1000,7 @@ export { CreateAppRequestDataType } from "./models/CreateAppRequestDataType";
 export { CreateAppResponse } from "./models/CreateAppResponse";
 export { CreateAppResponseData } from "./models/CreateAppResponseData";
 export { CreateAppResponseDataType } from "./models/CreateAppResponseDataType";
+export { CreateCustomFrameworkRequest } from "./models/CreateCustomFrameworkRequest";
 export { CreateDataDeletionRequestBody } from "./models/CreateDataDeletionRequestBody";
 export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDeletionRequestBodyAttributes";
 export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
@@ -1305,6 +1308,8 @@ export { FindingStatus } from "./models/FindingStatus";
 export { FindingType } from "./models/FindingType";
 export { FindingVulnerabilityType } from "./models/FindingVulnerabilityType";
 export { FormulaLimit } from "./models/FormulaLimit";
+export { FrameworkControl } from "./models/FrameworkControl";
+export { FrameworkRequirement } from "./models/FrameworkRequirement";
 export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
@@ -2412,6 +2417,7 @@ export { UpdateAppResponseData } from "./models/UpdateAppResponseData";
 export { UpdateAppResponseDataAttributes } from "./models/UpdateAppResponseDataAttributes";
 export { UpdateAppResponseDataType } from "./models/UpdateAppResponseDataType";
 export { UpdateAppResponseRelationship } from "./models/UpdateAppResponseRelationship";
+export { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
 export { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";
 export { UpdateOpenAPIResponseAttributes } from "./models/UpdateOpenAPIResponseAttributes";
 export { UpdateOpenAPIResponseData } from "./models/UpdateOpenAPIResponseData";
