@@ -16,6 +16,10 @@ export class CIAppCreatePipelineEventRequestAttributes {
    */
   "env"?: string;
   /**
+   * The name of the CI provider. By default, this is "custom".
+   */
+  "providerName"?: string;
+  /**
    * Details of the CI pipeline event.
    */
   "resource": CIAppCreatePipelineEventRequestAttributesResource;
@@ -42,6 +46,10 @@ export class CIAppCreatePipelineEventRequestAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     env: {
       baseName: "env",
+      type: "string",
+    },
+    providerName: {
+      baseName: "provider_name",
       type: "string",
     },
     resource: {
