@@ -1603,6 +1603,27 @@ export class MonitorsApi {
    * - `time_window` #m (between 1 and 2880), #h (between 1 and 48).
    * - `operator` `<`, `<=`, `>`, `>=`, `==`, or `!=`.
    * - `#` an integer or decimal number used to set the threshold.
+   *
+   * **Cost Alert Query**
+   *
+   * Example: `formula(query).last(time_window).function(parameter) operator #`
+   *
+   * - `query` The search query - following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/).
+   * - `time_window` - supports daily roll-up e.g. `7d`
+   * - `function` - [optional, defaults to `threshold` monitor if omitted] supports `change`, `anomaly`, `forecast`
+   * - `parameter` Specify the parameter of the type
+   *     - for `change`:
+   *         - supports `relative`, `absolute`
+   *         - [optional] supports `#`, where `#` is an integer or decimal number used to set the threshold
+   *     - for `anomaly`:
+   *         - supports `direction=both`, `direction=above`, `direction=below`
+   *         - [optional] supports `threshold=#`, where `#` is an integer or decimal number used to set the threshold
+   * - `operator`
+   *     - for `threshold` supports `<`, `<=`, `>`, `>=`, `==`, or `!=`
+   *     - for `change` supports `>`, `<`
+   *     - for `anomaly` supports `>=`
+   *     - for `forecast` supports `>`
+   * - `#` an integer or decimal number used to set the threshold.
    * @param param The request object
    */
   public createMonitor(
