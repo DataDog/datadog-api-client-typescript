@@ -15,6 +15,10 @@ export class CreateDataDeletionRequestBodyData {
    * Attributes for creating a data deletion request.
    */
   "attributes": CreateDataDeletionRequestBodyAttributes;
+  /**
+   * The deletion request type.
+   */
+  "type": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +39,11 @@ export class CreateDataDeletionRequestBodyData {
     attributes: {
       baseName: "attributes",
       type: "CreateDataDeletionRequestBodyAttributes",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "string",
       required: true,
     },
     additionalProperties: {

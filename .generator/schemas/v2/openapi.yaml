@@ -7194,8 +7194,13 @@ components:
       properties:
         attributes:
           $ref: '#/components/schemas/CreateDataDeletionRequestBodyAttributes'
+        type:
+          description: The deletion request type.
+          example: create_deletion_req
+          type: string
       required:
       - attributes
+      - type
       type: object
     CreateDataDeletionResponseBody:
       description: The response from the create data deletion request endpoint.

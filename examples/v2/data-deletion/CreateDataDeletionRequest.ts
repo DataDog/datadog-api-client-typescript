@@ -20,6 +20,7 @@ const params: v2.DataDeletionApiCreateDataDeletionRequestRequest = {
         },
         to: 1704063600000,
       },
+      type: "create_deletion_req",
     },
   },
   product: "logs",
