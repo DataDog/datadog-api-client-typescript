@@ -290,6 +290,7 @@ import { CreateAppRequestData } from "./CreateAppRequestData";
 import { CreateAppRequestDataAttributes } from "./CreateAppRequestDataAttributes";
 import { CreateAppResponse } from "./CreateAppResponse";
 import { CreateAppResponseData } from "./CreateAppResponseData";
+import { CreateCustomFrameworkRequest } from "./CreateCustomFrameworkRequest";
 import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
@@ -532,6 +533,8 @@ import { FindingAttributes } from "./FindingAttributes";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
 import { FormulaLimit } from "./FormulaLimit";
+import { FrameworkControl } from "./FrameworkControl";
+import { FrameworkRequirement } from "./FrameworkRequirement";
 import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
@@ -1395,6 +1398,7 @@ import { UpdateAppResponse } from "./UpdateAppResponse";
 import { UpdateAppResponseData } from "./UpdateAppResponseData";
 import { UpdateAppResponseDataAttributes } from "./UpdateAppResponseDataAttributes";
 import { UpdateAppResponseRelationship } from "./UpdateAppResponseRelationship";
+import { UpdateCustomFrameworkRequest } from "./UpdateCustomFrameworkRequest";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
 import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
@@ -2613,6 +2617,7 @@ const typeMap: { [index: string]: any } = {
   CreateAppRequestDataAttributes: CreateAppRequestDataAttributes,
   CreateAppResponse: CreateAppResponse,
   CreateAppResponseData: CreateAppResponseData,
+  CreateCustomFrameworkRequest: CreateCustomFrameworkRequest,
   CreateDataDeletionRequestBody: CreateDataDeletionRequestBody,
   CreateDataDeletionRequestBodyAttributes:
     CreateDataDeletionRequestBodyAttributes,
@@ -2893,6 +2898,8 @@ const typeMap: { [index: string]: any } = {
   FindingMute: FindingMute,
   FindingRule: FindingRule,
   FormulaLimit: FormulaLimit,
+  FrameworkControl: FrameworkControl,
+  FrameworkRequirement: FrameworkRequirement,
   FullAPIKey: FullAPIKey,
   FullAPIKeyAttributes: FullAPIKeyAttributes,
   FullApplicationKey: FullApplicationKey,
@@ -3854,6 +3861,7 @@ const typeMap: { [index: string]: any } = {
   UpdateAppResponseData: UpdateAppResponseData,
   UpdateAppResponseDataAttributes: UpdateAppResponseDataAttributes,
   UpdateAppResponseRelationship: UpdateAppResponseRelationship,
+  UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
   UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
   UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
