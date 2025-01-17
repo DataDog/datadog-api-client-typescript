@@ -1706,6 +1706,7 @@ const enumsMap: { [key: string]: any[] } = {
   CostByOrgType: ["cost_by_org"],
   CreateAppRequestDataType: ["appDefinitions"],
   CreateAppResponseDataType: ["appDefinitions"],
+  CreateDataDeletionRequestBodyDataType: ["create_deletion_req"],
   CustomConnectionType: ["custom_connections"],
   CustomDestinationAttributeTagsRestrictionListType: [
     "ALLOW_LIST",

@@ -1026,6 +1026,7 @@ export { CreateAppResponseDataType } from "./models/CreateAppResponseDataType";
 export { CreateDataDeletionRequestBody } from "./models/CreateDataDeletionRequestBody";
 export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDeletionRequestBodyAttributes";
 export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
+export { CreateDataDeletionRequestBodyDataType } from "./models/CreateDataDeletionRequestBodyDataType";
 export { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";

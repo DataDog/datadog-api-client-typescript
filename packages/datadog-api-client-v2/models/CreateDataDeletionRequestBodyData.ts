@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
+import { CreateDataDeletionRequestBodyDataType } from "./CreateDataDeletionRequestBodyDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,6 +16,10 @@ export class CreateDataDeletionRequestBodyData {
    * Attributes for creating a data deletion request.
    */
   "attributes": CreateDataDeletionRequestBodyAttributes;
+  /**
+   * The deletion request type.
+   */
+  "type": CreateDataDeletionRequestBodyDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +40,11 @@ export class CreateDataDeletionRequestBodyData {
     attributes: {
       baseName: "attributes",
       type: "CreateDataDeletionRequestBodyAttributes",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "CreateDataDeletionRequestBodyDataType",
       required: true,
     },
     additionalProperties: {
