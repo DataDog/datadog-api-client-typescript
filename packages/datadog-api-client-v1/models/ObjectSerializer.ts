@@ -200,6 +200,7 @@ import { MetricsQueryMetadata } from "./MetricsQueryMetadata";
 import { MetricsQueryResponse } from "./MetricsQueryResponse";
 import { MetricsQueryUnit } from "./MetricsQueryUnit";
 import { Monitor } from "./Monitor";
+import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorFormulaAndFunctionEventQueryDefinitionCompute";
 import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFormulaAndFunctionEventQueryDefinitionSearch";
@@ -934,6 +935,22 @@ const enumsMap: { [key: string]: any[] } = {
     "firefox.laptop_large",
     "firefox.tablet",
     "firefox.mobile_small",
+  ],
+  MonitorFormulaAndFunctionCostAggregator: [
+    "avg",
+    "sum",
+    "max",
+    "min",
+    "last",
+    "area",
+    "l2norm",
+    "percentile",
+    "stddev",
+  ],
+  MonitorFormulaAndFunctionCostDataSource: [
+    "metrics",
+    "cloud_cost",
+    "datadog_usage",
   ],
   MonitorFormulaAndFunctionEventAggregation: [
     "count",
@@ -1846,6 +1863,8 @@ const typeMap: { [index: string]: any } = {
   MetricsQueryResponse: MetricsQueryResponse,
   MetricsQueryUnit: MetricsQueryUnit,
   Monitor: Monitor,
+  MonitorFormulaAndFunctionCostQueryDefinition:
+    MonitorFormulaAndFunctionCostQueryDefinition,
   MonitorFormulaAndFunctionEventQueryDefinition:
     MonitorFormulaAndFunctionEventQueryDefinition,
   MonitorFormulaAndFunctionEventQueryDefinitionCompute:
@@ -2349,6 +2368,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   MonitorFormulaAndFunctionQueryDefinition: [
     "MonitorFormulaAndFunctionEventQueryDefinition",
+    "MonitorFormulaAndFunctionCostQueryDefinition",
   ],
   NotebookCellCreateRequestAttributes: [
     "NotebookMarkdownCellAttributes",
