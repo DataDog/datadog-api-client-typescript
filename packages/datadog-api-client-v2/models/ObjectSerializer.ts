@@ -20,8 +20,12 @@ import { AWSAccountUpdateRequest } from "./AWSAccountUpdateRequest";
 import { AWSAccountUpdateRequestAttributes } from "./AWSAccountUpdateRequestAttributes";
 import { AWSAccountUpdateRequestData } from "./AWSAccountUpdateRequestData";
 import { AWSAccountsResponse } from "./AWSAccountsResponse";
+import { AWSAssumeRole } from "./AWSAssumeRole";
+import { AWSAssumeRoleUpdate } from "./AWSAssumeRoleUpdate";
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
+import { AWSIntegration } from "./AWSIntegration";
+import { AWSIntegrationUpdate } from "./AWSIntegrationUpdate";
 import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
 import { AWSLogsConfig } from "./AWSLogsConfig";
 import { AWSLogsServicesResponse } from "./AWSLogsServicesResponse";
@@ -41,6 +45,10 @@ import { AWSRegionsIncludeAll } from "./AWSRegionsIncludeAll";
 import { AWSRegionsIncludeOnly } from "./AWSRegionsIncludeOnly";
 import { AWSResourcesConfig } from "./AWSResourcesConfig";
 import { AWSTracesConfig } from "./AWSTracesConfig";
+import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
+import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
+import { ActionConnectionData } from "./ActionConnectionData";
+import { ActionConnectionDataUpdate } from "./ActionConnectionDataUpdate";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
@@ -285,6 +293,8 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CreateActionConnectionRequest } from "./CreateActionConnectionRequest";
+import { CreateActionConnectionResponse } from "./CreateActionConnectionResponse";
 import { CreateAppRequest } from "./CreateAppRequest";
 import { CreateAppRequestData } from "./CreateAppRequestData";
 import { CreateAppRequestDataAttributes } from "./CreateAppRequestDataAttributes";
@@ -549,6 +559,7 @@ import { GCPSTSServiceAccountUpdateRequest } from "./GCPSTSServiceAccountUpdateR
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
+import { GetActionConnectionResponse } from "./GetActionConnectionResponse";
 import { GetAppResponse } from "./GetAppResponse";
 import { GetAppResponseData } from "./GetAppResponseData";
 import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
@@ -561,11 +572,20 @@ import { GetFindingResponse } from "./GetFindingResponse";
 import { GetInterfacesData } from "./GetInterfacesData";
 import { GetInterfacesResponse } from "./GetInterfacesResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
+import { HTTPBody } from "./HTTPBody";
 import { HTTPCIAppError } from "./HTTPCIAppError";
 import { HTTPCIAppErrors } from "./HTTPCIAppErrors";
+import { HTTPHeader } from "./HTTPHeader";
+import { HTTPHeaderUpdate } from "./HTTPHeaderUpdate";
+import { HTTPIntegration } from "./HTTPIntegration";
+import { HTTPIntegrationUpdate } from "./HTTPIntegrationUpdate";
 import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogErrors } from "./HTTPLogErrors";
 import { HTTPLogItem } from "./HTTPLogItem";
+import { HTTPToken } from "./HTTPToken";
+import { HTTPTokenAuth } from "./HTTPTokenAuth";
+import { HTTPTokenAuthUpdate } from "./HTTPTokenAuthUpdate";
+import { HTTPTokenUpdate } from "./HTTPTokenUpdate";
 import { HistoricalJobListMeta } from "./HistoricalJobListMeta";
 import { HistoricalJobOptions } from "./HistoricalJobOptions";
 import { HistoricalJobQuery } from "./HistoricalJobQuery";
@@ -1388,6 +1408,8 @@ import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
 import { Unit } from "./Unit";
+import { UpdateActionConnectionRequest } from "./UpdateActionConnectionRequest";
+import { UpdateActionConnectionResponse } from "./UpdateActionConnectionResponse";
 import { UpdateAppRequest } from "./UpdateAppRequest";
 import { UpdateAppRequestData } from "./UpdateAppRequestData";
 import { UpdateAppRequestDataAttributes } from "./UpdateAppRequestDataAttributes";
@@ -1403,6 +1425,8 @@ import { UpdateRuleRequestData } from "./UpdateRuleRequestData";
 import { UpdateRuleResponse } from "./UpdateRuleResponse";
 import { UpdateRuleResponseData } from "./UpdateRuleResponseData";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
+import { UrlParam } from "./UrlParam";
+import { UrlParamUpdate } from "./UrlParamUpdate";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageDataObject } from "./UsageDataObject";
@@ -1505,9 +1529,12 @@ const enumsMap: { [key: string]: any[] } = {
   APIKeysType: ["api_keys"],
   AWSAccountPartition: ["aws", "aws-cn", "aws-us-gov"],
   AWSAccountType: ["account"],
+  AWSAssumeRoleType: ["AWSAssumeRole"],
+  AWSIntegrationType: ["AWS"],
   AWSLogsServicesResponseDataType: ["logs_services"],
   AWSNamespacesResponseDataType: ["namespaces"],
   AWSNewExternalIDResponseDataType: ["external_id"],
+  ActionConnectionDataType: ["action_connection"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   AppBuilderEventName: [
@@ -1679,6 +1706,7 @@ const enumsMap: { [key: string]: any[] } = {
   CostByOrgType: ["cost_by_org"],
   CreateAppRequestDataType: ["appDefinitions"],
   CreateAppResponseDataType: ["appDefinitions"],
+  CreateDataDeletionRequestBodyDataType: ["create_deletion_req"],
   CustomConnectionType: ["custom_connections"],
   CustomDestinationAttributeTagsRestrictionListType: [
     "ALLOW_LIST",
@@ -1790,6 +1818,8 @@ const enumsMap: { [key: string]: any[] } = {
     "email",
     "-email",
   ],
+  HTTPIntegrationType: ["HTTP"],
+  HTTPTokenAuthType: ["HTTPTokenAuth"],
   HistoricalJobDataType: ["historicalDetectionsJob"],
   HourlyUsageType: [
     "app_sec_host_count",
@@ -2190,6 +2220,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
+  TokenType: ["SECRET"],
   UpdateAppRequestDataType: ["appDefinitions"],
   UpdateAppResponseDataType: ["appDefinitions"],
   UsageTimeSeriesType: ["usage_timeseries"],
@@ -2317,8 +2348,12 @@ const typeMap: { [index: string]: any } = {
   AWSAccountUpdateRequestAttributes: AWSAccountUpdateRequestAttributes,
   AWSAccountUpdateRequestData: AWSAccountUpdateRequestData,
   AWSAccountsResponse: AWSAccountsResponse,
+  AWSAssumeRole: AWSAssumeRole,
+  AWSAssumeRoleUpdate: AWSAssumeRoleUpdate,
   AWSAuthConfigKeys: AWSAuthConfigKeys,
   AWSAuthConfigRole: AWSAuthConfigRole,
+  AWSIntegration: AWSIntegration,
+  AWSIntegrationUpdate: AWSIntegrationUpdate,
   AWSLambdaForwarderConfig: AWSLambdaForwarderConfig,
   AWSLogsConfig: AWSLogsConfig,
   AWSLogsServicesResponse: AWSLogsServicesResponse,
@@ -2338,6 +2373,10 @@ const typeMap: { [index: string]: any } = {
   AWSRegionsIncludeOnly: AWSRegionsIncludeOnly,
   AWSResourcesConfig: AWSResourcesConfig,
   AWSTracesConfig: AWSTracesConfig,
+  ActionConnectionAttributes: ActionConnectionAttributes,
+  ActionConnectionAttributesUpdate: ActionConnectionAttributesUpdate,
+  ActionConnectionData: ActionConnectionData,
+  ActionConnectionDataUpdate: ActionConnectionDataUpdate,
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
@@ -2608,6 +2647,8 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CreateActionConnectionRequest: CreateActionConnectionRequest,
+  CreateActionConnectionResponse: CreateActionConnectionResponse,
   CreateAppRequest: CreateAppRequest,
   CreateAppRequestData: CreateAppRequestData,
   CreateAppRequestDataAttributes: CreateAppRequestDataAttributes,
@@ -2910,6 +2951,7 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
+  GetActionConnectionResponse: GetActionConnectionResponse,
   GetAppResponse: GetAppResponse,
   GetAppResponseData: GetAppResponseData,
   GetAppResponseDataAttributes: GetAppResponseDataAttributes,
@@ -2922,11 +2964,20 @@ const typeMap: { [index: string]: any } = {
   GetInterfacesData: GetInterfacesData,
   GetInterfacesResponse: GetInterfacesResponse,
   GroupScalarColumn: GroupScalarColumn,
+  HTTPBody: HTTPBody,
   HTTPCIAppError: HTTPCIAppError,
   HTTPCIAppErrors: HTTPCIAppErrors,
+  HTTPHeader: HTTPHeader,
+  HTTPHeaderUpdate: HTTPHeaderUpdate,
+  HTTPIntegration: HTTPIntegration,
+  HTTPIntegrationUpdate: HTTPIntegrationUpdate,
   HTTPLogError: HTTPLogError,
   HTTPLogErrors: HTTPLogErrors,
   HTTPLogItem: HTTPLogItem,
+  HTTPToken: HTTPToken,
+  HTTPTokenAuth: HTTPTokenAuth,
+  HTTPTokenAuthUpdate: HTTPTokenAuthUpdate,
+  HTTPTokenUpdate: HTTPTokenUpdate,
   HistoricalJobListMeta: HistoricalJobListMeta,
   HistoricalJobOptions: HistoricalJobOptions,
   HistoricalJobQuery: HistoricalJobQuery,
@@ -3847,6 +3898,8 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
   Unit: Unit,
+  UpdateActionConnectionRequest: UpdateActionConnectionRequest,
+  UpdateActionConnectionResponse: UpdateActionConnectionResponse,
   UpdateAppRequest: UpdateAppRequest,
   UpdateAppRequestData: UpdateAppRequestData,
   UpdateAppRequestDataAttributes: UpdateAppRequestDataAttributes,
@@ -3862,6 +3915,8 @@ const typeMap: { [index: string]: any } = {
   UpdateRuleResponse: UpdateRuleResponse,
   UpdateRuleResponseData: UpdateRuleResponseData,
   UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
+  UrlParam: UrlParam,
+  UrlParamUpdate: UrlParamUpdate,
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,
@@ -3931,11 +3986,18 @@ const typeMap: { [index: string]: any } = {
 const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User", "LeakedKey"],
   AWSAuthConfig: ["AWSAuthConfigKeys", "AWSAuthConfigRole"],
+  AWSCredentials: ["AWSAssumeRole"],
+  AWSCredentialsUpdate: ["AWSAssumeRoleUpdate"],
   AWSNamespaceFilters: [
     "AWSNamespaceFiltersExcludeOnly",
     "AWSNamespaceFiltersIncludeOnly",
   ],
   AWSRegions: ["AWSRegionsIncludeAll", "AWSRegionsIncludeOnly"],
+  ActionConnectionIntegration: ["AWSIntegration", "HTTPIntegration"],
+  ActionConnectionIntegrationUpdate: [
+    "AWSIntegrationUpdate",
+    "HTTPIntegrationUpdate",
+  ],
   ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
   AuthNMappingCreateRelationships: [
     "AuthNMappingRelationshipToRole",
@@ -4009,6 +4071,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "EntityV3System",
   ],
   EventPayloadAttributes: ["ChangeEventCustomAttributes"],
+  HTTPCredentials: ["HTTPTokenAuth"],
+  HTTPCredentialsUpdate: ["HTTPTokenAuthUpdate"],
   IncidentAttachmentAttributes: [
     "IncidentAttachmentPostmortemAttributes",
     "IncidentAttachmentLinkAttributes",

@@ -27,6 +27,14 @@ export {
 
 export { AWSLogsIntegrationApi } from "./apis/AWSLogsIntegrationApi";
 
+export {
+  ActionConnectionApiCreateActionConnectionRequest,
+  ActionConnectionApiDeleteActionConnectionRequest,
+  ActionConnectionApiGetActionConnectionRequest,
+  ActionConnectionApiUpdateActionConnectionRequest,
+  ActionConnectionApi,
+} from "./apis/ActionConnectionApi";
+
 export { AgentlessScanningApi } from "./apis/AgentlessScanningApi";
 
 export {
@@ -612,6 +620,13 @@ export {
   WorkflowAutomationApi,
 } from "./apis/WorkflowAutomationApi";
 
+export { ActionConnectionAttributes } from "./models/ActionConnectionAttributes";
+export { ActionConnectionAttributesUpdate } from "./models/ActionConnectionAttributesUpdate";
+export { ActionConnectionData } from "./models/ActionConnectionData";
+export { ActionConnectionDataType } from "./models/ActionConnectionDataType";
+export { ActionConnectionDataUpdate } from "./models/ActionConnectionDataUpdate";
+export { ActionConnectionIntegration } from "./models/ActionConnectionIntegration";
+export { ActionConnectionIntegrationUpdate } from "./models/ActionConnectionIntegrationUpdate";
 export { ActiveBillingDimensionsAttributes } from "./models/ActiveBillingDimensionsAttributes";
 export { ActiveBillingDimensionsBody } from "./models/ActiveBillingDimensionsBody";
 export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimensionsResponse";
@@ -705,9 +720,14 @@ export { AWSAccountType } from "./models/AWSAccountType";
 export { AWSAccountUpdateRequest } from "./models/AWSAccountUpdateRequest";
 export { AWSAccountUpdateRequestAttributes } from "./models/AWSAccountUpdateRequestAttributes";
 export { AWSAccountUpdateRequestData } from "./models/AWSAccountUpdateRequestData";
+export { AWSAssumeRole } from "./models/AWSAssumeRole";
+export { AWSAssumeRoleType } from "./models/AWSAssumeRoleType";
+export { AWSAssumeRoleUpdate } from "./models/AWSAssumeRoleUpdate";
 export { AWSAuthConfig } from "./models/AWSAuthConfig";
 export { AWSAuthConfigKeys } from "./models/AWSAuthConfigKeys";
 export { AWSAuthConfigRole } from "./models/AWSAuthConfigRole";
+export { AWSCredentials } from "./models/AWSCredentials";
+export { AWSCredentialsUpdate } from "./models/AWSCredentialsUpdate";
 export { AwsCURConfig } from "./models/AwsCURConfig";
 export { AwsCURConfigAttributes } from "./models/AwsCURConfigAttributes";
 export { AwsCURConfigPatchData } from "./models/AwsCURConfigPatchData";
@@ -721,6 +741,9 @@ export { AwsCURConfigPostRequestType } from "./models/AwsCURConfigPostRequestTyp
 export { AwsCURConfigResponse } from "./models/AwsCURConfigResponse";
 export { AwsCURConfigsResponse } from "./models/AwsCURConfigsResponse";
 export { AwsCURConfigType } from "./models/AwsCURConfigType";
+export { AWSIntegration } from "./models/AWSIntegration";
+export { AWSIntegrationType } from "./models/AWSIntegrationType";
+export { AWSIntegrationUpdate } from "./models/AWSIntegrationUpdate";
 export { AWSLambdaForwarderConfig } from "./models/AWSLambdaForwarderConfig";
 export { AWSLogsConfig } from "./models/AWSLogsConfig";
 export { AWSLogsServicesResponse } from "./models/AWSLogsServicesResponse";
@@ -991,6 +1014,8 @@ export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
 export { CostByOrgType } from "./models/CostByOrgType";
+export { CreateActionConnectionRequest } from "./models/CreateActionConnectionRequest";
+export { CreateActionConnectionResponse } from "./models/CreateActionConnectionResponse";
 export { CreateAppRequest } from "./models/CreateAppRequest";
 export { CreateAppRequestData } from "./models/CreateAppRequestData";
 export { CreateAppRequestDataAttributes } from "./models/CreateAppRequestDataAttributes";
@@ -1001,6 +1026,7 @@ export { CreateAppResponseDataType } from "./models/CreateAppResponseDataType";
 export { CreateDataDeletionRequestBody } from "./models/CreateDataDeletionRequestBody";
 export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDeletionRequestBodyAttributes";
 export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
+export { CreateDataDeletionRequestBodyDataType } from "./models/CreateDataDeletionRequestBodyDataType";
 export { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
@@ -1324,6 +1350,7 @@ export { GCPSTSServiceAccountResponse } from "./models/GCPSTSServiceAccountRespo
 export { GCPSTSServiceAccountsResponse } from "./models/GCPSTSServiceAccountsResponse";
 export { GCPSTSServiceAccountUpdateRequest } from "./models/GCPSTSServiceAccountUpdateRequest";
 export { GCPSTSServiceAccountUpdateRequestData } from "./models/GCPSTSServiceAccountUpdateRequestData";
+export { GetActionConnectionResponse } from "./models/GetActionConnectionResponse";
 export { GetAppResponse } from "./models/GetAppResponse";
 export { GetAppResponseData } from "./models/GetAppResponseData";
 export { GetAppResponseDataAttributes } from "./models/GetAppResponseDataAttributes";
@@ -1352,11 +1379,24 @@ export { HourlyUsageMetadata } from "./models/HourlyUsageMetadata";
 export { HourlyUsagePagination } from "./models/HourlyUsagePagination";
 export { HourlyUsageResponse } from "./models/HourlyUsageResponse";
 export { HourlyUsageType } from "./models/HourlyUsageType";
+export { HTTPBody } from "./models/HTTPBody";
 export { HTTPCIAppError } from "./models/HTTPCIAppError";
 export { HTTPCIAppErrors } from "./models/HTTPCIAppErrors";
+export { HTTPCredentials } from "./models/HTTPCredentials";
+export { HTTPCredentialsUpdate } from "./models/HTTPCredentialsUpdate";
+export { HTTPHeader } from "./models/HTTPHeader";
+export { HTTPHeaderUpdate } from "./models/HTTPHeaderUpdate";
+export { HTTPIntegration } from "./models/HTTPIntegration";
+export { HTTPIntegrationType } from "./models/HTTPIntegrationType";
+export { HTTPIntegrationUpdate } from "./models/HTTPIntegrationUpdate";
 export { HTTPLogError } from "./models/HTTPLogError";
 export { HTTPLogErrors } from "./models/HTTPLogErrors";
 export { HTTPLogItem } from "./models/HTTPLogItem";
+export { HTTPToken } from "./models/HTTPToken";
+export { HTTPTokenAuth } from "./models/HTTPTokenAuth";
+export { HTTPTokenAuthType } from "./models/HTTPTokenAuthType";
+export { HTTPTokenAuthUpdate } from "./models/HTTPTokenAuthUpdate";
+export { HTTPTokenUpdate } from "./models/HTTPTokenUpdate";
 export { IdPMetadataFormData } from "./models/IdPMetadataFormData";
 export { IncidentAttachmentAttachmentType } from "./models/IncidentAttachmentAttachmentType";
 export { IncidentAttachmentAttributes } from "./models/IncidentAttachmentAttributes";
@@ -2402,7 +2442,10 @@ export { TimeseriesQuery } from "./models/TimeseriesQuery";
 export { TimeseriesResponse } from "./models/TimeseriesResponse";
 export { TimeseriesResponseAttributes } from "./models/TimeseriesResponseAttributes";
 export { TimeseriesResponseSeries } from "./models/TimeseriesResponseSeries";
+export { TokenType } from "./models/TokenType";
 export { Unit } from "./models/Unit";
+export { UpdateActionConnectionRequest } from "./models/UpdateActionConnectionRequest";
+export { UpdateActionConnectionResponse } from "./models/UpdateActionConnectionResponse";
 export { UpdateAppRequest } from "./models/UpdateAppRequest";
 export { UpdateAppRequestData } from "./models/UpdateAppRequestData";
 export { UpdateAppRequestDataAttributes } from "./models/UpdateAppRequestDataAttributes";
@@ -2422,6 +2465,8 @@ export { UpdateRuleResponseData } from "./models/UpdateRuleResponseData";
 export { UpsertCatalogEntityRequest } from "./models/UpsertCatalogEntityRequest";
 export { UpsertCatalogEntityResponse } from "./models/UpsertCatalogEntityResponse";
 export { UpsertCatalogEntityResponseIncludedItem } from "./models/UpsertCatalogEntityResponseIncludedItem";
+export { UrlParam } from "./models/UrlParam";
+export { UrlParamUpdate } from "./models/UrlParamUpdate";
 export { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 export { UsageAttributesObject } from "./models/UsageAttributesObject";
 export { UsageDataObject } from "./models/UsageDataObject";

@@ -29,6 +29,7 @@ export type MonitorType =
   | typeof ERROR_TRACKING_ALERT
   | typeof DATABASE_MONITORING_ALERT
   | typeof NETWORK_PERFORMANCE_ALERT
+  | typeof COST_ALERT
   | UnparsedObject;
 export const COMPOSITE = "composite";
 export const EVENT_ALERT = "event alert";
@@ -48,3 +49,4 @@ export const CI_TESTS_ALERT = "ci-tests alert";
 export const ERROR_TRACKING_ALERT = "error-tracking alert";
 export const DATABASE_MONITORING_ALERT = "database-monitoring alert";
 export const NETWORK_PERFORMANCE_ALERT = "network-performance alert";
+export const COST_ALERT = "cost alert";

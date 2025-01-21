@@ -487,7 +487,7 @@ export class UsageSummaryDateOrg {
    */
   "profilingAasCountTop99p"?: number;
   /**
-   * Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all profiled hosts over all hours within the current date for the given org.
    */
   "profilingHostTop99p"?: number;
   /**
@@ -558,6 +558,18 @@ export class UsageSummaryDateOrg {
    * Shows the sum of all mobile RUM lite sessions on Roku over all hours in the current date for the given org (To be introduced on October 1st, 2024).
    */
   "rumMobileLiteSessionCountRokuSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM replay sessions on Android over all hours within the current date for the given org.
+   */
+  "rumMobileReplaySessionCountAndroidSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM replay sessions on iOS over all hours within the current date for the given org.
+   */
+  "rumMobileReplaySessionCountIosSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM replay sessions on React Native over all hours within the current date for the given org.
+   */
+  "rumMobileReplaySessionCountReactnativeSum"?: number;
   /**
    * Shows the sum of all RUM Session Replay counts over all hours in the current date for the given org (To be introduced on October 1st, 2024).
    */
@@ -1351,6 +1363,21 @@ export class UsageSummaryDateOrg {
     },
     rumMobileLiteSessionCountRokuSum: {
       baseName: "rum_mobile_lite_session_count_roku_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileReplaySessionCountAndroidSum: {
+      baseName: "rum_mobile_replay_session_count_android_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileReplaySessionCountIosSum: {
+      baseName: "rum_mobile_replay_session_count_ios_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileReplaySessionCountReactnativeSum: {
+      baseName: "rum_mobile_replay_session_count_reactnative_sum",
       type: "number",
       format: "int64",
     },
