@@ -26,6 +26,7 @@ import { FindingEvaluation } from "../models/FindingEvaluation";
 import { FindingStatus } from "../models/FindingStatus";
 import { FindingVulnerabilityType } from "../models/FindingVulnerabilityType";
 import { GetFindingResponse } from "../models/GetFindingResponse";
+import { GetSBOMResponse } from "../models/GetSBOMResponse";
 import { HistoricalJobResponse } from "../models/HistoricalJobResponse";
 import { JobCreateResponse } from "../models/JobCreateResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
@@ -789,6 +790,67 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSBOM(
+    assetType: AssetType,
+    filterAssetName: string,
+    filterRepoDigest?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getSBOM'");
+    if (!_config.unstableOperations["v2.getSBOM"]) {
+      throw new Error("Unstable operation 'getSBOM' is disabled");
+    }
+
+    // verify required parameter 'assetType' is not null or undefined
+    if (assetType === null || assetType === undefined) {
+      throw new RequiredError("assetType", "getSBOM");
+    }
+
+    // verify required parameter 'filterAssetName' is not null or undefined
+    if (filterAssetName === null || filterAssetName === undefined) {
+      throw new RequiredError("filterAssetName", "getSBOM");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/sboms/{asset_type}".replace(
+      "{asset_type}",
+      encodeURIComponent(String(assetType))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSBOM")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterAssetName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset_name]",
+        ObjectSerializer.serialize(filterAssetName, "string", ""),
+        ""
+      );
+    }
+    if (filterRepoDigest !== undefined) {
+      requestContext.setQueryParam(
+        "filter[repo_digest]",
+        ObjectSerializer.serialize(filterRepoDigest, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -3323,6 +3385,89 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSBOM
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSBOM(response: ResponseContext): Promise<GetSBOMResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GetSBOMResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetSBOMResponse"
+      ) as GetSBOMResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetSBOMResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetSBOMResponse",
+        ""
+      ) as GetSBOMResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4828,6 +4973,24 @@ export interface SecurityMonitoringApiGetHistoricalJobRequest {
   jobId: string;
 }
 
+export interface SecurityMonitoringApiGetSBOMRequest {
+  /**
+   * The type of the asset for the SBOM request.
+   * @type AssetType
+   */
+  assetType: AssetType;
+  /**
+   * The name of the asset for the SBOM request.
+   * @type string
+   */
+  filterAssetName: string;
+  /**
+   * The container image `repo_digest` for the SBOM request. When the requested asset type is 'Image', this filter is mandatory.
+   * @type string
+   */
+  filterRepoDigest?: string;
+}
+
 export interface SecurityMonitoringApiGetSecurityFilterRequest {
   /**
    * The ID of the security filter.
@@ -5759,6 +5922,29 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getHistoricalJob(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a single SBOM related to an asset by its type and name.
+   * @param param The request object
+   */
+  public getSBOM(
+    param: SecurityMonitoringApiGetSBOMRequest,
+    options?: Configuration
+  ): Promise<GetSBOMResponse> {
+    const requestContextPromise = this.requestFactory.getSBOM(
+      param.assetType,
+      param.filterAssetName,
+      param.filterRepoDigest,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSBOM(responseContext);
         });
     });
   }

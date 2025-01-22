@@ -279,6 +279,7 @@ export function createConfiguration(
       "v2.deleteHistoricalJob": false,
       "v2.getFinding": false,
       "v2.getHistoricalJob": false,
+      "v2.getSBOM": false,
       "v2.listFindings": false,
       "v2.listHistoricalJobs": false,
       "v2.listVulnerabilities": false,
