@@ -469,6 +469,7 @@ export {
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetHistoricalJobRequest,
+  SecurityMonitoringApiGetSBOMRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
@@ -668,11 +669,11 @@ export { AppMeta } from "./models/AppMeta";
 export { AppsSortField } from "./models/AppsSortField";
 export { Asset } from "./models/Asset";
 export { AssetAttributes } from "./models/AssetAttributes";
-export { AssetAttributesOperatingSystem } from "./models/AssetAttributesOperatingSystem";
-export { AssetAttributesRisks } from "./models/AssetAttributesRisks";
-export { AssetAttributesVersion } from "./models/AssetAttributesVersion";
 export { AssetEntityType } from "./models/AssetEntityType";
+export { AssetOperatingSystem } from "./models/AssetOperatingSystem";
+export { AssetRisks } from "./models/AssetRisks";
 export { AssetType } from "./models/AssetType";
+export { AssetVersion } from "./models/AssetVersion";
 export { AuditLogsEvent } from "./models/AuditLogsEvent";
 export { AuditLogsEventAttributes } from "./models/AuditLogsEventAttributes";
 export { AuditLogsEventsResponse } from "./models/AuditLogsEventsResponse";
@@ -1363,6 +1364,7 @@ export { GetDeviceResponse } from "./models/GetDeviceResponse";
 export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetInterfacesData } from "./models/GetInterfacesData";
 export { GetInterfacesResponse } from "./models/GetInterfacesResponse";
+export { GetSBOMResponse } from "./models/GetSBOMResponse";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
 export { HistoricalJobDataType } from "./models/HistoricalJobDataType";
@@ -2081,6 +2083,13 @@ export { RunHistoricalJobRequestDataType } from "./models/RunHistoricalJobReques
 export { SAMLAssertionAttribute } from "./models/SAMLAssertionAttribute";
 export { SAMLAssertionAttributeAttributes } from "./models/SAMLAssertionAttributeAttributes";
 export { SAMLAssertionAttributesType } from "./models/SAMLAssertionAttributesType";
+export { SBOM } from "./models/SBOM";
+export { SBOMAttributes } from "./models/SBOMAttributes";
+export { SBOMComponent } from "./models/SBOMComponent";
+export { SBOMComponentType } from "./models/SBOMComponentType";
+export { SBOMMetadata } from "./models/SBOMMetadata";
+export { SBOMMetadataComponent } from "./models/SBOMMetadataComponent";
+export { SBOMType } from "./models/SBOMType";
 export { ScalarColumn } from "./models/ScalarColumn";
 export { ScalarColumnTypeGroup } from "./models/ScalarColumnTypeGroup";
 export { ScalarColumnTypeNumber } from "./models/ScalarColumnTypeNumber";
@@ -2394,6 +2403,7 @@ export { SpansSort } from "./models/SpansSort";
 export { SpansSortOrder } from "./models/SpansSortOrder";
 export { SpansType } from "./models/SpansType";
 export { SpansWarning } from "./models/SpansWarning";
+export { SpecVersion } from "./models/SpecVersion";
 export { State } from "./models/State";
 export { Team } from "./models/Team";
 export { TeamAttributes } from "./models/TeamAttributes";
@@ -2519,8 +2529,8 @@ export { UserUpdateRequest } from "./models/UserUpdateRequest";
 export { VulnerabilitiesType } from "./models/VulnerabilitiesType";
 export { Vulnerability } from "./models/Vulnerability";
 export { VulnerabilityAttributes } from "./models/VulnerabilityAttributes";
-export { VulnerabilityAttributesCvss } from "./models/VulnerabilityAttributesCvss";
-export { VulnerabilityAttributesDependencyLocations } from "./models/VulnerabilityAttributesDependencyLocations";
+export { VulnerabilityCvss } from "./models/VulnerabilityCvss";
+export { VulnerabilityDependencyLocations } from "./models/VulnerabilityDependencyLocations";
 export { VulnerabilityEcosystem } from "./models/VulnerabilityEcosystem";
 export { VulnerabilityRelationships } from "./models/VulnerabilityRelationships";
 export { VulnerabilityRelationshipsAffects } from "./models/VulnerabilityRelationshipsAffects";
