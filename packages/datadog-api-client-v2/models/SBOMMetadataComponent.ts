@@ -3,26 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DependencyLocation } from "./DependencyLocation";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Static library vulnerability location.
+ * The component that the BOM describes.
  */
-export class VulnerabilityAttributesDependencyLocations {
+export class SBOMMetadataComponent {
   /**
-   * Static library vulnerability location.
+   * The name of the component. This will often be a shortened, single name of the component.
    */
-  "block": DependencyLocation;
+  "name"?: string;
   /**
-   * Static library vulnerability location.
+   * Specifies the type of the component.
    */
-  "name"?: DependencyLocation;
-  /**
-   * Static library vulnerability location.
-   */
-  "version"?: DependencyLocation;
+  "type"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,18 +35,13 @@ export class VulnerabilityAttributesDependencyLocations {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    block: {
-      baseName: "block",
-      type: "DependencyLocation",
-      required: true,
-    },
     name: {
       baseName: "name",
-      type: "DependencyLocation",
+      type: "string",
     },
-    version: {
-      baseName: "version",
-      type: "DependencyLocation",
+    type: {
+      baseName: "type",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,7 +53,7 @@ export class VulnerabilityAttributesDependencyLocations {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return VulnerabilityAttributesDependencyLocations.attributeTypeMap;
+    return SBOMMetadataComponent.attributeTypeMap;
   }
 
   public constructor() {}

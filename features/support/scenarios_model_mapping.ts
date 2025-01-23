@@ -5189,6 +5189,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListVulnerableAssetsResponse",
     },
+    "v2.GetSBOM": {
+        "assetType": {
+            "type": "AssetType",
+            "format": "",
+            },
+        "filterAssetName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRepoDigest": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetSBOMResponse",
+    },
     "v2.ListVulnerabilities": {
         "pageToken": {
             "type": "string",

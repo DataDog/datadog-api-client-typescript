@@ -3,45 +3,34 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AssetOperatingSystem } from "./AssetOperatingSystem";
-import { AssetRisks } from "./AssetRisks";
-import { AssetType } from "./AssetType";
-import { AssetVersion } from "./AssetVersion";
+import { SBOMComponentType } from "./SBOMComponentType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The JSON:API attributes of the asset.
+ * Software or hardware component.
  */
-export class AssetAttributes {
+export class SBOMComponent {
   /**
-   * Asset architecture.
+   * An optional identifier that can be used to reference the component elsewhere in the BOM.
    */
-  "arch"?: string;
+  "bomRef"?: string;
   /**
-   * List of environments where the asset is deployed.
-   */
-  "environments": Array<string>;
-  /**
-   * Asset name.
+   * The name of the component. This will often be a shortened, single name of the component.
    */
   "name": string;
   /**
-   * Asset operating system.
+   * Specifies the package-url (purl). The purl, if specified, MUST be valid and conform to the [specification](https://github.com/package-url/purl-spec).
    */
-  "operatingSystem"?: AssetOperatingSystem;
+  "purl"?: string;
   /**
-   * Asset risks.
+   * The SBOM component type
    */
-  "risks": AssetRisks;
+  "type": SBOMComponentType;
   /**
-   * The asset type
+   * The component version.
    */
-  "type": AssetType;
-  /**
-   * Asset version.
-   */
-  "version"?: AssetVersion;
+  "version": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -59,37 +48,28 @@ export class AssetAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    arch: {
-      baseName: "arch",
+    bomRef: {
+      baseName: "bom-ref",
       type: "string",
-    },
-    environments: {
-      baseName: "environments",
-      type: "Array<string>",
-      required: true,
     },
     name: {
       baseName: "name",
       type: "string",
       required: true,
     },
-    operatingSystem: {
-      baseName: "operating_system",
-      type: "AssetOperatingSystem",
-    },
-    risks: {
-      baseName: "risks",
-      type: "AssetRisks",
-      required: true,
+    purl: {
+      baseName: "purl",
+      type: "string",
     },
     type: {
       baseName: "type",
-      type: "AssetType",
+      type: "SBOMComponentType",
       required: true,
     },
     version: {
       baseName: "version",
-      type: "AssetVersion",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -101,7 +81,7 @@ export class AssetAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AssetAttributes.attributeTypeMap;
+    return SBOMComponent.attributeTypeMap;
   }
 
   public constructor() {}

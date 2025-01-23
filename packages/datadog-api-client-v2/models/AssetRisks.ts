@@ -9,7 +9,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * Asset risks.
  */
-export class AssetAttributesRisks {
+export class AssetRisks {
   /**
    * Whether the asset has access to sensitive data or not.
    */
@@ -78,7 +78,7 @@ export class AssetAttributesRisks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AssetAttributesRisks.attributeTypeMap;
+    return AssetRisks.attributeTypeMap;
   }
 
   public constructor() {}

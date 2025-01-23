@@ -3,22 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CVSS } from "./CVSS";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Vulnerability severities.
+ * Asset operating system.
  */
-export class VulnerabilityAttributesCvss {
+export class AssetOperatingSystem {
   /**
-   * Vulnerability severity.
+   * Operating system version.
    */
-  "base": CVSS;
+  "description"?: string;
   /**
-   * Vulnerability severity.
+   * Operating system name.
    */
-  "datadog": CVSS;
+  "name": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +35,13 @@ export class VulnerabilityAttributesCvss {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    base: {
-      baseName: "base",
-      type: "CVSS",
-      required: true,
+    description: {
+      baseName: "description",
+      type: "string",
     },
-    datadog: {
-      baseName: "datadog",
-      type: "CVSS",
+    name: {
+      baseName: "name",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -56,7 +54,7 @@ export class VulnerabilityAttributesCvss {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return VulnerabilityAttributesCvss.attributeTypeMap;
+    return AssetOperatingSystem.attributeTypeMap;
   }
 
   public constructor() {}

@@ -67,9 +67,9 @@ import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
 import { Asset } from "./Asset";
 import { AssetAttributes } from "./AssetAttributes";
-import { AssetAttributesOperatingSystem } from "./AssetAttributesOperatingSystem";
-import { AssetAttributesRisks } from "./AssetAttributesRisks";
-import { AssetAttributesVersion } from "./AssetAttributesVersion";
+import { AssetOperatingSystem } from "./AssetOperatingSystem";
+import { AssetRisks } from "./AssetRisks";
+import { AssetVersion } from "./AssetVersion";
 import { AuditLogsEvent } from "./AuditLogsEvent";
 import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
 import { AuditLogsEventsResponse } from "./AuditLogsEventsResponse";
@@ -571,6 +571,7 @@ import { GetDeviceResponse } from "./GetDeviceResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GetInterfacesData } from "./GetInterfacesData";
 import { GetInterfacesResponse } from "./GetInterfacesResponse";
+import { GetSBOMResponse } from "./GetSBOMResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPBody } from "./HTTPBody";
 import { HTTPCIAppError } from "./HTTPCIAppError";
@@ -1142,6 +1143,11 @@ import { RunHistoricalJobRequestAttributes } from "./RunHistoricalJobRequestAttr
 import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
+import { SBOM } from "./SBOM";
+import { SBOMAttributes } from "./SBOMAttributes";
+import { SBOMComponent } from "./SBOMComponent";
+import { SBOMMetadata } from "./SBOMMetadata";
+import { SBOMMetadataComponent } from "./SBOMMetadataComponent";
 import { SLOReportPostResponse } from "./SLOReportPostResponse";
 import { SLOReportPostResponseData } from "./SLOReportPostResponseData";
 import { SLOReportStatusGetResponse } from "./SLOReportStatusGetResponse";
@@ -1467,8 +1473,8 @@ import { UsersRelationship } from "./UsersRelationship";
 import { UsersResponse } from "./UsersResponse";
 import { Vulnerability } from "./Vulnerability";
 import { VulnerabilityAttributes } from "./VulnerabilityAttributes";
-import { VulnerabilityAttributesCvss } from "./VulnerabilityAttributesCvss";
-import { VulnerabilityAttributesDependencyLocations } from "./VulnerabilityAttributesDependencyLocations";
+import { VulnerabilityCvss } from "./VulnerabilityCvss";
+import { VulnerabilityDependencyLocations } from "./VulnerabilityDependencyLocations";
 import { VulnerabilityRelationships } from "./VulnerabilityRelationships";
 import { VulnerabilityRelationshipsAffects } from "./VulnerabilityRelationshipsAffects";
 import { VulnerabilityRelationshipsAffectsData } from "./VulnerabilityRelationshipsAffectsData";
@@ -2016,6 +2022,21 @@ const enumsMap: { [key: string]: any[] } = {
   RumMetricUniquenessWhen: ["match", "end"],
   RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
+  SBOMComponentType: [
+    "application",
+    "container",
+    "data",
+    "device",
+    "device-driver",
+    "file",
+    "firmware",
+    "framework",
+    "library",
+    "machine-learning-model",
+    "operating-system",
+    "platform",
+  ],
+  SBOMType: ["sboms"],
   SLOReportInterval: ["daily", "weekly", "monthly"],
   SLOReportStatus: [
     "in_progress",
@@ -2189,6 +2210,7 @@ const enumsMap: { [key: string]: any[] } = {
   SpansSort: ["timestamp", "-timestamp"],
   SpansSortOrder: ["asc", "desc"],
   SpansType: ["spans"],
+  SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
   State: ["pass", "fail", "skip"],
   TeamLinkType: ["team_links"],
   TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
@@ -2395,9 +2417,9 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
   Asset: Asset,
   AssetAttributes: AssetAttributes,
-  AssetAttributesOperatingSystem: AssetAttributesOperatingSystem,
-  AssetAttributesRisks: AssetAttributesRisks,
-  AssetAttributesVersion: AssetAttributesVersion,
+  AssetOperatingSystem: AssetOperatingSystem,
+  AssetRisks: AssetRisks,
+  AssetVersion: AssetVersion,
   AuditLogsEvent: AuditLogsEvent,
   AuditLogsEventAttributes: AuditLogsEventAttributes,
   AuditLogsEventsResponse: AuditLogsEventsResponse,
@@ -2963,6 +2985,7 @@ const typeMap: { [index: string]: any } = {
   GetFindingResponse: GetFindingResponse,
   GetInterfacesData: GetInterfacesData,
   GetInterfacesResponse: GetInterfacesResponse,
+  GetSBOMResponse: GetSBOMResponse,
   GroupScalarColumn: GroupScalarColumn,
   HTTPBody: HTTPBody,
   HTTPCIAppError: HTTPCIAppError,
@@ -3579,6 +3602,11 @@ const typeMap: { [index: string]: any } = {
   RunHistoricalJobRequestData: RunHistoricalJobRequestData,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
+  SBOM: SBOM,
+  SBOMAttributes: SBOMAttributes,
+  SBOMComponent: SBOMComponent,
+  SBOMMetadata: SBOMMetadata,
+  SBOMMetadataComponent: SBOMMetadataComponent,
   SLOReportPostResponse: SLOReportPostResponse,
   SLOReportPostResponseData: SLOReportPostResponseData,
   SLOReportStatusGetResponse: SLOReportStatusGetResponse,
@@ -3958,9 +3986,8 @@ const typeMap: { [index: string]: any } = {
   UsersResponse: UsersResponse,
   Vulnerability: Vulnerability,
   VulnerabilityAttributes: VulnerabilityAttributes,
-  VulnerabilityAttributesCvss: VulnerabilityAttributesCvss,
-  VulnerabilityAttributesDependencyLocations:
-    VulnerabilityAttributesDependencyLocations,
+  VulnerabilityCvss: VulnerabilityCvss,
+  VulnerabilityDependencyLocations: VulnerabilityDependencyLocations,
   VulnerabilityRelationships: VulnerabilityRelationships,
   VulnerabilityRelationshipsAffects: VulnerabilityRelationshipsAffects,
   VulnerabilityRelationshipsAffectsData: VulnerabilityRelationshipsAffectsData,

@@ -9,7 +9,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * Asset version.
  */
-export class AssetAttributesVersion {
+export class AssetVersion {
   /**
    * Asset first version.
    */
@@ -53,7 +53,7 @@ export class AssetAttributesVersion {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AssetAttributesVersion.attributeTypeMap;
+    return AssetVersion.attributeTypeMap;
   }
 
   public constructor() {}
