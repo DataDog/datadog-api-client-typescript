@@ -457,10 +457,14 @@ export {
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
+  SecurityMonitoringApiCreateInboxRuleRequest,
+  SecurityMonitoringApiCreateMuteRuleRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiDeleteHistoricalJobRequest,
+  SecurityMonitoringApiDeleteInboxRuleRequest,
+  SecurityMonitoringApiDeleteMuteRuleRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
@@ -469,6 +473,8 @@ export {
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetHistoricalJobRequest,
+  SecurityMonitoringApiGetInboxRuleRequest,
+  SecurityMonitoringApiGetMuteRuleRequest,
   SecurityMonitoringApiGetSBOMRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
@@ -481,10 +487,16 @@ export {
   SecurityMonitoringApiListVulnerabilitiesRequest,
   SecurityMonitoringApiListVulnerableAssetsRequest,
   SecurityMonitoringApiMuteFindingsRequest,
+  SecurityMonitoringApiPatchInboxRuleRequest,
+  SecurityMonitoringApiPatchMuteRuleRequest,
+  SecurityMonitoringApiReorderInboxRulesRequest,
+  SecurityMonitoringApiReorderMuteRulesRequest,
   SecurityMonitoringApiRunHistoricalJobRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiUpdateInboxRuleRequest,
+  SecurityMonitoringApiUpdateMuteRuleRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
@@ -628,6 +640,8 @@ export { ActionConnectionDataType } from "./models/ActionConnectionDataType";
 export { ActionConnectionDataUpdate } from "./models/ActionConnectionDataUpdate";
 export { ActionConnectionIntegration } from "./models/ActionConnectionIntegration";
 export { ActionConnectionIntegrationUpdate } from "./models/ActionConnectionIntegrationUpdate";
+export { ActionInbox } from "./models/ActionInbox";
+export { ActionMute } from "./models/ActionMute";
 export { ActiveBillingDimensionsAttributes } from "./models/ActiveBillingDimensionsAttributes";
 export { ActiveBillingDimensionsBody } from "./models/ActiveBillingDimensionsBody";
 export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimensionsResponse";
@@ -1029,6 +1043,12 @@ export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDele
 export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
 export { CreateDataDeletionRequestBodyDataType } from "./models/CreateDataDeletionRequestBodyDataType";
 export { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
+export { CreateInboxRuleParameters } from "./models/CreateInboxRuleParameters";
+export { CreateInboxRuleParametersData } from "./models/CreateInboxRuleParametersData";
+export { CreateInboxRuleParametersDataAttributes } from "./models/CreateInboxRuleParametersDataAttributes";
+export { CreateMuteRuleParameters } from "./models/CreateMuteRuleParameters";
+export { CreateMuteRuleParametersData } from "./models/CreateMuteRuleParametersData";
+export { CreateMuteRuleParametersDataAttributes } from "./models/CreateMuteRuleParametersDataAttributes";
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
 export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
@@ -1400,6 +1420,10 @@ export { HTTPTokenAuthType } from "./models/HTTPTokenAuthType";
 export { HTTPTokenAuthUpdate } from "./models/HTTPTokenAuthUpdate";
 export { HTTPTokenUpdate } from "./models/HTTPTokenUpdate";
 export { IdPMetadataFormData } from "./models/IdPMetadataFormData";
+export { InboxRule } from "./models/InboxRule";
+export { InboxRuleAttributes } from "./models/InboxRuleAttributes";
+export { InboxRuleResponse } from "./models/InboxRuleResponse";
+export { InboxRulesType } from "./models/InboxRulesType";
 export { IncidentAttachmentAttachmentType } from "./models/IncidentAttachmentAttachmentType";
 export { IncidentAttachmentAttributes } from "./models/IncidentAttachmentAttributes";
 export { IncidentAttachmentData } from "./models/IncidentAttachmentData";
@@ -1549,6 +1573,7 @@ export { IPAllowlistEntryType } from "./models/IPAllowlistEntryType";
 export { IPAllowlistResponse } from "./models/IPAllowlistResponse";
 export { IPAllowlistType } from "./models/IPAllowlistType";
 export { IPAllowlistUpdateRequest } from "./models/IPAllowlistUpdateRequest";
+export { IssueType } from "./models/IssueType";
 export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
 export { JiraIssue } from "./models/JiraIssue";
@@ -1808,6 +1833,11 @@ export { MonthlyCostAttributionPagination } from "./models/MonthlyCostAttributio
 export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
 export { MSTeamsIntegrationMetadata } from "./models/MSTeamsIntegrationMetadata";
 export { MSTeamsIntegrationMetadataTeamsItem } from "./models/MSTeamsIntegrationMetadataTeamsItem";
+export { MuteReason } from "./models/MuteReason";
+export { MuteRule } from "./models/MuteRule";
+export { MuteRuleAttributes } from "./models/MuteRuleAttributes";
+export { MuteRuleResponse } from "./models/MuteRuleResponse";
+export { MuteRulesType } from "./models/MuteRulesType";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";
@@ -1872,6 +1902,12 @@ export { PartialAPIKeyAttributes } from "./models/PartialAPIKeyAttributes";
 export { PartialApplicationKey } from "./models/PartialApplicationKey";
 export { PartialApplicationKeyAttributes } from "./models/PartialApplicationKeyAttributes";
 export { PartialApplicationKeyResponse } from "./models/PartialApplicationKeyResponse";
+export { PatchInboxRulesParameters } from "./models/PatchInboxRulesParameters";
+export { PatchInboxRulesParametersData } from "./models/PatchInboxRulesParametersData";
+export { PatchInboxRulesParametersDataAttributes } from "./models/PatchInboxRulesParametersDataAttributes";
+export { PatchMuteRuleParameters } from "./models/PatchMuteRuleParameters";
+export { PatchMuteRuleParametersData } from "./models/PatchMuteRuleParametersData";
+export { PatchMuteRuleParametersDataAttributes } from "./models/PatchMuteRuleParametersDataAttributes";
 export { Permission } from "./models/Permission";
 export { PermissionAttributes } from "./models/PermissionAttributes";
 export { PermissionsResponse } from "./models/PermissionsResponse";
@@ -1959,6 +1995,10 @@ export { RelationshipToUserTeamUser } from "./models/RelationshipToUserTeamUser"
 export { RelationshipToUserTeamUserData } from "./models/RelationshipToUserTeamUserData";
 export { RelationType } from "./models/RelationType";
 export { Remediation } from "./models/Remediation";
+export { ReorderInboxRulesParameters } from "./models/ReorderInboxRulesParameters";
+export { ReorderInboxRulesParametersData } from "./models/ReorderInboxRulesParametersData";
+export { ReorderMuteRulesParameters } from "./models/ReorderMuteRulesParameters";
+export { ReorderMuteRulesParametersData } from "./models/ReorderMuteRulesParametersData";
 export { ReorderRetentionFiltersRequest } from "./models/ReorderRetentionFiltersRequest";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { RestrictionPolicy } from "./models/RestrictionPolicy";
@@ -2004,9 +2044,13 @@ export { RoleUpdateData } from "./models/RoleUpdateData";
 export { RoleUpdateRequest } from "./models/RoleUpdateRequest";
 export { RoleUpdateResponse } from "./models/RoleUpdateResponse";
 export { RoleUpdateResponseData } from "./models/RoleUpdateResponseData";
+export { Rule } from "./models/Rule";
 export { RuleAttributes } from "./models/RuleAttributes";
 export { RuleOutcomeRelationships } from "./models/RuleOutcomeRelationships";
+export { RuleSeverity } from "./models/RuleSeverity";
 export { RuleType } from "./models/RuleType";
+export { RuleTypesItems } from "./models/RuleTypesItems";
+export { RuleUser } from "./models/RuleUser";
 export { RUMAggregateBucketValue } from "./models/RUMAggregateBucketValue";
 export { RUMAggregateBucketValueTimeseriesPoint } from "./models/RUMAggregateBucketValueTimeseriesPoint";
 export { RUMAggregateRequest } from "./models/RUMAggregateRequest";
@@ -2465,6 +2509,10 @@ export { UpdateAppResponseData } from "./models/UpdateAppResponseData";
 export { UpdateAppResponseDataAttributes } from "./models/UpdateAppResponseDataAttributes";
 export { UpdateAppResponseDataType } from "./models/UpdateAppResponseDataType";
 export { UpdateAppResponseRelationship } from "./models/UpdateAppResponseRelationship";
+export { UpdateInboxRuleParameters } from "./models/UpdateInboxRuleParameters";
+export { UpdateInboxRuleParametersData } from "./models/UpdateInboxRuleParametersData";
+export { UpdateMuteRuleParameters } from "./models/UpdateMuteRuleParameters";
+export { UpdateMuteRuleParametersData } from "./models/UpdateMuteRuleParametersData";
 export { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";
 export { UpdateOpenAPIResponseAttributes } from "./models/UpdateOpenAPIResponseAttributes";
 export { UpdateOpenAPIResponseData } from "./models/UpdateOpenAPIResponseData";
