@@ -773,6 +773,7 @@ import { LogsArchiveDefinition } from "./LogsArchiveDefinition";
 import { LogsArchiveDestinationAzure } from "./LogsArchiveDestinationAzure";
 import { LogsArchiveDestinationGCS } from "./LogsArchiveDestinationGCS";
 import { LogsArchiveDestinationS3 } from "./LogsArchiveDestinationS3";
+import { LogsArchiveEncryptionS3 } from "./LogsArchiveEncryptionS3";
 import { LogsArchiveIntegrationAzure } from "./LogsArchiveIntegrationAzure";
 import { LogsArchiveIntegrationGCS } from "./LogsArchiveIntegrationGCS";
 import { LogsArchiveIntegrationS3 } from "./LogsArchiveIntegrationS3";
@@ -1889,6 +1890,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsArchiveDestinationAzureType: ["azure"],
   LogsArchiveDestinationGCSType: ["gcs"],
   LogsArchiveDestinationS3Type: ["s3"],
+  LogsArchiveEncryptionS3Type: ["NO_OVERRIDE", "SSE_S3", "SSE_KMS"],
   LogsArchiveOrderDefinitionType: ["archive_order"],
   LogsArchiveState: ["UNKNOWN", "WORKING", "FAILING", "WORKING_AUTH_LEGACY"],
   LogsComputeType: ["timeseries", "total"],
@@ -3204,6 +3206,7 @@ const typeMap: { [index: string]: any } = {
   LogsArchiveDestinationAzure: LogsArchiveDestinationAzure,
   LogsArchiveDestinationGCS: LogsArchiveDestinationGCS,
   LogsArchiveDestinationS3: LogsArchiveDestinationS3,
+  LogsArchiveEncryptionS3: LogsArchiveEncryptionS3,
   LogsArchiveIntegrationAzure: LogsArchiveIntegrationAzure,
   LogsArchiveIntegrationGCS: LogsArchiveIntegrationGCS,
   LogsArchiveIntegrationS3: LogsArchiveIntegrationS3,
