@@ -32,7 +32,7 @@ jobs:
       - name: Compress docs
         run: tar czf docs.tar.gz docs
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: documentation
           path: docs.tar.gz
@@ -45,7 +45,7 @@ jobs:
       - build
 
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: documentation
           path: docs
