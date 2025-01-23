@@ -71,13 +71,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getBillingDimensionMapping'");
-    if (!_config.unstableOperations["v2.getBillingDimensionMapping"]) {
-      throw new Error(
-        "Unstable operation 'getBillingDimensionMapping' is disabled"
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/usage/billing_dimension_mapping";
 
