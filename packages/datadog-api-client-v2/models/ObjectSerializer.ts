@@ -571,6 +571,7 @@ import { GetDeviceResponse } from "./GetDeviceResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GetInterfacesData } from "./GetInterfacesData";
 import { GetInterfacesResponse } from "./GetInterfacesResponse";
+import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./GetSBOMResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPBody } from "./HTTPBody";
@@ -1119,6 +1120,8 @@ import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
 import { RuleAttributes } from "./RuleAttributes";
 import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
+import { RuleVersionHistory } from "./RuleVersionHistory";
+import { RuleVersionUpdate } from "./RuleVersionUpdate";
 import { RumMetricCompute } from "./RumMetricCompute";
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricCreateData } from "./RumMetricCreateData";
@@ -2008,6 +2011,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RolesType: ["roles"],
   RuleType: ["rule"],
+  RuleVersionUpdateType: ["create", "update", "delete"],
   RumMetricComputeAggregationType: ["count", "distribution"],
   RumMetricEventType: [
     "session",
@@ -2985,6 +2989,7 @@ const typeMap: { [index: string]: any } = {
   GetFindingResponse: GetFindingResponse,
   GetInterfacesData: GetInterfacesData,
   GetInterfacesResponse: GetInterfacesResponse,
+  GetRuleVersionHistoryResponse: GetRuleVersionHistoryResponse,
   GetSBOMResponse: GetSBOMResponse,
   GroupScalarColumn: GroupScalarColumn,
   HTTPBody: HTTPBody,
@@ -3578,6 +3583,8 @@ const typeMap: { [index: string]: any } = {
   RolesResponse: RolesResponse,
   RuleAttributes: RuleAttributes,
   RuleOutcomeRelationships: RuleOutcomeRelationships,
+  RuleVersionHistory: RuleVersionHistory,
+  RuleVersionUpdate: RuleVersionUpdate,
   RumMetricCompute: RumMetricCompute,
   RumMetricCreateAttributes: RumMetricCreateAttributes,
   RumMetricCreateData: RumMetricCreateData,
