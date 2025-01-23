@@ -1627,6 +1627,8 @@ export { LogsArchiveDestinationGCS } from "./models/LogsArchiveDestinationGCS";
 export { LogsArchiveDestinationGCSType } from "./models/LogsArchiveDestinationGCSType";
 export { LogsArchiveDestinationS3 } from "./models/LogsArchiveDestinationS3";
 export { LogsArchiveDestinationS3Type } from "./models/LogsArchiveDestinationS3Type";
+export { LogsArchiveEncryptionS3 } from "./models/LogsArchiveEncryptionS3";
+export { LogsArchiveEncryptionS3Type } from "./models/LogsArchiveEncryptionS3Type";
 export { LogsArchiveIntegrationAzure } from "./models/LogsArchiveIntegrationAzure";
 export { LogsArchiveIntegrationGCS } from "./models/LogsArchiveIntegrationGCS";
 export { LogsArchiveIntegrationS3 } from "./models/LogsArchiveIntegrationS3";
