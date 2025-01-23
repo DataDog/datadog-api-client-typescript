@@ -469,6 +469,7 @@ export {
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetHistoricalJobRequest,
+  SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
@@ -1364,6 +1365,7 @@ export { GetDeviceResponse } from "./models/GetDeviceResponse";
 export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetInterfacesData } from "./models/GetInterfacesData";
 export { GetInterfacesResponse } from "./models/GetInterfacesResponse";
+export { GetRuleVersionHistoryResponse } from "./models/GetRuleVersionHistoryResponse";
 export { GetSBOMResponse } from "./models/GetSBOMResponse";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
@@ -2007,6 +2009,9 @@ export { RoleUpdateResponseData } from "./models/RoleUpdateResponseData";
 export { RuleAttributes } from "./models/RuleAttributes";
 export { RuleOutcomeRelationships } from "./models/RuleOutcomeRelationships";
 export { RuleType } from "./models/RuleType";
+export { RuleVersionHistory } from "./models/RuleVersionHistory";
+export { RuleVersionUpdate } from "./models/RuleVersionUpdate";
+export { RuleVersionUpdateType } from "./models/RuleVersionUpdateType";
 export { RUMAggregateBucketValue } from "./models/RUMAggregateBucketValue";
 export { RUMAggregateBucketValueTimeseriesPoint } from "./models/RUMAggregateBucketValueTimeseriesPoint";
 export { RUMAggregateRequest } from "./models/RUMAggregateRequest";

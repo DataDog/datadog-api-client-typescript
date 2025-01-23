@@ -5519,6 +5519,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringRuleTestResponse",
     },
+    "v2.GetRuleVersionHistory": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "GetRuleVersionHistoryResponse",
+    },
     "v2.ListSecurityMonitoringSignals": {
         "filterQuery": {
             "type": "string",
