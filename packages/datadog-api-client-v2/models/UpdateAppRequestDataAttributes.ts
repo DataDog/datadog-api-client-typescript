@@ -4,46 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ComponentGrid } from "./ComponentGrid";
-import { InputSchema } from "./InputSchema";
 import { Query } from "./Query";
-import { Script } from "./Script";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `UpdateAppRequestDataAttributes` object.
+ * App definition attributes to be updated, such as name, description, and components.
  */
 export class UpdateAppRequestDataAttributes {
   /**
-   * The `attributes` `components`.
+   * The new UI components that make up the app. If this field is set, all existing components are replaced with the new components under this field.
    */
   "components"?: Array<ComponentGrid>;
   /**
-   * The `attributes` `description`.
+   * The new human-readable description for the app.
    */
   "description"?: string;
   /**
-   * The `attributes` `embeddedQueries`.
+   * The new array of queries, such as external actions and state variables, that the app uses. If this field is set, all existing queries are replaced with the new queries under this field.
    */
   "embeddedQueries"?: Array<Query>;
   /**
-   * The definition of `InputSchema` object.
-   */
-  "inputSchema"?: InputSchema;
-  /**
-   * The `attributes` `name`.
+   * The new name of the app.
    */
   "name"?: string;
   /**
-   * The `attributes` `rootInstanceName`.
+   * The new name of the root component of the app. This must be a `grid` component that contains all other components.
    */
   "rootInstanceName"?: string;
   /**
-   * The `attributes` `scripts`.
-   */
-  "scripts"?: Array<Script>;
-  /**
-   * The `attributes` `tags`.
+   * The new list of tags for the app, which can be used to filter apps. If this field is set, any existing tags not included in the request are removed.
    */
   "tags"?: Array<string>;
 
@@ -75,10 +65,6 @@ export class UpdateAppRequestDataAttributes {
       baseName: "embeddedQueries",
       type: "Array<Query>",
     },
-    inputSchema: {
-      baseName: "inputSchema",
-      type: "InputSchema",
-    },
     name: {
       baseName: "name",
       type: "string",
@@ -86,10 +72,6 @@ export class UpdateAppRequestDataAttributes {
     rootInstanceName: {
       baseName: "rootInstanceName",
       type: "string",
-    },
-    scripts: {
-      baseName: "scripts",
-      type: "Array<Script>",
     },
     tags: {
       baseName: "tags",

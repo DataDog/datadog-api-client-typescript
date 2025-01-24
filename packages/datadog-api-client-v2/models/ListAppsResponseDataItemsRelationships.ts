@@ -8,11 +8,11 @@ import { DeploymentRelationship } from "./DeploymentRelationship";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `ListAppsResponseDataItemsRelationships` object.
+ * The app's publication information.
  */
 export class ListAppsResponseDataItemsRelationships {
   /**
-   * The definition of `DeploymentRelationship` object.
+   * Information pointing to the app's publication status.
    */
   "deployment"?: DeploymentRelationship;
 

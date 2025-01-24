@@ -3,27 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AppDefinitionType } from "./AppDefinitionType";
 import { UpdateAppRequestDataAttributes } from "./UpdateAppRequestDataAttributes";
-import { UpdateAppRequestDataType } from "./UpdateAppRequestDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `UpdateAppRequestData` object.
+ * The data object containing the new app definition. Any fields not included in the request remain unchanged.
  */
 export class UpdateAppRequestData {
   /**
-   * The definition of `UpdateAppRequestDataAttributes` object.
+   * App definition attributes to be updated, such as name, description, and components.
    */
   "attributes"?: UpdateAppRequestDataAttributes;
   /**
-   * The `data` `id`.
+   * The ID of the app to update. The app ID must match the ID in the URL path.
    */
   "id"?: string;
   /**
-   * The definition of `UpdateAppRequestDataType` object.
+   * The app definition type.
    */
-  "type": UpdateAppRequestDataType;
+  "type": AppDefinitionType;
 
   /**
    * A container for additional, undeclared properties.
@@ -48,10 +48,11 @@ export class UpdateAppRequestData {
     id: {
       baseName: "id",
       type: "string",
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "UpdateAppRequestDataType",
+      type: "AppDefinitionType",
       required: true,
     },
     additionalProperties: {

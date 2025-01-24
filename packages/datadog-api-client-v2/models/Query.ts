@@ -9,27 +9,27 @@ import { QueryType } from "./QueryType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `Query` object.
+ * A query used by an app. This can take the form of an external action, a data transformation, or a state variable change.
  */
 export class Query {
   /**
-   * The `Query` `events`.
+   * Events to listen for downstream of the query.
    */
   "events"?: Array<AppBuilderEvent>;
   /**
-   * The `Query` `id`.
+   * The ID of the query.
    */
   "id": string;
   /**
-   * The `Query` `name`.
+   * The name of the query. The name must be unique within the app and is visible in the app editor.
    */
   "name": string;
   /**
-   * The `Query` `properties`.
+   * The properties of the query. The properties vary depending on the query type.
    */
   "properties"?: any;
   /**
-   * The definition of `QueryType` object.
+   * The query type.
    */
   "type": QueryType;
 
@@ -57,6 +57,7 @@ export class Query {
       baseName: "id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     name: {
       baseName: "name",

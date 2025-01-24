@@ -10,27 +10,27 @@ import { ComponentGridType } from "./ComponentGridType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `ComponentGrid` object.
+ * A grid component. The grid component is the root canvas for an app and contains all other components.
  */
 export class ComponentGrid {
   /**
-   * The `ComponentGrid` `events`.
+   * Events to listen for on the grid component.
    */
   "events"?: Array<AppBuilderEvent>;
   /**
-   * The `ComponentGrid` `id`.
+   * The ID of the grid component. This property is deprecated; use `name` to identify individual components instead.
    */
   "id"?: string;
   /**
-   * The `ComponentGrid` `name`.
+   * A unique identifier for this grid component. This name is also visible in the app editor.
    */
   "name": string;
   /**
-   * The definition of `ComponentGridProperties` object.
+   * Properties of a grid component.
    */
   "properties": ComponentGridProperties;
   /**
-   * The definition of `ComponentGridType` object.
+   * The grid component type.
    */
   "type": ComponentGridType;
 

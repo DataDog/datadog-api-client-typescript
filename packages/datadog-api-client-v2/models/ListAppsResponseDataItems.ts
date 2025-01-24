@@ -3,37 +3,37 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AppDefinitionType } from "./AppDefinitionType";
 import { AppMeta } from "./AppMeta";
 import { ListAppsResponseDataItemsAttributes } from "./ListAppsResponseDataItemsAttributes";
 import { ListAppsResponseDataItemsRelationships } from "./ListAppsResponseDataItemsRelationships";
-import { ListAppsResponseDataItemsType } from "./ListAppsResponseDataItemsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `ListAppsResponseDataItems` object.
+ * An app definition object. This contains only basic information about the app such as ID, name, and tags.
  */
 export class ListAppsResponseDataItems {
   /**
-   * The definition of `ListAppsResponseDataItemsAttributes` object.
+   * Basic information about the app such as name, description, and tags.
    */
   "attributes": ListAppsResponseDataItemsAttributes;
   /**
-   * The `items` `id`.
+   * The ID of the app.
    */
   "id": string;
   /**
-   * The definition of `AppMeta` object.
+   * Metadata of an app.
    */
   "meta"?: AppMeta;
   /**
-   * The definition of `ListAppsResponseDataItemsRelationships` object.
+   * The app's publication information.
    */
   "relationships"?: ListAppsResponseDataItemsRelationships;
   /**
-   * The definition of `ListAppsResponseDataItemsType` object.
+   * The app definition type.
    */
-  "type": ListAppsResponseDataItemsType;
+  "type": AppDefinitionType;
 
   /**
    * A container for additional, undeclared properties.
@@ -60,6 +60,7 @@ export class ListAppsResponseDataItems {
       baseName: "id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     meta: {
       baseName: "meta",
@@ -71,7 +72,7 @@ export class ListAppsResponseDataItems {
     },
     type: {
       baseName: "type",
-      type: "ListAppsResponseDataItemsType",
+      type: "AppDefinitionType",
       required: true,
     },
     additionalProperties: {

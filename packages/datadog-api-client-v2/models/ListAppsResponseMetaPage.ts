@@ -7,15 +7,15 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `ListAppsResponseMetaPage` object.
+ * Information on the total number of apps, to be used for pagination.
  */
 export class ListAppsResponseMetaPage {
   /**
-   * The `page` `totalCount`.
+   * The total number of apps under the Datadog organization, disregarding any filters applied.
    */
   "totalCount"?: number;
   /**
-   * The `page` `totalFilteredCount`.
+   * The total number of apps that match the specified filters.
    */
   "totalFilteredCount"?: number;
 

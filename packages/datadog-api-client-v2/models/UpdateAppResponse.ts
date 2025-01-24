@@ -4,32 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AppMeta } from "./AppMeta";
-import { DeploymentIncluded } from "./DeploymentIncluded";
+import { AppRelationship } from "./AppRelationship";
+import { Deployment } from "./Deployment";
 import { UpdateAppResponseData } from "./UpdateAppResponseData";
-import { UpdateAppResponseRelationship } from "./UpdateAppResponseRelationship";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `UpdateAppResponse` object.
+ * The response object after an app is successfully updated.
  */
 export class UpdateAppResponse {
   /**
-   * The definition of `UpdateAppResponseData` object.
+   * The data object containing the updated app definition.
    */
   "data"?: UpdateAppResponseData;
   /**
-   * The `UpdateAppResponse` `included`.
+   * Data on the version of the app that was published.
    */
-  "included"?: Array<DeploymentIncluded>;
+  "included"?: Array<Deployment>;
   /**
-   * The definition of `AppMeta` object.
+   * Metadata of an app.
    */
   "meta"?: AppMeta;
   /**
-   * The definition of `UpdateAppResponseRelationship` object.
+   * The app's publication relationship and custom connections.
    */
-  "relationship"?: UpdateAppResponseRelationship;
+  "relationship"?: AppRelationship;
 
   /**
    * A container for additional, undeclared properties.
@@ -53,7 +53,7 @@ export class UpdateAppResponse {
     },
     included: {
       baseName: "included",
-      type: "Array<DeploymentIncluded>",
+      type: "Array<Deployment>",
     },
     meta: {
       baseName: "meta",
@@ -61,7 +61,7 @@ export class UpdateAppResponse {
     },
     relationship: {
       baseName: "relationship",
-      type: "UpdateAppResponseRelationship",
+      type: "AppRelationship",
     },
     additionalProperties: {
       baseName: "additionalProperties",

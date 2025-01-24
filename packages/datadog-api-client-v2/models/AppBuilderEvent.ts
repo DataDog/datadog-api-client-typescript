@@ -9,7 +9,7 @@ import { AppBuilderEventType } from "./AppBuilderEventType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `AppBuilderEvent` object.
+ * An event on a UI component that triggers a response or action in an app.
  */
 export class AppBuilderEvent {
   /**

@@ -55,6 +55,7 @@ import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsRespon
 import { Advisory } from "./Advisory";
 import { AppBuilderEvent } from "./AppBuilderEvent";
 import { AppMeta } from "./AppMeta";
+import { AppRelationship } from "./AppRelationship";
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 import { ApplicationKeyCreateRequest } from "./ApplicationKeyCreateRequest";
@@ -397,24 +398,16 @@ import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 import { DeleteAppsResponse } from "./DeleteAppsResponse";
 import { DeleteAppsResponseDataItems } from "./DeleteAppsResponseDataItems";
 import { DependencyLocation } from "./DependencyLocation";
-import { DeployAppResponse } from "./DeployAppResponse";
-import { DeployAppResponseData } from "./DeployAppResponseData";
-import { DeployAppResponseDataAttributes } from "./DeployAppResponseDataAttributes";
-import { DeploymentIncluded } from "./DeploymentIncluded";
-import { DeploymentIncludedAttributes } from "./DeploymentIncludedAttributes";
-import { DeploymentIncludedMeta } from "./DeploymentIncludedMeta";
-import { DeploymentMeta } from "./DeploymentMeta";
+import { Deployment } from "./Deployment";
+import { DeploymentAttributes } from "./DeploymentAttributes";
+import { DeploymentMetadata } from "./DeploymentMetadata";
 import { DeploymentRelationship } from "./DeploymentRelationship";
 import { DeploymentRelationshipData } from "./DeploymentRelationshipData";
-import { DeploymentRelationshipMeta } from "./DeploymentRelationshipMeta";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { DeviceAttributes } from "./DeviceAttributes";
 import { DeviceAttributesInterfaceStatuses } from "./DeviceAttributesInterfaceStatuses";
 import { DevicesListData } from "./DevicesListData";
-import { DisableAppResponse } from "./DisableAppResponse";
-import { DisableAppResponseData } from "./DisableAppResponseData";
-import { DisableAppResponseDataAttributes } from "./DisableAppResponseDataAttributes";
 import { DomainAllowlist } from "./DomainAllowlist";
 import { DomainAllowlistAttributes } from "./DomainAllowlistAttributes";
 import { DomainAllowlistRequest } from "./DomainAllowlistRequest";
@@ -566,7 +559,6 @@ import { GetActionConnectionResponse } from "./GetActionConnectionResponse";
 import { GetAppResponse } from "./GetAppResponse";
 import { GetAppResponseData } from "./GetAppResponseData";
 import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
-import { GetAppResponseRelationship } from "./GetAppResponseRelationship";
 import { GetDataDeletionsResponseBody } from "./GetDataDeletionsResponseBody";
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
 import { GetDeviceData } from "./GetDeviceData";
@@ -704,12 +696,6 @@ import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
 import { IncidentUserAttributes } from "./IncidentUserAttributes";
 import { IncidentUserData } from "./IncidentUserData";
 import { IncidentsResponse } from "./IncidentsResponse";
-import { InputSchema } from "./InputSchema";
-import { InputSchemaData } from "./InputSchemaData";
-import { InputSchemaDataAttributes } from "./InputSchemaDataAttributes";
-import { InputSchemaDataAttributesParametersItems } from "./InputSchemaDataAttributesParametersItems";
-import { InputSchemaDataAttributesParametersItemsData } from "./InputSchemaDataAttributesParametersItemsData";
-import { InputSchemaDataAttributesParametersItemsDataAttributes } from "./InputSchemaDataAttributesParametersItemsDataAttributes";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { InterfaceAttributes } from "./InterfaceAttributes";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
@@ -1010,6 +996,7 @@ import { ProjectedCost } from "./ProjectedCost";
 import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
 import { ProjectsResponse } from "./ProjectsResponse";
+import { PublishAppResponse } from "./PublishAppResponse";
 import { Query } from "./Query";
 import { QueryFormula } from "./QueryFormula";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
@@ -1171,9 +1158,6 @@ import { ScalarFormulaRequestAttributes } from "./ScalarFormulaRequestAttributes
 import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
 import { ScalarMeta } from "./ScalarMeta";
 import { ScalarResponse } from "./ScalarResponse";
-import { Script } from "./Script";
-import { ScriptData } from "./ScriptData";
-import { ScriptDataAttributes } from "./ScriptDataAttributes";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -1426,6 +1410,7 @@ import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
 import { Unit } from "./Unit";
+import { UnpublishAppResponse } from "./UnpublishAppResponse";
 import { UpdateActionConnectionRequest } from "./UpdateActionConnectionRequest";
 import { UpdateActionConnectionResponse } from "./UpdateActionConnectionResponse";
 import { UpdateAppRequest } from "./UpdateAppRequest";
@@ -1434,7 +1419,6 @@ import { UpdateAppRequestDataAttributes } from "./UpdateAppRequestDataAttributes
 import { UpdateAppResponse } from "./UpdateAppResponse";
 import { UpdateAppResponseData } from "./UpdateAppResponseData";
 import { UpdateAppResponseDataAttributes } from "./UpdateAppResponseDataAttributes";
-import { UpdateAppResponseRelationship } from "./UpdateAppResponseRelationship";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
 import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
@@ -1577,6 +1561,8 @@ const enumsMap: { [key: string]: any[] } = {
     "downloadFile",
     "setStateVariableValue",
   ],
+  AppDefinitionType: ["appDefinitions"],
+  AppDeploymentType: ["deployment"],
   ApplicationKeysSort: [
     "created_at",
     "-created_at",
@@ -1722,8 +1708,6 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
-  CreateAppRequestDataType: ["appDefinitions"],
-  CreateAppResponseDataType: ["appDefinitions"],
   CreateDataDeletionRequestBodyDataType: ["create_deletion_req"],
   CustomConnectionType: ["custom_connections"],
   CustomDestinationAttributeTagsRestrictionListType: [
@@ -1754,14 +1738,7 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
-  DeleteAppResponseDataType: ["appDefinitions"],
-  DeleteAppsRequestDataItemsType: ["appDefinitions"],
-  DeleteAppsResponseDataItemsType: ["appDefinitions"],
-  DeployAppResponseDataType: ["deployment"],
-  DeploymentIncludedType: ["deployment"],
-  DeploymentRelationshipDataType: ["deployment"],
   DetailedFindingType: ["detailed_finding"],
-  DisableAppResponseDataType: ["deployment"],
   DomainAllowlistType: ["domain_allowlist"],
   DowntimeIncludedMonitorType: ["monitors"],
   DowntimeNotifyEndStateActions: ["canceled", "expired"],
@@ -1825,7 +1802,6 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
   GCPServiceAccountType: ["gcp_service_account"],
-  GetAppResponseDataType: ["appDefinitions"],
   GetTeamMembershipsSort: [
     "manager_name",
     "-manager_name",
@@ -1875,10 +1851,8 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentTypeType: ["incident_types"],
   IncidentUserDefinedFieldType: ["user_defined_field"],
   IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
-  InputSchemaDataType: ["inputSchema"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
   LeakedKeyType: ["leaked_keys"],
-  ListAppsResponseDataItemsType: ["appDefinitions"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
   LogType: ["log"],
@@ -2079,7 +2053,6 @@ const enumsMap: { [key: string]: any[] } = {
   ScalarFormulaRequestType: ["scalar_request"],
   ScalarFormulaResponseType: ["scalar_response"],
   ScorecardType: ["scorecard"],
-  ScriptDataType: ["scripts"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
@@ -2274,8 +2247,6 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
   TriggerSource: ["security_findings", "security_signals"],
-  UpdateAppRequestDataType: ["appDefinitions"],
-  UpdateAppResponseDataType: ["appDefinitions"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
   UserResourceType: ["user"],
@@ -2436,6 +2407,7 @@ const typeMap: { [index: string]: any } = {
   Advisory: Advisory,
   AppBuilderEvent: AppBuilderEvent,
   AppMeta: AppMeta,
+  AppRelationship: AppRelationship,
   ApplicationKeyCreateAttributes: ApplicationKeyCreateAttributes,
   ApplicationKeyCreateData: ApplicationKeyCreateData,
   ApplicationKeyCreateRequest: ApplicationKeyCreateRequest,
@@ -2829,24 +2801,16 @@ const typeMap: { [index: string]: any } = {
   DeleteAppsResponse: DeleteAppsResponse,
   DeleteAppsResponseDataItems: DeleteAppsResponseDataItems,
   DependencyLocation: DependencyLocation,
-  DeployAppResponse: DeployAppResponse,
-  DeployAppResponseData: DeployAppResponseData,
-  DeployAppResponseDataAttributes: DeployAppResponseDataAttributes,
-  DeploymentIncluded: DeploymentIncluded,
-  DeploymentIncludedAttributes: DeploymentIncludedAttributes,
-  DeploymentIncludedMeta: DeploymentIncludedMeta,
-  DeploymentMeta: DeploymentMeta,
+  Deployment: Deployment,
+  DeploymentAttributes: DeploymentAttributes,
+  DeploymentMetadata: DeploymentMetadata,
   DeploymentRelationship: DeploymentRelationship,
   DeploymentRelationshipData: DeploymentRelationshipData,
-  DeploymentRelationshipMeta: DeploymentRelationshipMeta,
   DetailedFinding: DetailedFinding,
   DetailedFindingAttributes: DetailedFindingAttributes,
   DeviceAttributes: DeviceAttributes,
   DeviceAttributesInterfaceStatuses: DeviceAttributesInterfaceStatuses,
   DevicesListData: DevicesListData,
-  DisableAppResponse: DisableAppResponse,
-  DisableAppResponseData: DisableAppResponseData,
-  DisableAppResponseDataAttributes: DisableAppResponseDataAttributes,
   DomainAllowlist: DomainAllowlist,
   DomainAllowlistAttributes: DomainAllowlistAttributes,
   DomainAllowlistRequest: DomainAllowlistRequest,
@@ -3012,7 +2976,6 @@ const typeMap: { [index: string]: any } = {
   GetAppResponse: GetAppResponse,
   GetAppResponseData: GetAppResponseData,
   GetAppResponseDataAttributes: GetAppResponseDataAttributes,
-  GetAppResponseRelationship: GetAppResponseRelationship,
   GetDataDeletionsResponseBody: GetDataDeletionsResponseBody,
   GetDeviceAttributes: GetDeviceAttributes,
   GetDeviceData: GetDeviceData,
@@ -3162,15 +3125,6 @@ const typeMap: { [index: string]: any } = {
   IncidentUserAttributes: IncidentUserAttributes,
   IncidentUserData: IncidentUserData,
   IncidentsResponse: IncidentsResponse,
-  InputSchema: InputSchema,
-  InputSchemaData: InputSchemaData,
-  InputSchemaDataAttributes: InputSchemaDataAttributes,
-  InputSchemaDataAttributesParametersItems:
-    InputSchemaDataAttributesParametersItems,
-  InputSchemaDataAttributesParametersItemsData:
-    InputSchemaDataAttributesParametersItemsData,
-  InputSchemaDataAttributesParametersItemsDataAttributes:
-    InputSchemaDataAttributesParametersItemsDataAttributes,
   IntakePayloadAccepted: IntakePayloadAccepted,
   InterfaceAttributes: InterfaceAttributes,
   JSONAPIErrorItem: JSONAPIErrorItem,
@@ -3496,6 +3450,7 @@ const typeMap: { [index: string]: any } = {
   ProjectedCostAttributes: ProjectedCostAttributes,
   ProjectedCostResponse: ProjectedCostResponse,
   ProjectsResponse: ProjectsResponse,
+  PublishAppResponse: PublishAppResponse,
   Query: Query,
   QueryFormula: QueryFormula,
   RUMAggregateBucketValueTimeseriesPoint:
@@ -3663,9 +3618,6 @@ const typeMap: { [index: string]: any } = {
   ScalarFormulaResponseAtrributes: ScalarFormulaResponseAtrributes,
   ScalarMeta: ScalarMeta,
   ScalarResponse: ScalarResponse,
-  Script: Script,
-  ScriptData: ScriptData,
-  ScriptDataAttributes: ScriptDataAttributes,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
   SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
@@ -3971,6 +3923,7 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
   Unit: Unit,
+  UnpublishAppResponse: UnpublishAppResponse,
   UpdateActionConnectionRequest: UpdateActionConnectionRequest,
   UpdateActionConnectionResponse: UpdateActionConnectionResponse,
   UpdateAppRequest: UpdateAppRequest,
@@ -3979,7 +3932,6 @@ const typeMap: { [index: string]: any } = {
   UpdateAppResponse: UpdateAppResponse,
   UpdateAppResponseData: UpdateAppResponseData,
   UpdateAppResponseDataAttributes: UpdateAppResponseDataAttributes,
-  UpdateAppResponseRelationship: UpdateAppResponseRelationship,
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
   UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
   UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,

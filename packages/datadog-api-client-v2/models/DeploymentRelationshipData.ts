@@ -3,22 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DeploymentRelationshipDataType } from "./DeploymentRelationshipDataType";
+import { AppDeploymentType } from "./AppDeploymentType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `DeploymentRelationshipData` object.
+ * Data object containing the deployment ID.
  */
 export class DeploymentRelationshipData {
   /**
-   * The `data` `id`.
+   * The deployment ID.
    */
   "id"?: string;
   /**
-   * The definition of `DeploymentRelationshipDataType` object.
+   * The deployment type.
    */
-  "type"?: DeploymentRelationshipDataType;
+  "type"?: AppDeploymentType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,10 +39,11 @@ export class DeploymentRelationshipData {
     id: {
       baseName: "id",
       type: "string",
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "DeploymentRelationshipDataType",
+      type: "AppDeploymentType",
     },
     additionalProperties: {
       baseName: "additionalProperties",

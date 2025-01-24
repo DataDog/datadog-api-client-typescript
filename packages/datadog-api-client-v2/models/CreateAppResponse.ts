@@ -8,11 +8,11 @@ import { CreateAppResponseData } from "./CreateAppResponseData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateAppResponse` object.
+ * The response object after a new app is successfully created, with the app ID.
  */
 export class CreateAppResponse {
   /**
-   * The definition of `CreateAppResponseData` object.
+   * The data object containing the app ID.
    */
   "data"?: CreateAppResponseData;
 
