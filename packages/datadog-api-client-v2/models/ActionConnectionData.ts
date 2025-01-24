@@ -17,7 +17,7 @@ export class ActionConnectionData {
    */
   "attributes": ActionConnectionAttributes;
   /**
-   * The connection identifier
+   * The connection identifier.
    */
   "id"?: string;
   /**

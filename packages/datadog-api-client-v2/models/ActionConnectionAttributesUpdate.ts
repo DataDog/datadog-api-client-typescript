@@ -16,7 +16,7 @@ export class ActionConnectionAttributesUpdate {
    */
   "integration"?: ActionConnectionIntegrationUpdate;
   /**
-   * Name of the connection
+   * Name of the connection.
    */
   "name"?: string;
 

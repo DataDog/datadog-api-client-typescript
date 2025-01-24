@@ -8,7 +8,7 @@ import { ActionConnectionData } from "./ActionConnectionData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The response for found connection
+ * The response for found connection.
  */
 export class GetActionConnectionResponse {
   /**

@@ -1,5 +1,5 @@
 /**
- * Update an existing Action Connection returns "Successfully updated Action Connection" response
+ * Update an existing Action Connection returns "Successfully updated an Action Connection." response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -10,21 +10,21 @@ const apiInstance = new v2.ActionConnectionApi(configuration);
 const params: v2.ActionConnectionApiUpdateActionConnectionRequest = {
   body: {
     data: {
-      type: "action_connection",
       attributes: {
-        name: "Cassette Connection",
         integration: {
-          type: "AWS",
           credentials: {
+            accountId: "111222333444",
+            role: "my-role",
             type: "AWSAssumeRole",
-            role: "MyRoleUpdated",
-            accountId: "123456789123",
           },
+          type: "AWS",
         },
+        name: "My AWS Connection",
       },
+      type: "action_connection",
     },
   },
-  connectionId: "cb460d51-3c88-4e87-adac-d47131d0423d",
+  connectionId: "connection_id",
 };
 
 apiInstance

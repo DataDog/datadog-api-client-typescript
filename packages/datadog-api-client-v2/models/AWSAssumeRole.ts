@@ -12,19 +12,19 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AWSAssumeRole {
   /**
-   * AWS account the connection is created for
+   * AWS account the connection is created for.
    */
   "accountId": string;
   /**
-   * External ID used to scope which connection can be used to assume the role
+   * External ID used to scope which connection can be used to assume the role.
    */
   "externalId"?: string;
   /**
-   * AWS account that will assume the role
+   * AWS account that will assume the role.
    */
   "principalId"?: string;
   /**
-   * Role to assume
+   * Role to assume.
    */
   "role": string;
   /**
