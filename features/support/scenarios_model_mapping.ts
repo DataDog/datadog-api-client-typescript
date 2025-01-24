@@ -5204,6 +5204,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GetSBOMResponse",
     },
+    "v2.GetSignalNotificationRules": {
+        "operationResponseType": "any",
+    },
+    "v2.CreateSignalNotificationRule": {
+        "body": {
+            "type": "CreateNotificationRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.DeleteSignalNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetSignalNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.PatchSignalNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchNotificationRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
     "v2.ListVulnerabilities": {
         "pageToken": {
             "type": "string",
@@ -5366,6 +5401,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ListVulnerabilitiesResponse",
+    },
+    "v2.GetVulnerabilityNotificationRules": {
+        "operationResponseType": "any",
+    },
+    "v2.CreateVulnerabilityNotificationRule": {
+        "body": {
+            "type": "CreateNotificationRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.DeleteVulnerabilityNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetVulnerabilityNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.PatchVulnerabilityNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchNotificationRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
     },
     "v2.ListSecurityFilters": {
         "operationResponseType": "SecurityFiltersResponse",

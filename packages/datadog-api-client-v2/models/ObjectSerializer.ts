@@ -304,6 +304,9 @@ import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
 import { CreateDataDeletionResponseBody } from "./CreateDataDeletionResponseBody";
+import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
+import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
+import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
 import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
@@ -911,6 +914,9 @@ import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
 import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
 import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
 import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
+import { NotificationRule } from "./NotificationRule";
+import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
+import { NotificationRuleResponse } from "./NotificationRuleResponse";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { NullableUserRelationship } from "./NullableUserRelationship";
@@ -966,6 +972,9 @@ import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
 import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttributes";
 import { PartialApplicationKeyResponse } from "./PartialApplicationKeyResponse";
+import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
+import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
+import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificationRuleParametersDataAttributes";
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
@@ -1120,6 +1129,7 @@ import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
 import { RuleAttributes } from "./RuleAttributes";
 import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
+import { RuleUser } from "./RuleUser";
 import { RumMetricCompute } from "./RumMetricCompute";
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricCreateData } from "./RumMetricCreateData";
@@ -1239,6 +1249,7 @@ import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdP
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
+import { Selectors } from "./Selectors";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
 import { SensitiveDataScannerConfigurationData } from "./SensitiveDataScannerConfigurationData";
@@ -1942,6 +1953,7 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
+  NotificationRulesType: ["notification_rules"],
   OktaAccountType: ["okta-accounts"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
@@ -2009,7 +2021,23 @@ const enumsMap: { [key: string]: any[] } = {
     "-user_count",
   ],
   RolesType: ["roles"],
+  RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
   RuleType: ["rule"],
+  RuleTypesItems: [
+    "application_security",
+    "log_detection",
+    "workload_security",
+    "signal_correlation",
+    "cloud_configuration",
+    "infrastructure_configuration",
+    "application_code_vulnerability",
+    "application_library_vulnerability",
+    "attack_path",
+    "container_image_vulnerability",
+    "identity_risk",
+    "misconfiguration",
+    "api_security",
+  ],
   RumMetricComputeAggregationType: ["count", "distribution"],
   RumMetricEventType: [
     "session",
@@ -2245,6 +2273,7 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
+  TriggerSource: ["security_findings", "security_signals"],
   UpdateAppRequestDataType: ["appDefinitions"],
   UpdateAppResponseDataType: ["appDefinitions"],
   UsageTimeSeriesType: ["usage_timeseries"],
@@ -2683,6 +2712,10 @@ const typeMap: { [index: string]: any } = {
     CreateDataDeletionRequestBodyAttributes,
   CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
   CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
+  CreateNotificationRuleParameters: CreateNotificationRuleParameters,
+  CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
+  CreateNotificationRuleParametersDataAttributes:
+    CreateNotificationRuleParametersDataAttributes,
   CreateOpenAPIResponse: CreateOpenAPIResponse,
   CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
   CreateOpenAPIResponseData: CreateOpenAPIResponseData,
@@ -3365,6 +3398,9 @@ const typeMap: { [index: string]: any } = {
   MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
   MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
   MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
+  NotificationRule: NotificationRule,
+  NotificationRuleAttributes: NotificationRuleAttributes,
+  NotificationRuleResponse: NotificationRuleResponse,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   NullableUserRelationship: NullableUserRelationship,
@@ -3421,6 +3457,10 @@ const typeMap: { [index: string]: any } = {
   PartialApplicationKey: PartialApplicationKey,
   PartialApplicationKeyAttributes: PartialApplicationKeyAttributes,
   PartialApplicationKeyResponse: PartialApplicationKeyResponse,
+  PatchNotificationRuleParameters: PatchNotificationRuleParameters,
+  PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,
+  PatchNotificationRuleParametersDataAttributes:
+    PatchNotificationRuleParametersDataAttributes,
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
@@ -3581,6 +3621,7 @@ const typeMap: { [index: string]: any } = {
   RolesResponse: RolesResponse,
   RuleAttributes: RuleAttributes,
   RuleOutcomeRelationships: RuleOutcomeRelationships,
+  RuleUser: RuleUser,
   RumMetricCompute: RumMetricCompute,
   RumMetricCreateAttributes: RumMetricCreateAttributes,
   RumMetricCreateData: RumMetricCreateData,
@@ -3734,6 +3775,7 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringThirdPartyRuleCaseCreate,
   SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
   SecurityMonitoringUser: SecurityMonitoringUser,
+  Selectors: Selectors,
   SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
   SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
   SensitiveDataScannerConfigurationData: SensitiveDataScannerConfigurationData,
