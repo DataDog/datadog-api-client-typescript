@@ -3,27 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AppDefinitionType } from "./AppDefinitionType";
 import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
-import { GetAppResponseDataType } from "./GetAppResponseDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `GetAppResponseData` object.
+ * The data object containing the app definition.
  */
 export class GetAppResponseData {
   /**
-   * The definition of `GetAppResponseDataAttributes` object.
+   * The app definition attributes, such as name, description, and components.
    */
   "attributes": GetAppResponseDataAttributes;
   /**
-   * The `data` `id`.
+   * The ID of the app.
    */
   "id": string;
   /**
-   * The definition of `GetAppResponseDataType` object.
+   * The app definition type.
    */
-  "type": GetAppResponseDataType;
+  "type": AppDefinitionType;
 
   /**
    * A container for additional, undeclared properties.
@@ -50,10 +50,11 @@ export class GetAppResponseData {
       baseName: "id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "GetAppResponseDataType",
+      type: "AppDefinitionType",
       required: true,
     },
     additionalProperties: {

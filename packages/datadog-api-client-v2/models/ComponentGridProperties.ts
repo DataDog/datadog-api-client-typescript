@@ -9,19 +9,19 @@ import { ComponentGridPropertiesIsVisible } from "./ComponentGridPropertiesIsVis
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `ComponentGridProperties` object.
+ * Properties of a grid component.
  */
 export class ComponentGridProperties {
   /**
-   * The `ComponentGridProperties` `backgroundColor`.
+   * The background color of the grid.
    */
   "backgroundColor"?: string;
   /**
-   * The `ComponentGridProperties` `children`.
+   * The child components of the grid.
    */
   "children"?: Array<Component>;
   /**
-   * The definition of `ComponentGridPropertiesIsVisible` object.
+   * Whether the grid component and its children are visible. If a string, it must be a valid JavaScript expression that evaluates to a boolean.
    */
   "isVisible"?: ComponentGridPropertiesIsVisible;
 

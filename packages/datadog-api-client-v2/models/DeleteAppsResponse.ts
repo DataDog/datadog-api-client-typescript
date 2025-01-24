@@ -8,11 +8,11 @@ import { DeleteAppsResponseDataItems } from "./DeleteAppsResponseDataItems";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `DeleteAppsResponse` object.
+ * The response object after multiple apps are successfully deleted.
  */
 export class DeleteAppsResponse {
   /**
-   * The `DeleteAppsResponse` `data`.
+   * An array of objects containing the IDs of the deleted apps.
    */
   "data"?: Array<DeleteAppsResponseDataItems>;
 

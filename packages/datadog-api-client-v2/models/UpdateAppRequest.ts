@@ -8,11 +8,11 @@ import { UpdateAppRequestData } from "./UpdateAppRequestData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `UpdateAppRequest` object.
+ * A request object for updating an existing app.
  */
 export class UpdateAppRequest {
   /**
-   * The definition of `UpdateAppRequestData` object.
+   * The data object containing the new app definition. Any fields not included in the request remain unchanged.
    */
   "data"?: UpdateAppRequestData;
 

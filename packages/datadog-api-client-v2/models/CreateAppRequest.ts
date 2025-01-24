@@ -8,11 +8,11 @@ import { CreateAppRequestData } from "./CreateAppRequestData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateAppRequest` object.
+ * A request object for creating a new app.
  */
 export class CreateAppRequest {
   /**
-   * The definition of `CreateAppRequestData` object.
+   * The data object containing the app definition.
    */
   "data"?: CreateAppRequestData;
 

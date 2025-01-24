@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `ComponentGridType` object.
+ * The grid component type.
  */
 
 export type ComponentGridType = typeof GRID | UnparsedObject;

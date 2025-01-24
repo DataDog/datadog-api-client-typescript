@@ -3,27 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AppDefinitionType } from "./AppDefinitionType";
 import { UpdateAppResponseDataAttributes } from "./UpdateAppResponseDataAttributes";
-import { UpdateAppResponseDataType } from "./UpdateAppResponseDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `UpdateAppResponseData` object.
+ * The data object containing the updated app definition.
  */
 export class UpdateAppResponseData {
   /**
-   * The definition of `UpdateAppResponseDataAttributes` object.
+   * The updated app definition attributes, such as name, description, and components.
    */
   "attributes": UpdateAppResponseDataAttributes;
   /**
-   * The `data` `id`.
+   * The ID of the updated app.
    */
   "id": string;
   /**
-   * The definition of `UpdateAppResponseDataType` object.
+   * The app definition type.
    */
-  "type": UpdateAppResponseDataType;
+  "type": AppDefinitionType;
 
   /**
    * A container for additional, undeclared properties.
@@ -50,10 +50,11 @@ export class UpdateAppResponseData {
       baseName: "id",
       type: "string",
       required: true,
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "UpdateAppResponseDataType",
+      type: "AppDefinitionType",
       required: true,
     },
     additionalProperties: {

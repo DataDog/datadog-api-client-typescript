@@ -2735,14 +2735,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.DeleteApp": {
         "appId": {
             "type": "string",
-            "format": "",
+            "format": "uuid",
             },
         "operationResponseType": "DeleteAppResponse",
     },
     "v2.GetApp": {
         "appId": {
             "type": "string",
-            "format": "",
+            "format": "uuid",
             },
         "version": {
             "type": "string",
@@ -2753,7 +2753,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.UpdateApp": {
         "appId": {
             "type": "string",
-            "format": "",
+            "format": "uuid",
             },
         "body": {
             "type": "UpdateAppRequest",
@@ -2761,19 +2761,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UpdateAppResponse",
     },
-    "v2.DisableApp": {
+    "v2.UnpublishApp": {
         "appId": {
             "type": "string",
-            "format": "",
+            "format": "uuid",
             },
-        "operationResponseType": "DisableAppResponse",
+        "operationResponseType": "UnpublishAppResponse",
     },
-    "v2.DeployApp": {
+    "v2.PublishApp": {
         "appId": {
             "type": "string",
-            "format": "",
+            "format": "uuid",
             },
-        "operationResponseType": "DeployAppResponse",
+        "operationResponseType": "PublishAppResponse",
     },
     "v2.ListAuditLogs": {
         "filterQuery": {

@@ -7,27 +7,27 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `ListAppsResponseDataItemsAttributes` object.
+ * Basic information about the app such as name, description, and tags.
  */
 export class ListAppsResponseDataItemsAttributes {
   /**
-   * The `attributes` `description`.
+   * A human-readable description for the app.
    */
   "description"?: string;
   /**
-   * The `attributes` `favorite`.
+   * Whether the app is marked as a favorite by the current user.
    */
   "favorite"?: boolean;
   /**
-   * The `attributes` `name`.
+   * The name of the app.
    */
   "name"?: string;
   /**
-   * The `attributes` `selfService`.
+   * Whether the app is enabled for use in the Datadog self-service hub.
    */
   "selfService"?: boolean;
   /**
-   * The `attributes` `tags`.
+   * A list of tags for the app, which can be used to filter apps.
    */
   "tags"?: Array<string>;
 

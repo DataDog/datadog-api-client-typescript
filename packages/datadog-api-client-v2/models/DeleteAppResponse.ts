@@ -8,7 +8,7 @@ import { DeleteAppResponseData } from "./DeleteAppResponseData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `DeleteAppResponse` object.
+ * The response object after an app is successfully deleted.
  */
 export class DeleteAppResponse {
   /**

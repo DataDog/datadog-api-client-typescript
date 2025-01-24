@@ -8,11 +8,11 @@ import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `DeleteAppsRequest` object.
+ * A request object for deleting multiple apps by ID.
  */
 export class DeleteAppsRequest {
   /**
-   * The `DeleteAppsRequest` `data`.
+   * An array of objects containing the IDs of the apps to delete.
    */
   "data"?: Array<DeleteAppsRequestDataItems>;
 

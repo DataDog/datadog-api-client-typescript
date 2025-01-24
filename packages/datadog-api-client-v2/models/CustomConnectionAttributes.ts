@@ -8,15 +8,15 @@ import { CustomConnectionAttributesOnPremRunner } from "./CustomConnectionAttrib
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CustomConnectionAttributes` object.
+ * The custom connection attributes.
  */
 export class CustomConnectionAttributes {
   /**
-   * The `attributes` `name`.
+   * The name of the custom connection.
    */
   "name"?: string;
   /**
-   * The definition of `CustomConnectionAttributesOnPremRunner` object.
+   * Information about the Private Action Runner used by the custom connection, if the custom connection is associated with a Private Action Runner.
    */
   "onPremRunner"?: CustomConnectionAttributesOnPremRunner;
 

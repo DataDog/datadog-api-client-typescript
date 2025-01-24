@@ -9,19 +9,19 @@ import { CustomConnectionType } from "./CustomConnectionType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CustomConnection` object.
+ * A custom connection used by an app.
  */
 export class CustomConnection {
   /**
-   * The definition of `CustomConnectionAttributes` object.
+   * The custom connection attributes.
    */
   "attributes"?: CustomConnectionAttributes;
   /**
-   * The `CustomConnection` `id`.
+   * The ID of the custom connection.
    */
   "id"?: string;
   /**
-   * The definition of `CustomConnectionType` object.
+   * The custom connection type.
    */
   "type"?: CustomConnectionType;
 
@@ -48,6 +48,7 @@ export class CustomConnection {
     id: {
       baseName: "id",
       type: "string",
+      format: "uuid",
     },
     type: {
       baseName: "type",

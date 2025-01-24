@@ -4,46 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ComponentGrid } from "./ComponentGrid";
-import { InputSchema } from "./InputSchema";
 import { Query } from "./Query";
-import { Script } from "./Script";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `CreateAppRequestDataAttributes` object.
+ * App definition attributes such as name, description, and components.
  */
 export class CreateAppRequestDataAttributes {
   /**
-   * The `attributes` `components`.
+   * The UI components that make up the app.
    */
   "components"?: Array<ComponentGrid>;
   /**
-   * The `attributes` `description`.
+   * A human-readable description for the app.
    */
   "description"?: string;
   /**
-   * The `attributes` `embeddedQueries`.
+   * An array of queries, such as external actions and state variables, that the app uses.
    */
   "embeddedQueries"?: Array<Query>;
   /**
-   * The definition of `InputSchema` object.
-   */
-  "inputSchema"?: InputSchema;
-  /**
-   * The `attributes` `name`.
+   * The name of the app.
    */
   "name"?: string;
   /**
-   * The `attributes` `rootInstanceName`.
+   * The name of the root component of the app. This must be a `grid` component that contains all other components.
    */
   "rootInstanceName"?: string;
   /**
-   * The `attributes` `scripts`.
-   */
-  "scripts"?: Array<Script>;
-  /**
-   * The `attributes` `tags`.
+   * A list of tags for the app, which can be used to filter apps.
    */
   "tags"?: Array<string>;
 
@@ -75,10 +65,6 @@ export class CreateAppRequestDataAttributes {
       baseName: "embeddedQueries",
       type: "Array<Query>",
     },
-    inputSchema: {
-      baseName: "inputSchema",
-      type: "InputSchema",
-    },
     name: {
       baseName: "name",
       type: "string",
@@ -86,10 +72,6 @@ export class CreateAppRequestDataAttributes {
     rootInstanceName: {
       baseName: "rootInstanceName",
       type: "string",
-    },
-    scripts: {
-      baseName: "scripts",
-      type: "Array<Script>",
     },
     tags: {
       baseName: "tags",
