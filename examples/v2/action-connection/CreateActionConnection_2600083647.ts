@@ -1,5 +1,5 @@
 /**
- * Create a new Action Connection returns "Successfully created an Action Connection." response
+ * Create a new Action Connection returns "Successfully created Action Connection" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -10,18 +10,18 @@ const apiInstance = new v2.ActionConnectionApi(configuration);
 const params: v2.ActionConnectionApiCreateActionConnectionRequest = {
   body: {
     data: {
-      attributes: {
-        integration: {
-          credentials: {
-            accountId: "111222333444",
-            role: "my-role",
-            type: "AWSAssumeRole",
-          },
-          type: "AWS",
-        },
-        name: "My AWS Connection",
-      },
       type: "action_connection",
+      attributes: {
+        name: "Cassette Connection DELETE_ME",
+        integration: {
+          type: "AWS",
+          credentials: {
+            type: "AWSAssumeRole",
+            role: "MyRoleUpdated",
+            accountId: "123456789123",
+          },
+        },
+      },
     },
   },
 };

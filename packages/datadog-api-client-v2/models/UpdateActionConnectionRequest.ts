@@ -8,7 +8,7 @@ import { ActionConnectionDataUpdate } from "./ActionConnectionDataUpdate";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request used to update an action connection.
+ * Request used to update an Action Connection.
  */
 export class UpdateActionConnectionRequest {
   /**

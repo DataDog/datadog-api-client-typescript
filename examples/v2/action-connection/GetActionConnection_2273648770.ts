@@ -1,5 +1,5 @@
 /**
- * Get an existing Action Connection returns "Successfully got an Action Connection." response
+ * Get an existing Action Connection returns "Successfully get Action Connection" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.ActionConnectionApi(configuration);
 
 const params: v2.ActionConnectionApiGetActionConnectionRequest = {
-  connectionId: "connection_id",
+  connectionId: "cb460d51-3c88-4e87-adac-d47131d0423d",
 };
 
 apiInstance

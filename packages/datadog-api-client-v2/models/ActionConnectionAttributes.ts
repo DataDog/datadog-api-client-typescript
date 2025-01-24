@@ -16,7 +16,7 @@ export class ActionConnectionAttributes {
    */
   "integration": ActionConnectionIntegration;
   /**
-   * Name of the connection
+   * Name of the connection.
    */
   "name": string;
 

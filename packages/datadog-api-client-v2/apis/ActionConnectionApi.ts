@@ -451,7 +451,7 @@ export interface ActionConnectionApiCreateActionConnectionRequest {
 
 export interface ActionConnectionApiDeleteActionConnectionRequest {
   /**
-   * The ID of the action connection
+   * The ID of the Action Connection.
    * @type string
    */
   connectionId: string;
@@ -459,7 +459,7 @@ export interface ActionConnectionApiDeleteActionConnectionRequest {
 
 export interface ActionConnectionApiGetActionConnectionRequest {
   /**
-   * The ID of the action connection
+   * The ID of the Action Connection.
    * @type string
    */
   connectionId: string;
@@ -467,12 +467,12 @@ export interface ActionConnectionApiGetActionConnectionRequest {
 
 export interface ActionConnectionApiUpdateActionConnectionRequest {
   /**
-   * The ID of the action connection
+   * The ID of the Action Connection.
    * @type string
    */
   connectionId: string;
   /**
-   * Update an existing Action Connection request body
+   * Update an existing Action Connection request body.
    * @type UpdateActionConnectionRequest
    */
   body: UpdateActionConnectionRequest;
@@ -496,7 +496,7 @@ export class ActionConnectionApi {
   }
 
   /**
-   * Create a new Action Connection
+   * Create a new Action Connection.
    * @param param The request object
    */
   public createActionConnection(
@@ -517,7 +517,7 @@ export class ActionConnectionApi {
   }
 
   /**
-   * Delete an existing Action Connection
+   * Delete an existing Action Connection.
    * @param param The request object
    */
   public deleteActionConnection(
@@ -538,7 +538,7 @@ export class ActionConnectionApi {
   }
 
   /**
-   * Get an existing Action Connection
+   * Get an existing Action Connection.
    * @param param The request object
    */
   public getActionConnection(

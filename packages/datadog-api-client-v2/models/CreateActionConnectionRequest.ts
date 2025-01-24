@@ -8,7 +8,7 @@ import { ActionConnectionData } from "./ActionConnectionData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request used to create an action connection.
+ * Request used to create an Action Connection.
  */
 export class CreateActionConnectionRequest {
   /**

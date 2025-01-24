@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class HTTPIntegrationUpdate {
   /**
-   * Base HTTP url for the integration
+   * Base HTTP url for the integration.
    */
   "baseUrl"?: string;
   /**
