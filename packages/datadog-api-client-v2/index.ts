@@ -460,10 +460,14 @@ export {
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
+  SecurityMonitoringApiCreateSignalNotificationRuleRequest,
+  SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiDeleteHistoricalJobRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
+  SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
+  SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
@@ -474,6 +478,8 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
+  SecurityMonitoringApiGetSignalNotificationRuleRequest,
+  SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListHistoricalJobsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
@@ -481,6 +487,8 @@ export {
   SecurityMonitoringApiListVulnerabilitiesRequest,
   SecurityMonitoringApiListVulnerableAssetsRequest,
   SecurityMonitoringApiMuteFindingsRequest,
+  SecurityMonitoringApiPatchSignalNotificationRuleRequest,
+  SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
   SecurityMonitoringApiRunHistoricalJobRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
@@ -1029,6 +1037,9 @@ export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDele
 export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
 export { CreateDataDeletionRequestBodyDataType } from "./models/CreateDataDeletionRequestBodyDataType";
 export { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
+export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
+export { CreateNotificationRuleParametersData } from "./models/CreateNotificationRuleParametersData";
+export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateNotificationRuleParametersDataAttributes";
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
 export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
@@ -1627,6 +1638,8 @@ export { LogsArchiveDestinationGCS } from "./models/LogsArchiveDestinationGCS";
 export { LogsArchiveDestinationGCSType } from "./models/LogsArchiveDestinationGCSType";
 export { LogsArchiveDestinationS3 } from "./models/LogsArchiveDestinationS3";
 export { LogsArchiveDestinationS3Type } from "./models/LogsArchiveDestinationS3Type";
+export { LogsArchiveEncryptionS3 } from "./models/LogsArchiveEncryptionS3";
+export { LogsArchiveEncryptionS3Type } from "./models/LogsArchiveEncryptionS3Type";
 export { LogsArchiveIntegrationAzure } from "./models/LogsArchiveIntegrationAzure";
 export { LogsArchiveIntegrationGCS } from "./models/LogsArchiveIntegrationGCS";
 export { LogsArchiveIntegrationS3 } from "./models/LogsArchiveIntegrationS3";
@@ -1808,6 +1821,10 @@ export { MonthlyCostAttributionPagination } from "./models/MonthlyCostAttributio
 export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
 export { MSTeamsIntegrationMetadata } from "./models/MSTeamsIntegrationMetadata";
 export { MSTeamsIntegrationMetadataTeamsItem } from "./models/MSTeamsIntegrationMetadataTeamsItem";
+export { NotificationRule } from "./models/NotificationRule";
+export { NotificationRuleAttributes } from "./models/NotificationRuleAttributes";
+export { NotificationRuleResponse } from "./models/NotificationRuleResponse";
+export { NotificationRulesType } from "./models/NotificationRulesType";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";
@@ -1872,6 +1889,9 @@ export { PartialAPIKeyAttributes } from "./models/PartialAPIKeyAttributes";
 export { PartialApplicationKey } from "./models/PartialApplicationKey";
 export { PartialApplicationKeyAttributes } from "./models/PartialApplicationKeyAttributes";
 export { PartialApplicationKeyResponse } from "./models/PartialApplicationKeyResponse";
+export { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleParameters";
+export { PatchNotificationRuleParametersData } from "./models/PatchNotificationRuleParametersData";
+export { PatchNotificationRuleParametersDataAttributes } from "./models/PatchNotificationRuleParametersDataAttributes";
 export { Permission } from "./models/Permission";
 export { PermissionAttributes } from "./models/PermissionAttributes";
 export { PermissionsResponse } from "./models/PermissionsResponse";
@@ -2006,7 +2026,10 @@ export { RoleUpdateResponse } from "./models/RoleUpdateResponse";
 export { RoleUpdateResponseData } from "./models/RoleUpdateResponseData";
 export { RuleAttributes } from "./models/RuleAttributes";
 export { RuleOutcomeRelationships } from "./models/RuleOutcomeRelationships";
+export { RuleSeverity } from "./models/RuleSeverity";
 export { RuleType } from "./models/RuleType";
+export { RuleTypesItems } from "./models/RuleTypesItems";
+export { RuleUser } from "./models/RuleUser";
 export { RUMAggregateBucketValue } from "./models/RUMAggregateBucketValue";
 export { RUMAggregateBucketValueTimeseriesPoint } from "./models/RUMAggregateBucketValueTimeseriesPoint";
 export { RUMAggregateRequest } from "./models/RUMAggregateRequest";
@@ -2213,6 +2236,7 @@ export { SecurityMonitoringThirdPartyRuleCase } from "./models/SecurityMonitorin
 export { SecurityMonitoringThirdPartyRuleCaseCreate } from "./models/SecurityMonitoringThirdPartyRuleCaseCreate";
 export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageUser";
 export { SecurityMonitoringUser } from "./models/SecurityMonitoringUser";
+export { Selectors } from "./models/Selectors";
 export { SensitiveDataScannerConfigRequest } from "./models/SensitiveDataScannerConfigRequest";
 export { SensitiveDataScannerConfiguration } from "./models/SensitiveDataScannerConfiguration";
 export { SensitiveDataScannerConfigurationData } from "./models/SensitiveDataScannerConfigurationData";
@@ -2453,6 +2477,7 @@ export { TimeseriesResponse } from "./models/TimeseriesResponse";
 export { TimeseriesResponseAttributes } from "./models/TimeseriesResponseAttributes";
 export { TimeseriesResponseSeries } from "./models/TimeseriesResponseSeries";
 export { TokenType } from "./models/TokenType";
+export { TriggerSource } from "./models/TriggerSource";
 export { Unit } from "./models/Unit";
 export { UpdateActionConnectionRequest } from "./models/UpdateActionConnectionRequest";
 export { UpdateActionConnectionResponse } from "./models/UpdateActionConnectionResponse";

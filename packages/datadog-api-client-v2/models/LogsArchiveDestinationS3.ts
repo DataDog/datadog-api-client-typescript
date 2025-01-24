@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { LogsArchiveDestinationS3Type } from "./LogsArchiveDestinationS3Type";
+import { LogsArchiveEncryptionS3 } from "./LogsArchiveEncryptionS3";
 import { LogsArchiveIntegrationS3 } from "./LogsArchiveIntegrationS3";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -16,6 +17,10 @@ export class LogsArchiveDestinationS3 {
    * The bucket where the archive will be stored.
    */
   "bucket": string;
+  /**
+   * The S3 encryption settings.
+   */
+  "encryption"?: LogsArchiveEncryptionS3;
   /**
    * The S3 Archive's integration destination.
    */
@@ -49,6 +54,10 @@ export class LogsArchiveDestinationS3 {
       baseName: "bucket",
       type: "string",
       required: true,
+    },
+    encryption: {
+      baseName: "encryption",
+      type: "LogsArchiveEncryptionS3",
     },
     integration: {
       baseName: "integration",

@@ -21,6 +21,7 @@ import { AssetType } from "../models/AssetType";
 import { BulkMuteFindingsRequest } from "../models/BulkMuteFindingsRequest";
 import { BulkMuteFindingsResponse } from "../models/BulkMuteFindingsResponse";
 import { ConvertJobResultsToSignalsRequest } from "../models/ConvertJobResultsToSignalsRequest";
+import { CreateNotificationRuleParameters } from "../models/CreateNotificationRuleParameters";
 import { Finding } from "../models/Finding";
 import { FindingEvaluation } from "../models/FindingEvaluation";
 import { FindingStatus } from "../models/FindingStatus";
@@ -34,6 +35,8 @@ import { ListFindingsResponse } from "../models/ListFindingsResponse";
 import { ListHistoricalJobsResponse } from "../models/ListHistoricalJobsResponse";
 import { ListVulnerabilitiesResponse } from "../models/ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "../models/ListVulnerableAssetsResponse";
+import { NotificationRuleResponse } from "../models/NotificationRuleResponse";
+import { PatchNotificationRuleParameters } from "../models/PatchNotificationRuleParameters";
 import { RunHistoricalJobRequest } from "../models/RunHistoricalJobRequest";
 import { SecurityFilterCreateRequest } from "../models/SecurityFilterCreateRequest";
 import { SecurityFilterResponse } from "../models/SecurityFilterResponse";
@@ -385,6 +388,90 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createSignalNotificationRule(
+    body: CreateNotificationRuleParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createSignalNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/signals/notification_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createSignalNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateNotificationRuleParameters", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createVulnerabilityNotificationRule(
+    body: CreateNotificationRuleParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createVulnerabilityNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/vulnerabilities/notification_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createVulnerabilityNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateNotificationRuleParameters", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteHistoricalJob(
     jobId: string,
     _options?: Configuration
@@ -518,6 +605,76 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.SecurityMonitoringApi.deleteSecurityMonitoringSuppression")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteSignalNotificationRule(
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deleteSignalNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/signals/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.deleteSignalNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteVulnerabilityNotificationRule(
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "deleteVulnerabilityNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.deleteVulnerabilityNotificationRule")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -986,6 +1143,126 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.SecurityMonitoringApi.getSecurityMonitoringSuppression")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSignalNotificationRule(
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "getSignalNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/signals/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSignalNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getSignalNotificationRules(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/security/signals/notification_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSignalNotificationRules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getVulnerabilityNotificationRule(
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "getVulnerabilityNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getVulnerabilityNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getVulnerabilityNotificationRules(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/security/vulnerabilities/notification_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getVulnerabilityNotificationRules")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1990,6 +2267,110 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async patchSignalNotificationRule(
+    id: string,
+    body: PatchNotificationRuleParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "patchSignalNotificationRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "patchSignalNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/signals/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.patchSignalNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "PatchNotificationRuleParameters", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async patchVulnerabilityNotificationRule(
+    id: string,
+    body: PatchNotificationRuleParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError("id", "patchVulnerabilityNotificationRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "patchVulnerabilityNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.patchVulnerabilityNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "PatchNotificationRuleParameters", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async runHistoricalJob(
     body: RunHistoricalJobRequest,
     _options?: Configuration
@@ -2830,6 +3211,130 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createSignalNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSignalNotificationRule(
+    response: ResponseContext
+  ): Promise<NotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
+      ) as NotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse",
+        ""
+      ) as NotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createVulnerabilityNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createVulnerabilityNotificationRule(
+    response: ResponseContext
+  ): Promise<NotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
+      ) as NotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse",
+        ""
+      ) as NotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteHistoricalJob
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3007,6 +3512,122 @@ export class SecurityMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteSecurityMonitoringSuppression(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteSignalNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSignalNotificationRule(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteVulnerabilityNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteVulnerabilityNotificationRule(
     response: ResponseContext
   ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -3712,6 +4333,248 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSignalNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSignalNotificationRule(
+    response: ResponseContext
+  ): Promise<NotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
+      ) as NotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse",
+        ""
+      ) as NotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getSignalNotificationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSignalNotificationRules(
+    response: ResponseContext
+  ): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any"
+      ) as any;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any",
+        ""
+      ) as any;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getVulnerabilityNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getVulnerabilityNotificationRule(
+    response: ResponseContext
+  ): Promise<NotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
+      ) as NotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse",
+        ""
+      ) as NotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getVulnerabilityNotificationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getVulnerabilityNotificationRules(
+    response: ResponseContext
+  ): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any"
+      ) as any;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any",
+        ""
+      ) as any;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listFindings
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4319,6 +5182,178 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to patchSignalNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async patchSignalNotificationRule(
+    response: ResponseContext
+  ): Promise<NotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
+      ) as NotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse",
+        ""
+      ) as NotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to patchVulnerabilityNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async patchVulnerabilityNotificationRule(
+    response: ResponseContext
+  ): Promise<NotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse"
+      ) as NotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "NotificationRuleResponse",
+        ""
+      ) as NotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to runHistoricalJob
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4881,6 +5916,24 @@ export interface SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest
   body: SecurityMonitoringSuppressionCreateRequest;
 }
 
+export interface SecurityMonitoringApiCreateSignalNotificationRuleRequest {
+  /**
+   * The body of the create notification rule request is composed of the rule type and the rule attributes:
+   * the rule name, the selectors, the notification targets, and the rule enabled status.
+   * @type CreateNotificationRuleParameters
+   */
+  body: CreateNotificationRuleParameters;
+}
+
+export interface SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest {
+  /**
+   * The body of the create notification rule request is composed of the rule type and the rule attributes:
+   * the rule name, the selectors, the notification targets, and the rule enabled status.
+   * @type CreateNotificationRuleParameters
+   */
+  body: CreateNotificationRuleParameters;
+}
+
 export interface SecurityMonitoringApiDeleteHistoricalJobRequest {
   /**
    * The ID of the job.
@@ -4911,6 +5964,22 @@ export interface SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest
    * @type string
    */
   suppressionId: string;
+}
+
+export interface SecurityMonitoringApiDeleteSignalNotificationRuleRequest {
+  /**
+   * ID of the notification rule.
+   * @type string
+   */
+  id: string;
+}
+
+export interface SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest {
+  /**
+   * ID of the notification rule.
+   * @type string
+   */
+  id: string;
 }
 
 export interface SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest {
@@ -5021,6 +6090,22 @@ export interface SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest {
    * @type string
    */
   suppressionId: string;
+}
+
+export interface SecurityMonitoringApiGetSignalNotificationRuleRequest {
+  /**
+   * ID of the notification rule.
+   * @type string
+   */
+  id: string;
+}
+
+export interface SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest {
+  /**
+   * ID of the notification rule.
+   * @type string
+   */
+  id: string;
 }
 
 export interface SecurityMonitoringApiListFindingsRequest {
@@ -5463,6 +6548,30 @@ export interface SecurityMonitoringApiMuteFindingsRequest {
   body: BulkMuteFindingsRequest;
 }
 
+export interface SecurityMonitoringApiPatchSignalNotificationRuleRequest {
+  /**
+   * ID of the notification rule.
+   * @type string
+   */
+  id: string;
+  /**
+   * @type PatchNotificationRuleParameters
+   */
+  body: PatchNotificationRuleParameters;
+}
+
+export interface SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest {
+  /**
+   * ID of the notification rule.
+   * @type string
+   */
+  id: string;
+  /**
+   * @type PatchNotificationRuleParameters
+   */
+  body: PatchNotificationRuleParameters;
+}
+
 export interface SecurityMonitoringApiRunHistoricalJobRequest {
   /**
    * @type RunHistoricalJobRequest
@@ -5722,6 +6831,51 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Create a new notification rule for security signals and return the created rule.
+   * @param param The request object
+   */
+  public createSignalNotificationRule(
+    param: SecurityMonitoringApiCreateSignalNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<NotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSignalNotificationRule(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSignalNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a new notification rule for security vulnerabilities and return the created rule.
+   * @param param The request object
+   */
+  public createVulnerabilityNotificationRule(
+    param: SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<NotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createVulnerabilityNotificationRule(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createVulnerabilityNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete an existing job.
    * @param param The request object
    */
@@ -5802,6 +6956,51 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteSecurityMonitoringSuppression(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a notification rule for security signals.
+   * @param param The request object
+   */
+  public deleteSignalNotificationRule(
+    param: SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSignalNotificationRule(param.id, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSignalNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a notification rule for security vulnerabilities.
+   * @param param The request object
+   */
+  public deleteVulnerabilityNotificationRule(
+    param: SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteVulnerabilityNotificationRule(
+        param.id,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteVulnerabilityNotificationRule(
             responseContext
           );
         });
@@ -6035,6 +7234,88 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSecurityMonitoringSuppression(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the details of a notification rule for security signals.
+   * @param param The request object
+   */
+  public getSignalNotificationRule(
+    param: SecurityMonitoringApiGetSignalNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<NotificationRuleResponse> {
+    const requestContextPromise = this.requestFactory.getSignalNotificationRule(
+      param.id,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSignalNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Returns the list of notification rules for security signals.
+   * @param param The request object
+   */
+  public getSignalNotificationRules(options?: Configuration): Promise<any> {
+    const requestContextPromise =
+      this.requestFactory.getSignalNotificationRules(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSignalNotificationRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the details of a notification rule for security vulnerabilities.
+   * @param param The request object
+   */
+  public getVulnerabilityNotificationRule(
+    param: SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<NotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getVulnerabilityNotificationRule(param.id, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getVulnerabilityNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Returns the list of notification rules for security vulnerabilities.
+   * @param param The request object
+   */
+  public getVulnerabilityNotificationRules(
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise =
+      this.requestFactory.getVulnerabilityNotificationRules(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getVulnerabilityNotificationRules(
             responseContext
           );
         });
@@ -6550,6 +7831,56 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.muteFindings(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Partially update the notification rule. All fields are optional; if a field is not provided, it is not updated.
+   * @param param The request object
+   */
+  public patchSignalNotificationRule(
+    param: SecurityMonitoringApiPatchSignalNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<NotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.patchSignalNotificationRule(
+        param.id,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.patchSignalNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Partially update the notification rule. All fields are optional; if a field is not provided, it is not updated.
+   * @param param The request object
+   */
+  public patchVulnerabilityNotificationRule(
+    param: SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<NotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.patchVulnerabilityNotificationRule(
+        param.id,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.patchVulnerabilityNotificationRule(
+            responseContext
+          );
         });
     });
   }
