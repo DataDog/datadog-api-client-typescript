@@ -21,6 +21,8 @@ import { AssetType } from "../models/AssetType";
 import { BulkMuteFindingsRequest } from "../models/BulkMuteFindingsRequest";
 import { BulkMuteFindingsResponse } from "../models/BulkMuteFindingsResponse";
 import { ConvertJobResultsToSignalsRequest } from "../models/ConvertJobResultsToSignalsRequest";
+import { CreateInboxRuleParameters } from "../models/CreateInboxRuleParameters";
+import { CreateMuteRuleParameters } from "../models/CreateMuteRuleParameters";
 import { CreateNotificationRuleParameters } from "../models/CreateNotificationRuleParameters";
 import { Finding } from "../models/Finding";
 import { FindingEvaluation } from "../models/FindingEvaluation";
@@ -29,14 +31,20 @@ import { FindingVulnerabilityType } from "../models/FindingVulnerabilityType";
 import { GetFindingResponse } from "../models/GetFindingResponse";
 import { GetSBOMResponse } from "../models/GetSBOMResponse";
 import { HistoricalJobResponse } from "../models/HistoricalJobResponse";
+import { InboxRuleResponse } from "../models/InboxRuleResponse";
 import { JobCreateResponse } from "../models/JobCreateResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListFindingsResponse } from "../models/ListFindingsResponse";
 import { ListHistoricalJobsResponse } from "../models/ListHistoricalJobsResponse";
 import { ListVulnerabilitiesResponse } from "../models/ListVulnerabilitiesResponse";
 import { ListVulnerableAssetsResponse } from "../models/ListVulnerableAssetsResponse";
+import { MuteRuleResponse } from "../models/MuteRuleResponse";
 import { NotificationRuleResponse } from "../models/NotificationRuleResponse";
+import { PatchInboxRulesParameters } from "../models/PatchInboxRulesParameters";
+import { PatchMuteRuleParameters } from "../models/PatchMuteRuleParameters";
 import { PatchNotificationRuleParameters } from "../models/PatchNotificationRuleParameters";
+import { ReorderInboxRulesParameters } from "../models/ReorderInboxRulesParameters";
+import { ReorderMuteRulesParameters } from "../models/ReorderMuteRulesParameters";
 import { RunHistoricalJobRequest } from "../models/RunHistoricalJobRequest";
 import { SecurityFilterCreateRequest } from "../models/SecurityFilterCreateRequest";
 import { SecurityFilterResponse } from "../models/SecurityFilterResponse";
@@ -65,6 +73,8 @@ import { SecurityMonitoringSuppressionCreateRequest } from "../models/SecurityMo
 import { SecurityMonitoringSuppressionResponse } from "../models/SecurityMonitoringSuppressionResponse";
 import { SecurityMonitoringSuppressionsResponse } from "../models/SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringSuppressionUpdateRequest } from "../models/SecurityMonitoringSuppressionUpdateRequest";
+import { UpdateInboxRuleParameters } from "../models/UpdateInboxRuleParameters";
+import { UpdateMuteRuleParameters } from "../models/UpdateMuteRuleParameters";
 import { VulnerabilityEcosystem } from "../models/VulnerabilityEcosystem";
 import { VulnerabilitySeverity } from "../models/VulnerabilitySeverity";
 import { VulnerabilityStatus } from "../models/VulnerabilityStatus";
@@ -238,6 +248,92 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringRuleConvertPayload",
         ""
       ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createInboxRule(
+    body: CreateInboxRuleParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createInboxRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/inbox_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createInboxRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateInboxRuleParameters", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createMuteRule(
+    body: CreateMuteRuleParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createMuteRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/mute_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createMuteRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateMuteRuleParameters", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -498,6 +594,76 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.SecurityMonitoringApi.deleteHistoricalJob")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteInboxRule(
+    inboxRuleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'inboxRuleId' is not null or undefined
+    if (inboxRuleId === null || inboxRuleId === undefined) {
+      throw new RequiredError("inboxRuleId", "deleteInboxRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}".replace(
+        "{inbox_rule_id}",
+        encodeURIComponent(String(inboxRuleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.deleteInboxRule")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteMuteRule(
+    muteRuleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'muteRuleId' is not null or undefined
+    if (muteRuleId === null || muteRuleId === undefined) {
+      throw new RequiredError("muteRuleId", "deleteMuteRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}".replace(
+        "{mute_rule_id}",
+        encodeURIComponent(String(muteRuleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.deleteMuteRule")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -940,6 +1106,126 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.SecurityMonitoringApi.getHistoricalJob")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getInboxRule(
+    inboxRuleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'inboxRuleId' is not null or undefined
+    if (inboxRuleId === null || inboxRuleId === undefined) {
+      throw new RequiredError("inboxRuleId", "getInboxRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}".replace(
+        "{inbox_rule_id}",
+        encodeURIComponent(String(inboxRuleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getInboxRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getInboxRules(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/inbox_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getInboxRules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getMuteRule(
+    muteRuleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'muteRuleId' is not null or undefined
+    if (muteRuleId === null || muteRuleId === undefined) {
+      throw new RequiredError("muteRuleId", "getMuteRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}".replace(
+        "{mute_rule_id}",
+        encodeURIComponent(String(muteRuleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getMuteRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getMuteRules(_options?: Configuration): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/mute_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getMuteRules")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -2267,6 +2553,110 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async patchInboxRule(
+    inboxRuleId: string,
+    body: PatchInboxRulesParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'inboxRuleId' is not null or undefined
+    if (inboxRuleId === null || inboxRuleId === undefined) {
+      throw new RequiredError("inboxRuleId", "patchInboxRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "patchInboxRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}".replace(
+        "{inbox_rule_id}",
+        encodeURIComponent(String(inboxRuleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.patchInboxRule")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "PatchInboxRulesParameters", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async patchMuteRule(
+    muteRuleId: string,
+    body: PatchMuteRuleParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'muteRuleId' is not null or undefined
+    if (muteRuleId === null || muteRuleId === undefined) {
+      throw new RequiredError("muteRuleId", "patchMuteRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "patchMuteRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}".replace(
+        "{mute_rule_id}",
+        encodeURIComponent(String(muteRuleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.patchMuteRule")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "PatchMuteRuleParameters", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async patchSignalNotificationRule(
     id: string,
     body: PatchNotificationRuleParameters,
@@ -2357,6 +2747,92 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "PatchNotificationRuleParameters", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async reorderInboxRules(
+    body: ReorderInboxRulesParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "reorderInboxRules");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/inbox_rules/reorder";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.reorderInboxRules")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "ReorderInboxRulesParameters", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async reorderMuteRules(
+    body: ReorderMuteRulesParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "reorderMuteRules");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/mute_rules/reorder";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.reorderMuteRules")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "ReorderMuteRulesParameters", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -2539,6 +3015,110 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SecurityMonitoringRuleTestRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateInboxRule(
+    inboxRuleId: string,
+    body: UpdateInboxRuleParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'inboxRuleId' is not null or undefined
+    if (inboxRuleId === null || inboxRuleId === undefined) {
+      throw new RequiredError("inboxRuleId", "updateInboxRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateInboxRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}".replace(
+        "{inbox_rule_id}",
+        encodeURIComponent(String(inboxRuleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.updateInboxRule")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UpdateInboxRuleParameters", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateMuteRule(
+    muteRuleId: string,
+    body: UpdateMuteRuleParameters,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'muteRuleId' is not null or undefined
+    if (muteRuleId === null || muteRuleId === undefined) {
+      throw new RequiredError("muteRuleId", "updateMuteRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateMuteRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}".replace(
+        "{mute_rule_id}",
+        encodeURIComponent(String(muteRuleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.updateMuteRule")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UpdateMuteRuleParameters", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -3021,6 +3601,130 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createInboxRule(
+    response: ResponseContext
+  ): Promise<InboxRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse"
+      ) as InboxRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse",
+        ""
+      ) as InboxRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createMuteRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createMuteRule(
+    response: ResponseContext
+  ): Promise<MuteRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse"
+      ) as MuteRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse",
+        ""
+      ) as MuteRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3351,6 +4055,118 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteInboxRule(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteMuteRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteMuteRule(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
@@ -3992,6 +4808,244 @@ export class SecurityMonitoringApiResponseProcessor {
         "HistoricalJobResponse",
         ""
       ) as HistoricalJobResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getInboxRule(
+    response: ResponseContext
+  ): Promise<InboxRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse"
+      ) as InboxRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse",
+        ""
+      ) as InboxRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getInboxRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getInboxRules(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any"
+      ) as any;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any",
+        ""
+      ) as any;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getMuteRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getMuteRule(
+    response: ResponseContext
+  ): Promise<MuteRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse"
+      ) as MuteRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse",
+        ""
+      ) as MuteRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getMuteRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getMuteRules(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any"
+      ) as any;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any",
+        ""
+      ) as any;
       return body;
     }
 
@@ -5182,6 +6236,178 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to patchInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async patchInboxRule(
+    response: ResponseContext
+  ): Promise<InboxRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse"
+      ) as InboxRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse",
+        ""
+      ) as InboxRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to patchMuteRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async patchMuteRule(
+    response: ResponseContext
+  ): Promise<MuteRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse"
+      ) as MuteRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse",
+        ""
+      ) as MuteRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to patchSignalNotificationRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -5340,6 +6566,126 @@ export class SecurityMonitoringApiResponseProcessor {
         "NotificationRuleResponse",
         ""
       ) as NotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to reorderInboxRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async reorderInboxRules(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any"
+      ) as any;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any",
+        ""
+      ) as any;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to reorderMuteRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async reorderMuteRules(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any"
+      ) as any;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any",
+        ""
+      ) as any;
       return body;
     }
 
@@ -5600,6 +6946,178 @@ export class SecurityMonitoringApiResponseProcessor {
           "SecurityMonitoringRuleTestResponse",
           ""
         ) as SecurityMonitoringRuleTestResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateInboxRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateInboxRule(
+    response: ResponseContext
+  ): Promise<InboxRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse"
+      ) as InboxRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: InboxRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "InboxRuleResponse",
+        ""
+      ) as InboxRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateMuteRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateMuteRule(
+    response: ResponseContext
+  ): Promise<MuteRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse"
+      ) as MuteRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 422) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MuteRuleResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MuteRuleResponse",
+        ""
+      ) as MuteRuleResponse;
       return body;
     }
 
@@ -5893,6 +7411,26 @@ export interface SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTer
   body: SecurityMonitoringRuleConvertPayload;
 }
 
+export interface SecurityMonitoringApiCreateInboxRuleRequest {
+  /**
+   * Mandatory fields are the rule type and the required attributes: rule name, rule details, and action.
+   * The rule details are composed of issue types and security rule types on which the rule applies. Optional security rule IDs, severities, and a tag or attribute query can be provided.
+   * The action is composed of the optional reason description.
+   * @type CreateInboxRuleParameters
+   */
+  body: CreateInboxRuleParameters;
+}
+
+export interface SecurityMonitoringApiCreateMuteRuleRequest {
+  /**
+   * Mandatory fields are the rule type and the required attributes: rule name, rule details, and action.
+   * The rule details are composed of issue types and security rule types on which the rule applies. Optional security rule IDs, severities, and a tag or attribute query can be provided.
+   * The action is composed of the reason for muting and the rule expiration date, and optionally a description of the rule.
+   * @type CreateMuteRuleParameters
+   */
+  body: CreateMuteRuleParameters;
+}
+
 export interface SecurityMonitoringApiCreateSecurityFilterRequest {
   /**
    * The definition of the new security filter.
@@ -5940,6 +7478,22 @@ export interface SecurityMonitoringApiDeleteHistoricalJobRequest {
    * @type string
    */
   jobId: string;
+}
+
+export interface SecurityMonitoringApiDeleteInboxRuleRequest {
+  /**
+   * ID of the inbox rule
+   * @type string
+   */
+  inboxRuleId: string;
+}
+
+export interface SecurityMonitoringApiDeleteMuteRuleRequest {
+  /**
+   * ID of the mute rule
+   * @type string
+   */
+  muteRuleId: string;
 }
 
 export interface SecurityMonitoringApiDeleteSecurityFilterRequest {
@@ -6040,6 +7594,22 @@ export interface SecurityMonitoringApiGetHistoricalJobRequest {
    * @type string
    */
   jobId: string;
+}
+
+export interface SecurityMonitoringApiGetInboxRuleRequest {
+  /**
+   * ID of the inbox rule
+   * @type string
+   */
+  inboxRuleId: string;
+}
+
+export interface SecurityMonitoringApiGetMuteRuleRequest {
+  /**
+   * ID of the mute rule
+   * @type string
+   */
+  muteRuleId: string;
 }
 
 export interface SecurityMonitoringApiGetSBOMRequest {
@@ -6548,6 +8118,30 @@ export interface SecurityMonitoringApiMuteFindingsRequest {
   body: BulkMuteFindingsRequest;
 }
 
+export interface SecurityMonitoringApiPatchInboxRuleRequest {
+  /**
+   * ID of the inbox rule
+   * @type string
+   */
+  inboxRuleId: string;
+  /**
+   * @type PatchInboxRulesParameters
+   */
+  body: PatchInboxRulesParameters;
+}
+
+export interface SecurityMonitoringApiPatchMuteRuleRequest {
+  /**
+   * ID of the mute rule
+   * @type string
+   */
+  muteRuleId: string;
+  /**
+   * @type PatchMuteRuleParameters
+   */
+  body: PatchMuteRuleParameters;
+}
+
 export interface SecurityMonitoringApiPatchSignalNotificationRuleRequest {
   /**
    * ID of the notification rule.
@@ -6570,6 +8164,22 @@ export interface SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest 
    * @type PatchNotificationRuleParameters
    */
   body: PatchNotificationRuleParameters;
+}
+
+export interface SecurityMonitoringApiReorderInboxRulesRequest {
+  /**
+   * The list of rules to reorder. The order of the rules in the list becomes the new order in the pipeline.
+   * @type ReorderInboxRulesParameters
+   */
+  body: ReorderInboxRulesParameters;
+}
+
+export interface SecurityMonitoringApiReorderMuteRulesRequest {
+  /**
+   * The list of rules to reorder. The order of the rules in the list becomes the new order in the pipeline.
+   * @type ReorderMuteRulesParameters
+   */
+  body: ReorderMuteRulesParameters;
 }
 
 export interface SecurityMonitoringApiRunHistoricalJobRequest {
@@ -6603,6 +8213,30 @@ export interface SecurityMonitoringApiTestSecurityMonitoringRuleRequest {
    * @type SecurityMonitoringRuleTestRequest
    */
   body: SecurityMonitoringRuleTestRequest;
+}
+
+export interface SecurityMonitoringApiUpdateInboxRuleRequest {
+  /**
+   * ID of the inbox rule
+   * @type string
+   */
+  inboxRuleId: string;
+  /**
+   * @type UpdateInboxRuleParameters
+   */
+  body: UpdateInboxRuleParameters;
+}
+
+export interface SecurityMonitoringApiUpdateMuteRuleRequest {
+  /**
+   * ID of the mute rule
+   * @type string
+   */
+  muteRuleId: string;
+  /**
+   * @type UpdateMuteRuleParameters
+   */
+  body: UpdateMuteRuleParameters;
 }
 
 export interface SecurityMonitoringApiUpdateSecurityFilterRequest {
@@ -6762,6 +8396,48 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Create a new inbox rule and return the created rule.
+   * @param param The request object
+   */
+  public createInboxRule(
+    param: SecurityMonitoringApiCreateInboxRuleRequest,
+    options?: Configuration
+  ): Promise<InboxRuleResponse> {
+    const requestContextPromise = this.requestFactory.createInboxRule(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createInboxRule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a new mute rule and return the created rule.
+   * @param param The request object
+   */
+  public createMuteRule(
+    param: SecurityMonitoringApiCreateMuteRuleRequest,
+    options?: Configuration
+  ): Promise<MuteRuleResponse> {
+    const requestContextPromise = this.requestFactory.createMuteRule(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createMuteRule(responseContext);
+        });
+    });
+  }
+
+  /**
    * Create a security filter.
    *
    * See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
@@ -6892,6 +8568,48 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteHistoricalJob(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an inbox rule
+   * @param param The request object
+   */
+  public deleteInboxRule(
+    param: SecurityMonitoringApiDeleteInboxRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteInboxRule(
+      param.inboxRuleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteInboxRule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a mute rule
+   * @param param The request object
+   */
+  public deleteMuteRule(
+    param: SecurityMonitoringApiDeleteMuteRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteMuteRule(
+      param.muteRuleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteMuteRule(responseContext);
         });
     });
   }
@@ -7121,6 +8839,78 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getHistoricalJob(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the details of an inbox rule.
+   * @param param The request object
+   */
+  public getInboxRule(
+    param: SecurityMonitoringApiGetInboxRuleRequest,
+    options?: Configuration
+  ): Promise<InboxRuleResponse> {
+    const requestContextPromise = this.requestFactory.getInboxRule(
+      param.inboxRuleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getInboxRule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns the ordered list of inbox rules in the pipeline (first match applies)
+   * @param param The request object
+   */
+  public getInboxRules(options?: Configuration): Promise<any> {
+    const requestContextPromise = this.requestFactory.getInboxRules(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getInboxRules(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the details of a mute rule.
+   * @param param The request object
+   */
+  public getMuteRule(
+    param: SecurityMonitoringApiGetMuteRuleRequest,
+    options?: Configuration
+  ): Promise<MuteRuleResponse> {
+    const requestContextPromise = this.requestFactory.getMuteRule(
+      param.muteRuleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMuteRule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns the ordered list of mute rules in the pipeline (first match applies)
+   * @param param The request object
+   */
+  public getMuteRules(options?: Configuration): Promise<any> {
+    const requestContextPromise = this.requestFactory.getMuteRules(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMuteRules(responseContext);
         });
     });
   }
@@ -7836,6 +9626,50 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Partially update the inbox rule. All fields are optional; if a field is not provided, it is not updated.
+   * @param param The request object
+   */
+  public patchInboxRule(
+    param: SecurityMonitoringApiPatchInboxRuleRequest,
+    options?: Configuration
+  ): Promise<InboxRuleResponse> {
+    const requestContextPromise = this.requestFactory.patchInboxRule(
+      param.inboxRuleId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.patchInboxRule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Partially update the mute rule. All fields are optional; if a field is not provided, it is not updated.
+   * @param param The request object
+   */
+  public patchMuteRule(
+    param: SecurityMonitoringApiPatchMuteRuleRequest,
+    options?: Configuration
+  ): Promise<MuteRuleResponse> {
+    const requestContextPromise = this.requestFactory.patchMuteRule(
+      param.muteRuleId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.patchMuteRule(responseContext);
+        });
+    });
+  }
+
+  /**
    * Partially update the notification rule. All fields are optional; if a field is not provided, it is not updated.
    * @param param The request object
    */
@@ -7881,6 +9715,50 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.patchVulnerabilityNotificationRule(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Reorder the list of inbox rules in the pipeline and return the reordered list of rules.
+   * To reorder fields, you must provide the full list of pipeline rules in the new order.
+   * @param param The request object
+   */
+  public reorderInboxRules(
+    param: SecurityMonitoringApiReorderInboxRulesRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.reorderInboxRules(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.reorderInboxRules(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Reorder the list of mute rules in the pipeline and return the reordered list of rules.
+   * To reorder fields, you must provide the full list of pipeline rules in the new order.
+   * @param param The request object
+   */
+  public reorderMuteRules(
+    param: SecurityMonitoringApiReorderMuteRulesRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.reorderMuteRules(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.reorderMuteRules(responseContext);
         });
     });
   }
@@ -8031,6 +9909,50 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.testSecurityMonitoringRule(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Update the whole inbox rule. If an optional field is not provided, it is set to its default value.
+   * @param param The request object
+   */
+  public updateInboxRule(
+    param: SecurityMonitoringApiUpdateInboxRuleRequest,
+    options?: Configuration
+  ): Promise<InboxRuleResponse> {
+    const requestContextPromise = this.requestFactory.updateInboxRule(
+      param.inboxRuleId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateInboxRule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the whole mute rule. If an optional field is not provided, it is set to its default value.
+   * @param param The request object
+   */
+  public updateMuteRule(
+    param: SecurityMonitoringApiUpdateMuteRuleRequest,
+    options?: Configuration
+  ): Promise<MuteRuleResponse> {
+    const requestContextPromise = this.requestFactory.updateMuteRule(
+      param.muteRuleId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateMuteRule(responseContext);
         });
     });
   }
