@@ -34,13 +34,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getActiveBillingDimensions'");
-    if (!_config.unstableOperations["v2.getActiveBillingDimensions"]) {
-      throw new Error(
-        "Unstable operation 'getActiveBillingDimensions' is disabled"
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/cost_by_tag/active_billing_dimensions";
 
@@ -434,13 +427,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getMonthlyCostAttribution'");
-    if (!_config.unstableOperations["v2.getMonthlyCostAttribution"]) {
-      throw new Error(
-        "Unstable operation 'getMonthlyCostAttribution' is disabled"
-      );
-    }
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {

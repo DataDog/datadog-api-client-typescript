@@ -235,8 +235,6 @@ export function createConfiguration(
       "v2.publishApp": false,
       "v2.unpublishApp": false,
       "v2.updateApp": false,
-      "v2.getActiveBillingDimensions": false,
-      "v2.getMonthlyCostAttribution": false,
       "v2.cancelDataDeletionRequest": false,
       "v2.createDataDeletionRequest": false,
       "v2.getDataDeletionRequests": false,
