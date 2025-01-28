@@ -5437,6 +5437,112 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "NotificationRuleResponse",
     },
+    "v2.GetInboxRules": {
+        "operationResponseType": "any",
+    },
+    "v2.CreateInboxRule": {
+        "body": {
+            "type": "CreateInboxRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "InboxRuleResponse",
+    },
+    "v2.ReorderInboxRules": {
+        "body": {
+            "type": "ReorderInboxRulesParameters",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
+    "v2.DeleteInboxRule": {
+        "inboxRuleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetInboxRule": {
+        "inboxRuleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "InboxRuleResponse",
+    },
+    "v2.PatchInboxRule": {
+        "inboxRuleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "PatchInboxRulesParameters",
+            "format": "",
+            },
+        "operationResponseType": "InboxRuleResponse",
+    },
+    "v2.UpdateInboxRule": {
+        "inboxRuleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpdateInboxRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "InboxRuleResponse",
+    },
+    "v2.GetMuteRules": {
+        "operationResponseType": "any",
+    },
+    "v2.CreateMuteRule": {
+        "body": {
+            "type": "CreateMuteRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "MuteRuleResponse",
+    },
+    "v2.ReorderMuteRules": {
+        "body": {
+            "type": "ReorderMuteRulesParameters",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
+    "v2.DeleteMuteRule": {
+        "muteRuleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetMuteRule": {
+        "muteRuleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "MuteRuleResponse",
+    },
+    "v2.PatchMuteRule": {
+        "muteRuleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "PatchMuteRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "MuteRuleResponse",
+    },
+    "v2.UpdateMuteRule": {
+        "muteRuleId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "body": {
+            "type": "UpdateMuteRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "MuteRuleResponse",
+    },
     "v2.ListSecurityFilters": {
         "operationResponseType": "SecurityFiltersResponse",
     },

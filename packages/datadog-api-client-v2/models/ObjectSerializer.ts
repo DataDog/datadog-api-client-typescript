@@ -49,6 +49,8 @@ import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
 import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
 import { ActionConnectionData } from "./ActionConnectionData";
 import { ActionConnectionDataUpdate } from "./ActionConnectionDataUpdate";
+import { ActionInbox } from "./ActionInbox";
+import { ActionMute } from "./ActionMute";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
@@ -97,6 +99,8 @@ import { AuthNMappingUpdateAttributes } from "./AuthNMappingUpdateAttributes";
 import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
 import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
+import { AutomationRule } from "./AutomationRule";
+import { AutomationRuleUser } from "./AutomationRuleUser";
 import { AwsCURConfig } from "./AwsCURConfig";
 import { AwsCURConfigAttributes } from "./AwsCURConfigAttributes";
 import { AwsCURConfigPatchData } from "./AwsCURConfigPatchData";
@@ -305,6 +309,12 @@ import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
 import { CreateDataDeletionResponseBody } from "./CreateDataDeletionResponseBody";
+import { CreateInboxRuleParameters } from "./CreateInboxRuleParameters";
+import { CreateInboxRuleParametersData } from "./CreateInboxRuleParametersData";
+import { CreateInboxRuleParametersDataAttributes } from "./CreateInboxRuleParametersDataAttributes";
+import { CreateMuteRuleParameters } from "./CreateMuteRuleParameters";
+import { CreateMuteRuleParametersData } from "./CreateMuteRuleParametersData";
+import { CreateMuteRuleParametersDataAttributes } from "./CreateMuteRuleParametersDataAttributes";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
@@ -602,6 +612,9 @@ import { IPAllowlistEntryData } from "./IPAllowlistEntryData";
 import { IPAllowlistResponse } from "./IPAllowlistResponse";
 import { IPAllowlistUpdateRequest } from "./IPAllowlistUpdateRequest";
 import { IdPMetadataFormData } from "./IdPMetadataFormData";
+import { InboxRule } from "./InboxRule";
+import { InboxRuleAttributes } from "./InboxRuleAttributes";
+import { InboxRuleResponse } from "./InboxRuleResponse";
 import { IncidentAttachmentData } from "./IncidentAttachmentData";
 import { IncidentAttachmentLinkAttributes } from "./IncidentAttachmentLinkAttributes";
 import { IncidentAttachmentLinkAttributesAttachmentObject } from "./IncidentAttachmentLinkAttributesAttachmentObject";
@@ -900,6 +913,9 @@ import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
 import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
 import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
 import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
+import { MuteRule } from "./MuteRule";
+import { MuteRuleAttributes } from "./MuteRuleAttributes";
+import { MuteRuleResponse } from "./MuteRuleResponse";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
@@ -958,6 +974,12 @@ import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
 import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttributes";
 import { PartialApplicationKeyResponse } from "./PartialApplicationKeyResponse";
+import { PatchInboxRulesParameters } from "./PatchInboxRulesParameters";
+import { PatchInboxRulesParametersData } from "./PatchInboxRulesParametersData";
+import { PatchInboxRulesParametersDataAttributes } from "./PatchInboxRulesParametersDataAttributes";
+import { PatchMuteRuleParameters } from "./PatchMuteRuleParameters";
+import { PatchMuteRuleParametersData } from "./PatchMuteRuleParametersData";
+import { PatchMuteRuleParametersDataAttributes } from "./PatchMuteRuleParametersDataAttributes";
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
 import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificationRuleParametersDataAttributes";
@@ -1074,6 +1096,10 @@ import { RelationshipToUserTeamUser } from "./RelationshipToUserTeamUser";
 import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { Remediation } from "./Remediation";
+import { ReorderInboxRulesParameters } from "./ReorderInboxRulesParameters";
+import { ReorderInboxRulesParametersData } from "./ReorderInboxRulesParametersData";
+import { ReorderMuteRulesParameters } from "./ReorderMuteRulesParameters";
+import { ReorderMuteRulesParametersData } from "./ReorderMuteRulesParametersData";
 import { ReorderRetentionFiltersRequest } from "./ReorderRetentionFiltersRequest";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RestrictionPolicy } from "./RestrictionPolicy";
@@ -1419,6 +1445,10 @@ import { UpdateAppRequestDataAttributes } from "./UpdateAppRequestDataAttributes
 import { UpdateAppResponse } from "./UpdateAppResponse";
 import { UpdateAppResponseData } from "./UpdateAppResponseData";
 import { UpdateAppResponseDataAttributes } from "./UpdateAppResponseDataAttributes";
+import { UpdateInboxRuleParameters } from "./UpdateInboxRuleParameters";
+import { UpdateInboxRuleParametersData } from "./UpdateInboxRuleParametersData";
+import { UpdateMuteRuleParameters } from "./UpdateMuteRuleParameters";
+import { UpdateMuteRuleParametersData } from "./UpdateMuteRuleParametersData";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
 import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
@@ -1822,6 +1852,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IPAllowlistEntryType: ["ip_allowlist_entry"],
   IPAllowlistType: ["ip_allowlist"],
+  InboxRulesType: ["inbox_rules"],
   IncidentAttachmentAttachmentType: ["link", "postmortem"],
   IncidentAttachmentLinkAttachmentType: ["link"],
   IncidentAttachmentPostmortemAttachmentType: ["postmortem"],
@@ -1852,6 +1883,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentUserDefinedFieldType: ["user_defined_field"],
   IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
+  IssueType: ["vulnerability"],
   LeakedKeyType: ["leaked_keys"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
@@ -1927,6 +1959,17 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
+  MuteReason: [
+    "duplicate",
+    "external_solution",
+    "false_positive",
+    "internal_solution",
+    "no_fix_available",
+    "other",
+    "pending_fix",
+    "risk_accepted",
+  ],
+  MuteRulesType: ["mute_rules"],
   NotificationRulesType: ["notification_rules"],
   OktaAccountType: ["okta-accounts"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
@@ -2119,6 +2162,24 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityMonitoringSignalType: ["signal"],
   SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
   SecurityMonitoringSuppressionType: ["suppressions"],
+  SecurityRuleSeverity: [
+    "critical",
+    "high",
+    "medium",
+    "low",
+    "unknown",
+    "info",
+  ],
+  SecurityRuleTypesItems: [
+    "application_code_vulnerability",
+    "application_library_vulnerability",
+    "attack_path",
+    "container_image_vulnerability",
+    "host_vulnerability",
+    "identity_risk",
+    "misconfiguration",
+    "api_security",
+  ],
   SensitiveDataScannerConfigurationType: [
     "sensitive_data_scanner_configuration",
   ],
@@ -2401,6 +2462,8 @@ const typeMap: { [index: string]: any } = {
   ActionConnectionAttributesUpdate: ActionConnectionAttributesUpdate,
   ActionConnectionData: ActionConnectionData,
   ActionConnectionDataUpdate: ActionConnectionDataUpdate,
+  ActionInbox: ActionInbox,
+  ActionMute: ActionMute,
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
@@ -2449,6 +2512,8 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingUpdateData: AuthNMappingUpdateData,
   AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
   AuthNMappingsResponse: AuthNMappingsResponse,
+  AutomationRule: AutomationRule,
+  AutomationRuleUser: AutomationRuleUser,
   AwsCURConfig: AwsCURConfig,
   AwsCURConfigAttributes: AwsCURConfigAttributes,
   AwsCURConfigPatchData: AwsCURConfigPatchData,
@@ -2684,6 +2749,14 @@ const typeMap: { [index: string]: any } = {
     CreateDataDeletionRequestBodyAttributes,
   CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
   CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
+  CreateInboxRuleParameters: CreateInboxRuleParameters,
+  CreateInboxRuleParametersData: CreateInboxRuleParametersData,
+  CreateInboxRuleParametersDataAttributes:
+    CreateInboxRuleParametersDataAttributes,
+  CreateMuteRuleParameters: CreateMuteRuleParameters,
+  CreateMuteRuleParametersData: CreateMuteRuleParametersData,
+  CreateMuteRuleParametersDataAttributes:
+    CreateMuteRuleParametersDataAttributes,
   CreateNotificationRuleParameters: CreateNotificationRuleParameters,
   CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
   CreateNotificationRuleParametersDataAttributes:
@@ -3019,6 +3092,9 @@ const typeMap: { [index: string]: any } = {
   IPAllowlistResponse: IPAllowlistResponse,
   IPAllowlistUpdateRequest: IPAllowlistUpdateRequest,
   IdPMetadataFormData: IdPMetadataFormData,
+  InboxRule: InboxRule,
+  InboxRuleAttributes: InboxRuleAttributes,
+  InboxRuleResponse: InboxRuleResponse,
   IncidentAttachmentData: IncidentAttachmentData,
   IncidentAttachmentLinkAttributes: IncidentAttachmentLinkAttributes,
   IncidentAttachmentLinkAttributesAttachmentObject:
@@ -3352,6 +3428,9 @@ const typeMap: { [index: string]: any } = {
   MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
   MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
   MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
+  MuteRule: MuteRule,
+  MuteRuleAttributes: MuteRuleAttributes,
+  MuteRuleResponse: MuteRuleResponse,
   NotificationRule: NotificationRule,
   NotificationRuleAttributes: NotificationRuleAttributes,
   NotificationRuleResponse: NotificationRuleResponse,
@@ -3411,6 +3490,13 @@ const typeMap: { [index: string]: any } = {
   PartialApplicationKey: PartialApplicationKey,
   PartialApplicationKeyAttributes: PartialApplicationKeyAttributes,
   PartialApplicationKeyResponse: PartialApplicationKeyResponse,
+  PatchInboxRulesParameters: PatchInboxRulesParameters,
+  PatchInboxRulesParametersData: PatchInboxRulesParametersData,
+  PatchInboxRulesParametersDataAttributes:
+    PatchInboxRulesParametersDataAttributes,
+  PatchMuteRuleParameters: PatchMuteRuleParameters,
+  PatchMuteRuleParametersData: PatchMuteRuleParametersData,
+  PatchMuteRuleParametersDataAttributes: PatchMuteRuleParametersDataAttributes,
   PatchNotificationRuleParameters: PatchNotificationRuleParameters,
   PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,
   PatchNotificationRuleParametersDataAttributes:
@@ -3534,6 +3620,10 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUserTeamUserData: RelationshipToUserTeamUserData,
   RelationshipToUsers: RelationshipToUsers,
   Remediation: Remediation,
+  ReorderInboxRulesParameters: ReorderInboxRulesParameters,
+  ReorderInboxRulesParametersData: ReorderInboxRulesParametersData,
+  ReorderMuteRulesParameters: ReorderMuteRulesParameters,
+  ReorderMuteRulesParametersData: ReorderMuteRulesParametersData,
   ReorderRetentionFiltersRequest: ReorderRetentionFiltersRequest,
   ResponseMetaAttributes: ResponseMetaAttributes,
   RestrictionPolicy: RestrictionPolicy,
@@ -3932,6 +4022,10 @@ const typeMap: { [index: string]: any } = {
   UpdateAppResponse: UpdateAppResponse,
   UpdateAppResponseData: UpdateAppResponseData,
   UpdateAppResponseDataAttributes: UpdateAppResponseDataAttributes,
+  UpdateInboxRuleParameters: UpdateInboxRuleParameters,
+  UpdateInboxRuleParametersData: UpdateInboxRuleParametersData,
+  UpdateMuteRuleParameters: UpdateMuteRuleParameters,
+  UpdateMuteRuleParametersData: UpdateMuteRuleParametersData,
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
   UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
   UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
