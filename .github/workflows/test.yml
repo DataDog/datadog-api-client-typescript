@@ -100,6 +100,13 @@ jobs:
       - name: Test
         run: ./run-tests.sh
         shell: bash
+        env:
+          DD_CIVISIBILITY_AGENTLESS_ENABLED: true
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
+          NODE_OPTIONS: -r dd-trace/ci/init
+          DD_ENV: prod
+          DD_SERVICE: datadog-api-client-typescript
+          DD_TAGS: "team:integrations-tools-and-libraries"
 
   examples:
     runs-on: ubuntu-latest
