@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsMobileStepParamsElementUserLocator {
   /**
-   * Whether if the the test should fail if the element cannot be found.
+   * Whether if the test should fail if the element cannot be found.
    */
   "failTestOnCannotLocate"?: boolean;
   /**

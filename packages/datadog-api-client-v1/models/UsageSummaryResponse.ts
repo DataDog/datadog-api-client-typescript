@@ -209,7 +209,7 @@ export class UsageSummaryResponse {
    */
   "cspmContainerAvgSum"?: number;
   /**
-   * Shows the sum of the the high-water marks of Cloud Security Management Pro containers over all hours in the current month for all organizations.
+   * Shows the sum of the high-water marks of Cloud Security Management Pro containers over all hours in the current month for all organizations.
    */
   "cspmContainerHwmSum"?: number;
   /**
@@ -385,7 +385,7 @@ export class UsageSummaryResponse {
    */
   "herokuHostTop99pSum"?: number;
   /**
-   * Shows sum of the the high-water marks of incident management monthly active users in the current month for all organizations.
+   * Shows sum of the high-water marks of incident management monthly active users in the current month for all organizations.
    */
   "incidentManagementMonthlyActiveUsersHwmSum"?: number;
   /**
@@ -409,7 +409,7 @@ export class UsageSummaryResponse {
    */
   "iotDeviceTop99pSum"?: number;
   /**
-   * Shows the the most recent hour in the current month for all organizations for which all usages were calculated.
+   * Shows the most recent hour in the current month for all organizations for which all usages were calculated.
    */
   "lastUpdated"?: Date;
   /**

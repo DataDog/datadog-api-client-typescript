@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CheckCanDeleteMonitorResponseData {
   /**
-   * An array of of Monitor IDs that can be safely deleted.
+   * An array of Monitor IDs that can be safely deleted.
    */
   "ok"?: Array<number>;
 
