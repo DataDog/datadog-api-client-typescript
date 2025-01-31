@@ -22,7 +22,7 @@ export class ChangeEventCustomAttributes {
    */
   "changeMetadata"?: { [key: string]: any };
   /**
-   * Object representing a uniquely identified resource. Only the resource type `feature_flag` is supported.
+   * Object representing a uniquely identified resource.
    */
   "changedResource": ChangeEventCustomAttributesChangedResource;
   /**

@@ -43,7 +43,7 @@ const params: v2.EventsApiCreateEventRequest = {
         },
         category: "change",
         message: "payment_processed feature flag has been enabled",
-        tags: ["environment:test"],
+        tags: ["env:test"],
         title: "payment_processed feature flag updated",
       },
       type: "event",

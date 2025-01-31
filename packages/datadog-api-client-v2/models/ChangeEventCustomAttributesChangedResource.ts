@@ -8,7 +8,7 @@ import { ChangeEventCustomAttributesChangedResourceType } from "./ChangeEventCus
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object representing a uniquely identified resource. Only the resource type `feature_flag` is supported.
+ * Object representing a uniquely identified resource.
  */
 export class ChangeEventCustomAttributesChangedResource {
   /**
