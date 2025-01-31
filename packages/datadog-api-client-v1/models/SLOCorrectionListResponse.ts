@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SLOCorrectionListResponse {
   /**
-   * The list of of SLO corrections objects.
+   * The list of SLO corrections objects.
    */
   "data"?: Array<SLOCorrection>;
   /**
