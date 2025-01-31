@@ -12,5 +12,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type ChangeEventCustomAttributesChangedResourceType =
   | typeof FEATURE_FLAG
+  | typeof CONFIGURATION
   | UnparsedObject;
 export const FEATURE_FLAG = "feature_flag";
+export const CONFIGURATION = "configuration";

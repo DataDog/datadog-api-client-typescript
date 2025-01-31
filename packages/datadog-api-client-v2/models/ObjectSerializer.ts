@@ -1666,7 +1666,10 @@ const enumsMap: { [key: string]: any[] } = {
   CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
   CaseType: ["STANDARD"],
   ChangeEventCustomAttributesAuthorType: ["user", "system"],
-  ChangeEventCustomAttributesChangedResourceType: ["feature_flag"],
+  ChangeEventCustomAttributesChangedResourceType: [
+    "feature_flag",
+    "configuration",
+  ],
   ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
   CloudConfigurationRuleType: ["cloud_configuration"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
