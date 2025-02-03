@@ -21,13 +21,13 @@ export class CreateAppRequestDataAttributes {
    */
   "description"?: string;
   /**
-   * An array of queries, such as external actions and state variables, that the app uses.
-   */
-  "embeddedQueries"?: Array<Query>;
-  /**
    * The name of the app.
    */
   "name"?: string;
+  /**
+   * An array of queries, such as external actions and state variables, that the app uses.
+   */
+  "queries"?: Array<Query>;
   /**
    * The name of the root component of the app. This must be a `grid` component that contains all other components.
    */
@@ -61,13 +61,13 @@ export class CreateAppRequestDataAttributes {
       baseName: "description",
       type: "string",
     },
-    embeddedQueries: {
-      baseName: "embeddedQueries",
-      type: "Array<Query>",
-    },
     name: {
       baseName: "name",
       type: "string",
+    },
+    queries: {
+      baseName: "queries",
+      type: "Array<Query>",
     },
     rootInstanceName: {
       baseName: "rootInstanceName",

@@ -42,7 +42,7 @@ const params: v2.AppBuilderApiCreateAppRequest = {
           },
         ],
         description: "This is a simple example app",
-        embeddedQueries: [],
+        queries: [],
         name: "Example App",
         rootInstanceName: "grid0",
       },

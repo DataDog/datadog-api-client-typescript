@@ -21,13 +21,13 @@ export class UpdateAppRequestDataAttributes {
    */
   "description"?: string;
   /**
-   * The new array of queries, such as external actions and state variables, that the app uses. If this field is set, all existing queries are replaced with the new queries under this field.
-   */
-  "embeddedQueries"?: Array<Query>;
-  /**
    * The new name of the app.
    */
   "name"?: string;
+  /**
+   * The new array of queries, such as external actions and state variables, that the app uses. If this field is set, all existing queries are replaced with the new queries under this field.
+   */
+  "queries"?: Array<Query>;
   /**
    * The new name of the root component of the app. This must be a `grid` component that contains all other components.
    */
@@ -61,13 +61,13 @@ export class UpdateAppRequestDataAttributes {
       baseName: "description",
       type: "string",
     },
-    embeddedQueries: {
-      baseName: "embeddedQueries",
-      type: "Array<Query>",
-    },
     name: {
       baseName: "name",
       type: "string",
+    },
+    queries: {
+      baseName: "queries",
+      type: "Array<Query>",
     },
     rootInstanceName: {
       baseName: "rootInstanceName",
