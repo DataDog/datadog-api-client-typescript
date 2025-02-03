@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { EntityV3API } from "./EntityV3API";
 import { EntityV3Datastore } from "./EntityV3Datastore";
 import { EntityV3Queue } from "./EntityV3Queue";
 import { EntityV3Service } from "./EntityV3Service";
@@ -19,4 +20,5 @@ export type EntityV3 =
   | EntityV3Datastore
   | EntityV3Queue
   | EntityV3System
+  | EntityV3API
   | UnparsedObject;
