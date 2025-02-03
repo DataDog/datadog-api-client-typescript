@@ -4116,6 +4116,45 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MicrosoftTeamsTenantBasedHandleResponse",
     },
+    "v2.ListWorkflowsWebhookHandles": {
+        "name": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
+    },
+    "v2.CreateWorkflowsWebhookHandle": {
+        "body": {
+            "type": "MicrosoftTeamsCreateWorkflowsWebhookHandleRequest",
+            "format": "",
+            },
+        "operationResponseType": "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+    },
+    "v2.DeleteWorkflowsWebhookHandle": {
+        "handleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetWorkflowsWebhookHandle": {
+        "handleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+    },
+    "v2.UpdateWorkflowsWebhookHandle": {
+        "handleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest",
+            "format": "",
+            },
+        "operationResponseType": "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+    },
     "v2.ListOpsgenieServices": {
         "operationResponseType": "OpsgenieServicesResponse",
     },

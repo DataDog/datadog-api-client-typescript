@@ -18,10 +18,14 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { MicrosoftTeamsCreateTenantBasedHandleRequest } from "../models/MicrosoftTeamsCreateTenantBasedHandleRequest";
+import { MicrosoftTeamsCreateWorkflowsWebhookHandleRequest } from "../models/MicrosoftTeamsCreateWorkflowsWebhookHandleRequest";
 import { MicrosoftTeamsGetChannelByNameResponse } from "../models/MicrosoftTeamsGetChannelByNameResponse";
 import { MicrosoftTeamsTenantBasedHandleResponse } from "../models/MicrosoftTeamsTenantBasedHandleResponse";
 import { MicrosoftTeamsTenantBasedHandlesResponse } from "../models/MicrosoftTeamsTenantBasedHandlesResponse";
 import { MicrosoftTeamsUpdateTenantBasedHandleRequest } from "../models/MicrosoftTeamsUpdateTenantBasedHandleRequest";
+import { MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest } from "../models/MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest";
+import { MicrosoftTeamsWorkflowsWebhookHandleResponse } from "../models/MicrosoftTeamsWorkflowsWebhookHandleResponse";
+import { MicrosoftTeamsWorkflowsWebhookHandlesResponse } from "../models/MicrosoftTeamsWorkflowsWebhookHandlesResponse";
 
 export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   public async createTenantBasedHandle(
@@ -70,6 +74,52 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     return requestContext;
   }
 
+  public async createWorkflowsWebhookHandle(
+    body: MicrosoftTeamsCreateWorkflowsWebhookHandleRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createWorkflowsWebhookHandle");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MicrosoftTeamsIntegrationApi.createWorkflowsWebhookHandle")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "MicrosoftTeamsCreateWorkflowsWebhookHandleRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteTenantBasedHandle(
     handleId: string,
     _options?: Configuration
@@ -91,6 +141,40 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const requestContext = _config
       .getServer("v2.MicrosoftTeamsIntegrationApi.deleteTenantBasedHandle")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteWorkflowsWebhookHandle(
+    handleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'handleId' is not null or undefined
+    if (handleId === null || handleId === undefined) {
+      throw new RequiredError("handleId", "deleteWorkflowsWebhookHandle");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}".replace(
+        "{handle_id}",
+        encodeURIComponent(String(handleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MicrosoftTeamsIntegrationApi.deleteWorkflowsWebhookHandle")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -184,6 +268,40 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     return requestContext;
   }
 
+  public async getWorkflowsWebhookHandle(
+    handleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'handleId' is not null or undefined
+    if (handleId === null || handleId === undefined) {
+      throw new RequiredError("handleId", "getWorkflowsWebhookHandle");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}".replace(
+        "{handle_id}",
+        encodeURIComponent(String(handleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MicrosoftTeamsIntegrationApi.getWorkflowsWebhookHandle")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listTenantBasedHandles(
     tenantId?: string,
     name?: string,
@@ -210,6 +328,41 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
         ""
       );
     }
+    if (name !== undefined) {
+      requestContext.setQueryParam(
+        "name",
+        ObjectSerializer.serialize(name, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listWorkflowsWebhookHandles(
+    name?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MicrosoftTeamsIntegrationApi.listWorkflowsWebhookHandles")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
     if (name !== undefined) {
       requestContext.setQueryParam(
         "name",
@@ -267,6 +420,61 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       ObjectSerializer.serialize(
         body,
         "MicrosoftTeamsUpdateTenantBasedHandleRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateWorkflowsWebhookHandle(
+    handleId: string,
+    body: MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'handleId' is not null or undefined
+    if (handleId === null || handleId === undefined) {
+      throw new RequiredError("handleId", "updateWorkflowsWebhookHandle");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateWorkflowsWebhookHandle");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}".replace(
+        "{handle_id}",
+        encodeURIComponent(String(handleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MicrosoftTeamsIntegrationApi.updateWorkflowsWebhookHandle")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest",
         ""
       ),
       contentType
@@ -355,10 +563,136 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createWorkflowsWebhookHandle
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createWorkflowsWebhookHandle(
+    response: ResponseContext
+  ): Promise<MicrosoftTeamsWorkflowsWebhookHandleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse"
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 412 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+          ""
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteTenantBasedHandle
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteTenantBasedHandle(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 412 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteWorkflowsWebhookHandle
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteWorkflowsWebhookHandle(
     response: ResponseContext
   ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -545,6 +879,72 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getWorkflowsWebhookHandle
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getWorkflowsWebhookHandle(
+    response: ResponseContext
+  ): Promise<MicrosoftTeamsWorkflowsWebhookHandleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse"
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 412 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+          ""
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listTenantBasedHandles
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -597,6 +997,72 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           "MicrosoftTeamsTenantBasedHandlesResponse",
           ""
         ) as MicrosoftTeamsTenantBasedHandlesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listWorkflowsWebhookHandles
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listWorkflowsWebhookHandles(
+    response: ResponseContext
+  ): Promise<MicrosoftTeamsWorkflowsWebhookHandlesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandlesResponse"
+        ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 412 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
+          ""
+        ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
       return body;
     }
 
@@ -673,6 +1139,73 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateWorkflowsWebhookHandle
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateWorkflowsWebhookHandle(
+    response: ResponseContext
+  ): Promise<MicrosoftTeamsWorkflowsWebhookHandleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse"
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 412 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+          ""
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface MicrosoftTeamsIntegrationApiCreateTenantBasedHandleRequest {
@@ -683,9 +1216,25 @@ export interface MicrosoftTeamsIntegrationApiCreateTenantBasedHandleRequest {
   body: MicrosoftTeamsCreateTenantBasedHandleRequest;
 }
 
+export interface MicrosoftTeamsIntegrationApiCreateWorkflowsWebhookHandleRequest {
+  /**
+   * Workflows Webhook handle payload.
+   * @type MicrosoftTeamsCreateWorkflowsWebhookHandleRequest
+   */
+  body: MicrosoftTeamsCreateWorkflowsWebhookHandleRequest;
+}
+
 export interface MicrosoftTeamsIntegrationApiDeleteTenantBasedHandleRequest {
   /**
    * Your tenant-based handle id.
+   * @type string
+   */
+  handleId: string;
+}
+
+export interface MicrosoftTeamsIntegrationApiDeleteWorkflowsWebhookHandleRequest {
+  /**
+   * Your Workflows webhook handle id.
    * @type string
    */
   handleId: string;
@@ -717,6 +1266,14 @@ export interface MicrosoftTeamsIntegrationApiGetTenantBasedHandleRequest {
   handleId: string;
 }
 
+export interface MicrosoftTeamsIntegrationApiGetWorkflowsWebhookHandleRequest {
+  /**
+   * Your Workflows webhook handle id.
+   * @type string
+   */
+  handleId: string;
+}
+
 export interface MicrosoftTeamsIntegrationApiListTenantBasedHandlesRequest {
   /**
    * Your tenant id.
@@ -725,6 +1282,14 @@ export interface MicrosoftTeamsIntegrationApiListTenantBasedHandlesRequest {
   tenantId?: string;
   /**
    * Your tenant-based handle name.
+   * @type string
+   */
+  name?: string;
+}
+
+export interface MicrosoftTeamsIntegrationApiListWorkflowsWebhookHandlesRequest {
+  /**
+   * Your Workflows webhook handle name.
    * @type string
    */
   name?: string;
@@ -741,6 +1306,19 @@ export interface MicrosoftTeamsIntegrationApiUpdateTenantBasedHandleRequest {
    * @type MicrosoftTeamsUpdateTenantBasedHandleRequest
    */
   body: MicrosoftTeamsUpdateTenantBasedHandleRequest;
+}
+
+export interface MicrosoftTeamsIntegrationApiUpdateWorkflowsWebhookHandleRequest {
+  /**
+   * Your Workflows webhook handle id.
+   * @type string
+   */
+  handleId: string;
+  /**
+   * Workflows Webhook handle payload.
+   * @type MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest
+   */
+  body: MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest;
 }
 
 export class MicrosoftTeamsIntegrationApi {
@@ -785,6 +1363,27 @@ export class MicrosoftTeamsIntegrationApi {
   }
 
   /**
+   * Create a Workflows webhook handle in the Datadog Microsoft Teams integration.
+   * @param param The request object
+   */
+  public createWorkflowsWebhookHandle(
+    param: MicrosoftTeamsIntegrationApiCreateWorkflowsWebhookHandleRequest,
+    options?: Configuration
+  ): Promise<MicrosoftTeamsWorkflowsWebhookHandleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createWorkflowsWebhookHandle(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createWorkflowsWebhookHandle(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete a tenant-based handle from the Datadog Microsoft Teams integration.
    * @param param The request object
    */
@@ -801,6 +1400,27 @@ export class MicrosoftTeamsIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteTenantBasedHandle(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a Workflows webhook handle from the Datadog Microsoft Teams integration.
+   * @param param The request object
+   */
+  public deleteWorkflowsWebhookHandle(
+    param: MicrosoftTeamsIntegrationApiDeleteWorkflowsWebhookHandleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteWorkflowsWebhookHandle(param.handleId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteWorkflowsWebhookHandle(
             responseContext
           );
         });
@@ -852,6 +1472,29 @@ export class MicrosoftTeamsIntegrationApi {
   }
 
   /**
+   * Get the name of a Workflows webhook handle from the Datadog Microsoft Teams integration.
+   * @param param The request object
+   */
+  public getWorkflowsWebhookHandle(
+    param: MicrosoftTeamsIntegrationApiGetWorkflowsWebhookHandleRequest,
+    options?: Configuration
+  ): Promise<MicrosoftTeamsWorkflowsWebhookHandleResponse> {
+    const requestContextPromise = this.requestFactory.getWorkflowsWebhookHandle(
+      param.handleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getWorkflowsWebhookHandle(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get a list of all tenant-based handles from the Datadog Microsoft Teams integration.
    * @param param The request object
    */
@@ -874,6 +1517,27 @@ export class MicrosoftTeamsIntegrationApi {
   }
 
   /**
+   * Get a list of all Workflows webhook handles from the Datadog Microsoft Teams integration.
+   * @param param The request object
+   */
+  public listWorkflowsWebhookHandles(
+    param: MicrosoftTeamsIntegrationApiListWorkflowsWebhookHandlesRequest = {},
+    options?: Configuration
+  ): Promise<MicrosoftTeamsWorkflowsWebhookHandlesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listWorkflowsWebhookHandles(param.name, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listWorkflowsWebhookHandles(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Update a tenant-based handle from the Datadog Microsoft Teams integration.
    * @param param The request object
    */
@@ -891,6 +1555,31 @@ export class MicrosoftTeamsIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateTenantBasedHandle(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a Workflows webhook handle from the Datadog Microsoft Teams integration.
+   * @param param The request object
+   */
+  public updateWorkflowsWebhookHandle(
+    param: MicrosoftTeamsIntegrationApiUpdateWorkflowsWebhookHandleRequest,
+    options?: Configuration
+  ): Promise<MicrosoftTeamsWorkflowsWebhookHandleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateWorkflowsWebhookHandle(
+        param.handleId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateWorkflowsWebhookHandle(
             responseContext
           );
         });
