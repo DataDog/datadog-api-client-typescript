@@ -873,6 +873,7 @@ import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
 import { MicrosoftTeamsChannelInfoResponseAttributes } from "./MicrosoftTeamsChannelInfoResponseAttributes";
 import { MicrosoftTeamsChannelInfoResponseData } from "./MicrosoftTeamsChannelInfoResponseData";
 import { MicrosoftTeamsCreateTenantBasedHandleRequest } from "./MicrosoftTeamsCreateTenantBasedHandleRequest";
+import { MicrosoftTeamsCreateWorkflowsWebhookHandleRequest } from "./MicrosoftTeamsCreateWorkflowsWebhookHandleRequest";
 import { MicrosoftTeamsGetChannelByNameResponse } from "./MicrosoftTeamsGetChannelByNameResponse";
 import { MicrosoftTeamsTenantBasedHandleAttributes } from "./MicrosoftTeamsTenantBasedHandleAttributes";
 import { MicrosoftTeamsTenantBasedHandleInfoResponseAttributes } from "./MicrosoftTeamsTenantBasedHandleInfoResponseAttributes";
@@ -884,6 +885,15 @@ import { MicrosoftTeamsTenantBasedHandleResponseData } from "./MicrosoftTeamsTen
 import { MicrosoftTeamsTenantBasedHandlesResponse } from "./MicrosoftTeamsTenantBasedHandlesResponse";
 import { MicrosoftTeamsUpdateTenantBasedHandleRequest } from "./MicrosoftTeamsUpdateTenantBasedHandleRequest";
 import { MicrosoftTeamsUpdateTenantBasedHandleRequestData } from "./MicrosoftTeamsUpdateTenantBasedHandleRequestData";
+import { MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest } from "./MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest";
+import { MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData } from "./MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData";
+import { MicrosoftTeamsWorkflowsWebhookHandleAttributes } from "./MicrosoftTeamsWorkflowsWebhookHandleAttributes";
+import { MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes } from "./MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes";
+import { MicrosoftTeamsWorkflowsWebhookHandleRequestData } from "./MicrosoftTeamsWorkflowsWebhookHandleRequestData";
+import { MicrosoftTeamsWorkflowsWebhookHandleResponse } from "./MicrosoftTeamsWorkflowsWebhookHandleResponse";
+import { MicrosoftTeamsWorkflowsWebhookHandleResponseData } from "./MicrosoftTeamsWorkflowsWebhookHandleResponseData";
+import { MicrosoftTeamsWorkflowsWebhookHandlesResponse } from "./MicrosoftTeamsWorkflowsWebhookHandlesResponse";
+import { MicrosoftTeamsWorkflowsWebhookResponseAttributes } from "./MicrosoftTeamsWorkflowsWebhookResponseAttributes";
 import { MonitorConfigPolicyAttributeCreateRequest } from "./MonitorConfigPolicyAttributeCreateRequest";
 import { MonitorConfigPolicyAttributeEditRequest } from "./MonitorConfigPolicyAttributeEditRequest";
 import { MonitorConfigPolicyAttributeResponse } from "./MonitorConfigPolicyAttributeResponse";
@@ -1933,6 +1943,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ms-teams-tenant-based-handle-info",
   ],
   MicrosoftTeamsTenantBasedHandleType: ["tenant-based-handle"],
+  MicrosoftTeamsWorkflowsWebhookHandleType: ["workflows-webhook-handle"],
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
@@ -3319,6 +3330,8 @@ const typeMap: { [index: string]: any } = {
   MicrosoftTeamsChannelInfoResponseData: MicrosoftTeamsChannelInfoResponseData,
   MicrosoftTeamsCreateTenantBasedHandleRequest:
     MicrosoftTeamsCreateTenantBasedHandleRequest,
+  MicrosoftTeamsCreateWorkflowsWebhookHandleRequest:
+    MicrosoftTeamsCreateWorkflowsWebhookHandleRequest,
   MicrosoftTeamsGetChannelByNameResponse:
     MicrosoftTeamsGetChannelByNameResponse,
   MicrosoftTeamsTenantBasedHandleAttributes:
@@ -3341,6 +3354,24 @@ const typeMap: { [index: string]: any } = {
     MicrosoftTeamsUpdateTenantBasedHandleRequest,
   MicrosoftTeamsUpdateTenantBasedHandleRequestData:
     MicrosoftTeamsUpdateTenantBasedHandleRequestData,
+  MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest:
+    MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest,
+  MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData:
+    MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData,
+  MicrosoftTeamsWorkflowsWebhookHandleAttributes:
+    MicrosoftTeamsWorkflowsWebhookHandleAttributes,
+  MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes:
+    MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes,
+  MicrosoftTeamsWorkflowsWebhookHandleRequestData:
+    MicrosoftTeamsWorkflowsWebhookHandleRequestData,
+  MicrosoftTeamsWorkflowsWebhookHandleResponse:
+    MicrosoftTeamsWorkflowsWebhookHandleResponse,
+  MicrosoftTeamsWorkflowsWebhookHandleResponseData:
+    MicrosoftTeamsWorkflowsWebhookHandleResponseData,
+  MicrosoftTeamsWorkflowsWebhookHandlesResponse:
+    MicrosoftTeamsWorkflowsWebhookHandlesResponse,
+  MicrosoftTeamsWorkflowsWebhookResponseAttributes:
+    MicrosoftTeamsWorkflowsWebhookResponseAttributes,
   MonitorConfigPolicyAttributeCreateRequest:
     MonitorConfigPolicyAttributeCreateRequest,
   MonitorConfigPolicyAttributeEditRequest:

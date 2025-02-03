@@ -348,11 +348,16 @@ export {
 
 export {
   MicrosoftTeamsIntegrationApiCreateTenantBasedHandleRequest,
+  MicrosoftTeamsIntegrationApiCreateWorkflowsWebhookHandleRequest,
   MicrosoftTeamsIntegrationApiDeleteTenantBasedHandleRequest,
+  MicrosoftTeamsIntegrationApiDeleteWorkflowsWebhookHandleRequest,
   MicrosoftTeamsIntegrationApiGetChannelByNameRequest,
   MicrosoftTeamsIntegrationApiGetTenantBasedHandleRequest,
+  MicrosoftTeamsIntegrationApiGetWorkflowsWebhookHandleRequest,
   MicrosoftTeamsIntegrationApiListTenantBasedHandlesRequest,
+  MicrosoftTeamsIntegrationApiListWorkflowsWebhookHandlesRequest,
   MicrosoftTeamsIntegrationApiUpdateTenantBasedHandleRequest,
+  MicrosoftTeamsIntegrationApiUpdateWorkflowsWebhookHandleRequest,
   MicrosoftTeamsIntegrationApi,
 } from "./apis/MicrosoftTeamsIntegrationApi";
 
@@ -1763,6 +1768,7 @@ export { MicrosoftTeamsChannelInfoResponseAttributes } from "./models/MicrosoftT
 export { MicrosoftTeamsChannelInfoResponseData } from "./models/MicrosoftTeamsChannelInfoResponseData";
 export { MicrosoftTeamsChannelInfoType } from "./models/MicrosoftTeamsChannelInfoType";
 export { MicrosoftTeamsCreateTenantBasedHandleRequest } from "./models/MicrosoftTeamsCreateTenantBasedHandleRequest";
+export { MicrosoftTeamsCreateWorkflowsWebhookHandleRequest } from "./models/MicrosoftTeamsCreateWorkflowsWebhookHandleRequest";
 export { MicrosoftTeamsGetChannelByNameResponse } from "./models/MicrosoftTeamsGetChannelByNameResponse";
 export { MicrosoftTeamsTenantBasedHandleAttributes } from "./models/MicrosoftTeamsTenantBasedHandleAttributes";
 export { MicrosoftTeamsTenantBasedHandleInfoResponseAttributes } from "./models/MicrosoftTeamsTenantBasedHandleInfoResponseAttributes";
@@ -1776,6 +1782,16 @@ export { MicrosoftTeamsTenantBasedHandlesResponse } from "./models/MicrosoftTeam
 export { MicrosoftTeamsTenantBasedHandleType } from "./models/MicrosoftTeamsTenantBasedHandleType";
 export { MicrosoftTeamsUpdateTenantBasedHandleRequest } from "./models/MicrosoftTeamsUpdateTenantBasedHandleRequest";
 export { MicrosoftTeamsUpdateTenantBasedHandleRequestData } from "./models/MicrosoftTeamsUpdateTenantBasedHandleRequestData";
+export { MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest } from "./models/MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest";
+export { MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData } from "./models/MicrosoftTeamsUpdateWorkflowsWebhookHandleRequestData";
+export { MicrosoftTeamsWorkflowsWebhookHandleAttributes } from "./models/MicrosoftTeamsWorkflowsWebhookHandleAttributes";
+export { MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes } from "./models/MicrosoftTeamsWorkflowsWebhookHandleRequestAttributes";
+export { MicrosoftTeamsWorkflowsWebhookHandleRequestData } from "./models/MicrosoftTeamsWorkflowsWebhookHandleRequestData";
+export { MicrosoftTeamsWorkflowsWebhookHandleResponse } from "./models/MicrosoftTeamsWorkflowsWebhookHandleResponse";
+export { MicrosoftTeamsWorkflowsWebhookHandleResponseData } from "./models/MicrosoftTeamsWorkflowsWebhookHandleResponseData";
+export { MicrosoftTeamsWorkflowsWebhookHandlesResponse } from "./models/MicrosoftTeamsWorkflowsWebhookHandlesResponse";
+export { MicrosoftTeamsWorkflowsWebhookHandleType } from "./models/MicrosoftTeamsWorkflowsWebhookHandleType";
+export { MicrosoftTeamsWorkflowsWebhookResponseAttributes } from "./models/MicrosoftTeamsWorkflowsWebhookResponseAttributes";
 export { MonitorConfigPolicyAttributeCreateRequest } from "./models/MonitorConfigPolicyAttributeCreateRequest";
 export { MonitorConfigPolicyAttributeEditRequest } from "./models/MonitorConfigPolicyAttributeEditRequest";
 export { MonitorConfigPolicyAttributeResponse } from "./models/MonitorConfigPolicyAttributeResponse";
