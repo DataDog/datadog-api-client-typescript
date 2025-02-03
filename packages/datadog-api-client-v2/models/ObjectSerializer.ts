@@ -465,6 +465,11 @@ import { EntityToOncalls } from "./EntityToOncalls";
 import { EntityToRawSchema } from "./EntityToRawSchema";
 import { EntityToRelatedEntities } from "./EntityToRelatedEntities";
 import { EntityToSchema } from "./EntityToSchema";
+import { EntityV3API } from "./EntityV3API";
+import { EntityV3APIDatadog } from "./EntityV3APIDatadog";
+import { EntityV3APISpec } from "./EntityV3APISpec";
+import { EntityV3APISpecInterfaceDefinition } from "./EntityV3APISpecInterfaceDefinition";
+import { EntityV3APISpecInterfaceFileRef } from "./EntityV3APISpecInterfaceFileRef";
 import { EntityV3DatadogCodeLocationItem } from "./EntityV3DatadogCodeLocationItem";
 import { EntityV3DatadogEventItem } from "./EntityV3DatadogEventItem";
 import { EntityV3DatadogIntegrationOpsgenie } from "./EntityV3DatadogIntegrationOpsgenie";
@@ -1748,6 +1753,7 @@ const enumsMap: { [key: string]: any[] } = {
   DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
   DowntimeResourceType: ["downtime"],
   DowntimeStatus: ["active", "canceled", "ended", "scheduled"],
+  EntityV3APIKind: ["api"],
   EntityV3APIVersion: ["v3"],
   EntityV3DatastoreKind: ["datastore"],
   EntityV3QueueKind: ["queue"],
@@ -2883,6 +2889,11 @@ const typeMap: { [index: string]: any } = {
   EntityToRawSchema: EntityToRawSchema,
   EntityToRelatedEntities: EntityToRelatedEntities,
   EntityToSchema: EntityToSchema,
+  EntityV3API: EntityV3API,
+  EntityV3APIDatadog: EntityV3APIDatadog,
+  EntityV3APISpec: EntityV3APISpec,
+  EntityV3APISpecInterfaceDefinition: EntityV3APISpecInterfaceDefinition,
+  EntityV3APISpecInterfaceFileRef: EntityV3APISpecInterfaceFileRef,
   EntityV3DatadogCodeLocationItem: EntityV3DatadogCodeLocationItem,
   EntityV3DatadogEventItem: EntityV3DatadogEventItem,
   EntityV3DatadogIntegrationOpsgenie: EntityV3DatadogIntegrationOpsgenie,
@@ -4096,6 +4107,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "EntityV3Datastore",
     "EntityV3Queue",
     "EntityV3System",
+    "EntityV3API",
+  ],
+  EntityV3APISpecInterface: [
+    "EntityV3APISpecInterfaceFileRef",
+    "EntityV3APISpecInterfaceDefinition",
   ],
   EventPayloadAttributes: ["ChangeEventCustomAttributes"],
   HTTPCredentials: ["HTTPTokenAuth"],
