@@ -403,6 +403,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     filterIncludePercentiles?: boolean,
     filterQueried?: boolean,
     filterTags?: string,
+    filterRelatedAssets?: boolean,
     windowSeconds?: number,
     pageSize?: number,
     pageCursor?: string,
@@ -464,6 +465,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[tags]",
         ObjectSerializer.serialize(filterTags, "string", ""),
+        ""
+      );
+    }
+    if (filterRelatedAssets !== undefined) {
+      requestContext.setQueryParam(
+        "filter[related_assets]",
+        ObjectSerializer.serialize(filterRelatedAssets, "boolean", ""),
         ""
       );
     }
@@ -1829,6 +1837,11 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   filterTags?: string;
   /**
+   * Filter metrics that are used in dashboards, monitors, notebooks, SLOs.
+   * @type boolean
+   */
+  filterRelatedAssets?: boolean;
+  /**
    * The number of seconds of look back (from now) to apply to a filter[tag] or filter[queried] query.
    * Default value is 3600 (1 hour), maximum value is 2,592,000 (30 days).
    * @type number
@@ -2138,6 +2151,7 @@ export class MetricsApi {
       param.filterIncludePercentiles,
       param.filterQueried,
       param.filterTags,
+      param.filterRelatedAssets,
       param.windowSeconds,
       param.pageSize,
       param.pageCursor,
@@ -2172,6 +2186,7 @@ export class MetricsApi {
         param.filterIncludePercentiles,
         param.filterQueried,
         param.filterTags,
+        param.filterRelatedAssets,
         param.windowSeconds,
         param.pageSize,
         param.pageCursor,
