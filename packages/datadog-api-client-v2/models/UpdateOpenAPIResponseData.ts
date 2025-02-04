@@ -16,7 +16,7 @@ export class UpdateOpenAPIResponseData {
    */
   "attributes"?: UpdateOpenAPIResponseAttributes;
   /**
-   * API identifier.
+   * Test
    */
   "id"?: string;
 

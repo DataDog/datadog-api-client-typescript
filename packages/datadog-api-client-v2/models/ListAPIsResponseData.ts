@@ -16,7 +16,7 @@ export class ListAPIsResponseData {
    */
   "attributes"?: ListAPIsResponseDataAttributes;
   /**
-   * API identifier.
+   * Test
    */
   "id"?: string;
 
