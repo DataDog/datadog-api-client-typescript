@@ -1262,7 +1262,6 @@ export { EntityV3Metadata } from "./models/EntityV3Metadata";
 export { EntityV3MetadataAdditionalOwnersItems } from "./models/EntityV3MetadataAdditionalOwnersItems";
 export { EntityV3MetadataContactsItems } from "./models/EntityV3MetadataContactsItems";
 export { EntityV3MetadataLinksItems } from "./models/EntityV3MetadataLinksItems";
-export { EntityV3MetadataOwner } from "./models/EntityV3MetadataOwner";
 export { EntityV3Queue } from "./models/EntityV3Queue";
 export { EntityV3QueueDatadog } from "./models/EntityV3QueueDatadog";
 export { EntityV3QueueKind } from "./models/EntityV3QueueKind";

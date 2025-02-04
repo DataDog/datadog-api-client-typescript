@@ -485,7 +485,6 @@ import { EntityV3Metadata } from "./EntityV3Metadata";
 import { EntityV3MetadataAdditionalOwnersItems } from "./EntityV3MetadataAdditionalOwnersItems";
 import { EntityV3MetadataContactsItems } from "./EntityV3MetadataContactsItems";
 import { EntityV3MetadataLinksItems } from "./EntityV3MetadataLinksItems";
-import { EntityV3MetadataOwner } from "./EntityV3MetadataOwner";
 import { EntityV3Queue } from "./EntityV3Queue";
 import { EntityV3QueueDatadog } from "./EntityV3QueueDatadog";
 import { EntityV3QueueSpec } from "./EntityV3QueueSpec";
@@ -2920,7 +2919,6 @@ const typeMap: { [index: string]: any } = {
   EntityV3MetadataAdditionalOwnersItems: EntityV3MetadataAdditionalOwnersItems,
   EntityV3MetadataContactsItems: EntityV3MetadataContactsItems,
   EntityV3MetadataLinksItems: EntityV3MetadataLinksItems,
-  EntityV3MetadataOwner: EntityV3MetadataOwner,
   EntityV3Queue: EntityV3Queue,
   EntityV3QueueDatadog: EntityV3QueueDatadog,
   EntityV3QueueSpec: EntityV3QueueSpec,
