@@ -6,7 +6,6 @@
 import { EntityV3MetadataAdditionalOwnersItems } from "./EntityV3MetadataAdditionalOwnersItems";
 import { EntityV3MetadataContactsItems } from "./EntityV3MetadataContactsItems";
 import { EntityV3MetadataLinksItems } from "./EntityV3MetadataLinksItems";
-import { EntityV3MetadataOwner } from "./EntityV3MetadataOwner";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -57,7 +56,7 @@ export class EntityV3Metadata {
   /**
    * The owner of the entity, usually a team.
    */
-  "owner"?: EntityV3MetadataOwner;
+  "owner"?: string;
   /**
    * A set of custom tags.
    */
@@ -115,7 +114,7 @@ export class EntityV3Metadata {
     },
     owner: {
       baseName: "owner",
-      type: "EntityV3MetadataOwner",
+      type: "string",
     },
     tags: {
       baseName: "tags",
