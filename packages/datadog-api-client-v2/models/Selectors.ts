@@ -20,7 +20,7 @@ export class Selectors {
    */
   "query"?: string;
   /**
-   * Security rule types used to filter signals and vulnerabilities generating notifications.
+   * Security rule types used as filters in security rules.
    */
   "ruleTypes"?: Array<RuleTypesItems>;
   /**

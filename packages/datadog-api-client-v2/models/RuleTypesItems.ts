@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Security rule types which can be used in notification rules.
+ * Security rule type which can be used in security rules.
  * Signal-based notification rules can filter signals based on rule types application_security, log_detection,
  * workload_security, signal_correlation, cloud_configuration and infrastructure_configuration.
  * Vulnerability-based notification rules can filter vulnerabilities based on rule types application_code_vulnerability,
