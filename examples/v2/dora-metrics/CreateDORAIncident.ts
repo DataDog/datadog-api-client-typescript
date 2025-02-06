@@ -12,7 +12,7 @@ const params: v2.DORAMetricsApiCreateDORAIncidentRequest = {
   body: {
     data: {
       attributes: {
-        finishedAt: 1707842944600000000,
+        finishedAt: 17078429446000,
         git: {
           commitSha: "66adc9350f2cc9b250b69abddab733dd55e1a588",
           repositoryUrl: "https://github.com/organization/example-repository",
@@ -20,7 +20,7 @@ const params: v2.DORAMetricsApiCreateDORAIncidentRequest = {
         name: "Webserver is down failing all requests",
         services: ["shopist"],
         severity: "High",
-        startedAt: 1707842944500000000,
+        startedAt: 17078429445000,
         team: "backend",
         version: "v1.12.07",
       },
