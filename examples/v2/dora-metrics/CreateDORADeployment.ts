@@ -12,13 +12,13 @@ const params: v2.DORAMetricsApiCreateDORADeploymentRequest = {
   body: {
     data: {
       attributes: {
-        finishedAt: 1693491984000000000,
+        finishedAt: 1693491984000,
         git: {
           commitSha: "66adc9350f2cc9b250b69abddab733dd55e1a588",
           repositoryUrl: "https://github.com/organization/example-repository",
         },
         service: "shopist",
-        startedAt: 1693491974000000000,
+        startedAt: 1693491974000,
         version: "v1.12.07",
       },
     },
