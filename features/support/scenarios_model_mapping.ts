@@ -4683,6 +4683,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterRelatedAssets": {
+            "type": "boolean",
+            "format": "",
+            },
         "windowSeconds": {
             "type": "number",
             "format": "int64",
