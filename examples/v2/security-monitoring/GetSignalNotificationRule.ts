@@ -1,5 +1,5 @@
 /**
- * Get details of a signal-based rule returns "Notification rule details." response
+ * Get details of a signal-based notification rule returns "Notification rule details." response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
