@@ -1344,13 +1344,7 @@ const enumsMap: { [key: string]: any[] } = {
     "UPLOAD_FILES_NAME",
   ],
   SyntheticsBrowserTestType: ["browser"],
-  SyntheticsBrowserVariableType: [
-    "element",
-    "email",
-    "global",
-    "javascript",
-    "text",
-  ],
+  SyntheticsBrowserVariableType: ["element", "email", "global", "text"],
   SyntheticsCheckType: [
     "equals",
     "notEquals",
