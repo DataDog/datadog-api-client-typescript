@@ -14,11 +14,9 @@ export type SyntheticsBrowserVariableType =
   | typeof ELEMENT
   | typeof EMAIL
   | typeof GLOBAL
-  | typeof JAVASCRIPT
   | typeof TEXT
   | UnparsedObject;
 export const ELEMENT = "element";
 export const EMAIL = "email";
 export const GLOBAL = "global";
-export const JAVASCRIPT = "javascript";
 export const TEXT = "text";

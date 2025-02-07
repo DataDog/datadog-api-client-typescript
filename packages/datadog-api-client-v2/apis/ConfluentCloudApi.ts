@@ -1064,7 +1064,7 @@ export interface ConfluentCloudApiCreateConfluentAccountRequest {
 
 export interface ConfluentCloudApiCreateConfluentResourceRequest {
   /**
-   * Confluent Account id.
+   * Confluent Account ID.
    * @type string
    */
   accountId: string;
@@ -1077,7 +1077,7 @@ export interface ConfluentCloudApiCreateConfluentResourceRequest {
 
 export interface ConfluentCloudApiDeleteConfluentAccountRequest {
   /**
-   * Confluent Account id.
+   * Confluent Account ID.
    * @type string
    */
   accountId: string;
@@ -1085,7 +1085,7 @@ export interface ConfluentCloudApiDeleteConfluentAccountRequest {
 
 export interface ConfluentCloudApiDeleteConfluentResourceRequest {
   /**
-   * Confluent Account id.
+   * Confluent Account ID.
    * @type string
    */
   accountId: string;
@@ -1098,7 +1098,7 @@ export interface ConfluentCloudApiDeleteConfluentResourceRequest {
 
 export interface ConfluentCloudApiGetConfluentAccountRequest {
   /**
-   * Confluent Account id.
+   * Confluent Account ID.
    * @type string
    */
   accountId: string;
@@ -1106,7 +1106,7 @@ export interface ConfluentCloudApiGetConfluentAccountRequest {
 
 export interface ConfluentCloudApiGetConfluentResourceRequest {
   /**
-   * Confluent Account id.
+   * Confluent Account ID.
    * @type string
    */
   accountId: string;
@@ -1119,7 +1119,7 @@ export interface ConfluentCloudApiGetConfluentResourceRequest {
 
 export interface ConfluentCloudApiListConfluentResourceRequest {
   /**
-   * Confluent Account id.
+   * Confluent Account ID.
    * @type string
    */
   accountId: string;
@@ -1127,7 +1127,7 @@ export interface ConfluentCloudApiListConfluentResourceRequest {
 
 export interface ConfluentCloudApiUpdateConfluentAccountRequest {
   /**
-   * Confluent Account id.
+   * Confluent Account ID.
    * @type string
    */
   accountId: string;
@@ -1140,7 +1140,7 @@ export interface ConfluentCloudApiUpdateConfluentAccountRequest {
 
 export interface ConfluentCloudApiUpdateConfluentResourceRequest {
   /**
-   * Confluent Account id.
+   * Confluent Account ID.
    * @type string
    */
   accountId: string;
