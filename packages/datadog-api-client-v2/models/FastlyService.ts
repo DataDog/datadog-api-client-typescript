@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FastlyService {
   /**
-   * The id of the Fastly service
+   * The ID of the Fastly service
    */
   "id": string;
   /**
