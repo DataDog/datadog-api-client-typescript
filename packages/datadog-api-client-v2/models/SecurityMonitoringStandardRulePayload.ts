@@ -26,6 +26,10 @@ export class SecurityMonitoringStandardRulePayload {
    */
   "filters"?: Array<SecurityMonitoringFilter>;
   /**
+   * Additional grouping to perform on top of the existing groups in the query section. Must be a subset of the existing groups.
+   */
+  "groupSignalsBy"?: Array<string>;
+  /**
    * Whether the notifications include the triggering group-by values in their title.
    */
   "hasExtendedTitle"?: boolean;
@@ -90,6 +94,10 @@ export class SecurityMonitoringStandardRulePayload {
     filters: {
       baseName: "filters",
       type: "Array<SecurityMonitoringFilter>",
+    },
+    groupSignalsBy: {
+      baseName: "groupSignalsBy",
+      type: "Array<string>",
     },
     hasExtendedTitle: {
       baseName: "hasExtendedTitle",

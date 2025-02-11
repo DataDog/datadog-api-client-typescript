@@ -1,7 +1,7 @@
 @endpoint(ci-visibility-tests) @endpoint(ci-visibility-tests-v2)
 Feature: CI Visibility Tests
   Search or aggregate your CI Visibility test events over HTTP. See the
-  [Test Visibility in Datadog page](https://docs.datadoghq.com/tests/) for
+  [Test Optimization in Datadog](https://docs.datadoghq.com/tests/) page for
   more information.
 
   Background:

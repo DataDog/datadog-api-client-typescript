@@ -2146,6 +2146,9 @@ export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilte
 export { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
 export { SecurityMonitoringReferenceTable } from "./models/SecurityMonitoringReferenceTable";
 export { SecurityMonitoringRuleCase } from "./models/SecurityMonitoringRuleCase";
+export { SecurityMonitoringRuleCaseAction } from "./models/SecurityMonitoringRuleCaseAction";
+export { SecurityMonitoringRuleCaseActionOptions } from "./models/SecurityMonitoringRuleCaseActionOptions";
+export { SecurityMonitoringRuleCaseActionType } from "./models/SecurityMonitoringRuleCaseActionType";
 export { SecurityMonitoringRuleCaseCreate } from "./models/SecurityMonitoringRuleCaseCreate";
 export { SecurityMonitoringRuleConvertPayload } from "./models/SecurityMonitoringRuleConvertPayload";
 export { SecurityMonitoringRuleConvertResponse } from "./models/SecurityMonitoringRuleConvertResponse";
