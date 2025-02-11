@@ -1189,6 +1189,8 @@ import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
+import { SecurityMonitoringRuleCaseAction } from "./SecurityMonitoringRuleCaseAction";
+import { SecurityMonitoringRuleCaseActionOptions } from "./SecurityMonitoringRuleCaseActionOptions";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleConvertResponse } from "./SecurityMonitoringRuleConvertResponse";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
@@ -2075,6 +2077,7 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
+  SecurityMonitoringRuleCaseActionType: ["block_ip", "block_user"],
   SecurityMonitoringRuleDetectionMethod: [
     "threshold",
     "new_value",
@@ -3678,6 +3681,9 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
   SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
   SecurityMonitoringRuleCase: SecurityMonitoringRuleCase,
+  SecurityMonitoringRuleCaseAction: SecurityMonitoringRuleCaseAction,
+  SecurityMonitoringRuleCaseActionOptions:
+    SecurityMonitoringRuleCaseActionOptions,
   SecurityMonitoringRuleCaseCreate: SecurityMonitoringRuleCaseCreate,
   SecurityMonitoringRuleConvertResponse: SecurityMonitoringRuleConvertResponse,
   SecurityMonitoringRuleImpossibleTravelOptions:

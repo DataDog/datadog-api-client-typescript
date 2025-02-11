@@ -29,6 +29,10 @@ export class JobDefinition {
    */
   "from": number;
   /**
+   * Additional grouping to perform on top of the existing groups in the query section. Must be a subset of the existing groups.
+   */
+  "groupSignalsBy"?: Array<string>;
+  /**
    * Index used to load the data.
    */
   "index": string;
@@ -99,6 +103,10 @@ export class JobDefinition {
       type: "number",
       required: true,
       format: "int64",
+    },
+    groupSignalsBy: {
+      baseName: "groupSignalsBy",
+      type: "Array<string>",
     },
     index: {
       baseName: "index",

@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SecurityMonitoringRuleCaseAction } from "./SecurityMonitoringRuleCaseAction";
 import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -11,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Case when signal is generated.
  */
 export class SecurityMonitoringRuleCaseCreate {
+  /**
+   * Action to perform for each rule case.
+   */
+  "actions"?: Array<SecurityMonitoringRuleCaseAction>;
   /**
    * A case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated
    * based on the event counts in the previously defined queries.
@@ -45,6 +50,10 @@ export class SecurityMonitoringRuleCaseCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    actions: {
+      baseName: "actions",
+      type: "Array<SecurityMonitoringRuleCaseAction>",
+    },
     condition: {
       baseName: "condition",
       type: "string",
