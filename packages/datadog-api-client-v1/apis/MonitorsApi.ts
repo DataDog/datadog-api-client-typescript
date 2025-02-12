@@ -1226,7 +1226,7 @@ export interface MonitorsApiGetMonitorRequest {
 export interface MonitorsApiListMonitorsRequest {
   /**
    * When specified, shows additional information about the group states.
-   * Choose one or more from `all`, `alert`, `warn`, and `no data`.
+   * Choose one or more from `all`, `alert`, `warn`, and `no data` (`no%20data`).
    * @type string
    */
   groupStates?: string;
