@@ -21,7 +21,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">WorkflowAutomationApi</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/5265c7c/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L520">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:520</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L974">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:974</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -40,9 +40,13 @@
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Methods</h3>
 <div class="tsd-index-list"><a href="v2.WorkflowAutomationApi.html#cancelWorkflowInstance" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-2048-path"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)" id="icon-2048-text"></path></svg><span>cancel<wbr/>Workflow<wbr/>Instance</span></a>
+<a href="v2.WorkflowAutomationApi.html#createWorkflow" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>create<wbr/>Workflow</span></a>
 <a href="v2.WorkflowAutomationApi.html#createWorkflowInstance" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>create<wbr/>Workflow<wbr/>Instance</span></a>
+<a href="v2.WorkflowAutomationApi.html#deleteWorkflow" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>delete<wbr/>Workflow</span></a>
+<a href="v2.WorkflowAutomationApi.html#getWorkflow" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Workflow</span></a>
 <a href="v2.WorkflowAutomationApi.html#getWorkflowInstance" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Workflow<wbr/>Instance</span></a>
 <a href="v2.WorkflowAutomationApi.html#listWorkflowInstances" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>list<wbr/>Workflow<wbr/>Instances</span></a>
+<a href="v2.WorkflowAutomationApi.html#updateWorkflow" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>update<wbr/>Workflow</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Constructors</h2>
@@ -62,24 +66,24 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> responseProcessor: <span class="tsd-signature-type">WorkflowAutomationApiResponseProcessor</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="v2.WorkflowAutomationApi.html" class="tsd-signature-type" data-tsd-kind="Class">WorkflowAutomationApi</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/5265c7c/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L525">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:525</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L979">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:979</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="configuration" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>configuration</span><a href="#configuration" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">configuration<span class="tsd-signature-symbol">:</span> <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/5265c7c/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L523">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:523</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L977">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:977</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="requestFactory" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>request<wbr/>Factory</span><a href="#requestFactory" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">request<wbr/>Factory<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WorkflowAutomationApiRequestFactory</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/5265c7c/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L521">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:521</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L975">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:975</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="responseProcessor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>response<wbr/>Processor</span><a href="#responseProcessor" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">response<wbr/>Processor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WorkflowAutomationApiResponseProcessor</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/5265c7c/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L522">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:522</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L976">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:976</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="cancelWorkflowInstance" class="tsd-anchor"></a>
@@ -100,7 +104,26 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.WorklflowCancelInstanceResponse.html" class="tsd-signature-type" data-tsd-kind="Class">WorklflowCancelInstanceResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/5265c7c/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L541">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:541</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L995">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:995</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="createWorkflow" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>create<wbr/>Workflow</span><a href="#createWorkflow" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="createWorkflow.createWorkflow-1">create<wbr/>Workflow<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v2.WorkflowAutomationApiCreateWorkflowRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">WorkflowAutomationApiCreateWorkflowRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.CreateWorkflowResponse.html" class="tsd-signature-type" data-tsd-kind="Class">CreateWorkflowResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#createWorkflow.createWorkflow-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Create a new workflow, returning the workflow ID. This API requires an application key scoped with the <code>workflows_write</code> permission.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v2.WorkflowAutomationApiCreateWorkflowRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">WorkflowAutomationApiCreateWorkflowRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.CreateWorkflowResponse.html" class="tsd-signature-type" data-tsd-kind="Class">CreateWorkflowResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L1017">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:1017</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="createWorkflowInstance" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>create<wbr/>Workflow<wbr/>Instance</span><a href="#createWorkflowInstance" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -119,7 +142,45 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.WorkflowInstanceCreateResponse.html" class="tsd-signature-type" data-tsd-kind="Class">WorkflowInstanceCreateResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/5265c7c/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L563">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:563</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L1038">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:1038</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="deleteWorkflow" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>delete<wbr/>Workflow</span><a href="#deleteWorkflow" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="deleteWorkflow.deleteWorkflow-1">delete<wbr/>Workflow<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v2.WorkflowAutomationApiDeleteWorkflowRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">WorkflowAutomationApiDeleteWorkflowRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#deleteWorkflow.deleteWorkflow-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Delete a workflow by ID. This API requires an application key scoped with the <code>workflows_write</code> permission.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v2.WorkflowAutomationApiDeleteWorkflowRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">WorkflowAutomationApiDeleteWorkflowRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L1060">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:1060</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getWorkflow" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Workflow</span><a href="#getWorkflow" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getWorkflow.getWorkflow-1">get<wbr/>Workflow<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v2.WorkflowAutomationApiGetWorkflowRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">WorkflowAutomationApiGetWorkflowRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.GetWorkflowResponse.html" class="tsd-signature-type" data-tsd-kind="Class">GetWorkflowResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getWorkflow.getWorkflow-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get a workflow by ID.  This API requires an application key scoped with the <code>workflows_read</code> permission.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v2.WorkflowAutomationApiGetWorkflowRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">WorkflowAutomationApiGetWorkflowRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.GetWorkflowResponse.html" class="tsd-signature-type" data-tsd-kind="Class">GetWorkflowResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L1081">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:1081</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getWorkflowInstance" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Workflow<wbr/>Instance</span><a href="#getWorkflowInstance" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -138,7 +199,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.WorklflowGetInstanceResponse.html" class="tsd-signature-type" data-tsd-kind="Class">WorklflowGetInstanceResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/5265c7c/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L585">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:585</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L1102">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:1102</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="listWorkflowInstances" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>list<wbr/>Workflow<wbr/>Instances</span><a href="#listWorkflowInstances" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -157,7 +218,26 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.WorkflowListInstancesResponse.html" class="tsd-signature-type" data-tsd-kind="Class">WorkflowListInstancesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/5265c7c/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L607">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:607</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L1124">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:1124</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="updateWorkflow" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>update<wbr/>Workflow</span><a href="#updateWorkflow" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="updateWorkflow.updateWorkflow-1">update<wbr/>Workflow<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v2.WorkflowAutomationApiUpdateWorkflowRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">WorkflowAutomationApiUpdateWorkflowRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.UpdateWorkflowResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UpdateWorkflowResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#updateWorkflow.updateWorkflow-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Update a workflow by ID. This API requires an application key scoped with the <code>workflows_write</code> permission.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v2.WorkflowAutomationApiUpdateWorkflowRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">WorkflowAutomationApiUpdateWorkflowRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.UpdateWorkflowResponse.html" class="tsd-signature-type" data-tsd-kind="Class">UpdateWorkflowResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/0542cac/packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts#L1147">packages/datadog-api-client-v2/apis/WorkflowAutomationApi.ts:1147</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -191,9 +271,13 @@
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="v2.WorkflowAutomationApi.html#requestFactory" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>request<wbr/>Factory</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="v2.WorkflowAutomationApi.html#responseProcessor" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>response<wbr/>Processor</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.WorkflowAutomationApi.html#cancelWorkflowInstance" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>cancel<wbr/>Workflow<wbr/>Instance</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.WorkflowAutomationApi.html#createWorkflow" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>create<wbr/>Workflow</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.WorkflowAutomationApi.html#createWorkflowInstance" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>create<wbr/>Workflow<wbr/>Instance</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.WorkflowAutomationApi.html#deleteWorkflow" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>delete<wbr/>Workflow</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.WorkflowAutomationApi.html#getWorkflow" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Workflow</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.WorkflowAutomationApi.html#getWorkflowInstance" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Workflow<wbr/>Instance</a></li>
-<li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.WorkflowAutomationApi.html#listWorkflowInstances" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>list<wbr/>Workflow<wbr/>Instances</a></li></ul></li></ul></nav></div></div>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.WorkflowAutomationApi.html#listWorkflowInstances" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>list<wbr/>Workflow<wbr/>Instances</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.WorkflowAutomationApi.html#updateWorkflow" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>update<wbr/>Workflow</a></li></ul></li></ul></nav></div></div>
 <div class="container tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
 <div class="overlay"></div><script src="../assets/main.js"></script></body></html>
