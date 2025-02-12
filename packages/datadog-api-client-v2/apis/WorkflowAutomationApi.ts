@@ -17,6 +17,12 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { CreateWorkflowRequest } from "../models/CreateWorkflowRequest";
+import { CreateWorkflowResponse } from "../models/CreateWorkflowResponse";
+import { GetWorkflowResponse } from "../models/GetWorkflowResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { UpdateWorkflowRequest } from "../models/UpdateWorkflowRequest";
+import { UpdateWorkflowResponse } from "../models/UpdateWorkflowResponse";
 import { WorkflowInstanceCreateRequest } from "../models/WorkflowInstanceCreateRequest";
 import { WorkflowInstanceCreateResponse } from "../models/WorkflowInstanceCreateResponse";
 import { WorkflowListInstancesResponse } from "../models/WorkflowListInstancesResponse";
@@ -53,6 +59,47 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createWorkflow(
+    body: CreateWorkflowRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createWorkflow");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/workflows";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.WorkflowAutomationApi.createWorkflow")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateWorkflowRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -107,6 +154,72 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteWorkflow(
+    workflowId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'workflowId' is not null or undefined
+    if (workflowId === null || workflowId === undefined) {
+      throw new RequiredError("workflowId", "deleteWorkflow");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/workflows/{workflow_id}".replace(
+      "{workflow_id}",
+      encodeURIComponent(String(workflowId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.WorkflowAutomationApi.deleteWorkflow")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getWorkflow(
+    workflowId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'workflowId' is not null or undefined
+    if (workflowId === null || workflowId === undefined) {
+      throw new RequiredError("workflowId", "getWorkflow");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/workflows/{workflow_id}".replace(
+      "{workflow_id}",
+      encodeURIComponent(String(workflowId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.WorkflowAutomationApi.getWorkflow")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -205,6 +318,56 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updateWorkflow(
+    workflowId: string,
+    body: UpdateWorkflowRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'workflowId' is not null or undefined
+    if (workflowId === null || workflowId === undefined) {
+      throw new RequiredError("workflowId", "updateWorkflow");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateWorkflow");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/workflows/{workflow_id}".replace(
+      "{workflow_id}",
+      encodeURIComponent(String(workflowId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.WorkflowAutomationApi.updateWorkflow")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UpdateWorkflowRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class WorkflowAutomationApiResponseProcessor {
@@ -277,6 +440,71 @@ export class WorkflowAutomationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createWorkflow
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createWorkflow(
+    response: ResponseContext
+  ): Promise<CreateWorkflowResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: CreateWorkflowResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CreateWorkflowResponse"
+      ) as CreateWorkflowResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CreateWorkflowResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CreateWorkflowResponse",
+        ""
+      ) as CreateWorkflowResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createWorkflowInstance
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -325,6 +553,131 @@ export class WorkflowAutomationApiResponseProcessor {
         "WorkflowInstanceCreateResponse",
         ""
       ) as WorkflowInstanceCreateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteWorkflow
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteWorkflow(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getWorkflow
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getWorkflow(
+    response: ResponseContext
+  ): Promise<GetWorkflowResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GetWorkflowResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetWorkflowResponse"
+      ) as GetWorkflowResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetWorkflowResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetWorkflowResponse",
+        ""
+      ) as GetWorkflowResponse;
       return body;
     }
 
@@ -459,6 +812,72 @@ export class WorkflowAutomationApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateWorkflow
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateWorkflow(
+    response: ResponseContext
+  ): Promise<UpdateWorkflowResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UpdateWorkflowResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UpdateWorkflowResponse"
+      ) as UpdateWorkflowResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UpdateWorkflowResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UpdateWorkflowResponse",
+        ""
+      ) as UpdateWorkflowResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface WorkflowAutomationApiCancelWorkflowInstanceRequest {
@@ -474,6 +893,13 @@ export interface WorkflowAutomationApiCancelWorkflowInstanceRequest {
   instanceId: string;
 }
 
+export interface WorkflowAutomationApiCreateWorkflowRequest {
+  /**
+   * @type CreateWorkflowRequest
+   */
+  body: CreateWorkflowRequest;
+}
+
 export interface WorkflowAutomationApiCreateWorkflowInstanceRequest {
   /**
    * The ID of the workflow.
@@ -484,6 +910,22 @@ export interface WorkflowAutomationApiCreateWorkflowInstanceRequest {
    * @type WorkflowInstanceCreateRequest
    */
   body: WorkflowInstanceCreateRequest;
+}
+
+export interface WorkflowAutomationApiDeleteWorkflowRequest {
+  /**
+   * The ID of the workflow.
+   * @type string
+   */
+  workflowId: string;
+}
+
+export interface WorkflowAutomationApiGetWorkflowRequest {
+  /**
+   * The ID of the workflow.
+   * @type string
+   */
+  workflowId: string;
 }
 
 export interface WorkflowAutomationApiGetWorkflowInstanceRequest {
@@ -515,6 +957,18 @@ export interface WorkflowAutomationApiListWorkflowInstancesRequest {
    * @type number
    */
   pageNumber?: number;
+}
+
+export interface WorkflowAutomationApiUpdateWorkflowRequest {
+  /**
+   * The ID of the workflow.
+   * @type string
+   */
+  workflowId: string;
+  /**
+   * @type UpdateWorkflowRequest
+   */
+  body: UpdateWorkflowRequest;
 }
 
 export class WorkflowAutomationApi {
@@ -557,6 +1011,27 @@ export class WorkflowAutomationApi {
   }
 
   /**
+   * Create a new workflow, returning the workflow ID. This API requires an application key scoped with the `workflows_write` permission.
+   * @param param The request object
+   */
+  public createWorkflow(
+    param: WorkflowAutomationApiCreateWorkflowRequest,
+    options?: Configuration
+  ): Promise<CreateWorkflowResponse> {
+    const requestContextPromise = this.requestFactory.createWorkflow(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createWorkflow(responseContext);
+        });
+    });
+  }
+
+  /**
    * Execute the given workflow. This API requires an application key scoped with the workflows_run permission.
    * @param param The request object
    */
@@ -574,6 +1049,48 @@ export class WorkflowAutomationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createWorkflowInstance(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a workflow by ID. This API requires an application key scoped with the `workflows_write` permission.
+   * @param param The request object
+   */
+  public deleteWorkflow(
+    param: WorkflowAutomationApiDeleteWorkflowRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteWorkflow(
+      param.workflowId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteWorkflow(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a workflow by ID.  This API requires an application key scoped with the `workflows_read` permission.
+   * @param param The request object
+   */
+  public getWorkflow(
+    param: WorkflowAutomationApiGetWorkflowRequest,
+    options?: Configuration
+  ): Promise<GetWorkflowResponse> {
+    const requestContextPromise = this.requestFactory.getWorkflow(
+      param.workflowId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getWorkflow(responseContext);
         });
     });
   }
@@ -619,6 +1136,28 @@ export class WorkflowAutomationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listWorkflowInstances(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a workflow by ID. This API requires an application key scoped with the `workflows_write` permission.
+   * @param param The request object
+   */
+  public updateWorkflow(
+    param: WorkflowAutomationApiUpdateWorkflowRequest,
+    options?: Configuration
+  ): Promise<UpdateWorkflowResponse> {
+    const requestContextPromise = this.requestFactory.updateWorkflow(
+      param.workflowId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateWorkflow(responseContext);
         });
     });
   }

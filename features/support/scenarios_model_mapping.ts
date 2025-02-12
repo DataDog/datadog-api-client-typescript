@@ -6837,6 +6837,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "PermissionsResponse",
     },
+    "v2.CreateWorkflow": {
+        "body": {
+            "type": "CreateWorkflowRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateWorkflowResponse",
+    },
+    "v2.DeleteWorkflow": {
+        "workflowId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetWorkflow": {
+        "workflowId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetWorkflowResponse",
+    },
+    "v2.UpdateWorkflow": {
+        "workflowId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateWorkflowRequest",
+            "format": "",
+            },
+        "operationResponseType": "UpdateWorkflowResponse",
+    },
     "v2.ListWorkflowInstances": {
         "workflowId": {
             "type": "string",
