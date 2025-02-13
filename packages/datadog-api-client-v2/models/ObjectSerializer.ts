@@ -10,6 +10,8 @@ import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
 import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
 import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
+import { APITrigger } from "./APITrigger";
+import { APITriggerWrapper } from "./APITriggerWrapper";
 import { AWSAccountCreateRequest } from "./AWSAccountCreateRequest";
 import { AWSAccountCreateRequestAttributes } from "./AWSAccountCreateRequestAttributes";
 import { AWSAccountCreateRequestData } from "./AWSAccountCreateRequestData";
@@ -53,9 +55,14 @@ import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttr
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
 import { Advisory } from "./Advisory";
+import { Annotation } from "./Annotation";
+import { AnnotationDisplay } from "./AnnotationDisplay";
+import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
+import { AnnotationMarkdownTextAnnotation } from "./AnnotationMarkdownTextAnnotation";
 import { AppBuilderEvent } from "./AppBuilderEvent";
 import { AppMeta } from "./AppMeta";
 import { AppRelationship } from "./AppRelationship";
+import { AppTriggerWrapper } from "./AppTriggerWrapper";
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 import { ApplicationKeyCreateRequest } from "./ApplicationKeyCreateRequest";
@@ -195,6 +202,8 @@ import { CaseEmpty } from "./CaseEmpty";
 import { CaseEmptyRequest } from "./CaseEmptyRequest";
 import { CaseRelationships } from "./CaseRelationships";
 import { CaseResponse } from "./CaseResponse";
+import { CaseTrigger } from "./CaseTrigger";
+import { CaseTriggerWrapper } from "./CaseTriggerWrapper";
 import { CaseUpdatePriority } from "./CaseUpdatePriority";
 import { CaseUpdatePriorityAttributes } from "./CaseUpdatePriorityAttributes";
 import { CaseUpdatePriorityRequest } from "./CaseUpdatePriorityRequest";
@@ -208,6 +217,7 @@ import { ChangeEventCustomAttributes } from "./ChangeEventCustomAttributes";
 import { ChangeEventCustomAttributesAuthor } from "./ChangeEventCustomAttributesAuthor";
 import { ChangeEventCustomAttributesChangedResource } from "./ChangeEventCustomAttributesChangedResource";
 import { ChangeEventCustomAttributesImpactedResourcesItems } from "./ChangeEventCustomAttributesImpactedResourcesItems";
+import { ChangeEventTriggerWrapper } from "./ChangeEventTriggerWrapper";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
@@ -241,6 +251,8 @@ import { CloudflareAccountUpdateRequestAttributes } from "./CloudflareAccountUpd
 import { CloudflareAccountUpdateRequestData } from "./CloudflareAccountUpdateRequestData";
 import { CloudflareAccountsResponse } from "./CloudflareAccountsResponse";
 import { CodeLocation } from "./CodeLocation";
+import { CompletionCondition } from "./CompletionCondition";
+import { CompletionGate } from "./CompletionGate";
 import { Component } from "./Component";
 import { ComponentGrid } from "./ComponentGrid";
 import { ComponentGridProperties } from "./ComponentGridProperties";
@@ -263,6 +275,9 @@ import { ConfluentResourceResponse } from "./ConfluentResourceResponse";
 import { ConfluentResourceResponseAttributes } from "./ConfluentResourceResponseAttributes";
 import { ConfluentResourceResponseData } from "./ConfluentResourceResponseData";
 import { ConfluentResourcesResponse } from "./ConfluentResourcesResponse";
+import { Connection } from "./Connection";
+import { ConnectionEnv } from "./ConnectionEnv";
+import { ConnectionGroup } from "./ConnectionGroup";
 import { Container } from "./Container";
 import { ContainerAttributes } from "./ContainerAttributes";
 import { ContainerGroup } from "./ContainerGroup";
@@ -315,6 +330,8 @@ import { CreateRuleRequest } from "./CreateRuleRequest";
 import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
 import { CreateRuleResponseData } from "./CreateRuleResponseData";
+import { CreateWorkflowRequest } from "./CreateWorkflowRequest";
+import { CreateWorkflowResponse } from "./CreateWorkflowResponse";
 import { Creator } from "./Creator";
 import { CsmAgentData } from "./CsmAgentData";
 import { CsmAgentsAttributes } from "./CsmAgentsAttributes";
@@ -387,6 +404,7 @@ import { DashboardListItemResponse } from "./DashboardListItemResponse";
 import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
+import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
 import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
@@ -494,6 +512,7 @@ import { EntityV3ServiceSpec } from "./EntityV3ServiceSpec";
 import { EntityV3System } from "./EntityV3System";
 import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
 import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
+import { ErrorHandler } from "./ErrorHandler";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventCreateRequest } from "./EventCreateRequest";
@@ -573,6 +592,9 @@ import { GetInterfacesResponse } from "./GetInterfacesResponse";
 import { GetRuleVersionHistoryData } from "./GetRuleVersionHistoryData";
 import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./GetSBOMResponse";
+import { GetWorkflowResponse } from "./GetWorkflowResponse";
+import { GithubWebhookTrigger } from "./GithubWebhookTrigger";
+import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPBody } from "./HTTPBody";
 import { HTTPCIAppError } from "./HTTPCIAppError";
@@ -686,6 +708,8 @@ import { IncidentTodoPatchRequest } from "./IncidentTodoPatchRequest";
 import { IncidentTodoRelationships } from "./IncidentTodoRelationships";
 import { IncidentTodoResponse } from "./IncidentTodoResponse";
 import { IncidentTodoResponseData } from "./IncidentTodoResponseData";
+import { IncidentTrigger } from "./IncidentTrigger";
+import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
 import { IncidentTypeAttributes } from "./IncidentTypeAttributes";
 import { IncidentTypeCreateData } from "./IncidentTypeCreateData";
 import { IncidentTypeCreateRequest } from "./IncidentTypeCreateRequest";
@@ -702,6 +726,8 @@ import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
 import { IncidentUserAttributes } from "./IncidentUserAttributes";
 import { IncidentUserData } from "./IncidentUserData";
 import { IncidentsResponse } from "./IncidentsResponse";
+import { InputSchema } from "./InputSchema";
+import { InputSchemaParameters } from "./InputSchemaParameters";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { InterfaceAttributes } from "./InterfaceAttributes";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
@@ -910,6 +936,8 @@ import { MonitorConfigPolicyTagPolicyCreateRequest } from "./MonitorConfigPolicy
 import { MonitorDowntimeMatchResponse } from "./MonitorDowntimeMatchResponse";
 import { MonitorDowntimeMatchResponseAttributes } from "./MonitorDowntimeMatchResponseAttributes";
 import { MonitorDowntimeMatchResponseData } from "./MonitorDowntimeMatchResponseData";
+import { MonitorTrigger } from "./MonitorTrigger";
+import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
 import { MonitorType } from "./MonitorType";
 import { MonthlyCostAttributionAttributes } from "./MonthlyCostAttributionAttributes";
 import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
@@ -956,6 +984,7 @@ import { OrgConfigWriteAttributes } from "./OrgConfigWriteAttributes";
 import { OrgConfigWriteRequest } from "./OrgConfigWriteRequest";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
+import { OutboundEdge } from "./OutboundEdge";
 import { OutcomesBatchAttributes } from "./OutcomesBatchAttributes";
 import { OutcomesBatchRequest } from "./OutcomesBatchRequest";
 import { OutcomesBatchRequestData } from "./OutcomesBatchRequestData";
@@ -968,7 +997,10 @@ import { OutcomesResponseDataItem } from "./OutcomesResponseDataItem";
 import { OutcomesResponseIncludedItem } from "./OutcomesResponseIncludedItem";
 import { OutcomesResponseIncludedRuleAttributes } from "./OutcomesResponseIncludedRuleAttributes";
 import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
+import { OutputSchema } from "./OutputSchema";
+import { OutputSchemaParameters } from "./OutputSchemaParameters";
 import { Pagination } from "./Pagination";
+import { Parameter } from "./Parameter";
 import { PartialAPIKey } from "./PartialAPIKey";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
@@ -1047,6 +1079,7 @@ import { RUMResponseMetadata } from "./RUMResponseMetadata";
 import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
+import { ReadinessGate } from "./ReadinessGate";
 import { RelationshipItem } from "./RelationshipItem";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
 import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
@@ -1111,6 +1144,8 @@ import { RetentionFilterUpdateData } from "./RetentionFilterUpdateData";
 import { RetentionFilterUpdateRequest } from "./RetentionFilterUpdateRequest";
 import { RetentionFilterWithoutAttributes } from "./RetentionFilterWithoutAttributes";
 import { RetentionFiltersResponse } from "./RetentionFiltersResponse";
+import { RetryStrategy } from "./RetryStrategy";
+import { RetryStrategyLinear } from "./RetryStrategyLinear";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
 import { RoleClone } from "./RoleClone";
@@ -1177,6 +1212,8 @@ import { ScalarFormulaRequestAttributes } from "./ScalarFormulaRequestAttributes
 import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
 import { ScalarMeta } from "./ScalarMeta";
 import { ScalarResponse } from "./ScalarResponse";
+import { ScheduleTrigger } from "./ScheduleTrigger";
+import { ScheduleTriggerWrapper } from "./ScheduleTriggerWrapper";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -1254,6 +1291,8 @@ import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdP
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
+import { SecurityTrigger } from "./SecurityTrigger";
+import { SecurityTriggerWrapper } from "./SecurityTriggerWrapper";
 import { Selectors } from "./Selectors";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
@@ -1346,6 +1385,7 @@ import { ServiceNowTicket } from "./ServiceNowTicket";
 import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
+import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
 import { SloReportCreateRequest } from "./SloReportCreateRequest";
 import { SloReportCreateRequestAttributes } from "./SloReportCreateRequestAttributes";
 import { SloReportCreateRequestData } from "./SloReportCreateRequestData";
@@ -1393,6 +1433,10 @@ import { SpansQueryFilter } from "./SpansQueryFilter";
 import { SpansQueryOptions } from "./SpansQueryOptions";
 import { SpansResponseMetadataPage } from "./SpansResponseMetadataPage";
 import { SpansWarning } from "./SpansWarning";
+import { Spec } from "./Spec";
+import { Step } from "./Step";
+import { StepDisplay } from "./StepDisplay";
+import { StepDisplayBounds } from "./StepDisplayBounds";
 import { Team } from "./Team";
 import { TeamAttributes } from "./TeamAttributes";
 import { TeamCreate } from "./TeamCreate";
@@ -1430,6 +1474,7 @@ import { TimeseriesFormulaRequestAttributes } from "./TimeseriesFormulaRequestAt
 import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
+import { TriggerRateLimit } from "./TriggerRateLimit";
 import { Unit } from "./Unit";
 import { UnpublishAppResponse } from "./UnpublishAppResponse";
 import { UpdateActionConnectionRequest } from "./UpdateActionConnectionRequest";
@@ -1447,6 +1492,8 @@ import { UpdateRuleRequest } from "./UpdateRuleRequest";
 import { UpdateRuleRequestData } from "./UpdateRuleRequestData";
 import { UpdateRuleResponse } from "./UpdateRuleResponse";
 import { UpdateRuleResponseData } from "./UpdateRuleResponseData";
+import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
+import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
 import { UrlParam } from "./UrlParam";
 import { UrlParamUpdate } from "./UrlParamUpdate";
@@ -1496,6 +1543,11 @@ import { VulnerabilityRelationships } from "./VulnerabilityRelationships";
 import { VulnerabilityRelationshipsAffects } from "./VulnerabilityRelationshipsAffects";
 import { VulnerabilityRelationshipsAffectsData } from "./VulnerabilityRelationshipsAffectsData";
 import { VulnerabilityRisks } from "./VulnerabilityRisks";
+import { WorkflowData } from "./WorkflowData";
+import { WorkflowDataAttributes } from "./WorkflowDataAttributes";
+import { WorkflowDataRelationships } from "./WorkflowDataRelationships";
+import { WorkflowDataUpdate } from "./WorkflowDataUpdate";
+import { WorkflowDataUpdateAttributes } from "./WorkflowDataUpdateAttributes";
 import { WorkflowInstanceCreateMeta } from "./WorkflowInstanceCreateMeta";
 import { WorkflowInstanceCreateRequest } from "./WorkflowInstanceCreateRequest";
 import { WorkflowInstanceCreateResponse } from "./WorkflowInstanceCreateResponse";
@@ -1504,6 +1556,9 @@ import { WorkflowInstanceListItem } from "./WorkflowInstanceListItem";
 import { WorkflowListInstancesResponse } from "./WorkflowListInstancesResponse";
 import { WorkflowListInstancesResponseMeta } from "./WorkflowListInstancesResponseMeta";
 import { WorkflowListInstancesResponseMetaPage } from "./WorkflowListInstancesResponseMetaPage";
+import { WorkflowTriggerWrapper } from "./WorkflowTriggerWrapper";
+import { WorkflowUserRelationship } from "./WorkflowUserRelationship";
+import { WorkflowUserRelationshipData } from "./WorkflowUserRelationshipData";
 import { WorklflowCancelInstanceResponse } from "./WorklflowCancelInstanceResponse";
 import { WorklflowCancelInstanceResponseData } from "./WorklflowCancelInstanceResponseData";
 import { WorklflowGetInstanceResponse } from "./WorklflowGetInstanceResponse";
@@ -1695,6 +1750,20 @@ const enumsMap: { [key: string]: any[] } = {
   CloudConfigurationRuleType: ["cloud_configuration"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   CloudflareAccountType: ["cloudflare-accounts"],
+  CompletionConditionOperator: [
+    "OPERATOR_EQUAL",
+    "OPERATOR_NOT_EQUAL",
+    "OPERATOR_GREATER_THAN",
+    "OPERATOR_LESS_THAN",
+    "OPERATOR_GREATER_THAN_OR_EQUAL_TO",
+    "OPERATOR_LESS_THAN_OR_EQUAL_TO",
+    "OPERATOR_CONTAINS",
+    "OPERATOR_DOES_NOT_CONTAIN",
+    "OPERATOR_IS_NULL",
+    "OPERATOR_IS_NOT_NULL",
+    "OPERATOR_IS_EMPTY",
+    "OPERATOR_IS_NOT_EMPTY",
+  ],
   ComponentGridType: ["grid"],
   ComponentType: [
     "table",
@@ -1720,6 +1789,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ConfluentAccountType: ["confluent-cloud-accounts"],
   ConfluentResourceType: ["confluent-cloud-resources"],
+  ConnectionEnvEnv: ["default"],
   ContainerGroupType: ["container_group"],
   ContainerImageGroupType: ["container_image_group"],
   ContainerImageMetaPageType: ["cursor_limit"],
@@ -1877,6 +1947,16 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentTypeType: ["incident_types"],
   IncidentUserDefinedFieldType: ["user_defined_field"],
   IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
+  InputSchemaParametersType: [
+    "STRING",
+    "NUMBER",
+    "BOOLEAN",
+    "OBJECT",
+    "ARRAY_STRING",
+    "ARRAY_NUMBER",
+    "ARRAY_BOOLEAN",
+    "ARRAY_OBJECT",
+  ],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
   LeakedKeyType: ["leaked_keys"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
@@ -1964,6 +2044,16 @@ const enumsMap: { [key: string]: any[] } = {
   OrganizationsType: ["orgs"],
   OutcomeType: ["outcome"],
   OutcomesBatchType: ["batched-outcome"],
+  OutputSchemaParametersType: [
+    "STRING",
+    "NUMBER",
+    "BOOLEAN",
+    "OBJECT",
+    "ARRAY_STRING",
+    "ARRAY_NUMBER",
+    "ARRAY_BOOLEAN",
+    "ARRAY_OBJECT",
+  ],
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
   ProjectResourceType: ["project"],
@@ -1994,6 +2084,7 @@ const enumsMap: { [key: string]: any[] } = {
   RUMResponseStatus: ["done", "timeout"],
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
+  ReadinessGateThresholdType: ["ANY", "ALL"],
   RelationType: [
     "RelationTypeOwns",
     "RelationTypeOwnedBy",
@@ -2013,6 +2104,7 @@ const enumsMap: { [key: string]: any[] } = {
     "spans-appsec-sampling-processor",
   ],
   RetentionFilterType: ["spans-sampling-processor"],
+  RetryStrategyKind: ["RETRY_STRATEGY_LINEAR"],
   RolesSort: [
     "name",
     "-name",
@@ -2376,6 +2468,8 @@ const enumsMap: { [key: string]: any[] } = {
     "1y",
     "alert",
   ],
+  WorkflowDataType: ["workflows"],
+  WorkflowUserRelationshipType: ["users"],
 };
 
 const typeMap: { [index: string]: any } = {
@@ -2391,6 +2485,8 @@ const typeMap: { [index: string]: any } = {
   APIKeysResponse: APIKeysResponse,
   APIKeysResponseMeta: APIKeysResponseMeta,
   APIKeysResponseMetaPage: APIKeysResponseMetaPage,
+  APITrigger: APITrigger,
+  APITriggerWrapper: APITriggerWrapper,
   AWSAccountCreateRequest: AWSAccountCreateRequest,
   AWSAccountCreateRequestAttributes: AWSAccountCreateRequestAttributes,
   AWSAccountCreateRequestData: AWSAccountCreateRequestData,
@@ -2434,9 +2530,14 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   Advisory: Advisory,
+  Annotation: Annotation,
+  AnnotationDisplay: AnnotationDisplay,
+  AnnotationDisplayBounds: AnnotationDisplayBounds,
+  AnnotationMarkdownTextAnnotation: AnnotationMarkdownTextAnnotation,
   AppBuilderEvent: AppBuilderEvent,
   AppMeta: AppMeta,
   AppRelationship: AppRelationship,
+  AppTriggerWrapper: AppTriggerWrapper,
   ApplicationKeyCreateAttributes: ApplicationKeyCreateAttributes,
   ApplicationKeyCreateData: ApplicationKeyCreateData,
   ApplicationKeyCreateRequest: ApplicationKeyCreateRequest,
@@ -2582,6 +2683,8 @@ const typeMap: { [index: string]: any } = {
   CaseEmptyRequest: CaseEmptyRequest,
   CaseRelationships: CaseRelationships,
   CaseResponse: CaseResponse,
+  CaseTrigger: CaseTrigger,
+  CaseTriggerWrapper: CaseTriggerWrapper,
   CaseUpdatePriority: CaseUpdatePriority,
   CaseUpdatePriorityAttributes: CaseUpdatePriorityAttributes,
   CaseUpdatePriorityRequest: CaseUpdatePriorityRequest,
@@ -2597,6 +2700,7 @@ const typeMap: { [index: string]: any } = {
     ChangeEventCustomAttributesChangedResource,
   ChangeEventCustomAttributesImpactedResourcesItems:
     ChangeEventCustomAttributesImpactedResourcesItems,
+  ChangeEventTriggerWrapper: ChangeEventTriggerWrapper,
   ChargebackBreakdown: ChargebackBreakdown,
   CloudConfigurationComplianceRuleOptions:
     CloudConfigurationComplianceRuleOptions,
@@ -2645,6 +2749,8 @@ const typeMap: { [index: string]: any } = {
   CloudflareAccountUpdateRequestData: CloudflareAccountUpdateRequestData,
   CloudflareAccountsResponse: CloudflareAccountsResponse,
   CodeLocation: CodeLocation,
+  CompletionCondition: CompletionCondition,
+  CompletionGate: CompletionGate,
   Component: Component,
   ComponentGrid: ComponentGrid,
   ComponentGridProperties: ComponentGridProperties,
@@ -2669,6 +2775,9 @@ const typeMap: { [index: string]: any } = {
   ConfluentResourceResponseAttributes: ConfluentResourceResponseAttributes,
   ConfluentResourceResponseData: ConfluentResourceResponseData,
   ConfluentResourcesResponse: ConfluentResourcesResponse,
+  Connection: Connection,
+  ConnectionEnv: ConnectionEnv,
+  ConnectionGroup: ConnectionGroup,
   Container: Container,
   ContainerAttributes: ContainerAttributes,
   ContainerGroup: ContainerGroup,
@@ -2724,6 +2833,8 @@ const typeMap: { [index: string]: any } = {
   CreateRuleRequestData: CreateRuleRequestData,
   CreateRuleResponse: CreateRuleResponse,
   CreateRuleResponseData: CreateRuleResponseData,
+  CreateWorkflowRequest: CreateWorkflowRequest,
+  CreateWorkflowResponse: CreateWorkflowResponse,
   Creator: Creator,
   CsmAgentData: CsmAgentData,
   CsmAgentsAttributes: CsmAgentsAttributes,
@@ -2819,6 +2930,7 @@ const typeMap: { [index: string]: any } = {
   DashboardListItems: DashboardListItems,
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
+  DashboardTriggerWrapper: DashboardTriggerWrapper,
   DataDeletionResponseItem: DataDeletionResponseItem,
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
   DataDeletionResponseMeta: DataDeletionResponseMeta,
@@ -2938,6 +3050,7 @@ const typeMap: { [index: string]: any } = {
   EntityV3System: EntityV3System,
   EntityV3SystemDatadog: EntityV3SystemDatadog,
   EntityV3SystemSpec: EntityV3SystemSpec,
+  ErrorHandler: ErrorHandler,
   Event: Event,
   EventAttributes: EventAttributes,
   EventCreateRequest: EventCreateRequest,
@@ -3019,6 +3132,9 @@ const typeMap: { [index: string]: any } = {
   GetRuleVersionHistoryData: GetRuleVersionHistoryData,
   GetRuleVersionHistoryResponse: GetRuleVersionHistoryResponse,
   GetSBOMResponse: GetSBOMResponse,
+  GetWorkflowResponse: GetWorkflowResponse,
+  GithubWebhookTrigger: GithubWebhookTrigger,
+  GithubWebhookTriggerWrapper: GithubWebhookTriggerWrapper,
   GroupScalarColumn: GroupScalarColumn,
   HTTPBody: HTTPBody,
   HTTPCIAppError: HTTPCIAppError,
@@ -3144,6 +3260,8 @@ const typeMap: { [index: string]: any } = {
   IncidentTodoRelationships: IncidentTodoRelationships,
   IncidentTodoResponse: IncidentTodoResponse,
   IncidentTodoResponseData: IncidentTodoResponseData,
+  IncidentTrigger: IncidentTrigger,
+  IncidentTriggerWrapper: IncidentTriggerWrapper,
   IncidentTypeAttributes: IncidentTypeAttributes,
   IncidentTypeCreateData: IncidentTypeCreateData,
   IncidentTypeCreateRequest: IncidentTypeCreateRequest,
@@ -3160,6 +3278,8 @@ const typeMap: { [index: string]: any } = {
   IncidentUserAttributes: IncidentUserAttributes,
   IncidentUserData: IncidentUserData,
   IncidentsResponse: IncidentsResponse,
+  InputSchema: InputSchema,
+  InputSchemaParameters: InputSchemaParameters,
   IntakePayloadAccepted: IntakePayloadAccepted,
   InterfaceAttributes: InterfaceAttributes,
   JSONAPIErrorItem: JSONAPIErrorItem,
@@ -3401,6 +3521,8 @@ const typeMap: { [index: string]: any } = {
   MonitorDowntimeMatchResponseAttributes:
     MonitorDowntimeMatchResponseAttributes,
   MonitorDowntimeMatchResponseData: MonitorDowntimeMatchResponseData,
+  MonitorTrigger: MonitorTrigger,
+  MonitorTriggerWrapper: MonitorTriggerWrapper,
   MonitorType: MonitorType,
   MonthlyCostAttributionAttributes: MonthlyCostAttributionAttributes,
   MonthlyCostAttributionBody: MonthlyCostAttributionBody,
@@ -3447,6 +3569,7 @@ const typeMap: { [index: string]: any } = {
   OrgConfigWriteRequest: OrgConfigWriteRequest,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
+  OutboundEdge: OutboundEdge,
   OutcomesBatchAttributes: OutcomesBatchAttributes,
   OutcomesBatchRequest: OutcomesBatchRequest,
   OutcomesBatchRequestData: OutcomesBatchRequestData,
@@ -3460,7 +3583,10 @@ const typeMap: { [index: string]: any } = {
   OutcomesResponseIncludedRuleAttributes:
     OutcomesResponseIncludedRuleAttributes,
   OutcomesResponseLinks: OutcomesResponseLinks,
+  OutputSchema: OutputSchema,
+  OutputSchemaParameters: OutputSchemaParameters,
   Pagination: Pagination,
+  Parameter: Parameter,
   PartialAPIKey: PartialAPIKey,
   PartialAPIKeyAttributes: PartialAPIKeyAttributes,
   PartialApplicationKey: PartialApplicationKey,
@@ -3541,6 +3667,7 @@ const typeMap: { [index: string]: any } = {
   RUMResponsePage: RUMResponsePage,
   RUMSearchEventsRequest: RUMSearchEventsRequest,
   RUMWarning: RUMWarning,
+  ReadinessGate: ReadinessGate,
   RelationshipItem: RelationshipItem,
   RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
   RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
@@ -3610,6 +3737,8 @@ const typeMap: { [index: string]: any } = {
   RetentionFilterUpdateRequest: RetentionFilterUpdateRequest,
   RetentionFilterWithoutAttributes: RetentionFilterWithoutAttributes,
   RetentionFiltersResponse: RetentionFiltersResponse,
+  RetryStrategy: RetryStrategy,
+  RetryStrategyLinear: RetryStrategyLinear,
   Role: Role,
   RoleAttributes: RoleAttributes,
   RoleClone: RoleClone,
@@ -3676,6 +3805,8 @@ const typeMap: { [index: string]: any } = {
   ScalarFormulaResponseAtrributes: ScalarFormulaResponseAtrributes,
   ScalarMeta: ScalarMeta,
   ScalarResponse: ScalarResponse,
+  ScheduleTrigger: ScheduleTrigger,
+  ScheduleTriggerWrapper: ScheduleTriggerWrapper,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
   SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
@@ -3788,6 +3919,8 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringThirdPartyRuleCaseCreate,
   SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
   SecurityMonitoringUser: SecurityMonitoringUser,
+  SecurityTrigger: SecurityTrigger,
+  SecurityTriggerWrapper: SecurityTriggerWrapper,
   Selectors: Selectors,
   SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
   SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
@@ -3898,6 +4031,7 @@ const typeMap: { [index: string]: any } = {
   ServiceNowTicketResult: ServiceNowTicketResult,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
+  SlackTriggerWrapper: SlackTriggerWrapper,
   SloReportCreateRequest: SloReportCreateRequest,
   SloReportCreateRequestAttributes: SloReportCreateRequestAttributes,
   SloReportCreateRequestData: SloReportCreateRequestData,
@@ -3946,6 +4080,10 @@ const typeMap: { [index: string]: any } = {
   SpansQueryOptions: SpansQueryOptions,
   SpansResponseMetadataPage: SpansResponseMetadataPage,
   SpansWarning: SpansWarning,
+  Spec: Spec,
+  Step: Step,
+  StepDisplay: StepDisplay,
+  StepDisplayBounds: StepDisplayBounds,
   Team: Team,
   TeamAttributes: TeamAttributes,
   TeamCreate: TeamCreate,
@@ -3983,6 +4121,7 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponse: TimeseriesResponse,
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
+  TriggerRateLimit: TriggerRateLimit,
   Unit: Unit,
   UnpublishAppResponse: UnpublishAppResponse,
   UpdateActionConnectionRequest: UpdateActionConnectionRequest,
@@ -4000,6 +4139,8 @@ const typeMap: { [index: string]: any } = {
   UpdateRuleRequestData: UpdateRuleRequestData,
   UpdateRuleResponse: UpdateRuleResponse,
   UpdateRuleResponseData: UpdateRuleResponseData,
+  UpdateWorkflowRequest: UpdateWorkflowRequest,
+  UpdateWorkflowResponse: UpdateWorkflowResponse,
   UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
   UrlParam: UrlParam,
   UrlParamUpdate: UrlParamUpdate,
@@ -4050,6 +4191,11 @@ const typeMap: { [index: string]: any } = {
   VulnerabilityRelationshipsAffects: VulnerabilityRelationshipsAffects,
   VulnerabilityRelationshipsAffectsData: VulnerabilityRelationshipsAffectsData,
   VulnerabilityRisks: VulnerabilityRisks,
+  WorkflowData: WorkflowData,
+  WorkflowDataAttributes: WorkflowDataAttributes,
+  WorkflowDataRelationships: WorkflowDataRelationships,
+  WorkflowDataUpdate: WorkflowDataUpdate,
+  WorkflowDataUpdateAttributes: WorkflowDataUpdateAttributes,
   WorkflowInstanceCreateMeta: WorkflowInstanceCreateMeta,
   WorkflowInstanceCreateRequest: WorkflowInstanceCreateRequest,
   WorkflowInstanceCreateResponse: WorkflowInstanceCreateResponse,
@@ -4058,6 +4204,9 @@ const typeMap: { [index: string]: any } = {
   WorkflowListInstancesResponse: WorkflowListInstancesResponse,
   WorkflowListInstancesResponseMeta: WorkflowListInstancesResponseMeta,
   WorkflowListInstancesResponseMetaPage: WorkflowListInstancesResponseMetaPage,
+  WorkflowTriggerWrapper: WorkflowTriggerWrapper,
+  WorkflowUserRelationship: WorkflowUserRelationship,
+  WorkflowUserRelationshipData: WorkflowUserRelationshipData,
   WorklflowCancelInstanceResponse: WorklflowCancelInstanceResponse,
   WorklflowCancelInstanceResponseData: WorklflowCancelInstanceResponseData,
   WorklflowGetInstanceResponse: WorklflowGetInstanceResponse,
@@ -4295,6 +4444,20 @@ const oneOfMap: { [index: string]: string[] } = {
   SpansGroupByTotal: ["boolean", "string", "number"],
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
+  Trigger: [
+    "APITriggerWrapper",
+    "AppTriggerWrapper",
+    "CaseTriggerWrapper",
+    "ChangeEventTriggerWrapper",
+    "DashboardTriggerWrapper",
+    "GithubWebhookTriggerWrapper",
+    "IncidentTriggerWrapper",
+    "MonitorTriggerWrapper",
+    "ScheduleTriggerWrapper",
+    "SecurityTriggerWrapper",
+    "SlackTriggerWrapper",
+    "WorkflowTriggerWrapper",
+  ],
   UpsertCatalogEntityRequest: ["EntityV3", "string"],
   UpsertCatalogEntityResponseIncludedItem: ["EntityResponseIncludedSchema"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
