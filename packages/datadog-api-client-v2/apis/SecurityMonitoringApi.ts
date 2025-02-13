@@ -27,6 +27,7 @@ import { FindingEvaluation } from "../models/FindingEvaluation";
 import { FindingStatus } from "../models/FindingStatus";
 import { FindingVulnerabilityType } from "../models/FindingVulnerabilityType";
 import { GetFindingResponse } from "../models/GetFindingResponse";
+import { GetRuleVersionHistoryResponse } from "../models/GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "../models/GetSBOMResponse";
 import { HistoricalJobResponse } from "../models/HistoricalJobResponse";
 import { JobCreateResponse } from "../models/JobCreateResponse";
@@ -943,6 +944,64 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getRuleVersionHistory(
+    ruleId: string,
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getRuleVersionHistory'");
+    if (!_config.unstableOperations["v2.getRuleVersionHistory"]) {
+      throw new Error("Unstable operation 'getRuleVersionHistory' is disabled");
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "getRuleVersionHistory");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/rules/{rule_id}/version_history".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getRuleVersionHistory")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -3991,6 +4050,69 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getRuleVersionHistory
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getRuleVersionHistory(
+    response: ResponseContext
+  ): Promise<GetRuleVersionHistoryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GetRuleVersionHistoryResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetRuleVersionHistoryResponse"
+      ) as GetRuleVersionHistoryResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetRuleVersionHistoryResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetRuleVersionHistoryResponse",
+        ""
+      ) as GetRuleVersionHistoryResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSBOM
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6027,6 +6149,24 @@ export interface SecurityMonitoringApiGetHistoricalJobRequest {
   jobId: string;
 }
 
+export interface SecurityMonitoringApiGetRuleVersionHistoryRequest {
+  /**
+   * The ID of the rule.
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * Size for a given page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+}
+
 export interface SecurityMonitoringApiGetSBOMRequest {
   /**
    * The type of the asset for the SBOM request.
@@ -7106,6 +7246,29 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getHistoricalJob(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a rule's version history.
+   * @param param The request object
+   */
+  public getRuleVersionHistory(
+    param: SecurityMonitoringApiGetRuleVersionHistoryRequest,
+    options?: Configuration
+  ): Promise<GetRuleVersionHistoryResponse> {
+    const requestContextPromise = this.requestFactory.getRuleVersionHistory(
+      param.ruleId,
+      param.pageSize,
+      param.pageNumber,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getRuleVersionHistory(responseContext);
         });
     });
   }

@@ -589,6 +589,8 @@ import { GetDeviceResponse } from "./GetDeviceResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GetInterfacesData } from "./GetInterfacesData";
 import { GetInterfacesResponse } from "./GetInterfacesResponse";
+import { GetRuleVersionHistoryData } from "./GetRuleVersionHistoryData";
+import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./GetSBOMResponse";
 import { GetWorkflowResponse } from "./GetWorkflowResponse";
 import { GithubWebhookTrigger } from "./GithubWebhookTrigger";
@@ -1166,6 +1168,9 @@ import { RolesResponse } from "./RolesResponse";
 import { RuleAttributes } from "./RuleAttributes";
 import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
 import { RuleUser } from "./RuleUser";
+import { RuleVersionHistory } from "./RuleVersionHistory";
+import { RuleVersionUpdate } from "./RuleVersionUpdate";
+import { RuleVersions } from "./RuleVersions";
 import { RumMetricCompute } from "./RumMetricCompute";
 import { RumMetricCreateAttributes } from "./RumMetricCreateAttributes";
 import { RumMetricCreateData } from "./RumMetricCreateData";
@@ -1892,6 +1897,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
   GCPServiceAccountType: ["gcp_service_account"],
+  GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
   GetTeamMembershipsSort: [
     "manager_name",
     "-manager_name",
@@ -2125,6 +2131,7 @@ const enumsMap: { [key: string]: any[] } = {
     "misconfiguration",
     "api_security",
   ],
+  RuleVersionUpdateType: ["create", "update", "delete"],
   RumMetricComputeAggregationType: ["count", "distribution"],
   RumMetricEventType: [
     "session",
@@ -3122,6 +3129,8 @@ const typeMap: { [index: string]: any } = {
   GetFindingResponse: GetFindingResponse,
   GetInterfacesData: GetInterfacesData,
   GetInterfacesResponse: GetInterfacesResponse,
+  GetRuleVersionHistoryData: GetRuleVersionHistoryData,
+  GetRuleVersionHistoryResponse: GetRuleVersionHistoryResponse,
   GetSBOMResponse: GetSBOMResponse,
   GetWorkflowResponse: GetWorkflowResponse,
   GithubWebhookTrigger: GithubWebhookTrigger,
@@ -3752,6 +3761,9 @@ const typeMap: { [index: string]: any } = {
   RuleAttributes: RuleAttributes,
   RuleOutcomeRelationships: RuleOutcomeRelationships,
   RuleUser: RuleUser,
+  RuleVersionHistory: RuleVersionHistory,
+  RuleVersionUpdate: RuleVersionUpdate,
+  RuleVersions: RuleVersions,
   RumMetricCompute: RumMetricCompute,
   RumMetricCreateAttributes: RumMetricCreateAttributes,
   RumMetricCreateData: RumMetricCreateData,

@@ -478,6 +478,7 @@ export {
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetHistoricalJobRequest,
+  SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
@@ -1395,6 +1396,9 @@ export { GetDeviceResponse } from "./models/GetDeviceResponse";
 export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetInterfacesData } from "./models/GetInterfacesData";
 export { GetInterfacesResponse } from "./models/GetInterfacesResponse";
+export { GetRuleVersionHistoryData } from "./models/GetRuleVersionHistoryData";
+export { GetRuleVersionHistoryDataType } from "./models/GetRuleVersionHistoryDataType";
+export { GetRuleVersionHistoryResponse } from "./models/GetRuleVersionHistoryResponse";
 export { GetSBOMResponse } from "./models/GetSBOMResponse";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GetWorkflowResponse } from "./models/GetWorkflowResponse";
@@ -2074,6 +2078,10 @@ export { RuleSeverity } from "./models/RuleSeverity";
 export { RuleType } from "./models/RuleType";
 export { RuleTypesItems } from "./models/RuleTypesItems";
 export { RuleUser } from "./models/RuleUser";
+export { RuleVersionHistory } from "./models/RuleVersionHistory";
+export { RuleVersions } from "./models/RuleVersions";
+export { RuleVersionUpdate } from "./models/RuleVersionUpdate";
+export { RuleVersionUpdateType } from "./models/RuleVersionUpdateType";
 export { RUMAggregateBucketValue } from "./models/RUMAggregateBucketValue";
 export { RUMAggregateBucketValueTimeseriesPoint } from "./models/RUMAggregateBucketValueTimeseriesPoint";
 export { RUMAggregateRequest } from "./models/RUMAggregateRequest";
