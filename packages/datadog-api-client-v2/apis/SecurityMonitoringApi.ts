@@ -1021,6 +1021,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'getSBOM'");
+    if (!_config.unstableOperations["v2.getSBOM"]) {
+      throw new Error("Unstable operation 'getSBOM' is disabled");
+    }
+
     // verify required parameter 'assetType' is not null or undefined
     if (assetType === null || assetType === undefined) {
       throw new RequiredError("assetType", "getSBOM");
