@@ -735,7 +735,8 @@ export class AppBuilderApiResponseProcessor {
     if (
       response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 410
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),

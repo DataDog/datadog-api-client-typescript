@@ -7,14 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The query type.
+ * The action query type.
  */
 
-export type QueryType =
-  | typeof ACTION
-  | typeof STATEVARIABLE
-  | typeof DATATRANSFORM
-  | UnparsedObject;
+export type ActionQueryType = typeof ACTION | UnparsedObject;
 export const ACTION = "action";
-export const STATEVARIABLE = "stateVariable";
-export const DATATRANSFORM = "dataTransform";
