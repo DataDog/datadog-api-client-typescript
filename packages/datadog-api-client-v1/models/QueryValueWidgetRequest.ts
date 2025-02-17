@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ColumnSortObject } from "./ColumnSortObject";
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
@@ -77,6 +78,10 @@ export class QueryValueWidgetRequest {
    * The log query.
    */
   "securityQuery"?: LogQueryDefinition;
+  /**
+   * Sort object
+   */
+  "sort"?: ColumnSortObject;
 
   /**
    * A container for additional, undeclared properties.
@@ -153,6 +158,10 @@ export class QueryValueWidgetRequest {
     securityQuery: {
       baseName: "security_query",
       type: "LogQueryDefinition",
+    },
+    sort: {
+      baseName: "sort",
+      type: "ColumnSortObject",
     },
     additionalProperties: {
       baseName: "additionalProperties",

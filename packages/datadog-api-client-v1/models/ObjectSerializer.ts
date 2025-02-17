@@ -43,6 +43,8 @@ import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorRespon
 import { CheckCanDeleteSLOResponse } from "./CheckCanDeleteSLOResponse";
 import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
 import { CheckStatusWidgetDefinition } from "./CheckStatusWidgetDefinition";
+import { ColumnOrderObject } from "./ColumnOrderObject";
+import { ColumnSortObject } from "./ColumnSortObject";
 import { Creator } from "./Creator";
 import { Dashboard } from "./Dashboard";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
@@ -675,6 +677,8 @@ const enumsMap: { [key: string]: any[] } = {
   ApmStatsQueryRowType: ["service", "resource", "span"],
   ChangeWidgetDefinitionType: ["change"],
   CheckStatusWidgetDefinitionType: ["check_status"],
+  ColumnOrderObjectOrder: ["asc", "desc"],
+  ColumnOrderObjectType: ["formula", "group"],
   ContentEncoding: ["gzip", "deflate"],
   DashboardGlobalTimeLiveSpan: [
     "15m",
@@ -1691,6 +1695,8 @@ const typeMap: { [index: string]: any } = {
   CheckCanDeleteSLOResponse: CheckCanDeleteSLOResponse,
   CheckCanDeleteSLOResponseData: CheckCanDeleteSLOResponseData,
   CheckStatusWidgetDefinition: CheckStatusWidgetDefinition,
+  ColumnOrderObject: ColumnOrderObject,
+  ColumnSortObject: ColumnSortObject,
   Creator: Creator,
   Dashboard: Dashboard,
   DashboardBulkActionData: DashboardBulkActionData,
