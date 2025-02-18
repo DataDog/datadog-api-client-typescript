@@ -21,6 +21,21 @@ export class MetricBulkTagConfigCreateAttributes {
    */
   "excludeTagsMode"?: boolean;
   /**
+   * When provided, all tags that have been actively queried are
+   * configured (and, therefore, remain queryable) for each metric that
+   * matches the given prefix.  Minimum value is 1 second, and maximum
+   * value is 7,776,000 seconds (90 days).
+   */
+  "includeActivelyQueriedTagsWindow"?: number;
+  /**
+   * When set to true, the configuration overrides any existing
+   * configurations for the given metric with the new set of tags in this
+   * configuration request. If false, old configurations are kept and
+   * are merged with the set of tags in this configuration request.
+   * Defaults to true.
+   */
+  "overrideExistingConfigurations"?: boolean;
+  /**
    * A list of tag names to apply to the configuration.
    */
   "tags"?: Array<string>;
@@ -47,6 +62,15 @@ export class MetricBulkTagConfigCreateAttributes {
     },
     excludeTagsMode: {
       baseName: "exclude_tags_mode",
+      type: "boolean",
+    },
+    includeActivelyQueriedTagsWindow: {
+      baseName: "include_actively_queried_tags_window",
+      type: "number",
+      format: "double",
+    },
+    overrideExistingConfigurations: {
+      baseName: "override_existing_configurations",
       type: "boolean",
     },
     tags: {
