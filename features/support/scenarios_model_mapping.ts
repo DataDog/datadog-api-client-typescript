@@ -5845,6 +5845,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProcessSummariesResponse",
     },
+    "v2.ListApplicationSecurityExclusionFilters": {
+        "operationResponseType": "ApplicationSecurityExclusionFiltersResponse",
+    },
+    "v2.CreateApplicationSecurityExclusionFilter": {
+        "body": {
+            "type": "ApplicationSecurityExclusionFilterRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityExclusionFilterResponse",
+    },
+    "v2.DeleteApplicationSecurityExclusionFilter": {
+        "exclusionFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetApplicationSecurityExclusionFilter": {
+        "exclusionFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityExclusionFilterResponse",
+    },
+    "v2.UpdateApplicationSecurityExclusionFilter": {
+        "exclusionFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ApplicationSecurityExclusionFilterRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityExclusionFilterResponse",
+    },
     "v2.ListCSMThreatsAgentRules": {
         "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
     },

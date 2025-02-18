@@ -73,6 +73,15 @@ import { ApplicationKeyResponseMetaPage } from "./ApplicationKeyResponseMetaPage
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
+import { ApplicationSecurityExclusionFilterAttributes } from "./ApplicationSecurityExclusionFilterAttributes";
+import { ApplicationSecurityExclusionFilterMetadata } from "./ApplicationSecurityExclusionFilterMetadata";
+import { ApplicationSecurityExclusionFilterRequest } from "./ApplicationSecurityExclusionFilterRequest";
+import { ApplicationSecurityExclusionFilterResource } from "./ApplicationSecurityExclusionFilterResource";
+import { ApplicationSecurityExclusionFilterResponse } from "./ApplicationSecurityExclusionFilterResponse";
+import { ApplicationSecurityExclusionFilterRulesTarget } from "./ApplicationSecurityExclusionFilterRulesTarget";
+import { ApplicationSecurityExclusionFilterRulesTargetTags } from "./ApplicationSecurityExclusionFilterRulesTargetTags";
+import { ApplicationSecurityExclusionFilterScope } from "./ApplicationSecurityExclusionFilterScope";
+import { ApplicationSecurityExclusionFiltersResponse } from "./ApplicationSecurityExclusionFiltersResponse";
 import { Asset } from "./Asset";
 import { AssetAttributes } from "./AssetAttributes";
 import { AssetOperatingSystem } from "./AssetOperatingSystem";
@@ -1648,6 +1657,8 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   ApplicationKeysType: ["application_keys"],
+  ApplicationSecurityExclusionFilterOnMatch: ["monitor"],
+  ApplicationSecurityExclusionFilterType: ["exclusion_filter"],
   AppsSortField: [
     "name",
     "created_at",
@@ -2548,6 +2559,24 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
+  ApplicationSecurityExclusionFilterAttributes:
+    ApplicationSecurityExclusionFilterAttributes,
+  ApplicationSecurityExclusionFilterMetadata:
+    ApplicationSecurityExclusionFilterMetadata,
+  ApplicationSecurityExclusionFilterRequest:
+    ApplicationSecurityExclusionFilterRequest,
+  ApplicationSecurityExclusionFilterResource:
+    ApplicationSecurityExclusionFilterResource,
+  ApplicationSecurityExclusionFilterResponse:
+    ApplicationSecurityExclusionFilterResponse,
+  ApplicationSecurityExclusionFilterRulesTarget:
+    ApplicationSecurityExclusionFilterRulesTarget,
+  ApplicationSecurityExclusionFilterRulesTargetTags:
+    ApplicationSecurityExclusionFilterRulesTargetTags,
+  ApplicationSecurityExclusionFilterScope:
+    ApplicationSecurityExclusionFilterScope,
+  ApplicationSecurityExclusionFiltersResponse:
+    ApplicationSecurityExclusionFiltersResponse,
   Asset: Asset,
   AssetAttributes: AssetAttributes,
   AssetOperatingSystem: AssetOperatingSystem,
