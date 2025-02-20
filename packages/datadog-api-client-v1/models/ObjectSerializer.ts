@@ -262,6 +262,9 @@ import { NotebooksResponseData } from "./NotebooksResponseData";
 import { NotebooksResponseDataAttributes } from "./NotebooksResponseDataAttributes";
 import { NotebooksResponseMeta } from "./NotebooksResponseMeta";
 import { NotebooksResponsePage } from "./NotebooksResponsePage";
+import { NumberFormatUnitCanonical } from "./NumberFormatUnitCanonical";
+import { NumberFormatUnitCustom } from "./NumberFormatUnitCustom";
+import { NumberFormatUnitScale } from "./NumberFormatUnitScale";
 import { OrgDowngradedResponse } from "./OrgDowngradedResponse";
 import { Organization } from "./Organization";
 import { OrganizationBilling } from "./OrganizationBilling";
@@ -626,6 +629,7 @@ import { WidgetLegacyLiveSpan } from "./WidgetLegacyLiveSpan";
 import { WidgetMarker } from "./WidgetMarker";
 import { WidgetNewFixedSpan } from "./WidgetNewFixedSpan";
 import { WidgetNewLiveSpan } from "./WidgetNewLiveSpan";
+import { WidgetNumberFormat } from "./WidgetNumberFormat";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
@@ -1173,6 +1177,8 @@ const enumsMap: { [key: string]: any[] } = {
   NotebookStatus: ["published"],
   NotifyEndState: ["alert", "no data", "warn"],
   NotifyEndType: ["canceled", "expired"],
+  NumberFormatUnitCustomType: ["custom_unit_label"],
+  NumberFormatUnitScaleType: ["canonical_unit"],
   OnMissingDataOption: [
     "default",
     "show_no_data",
@@ -1927,6 +1933,9 @@ const typeMap: { [index: string]: any } = {
   NotebooksResponseDataAttributes: NotebooksResponseDataAttributes,
   NotebooksResponseMeta: NotebooksResponseMeta,
   NotebooksResponsePage: NotebooksResponsePage,
+  NumberFormatUnitCanonical: NumberFormatUnitCanonical,
+  NumberFormatUnitCustom: NumberFormatUnitCustom,
+  NumberFormatUnitScale: NumberFormatUnitScale,
   OrgDowngradedResponse: OrgDowngradedResponse,
   Organization: Organization,
   OrganizationBilling: OrganizationBilling,
@@ -2321,6 +2330,7 @@ const typeMap: { [index: string]: any } = {
   WidgetMarker: WidgetMarker,
   WidgetNewFixedSpan: WidgetNewFixedSpan,
   WidgetNewLiveSpan: WidgetNewLiveSpan,
+  WidgetNumberFormat: WidgetNumberFormat,
   WidgetRequestStyle: WidgetRequestStyle,
   WidgetSortBy: WidgetSortBy,
   WidgetStyle: WidgetStyle,
@@ -2394,6 +2404,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "NotebookCellCreateRequest",
     "NotebookCellUpdateRequest",
   ],
+  NumberFormatUnit: ["NumberFormatUnitCanonical", "NumberFormatUnitCustom"],
   SLODataSourceQueryDefinition: ["FormulaAndFunctionMetricQueryDefinition"],
   SLOSliSpec: ["SLOTimeSliceSpec"],
   SharedDashboardInvitesData: [
