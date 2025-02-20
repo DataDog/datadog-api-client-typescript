@@ -639,6 +639,7 @@ export {
   WorkflowAutomationApi,
 } from "./apis/WorkflowAutomationApi";
 
+export { AccountFilteringConfig } from "./models/AccountFilteringConfig";
 export { ActionConnectionAttributes } from "./models/ActionConnectionAttributes";
 export { ActionConnectionAttributesUpdate } from "./models/ActionConnectionAttributesUpdate";
 export { ActionConnectionData } from "./models/ActionConnectionData";
