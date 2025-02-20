@@ -47,6 +47,7 @@ import { AWSRegionsIncludeAll } from "./AWSRegionsIncludeAll";
 import { AWSRegionsIncludeOnly } from "./AWSRegionsIncludeOnly";
 import { AWSResourcesConfig } from "./AWSResourcesConfig";
 import { AWSTracesConfig } from "./AWSTracesConfig";
+import { AccountFilteringConfig } from "./AccountFilteringConfig";
 import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
 import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
 import { ActionConnectionData } from "./ActionConnectionData";
@@ -2522,6 +2523,7 @@ const typeMap: { [index: string]: any } = {
   AWSRegionsIncludeOnly: AWSRegionsIncludeOnly,
   AWSResourcesConfig: AWSResourcesConfig,
   AWSTracesConfig: AWSTracesConfig,
+  AccountFilteringConfig: AccountFilteringConfig,
   ActionConnectionAttributes: ActionConnectionAttributes,
   ActionConnectionAttributesUpdate: ActionConnectionAttributesUpdate,
   ActionConnectionData: ActionConnectionData,

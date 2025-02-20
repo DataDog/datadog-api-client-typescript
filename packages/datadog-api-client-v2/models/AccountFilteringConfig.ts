@@ -3,22 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AccountFilteringConfig } from "./AccountFilteringConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for AWS CUR config Patch Request.
+ * The account filtering configuration.
  */
-export class AwsCURConfigPatchRequestAttributes {
+export class AccountFilteringConfig {
   /**
-   * The account filtering configuration.
+   * The AWS account IDs to be excluded from your billing dataset. This field is used when `include_new_accounts` is `true`.
    */
-  "accountFilters"?: AccountFilteringConfig;
+  "excludedAccounts"?: Array<string>;
   /**
-   * Whether or not the Cloud Cost Management account is enabled.
+   * Whether or not to automatically include new member accounts by default in your billing dataset.
    */
-  "isEnabled"?: boolean;
+  "includeNewAccounts"?: boolean;
+  /**
+   * The AWS account IDs to be included in your billing dataset. This field is used when `include_new_accounts` is `false`.
+   */
+  "includedAccounts"?: Array<string>;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,13 +39,17 @@ export class AwsCURConfigPatchRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountFilters: {
-      baseName: "account_filters",
-      type: "AccountFilteringConfig",
+    excludedAccounts: {
+      baseName: "excluded_accounts",
+      type: "Array<string>",
     },
-    isEnabled: {
-      baseName: "is_enabled",
+    includeNewAccounts: {
+      baseName: "include_new_accounts",
       type: "boolean",
+    },
+    includedAccounts: {
+      baseName: "included_accounts",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +61,7 @@ export class AwsCURConfigPatchRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AwsCURConfigPatchRequestAttributes.attributeTypeMap;
+    return AccountFilteringConfig.attributeTypeMap;
   }
 
   public constructor() {}

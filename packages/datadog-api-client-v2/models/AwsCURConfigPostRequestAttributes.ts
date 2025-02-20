@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AccountFilteringConfig } from "./AccountFilteringConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -10,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Attributes for AWS CUR config Post Request.
  */
 export class AwsCURConfigPostRequestAttributes {
+  /**
+   * The account filtering configuration.
+   */
+  "accountFilters"?: AccountFilteringConfig;
   /**
    * The AWS account ID.
    */
@@ -55,6 +60,10 @@ export class AwsCURConfigPostRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    accountFilters: {
+      baseName: "account_filters",
+      type: "AccountFilteringConfig",
+    },
     accountId: {
       baseName: "account_id",
       type: "string",
