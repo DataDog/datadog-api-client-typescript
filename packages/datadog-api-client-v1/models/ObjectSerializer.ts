@@ -185,6 +185,7 @@ import { LogsQueryCompute } from "./LogsQueryCompute";
 import { LogsRetentionAggSumUsage } from "./LogsRetentionAggSumUsage";
 import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
 import { LogsServiceRemapper } from "./LogsServiceRemapper";
+import { LogsSpanRemapper } from "./LogsSpanRemapper";
 import { LogsStatusRemapper } from "./LogsStatusRemapper";
 import { LogsStringBuilderProcessor } from "./LogsStringBuilderProcessor";
 import { LogsTraceRemapper } from "./LogsTraceRemapper";
@@ -923,6 +924,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsPipelineProcessorType: ["pipeline"],
   LogsServiceRemapperType: ["service-remapper"],
   LogsSort: ["asc", "desc"],
+  LogsSpanRemapperType: ["span-id-remapper"],
   LogsStatusRemapperType: ["status-remapper"],
   LogsStringBuilderProcessorType: ["string-builder-processor"],
   LogsTraceRemapperType: ["trace-id-remapper"],
@@ -1848,6 +1850,7 @@ const typeMap: { [index: string]: any } = {
   LogsRetentionAggSumUsage: LogsRetentionAggSumUsage,
   LogsRetentionSumUsage: LogsRetentionSumUsage,
   LogsServiceRemapper: LogsServiceRemapper,
+  LogsSpanRemapper: LogsSpanRemapper,
   LogsStatusRemapper: LogsStatusRemapper,
   LogsStringBuilderProcessor: LogsStringBuilderProcessor,
   LogsTraceRemapper: LogsTraceRemapper,
@@ -2369,6 +2372,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsLookupProcessor",
     "ReferenceTableLogsLookupProcessor",
     "LogsTraceRemapper",
+    "LogsSpanRemapper",
   ],
   MonitorFormulaAndFunctionQueryDefinition: [
     "MonitorFormulaAndFunctionEventQueryDefinition",
