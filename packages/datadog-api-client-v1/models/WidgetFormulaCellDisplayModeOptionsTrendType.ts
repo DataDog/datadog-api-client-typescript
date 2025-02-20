@@ -7,14 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Define a display mode for the table cell.
+ * Trend type for the cell display mode options.
  */
 
-export type TableWidgetCellDisplayMode =
-  | typeof NUMBER
-  | typeof BAR
-  | typeof TREND
+export type WidgetFormulaCellDisplayModeOptionsTrendType =
+  | typeof AREA
+  | typeof LINE
+  | typeof BARS
   | UnparsedObject;
-export const NUMBER = "number";
-export const BAR = "bar";
-export const TREND = "trend";
+export const AREA = "area";
+export const LINE = "line";
+export const BARS = "bars";

@@ -7,14 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Define a display mode for the table cell.
+ * Y scale for the cell display mode options.
  */
 
-export type TableWidgetCellDisplayMode =
-  | typeof NUMBER
-  | typeof BAR
-  | typeof TREND
+export type WidgetFormulaCellDisplayModeOptionsYScale =
+  | typeof SHARED
+  | typeof INDEPENDENT
   | UnparsedObject;
-export const NUMBER = "number";
-export const BAR = "bar";
-export const TREND = "trend";
+export const SHARED = "shared";
+export const INDEPENDENT = "independent";

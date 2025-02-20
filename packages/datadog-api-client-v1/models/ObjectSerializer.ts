@@ -620,6 +620,7 @@ import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetEvent } from "./WidgetEvent";
 import { WidgetFieldSort } from "./WidgetFieldSort";
 import { WidgetFormula } from "./WidgetFormula";
+import { WidgetFormulaCellDisplayModeOptions } from "./WidgetFormulaCellDisplayModeOptions";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
 import { WidgetFormulaSort } from "./WidgetFormulaSort";
 import { WidgetFormulaStyle } from "./WidgetFormulaStyle";
@@ -1489,7 +1490,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SyntheticsTestRestrictionPolicyBindingRelation: ["editor", "viewer"],
   SyntheticsWarningType: ["user_locator"],
-  TableWidgetCellDisplayMode: ["number", "bar"],
+  TableWidgetCellDisplayMode: ["number", "bar", "trend"],
   TableWidgetDefinitionType: ["query_table"],
   TableWidgetHasSearchBar: ["always", "never", "auto"],
   TableWidgetTextFormatMatchType: [
@@ -1544,6 +1545,8 @@ const enumsMap: { [key: string]: any[] } = {
   WidgetCompareTo: ["hour_before", "day_before", "week_before", "month_before"],
   WidgetDisplayType: ["area", "bars", "line", "overlay"],
   WidgetEventSize: ["s", "l"],
+  WidgetFormulaCellDisplayModeOptionsTrendType: ["area", "line", "bars"],
+  WidgetFormulaCellDisplayModeOptionsYScale: ["shared", "independent"],
   WidgetGrouping: ["check", "cluster"],
   WidgetHorizontalAlign: ["center", "left", "right"],
   WidgetImageSizing: [
@@ -2321,6 +2324,7 @@ const typeMap: { [index: string]: any } = {
   WidgetEvent: WidgetEvent,
   WidgetFieldSort: WidgetFieldSort,
   WidgetFormula: WidgetFormula,
+  WidgetFormulaCellDisplayModeOptions: WidgetFormulaCellDisplayModeOptions,
   WidgetFormulaLimit: WidgetFormulaLimit,
   WidgetFormulaSort: WidgetFormulaSort,
   WidgetFormulaStyle: WidgetFormulaStyle,

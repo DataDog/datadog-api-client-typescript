@@ -5,6 +5,7 @@
  */
 import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
+import { WidgetFormulaCellDisplayModeOptions } from "./WidgetFormulaCellDisplayModeOptions";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
 import { WidgetFormulaStyle } from "./WidgetFormulaStyle";
 import { WidgetNumberFormat } from "./WidgetNumberFormat";
@@ -23,6 +24,10 @@ export class WidgetFormula {
    * Define a display mode for the table cell.
    */
   "cellDisplayMode"?: TableWidgetCellDisplayMode;
+  /**
+   * Cell display mode options for the widget formula. (only if `cell_display_mode` is set to `trend`).
+   */
+  "cellDisplayModeOptions"?: WidgetFormulaCellDisplayModeOptions;
   /**
    * List of conditional formats.
    */
@@ -67,6 +72,10 @@ export class WidgetFormula {
     cellDisplayMode: {
       baseName: "cell_display_mode",
       type: "TableWidgetCellDisplayMode",
+    },
+    cellDisplayModeOptions: {
+      baseName: "cell_display_mode_options",
+      type: "WidgetFormulaCellDisplayModeOptions",
     },
     conditionalFormats: {
       baseName: "conditional_formats",
