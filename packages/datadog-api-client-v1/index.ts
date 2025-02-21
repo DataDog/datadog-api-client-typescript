@@ -590,6 +590,8 @@ export { LogsRetentionSumUsage } from "./models/LogsRetentionSumUsage";
 export { LogsServiceRemapper } from "./models/LogsServiceRemapper";
 export { LogsServiceRemapperType } from "./models/LogsServiceRemapperType";
 export { LogsSort } from "./models/LogsSort";
+export { LogsSpanRemapper } from "./models/LogsSpanRemapper";
+export { LogsSpanRemapperType } from "./models/LogsSpanRemapperType";
 export { LogsStatusRemapper } from "./models/LogsStatusRemapper";
 export { LogsStatusRemapperType } from "./models/LogsStatusRemapperType";
 export { LogsStringBuilderProcessor } from "./models/LogsStringBuilderProcessor";
