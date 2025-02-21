@@ -2188,11 +2188,11 @@ const enumsMap: { [key: string]: any[] } = {
     "anomaly_threshold",
   ],
   SecurityMonitoringRuleEvaluationWindow: [
-    0, 60, 300, 600, 900, 1800, 3600, 7200,
+    0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
   ],
   SecurityMonitoringRuleHardcodedEvaluatorType: ["log4shell"],
   SecurityMonitoringRuleKeepAlive: [
-    0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600,
+    0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
   ],
   SecurityMonitoringRuleMaxSignalDuration: [
     0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
