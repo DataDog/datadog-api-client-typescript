@@ -366,6 +366,7 @@ import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
 import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
 import { SharedDashboard } from "./SharedDashboard";
 import { SharedDashboardAuthor } from "./SharedDashboardAuthor";
+import { SharedDashboardInviteesItems } from "./SharedDashboardInviteesItems";
 import { SharedDashboardInvites } from "./SharedDashboardInvites";
 import { SharedDashboardInvitesDataObject } from "./SharedDashboardInvitesDataObject";
 import { SharedDashboardInvitesDataObjectAttributes } from "./SharedDashboardInvitesDataObjectAttributes";
@@ -609,6 +610,7 @@ import { User } from "./User";
 import { UserDisableResponse } from "./UserDisableResponse";
 import { UserListResponse } from "./UserListResponse";
 import { UserResponse } from "./UserResponse";
+import { ViewingPreferences } from "./ViewingPreferences";
 import { WebhooksIntegration } from "./WebhooksIntegration";
 import { WebhooksIntegrationCustomVariable } from "./WebhooksIntegrationCustomVariable";
 import { WebhooksIntegrationCustomVariableResponse } from "./WebhooksIntegrationCustomVariableResponse";
@@ -696,7 +698,7 @@ const enumsMap: { [key: string]: any[] } = {
   DashboardLayoutType: ["ordered", "free"],
   DashboardReflowType: ["auto", "fixed"],
   DashboardResourceType: ["dashboard"],
-  DashboardShareType: ["open", "invite"],
+  DashboardShareType: ["open", "invite", "embed"],
   DashboardType: ["custom_timeboard", "custom_screenboard"],
   DistributionPointsContentEncoding: ["deflate"],
   DistributionPointsType: ["distribution"],
@@ -1216,6 +1218,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceCheckStatus: [0, 1, 2, 3],
   ServiceMapWidgetDefinitionType: ["servicemap"],
   ServiceSummaryWidgetDefinitionType: ["trace_service"],
+  SharedDashboardStatus: ["active", "paused"],
   SignalArchiveReason: [
     "none",
     "false_positive",
@@ -1539,6 +1542,7 @@ const enumsMap: { [key: string]: any[] } = {
   UsageReportsType: ["reports"],
   UsageSort: ["computed_on", "size", "start_date", "end_date"],
   UsageSortDirection: ["desc", "asc"],
+  ViewingPreferencesTheme: ["system", "light", "dark"],
   WebhooksIntegrationEncoding: ["json", "form"],
   WidgetAggregator: ["avg", "last", "max", "min", "sum", "percentile"],
   WidgetChangeType: ["absolute", "relative"],
@@ -2047,6 +2051,7 @@ const typeMap: { [index: string]: any } = {
   ServiceSummaryWidgetDefinition: ServiceSummaryWidgetDefinition,
   SharedDashboard: SharedDashboard,
   SharedDashboardAuthor: SharedDashboardAuthor,
+  SharedDashboardInviteesItems: SharedDashboardInviteesItems,
   SharedDashboardInvites: SharedDashboardInvites,
   SharedDashboardInvitesDataObject: SharedDashboardInvitesDataObject,
   SharedDashboardInvitesDataObjectAttributes:
@@ -2313,6 +2318,7 @@ const typeMap: { [index: string]: any } = {
   UserDisableResponse: UserDisableResponse,
   UserListResponse: UserListResponse,
   UserResponse: UserResponse,
+  ViewingPreferences: ViewingPreferences,
   WebhooksIntegration: WebhooksIntegration,
   WebhooksIntegrationCustomVariable: WebhooksIntegrationCustomVariable,
   WebhooksIntegrationCustomVariableResponse:

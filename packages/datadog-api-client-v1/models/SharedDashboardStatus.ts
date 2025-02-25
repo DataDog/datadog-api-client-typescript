@@ -7,14 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of sharing access (either open to anyone who has the public URL or invite-only).
+ * Active means the dashboard is publicly available. Paused means the dashboard is not publicly available.
  */
 
-export type DashboardShareType =
-  | typeof OPEN
-  | typeof INVITE
-  | typeof EMBED
+export type SharedDashboardStatus =
+  | typeof ACTIVE
+  | typeof PAUSED
   | UnparsedObject;
-export const OPEN = "open";
-export const INVITE = "invite";
-export const EMBED = "embed";
+export const ACTIVE = "active";
+export const PAUSED = "paused";

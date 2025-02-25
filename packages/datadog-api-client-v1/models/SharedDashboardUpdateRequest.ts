@@ -5,7 +5,10 @@
  */
 import { DashboardShareType } from "./DashboardShareType";
 import { SelectableTemplateVariableItems } from "./SelectableTemplateVariableItems";
+import { SharedDashboardInviteesItems } from "./SharedDashboardInviteesItems";
+import { SharedDashboardStatus } from "./SharedDashboardStatus";
 import { SharedDashboardUpdateRequestGlobalTime } from "./SharedDashboardUpdateRequestGlobalTime";
+import { ViewingPreferences } from "./ViewingPreferences";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,13 +17,25 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SharedDashboardUpdateRequest {
   /**
+   * The `SharedDashboard` `embeddable_domains`.
+   */
+  "embeddableDomains"?: Array<string>;
+  /**
+   * The time when an OPEN shared dashboard becomes publicly unavailable.
+   */
+  "expiration"?: Date;
+  /**
    * Timeframe setting for the shared dashboard.
    */
-  "globalTime": SharedDashboardUpdateRequestGlobalTime | null;
+  "globalTime"?: SharedDashboardUpdateRequestGlobalTime;
   /**
    * Whether to allow viewers to select a different global time setting for the shared dashboard.
    */
   "globalTimeSelectableEnabled"?: boolean;
+  /**
+   * The `SharedDashboard` `invitees`.
+   */
+  "invitees"?: Array<SharedDashboardInviteesItems>;
   /**
    * List of objects representing template variables on the shared dashboard which can have selectable values.
    */
@@ -33,6 +48,18 @@ export class SharedDashboardUpdateRequest {
    * Type of sharing access (either open to anyone who has the public URL or invite-only).
    */
   "shareType"?: DashboardShareType;
+  /**
+   * Active means the dashboard is publicly available. Paused means the dashboard is not publicly available.
+   */
+  "status"?: SharedDashboardStatus;
+  /**
+   * Title of the shared dashboard.
+   */
+  "title"?: string;
+  /**
+   * The viewing preferences for a shared dashboard.
+   */
+  "viewingPreferences"?: ViewingPreferences;
 
   /**
    * A container for additional, undeclared properties.
@@ -50,14 +77,26 @@ export class SharedDashboardUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    embeddableDomains: {
+      baseName: "embeddable_domains",
+      type: "Array<string>",
+    },
+    expiration: {
+      baseName: "expiration",
+      type: "Date",
+      format: "date-time",
+    },
     globalTime: {
       baseName: "global_time",
       type: "SharedDashboardUpdateRequestGlobalTime",
-      required: true,
     },
     globalTimeSelectableEnabled: {
       baseName: "global_time_selectable_enabled",
       type: "boolean",
+    },
+    invitees: {
+      baseName: "invitees",
+      type: "Array<SharedDashboardInviteesItems>",
     },
     selectableTemplateVars: {
       baseName: "selectable_template_vars",
@@ -70,6 +109,18 @@ export class SharedDashboardUpdateRequest {
     shareType: {
       baseName: "share_type",
       type: "DashboardShareType",
+    },
+    status: {
+      baseName: "status",
+      type: "SharedDashboardStatus",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+    },
+    viewingPreferences: {
+      baseName: "viewing_preferences",
+      type: "ViewingPreferences",
     },
     additionalProperties: {
       baseName: "additionalProperties",
