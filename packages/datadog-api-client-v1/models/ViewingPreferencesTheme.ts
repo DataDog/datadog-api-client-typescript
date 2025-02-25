@@ -7,14 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of sharing access (either open to anyone who has the public URL or invite-only).
+ * The theme of the shared dashboard view. "system" follows your system's default viewing theme.
  */
 
-export type DashboardShareType =
-  | typeof OPEN
-  | typeof INVITE
-  | typeof EMBED
+export type ViewingPreferencesTheme =
+  | typeof SYSTEM
+  | typeof LIGHT
+  | typeof DARK
   | UnparsedObject;
-export const OPEN = "open";
-export const INVITE = "invite";
-export const EMBED = "embed";
+export const SYSTEM = "system";
+export const LIGHT = "light";
+export const DARK = "dark";

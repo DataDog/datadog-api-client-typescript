@@ -8,6 +8,9 @@ import { DashboardShareType } from "./DashboardShareType";
 import { DashboardType } from "./DashboardType";
 import { SelectableTemplateVariableItems } from "./SelectableTemplateVariableItems";
 import { SharedDashboardAuthor } from "./SharedDashboardAuthor";
+import { SharedDashboardInviteesItems } from "./SharedDashboardInviteesItems";
+import { SharedDashboardStatus } from "./SharedDashboardStatus";
+import { ViewingPreferences } from "./ViewingPreferences";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -22,7 +25,7 @@ export class SharedDashboard {
   /**
    * Date the dashboard was shared.
    */
-  "createdAt"?: Date;
+  "created"?: Date;
   /**
    * ID of the dashboard to share.
    */
@@ -32,6 +35,14 @@ export class SharedDashboard {
    */
   "dashboardType": DashboardType;
   /**
+   * The `SharedDashboard` `embeddable_domains`.
+   */
+  "embeddableDomains"?: Array<string>;
+  /**
+   * The time when an OPEN shared dashboard becomes publicly unavailable.
+   */
+  "expiration"?: Date;
+  /**
    * Object containing the live span selection for the dashboard.
    */
   "globalTime"?: DashboardGlobalTime;
@@ -39,6 +50,14 @@ export class SharedDashboard {
    * Whether to allow viewers to select a different global time setting for the shared dashboard.
    */
   "globalTimeSelectableEnabled"?: boolean;
+  /**
+   * The `SharedDashboard` `invitees`.
+   */
+  "invitees"?: Array<SharedDashboardInviteesItems>;
+  /**
+   * The last time the shared dashboard was accessed. Null if never accessed.
+   */
+  "lastAccessed"?: Date;
   /**
    * URL of the shared dashboard.
    */
@@ -56,9 +75,21 @@ export class SharedDashboard {
    */
   "shareType"?: DashboardShareType;
   /**
+   * Active means the dashboard is publicly available. Paused means the dashboard is not publicly available.
+   */
+  "status"?: SharedDashboardStatus;
+  /**
+   * Title of the shared dashboard.
+   */
+  "title"?: string;
+  /**
    * A unique token assigned to the shared dashboard.
    */
   "token"?: string;
+  /**
+   * The viewing preferences for a shared dashboard.
+   */
+  "viewingPreferences"?: ViewingPreferences;
 
   /**
    * A container for additional, undeclared properties.
@@ -80,8 +111,8 @@ export class SharedDashboard {
       baseName: "author",
       type: "SharedDashboardAuthor",
     },
-    createdAt: {
-      baseName: "created_at",
+    created: {
+      baseName: "created",
       type: "Date",
       format: "date-time",
     },
@@ -95,6 +126,15 @@ export class SharedDashboard {
       type: "DashboardType",
       required: true,
     },
+    embeddableDomains: {
+      baseName: "embeddable_domains",
+      type: "Array<string>",
+    },
+    expiration: {
+      baseName: "expiration",
+      type: "Date",
+      format: "date-time",
+    },
     globalTime: {
       baseName: "global_time",
       type: "DashboardGlobalTime",
@@ -102,6 +142,15 @@ export class SharedDashboard {
     globalTimeSelectableEnabled: {
       baseName: "global_time_selectable_enabled",
       type: "boolean",
+    },
+    invitees: {
+      baseName: "invitees",
+      type: "Array<SharedDashboardInviteesItems>",
+    },
+    lastAccessed: {
+      baseName: "last_accessed",
+      type: "Date",
+      format: "date-time",
     },
     publicUrl: {
       baseName: "public_url",
@@ -119,9 +168,21 @@ export class SharedDashboard {
       baseName: "share_type",
       type: "DashboardShareType",
     },
+    status: {
+      baseName: "status",
+      type: "SharedDashboardStatus",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+    },
     token: {
       baseName: "token",
       type: "string",
+    },
+    viewingPreferences: {
+      baseName: "viewing_preferences",
+      type: "ViewingPreferences",
     },
     additionalProperties: {
       baseName: "additionalProperties",
