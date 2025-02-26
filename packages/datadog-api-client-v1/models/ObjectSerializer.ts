@@ -185,6 +185,7 @@ import { LogsQueryCompute } from "./LogsQueryCompute";
 import { LogsRetentionAggSumUsage } from "./LogsRetentionAggSumUsage";
 import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
 import { LogsServiceRemapper } from "./LogsServiceRemapper";
+import { LogsSpanRemapper } from "./LogsSpanRemapper";
 import { LogsStatusRemapper } from "./LogsStatusRemapper";
 import { LogsStringBuilderProcessor } from "./LogsStringBuilderProcessor";
 import { LogsTraceRemapper } from "./LogsTraceRemapper";
@@ -262,6 +263,9 @@ import { NotebooksResponseData } from "./NotebooksResponseData";
 import { NotebooksResponseDataAttributes } from "./NotebooksResponseDataAttributes";
 import { NotebooksResponseMeta } from "./NotebooksResponseMeta";
 import { NotebooksResponsePage } from "./NotebooksResponsePage";
+import { NumberFormatUnitCanonical } from "./NumberFormatUnitCanonical";
+import { NumberFormatUnitCustom } from "./NumberFormatUnitCustom";
+import { NumberFormatUnitScale } from "./NumberFormatUnitScale";
 import { OrgDowngradedResponse } from "./OrgDowngradedResponse";
 import { Organization } from "./Organization";
 import { OrganizationBilling } from "./OrganizationBilling";
@@ -362,6 +366,7 @@ import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
 import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
 import { SharedDashboard } from "./SharedDashboard";
 import { SharedDashboardAuthor } from "./SharedDashboardAuthor";
+import { SharedDashboardInviteesItems } from "./SharedDashboardInviteesItems";
 import { SharedDashboardInvites } from "./SharedDashboardInvites";
 import { SharedDashboardInvitesDataObject } from "./SharedDashboardInvitesDataObject";
 import { SharedDashboardInvitesDataObjectAttributes } from "./SharedDashboardInvitesDataObjectAttributes";
@@ -605,6 +610,7 @@ import { User } from "./User";
 import { UserDisableResponse } from "./UserDisableResponse";
 import { UserListResponse } from "./UserListResponse";
 import { UserResponse } from "./UserResponse";
+import { ViewingPreferences } from "./ViewingPreferences";
 import { WebhooksIntegration } from "./WebhooksIntegration";
 import { WebhooksIntegrationCustomVariable } from "./WebhooksIntegrationCustomVariable";
 import { WebhooksIntegrationCustomVariableResponse } from "./WebhooksIntegrationCustomVariableResponse";
@@ -617,6 +623,7 @@ import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetEvent } from "./WidgetEvent";
 import { WidgetFieldSort } from "./WidgetFieldSort";
 import { WidgetFormula } from "./WidgetFormula";
+import { WidgetFormulaCellDisplayModeOptions } from "./WidgetFormulaCellDisplayModeOptions";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
 import { WidgetFormulaSort } from "./WidgetFormulaSort";
 import { WidgetFormulaStyle } from "./WidgetFormulaStyle";
@@ -626,6 +633,7 @@ import { WidgetLegacyLiveSpan } from "./WidgetLegacyLiveSpan";
 import { WidgetMarker } from "./WidgetMarker";
 import { WidgetNewFixedSpan } from "./WidgetNewFixedSpan";
 import { WidgetNewLiveSpan } from "./WidgetNewLiveSpan";
+import { WidgetNumberFormat } from "./WidgetNumberFormat";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
@@ -690,7 +698,7 @@ const enumsMap: { [key: string]: any[] } = {
   DashboardLayoutType: ["ordered", "free"],
   DashboardReflowType: ["auto", "fixed"],
   DashboardResourceType: ["dashboard"],
-  DashboardShareType: ["open", "invite"],
+  DashboardShareType: ["open", "invite", "embed"],
   DashboardType: ["custom_timeboard", "custom_screenboard"],
   DistributionPointsContentEncoding: ["deflate"],
   DistributionPointsType: ["distribution"],
@@ -919,6 +927,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsPipelineProcessorType: ["pipeline"],
   LogsServiceRemapperType: ["service-remapper"],
   LogsSort: ["asc", "desc"],
+  LogsSpanRemapperType: ["span-id-remapper"],
   LogsStatusRemapperType: ["status-remapper"],
   LogsStringBuilderProcessorType: ["string-builder-processor"],
   LogsTraceRemapperType: ["trace-id-remapper"],
@@ -1173,6 +1182,8 @@ const enumsMap: { [key: string]: any[] } = {
   NotebookStatus: ["published"],
   NotifyEndState: ["alert", "no data", "warn"],
   NotifyEndType: ["canceled", "expired"],
+  NumberFormatUnitCustomType: ["custom_unit_label"],
+  NumberFormatUnitScaleType: ["canonical_unit"],
   OnMissingDataOption: [
     "default",
     "show_no_data",
@@ -1207,6 +1218,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceCheckStatus: [0, 1, 2, 3],
   ServiceMapWidgetDefinitionType: ["servicemap"],
   ServiceSummaryWidgetDefinitionType: ["trace_service"],
+  SharedDashboardStatus: ["active", "paused"],
   SignalArchiveReason: [
     "none",
     "false_positive",
@@ -1483,7 +1495,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SyntheticsTestRestrictionPolicyBindingRelation: ["editor", "viewer"],
   SyntheticsWarningType: ["user_locator"],
-  TableWidgetCellDisplayMode: ["number", "bar"],
+  TableWidgetCellDisplayMode: ["number", "bar", "trend"],
   TableWidgetDefinitionType: ["query_table"],
   TableWidgetHasSearchBar: ["always", "never", "auto"],
   TableWidgetTextFormatMatchType: [
@@ -1530,6 +1542,7 @@ const enumsMap: { [key: string]: any[] } = {
   UsageReportsType: ["reports"],
   UsageSort: ["computed_on", "size", "start_date", "end_date"],
   UsageSortDirection: ["desc", "asc"],
+  ViewingPreferencesTheme: ["system", "light", "dark"],
   WebhooksIntegrationEncoding: ["json", "form"],
   WidgetAggregator: ["avg", "last", "max", "min", "sum", "percentile"],
   WidgetChangeType: ["absolute", "relative"],
@@ -1538,6 +1551,8 @@ const enumsMap: { [key: string]: any[] } = {
   WidgetCompareTo: ["hour_before", "day_before", "week_before", "month_before"],
   WidgetDisplayType: ["area", "bars", "line", "overlay"],
   WidgetEventSize: ["s", "l"],
+  WidgetFormulaCellDisplayModeOptionsTrendType: ["area", "line", "bars"],
+  WidgetFormulaCellDisplayModeOptionsYScale: ["shared", "independent"],
   WidgetGrouping: ["check", "cluster"],
   WidgetHorizontalAlign: ["center", "left", "right"],
   WidgetImageSizing: [
@@ -1842,6 +1857,7 @@ const typeMap: { [index: string]: any } = {
   LogsRetentionAggSumUsage: LogsRetentionAggSumUsage,
   LogsRetentionSumUsage: LogsRetentionSumUsage,
   LogsServiceRemapper: LogsServiceRemapper,
+  LogsSpanRemapper: LogsSpanRemapper,
   LogsStatusRemapper: LogsStatusRemapper,
   LogsStringBuilderProcessor: LogsStringBuilderProcessor,
   LogsTraceRemapper: LogsTraceRemapper,
@@ -1927,6 +1943,9 @@ const typeMap: { [index: string]: any } = {
   NotebooksResponseDataAttributes: NotebooksResponseDataAttributes,
   NotebooksResponseMeta: NotebooksResponseMeta,
   NotebooksResponsePage: NotebooksResponsePage,
+  NumberFormatUnitCanonical: NumberFormatUnitCanonical,
+  NumberFormatUnitCustom: NumberFormatUnitCustom,
+  NumberFormatUnitScale: NumberFormatUnitScale,
   OrgDowngradedResponse: OrgDowngradedResponse,
   Organization: Organization,
   OrganizationBilling: OrganizationBilling,
@@ -2032,6 +2051,7 @@ const typeMap: { [index: string]: any } = {
   ServiceSummaryWidgetDefinition: ServiceSummaryWidgetDefinition,
   SharedDashboard: SharedDashboard,
   SharedDashboardAuthor: SharedDashboardAuthor,
+  SharedDashboardInviteesItems: SharedDashboardInviteesItems,
   SharedDashboardInvites: SharedDashboardInvites,
   SharedDashboardInvitesDataObject: SharedDashboardInvitesDataObject,
   SharedDashboardInvitesDataObjectAttributes:
@@ -2298,6 +2318,7 @@ const typeMap: { [index: string]: any } = {
   UserDisableResponse: UserDisableResponse,
   UserListResponse: UserListResponse,
   UserResponse: UserResponse,
+  ViewingPreferences: ViewingPreferences,
   WebhooksIntegration: WebhooksIntegration,
   WebhooksIntegrationCustomVariable: WebhooksIntegrationCustomVariable,
   WebhooksIntegrationCustomVariableResponse:
@@ -2312,6 +2333,7 @@ const typeMap: { [index: string]: any } = {
   WidgetEvent: WidgetEvent,
   WidgetFieldSort: WidgetFieldSort,
   WidgetFormula: WidgetFormula,
+  WidgetFormulaCellDisplayModeOptions: WidgetFormulaCellDisplayModeOptions,
   WidgetFormulaLimit: WidgetFormulaLimit,
   WidgetFormulaSort: WidgetFormulaSort,
   WidgetFormulaStyle: WidgetFormulaStyle,
@@ -2321,6 +2343,7 @@ const typeMap: { [index: string]: any } = {
   WidgetMarker: WidgetMarker,
   WidgetNewFixedSpan: WidgetNewFixedSpan,
   WidgetNewLiveSpan: WidgetNewLiveSpan,
+  WidgetNumberFormat: WidgetNumberFormat,
   WidgetRequestStyle: WidgetRequestStyle,
   WidgetSortBy: WidgetSortBy,
   WidgetStyle: WidgetStyle,
@@ -2359,6 +2382,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsLookupProcessor",
     "ReferenceTableLogsLookupProcessor",
     "LogsTraceRemapper",
+    "LogsSpanRemapper",
   ],
   MonitorFormulaAndFunctionQueryDefinition: [
     "MonitorFormulaAndFunctionEventQueryDefinition",
@@ -2394,6 +2418,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "NotebookCellCreateRequest",
     "NotebookCellUpdateRequest",
   ],
+  NumberFormatUnit: ["NumberFormatUnitCanonical", "NumberFormatUnitCustom"],
   SLODataSourceQueryDefinition: ["FormulaAndFunctionMetricQueryDefinition"],
   SLOSliSpec: ["SLOTimeSliceSpec"],
   SharedDashboardInvitesData: [

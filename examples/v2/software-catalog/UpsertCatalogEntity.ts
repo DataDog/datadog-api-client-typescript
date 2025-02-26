@@ -36,7 +36,11 @@ const params: v2.SoftwareCatalogApiUpsertCatalogEntityRequest = {
     },
     kind: "service",
     metadata: {
-      additionalOwners: [],
+      additionalOwners: [
+        {
+          name: "",
+        },
+      ],
       contacts: [
         {
           contact: "https://slack/",

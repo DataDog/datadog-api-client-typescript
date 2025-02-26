@@ -13,6 +13,8 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type TableWidgetCellDisplayMode =
   | typeof NUMBER
   | typeof BAR
+  | typeof TREND
   | UnparsedObject;
 export const NUMBER = "number";
 export const BAR = "bar";
+export const TREND = "trend";

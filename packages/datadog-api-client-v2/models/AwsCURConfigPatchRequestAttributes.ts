@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AccountFilteringConfig } from "./AccountFilteringConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,9 +12,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AwsCURConfigPatchRequestAttributes {
   /**
+   * The account filtering configuration.
+   */
+  "accountFilters"?: AccountFilteringConfig;
+  /**
    * Whether or not the Cloud Cost Management account is enabled.
    */
-  "isEnabled": boolean;
+  "isEnabled"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,10 +36,13 @@ export class AwsCURConfigPatchRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    accountFilters: {
+      baseName: "account_filters",
+      type: "AccountFilteringConfig",
+    },
     isEnabled: {
       baseName: "is_enabled",
       type: "boolean",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

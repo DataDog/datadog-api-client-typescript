@@ -13,6 +13,7 @@ import { LogsLookupProcessor } from "./LogsLookupProcessor";
 import { LogsMessageRemapper } from "./LogsMessageRemapper";
 import { LogsPipelineProcessor } from "./LogsPipelineProcessor";
 import { LogsServiceRemapper } from "./LogsServiceRemapper";
+import { LogsSpanRemapper } from "./LogsSpanRemapper";
 import { LogsStatusRemapper } from "./LogsStatusRemapper";
 import { LogsStringBuilderProcessor } from "./LogsStringBuilderProcessor";
 import { LogsTraceRemapper } from "./LogsTraceRemapper";
@@ -43,4 +44,5 @@ export type LogsProcessor =
   | LogsLookupProcessor
   | ReferenceTableLogsLookupProcessor
   | LogsTraceRemapper
+  | LogsSpanRemapper
   | UnparsedObject;

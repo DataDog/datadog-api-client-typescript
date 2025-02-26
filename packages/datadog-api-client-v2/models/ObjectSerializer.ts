@@ -47,6 +47,7 @@ import { AWSRegionsIncludeAll } from "./AWSRegionsIncludeAll";
 import { AWSRegionsIncludeOnly } from "./AWSRegionsIncludeOnly";
 import { AWSResourcesConfig } from "./AWSResourcesConfig";
 import { AWSTracesConfig } from "./AWSTracesConfig";
+import { AccountFilteringConfig } from "./AccountFilteringConfig";
 import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
 import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
 import { ActionConnectionData } from "./ActionConnectionData";
@@ -2187,11 +2188,11 @@ const enumsMap: { [key: string]: any[] } = {
     "anomaly_threshold",
   ],
   SecurityMonitoringRuleEvaluationWindow: [
-    0, 60, 300, 600, 900, 1800, 3600, 7200,
+    0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
   ],
   SecurityMonitoringRuleHardcodedEvaluatorType: ["log4shell"],
   SecurityMonitoringRuleKeepAlive: [
-    0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600,
+    0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
   ],
   SecurityMonitoringRuleMaxSignalDuration: [
     0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
@@ -2522,6 +2523,7 @@ const typeMap: { [index: string]: any } = {
   AWSRegionsIncludeOnly: AWSRegionsIncludeOnly,
   AWSResourcesConfig: AWSResourcesConfig,
   AWSTracesConfig: AWSTracesConfig,
+  AccountFilteringConfig: AccountFilteringConfig,
   ActionConnectionAttributes: ActionConnectionAttributes,
   ActionConnectionAttributesUpdate: ActionConnectionAttributesUpdate,
   ActionConnectionData: ActionConnectionData,

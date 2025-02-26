@@ -5,8 +5,10 @@
  */
 import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
+import { WidgetFormulaCellDisplayModeOptions } from "./WidgetFormulaCellDisplayModeOptions";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
 import { WidgetFormulaStyle } from "./WidgetFormulaStyle";
+import { WidgetNumberFormat } from "./WidgetNumberFormat";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -23,6 +25,10 @@ export class WidgetFormula {
    */
   "cellDisplayMode"?: TableWidgetCellDisplayMode;
   /**
+   * Cell display mode options for the widget formula. (only if `cell_display_mode` is set to `trend`).
+   */
+  "cellDisplayModeOptions"?: WidgetFormulaCellDisplayModeOptions;
+  /**
    * List of conditional formats.
    */
   "conditionalFormats"?: Array<WidgetConditionalFormat>;
@@ -34,6 +40,10 @@ export class WidgetFormula {
    * Options for limiting results returned.
    */
   "limit"?: WidgetFormulaLimit;
+  /**
+   * Number format options for the widget.
+   */
+  "numberFormat"?: WidgetNumberFormat;
   /**
    * Styling options for widget formulas.
    */
@@ -63,6 +73,10 @@ export class WidgetFormula {
       baseName: "cell_display_mode",
       type: "TableWidgetCellDisplayMode",
     },
+    cellDisplayModeOptions: {
+      baseName: "cell_display_mode_options",
+      type: "WidgetFormulaCellDisplayModeOptions",
+    },
     conditionalFormats: {
       baseName: "conditional_formats",
       type: "Array<WidgetConditionalFormat>",
@@ -75,6 +89,10 @@ export class WidgetFormula {
     limit: {
       baseName: "limit",
       type: "WidgetFormulaLimit",
+    },
+    numberFormat: {
+      baseName: "number_format",
+      type: "WidgetNumberFormat",
     },
     style: {
       baseName: "style",
