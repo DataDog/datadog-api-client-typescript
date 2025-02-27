@@ -898,17 +898,17 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (include !== undefined) {
-      requestContext.setQueryParam(
-        "include",
-        ObjectSerializer.serialize(include, "IncidentRelatedObject", ""),
-        ""
-      );
-    }
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
         ObjectSerializer.serialize(query, "string", ""),
+        ""
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "IncidentRelatedObject", ""),
         ""
       );
     }
