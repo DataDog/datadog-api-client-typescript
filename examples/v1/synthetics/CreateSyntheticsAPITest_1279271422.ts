@@ -53,6 +53,8 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             interval: 1000,
           },
           subtype: "http",
+          extractedValuesFromScript:
+            "dd.variable.set('STATUS_CODE', dd.response.statusCode);",
         },
         {
           name: "Wait",
