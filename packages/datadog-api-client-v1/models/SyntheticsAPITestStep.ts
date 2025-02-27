@@ -32,6 +32,10 @@ export class SyntheticsAPITestStep {
    */
   "extractedValues"?: Array<SyntheticsParsingOptions>;
   /**
+   * Generate variables using JavaScript.
+   */
+  "extractedValuesFromScript"?: string;
+  /**
    * Determines whether or not to consider the entire test as failed if this step fails.
    * Can be used only if `allowFailure` is `true`.
    */
@@ -85,6 +89,10 @@ export class SyntheticsAPITestStep {
     extractedValues: {
       baseName: "extractedValues",
       type: "Array<SyntheticsParsingOptions>",
+    },
+    extractedValuesFromScript: {
+      baseName: "extractedValuesFromScript",
+      type: "string",
     },
     isCritical: {
       baseName: "isCritical",
