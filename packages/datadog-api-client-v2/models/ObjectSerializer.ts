@@ -2197,8 +2197,6 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityMonitoringRuleMaxSignalDuration: [
     0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400,
   ],
-  SecurityMonitoringRuleNewValueOptionsForgetAfter: [1, 2, 7, 14, 21, 28],
-  SecurityMonitoringRuleNewValueOptionsLearningDuration: [0, 1, 7],
   SecurityMonitoringRuleNewValueOptionsLearningMethod: [
     "duration",
     "threshold",

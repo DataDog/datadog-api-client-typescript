@@ -2216,8 +2216,6 @@ export { SecurityMonitoringRuleImpossibleTravelOptions } from "./models/Security
 export { SecurityMonitoringRuleKeepAlive } from "./models/SecurityMonitoringRuleKeepAlive";
 export { SecurityMonitoringRuleMaxSignalDuration } from "./models/SecurityMonitoringRuleMaxSignalDuration";
 export { SecurityMonitoringRuleNewValueOptions } from "./models/SecurityMonitoringRuleNewValueOptions";
-export { SecurityMonitoringRuleNewValueOptionsForgetAfter } from "./models/SecurityMonitoringRuleNewValueOptionsForgetAfter";
-export { SecurityMonitoringRuleNewValueOptionsLearningDuration } from "./models/SecurityMonitoringRuleNewValueOptionsLearningDuration";
 export { SecurityMonitoringRuleNewValueOptionsLearningMethod } from "./models/SecurityMonitoringRuleNewValueOptionsLearningMethod";
 export { SecurityMonitoringRuleNewValueOptionsLearningThreshold } from "./models/SecurityMonitoringRuleNewValueOptionsLearningThreshold";
 export { SecurityMonitoringRuleOptions } from "./models/SecurityMonitoringRuleOptions";
