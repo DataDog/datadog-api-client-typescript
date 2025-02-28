@@ -2339,6 +2339,31 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "UpdateActionConnectionResponse",
     },
     "v2.ListAwsScanOptions": {
+        "operationResponseType": "AwsScanOptionsListResponse",
+    },
+    "v2.CreateAwsScanOptions": {
+        "body": {
+            "type": "AwsScanOptionsCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AwsScanOptionsResponse",
+    },
+    "v2.DeleteAwsScanOptions": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.UpdateAwsScanOptions": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AwsScanOptionsUpdateRequest",
+            "format": "",
+            },
         "operationResponseType": "AwsScanOptionsResponse",
     },
     "v2.ListAPIKeys": {
