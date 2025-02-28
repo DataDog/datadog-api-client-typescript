@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MonitorOptionsSchedulingOptionsEvaluationWindow {
   /**
-   * The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+   * The time of the day at which a one day cumulative evaluation window starts.
    */
   "dayStarts"?: string;
   /**
@@ -22,6 +22,10 @@ export class MonitorOptionsSchedulingOptionsEvaluationWindow {
    * The day of the month at which a one month cumulative evaluation window starts.
    */
   "monthStarts"?: number;
+  /**
+   * The timezone of the time of the day of the cumulative evaluation window start.
+   */
+  "timezone"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -52,6 +56,10 @@ export class MonitorOptionsSchedulingOptionsEvaluationWindow {
       baseName: "month_starts",
       type: "number",
       format: "int32",
+    },
+    timezone: {
+      baseName: "timezone",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
