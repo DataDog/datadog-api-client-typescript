@@ -246,11 +246,11 @@ def format_data_with_schema(
             def format_string(x):
                 if "`" in x:
                     x = re.sub(r"(`+)", r'` + "\1" + `', x)
-                if x and ('"' in x or "\n" in x):
+                if x and ('"' in x):
                     x = f"`{x}`"
                     x = re.sub(r" \+ ``$", "", x)
                     return x
-                return f'"{x}"' if x else '""'
+                return repr(x)
 
             def format_datetime(x):
                 d = dateutil.parser.isoparse(x)
