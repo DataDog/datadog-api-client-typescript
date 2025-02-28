@@ -38,11 +38,6 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createApp'");
-    if (!_config.unstableOperations["v2.createApp"]) {
-      throw new Error("Unstable operation 'createApp' is disabled");
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createApp");
@@ -84,11 +79,6 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteApp'");
-    if (!_config.unstableOperations["v2.deleteApp"]) {
-      throw new Error("Unstable operation 'deleteApp' is disabled");
-    }
-
     // verify required parameter 'appId' is not null or undefined
     if (appId === null || appId === undefined) {
       throw new RequiredError("appId", "deleteApp");
@@ -121,11 +111,6 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'deleteApps'");
-    if (!_config.unstableOperations["v2.deleteApps"]) {
-      throw new Error("Unstable operation 'deleteApps' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -168,11 +153,6 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getApp'");
-    if (!_config.unstableOperations["v2.getApp"]) {
-      throw new Error("Unstable operation 'getApp' is disabled");
-    }
 
     // verify required parameter 'appId' is not null or undefined
     if (appId === null || appId === undefined) {
@@ -225,11 +205,6 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'listApps'");
-    if (!_config.unstableOperations["v2.listApps"]) {
-      throw new Error("Unstable operation 'listApps' is disabled");
-    }
 
     // Path Params
     const localVarPath = "/api/v2/app-builder/apps";
@@ -335,11 +310,6 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'publishApp'");
-    if (!_config.unstableOperations["v2.publishApp"]) {
-      throw new Error("Unstable operation 'publishApp' is disabled");
-    }
-
     // verify required parameter 'appId' is not null or undefined
     if (appId === null || appId === undefined) {
       throw new RequiredError("appId", "publishApp");
@@ -372,11 +342,6 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'unpublishApp'");
-    if (!_config.unstableOperations["v2.unpublishApp"]) {
-      throw new Error("Unstable operation 'unpublishApp' is disabled");
-    }
 
     // verify required parameter 'appId' is not null or undefined
     if (appId === null || appId === undefined) {
@@ -411,11 +376,6 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'updateApp'");
-    if (!_config.unstableOperations["v2.updateApp"]) {
-      throw new Error("Unstable operation 'updateApp' is disabled");
-    }
 
     // verify required parameter 'appId' is not null or undefined
     if (appId === null || appId === undefined) {
@@ -735,7 +695,8 @@ export class AppBuilderApiResponseProcessor {
     if (
       response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 410
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),

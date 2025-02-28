@@ -61,7 +61,7 @@ def type_to_typescript(schema, alternative_name=None, check_nullable=True):
     if name and "items" not in schema and not is_primitive(schema):
         if "enum" in schema:
             return name
-        if not schema.get("additionalProperties"):
+        if not (schema.get("additionalProperties", False) != False and not schema.get("properties")) and schema.get("type", "object") == "object":
             return name
     type_ = schema.get("type")
     if type_ is None:
@@ -245,12 +245,13 @@ def get_references_for_model(model, model_name):
     top_name = formatter.get_name(model) or model_name
     if "oneOf" in model:
         for oneOf in model["oneOf"]:
+            name = None
             if "items" in oneOf:
                 name = formatter.get_name(oneOf["items"])
-                if name:
-                    result.append(name)
-            else:
-                result.append(formatter.get_name(oneOf))
+            elif not (oneOf.get("additionalProperties", False) != False and not oneOf.get("properties")) and oneOf.get("type", "object") == "object":
+                name = formatter.get_name(oneOf)
+            if name:
+                result.append(name)
     for key, definition in model.get("properties", {}).items():
         if definition.get("type") == "object" or definition.get("enum") or definition.get("oneOf"):
             name = formatter.get_name(definition)
