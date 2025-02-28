@@ -280,6 +280,8 @@ export function createConfiguration(
       "v2.getSBOM": false,
       "v2.listFindings": false,
       "v2.listHistoricalJobs": false,
+      "v2.listVulnerabilities": false,
+      "v2.listVulnerableAssets": false,
       "v2.muteFindings": false,
       "v2.runHistoricalJob": false,
       "v2.createScorecardOutcomesBatch": false,

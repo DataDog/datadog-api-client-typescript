@@ -1067,6 +1067,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -1755,6 +1756,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'listVulnerabilities'");
+    if (!_config.unstableOperations["v2.listVulnerabilities"]) {
+      throw new Error("Unstable operation 'listVulnerabilities' is disabled");
+    }
+
     // Path Params
     const localVarPath = "/api/v2/security/vulnerabilities";
 
@@ -2097,6 +2103,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -2124,6 +2131,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listVulnerableAssets'");
+    if (!_config.unstableOperations["v2.listVulnerableAssets"]) {
+      throw new Error("Unstable operation 'listVulnerableAssets' is disabled");
+    }
 
     // Path Params
     const localVarPath = "/api/v2/security/assets";
@@ -2263,6 +2275,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
