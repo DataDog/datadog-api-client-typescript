@@ -5,7 +5,6 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.unpublishApp"] = true;
 const apiInstance = new v2.AppBuilderApi(configuration);
 
 // there is a valid "app" in the system
