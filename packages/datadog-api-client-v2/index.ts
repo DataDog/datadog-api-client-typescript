@@ -35,7 +35,12 @@ export {
   ActionConnectionApi,
 } from "./apis/ActionConnectionApi";
 
-export { AgentlessScanningApi } from "./apis/AgentlessScanningApi";
+export {
+  AgentlessScanningApiCreateAwsScanOptionsRequest,
+  AgentlessScanningApiDeleteAwsScanOptionsRequest,
+  AgentlessScanningApiUpdateAwsScanOptionsRequest,
+  AgentlessScanningApi,
+} from "./apis/AgentlessScanningApi";
 
 export {
   AppBuilderApiCreateAppRequest,
@@ -798,9 +803,15 @@ export { AWSRegionsIncludeAll } from "./models/AWSRegionsIncludeAll";
 export { AWSRegionsIncludeOnly } from "./models/AWSRegionsIncludeOnly";
 export { AWSResourcesConfig } from "./models/AWSResourcesConfig";
 export { AwsScanOptionsAttributes } from "./models/AwsScanOptionsAttributes";
+export { AwsScanOptionsCreateData } from "./models/AwsScanOptionsCreateData";
+export { AwsScanOptionsCreateRequest } from "./models/AwsScanOptionsCreateRequest";
 export { AwsScanOptionsData } from "./models/AwsScanOptionsData";
+export { AwsScanOptionsListResponse } from "./models/AwsScanOptionsListResponse";
 export { AwsScanOptionsResponse } from "./models/AwsScanOptionsResponse";
 export { AwsScanOptionsType } from "./models/AwsScanOptionsType";
+export { AwsScanOptionsUpdateAttributes } from "./models/AwsScanOptionsUpdateAttributes";
+export { AwsScanOptionsUpdateData } from "./models/AwsScanOptionsUpdateData";
+export { AwsScanOptionsUpdateRequest } from "./models/AwsScanOptionsUpdateRequest";
 export { AWSTracesConfig } from "./models/AWSTracesConfig";
 export { AzureUCConfig } from "./models/AzureUCConfig";
 export { AzureUCConfigPair } from "./models/AzureUCConfigPair";

@@ -3,18 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AwsScanOptionsData } from "./AwsScanOptionsData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response object that includes the scan options of an AWS account.
+ * Attributes for the AWS scan options to update.
  */
-export class AwsScanOptionsResponse {
+export class AwsScanOptionsUpdateAttributes {
   /**
-   * Single AWS Scan Options entry.
+   * Indicates if scanning of Lambda functions is enabled.
    */
-  "data"?: AwsScanOptionsData;
+  "lambda"?: boolean;
+  /**
+   * Indicates if scanning for sensitive data is enabled.
+   */
+  "sensitiveData"?: boolean;
+  /**
+   * Indicates if scanning for vulnerabilities in containers is enabled.
+   */
+  "vulnContainersOs"?: boolean;
+  /**
+   * Indicates if scanning for vulnerabilities in hosts is enabled.
+   */
+  "vulnHostOs"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +43,21 @@ export class AwsScanOptionsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AwsScanOptionsData",
+    lambda: {
+      baseName: "lambda",
+      type: "boolean",
+    },
+    sensitiveData: {
+      baseName: "sensitive_data",
+      type: "boolean",
+    },
+    vulnContainersOs: {
+      baseName: "vuln_containers_os",
+      type: "boolean",
+    },
+    vulnHostOs: {
+      baseName: "vuln_host_os",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +69,7 @@ export class AwsScanOptionsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AwsScanOptionsResponse.attributeTypeMap;
+    return AwsScanOptionsUpdateAttributes.attributeTypeMap;
   }
 
   public constructor() {}
