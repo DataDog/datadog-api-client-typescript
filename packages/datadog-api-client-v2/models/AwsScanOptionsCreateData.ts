@@ -3,18 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AwsScanOptionsData } from "./AwsScanOptionsData";
+import { AwsScanOptionsAttributes } from "./AwsScanOptionsAttributes";
+import { AwsScanOptionsType } from "./AwsScanOptionsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response object that includes the scan options of an AWS account.
+ * Object for the scan options of a single AWS account.
  */
-export class AwsScanOptionsResponse {
+export class AwsScanOptionsCreateData {
   /**
-   * Single AWS Scan Options entry.
+   * Attributes for the AWS scan options.
    */
-  "data"?: AwsScanOptionsData;
+  "attributes": AwsScanOptionsAttributes;
+  /**
+   * The ID of an AWS account.
+   */
+  "id": string;
+  /**
+   * The type of the resource. The value should always be `aws_scan_options`.
+   */
+  "type": AwsScanOptionsType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +41,20 @@ export class AwsScanOptionsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AwsScanOptionsData",
+    attributes: {
+      baseName: "attributes",
+      type: "AwsScanOptionsAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "AwsScanOptionsType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +66,7 @@ export class AwsScanOptionsResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AwsScanOptionsResponse.attributeTypeMap;
+    return AwsScanOptionsCreateData.attributeTypeMap;
   }
 
   public constructor() {}
