@@ -16,12 +16,8 @@ const params: v1.LogsPipelinesApiCreateLogsPipelineRequest = {
     processors: [
       {
         grok: {
-          matchRules: `rule_name_1 foo
-rule_name_2 bar
-`,
-          supportRules: `rule_name_1 foo
-rule_name_2 bar
-`,
+          matchRules: "rule_name_1 foo\nrule_name_2 bar\n",
+          supportRules: "rule_name_1 foo\nrule_name_2 bar\n",
         },
         isEnabled: false,
         samples: [],

@@ -52,6 +52,11 @@ import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
 import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
 import { ActionConnectionData } from "./ActionConnectionData";
 import { ActionConnectionDataUpdate } from "./ActionConnectionDataUpdate";
+import { ActionQuery } from "./ActionQuery";
+import { ActionQueryMockedOutputsObject } from "./ActionQueryMockedOutputsObject";
+import { ActionQueryProperties } from "./ActionQueryProperties";
+import { ActionQuerySpecConnectionGroup } from "./ActionQuerySpecConnectionGroup";
+import { ActionQuerySpecObject } from "./ActionQuerySpecObject";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
@@ -416,6 +421,8 @@ import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
 import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
 import { DataScalarColumn } from "./DataScalarColumn";
+import { DataTransform } from "./DataTransform";
+import { DataTransformProperties } from "./DataTransformProperties";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
 import { DeleteAppsRequest } from "./DeleteAppsRequest";
@@ -1052,7 +1059,6 @@ import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
 import { ProjectsResponse } from "./ProjectsResponse";
 import { PublishAppResponse } from "./PublishAppResponse";
-import { Query } from "./Query";
 import { QueryFormula } from "./QueryFormula";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
@@ -1441,6 +1447,8 @@ import { SpansQueryOptions } from "./SpansQueryOptions";
 import { SpansResponseMetadataPage } from "./SpansResponseMetadataPage";
 import { SpansWarning } from "./SpansWarning";
 import { Spec } from "./Spec";
+import { StateVariable } from "./StateVariable";
+import { StateVariableProperties } from "./StateVariableProperties";
 import { Step } from "./Step";
 import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
@@ -1620,6 +1628,7 @@ const enumsMap: { [key: string]: any[] } = {
   AWSNamespacesResponseDataType: ["namespaces"],
   AWSNewExternalIDResponseDataType: ["external_id"],
   ActionConnectionDataType: ["action_connection"],
+  ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   AppBuilderEventName: [
@@ -1839,6 +1848,7 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
+  DataTransformType: ["dataTransform"],
   DetailedFindingType: ["detailed_finding"],
   DomainAllowlistType: ["domain_allowlist"],
   DowntimeIncludedMonitorType: ["monitors"],
@@ -2066,7 +2076,6 @@ const enumsMap: { [key: string]: any[] } = {
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
   QuerySortOrder: ["asc", "desc"],
-  QueryType: ["action", "stateVariable", "dataTransform"],
   RUMAggregateSortType: ["alphabetical", "measure"],
   RUMAggregationFunction: [
     "count",
@@ -2343,6 +2352,7 @@ const enumsMap: { [key: string]: any[] } = {
   SpansType: ["spans"],
   SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
   State: ["pass", "fail", "skip"],
+  StateVariableType: ["stateVariable"],
   TeamLinkType: ["team_links"],
   TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
   TeamPermissionSettingType: ["team_permission_settings"],
@@ -2534,6 +2544,11 @@ const typeMap: { [index: string]: any } = {
   ActionConnectionAttributesUpdate: ActionConnectionAttributesUpdate,
   ActionConnectionData: ActionConnectionData,
   ActionConnectionDataUpdate: ActionConnectionDataUpdate,
+  ActionQuery: ActionQuery,
+  ActionQueryMockedOutputsObject: ActionQueryMockedOutputsObject,
+  ActionQueryProperties: ActionQueryProperties,
+  ActionQuerySpecConnectionGroup: ActionQuerySpecConnectionGroup,
+  ActionQuerySpecObject: ActionQuerySpecObject,
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
@@ -2949,6 +2964,8 @@ const typeMap: { [index: string]: any } = {
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
   DataDeletionResponseMeta: DataDeletionResponseMeta,
   DataScalarColumn: DataScalarColumn,
+  DataTransform: DataTransform,
+  DataTransformProperties: DataTransformProperties,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
   DeleteAppsRequest: DeleteAppsRequest,
@@ -3646,7 +3663,6 @@ const typeMap: { [index: string]: any } = {
   ProjectedCostResponse: ProjectedCostResponse,
   ProjectsResponse: ProjectsResponse,
   PublishAppResponse: PublishAppResponse,
-  Query: Query,
   QueryFormula: QueryFormula,
   RUMAggregateBucketValueTimeseriesPoint:
     RUMAggregateBucketValueTimeseriesPoint,
@@ -4095,6 +4111,8 @@ const typeMap: { [index: string]: any } = {
   SpansResponseMetadataPage: SpansResponseMetadataPage,
   SpansWarning: SpansWarning,
   Spec: Spec,
+  StateVariable: StateVariable,
+  StateVariableProperties: StateVariableProperties,
   Step: Step,
   StepDisplay: StepDisplay,
   StepDisplayBounds: StepDisplayBounds,
@@ -4246,6 +4264,16 @@ const oneOfMap: { [index: string]: string[] } = {
     "AWSIntegrationUpdate",
     "HTTPIntegrationUpdate",
   ],
+  ActionQueryCondition: ["boolean", "string"],
+  ActionQueryDebounceInMs: ["number", "string"],
+  ActionQueryMockedOutputs: ["string", "ActionQueryMockedOutputsObject"],
+  ActionQueryMockedOutputsEnabled: ["boolean", "string"],
+  ActionQueryOnlyTriggerManually: ["boolean", "string"],
+  ActionQueryPollingIntervalInMs: ["number", "string"],
+  ActionQueryRequiresConfirmation: ["boolean", "string"],
+  ActionQueryShowToastOnError: ["boolean", "string"],
+  ActionQuerySpec: ["string", "ActionQuerySpecObject"],
+  ActionQuerySpecInputs: ["string", "{ [key: string]: any; }"],
   ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
   AuthNMappingCreateRelationships: [
     "AuthNMappingRelationshipToRole",
@@ -4389,6 +4417,7 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorConfigPolicyPolicyCreateRequest: [
     "MonitorConfigPolicyTagPolicyCreateRequest",
   ],
+  Query: ["ActionQuery", "DataTransform", "StateVariable"],
   RUMAggregateBucketValue: [
     "string",
     "number",
