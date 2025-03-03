@@ -116,8 +116,14 @@ import { AwsCURConfigPostRequestAttributes } from "./AwsCURConfigPostRequestAttr
 import { AwsCURConfigResponse } from "./AwsCURConfigResponse";
 import { AwsCURConfigsResponse } from "./AwsCURConfigsResponse";
 import { AwsScanOptionsAttributes } from "./AwsScanOptionsAttributes";
+import { AwsScanOptionsCreateData } from "./AwsScanOptionsCreateData";
+import { AwsScanOptionsCreateRequest } from "./AwsScanOptionsCreateRequest";
 import { AwsScanOptionsData } from "./AwsScanOptionsData";
+import { AwsScanOptionsListResponse } from "./AwsScanOptionsListResponse";
 import { AwsScanOptionsResponse } from "./AwsScanOptionsResponse";
+import { AwsScanOptionsUpdateAttributes } from "./AwsScanOptionsUpdateAttributes";
+import { AwsScanOptionsUpdateData } from "./AwsScanOptionsUpdateData";
+import { AwsScanOptionsUpdateRequest } from "./AwsScanOptionsUpdateRequest";
 import { AzureUCConfig } from "./AzureUCConfig";
 import { AzureUCConfigPair } from "./AzureUCConfigPair";
 import { AzureUCConfigPairAttributes } from "./AzureUCConfigPairAttributes";
@@ -2592,8 +2598,14 @@ const typeMap: { [index: string]: any } = {
   AwsCURConfigResponse: AwsCURConfigResponse,
   AwsCURConfigsResponse: AwsCURConfigsResponse,
   AwsScanOptionsAttributes: AwsScanOptionsAttributes,
+  AwsScanOptionsCreateData: AwsScanOptionsCreateData,
+  AwsScanOptionsCreateRequest: AwsScanOptionsCreateRequest,
   AwsScanOptionsData: AwsScanOptionsData,
+  AwsScanOptionsListResponse: AwsScanOptionsListResponse,
   AwsScanOptionsResponse: AwsScanOptionsResponse,
+  AwsScanOptionsUpdateAttributes: AwsScanOptionsUpdateAttributes,
+  AwsScanOptionsUpdateData: AwsScanOptionsUpdateData,
+  AwsScanOptionsUpdateRequest: AwsScanOptionsUpdateRequest,
   AzureUCConfig: AzureUCConfig,
   AzureUCConfigPair: AzureUCConfigPair,
   AzureUCConfigPairAttributes: AzureUCConfigPairAttributes,
