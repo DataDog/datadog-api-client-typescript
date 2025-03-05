@@ -47,6 +47,10 @@ export class MonitorSearchResult {
    */
   "orgId"?: number;
   /**
+   * Quality issues detected with the monitor.
+   */
+  "qualityIssues"?: Array<string>;
+  /**
    * The monitor query.
    */
   "query"?: string;
@@ -120,6 +124,10 @@ export class MonitorSearchResult {
       baseName: "org_id",
       type: "number",
       format: "int64",
+    },
+    qualityIssues: {
+      baseName: "quality_issues",
+      type: "Array<string>",
     },
     query: {
       baseName: "query",
