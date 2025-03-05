@@ -120,7 +120,15 @@ import { AwsCURConfigPostRequest } from "./AwsCURConfigPostRequest";
 import { AwsCURConfigPostRequestAttributes } from "./AwsCURConfigPostRequestAttributes";
 import { AwsCURConfigResponse } from "./AwsCURConfigResponse";
 import { AwsCURConfigsResponse } from "./AwsCURConfigsResponse";
+import { AwsOnDemandAttributes } from "./AwsOnDemandAttributes";
+import { AwsOnDemandCreateAttributes } from "./AwsOnDemandCreateAttributes";
+import { AwsOnDemandCreateData } from "./AwsOnDemandCreateData";
+import { AwsOnDemandCreateRequest } from "./AwsOnDemandCreateRequest";
+import { AwsOnDemandData } from "./AwsOnDemandData";
+import { AwsOnDemandListResponse } from "./AwsOnDemandListResponse";
+import { AwsOnDemandResponse } from "./AwsOnDemandResponse";
 import { AwsScanOptionsAttributes } from "./AwsScanOptionsAttributes";
+import { AwsScanOptionsCreateAttributes } from "./AwsScanOptionsCreateAttributes";
 import { AwsScanOptionsCreateData } from "./AwsScanOptionsCreateData";
 import { AwsScanOptionsCreateRequest } from "./AwsScanOptionsCreateRequest";
 import { AwsScanOptionsData } from "./AwsScanOptionsData";
@@ -1698,6 +1706,7 @@ const enumsMap: { [key: string]: any[] } = {
   AwsCURConfigPatchRequestType: ["aws_cur_config_patch_request"],
   AwsCURConfigPostRequestType: ["aws_cur_config_post_request"],
   AwsCURConfigType: ["aws_cur_config"],
+  AwsOnDemandType: ["aws_resource"],
   AwsScanOptionsType: ["aws_scan_options"],
   AzureUCConfigPairType: ["azure_uc_configs"],
   AzureUCConfigPatchRequestType: ["azure_uc_config_patch_request"],
@@ -2612,7 +2621,15 @@ const typeMap: { [index: string]: any } = {
   AwsCURConfigPostRequestAttributes: AwsCURConfigPostRequestAttributes,
   AwsCURConfigResponse: AwsCURConfigResponse,
   AwsCURConfigsResponse: AwsCURConfigsResponse,
+  AwsOnDemandAttributes: AwsOnDemandAttributes,
+  AwsOnDemandCreateAttributes: AwsOnDemandCreateAttributes,
+  AwsOnDemandCreateData: AwsOnDemandCreateData,
+  AwsOnDemandCreateRequest: AwsOnDemandCreateRequest,
+  AwsOnDemandData: AwsOnDemandData,
+  AwsOnDemandListResponse: AwsOnDemandListResponse,
+  AwsOnDemandResponse: AwsOnDemandResponse,
   AwsScanOptionsAttributes: AwsScanOptionsAttributes,
+  AwsScanOptionsCreateAttributes: AwsScanOptionsCreateAttributes,
   AwsScanOptionsCreateData: AwsScanOptionsCreateData,
   AwsScanOptionsCreateRequest: AwsScanOptionsCreateRequest,
   AwsScanOptionsData: AwsScanOptionsData,

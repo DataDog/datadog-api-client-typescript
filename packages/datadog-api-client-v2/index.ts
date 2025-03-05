@@ -36,8 +36,10 @@ export {
 } from "./apis/ActionConnectionApi";
 
 export {
+  AgentlessScanningApiCreateAwsOnDemandTaskRequest,
   AgentlessScanningApiCreateAwsScanOptionsRequest,
   AgentlessScanningApiDeleteAwsScanOptionsRequest,
+  AgentlessScanningApiRetrieveAwsOnDemandTaskRequest,
   AgentlessScanningApiUpdateAwsScanOptionsRequest,
   AgentlessScanningApi,
 } from "./apis/AgentlessScanningApi";
@@ -814,11 +816,20 @@ export { AWSNewExternalIDResponse } from "./models/AWSNewExternalIDResponse";
 export { AWSNewExternalIDResponseAttributes } from "./models/AWSNewExternalIDResponseAttributes";
 export { AWSNewExternalIDResponseData } from "./models/AWSNewExternalIDResponseData";
 export { AWSNewExternalIDResponseDataType } from "./models/AWSNewExternalIDResponseDataType";
+export { AwsOnDemandAttributes } from "./models/AwsOnDemandAttributes";
+export { AwsOnDemandCreateAttributes } from "./models/AwsOnDemandCreateAttributes";
+export { AwsOnDemandCreateData } from "./models/AwsOnDemandCreateData";
+export { AwsOnDemandCreateRequest } from "./models/AwsOnDemandCreateRequest";
+export { AwsOnDemandData } from "./models/AwsOnDemandData";
+export { AwsOnDemandListResponse } from "./models/AwsOnDemandListResponse";
+export { AwsOnDemandResponse } from "./models/AwsOnDemandResponse";
+export { AwsOnDemandType } from "./models/AwsOnDemandType";
 export { AWSRegions } from "./models/AWSRegions";
 export { AWSRegionsIncludeAll } from "./models/AWSRegionsIncludeAll";
 export { AWSRegionsIncludeOnly } from "./models/AWSRegionsIncludeOnly";
 export { AWSResourcesConfig } from "./models/AWSResourcesConfig";
 export { AwsScanOptionsAttributes } from "./models/AwsScanOptionsAttributes";
+export { AwsScanOptionsCreateAttributes } from "./models/AwsScanOptionsCreateAttributes";
 export { AwsScanOptionsCreateData } from "./models/AwsScanOptionsCreateData";
 export { AwsScanOptionsCreateRequest } from "./models/AwsScanOptionsCreateRequest";
 export { AwsScanOptionsData } from "./models/AwsScanOptionsData";
