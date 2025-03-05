@@ -112,6 +112,7 @@ export {
 
 export {
   LogsIndexesApiCreateLogsIndexRequest,
+  LogsIndexesApiDeleteLogsIndexRequest,
   LogsIndexesApiGetLogsIndexRequest,
   LogsIndexesApiUpdateLogsIndexRequest,
   LogsIndexesApiUpdateLogsIndexOrderRequest,
