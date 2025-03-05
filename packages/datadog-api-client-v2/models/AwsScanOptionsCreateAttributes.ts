@@ -3,27 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AwsScanOptionsType } from "./AwsScanOptionsType";
-import { AwsScanOptionsUpdateAttributes } from "./AwsScanOptionsUpdateAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object for the scan options of a single AWS account.
+ * Attributes for the AWS scan options to create.
  */
-export class AwsScanOptionsUpdateData {
+export class AwsScanOptionsCreateAttributes {
   /**
-   * Attributes for the AWS scan options to update.
+   * Indicates if scanning of Lambda functions is enabled.
    */
-  "attributes": AwsScanOptionsUpdateAttributes;
+  "lambda"?: boolean;
   /**
-   * The ID of the AWS account.
+   * Indicates if scanning for sensitive data is enabled.
    */
-  "id": string;
+  "sensitiveData"?: boolean;
   /**
-   * The type of the resource. The value should always be `aws_scan_options`.
+   * Indicates if scanning for vulnerabilities in containers is enabled.
    */
-  "type": AwsScanOptionsType;
+  "vulnContainersOs"?: boolean;
+  /**
+   * Indicates if scanning for vulnerabilities in hosts is enabled.
+   */
+  "vulnHostOs"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,20 +43,21 @@ export class AwsScanOptionsUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AwsScanOptionsUpdateAttributes",
-      required: true,
+    lambda: {
+      baseName: "lambda",
+      type: "boolean",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    sensitiveData: {
+      baseName: "sensitive_data",
+      type: "boolean",
     },
-    type: {
-      baseName: "type",
-      type: "AwsScanOptionsType",
-      required: true,
+    vulnContainersOs: {
+      baseName: "vuln_containers_os",
+      type: "boolean",
+    },
+    vulnHostOs: {
+      baseName: "vuln_host_os",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,7 +69,7 @@ export class AwsScanOptionsUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AwsScanOptionsUpdateData.attributeTypeMap;
+    return AwsScanOptionsCreateAttributes.attributeTypeMap;
   }
 
   public constructor() {}

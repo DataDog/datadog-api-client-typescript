@@ -2366,6 +2366,23 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "void",
     },
+    "v2.ListAwsOnDemandTasks": {
+        "operationResponseType": "AwsOnDemandListResponse",
+    },
+    "v2.CreateAwsOnDemandTask": {
+        "body": {
+            "type": "AwsOnDemandCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AwsOnDemandResponse",
+    },
+    "v2.RetrieveAwsOnDemandTask": {
+        "taskId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AwsOnDemandResponse",
+    },
     "v2.ListAPIKeys": {
         "pageSize": {
             "type": "number",

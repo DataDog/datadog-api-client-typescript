@@ -3,27 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AwsScanOptionsType } from "./AwsScanOptionsType";
-import { AwsScanOptionsUpdateAttributes } from "./AwsScanOptionsUpdateAttributes";
+import { AwsOnDemandCreateData } from "./AwsOnDemandCreateData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object for the scan options of a single AWS account.
+ * Request object that includes the on demand task to submit.
  */
-export class AwsScanOptionsUpdateData {
+export class AwsOnDemandCreateRequest {
   /**
-   * Attributes for the AWS scan options to update.
+   * Object for a single AWS on demand task.
    */
-  "attributes": AwsScanOptionsUpdateAttributes;
-  /**
-   * The ID of the AWS account.
-   */
-  "id": string;
-  /**
-   * The type of the resource. The value should always be `aws_scan_options`.
-   */
-  "type": AwsScanOptionsType;
+  "data": AwsOnDemandCreateData;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,19 +32,9 @@ export class AwsScanOptionsUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AwsScanOptionsUpdateAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "AwsScanOptionsType",
+    data: {
+      baseName: "data",
+      type: "AwsOnDemandCreateData",
       required: true,
     },
     additionalProperties: {
@@ -66,7 +47,7 @@ export class AwsScanOptionsUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AwsScanOptionsUpdateData.attributeTypeMap;
+    return AwsOnDemandCreateRequest.attributeTypeMap;
   }
 
   public constructor() {}

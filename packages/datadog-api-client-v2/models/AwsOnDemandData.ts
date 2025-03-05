@@ -3,27 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AwsScanOptionsType } from "./AwsScanOptionsType";
-import { AwsScanOptionsUpdateAttributes } from "./AwsScanOptionsUpdateAttributes";
+import { AwsOnDemandAttributes } from "./AwsOnDemandAttributes";
+import { AwsOnDemandType } from "./AwsOnDemandType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object for the scan options of a single AWS account.
+ * Single AWS on demand task.
  */
-export class AwsScanOptionsUpdateData {
+export class AwsOnDemandData {
   /**
-   * Attributes for the AWS scan options to update.
+   * Attributes for the AWS on demand task.
    */
-  "attributes": AwsScanOptionsUpdateAttributes;
+  "attributes"?: AwsOnDemandAttributes;
   /**
-   * The ID of the AWS account.
+   * The UUID of the task.
    */
-  "id": string;
+  "id"?: string;
   /**
-   * The type of the resource. The value should always be `aws_scan_options`.
+   * The type of the on demand task. The value should always be `aws_resource`.
    */
-  "type": AwsScanOptionsType;
+  "type"?: AwsOnDemandType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,18 +43,15 @@ export class AwsScanOptionsUpdateData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "AwsScanOptionsUpdateAttributes",
-      required: true,
+      type: "AwsOnDemandAttributes",
     },
     id: {
       baseName: "id",
       type: "string",
-      required: true,
     },
     type: {
       baseName: "type",
-      type: "AwsScanOptionsType",
-      required: true,
+      type: "AwsOnDemandType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,7 +63,7 @@ export class AwsScanOptionsUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AwsScanOptionsUpdateData.attributeTypeMap;
+    return AwsOnDemandData.attributeTypeMap;
   }
 
   public constructor() {}

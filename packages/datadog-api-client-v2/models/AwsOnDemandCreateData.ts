@@ -3,27 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AwsScanOptionsType } from "./AwsScanOptionsType";
-import { AwsScanOptionsUpdateAttributes } from "./AwsScanOptionsUpdateAttributes";
+import { AwsOnDemandCreateAttributes } from "./AwsOnDemandCreateAttributes";
+import { AwsOnDemandType } from "./AwsOnDemandType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object for the scan options of a single AWS account.
+ * Object for a single AWS on demand task.
  */
-export class AwsScanOptionsUpdateData {
+export class AwsOnDemandCreateData {
   /**
-   * Attributes for the AWS scan options to update.
+   * Attributes for the AWS on demand task.
    */
-  "attributes": AwsScanOptionsUpdateAttributes;
+  "attributes": AwsOnDemandCreateAttributes;
   /**
-   * The ID of the AWS account.
+   * The type of the on demand task. The value should always be `aws_resource`.
    */
-  "id": string;
-  /**
-   * The type of the resource. The value should always be `aws_scan_options`.
-   */
-  "type": AwsScanOptionsType;
+  "type": AwsOnDemandType;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,17 +39,12 @@ export class AwsScanOptionsUpdateData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "AwsScanOptionsUpdateAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
+      type: "AwsOnDemandCreateAttributes",
       required: true,
     },
     type: {
       baseName: "type",
-      type: "AwsScanOptionsType",
+      type: "AwsOnDemandType",
       required: true,
     },
     additionalProperties: {
@@ -66,7 +57,7 @@ export class AwsScanOptionsUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AwsScanOptionsUpdateData.attributeTypeMap;
+    return AwsOnDemandCreateData.attributeTypeMap;
   }
 
   public constructor() {}

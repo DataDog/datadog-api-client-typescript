@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AwsScanOptionsAttributes } from "./AwsScanOptionsAttributes";
+import { AwsScanOptionsCreateAttributes } from "./AwsScanOptionsCreateAttributes";
 import { AwsScanOptionsType } from "./AwsScanOptionsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -13,11 +13,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AwsScanOptionsCreateData {
   /**
-   * Attributes for the AWS scan options.
+   * Attributes for the AWS scan options to create.
    */
-  "attributes": AwsScanOptionsAttributes;
+  "attributes": AwsScanOptionsCreateAttributes;
   /**
-   * The ID of an AWS account.
+   * The ID of the AWS account.
    */
   "id": string;
   /**
@@ -43,7 +43,7 @@ export class AwsScanOptionsCreateData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "AwsScanOptionsAttributes",
+      type: "AwsScanOptionsCreateAttributes",
       required: true,
     },
     id: {
