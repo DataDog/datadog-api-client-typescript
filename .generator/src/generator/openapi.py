@@ -255,7 +255,7 @@ def get_references_for_model(model, model_name):
     for key, definition in model.get("properties", {}).items():
         if definition.get("type") == "object" or definition.get("enum") or definition.get("oneOf"):
             name = formatter.get_name(definition)
-            if name and not definition.get("additionalProperties"):
+            if name and not (definition.get("additionalProperties", False) != False and not definition.get("properties")):
                 result.append(name)
             elif definition.get("properties") and top_name:
                 result.append(top_name + formatter.camel_case(key))
