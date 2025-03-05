@@ -537,7 +537,6 @@ export class SoftwareCatalogApi {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
-    param.pageOffset = 0;
     while (true) {
       const requestContext = await this.requestFactory.listCatalogEntity(
         param.pageOffset,
@@ -570,7 +569,11 @@ export class SoftwareCatalogApi {
       if (results.length < pageSize) {
         break;
       }
-      param.pageOffset = param.pageOffset + 1;
+      if (param.pageOffset === undefined) {
+        param.pageOffset = pageSize;
+      } else {
+        param.pageOffset = param.pageOffset + pageSize;
+      }
     }
   }
 
