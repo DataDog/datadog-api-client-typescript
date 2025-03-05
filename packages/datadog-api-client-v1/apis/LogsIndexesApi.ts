@@ -65,6 +65,39 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteLogsIndex(
+    name: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'name' is not null or undefined
+    if (name === null || name === undefined) {
+      throw new RequiredError("name", "deleteLogsIndex");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/logs/config/indexes/{name}".replace(
+      "{name}",
+      encodeURIComponent(String(name))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v1.LogsIndexesApi.deleteLogsIndex")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getLogsIndex(
     name: string,
     _options?: Configuration
@@ -300,6 +333,85 @@ export class LogsIndexesApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: LogsIndex = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LogsIndex",
+        ""
+      ) as LogsIndex;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteLogsIndex
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteLogsIndex(response: ResponseContext): Promise<LogsIndex> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: LogsIndex = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "LogsIndex"
+      ) as LogsIndex;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 404) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: LogsAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "LogsAPIErrorResponse"
+        ) as LogsAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<LogsAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<LogsAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -683,6 +795,14 @@ export interface LogsIndexesApiCreateLogsIndexRequest {
   body: LogsIndex;
 }
 
+export interface LogsIndexesApiDeleteLogsIndexRequest {
+  /**
+   * Name of the log index.
+   * @type string
+   */
+  name: string;
+}
+
 export interface LogsIndexesApiGetLogsIndexRequest {
   /**
    * Name of the log index.
@@ -746,6 +866,28 @@ export class LogsIndexesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createLogsIndex(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an existing index from your organization. Index deletions are permanent and cannot be reverted.
+   * You cannot recreate an index with the same name as deleted ones.
+   * @param param The request object
+   */
+  public deleteLogsIndex(
+    param: LogsIndexesApiDeleteLogsIndexRequest,
+    options?: Configuration
+  ): Promise<LogsIndex> {
+    const requestContextPromise = this.requestFactory.deleteLogsIndex(
+      param.name,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteLogsIndex(responseContext);
         });
     });
   }

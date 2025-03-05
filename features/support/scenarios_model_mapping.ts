@@ -1394,6 +1394,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LogsIndex",
     },
+    "v1.DeleteLogsIndex": {
+        "name": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LogsIndex",
+    },
     "v1.GetLogsIndex": {
         "name": {
             "type": "string",
