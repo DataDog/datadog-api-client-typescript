@@ -5887,6 +5887,76 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProcessSummariesResponse",
     },
+    "v2.ListApplicationSecurityWAFCustomRules": {
+        "operationResponseType": "ApplicationSecurityWafCustomRuleListResponse",
+    },
+    "v2.CreateApplicationSecurityWafCustomRule": {
+        "body": {
+            "type": "ApplicationSecurityWafCustomRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityWafCustomRuleResponse",
+    },
+    "v2.DeleteApplicationSecurityWafCustomRule": {
+        "customRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetApplicationSecurityWafCustomRule": {
+        "customRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityWafCustomRuleResponse",
+    },
+    "v2.UpdateApplicationSecurityWafCustomRule": {
+        "customRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ApplicationSecurityWafCustomRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityWafCustomRuleResponse",
+    },
+    "v2.ListApplicationSecurityWafExclusionFilters": {
+        "operationResponseType": "ApplicationSecurityWafExclusionFiltersResponse",
+    },
+    "v2.CreateApplicationSecurityWafExclusionFilter": {
+        "body": {
+            "type": "ApplicationSecurityWafExclusionFilterCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityWafExclusionFilterResponse",
+    },
+    "v2.DeleteApplicationSecurityWafExclusionFilter": {
+        "exclusionFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetApplicationSecurityWafExclusionFilter": {
+        "exclusionFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityWafExclusionFilterResponse",
+    },
+    "v2.UpdateApplicationSecurityWafExclusionFilter": {
+        "exclusionFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ApplicationSecurityWafExclusionFilterUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationSecurityWafExclusionFilterResponse",
+    },
     "v2.ListCSMThreatsAgentRules": {
         "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
     },
