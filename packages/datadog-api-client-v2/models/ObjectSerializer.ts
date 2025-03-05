@@ -1203,6 +1203,20 @@ import { RumMetricUpdateCompute } from "./RumMetricUpdateCompute";
 import { RumMetricUpdateData } from "./RumMetricUpdateData";
 import { RumMetricUpdateRequest } from "./RumMetricUpdateRequest";
 import { RumMetricsResponse } from "./RumMetricsResponse";
+import { RumRetentionFilterAttributes } from "./RumRetentionFilterAttributes";
+import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAttributes";
+import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
+import { RumRetentionFilterCreateRequest } from "./RumRetentionFilterCreateRequest";
+import { RumRetentionFilterData } from "./RumRetentionFilterData";
+import { RumRetentionFilterMeta } from "./RumRetentionFilterMeta";
+import { RumRetentionFilterResponse } from "./RumRetentionFilterResponse";
+import { RumRetentionFilterUpdateAttributes } from "./RumRetentionFilterUpdateAttributes";
+import { RumRetentionFilterUpdateData } from "./RumRetentionFilterUpdateData";
+import { RumRetentionFilterUpdateRequest } from "./RumRetentionFilterUpdateRequest";
+import { RumRetentionFiltersOrderData } from "./RumRetentionFiltersOrderData";
+import { RumRetentionFiltersOrderRequest } from "./RumRetentionFiltersOrderRequest";
+import { RumRetentionFiltersOrderResponse } from "./RumRetentionFiltersOrderResponse";
+import { RumRetentionFiltersResponse } from "./RumRetentionFiltersResponse";
 import { RunHistoricalJobRequest } from "./RunHistoricalJobRequest";
 import { RunHistoricalJobRequestAttributes } from "./RunHistoricalJobRequestAttributes";
 import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
@@ -2160,6 +2174,17 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RumMetricType: ["rum_metrics"],
   RumMetricUniquenessWhen: ["match", "end"],
+  RumRetentionFilterEventType: [
+    "session",
+    "view",
+    "action",
+    "error",
+    "resource",
+    "long_task",
+    "vital",
+  ],
+  RumRetentionFilterSource: ["ui", "terraform", "default", "unknown"],
+  RumRetentionFilterType: ["retention_filters"],
   RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   SBOMComponentType: [
@@ -3813,6 +3838,20 @@ const typeMap: { [index: string]: any } = {
   RumMetricUpdateData: RumMetricUpdateData,
   RumMetricUpdateRequest: RumMetricUpdateRequest,
   RumMetricsResponse: RumMetricsResponse,
+  RumRetentionFilterAttributes: RumRetentionFilterAttributes,
+  RumRetentionFilterCreateAttributes: RumRetentionFilterCreateAttributes,
+  RumRetentionFilterCreateData: RumRetentionFilterCreateData,
+  RumRetentionFilterCreateRequest: RumRetentionFilterCreateRequest,
+  RumRetentionFilterData: RumRetentionFilterData,
+  RumRetentionFilterMeta: RumRetentionFilterMeta,
+  RumRetentionFilterResponse: RumRetentionFilterResponse,
+  RumRetentionFilterUpdateAttributes: RumRetentionFilterUpdateAttributes,
+  RumRetentionFilterUpdateData: RumRetentionFilterUpdateData,
+  RumRetentionFilterUpdateRequest: RumRetentionFilterUpdateRequest,
+  RumRetentionFiltersOrderData: RumRetentionFiltersOrderData,
+  RumRetentionFiltersOrderRequest: RumRetentionFiltersOrderRequest,
+  RumRetentionFiltersOrderResponse: RumRetentionFiltersOrderResponse,
+  RumRetentionFiltersResponse: RumRetentionFiltersResponse,
   RunHistoricalJobRequest: RunHistoricalJobRequest,
   RunHistoricalJobRequestAttributes: RunHistoricalJobRequestAttributes,
   RunHistoricalJobRequestData: RunHistoricalJobRequestData,
