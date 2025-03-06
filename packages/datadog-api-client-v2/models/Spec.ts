@@ -46,13 +46,6 @@ export class Spec {
   "triggers"?: Array<Trigger>;
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
-
-  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -88,10 +81,6 @@ export class Spec {
     triggers: {
       baseName: "triggers",
       type: "Array<Trigger>",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
     },
   };
 
