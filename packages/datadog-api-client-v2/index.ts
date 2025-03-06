@@ -477,6 +477,16 @@ export {
 } from "./apis/RumMetricsApi";
 
 export {
+  RumRetentionFiltersApiCreateRetentionFilterRequest,
+  RumRetentionFiltersApiDeleteRetentionFilterRequest,
+  RumRetentionFiltersApiGetRetentionFilterRequest,
+  RumRetentionFiltersApiListRetentionFiltersRequest,
+  RumRetentionFiltersApiOrderRetentionFiltersRequest,
+  RumRetentionFiltersApiUpdateRetentionFilterRequest,
+  RumRetentionFiltersApi,
+} from "./apis/RumRetentionFiltersApi";
+
+export {
   SecurityMonitoringApiCancelHistoricalJobRequest,
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
@@ -2240,6 +2250,23 @@ export { RUMResponseLinks } from "./models/RUMResponseLinks";
 export { RUMResponseMetadata } from "./models/RUMResponseMetadata";
 export { RUMResponsePage } from "./models/RUMResponsePage";
 export { RUMResponseStatus } from "./models/RUMResponseStatus";
+export { RumRetentionFilterAttributes } from "./models/RumRetentionFilterAttributes";
+export { RumRetentionFilterCreateAttributes } from "./models/RumRetentionFilterCreateAttributes";
+export { RumRetentionFilterCreateData } from "./models/RumRetentionFilterCreateData";
+export { RumRetentionFilterCreateRequest } from "./models/RumRetentionFilterCreateRequest";
+export { RumRetentionFilterData } from "./models/RumRetentionFilterData";
+export { RumRetentionFilterEventType } from "./models/RumRetentionFilterEventType";
+export { RumRetentionFilterMeta } from "./models/RumRetentionFilterMeta";
+export { RumRetentionFilterResponse } from "./models/RumRetentionFilterResponse";
+export { RumRetentionFiltersOrderData } from "./models/RumRetentionFiltersOrderData";
+export { RumRetentionFiltersOrderRequest } from "./models/RumRetentionFiltersOrderRequest";
+export { RumRetentionFiltersOrderResponse } from "./models/RumRetentionFiltersOrderResponse";
+export { RumRetentionFilterSource } from "./models/RumRetentionFilterSource";
+export { RumRetentionFiltersResponse } from "./models/RumRetentionFiltersResponse";
+export { RumRetentionFilterType } from "./models/RumRetentionFilterType";
+export { RumRetentionFilterUpdateAttributes } from "./models/RumRetentionFilterUpdateAttributes";
+export { RumRetentionFilterUpdateData } from "./models/RumRetentionFilterUpdateData";
+export { RumRetentionFilterUpdateRequest } from "./models/RumRetentionFilterUpdateRequest";
 export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 export { RUMSort } from "./models/RUMSort";
 export { RUMSortOrder } from "./models/RUMSortOrder";

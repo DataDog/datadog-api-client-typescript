@@ -6145,6 +6145,72 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RUMEventsResponse",
     },
+    "v2.OrderRetentionFilters": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RumRetentionFiltersOrderRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumRetentionFiltersOrderResponse",
+    },
+    "v2.ListRetentionFilters": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RumRetentionFiltersResponse",
+    },
+    "v2.CreateRetentionFilter": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RumRetentionFilterCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumRetentionFilterResponse",
+    },
+    "v2.DeleteRetentionFilter": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "rfId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetRetentionFilter": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "rfId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RumRetentionFilterResponse",
+    },
+    "v2.UpdateRetentionFilter": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "rfId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RumRetentionFilterUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RumRetentionFilterResponse",
+    },
     "v2.ListRumMetrics": {
         "operationResponseType": "RumMetricsResponse",
     },
