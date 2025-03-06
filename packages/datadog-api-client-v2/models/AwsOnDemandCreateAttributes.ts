@@ -13,7 +13,7 @@ export class AwsOnDemandCreateAttributes {
   /**
    * The arn of the resource to scan. Agentless supports the scan of EC2 instances, lambda functions, AMI, ECR, RDS and S3 buckets.
    */
-  "arn"?: string;
+  "arn": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,6 +34,7 @@ export class AwsOnDemandCreateAttributes {
     arn: {
       baseName: "arn",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -13,19 +13,19 @@ export class AwsScanOptionsCreateAttributes {
   /**
    * Indicates if scanning of Lambda functions is enabled.
    */
-  "lambda"?: boolean;
+  "lambda": boolean;
   /**
    * Indicates if scanning for sensitive data is enabled.
    */
-  "sensitiveData"?: boolean;
+  "sensitiveData": boolean;
   /**
    * Indicates if scanning for vulnerabilities in containers is enabled.
    */
-  "vulnContainersOs"?: boolean;
+  "vulnContainersOs": boolean;
   /**
    * Indicates if scanning for vulnerabilities in hosts is enabled.
    */
-  "vulnHostOs"?: boolean;
+  "vulnHostOs": boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,18 +46,22 @@ export class AwsScanOptionsCreateAttributes {
     lambda: {
       baseName: "lambda",
       type: "boolean",
+      required: true,
     },
     sensitiveData: {
       baseName: "sensitive_data",
       type: "boolean",
+      required: true,
     },
     vulnContainersOs: {
       baseName: "vuln_containers_os",
       type: "boolean",
+      required: true,
     },
     vulnHostOs: {
       baseName: "vuln_host_os",
       type: "boolean",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -142,6 +142,40 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getAwsOnDemandTask(
+    taskId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'taskId' is not null or undefined
+    if (taskId === null || taskId === undefined) {
+      throw new RequiredError("taskId", "getAwsOnDemandTask");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/agentless_scanning/ondemand/aws/{task_id}".replace(
+        "{task_id}",
+        encodeURIComponent(String(taskId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.AgentlessScanningApi.getAwsOnDemandTask")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listAwsOnDemandTasks(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -177,40 +211,6 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.AgentlessScanningApi.listAwsScanOptions")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async retrieveAwsOnDemandTask(
-    taskId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'taskId' is not null or undefined
-    if (taskId === null || taskId === undefined) {
-      throw new RequiredError("taskId", "retrieveAwsOnDemandTask");
-    }
-
-    // Path Params
-    const localVarPath =
-      "/api/v2/agentless_scanning/ondemand/aws/{task_id}".replace(
-        "{task_id}",
-        encodeURIComponent(String(taskId))
-      );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AgentlessScanningApi.retrieveAwsOnDemandTask")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -463,6 +463,69 @@ export class AgentlessScanningApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getAwsOnDemandTask
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAwsOnDemandTask(
+    response: ResponseContext
+  ): Promise<AwsOnDemandResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AwsOnDemandResponse"
+      ) as AwsOnDemandResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "AwsOnDemandResponse",
+        ""
+      ) as AwsOnDemandResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAwsOnDemandTasks
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -579,69 +642,6 @@ export class AgentlessScanningApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to retrieveAwsOnDemandTask
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async retrieveAwsOnDemandTask(
-    response: ResponseContext
-  ): Promise<AwsOnDemandResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsOnDemandResponse"
-      ) as AwsOnDemandResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AwsOnDemandResponse",
-        ""
-      ) as AwsOnDemandResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to updateAwsScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -720,7 +720,7 @@ export interface AgentlessScanningApiDeleteAwsScanOptionsRequest {
   accountId: string;
 }
 
-export interface AgentlessScanningApiRetrieveAwsOnDemandTaskRequest {
+export interface AgentlessScanningApiGetAwsOnDemandTaskRequest {
   /**
    * The UUID of the task.
    * @type string
@@ -759,7 +759,7 @@ export class AgentlessScanningApi {
   }
 
   /**
-   * Trigger the scan of an AWS resource with a high priority.
+   * Trigger the scan of an AWS resource with a high priority. Agentless scanning must be activated for the AWS account containing the resource to scan.
    * @param param The request object
    */
   public createAwsOnDemandTask(
@@ -822,6 +822,27 @@ export class AgentlessScanningApi {
   }
 
   /**
+   * Fetch the data of a specific on demand task.
+   * @param param The request object
+   */
+  public getAwsOnDemandTask(
+    param: AgentlessScanningApiGetAwsOnDemandTaskRequest,
+    options?: Configuration
+  ): Promise<AwsOnDemandResponse> {
+    const requestContextPromise = this.requestFactory.getAwsOnDemandTask(
+      param.taskId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAwsOnDemandTask(responseContext);
+        });
+    });
+  }
+
+  /**
    * Fetches the most recent 1000 AWS on demand tasks.
    * @param param The request object
    */
@@ -853,29 +874,6 @@ export class AgentlessScanningApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAwsScanOptions(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Fetch the data of a specific on demand task.
-   * @param param The request object
-   */
-  public retrieveAwsOnDemandTask(
-    param: AgentlessScanningApiRetrieveAwsOnDemandTaskRequest,
-    options?: Configuration
-  ): Promise<AwsOnDemandResponse> {
-    const requestContextPromise = this.requestFactory.retrieveAwsOnDemandTask(
-      param.taskId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.retrieveAwsOnDemandTask(
-            responseContext
-          );
         });
     });
   }
