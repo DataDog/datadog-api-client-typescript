@@ -39,7 +39,7 @@ export {
   AgentlessScanningApiCreateAwsOnDemandTaskRequest,
   AgentlessScanningApiCreateAwsScanOptionsRequest,
   AgentlessScanningApiDeleteAwsScanOptionsRequest,
-  AgentlessScanningApiRetrieveAwsOnDemandTaskRequest,
+  AgentlessScanningApiGetAwsOnDemandTaskRequest,
   AgentlessScanningApiUpdateAwsScanOptionsRequest,
   AgentlessScanningApi,
 } from "./apis/AgentlessScanningApi";

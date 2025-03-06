@@ -2376,7 +2376,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AwsOnDemandResponse",
     },
-    "v2.RetrieveAwsOnDemandTask": {
+    "v2.GetAwsOnDemandTask": {
         "taskId": {
             "type": "string",
             "format": "",
