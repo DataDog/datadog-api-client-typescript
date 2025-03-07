@@ -16,6 +16,10 @@ export class SecurityMonitoringStandardRuleQuery {
    */
   "aggregation"?: SecurityMonitoringRuleQueryAggregation;
   /**
+   * Track of logs events.
+   */
+  "dataSource"?: string;
+  /**
    * Field for which the cardinality is measured. Sent as an array.
    */
   "distinctFields"?: Array<string>;
@@ -64,6 +68,10 @@ export class SecurityMonitoringStandardRuleQuery {
     aggregation: {
       baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
+    },
+    dataSource: {
+      baseName: "dataSource",
+      type: "string",
     },
     distinctFields: {
       baseName: "distinctFields",
