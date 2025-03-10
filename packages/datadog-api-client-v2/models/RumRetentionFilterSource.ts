@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of RUM events to filter on.
+ * The origin source of the retention filter, which may be created or updated through the Datadog UI, terraform, or other channels such as direct API calls.
  */
 
 export type RumRetentionFilterSource =
