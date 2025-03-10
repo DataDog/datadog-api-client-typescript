@@ -1777,6 +1777,7 @@ export { LogsArchiveOrderDefinition } from "./models/LogsArchiveOrderDefinition"
 export { LogsArchiveOrderDefinitionType } from "./models/LogsArchiveOrderDefinitionType";
 export { LogsArchives } from "./models/LogsArchives";
 export { LogsArchiveState } from "./models/LogsArchiveState";
+export { LogsArchiveStorageClassS3Type } from "./models/LogsArchiveStorageClassS3Type";
 export { LogsCompute } from "./models/LogsCompute";
 export { LogsComputeType } from "./models/LogsComputeType";
 export { LogsGroupBy } from "./models/LogsGroupBy";
