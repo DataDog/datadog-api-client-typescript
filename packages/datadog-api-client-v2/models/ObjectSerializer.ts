@@ -464,6 +464,8 @@ import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
 import { DataScalarColumn } from "./DataScalarColumn";
 import { DataTransform } from "./DataTransform";
 import { DataTransformProperties } from "./DataTransformProperties";
+import { DatadogAgentSource } from "./DatadogAgentSource";
+import { DatadogLogsDestination } from "./DatadogLogsDestination";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
 import { DeleteAppsRequest } from "./DeleteAppsRequest";
@@ -611,6 +613,7 @@ import { FastlyServiceData } from "./FastlyServiceData";
 import { FastlyServiceRequest } from "./FastlyServiceRequest";
 import { FastlyServiceResponse } from "./FastlyServiceResponse";
 import { FastlyServicesResponse } from "./FastlyServicesResponse";
+import { FilterProcessor } from "./FilterProcessor";
 import { Finding } from "./Finding";
 import { FindingAttributes } from "./FindingAttributes";
 import { FindingMute } from "./FindingMute";
@@ -1056,6 +1059,7 @@ import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
 import { Pagination } from "./Pagination";
 import { Parameter } from "./Parameter";
+import { ParseJSONProcessor } from "./ParseJSONProcessor";
 import { PartialAPIKey } from "./PartialAPIKey";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
@@ -1067,6 +1071,10 @@ import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificati
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
+import { Pipeline } from "./Pipeline";
+import { PipelineData } from "./PipelineData";
+import { PipelineDataAttributes } from "./PipelineDataAttributes";
+import { PipelineDataAttributesConfig } from "./PipelineDataAttributesConfig";
 import { Powerpack } from "./Powerpack";
 import { PowerpackAttributes } from "./PowerpackAttributes";
 import { PowerpackData } from "./PowerpackData";
@@ -1544,6 +1552,7 @@ import { TimeseriesFormulaRequestAttributes } from "./TimeseriesFormulaRequestAt
 import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
+import { Tls } from "./Tls";
 import { TriggerRateLimit } from "./TriggerRateLimit";
 import { Unit } from "./Unit";
 import { UnpublishAppResponse } from "./UnpublishAppResponse";
@@ -1953,6 +1962,8 @@ const enumsMap: { [key: string]: any[] } = {
     "host_timeboard",
   ],
   DataTransformType: ["dataTransform"],
+  DatadogAgentSourceType: ["datadog_agent"],
+  DatadogLogsDestinationType: ["datadog_logs"],
   DetailedFindingType: ["detailed_finding"],
   DomainAllowlistType: ["domain_allowlist"],
   DowntimeIncludedMonitorType: ["monitors"],
@@ -1998,6 +2009,7 @@ const enumsMap: { [key: string]: any[] } = {
   EventsSortType: ["alphabetical", "measure"],
   FastlyAccountType: ["fastly-accounts"],
   FastlyServiceType: ["fastly-services"],
+  FilterProcessorType: ["filter"],
   FindingEvaluation: ["pass", "fail"],
   FindingMuteReason: [
     "PENDING_FIX",
@@ -2175,6 +2187,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  ParseJSONProcessorType: ["parse_json"],
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
   ProjectResourceType: ["project"],
@@ -3152,6 +3165,8 @@ const typeMap: { [index: string]: any } = {
   DataScalarColumn: DataScalarColumn,
   DataTransform: DataTransform,
   DataTransformProperties: DataTransformProperties,
+  DatadogAgentSource: DatadogAgentSource,
+  DatadogLogsDestination: DatadogLogsDestination,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
   DeleteAppsRequest: DeleteAppsRequest,
@@ -3313,6 +3328,7 @@ const typeMap: { [index: string]: any } = {
   FastlyServiceRequest: FastlyServiceRequest,
   FastlyServiceResponse: FastlyServiceResponse,
   FastlyServicesResponse: FastlyServicesResponse,
+  FilterProcessor: FilterProcessor,
   Finding: Finding,
   FindingAttributes: FindingAttributes,
   FindingMute: FindingMute,
@@ -3804,6 +3820,7 @@ const typeMap: { [index: string]: any } = {
   OutputSchemaParameters: OutputSchemaParameters,
   Pagination: Pagination,
   Parameter: Parameter,
+  ParseJSONProcessor: ParseJSONProcessor,
   PartialAPIKey: PartialAPIKey,
   PartialAPIKeyAttributes: PartialAPIKeyAttributes,
   PartialApplicationKey: PartialApplicationKey,
@@ -3816,6 +3833,10 @@ const typeMap: { [index: string]: any } = {
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
+  Pipeline: Pipeline,
+  PipelineData: PipelineData,
+  PipelineDataAttributes: PipelineDataAttributes,
+  PipelineDataAttributesConfig: PipelineDataAttributesConfig,
   Powerpack: Powerpack,
   PowerpackAttributes: PowerpackAttributes,
   PowerpackData: PowerpackData,
@@ -4353,6 +4374,7 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponse: TimeseriesResponse,
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
+  Tls: Tls,
   TriggerRateLimit: TriggerRateLimit,
   Unit: Unit,
   UnpublishAppResponse: UnpublishAppResponse,
@@ -4617,6 +4639,12 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorConfigPolicyPolicyCreateRequest: [
     "MonitorConfigPolicyTagPolicyCreateRequest",
   ],
+  PipelineDataAttributesConfigDestinationsItem: ["DatadogLogsDestination"],
+  PipelineDataAttributesConfigProcessorsItem: [
+    "FilterProcessor",
+    "ParseJSONProcessor",
+  ],
+  PipelineDataAttributesConfigSourcesItem: ["DatadogAgentSource"],
   Query: ["ActionQuery", "DataTransform", "StateVariable"],
   RUMAggregateBucketValue: [
     "string",
