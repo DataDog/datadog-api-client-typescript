@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { RumRetentionFilterAttributes } from "./RumRetentionFilterAttributes";
-import { RumRetentionFilterMeta } from "./RumRetentionFilterMeta";
 import { RumRetentionFilterType } from "./RumRetentionFilterType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -21,10 +20,6 @@ export class RumRetentionFilterData {
    * ID of retention filter in UUID.
    */
   "id"?: string;
-  /**
-   * The object describing metadata of a RUM retention filter.
-   */
-  "meta"?: RumRetentionFilterMeta;
   /**
    * The type of the resource. The value should always be retention_filters.
    */
@@ -53,10 +48,6 @@ export class RumRetentionFilterData {
     id: {
       baseName: "id",
       type: "string",
-    },
-    meta: {
-      baseName: "meta",
-      type: "RumRetentionFilterMeta",
     },
     type: {
       baseName: "type",

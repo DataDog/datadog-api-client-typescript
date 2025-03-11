@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAttributes";
-import { RumRetentionFilterMeta } from "./RumRetentionFilterMeta";
 import { RumRetentionFilterType } from "./RumRetentionFilterType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -17,10 +16,6 @@ export class RumRetentionFilterCreateData {
    * The object describing attributes of a RUM retention filter to create.
    */
   "attributes": RumRetentionFilterCreateAttributes;
-  /**
-   * The object describing metadata of a RUM retention filter.
-   */
-  "meta"?: RumRetentionFilterMeta;
   /**
    * The type of the resource. The value should always be retention_filters.
    */
@@ -46,10 +41,6 @@ export class RumRetentionFilterCreateData {
       baseName: "attributes",
       type: "RumRetentionFilterCreateAttributes",
       required: true,
-    },
-    meta: {
-      baseName: "meta",
-      type: "RumRetentionFilterMeta",
     },
     type: {
       baseName: "type",
