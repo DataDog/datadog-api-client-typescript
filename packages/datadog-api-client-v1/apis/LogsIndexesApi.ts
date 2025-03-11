@@ -86,7 +86,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     const requestContext = _config
       .getServer("v1.LogsIndexesApi.deleteLogsIndex")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -359,16 +359,12 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLogsIndex(response: ResponseContext): Promise<LogsIndex> {
+  public async deleteLogsIndex(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: LogsIndex = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsIndex"
-      ) as LogsIndex;
-      return body;
+      return;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
@@ -416,11 +412,11 @@ export class LogsIndexesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: LogsIndex = ObjectSerializer.deserialize(
+      const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsIndex",
+        "void",
         ""
-      ) as LogsIndex;
+      ) as void;
       return body;
     }
 
@@ -878,7 +874,7 @@ export class LogsIndexesApi {
   public deleteLogsIndex(
     param: LogsIndexesApiDeleteLogsIndexRequest,
     options?: Configuration
-  ): Promise<LogsIndex> {
+  ): Promise<void> {
     const requestContextPromise = this.requestFactory.deleteLogsIndex(
       param.name,
       options

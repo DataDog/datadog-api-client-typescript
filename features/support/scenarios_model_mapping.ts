@@ -1399,7 +1399,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "LogsIndex",
+        "operationResponseType": "void",
     },
     "v1.GetLogsIndex": {
         "name": {

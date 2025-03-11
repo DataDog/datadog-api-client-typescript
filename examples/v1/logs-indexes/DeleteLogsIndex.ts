@@ -13,7 +13,7 @@ const params: v1.LogsIndexesApiDeleteLogsIndexRequest = {
 
 apiInstance
   .deleteLogsIndex(params)
-  .then((data: v1.LogsIndex) => {
+  .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
