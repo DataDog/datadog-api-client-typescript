@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.33.1 / 2025-03-11
+
+### Changed
+* Remove meta from RUM retention filters APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2098
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.33.0...v1.33.1
+
 ## 1.33.0 / 2025-03-11
 
 ### Fixed
