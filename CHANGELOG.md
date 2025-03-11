@@ -1,5 +1,45 @@
 # CHANGELOG
 
+## 1.33.0 / 2025-03-11
+
+### Fixed
+* Remove `javascript` browser variable type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2043
+* Additional rules to inject openapi type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2063
+* Fix `ListCatalogEntity` pagination endpoint to use correct offset value by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2082
+* [generator] fix import references by @nizox in https://github.com/DataDog/datadog-api-client-typescript/pull/2081
+### Added
+* add new related_assets filter query parameter to the get a list of metrics V2 API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2009
+* Add actions and groupSignalsBy field in detection rules API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2045
+* Add Workflows CRUD Public API Endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2035
+* Add endpoint to retrieve Security Monitoring rule version history by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2015
+* Adds override_existing_configurations and include_actively_queried_configurations to bulk tag config endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2054
+* Add `number_format` to each formula in widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2056
+* Add `trend` support for `cell_display_mode` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2053
+* Add support for span id remapper in logs pipelines processors by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2064
+* Add evaluation_window and keep_alive for Security monitoring rule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2065
+* Add `extractedValuesFromScript` to multistep API tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2069
+* Update timezone for cumulative window by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2068
+* Document Agentless AWS scan options routes by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2077
+* Create types for app builder queries explicitly, remove experimental flag by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2047
+* Document Agentless AWS on demand routes by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2083
+* Add quality_issues to monitor schema on monitor search API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2085
+* Introduce public v2 endpoints for Application Security by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2070
+* Add delete log index to public API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2084
+* Add v2 endpoints for RUM retention filters. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2079
+* Added storage class information to the S3 archive destination by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2091
+### Changed
+* Revert GetSBOM to `x-unstable` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2048
+* Update documentation with account filtering info for aws_cur_config endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2059
+* Update sharing APIs to match server by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2067
+* Update Vulnerabilities endpoints documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2071
+### Deprecated
+* Deprecate API management endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2058
+
+## New Contributors
+* @nizox made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/2081
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.32.0...v1.33.0
+
 ## 1.32.0 / 2025-02-05
 
 ### Fixed
