@@ -2257,12 +2257,10 @@ export { RumRetentionFilterCreateData } from "./models/RumRetentionFilterCreateD
 export { RumRetentionFilterCreateRequest } from "./models/RumRetentionFilterCreateRequest";
 export { RumRetentionFilterData } from "./models/RumRetentionFilterData";
 export { RumRetentionFilterEventType } from "./models/RumRetentionFilterEventType";
-export { RumRetentionFilterMeta } from "./models/RumRetentionFilterMeta";
 export { RumRetentionFilterResponse } from "./models/RumRetentionFilterResponse";
 export { RumRetentionFiltersOrderData } from "./models/RumRetentionFiltersOrderData";
 export { RumRetentionFiltersOrderRequest } from "./models/RumRetentionFiltersOrderRequest";
 export { RumRetentionFiltersOrderResponse } from "./models/RumRetentionFiltersOrderResponse";
-export { RumRetentionFilterSource } from "./models/RumRetentionFilterSource";
 export { RumRetentionFiltersResponse } from "./models/RumRetentionFiltersResponse";
 export { RumRetentionFilterType } from "./models/RumRetentionFilterType";
 export { RumRetentionFilterUpdateAttributes } from "./models/RumRetentionFilterUpdateAttributes";

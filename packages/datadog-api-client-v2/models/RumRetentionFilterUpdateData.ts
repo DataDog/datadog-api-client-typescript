@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RumRetentionFilterMeta } from "./RumRetentionFilterMeta";
 import { RumRetentionFilterType } from "./RumRetentionFilterType";
 import { RumRetentionFilterUpdateAttributes } from "./RumRetentionFilterUpdateAttributes";
 
@@ -21,10 +20,6 @@ export class RumRetentionFilterUpdateData {
    * ID of retention filter in UUID.
    */
   "id": string;
-  /**
-   * The object describing metadata of a RUM retention filter.
-   */
-  "meta"?: RumRetentionFilterMeta;
   /**
    * The type of the resource. The value should always be retention_filters.
    */
@@ -55,10 +50,6 @@ export class RumRetentionFilterUpdateData {
       baseName: "id",
       type: "string",
       required: true,
-    },
-    meta: {
-      baseName: "meta",
-      type: "RumRetentionFilterMeta",
     },
     type: {
       baseName: "type",
