@@ -18,9 +18,6 @@ const params: v2.RumRetentionFiltersApiCreateRetentionFilterRequest = {
         sampleRate: 50,
         enabled: true,
       },
-      meta: {
-        source: "terraform",
-      },
     },
   },
   appId: "a33671aa-24fd-4dcd-ba4b-5bbdbafe7690",

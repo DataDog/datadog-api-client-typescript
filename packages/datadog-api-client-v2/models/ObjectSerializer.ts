@@ -1249,7 +1249,6 @@ import { RumRetentionFilterCreateAttributes } from "./RumRetentionFilterCreateAt
 import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
 import { RumRetentionFilterCreateRequest } from "./RumRetentionFilterCreateRequest";
 import { RumRetentionFilterData } from "./RumRetentionFilterData";
-import { RumRetentionFilterMeta } from "./RumRetentionFilterMeta";
 import { RumRetentionFilterResponse } from "./RumRetentionFilterResponse";
 import { RumRetentionFilterUpdateAttributes } from "./RumRetentionFilterUpdateAttributes";
 import { RumRetentionFilterUpdateData } from "./RumRetentionFilterUpdateData";
@@ -2280,7 +2279,6 @@ const enumsMap: { [key: string]: any[] } = {
     "long_task",
     "vital",
   ],
-  RumRetentionFilterSource: ["ui", "terraform", "default", "unknown"],
   RumRetentionFilterType: ["retention_filters"],
   RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
@@ -4011,7 +4009,6 @@ const typeMap: { [index: string]: any } = {
   RumRetentionFilterCreateData: RumRetentionFilterCreateData,
   RumRetentionFilterCreateRequest: RumRetentionFilterCreateRequest,
   RumRetentionFilterData: RumRetentionFilterData,
-  RumRetentionFilterMeta: RumRetentionFilterMeta,
   RumRetentionFilterResponse: RumRetentionFilterResponse,
   RumRetentionFilterUpdateAttributes: RumRetentionFilterUpdateAttributes,
   RumRetentionFilterUpdateData: RumRetentionFilterUpdateData,

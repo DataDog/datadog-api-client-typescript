@@ -665,7 +665,7 @@ export class RumRetentionFiltersApiResponseProcessor {
 
 export interface RumRetentionFiltersApiCreateRetentionFilterRequest {
   /**
-   * Application ID.
+   * RUM application ID.
    * @type string
    */
   appId: string;
@@ -678,7 +678,7 @@ export interface RumRetentionFiltersApiCreateRetentionFilterRequest {
 
 export interface RumRetentionFiltersApiDeleteRetentionFilterRequest {
   /**
-   * Application ID.
+   * RUM application ID.
    * @type string
    */
   appId: string;
@@ -691,7 +691,7 @@ export interface RumRetentionFiltersApiDeleteRetentionFilterRequest {
 
 export interface RumRetentionFiltersApiGetRetentionFilterRequest {
   /**
-   * Application ID.
+   * RUM application ID.
    * @type string
    */
   appId: string;
@@ -704,7 +704,7 @@ export interface RumRetentionFiltersApiGetRetentionFilterRequest {
 
 export interface RumRetentionFiltersApiListRetentionFiltersRequest {
   /**
-   * Application ID.
+   * RUM application ID.
    * @type string
    */
   appId: string;
@@ -712,7 +712,7 @@ export interface RumRetentionFiltersApiListRetentionFiltersRequest {
 
 export interface RumRetentionFiltersApiOrderRetentionFiltersRequest {
   /**
-   * Application ID.
+   * RUM application ID.
    * @type string
    */
   appId: string;
@@ -725,7 +725,7 @@ export interface RumRetentionFiltersApiOrderRetentionFiltersRequest {
 
 export interface RumRetentionFiltersApiUpdateRetentionFilterRequest {
   /**
-   * Application ID.
+   * RUM application ID.
    * @type string
    */
   appId: string;
@@ -759,7 +759,7 @@ export class RumRetentionFiltersApi {
   }
 
   /**
-   * Create a RUM retention filter for an application.
+   * Create a RUM retention filter for a RUM application.
    * Returns RUM retention filter objects from the request body when the request is successful.
    * @param param The request object
    */
@@ -782,7 +782,7 @@ export class RumRetentionFiltersApi {
   }
 
   /**
-   * Delete a RUM retention filter for an application.
+   * Delete a RUM retention filter for a RUM application.
    * @param param The request object
    */
   public deleteRetentionFilter(
@@ -804,7 +804,7 @@ export class RumRetentionFiltersApi {
   }
 
   /**
-   * Get a RUM retention filter for an application.
+   * Get a RUM retention filter for a RUM application.
    * @param param The request object
    */
   public getRetentionFilter(
@@ -826,7 +826,7 @@ export class RumRetentionFiltersApi {
   }
 
   /**
-   * Get the list of RUM retention filters for an application.
+   * Get the list of RUM retention filters for a RUM application.
    * @param param The request object
    */
   public listRetentionFilters(
@@ -847,8 +847,8 @@ export class RumRetentionFiltersApi {
   }
 
   /**
-   * Order RUM retention filters for an application.
-   * Returns RUM retention filter objects without attributes and meta from the request body when the request is successful.
+   * Order RUM retention filters for a RUM application.
+   * Returns RUM retention filter objects without attributes from the request body when the request is successful.
    * @param param The request object
    */
   public orderRetentionFilters(
@@ -870,7 +870,7 @@ export class RumRetentionFiltersApi {
   }
 
   /**
-   * Update a RUM retention filter for an application.
+   * Update a RUM retention filter for a RUM application.
    * Returns RUM retention filter objects from the request body when the request is successful.
    * @param param The request object
    */
