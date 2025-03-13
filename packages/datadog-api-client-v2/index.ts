@@ -2387,6 +2387,7 @@ export { SecurityMonitoringSignalTriageAttributes } from "./models/SecurityMonit
 export { SecurityMonitoringSignalTriageUpdateData } from "./models/SecurityMonitoringSignalTriageUpdateData";
 export { SecurityMonitoringSignalTriageUpdateResponse } from "./models/SecurityMonitoringSignalTriageUpdateResponse";
 export { SecurityMonitoringSignalType } from "./models/SecurityMonitoringSignalType";
+export { SecurityMonitoringStandardDataSource } from "./models/SecurityMonitoringStandardDataSource";
 export { SecurityMonitoringStandardRuleCreatePayload } from "./models/SecurityMonitoringStandardRuleCreatePayload";
 export { SecurityMonitoringStandardRulePayload } from "./models/SecurityMonitoringStandardRulePayload";
 export { SecurityMonitoringStandardRuleQuery } from "./models/SecurityMonitoringStandardRuleQuery";
