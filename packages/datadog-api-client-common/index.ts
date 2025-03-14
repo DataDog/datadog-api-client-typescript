@@ -4,5 +4,6 @@ export * from "./auth";
 export { createConfiguration } from "./configuration";
 export { setServerVariables } from "./configuration";
 export { Configuration } from "./configuration";
+export { ConfigurationParameters } from "./configuration";
 export * from "./exception";
 export * from "./servers";
