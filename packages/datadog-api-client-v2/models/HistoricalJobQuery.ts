@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRuleQueryAggregation";
+import { SecurityMonitoringStandardDataSource } from "./SecurityMonitoringStandardDataSource";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,6 +16,10 @@ export class HistoricalJobQuery {
    * The aggregation type.
    */
   "aggregation"?: SecurityMonitoringRuleQueryAggregation;
+  /**
+   * Source of events, either logs or audit trail.
+   */
+  "dataSource"?: SecurityMonitoringStandardDataSource;
   /**
    * Field for which the cardinality is measured. Sent as an array.
    */
@@ -59,6 +64,10 @@ export class HistoricalJobQuery {
     aggregation: {
       baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
+    },
+    dataSource: {
+      baseName: "dataSource",
+      type: "SecurityMonitoringStandardDataSource",
     },
     distinctFields: {
       baseName: "distinctFields",
