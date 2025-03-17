@@ -6,7 +6,6 @@
 import { ServiceDefinitionV2Dot2Contact } from "./ServiceDefinitionV2Dot2Contact";
 import { ServiceDefinitionV2Dot2Integrations } from "./ServiceDefinitionV2Dot2Integrations";
 import { ServiceDefinitionV2Dot2Link } from "./ServiceDefinitionV2Dot2Link";
-import { ServiceDefinitionV2Dot2Type } from "./ServiceDefinitionV2Dot2Type";
 import { ServiceDefinitionV2Dot2Version } from "./ServiceDefinitionV2Dot2Version";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -74,7 +73,7 @@ export class ServiceDefinitionV2Dot2 {
   /**
    * The type of service.
    */
-  "type"?: ServiceDefinitionV2Dot2Type;
+  "type"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -152,7 +151,7 @@ export class ServiceDefinitionV2Dot2 {
     },
     type: {
       baseName: "type",
-      type: "ServiceDefinitionV2Dot2Type",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
