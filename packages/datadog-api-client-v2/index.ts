@@ -2513,7 +2513,6 @@ export { ServiceDefinitionV2Dot2Link } from "./models/ServiceDefinitionV2Dot2Lin
 export { ServiceDefinitionV2Dot2Opsgenie } from "./models/ServiceDefinitionV2Dot2Opsgenie";
 export { ServiceDefinitionV2Dot2OpsgenieRegion } from "./models/ServiceDefinitionV2Dot2OpsgenieRegion";
 export { ServiceDefinitionV2Dot2Pagerduty } from "./models/ServiceDefinitionV2Dot2Pagerduty";
-export { ServiceDefinitionV2Dot2Type } from "./models/ServiceDefinitionV2Dot2Type";
 export { ServiceDefinitionV2Dot2Version } from "./models/ServiceDefinitionV2Dot2Version";
 export { ServiceDefinitionV2Email } from "./models/ServiceDefinitionV2Email";
 export { ServiceDefinitionV2EmailType } from "./models/ServiceDefinitionV2EmailType";
