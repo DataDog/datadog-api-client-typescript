@@ -13,7 +13,7 @@ export class EntityResponseIncludedRelatedEntityAttributes {
   /**
    * Entity kind.
    */
-  "kind"?: string;
+  "kind": string;
   /**
    * Entity name.
    */
@@ -46,6 +46,7 @@ export class EntityResponseIncludedRelatedEntityAttributes {
     kind: {
       baseName: "kind",
       type: "string",
+      required: true,
     },
     name: {
       baseName: "name",

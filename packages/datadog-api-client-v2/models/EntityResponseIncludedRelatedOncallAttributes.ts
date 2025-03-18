@@ -18,7 +18,7 @@ export class EntityResponseIncludedRelatedOncallAttributes {
   /**
    * Oncall provider.
    */
-  "provider"?: string;
+  "provider": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,6 +43,7 @@ export class EntityResponseIncludedRelatedOncallAttributes {
     provider: {
       baseName: "provider",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
