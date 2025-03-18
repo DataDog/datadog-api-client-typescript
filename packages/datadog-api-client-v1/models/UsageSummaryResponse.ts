@@ -565,6 +565,10 @@ export class UsageSummaryResponse {
    */
   "rumMobileLiteSessionCountIosAggSum"?: number;
   /**
+   * Shows the sum of all mobile RUM lite sessions on Kotlin Multiplatform over all hours within the current month for all organizations.
+   */
+  "rumMobileLiteSessionCountKotlinmultiplatformAggSum"?: number;
+  /**
    * Shows the sum of all mobile RUM lite sessions on React Native over all hours in the current month for all organizations (To be introduced on October 1st, 2024).
    */
   "rumMobileLiteSessionCountReactnativeAggSum"?: number;
@@ -573,6 +577,10 @@ export class UsageSummaryResponse {
    */
   "rumMobileLiteSessionCountRokuAggSum"?: number;
   /**
+   * Shows the sum of all mobile RUM lite sessions on Unity over all hours within the current month for all organizations.
+   */
+  "rumMobileLiteSessionCountUnityAggSum"?: number;
+  /**
    * Shows the sum of all mobile RUM replay sessions on Android over all hours within the current month for all organizations.
    */
   "rumMobileReplaySessionCountAndroidAggSum"?: number;
@@ -580,6 +588,10 @@ export class UsageSummaryResponse {
    * Shows the sum of all mobile RUM replay sessions on iOS over all hours within the current month for all organizations.
    */
   "rumMobileReplaySessionCountIosAggSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM replay sessions on Kotlin Multiplatform over all hours within the current month for all organizations.
+   */
+  "rumMobileReplaySessionCountKotlinmultiplatformAggSum"?: number;
   /**
    * Shows the sum of all mobile RUM replay sessions on React Native over all hours within the current month for all organizations.
    */
@@ -1398,6 +1410,11 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    rumMobileLiteSessionCountKotlinmultiplatformAggSum: {
+      baseName: "rum_mobile_lite_session_count_kotlinmultiplatform_agg_sum",
+      type: "number",
+      format: "int64",
+    },
     rumMobileLiteSessionCountReactnativeAggSum: {
       baseName: "rum_mobile_lite_session_count_reactnative_agg_sum",
       type: "number",
@@ -1408,6 +1425,11 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    rumMobileLiteSessionCountUnityAggSum: {
+      baseName: "rum_mobile_lite_session_count_unity_agg_sum",
+      type: "number",
+      format: "int64",
+    },
     rumMobileReplaySessionCountAndroidAggSum: {
       baseName: "rum_mobile_replay_session_count_android_agg_sum",
       type: "number",
@@ -1415,6 +1437,11 @@ export class UsageSummaryResponse {
     },
     rumMobileReplaySessionCountIosAggSum: {
       baseName: "rum_mobile_replay_session_count_ios_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileReplaySessionCountKotlinmultiplatformAggSum: {
+      baseName: "rum_mobile_replay_session_count_kotlinmultiplatform_agg_sum",
       type: "number",
       format: "int64",
     },
