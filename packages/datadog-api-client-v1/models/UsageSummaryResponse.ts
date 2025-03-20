@@ -313,6 +313,10 @@ export class UsageSummaryResponse {
    */
   "ephInfraHostProplusAggSum"?: number;
   /**
+   * Shows the sum of all Error Tracking APM error events over all hours in the current month for all organizations.
+   */
+  "errorTrackingApmErrorEventsAggSum"?: number;
+  /**
    * Shows the sum of all Error Tracking error events over all hours in the current month for all organizations.
    */
   "errorTrackingErrorEventsAggSum"?: number;
@@ -1093,6 +1097,11 @@ export class UsageSummaryResponse {
     },
     ephInfraHostProplusAggSum: {
       baseName: "eph_infra_host_proplus_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    errorTrackingApmErrorEventsAggSum: {
+      baseName: "error_tracking_apm_error_events_agg_sum",
       type: "number",
       format: "int64",
     },
