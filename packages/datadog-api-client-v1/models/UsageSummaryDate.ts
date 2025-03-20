@@ -528,6 +528,10 @@ export class UsageSummaryDate {
    */
   "rumMobileLiteSessionCountIosSum"?: number;
   /**
+   * Shows the sum of all mobile RUM lite sessions on Kotlin Multiplatform over all hours within the current date for all organizations.
+   */
+  "rumMobileLiteSessionCountKotlinmultiplatformSum"?: number;
+  /**
    * Shows the sum of all mobile RUM lite sessions on React Native over all hours in the current date for all organizations (To be introduced on October 1st, 2024).
    */
   "rumMobileLiteSessionCountReactnativeSum"?: number;
@@ -536,6 +540,10 @@ export class UsageSummaryDate {
    */
   "rumMobileLiteSessionCountRokuSum"?: number;
   /**
+   * Shows the sum of all mobile RUM lite sessions on Unity over all hours within the current date for all organizations.
+   */
+  "rumMobileLiteSessionCountUnitySum"?: number;
+  /**
    * Shows the sum of all mobile RUM replay sessions on Android over all hours within the current date for the given org.
    */
   "rumMobileReplaySessionCountAndroidSum"?: number;
@@ -543,6 +551,10 @@ export class UsageSummaryDate {
    * Shows the sum of all mobile RUM replay sessions on iOS over all hours within the current date for the given org.
    */
   "rumMobileReplaySessionCountIosSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM replay sessions on Kotlin Multiplatform over all hours within the current date for all organizations.
+   */
+  "rumMobileReplaySessionCountKotlinmultiplatformSum"?: number;
   /**
    * Shows the sum of all mobile RUM replay sessions on React Native over all hours within the current date for the given org.
    */
@@ -1308,6 +1320,11 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    rumMobileLiteSessionCountKotlinmultiplatformSum: {
+      baseName: "rum_mobile_lite_session_count_kotlinmultiplatform_sum",
+      type: "number",
+      format: "int64",
+    },
     rumMobileLiteSessionCountReactnativeSum: {
       baseName: "rum_mobile_lite_session_count_reactnative_sum",
       type: "number",
@@ -1318,6 +1335,11 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    rumMobileLiteSessionCountUnitySum: {
+      baseName: "rum_mobile_lite_session_count_unity_sum",
+      type: "number",
+      format: "int64",
+    },
     rumMobileReplaySessionCountAndroidSum: {
       baseName: "rum_mobile_replay_session_count_android_sum",
       type: "number",
@@ -1325,6 +1347,11 @@ export class UsageSummaryDate {
     },
     rumMobileReplaySessionCountIosSum: {
       baseName: "rum_mobile_replay_session_count_ios_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileReplaySessionCountKotlinmultiplatformSum: {
+      baseName: "rum_mobile_replay_session_count_kotlinmultiplatform_sum",
       type: "number",
       format: "int64",
     },
