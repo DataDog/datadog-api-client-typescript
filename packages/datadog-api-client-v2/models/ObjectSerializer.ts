@@ -1915,7 +1915,7 @@ const enumsMap: { [key: string]: any[] } = {
   ContainerImageType: ["container_image"],
   ContainerMetaPageType: ["cursor_limit"],
   ContainerType: ["container"],
-  ContentEncoding: ["identity", "gzip", "deflate"],
+  ContentEncoding: ["identity", "gzip", "deflate", "zstd1"],
   ConvertJobResultsToSignalsDataType: [
     "historicalDetectionsJobResultSignalConversion",
   ],

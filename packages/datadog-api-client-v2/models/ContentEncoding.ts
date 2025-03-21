@@ -14,7 +14,9 @@ export type ContentEncoding =
   | typeof IDENTITY
   | typeof GZIP
   | typeof DEFLATE
+  | typeof ZSTD1
   | UnparsedObject;
 export const IDENTITY = "identity";
 export const GZIP = "gzip";
 export const DEFLATE = "deflate";
+export const ZSTD1 = "zstd1";
