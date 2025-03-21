@@ -14,7 +14,7 @@ export class EntityResponseIncludedSchemaAttributes {
   /**
    * Entity schema v3.
    */
-  "schema"?: EntityV3;
+  "schema": EntityV3;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +35,7 @@ export class EntityResponseIncludedSchemaAttributes {
     schema: {
       baseName: "schema",
       type: "EntityV3",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

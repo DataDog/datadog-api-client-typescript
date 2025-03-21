@@ -13,7 +13,7 @@ export class EntityResponseIncludedRawSchemaAttributes {
   /**
    * Schema from user input in base64 encoding.
    */
-  "rawSchema"?: string;
+  "rawSchema": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,6 +34,7 @@ export class EntityResponseIncludedRawSchemaAttributes {
     rawSchema: {
       baseName: "rawSchema",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

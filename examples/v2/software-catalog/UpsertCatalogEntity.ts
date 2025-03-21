@@ -38,7 +38,7 @@ const params: v2.SoftwareCatalogApiUpsertCatalogEntityRequest = {
     metadata: {
       additionalOwners: [
         {
-          name: "",
+          name: "fake-team-name",
         },
       ],
       contacts: [

@@ -29,7 +29,7 @@ export class EntityResponseIncludedRelatedIncidentAttributes {
   /**
    * Incident title.
    */
-  "title"?: string;
+  "title": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -67,6 +67,7 @@ export class EntityResponseIncludedRelatedIncidentAttributes {
     title: {
       baseName: "title",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
