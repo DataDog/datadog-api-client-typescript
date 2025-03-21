@@ -13,11 +13,11 @@ export class EntityResponseIncludedRelatedEntityAttributes {
   /**
    * Entity kind.
    */
-  "kind"?: string;
+  "kind": string;
   /**
    * Entity name.
    */
-  "name"?: string;
+  "name": string;
   /**
    * Entity namespace.
    */
@@ -46,10 +46,12 @@ export class EntityResponseIncludedRelatedEntityAttributes {
     kind: {
       baseName: "kind",
       type: "string",
+      required: true,
     },
     name: {
       baseName: "name",
       type: "string",
+      required: true,
     },
     namespace: {
       baseName: "namespace",
