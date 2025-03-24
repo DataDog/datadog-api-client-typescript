@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { EntityResponseIncludedOncallType } from "./EntityResponseIncludedOncallType";
 import { EntityResponseIncludedRelatedOncallAttributes } from "./EntityResponseIncludedRelatedOncallAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -22,7 +23,7 @@ export class EntityResponseIncludedOncall {
   /**
    * Oncall type.
    */
-  "type"?: string;
+  "type"?: EntityResponseIncludedOncallType;
 
   /**
    * A container for additional, undeclared properties.
@@ -50,7 +51,7 @@ export class EntityResponseIncludedOncall {
     },
     type: {
       baseName: "type",
-      type: "string",
+      type: "EntityResponseIncludedOncallType",
     },
     additionalProperties: {
       baseName: "additionalProperties",

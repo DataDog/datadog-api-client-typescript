@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { EntityResponseIncludedRawSchemaAttributes } from "./EntityResponseIncludedRawSchemaAttributes";
+import { EntityResponseIncludedRawSchemaType } from "./EntityResponseIncludedRawSchemaType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -22,7 +23,7 @@ export class EntityResponseIncludedRawSchema {
   /**
    * Raw schema type.
    */
-  "type"?: string;
+  "type"?: EntityResponseIncludedRawSchemaType;
 
   /**
    * A container for additional, undeclared properties.
@@ -50,7 +51,7 @@ export class EntityResponseIncludedRawSchema {
     },
     type: {
       baseName: "type",
-      type: "string",
+      type: "EntityResponseIncludedRawSchemaType",
     },
     additionalProperties: {
       baseName: "additionalProperties",

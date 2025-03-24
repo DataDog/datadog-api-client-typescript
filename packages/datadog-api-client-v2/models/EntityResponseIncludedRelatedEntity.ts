@@ -5,6 +5,7 @@
  */
 import { EntityResponseIncludedRelatedEntityAttributes } from "./EntityResponseIncludedRelatedEntityAttributes";
 import { EntityResponseIncludedRelatedEntityMeta } from "./EntityResponseIncludedRelatedEntityMeta";
+import { EntityResponseIncludedRelatedEntityType } from "./EntityResponseIncludedRelatedEntityType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -27,7 +28,7 @@ export class EntityResponseIncludedRelatedEntity {
   /**
    * Related entity.
    */
-  "type"?: string;
+  "type"?: EntityResponseIncludedRelatedEntityType;
 
   /**
    * A container for additional, undeclared properties.
@@ -59,7 +60,7 @@ export class EntityResponseIncludedRelatedEntity {
     },
     type: {
       baseName: "type",
-      type: "string",
+      type: "EntityResponseIncludedRelatedEntityType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
