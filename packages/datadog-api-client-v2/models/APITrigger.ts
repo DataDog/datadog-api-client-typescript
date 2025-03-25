@@ -8,7 +8,7 @@ import { TriggerRateLimit } from "./TriggerRateLimit";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Trigger a workflow VIA an API. The workflow must be published.
+ * Trigger a workflow from an API request. The workflow must be published.
  */
 export class APITrigger {
   /**

@@ -464,6 +464,7 @@ import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
 import { DataScalarColumn } from "./DataScalarColumn";
 import { DataTransform } from "./DataTransform";
 import { DataTransformProperties } from "./DataTransformProperties";
+import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWrapper";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
 import { DeleteAppsRequest } from "./DeleteAppsRequest";
@@ -999,6 +1000,7 @@ import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
 import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
 import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
 import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
+import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
@@ -1361,6 +1363,7 @@ import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 import { SecurityTrigger } from "./SecurityTrigger";
 import { SecurityTriggerWrapper } from "./SecurityTriggerWrapper";
 import { Selectors } from "./Selectors";
+import { SelfServiceTriggerWrapper } from "./SelfServiceTriggerWrapper";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
 import { SensitiveDataScannerConfigurationData } from "./SensitiveDataScannerConfigurationData";
@@ -1456,6 +1459,7 @@ import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
 import { SloReportCreateRequest } from "./SloReportCreateRequest";
 import { SloReportCreateRequestAttributes } from "./SloReportCreateRequestAttributes";
 import { SloReportCreateRequestData } from "./SloReportCreateRequestData";
+import { SoftwareCatalogTriggerWrapper } from "./SoftwareCatalogTriggerWrapper";
 import { Span } from "./Span";
 import { SpansAggregateBucket } from "./SpansAggregateBucket";
 import { SpansAggregateBucketAttributes } from "./SpansAggregateBucketAttributes";
@@ -3154,6 +3158,7 @@ const typeMap: { [index: string]: any } = {
   DataScalarColumn: DataScalarColumn,
   DataTransform: DataTransform,
   DataTransformProperties: DataTransformProperties,
+  DatabaseMonitoringTriggerWrapper: DatabaseMonitoringTriggerWrapper,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
   DeleteAppsRequest: DeleteAppsRequest,
@@ -3748,6 +3753,7 @@ const typeMap: { [index: string]: any } = {
   MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
   MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
   MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
+  NotebookTriggerWrapper: NotebookTriggerWrapper,
   NotificationRule: NotificationRule,
   NotificationRuleAttributes: NotificationRuleAttributes,
   NotificationRuleResponse: NotificationRuleResponse,
@@ -4153,6 +4159,7 @@ const typeMap: { [index: string]: any } = {
   SecurityTrigger: SecurityTrigger,
   SecurityTriggerWrapper: SecurityTriggerWrapper,
   Selectors: Selectors,
+  SelfServiceTriggerWrapper: SelfServiceTriggerWrapper,
   SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
   SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
   SensitiveDataScannerConfigurationData: SensitiveDataScannerConfigurationData,
@@ -4266,6 +4273,7 @@ const typeMap: { [index: string]: any } = {
   SloReportCreateRequest: SloReportCreateRequest,
   SloReportCreateRequestAttributes: SloReportCreateRequestAttributes,
   SloReportCreateRequestData: SloReportCreateRequestData,
+  SoftwareCatalogTriggerWrapper: SoftwareCatalogTriggerWrapper,
   Span: Span,
   SpansAggregateBucket: SpansAggregateBucket,
   SpansAggregateBucketAttributes: SpansAggregateBucketAttributes,
@@ -4693,13 +4701,17 @@ const oneOfMap: { [index: string]: string[] } = {
     "AppTriggerWrapper",
     "CaseTriggerWrapper",
     "ChangeEventTriggerWrapper",
+    "DatabaseMonitoringTriggerWrapper",
     "DashboardTriggerWrapper",
     "GithubWebhookTriggerWrapper",
     "IncidentTriggerWrapper",
     "MonitorTriggerWrapper",
+    "NotebookTriggerWrapper",
     "ScheduleTriggerWrapper",
     "SecurityTriggerWrapper",
+    "SelfServiceTriggerWrapper",
     "SlackTriggerWrapper",
+    "SoftwareCatalogTriggerWrapper",
     "WorkflowTriggerWrapper",
   ],
   UpsertCatalogEntityRequest: ["EntityV3", "string"],

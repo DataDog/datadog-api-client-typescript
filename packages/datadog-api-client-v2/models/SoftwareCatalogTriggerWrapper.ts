@@ -3,18 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleTrigger } from "./ScheduleTrigger";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Schema for a Schedule-based trigger.
+ * Schema for a Software Catalog-based trigger.
  */
-export class ScheduleTriggerWrapper {
+export class SoftwareCatalogTriggerWrapper {
   /**
-   * Trigger a workflow from a Schedule. The workflow must be published.
+   * Trigger a workflow from Software Catalog.
    */
-  "scheduleTrigger": ScheduleTrigger;
+  "softwareCatalogTrigger": any;
   /**
    * A list of steps that run first after a trigger fires.
    */
@@ -36,9 +35,9 @@ export class ScheduleTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    scheduleTrigger: {
-      baseName: "scheduleTrigger",
-      type: "ScheduleTrigger",
+    softwareCatalogTrigger: {
+      baseName: "softwareCatalogTrigger",
+      type: "any",
       required: true,
     },
     startStepNames: {
@@ -55,7 +54,7 @@ export class ScheduleTriggerWrapper {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleTriggerWrapper.attributeTypeMap;
+    return SoftwareCatalogTriggerWrapper.attributeTypeMap;
   }
 
   public constructor() {}

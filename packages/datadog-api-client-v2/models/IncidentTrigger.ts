@@ -8,7 +8,7 @@ import { TriggerRateLimit } from "./TriggerRateLimit";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Trigger a workflow VIA an Incident. For automatic triggering a handle must be configured and the workflow must be published.
+ * Trigger a workflow from an Incident. For automatic triggering a handle must be configured and the workflow must be published.
  */
 export class IncidentTrigger {
   /**

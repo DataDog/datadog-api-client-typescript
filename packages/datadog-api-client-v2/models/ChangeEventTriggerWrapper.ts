@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ChangeEventTriggerWrapper {
   /**
-   * Trigger a workflow VIA a Change Event.
+   * Trigger a workflow from a Change Event.
    */
   "changeEventTrigger": any;
   /**

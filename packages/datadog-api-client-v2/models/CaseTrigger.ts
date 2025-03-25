@@ -8,7 +8,7 @@ import { TriggerRateLimit } from "./TriggerRateLimit";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Trigger a workflow VIA a Case. For automatic triggering a handle must be configured and the workflow must be published.
+ * Trigger a workflow from a Case. For automatic triggering a handle must be configured and the workflow must be published.
  */
 export class CaseTrigger {
   /**

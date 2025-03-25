@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class IncidentTriggerWrapper {
   /**
-   * Trigger a workflow VIA an Incident. For automatic triggering a handle must be configured and the workflow must be published.
+   * Trigger a workflow from an Incident. For automatic triggering a handle must be configured and the workflow must be published.
    */
   "incidentTrigger": IncidentTrigger;
   /**

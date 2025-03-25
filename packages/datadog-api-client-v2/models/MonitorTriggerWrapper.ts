@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MonitorTriggerWrapper {
   /**
-   * Trigger a workflow VIA a Monitor. For automatic triggering a handle must be configured and the workflow must be published.
+   * Trigger a workflow from a Monitor. For automatic triggering a handle must be configured and the workflow must be published.
    */
   "monitorTrigger": MonitorTrigger;
   /**

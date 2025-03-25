@@ -15,7 +15,7 @@ export class WorkflowTriggerWrapper {
    */
   "startStepNames"?: Array<string>;
   /**
-   * Trigger a workflow VIA the Datadog UI. Only required if no other trigger exists.
+   * Trigger a workflow from the Datadog UI. Only required if no other trigger exists.
    */
   "workflowTrigger": any;
 
