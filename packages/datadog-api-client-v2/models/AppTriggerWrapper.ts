@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AppTriggerWrapper {
   /**
-   * Trigger a workflow VIA an App.
+   * Trigger a workflow from an App.
    */
   "appTrigger": any;
   /**

@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SlackTriggerWrapper {
   /**
-   * Trigger a workflow VIA Slack. The workflow must be published.
+   * Trigger a workflow from Slack. The workflow must be published.
    */
   "slackTrigger": any;
   /**

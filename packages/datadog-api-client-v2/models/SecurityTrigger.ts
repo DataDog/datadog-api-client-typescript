@@ -8,7 +8,7 @@ import { TriggerRateLimit } from "./TriggerRateLimit";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Trigger a workflow VIA a Security Signal or Finding. For automatic triggering a handle must be configured and the workflow must be published.
+ * Trigger a workflow from a Security Signal or Finding. For automatic triggering a handle must be configured and the workflow must be published.
  */
 export class SecurityTrigger {
   /**

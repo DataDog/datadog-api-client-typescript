@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DashboardTriggerWrapper {
   /**
-   * Trigger a workflow VIA a Dashboard.
+   * Trigger a workflow from a Dashboard.
    */
   "dashboardTrigger": any;
   /**

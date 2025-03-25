@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Trigger a workflow VIA a Schedule. The workflow must be published.
+ * Trigger a workflow from a Schedule. The workflow must be published.
  */
 export class ScheduleTrigger {
   /**
