@@ -12,7 +12,7 @@ const params: v2.ActionConnectionApiCreateActionConnectionRequest = {
     data: {
       type: "action_connection",
       attributes: {
-        name: "Cassette Connection DELETE_ME",
+        name: "Cassette Connection exampleactionconnection",
         integration: {
           type: "AWS",
           credentials: {
