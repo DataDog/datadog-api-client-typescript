@@ -7,8 +7,12 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.ActionConnectionApi(configuration);
 
+// there is a valid "action_connection" in the system
+const ACTION_CONNECTION_DATA_ID = process.env
+  .ACTION_CONNECTION_DATA_ID as string;
+
 const params: v2.ActionConnectionApiDeleteActionConnectionRequest = {
-  connectionId: "connection_id",
+  connectionId: ACTION_CONNECTION_DATA_ID,
 };
 
 apiInstance
