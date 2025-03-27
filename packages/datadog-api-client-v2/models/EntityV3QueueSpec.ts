@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EntityV3QueueSpec {
   /**
+   * A list of components the queue is a part of
+   */
+  "componentOf"?: Array<string>;
+  /**
    * The lifecycle state of the queue.
    */
   "lifecycle"?: string;
@@ -32,6 +36,10 @@ export class EntityV3QueueSpec {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    componentOf: {
+      baseName: "componentOf",
+      type: "Array<string>",
+    },
     lifecycle: {
       baseName: "lifecycle",
       type: "string",
