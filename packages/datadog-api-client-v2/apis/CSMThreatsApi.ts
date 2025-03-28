@@ -18,12 +18,62 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { CloudWorkloadSecurityAgentPoliciesListResponse } from "../models/CloudWorkloadSecurityAgentPoliciesListResponse";
+import { CloudWorkloadSecurityAgentPolicyBatchUpdateRequest } from "../models/CloudWorkloadSecurityAgentPolicyBatchUpdateRequest";
+import { CloudWorkloadSecurityAgentPolicyCreateRequest } from "../models/CloudWorkloadSecurityAgentPolicyCreateRequest";
+import { CloudWorkloadSecurityAgentPolicyResponse } from "../models/CloudWorkloadSecurityAgentPolicyResponse";
+import { CloudWorkloadSecurityAgentPolicyUpdateRequest } from "../models/CloudWorkloadSecurityAgentPolicyUpdateRequest";
 import { CloudWorkloadSecurityAgentRuleCreateRequest } from "../models/CloudWorkloadSecurityAgentRuleCreateRequest";
 import { CloudWorkloadSecurityAgentRuleResponse } from "../models/CloudWorkloadSecurityAgentRuleResponse";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "../models/CloudWorkloadSecurityAgentRulesListResponse";
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
 
 export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
+  public async batchUpdateCSMThreatsAgentPolicy(
+    body: CloudWorkloadSecurityAgentPolicyBatchUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "batchUpdateCSMThreatsAgentPolicy");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/remote_config/products/cws/policy";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CSMThreatsApi.batchUpdateCSMThreatsAgentPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "CloudWorkloadSecurityAgentPolicyBatchUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createCloudWorkloadSecurityAgentRule(
     body: CloudWorkloadSecurityAgentRuleCreateRequest,
     _options?: Configuration
@@ -55,6 +105,51 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
       ObjectSerializer.serialize(
         body,
         "CloudWorkloadSecurityAgentRuleCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createCSMThreatsAgentPolicy(
+    body: CloudWorkloadSecurityAgentPolicyCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createCSMThreatsAgentPolicy");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/remote_config/products/cws/policy";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CSMThreatsApi.createCSMThreatsAgentPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "CloudWorkloadSecurityAgentPolicyCreateRequest",
         ""
       ),
       contentType
@@ -152,8 +247,43 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteCSMThreatsAgentPolicy(
+    policyId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'policyId' is not null or undefined
+    if (policyId === null || policyId === undefined) {
+      throw new RequiredError("policyId", "deleteCSMThreatsAgentPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/remote_config/products/cws/policy/{policy_id}".replace(
+        "{policy_id}",
+        encodeURIComponent(String(policyId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CSMThreatsApi.deleteCSMThreatsAgentPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteCSMThreatsAgentRule(
     agentRuleId: string,
+    policyId?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -176,6 +306,15 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (policyId !== undefined) {
+      requestContext.setQueryParam(
+        "policy_id",
+        ObjectSerializer.serialize(policyId, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -277,8 +416,43 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getCSMThreatsAgentPolicy(
+    policyId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'policyId' is not null or undefined
+    if (policyId === null || policyId === undefined) {
+      throw new RequiredError("policyId", "getCSMThreatsAgentPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/remote_config/products/cws/policy/{policy_id}".replace(
+        "{policy_id}",
+        encodeURIComponent(String(policyId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CSMThreatsApi.getCSMThreatsAgentPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCSMThreatsAgentRule(
     agentRuleId: string,
+    policyId?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -301,6 +475,15 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (policyId !== undefined) {
+      requestContext.setQueryParam(
+        "policy_id",
+        ObjectSerializer.serialize(policyId, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -336,7 +519,32 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listCSMThreatsAgentPolicies(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/remote_config/products/cws/policy";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CSMThreatsApi.listCSMThreatsAgentPolicies")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listCSMThreatsAgentRules(
+    policyId?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -350,6 +558,15 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (policyId !== undefined) {
+      requestContext.setQueryParam(
+        "policy_id",
+        ObjectSerializer.serialize(policyId, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -418,9 +635,65 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateCSMThreatsAgentPolicy(
+    policyId: string,
+    body: CloudWorkloadSecurityAgentPolicyUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'policyId' is not null or undefined
+    if (policyId === null || policyId === undefined) {
+      throw new RequiredError("policyId", "updateCSMThreatsAgentPolicy");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateCSMThreatsAgentPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/remote_config/products/cws/policy/{policy_id}".replace(
+        "{policy_id}",
+        encodeURIComponent(String(policyId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CSMThreatsApi.updateCSMThreatsAgentPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "CloudWorkloadSecurityAgentPolicyUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateCSMThreatsAgentRule(
     agentRuleId: string,
     body: CloudWorkloadSecurityAgentRuleUpdateRequest,
+    policyId?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -449,6 +722,15 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Query Params
+    if (policyId !== undefined) {
+      requestContext.setQueryParam(
+        "policy_id",
+        ObjectSerializer.serialize(policyId, "string", ""),
+        ""
+      );
+    }
+
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
@@ -475,6 +757,72 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class CSMThreatsApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to batchUpdateCSMThreatsAgentPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async batchUpdateCSMThreatsAgentPolicy(
+    response: ResponseContext
+  ): Promise<CloudWorkloadSecurityAgentPoliciesListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CloudWorkloadSecurityAgentPoliciesListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentPoliciesListResponse"
+        ) as CloudWorkloadSecurityAgentPoliciesListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CloudWorkloadSecurityAgentPoliciesListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentPoliciesListResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentPoliciesListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -530,6 +878,71 @@ export class CSMThreatsApiResponseProcessor {
           "CloudWorkloadSecurityAgentRuleResponse",
           ""
         ) as CloudWorkloadSecurityAgentRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createCSMThreatsAgentPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createCSMThreatsAgentPolicy(
+    response: ResponseContext
+  ): Promise<CloudWorkloadSecurityAgentPolicyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CloudWorkloadSecurityAgentPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentPolicyResponse"
+        ) as CloudWorkloadSecurityAgentPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CloudWorkloadSecurityAgentPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentPolicyResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentPolicyResponse;
       return body;
     }
 
@@ -619,6 +1032,64 @@ export class CSMThreatsApiResponseProcessor {
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteCSMThreatsAgentPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteCSMThreatsAgentPolicy(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 202 || response.httpStatusCode === 204) {
       return;
     }
     if (
@@ -893,6 +1364,70 @@ export class CSMThreatsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getCSMThreatsAgentPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCSMThreatsAgentPolicy(
+    response: ResponseContext
+  ): Promise<CloudWorkloadSecurityAgentPolicyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CloudWorkloadSecurityAgentPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentPolicyResponse"
+        ) as CloudWorkloadSecurityAgentPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CloudWorkloadSecurityAgentPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentPolicyResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCSMThreatsAgentRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1003,6 +1538,66 @@ export class CSMThreatsApiResponseProcessor {
           "CloudWorkloadSecurityAgentRulesListResponse",
           ""
         ) as CloudWorkloadSecurityAgentRulesListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listCSMThreatsAgentPolicies
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCSMThreatsAgentPolicies(
+    response: ResponseContext
+  ): Promise<CloudWorkloadSecurityAgentPoliciesListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CloudWorkloadSecurityAgentPoliciesListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentPoliciesListResponse"
+        ) as CloudWorkloadSecurityAgentPoliciesListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CloudWorkloadSecurityAgentPoliciesListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentPoliciesListResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentPoliciesListResponse;
       return body;
     }
 
@@ -1143,6 +1738,72 @@ export class CSMThreatsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateCSMThreatsAgentPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateCSMThreatsAgentPolicy(
+    response: ResponseContext
+  ): Promise<CloudWorkloadSecurityAgentPolicyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CloudWorkloadSecurityAgentPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentPolicyResponse"
+        ) as CloudWorkloadSecurityAgentPolicyResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CloudWorkloadSecurityAgentPolicyResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CloudWorkloadSecurityAgentPolicyResponse",
+          ""
+        ) as CloudWorkloadSecurityAgentPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateCSMThreatsAgentRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1206,17 +1867,33 @@ export class CSMThreatsApiResponseProcessor {
   }
 }
 
+export interface CSMThreatsApiBatchUpdateCSMThreatsAgentPolicyRequest {
+  /**
+   * New definition of Agent policies
+   * @type CloudWorkloadSecurityAgentPolicyBatchUpdateRequest
+   */
+  body: CloudWorkloadSecurityAgentPolicyBatchUpdateRequest;
+}
+
 export interface CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest {
   /**
-   * The definition of the new Agent rule.
+   * The definition of the new Agent rule
    * @type CloudWorkloadSecurityAgentRuleCreateRequest
    */
   body: CloudWorkloadSecurityAgentRuleCreateRequest;
 }
 
+export interface CSMThreatsApiCreateCSMThreatsAgentPolicyRequest {
+  /**
+   * The definition of the new Agent policy
+   * @type CloudWorkloadSecurityAgentPolicyCreateRequest
+   */
+  body: CloudWorkloadSecurityAgentPolicyCreateRequest;
+}
+
 export interface CSMThreatsApiCreateCSMThreatsAgentRuleRequest {
   /**
-   * The definition of the new Agent rule.
+   * The definition of the new Agent rule
    * @type CloudWorkloadSecurityAgentRuleCreateRequest
    */
   body: CloudWorkloadSecurityAgentRuleCreateRequest;
@@ -1224,60 +1901,112 @@ export interface CSMThreatsApiCreateCSMThreatsAgentRuleRequest {
 
 export interface CSMThreatsApiDeleteCloudWorkloadSecurityAgentRuleRequest {
   /**
-   * The ID of the Agent rule.
+   * The ID of the Agent rule
    * @type string
    */
   agentRuleId: string;
+}
+
+export interface CSMThreatsApiDeleteCSMThreatsAgentPolicyRequest {
+  /**
+   * The ID of the Agent policy
+   * @type string
+   */
+  policyId: string;
 }
 
 export interface CSMThreatsApiDeleteCSMThreatsAgentRuleRequest {
   /**
-   * The ID of the Agent rule.
+   * The ID of the Agent rule
    * @type string
    */
   agentRuleId: string;
+  /**
+   * The ID of the Agent policy
+   * @type string
+   */
+  policyId?: string;
 }
 
 export interface CSMThreatsApiGetCloudWorkloadSecurityAgentRuleRequest {
   /**
-   * The ID of the Agent rule.
+   * The ID of the Agent rule
    * @type string
    */
   agentRuleId: string;
+}
+
+export interface CSMThreatsApiGetCSMThreatsAgentPolicyRequest {
+  /**
+   * The ID of the Agent policy
+   * @type string
+   */
+  policyId: string;
 }
 
 export interface CSMThreatsApiGetCSMThreatsAgentRuleRequest {
   /**
-   * The ID of the Agent rule.
+   * The ID of the Agent rule
    * @type string
    */
   agentRuleId: string;
+  /**
+   * The ID of the Agent policy
+   * @type string
+   */
+  policyId?: string;
+}
+
+export interface CSMThreatsApiListCSMThreatsAgentRulesRequest {
+  /**
+   * The ID of the Agent policy
+   * @type string
+   */
+  policyId?: string;
 }
 
 export interface CSMThreatsApiUpdateCloudWorkloadSecurityAgentRuleRequest {
   /**
-   * The ID of the Agent rule.
+   * The ID of the Agent rule
    * @type string
    */
   agentRuleId: string;
   /**
-   * New definition of the Agent rule.
+   * New definition of the Agent rule
    * @type CloudWorkloadSecurityAgentRuleUpdateRequest
    */
   body: CloudWorkloadSecurityAgentRuleUpdateRequest;
 }
 
+export interface CSMThreatsApiUpdateCSMThreatsAgentPolicyRequest {
+  /**
+   * The ID of the Agent policy
+   * @type string
+   */
+  policyId: string;
+  /**
+   * New definition of the Agent policy
+   * @type CloudWorkloadSecurityAgentPolicyUpdateRequest
+   */
+  body: CloudWorkloadSecurityAgentPolicyUpdateRequest;
+}
+
 export interface CSMThreatsApiUpdateCSMThreatsAgentRuleRequest {
   /**
-   * The ID of the Agent rule.
+   * The ID of the Agent rule
    * @type string
    */
   agentRuleId: string;
   /**
-   * New definition of the Agent rule.
+   * New definition of the Agent rule
    * @type CloudWorkloadSecurityAgentRuleUpdateRequest
    */
   body: CloudWorkloadSecurityAgentRuleUpdateRequest;
+  /**
+   * The ID of the Agent policy
+   * @type string
+   */
+  policyId?: string;
 }
 
 export class CSMThreatsApi {
@@ -1295,6 +2024,28 @@ export class CSMThreatsApi {
       requestFactory || new CSMThreatsApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new CSMThreatsApiResponseProcessor();
+  }
+
+  /**
+   * Update Cloud Security Management Threats Agent policies.
+   * Returns the Agent policies objects when the request is successful.
+   * @param param The request object
+   */
+  public batchUpdateCSMThreatsAgentPolicy(
+    param: CSMThreatsApiBatchUpdateCSMThreatsAgentPolicyRequest,
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentPoliciesListResponse> {
+    const requestContextPromise =
+      this.requestFactory.batchUpdateCSMThreatsAgentPolicy(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.batchUpdateCSMThreatsAgentPolicy(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
@@ -1322,7 +2073,28 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Create a new Cloud Security Management Threats Agent rule with the given parameters.
+   * Create a new Cloud Security Management Threats Agent policy with the given parameters
+   * @param param The request object
+   */
+  public createCSMThreatsAgentPolicy(
+    param: CSMThreatsApiCreateCSMThreatsAgentPolicyRequest,
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentPolicyResponse> {
+    const requestContextPromise =
+      this.requestFactory.createCSMThreatsAgentPolicy(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCSMThreatsAgentPolicy(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Create a new Cloud Security Management Threats Agent rule with the given parameters
    * @param param The request object
    */
   public createCSMThreatsAgentRule(
@@ -1345,7 +2117,7 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Delete a specific Agent rule.
+   * Delete a specific Agent rule
    * @param param The request object
    */
   public deleteCloudWorkloadSecurityAgentRule(
@@ -1369,7 +2141,28 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Delete a specific Cloud Security Management Threats Agent rule.
+   * Delete a specific Cloud Security Management Threats Agent policy
+   * @param param The request object
+   */
+  public deleteCSMThreatsAgentPolicy(
+    param: CSMThreatsApiDeleteCSMThreatsAgentPolicyRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteCSMThreatsAgentPolicy(param.policyId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCSMThreatsAgentPolicy(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a specific Cloud Security Management Threats Agent rule
    * @param param The request object
    */
   public deleteCSMThreatsAgentRule(
@@ -1378,6 +2171,7 @@ export class CSMThreatsApi {
   ): Promise<void> {
     const requestContextPromise = this.requestFactory.deleteCSMThreatsAgentRule(
       param.agentRuleId,
+      param.policyId,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -1434,7 +2228,7 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the details of a specific Agent rule.
+   * Get the details of a specific Agent rule
    * @param param The request object
    */
   public getCloudWorkloadSecurityAgentRule(
@@ -1458,7 +2252,30 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the details of a specific Cloud Security Management Threats Agent rule.
+   * Get the details of a specific Cloud Security Management Threats Agent policy
+   * @param param The request object
+   */
+  public getCSMThreatsAgentPolicy(
+    param: CSMThreatsApiGetCSMThreatsAgentPolicyRequest,
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentPolicyResponse> {
+    const requestContextPromise = this.requestFactory.getCSMThreatsAgentPolicy(
+      param.policyId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCSMThreatsAgentPolicy(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the details of a specific Cloud Security Management Threats Agent rule
    * @param param The request object
    */
   public getCSMThreatsAgentRule(
@@ -1467,6 +2284,7 @@ export class CSMThreatsApi {
   ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
     const requestContextPromise = this.requestFactory.getCSMThreatsAgentRule(
       param.agentRuleId,
+      param.policyId,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -1479,7 +2297,7 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the list of Agent rules.
+   * Get the list of Agent rules
    * @param param The request object
    */
   public listCloudWorkloadSecurityAgentRules(
@@ -1499,14 +2317,37 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the list of Cloud Security Management Threats Agent rules.
+   * Get the list of Cloud Security Management Threats Agent policies
+   * @param param The request object
+   */
+  public listCSMThreatsAgentPolicies(
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentPoliciesListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCSMThreatsAgentPolicies(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCSMThreatsAgentPolicies(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the list of Cloud Security Management Threats Agent rules
    * @param param The request object
    */
   public listCSMThreatsAgentRules(
+    param: CSMThreatsApiListCSMThreatsAgentRulesRequest = {},
     options?: Configuration
   ): Promise<CloudWorkloadSecurityAgentRulesListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCSMThreatsAgentRules(options);
+    const requestContextPromise = this.requestFactory.listCSMThreatsAgentRules(
+      param.policyId,
+      options
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1545,6 +2386,32 @@ export class CSMThreatsApi {
   }
 
   /**
+   * Update a specific Cloud Security Management Threats Agent policy.
+   * Returns the Agent policy object when the request is successful.
+   * @param param The request object
+   */
+  public updateCSMThreatsAgentPolicy(
+    param: CSMThreatsApiUpdateCSMThreatsAgentPolicyRequest,
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentPolicyResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateCSMThreatsAgentPolicy(
+        param.policyId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCSMThreatsAgentPolicy(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Update a specific Cloud Security Management Threats Agent rule.
    * Returns the Agent rule object when the request is successful.
    * @param param The request object
@@ -1556,6 +2423,7 @@ export class CSMThreatsApi {
     const requestContextPromise = this.requestFactory.updateCSMThreatsAgentRule(
       param.agentRuleId,
       param.body,
+      param.policyId,
       options
     );
     return requestContextPromise.then((requestContext) => {
