@@ -1453,6 +1453,9 @@ import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
 import { ServiceNowTicket } from "./ServiceNowTicket";
 import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
+import { SingleAggregatedConnectionResponseArray } from "./SingleAggregatedConnectionResponseArray";
+import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
+import { SingleAggregatedConnectionResponseDataAttributes } from "./SingleAggregatedConnectionResponseDataAttributes";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
@@ -2445,6 +2448,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
   SortDirection: ["desc", "asc"],
   SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
@@ -4267,6 +4271,12 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
   ServiceNowTicket: ServiceNowTicket,
   ServiceNowTicketResult: ServiceNowTicketResult,
+  SingleAggregatedConnectionResponseArray:
+    SingleAggregatedConnectionResponseArray,
+  SingleAggregatedConnectionResponseData:
+    SingleAggregatedConnectionResponseData,
+  SingleAggregatedConnectionResponseDataAttributes:
+    SingleAggregatedConnectionResponseDataAttributes,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   SlackTriggerWrapper: SlackTriggerWrapper,

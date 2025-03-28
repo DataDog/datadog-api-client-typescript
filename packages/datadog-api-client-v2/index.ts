@@ -148,6 +148,11 @@ export {
 } from "./apis/CloudCostManagementApi";
 
 export {
+  CloudNetworkMonitoringApiGetAggregatedConnectionsRequest,
+  CloudNetworkMonitoringApi,
+} from "./apis/CloudNetworkMonitoringApi";
+
+export {
   CloudflareIntegrationApiCreateCloudflareAccountRequest,
   CloudflareIntegrationApiDeleteCloudflareAccountRequest,
   CloudflareIntegrationApiGetCloudflareAccountRequest,
@@ -2537,6 +2542,10 @@ export { ServiceDefinitionV2SlackType } from "./models/ServiceDefinitionV2SlackT
 export { ServiceDefinitionV2Version } from "./models/ServiceDefinitionV2Version";
 export { ServiceNowTicket } from "./models/ServiceNowTicket";
 export { ServiceNowTicketResult } from "./models/ServiceNowTicketResult";
+export { SingleAggregatedConnectionResponseArray } from "./models/SingleAggregatedConnectionResponseArray";
+export { SingleAggregatedConnectionResponseData } from "./models/SingleAggregatedConnectionResponseData";
+export { SingleAggregatedConnectionResponseDataAttributes } from "./models/SingleAggregatedConnectionResponseDataAttributes";
+export { SingleAggregatedConnectionResponseDataType } from "./models/SingleAggregatedConnectionResponseDataType";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { SlackTriggerWrapper } from "./models/SlackTriggerWrapper";
