@@ -398,6 +398,14 @@ export {
 } from "./apis/NetworkDeviceMonitoringApi";
 
 export {
+  ObservabilityPipelinesApiCreatePipelineRequest,
+  ObservabilityPipelinesApiDeletePipelineRequest,
+  ObservabilityPipelinesApiGetPipelineRequest,
+  ObservabilityPipelinesApiUpdatePipelineRequest,
+  ObservabilityPipelinesApi,
+} from "./apis/ObservabilityPipelinesApi";
+
+export {
   OktaIntegrationApiCreateOktaAccountRequest,
   OktaIntegrationApiDeleteOktaAccountRequest,
   OktaIntegrationApiGetOktaAccountRequest,
@@ -696,6 +704,8 @@ export { ActiveBillingDimensionsAttributes } from "./models/ActiveBillingDimensi
 export { ActiveBillingDimensionsBody } from "./models/ActiveBillingDimensionsBody";
 export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimensionsResponse";
 export { ActiveBillingDimensionsType } from "./models/ActiveBillingDimensionsType";
+export { AddFieldsProcessor } from "./models/AddFieldsProcessor";
+export { AddFieldsProcessorType } from "./models/AddFieldsProcessorType";
 export { Advisory } from "./models/Advisory";
 export { Annotation } from "./models/Annotation";
 export { AnnotationDisplay } from "./models/AnnotationDisplay";
@@ -1265,6 +1275,10 @@ export { DatabaseMonitoringTriggerWrapper } from "./models/DatabaseMonitoringTri
 export { DataDeletionResponseItem } from "./models/DataDeletionResponseItem";
 export { DataDeletionResponseItemAttributes } from "./models/DataDeletionResponseItemAttributes";
 export { DataDeletionResponseMeta } from "./models/DataDeletionResponseMeta";
+export { DatadogAgentSource } from "./models/DatadogAgentSource";
+export { DatadogAgentSourceType } from "./models/DatadogAgentSourceType";
+export { DatadogLogsDestination } from "./models/DatadogLogsDestination";
+export { DatadogLogsDestinationType } from "./models/DatadogLogsDestinationType";
 export { DataScalarColumn } from "./models/DataScalarColumn";
 export { DataTransform } from "./models/DataTransform";
 export { DataTransformProperties } from "./models/DataTransformProperties";
@@ -1466,6 +1480,9 @@ export { FastlyServiceRequest } from "./models/FastlyServiceRequest";
 export { FastlyServiceResponse } from "./models/FastlyServiceResponse";
 export { FastlyServicesResponse } from "./models/FastlyServicesResponse";
 export { FastlyServiceType } from "./models/FastlyServiceType";
+export { FieldItem } from "./models/FieldItem";
+export { FilterProcessor } from "./models/FilterProcessor";
+export { FilterProcessorType } from "./models/FilterProcessorType";
 export { Finding } from "./models/Finding";
 export { FindingAttributes } from "./models/FindingAttributes";
 export { FindingEvaluation } from "./models/FindingEvaluation";
@@ -1706,6 +1723,11 @@ export { JobDefinitionFromRule } from "./models/JobDefinitionFromRule";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+export { KafkaSource } from "./models/KafkaSource";
+export { KafkaSourceLibrdkafkaOptionsItems } from "./models/KafkaSourceLibrdkafkaOptionsItems";
+export { KafkaSourceSasl } from "./models/KafkaSourceSasl";
+export { KafkaSourceSaslMechanism } from "./models/KafkaSourceSaslMechanism";
+export { KafkaSourceType } from "./models/KafkaSourceType";
 export { LeakedKey } from "./models/LeakedKey";
 export { LeakedKeyAttributes } from "./models/LeakedKeyAttributes";
 export { LeakedKeyType } from "./models/LeakedKeyType";
@@ -2038,6 +2060,8 @@ export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
 export { Pagination } from "./models/Pagination";
 export { Parameter } from "./models/Parameter";
+export { ParseJSONProcessor } from "./models/ParseJSONProcessor";
+export { ParseJSONProcessorType } from "./models/ParseJSONProcessorType";
 export { PartialAPIKey } from "./models/PartialAPIKey";
 export { PartialAPIKeyAttributes } from "./models/PartialAPIKeyAttributes";
 export { PartialApplicationKey } from "./models/PartialApplicationKey";
@@ -2050,6 +2074,13 @@ export { Permission } from "./models/Permission";
 export { PermissionAttributes } from "./models/PermissionAttributes";
 export { PermissionsResponse } from "./models/PermissionsResponse";
 export { PermissionsType } from "./models/PermissionsType";
+export { Pipeline } from "./models/Pipeline";
+export { PipelineData } from "./models/PipelineData";
+export { PipelineDataAttributes } from "./models/PipelineDataAttributes";
+export { PipelineDataAttributesConfig } from "./models/PipelineDataAttributesConfig";
+export { PipelineDataAttributesConfigDestinationsItem } from "./models/PipelineDataAttributesConfigDestinationsItem";
+export { PipelineDataAttributesConfigProcessorsItem } from "./models/PipelineDataAttributesConfigProcessorsItem";
+export { PipelineDataAttributesConfigSourcesItem } from "./models/PipelineDataAttributesConfigSourcesItem";
 export { Powerpack } from "./models/Powerpack";
 export { PowerpackAttributes } from "./models/PowerpackAttributes";
 export { PowerpackData } from "./models/PowerpackData";
@@ -2089,6 +2120,11 @@ export { PublishAppResponse } from "./models/PublishAppResponse";
 export { Query } from "./models/Query";
 export { QueryFormula } from "./models/QueryFormula";
 export { QuerySortOrder } from "./models/QuerySortOrder";
+export { QuotaLimit } from "./models/QuotaLimit";
+export { QuotaLimitEnforceType } from "./models/QuotaLimitEnforceType";
+export { QuotaProcessor } from "./models/QuotaProcessor";
+export { QuotaProcessorOverride } from "./models/QuotaProcessorOverride";
+export { QuotaProcessorType } from "./models/QuotaProcessorType";
 export { ReadinessGate } from "./models/ReadinessGate";
 export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType";
 export { RelationshipItem } from "./models/RelationshipItem";
@@ -2135,6 +2171,11 @@ export { RelationshipToUserTeamUser } from "./models/RelationshipToUserTeamUser"
 export { RelationshipToUserTeamUserData } from "./models/RelationshipToUserTeamUserData";
 export { RelationType } from "./models/RelationType";
 export { Remediation } from "./models/Remediation";
+export { RemoveFieldsProcessor } from "./models/RemoveFieldsProcessor";
+export { RemoveFieldsProcessorType } from "./models/RemoveFieldsProcessorType";
+export { RenameFieldsProcessor } from "./models/RenameFieldsProcessor";
+export { RenameFieldsProcessorFieldsItems } from "./models/RenameFieldsProcessorFieldsItems";
+export { RenameFieldsProcessorType } from "./models/RenameFieldsProcessorType";
 export { ReorderRetentionFiltersRequest } from "./models/ReorderRetentionFiltersRequest";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { RestrictionPolicy } from "./models/RestrictionPolicy";
@@ -2667,6 +2708,7 @@ export { TimeseriesQuery } from "./models/TimeseriesQuery";
 export { TimeseriesResponse } from "./models/TimeseriesResponse";
 export { TimeseriesResponseAttributes } from "./models/TimeseriesResponseAttributes";
 export { TimeseriesResponseSeries } from "./models/TimeseriesResponseSeries";
+export { Tls } from "./models/Tls";
 export { TokenType } from "./models/TokenType";
 export { Trigger } from "./models/Trigger";
 export { TriggerRateLimit } from "./models/TriggerRateLimit";

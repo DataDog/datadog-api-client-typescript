@@ -60,6 +60,7 @@ import { ActionQuerySpecObject } from "./ActionQuerySpecObject";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
+import { AddFieldsProcessor } from "./AddFieldsProcessor";
 import { Advisory } from "./Advisory";
 import { Annotation } from "./Annotation";
 import { AnnotationDisplay } from "./AnnotationDisplay";
@@ -465,6 +466,8 @@ import { DataScalarColumn } from "./DataScalarColumn";
 import { DataTransform } from "./DataTransform";
 import { DataTransformProperties } from "./DataTransformProperties";
 import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWrapper";
+import { DatadogAgentSource } from "./DatadogAgentSource";
+import { DatadogLogsDestination } from "./DatadogLogsDestination";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
 import { DeleteAppsRequest } from "./DeleteAppsRequest";
@@ -612,6 +615,8 @@ import { FastlyServiceData } from "./FastlyServiceData";
 import { FastlyServiceRequest } from "./FastlyServiceRequest";
 import { FastlyServiceResponse } from "./FastlyServiceResponse";
 import { FastlyServicesResponse } from "./FastlyServicesResponse";
+import { FieldItem } from "./FieldItem";
+import { FilterProcessor } from "./FilterProcessor";
 import { Finding } from "./Finding";
 import { FindingAttributes } from "./FindingAttributes";
 import { FindingMute } from "./FindingMute";
@@ -797,6 +802,9 @@ import { JobCreateResponse } from "./JobCreateResponse";
 import { JobCreateResponseData } from "./JobCreateResponseData";
 import { JobDefinition } from "./JobDefinition";
 import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
+import { KafkaSource } from "./KafkaSource";
+import { KafkaSourceLibrdkafkaOptionsItems } from "./KafkaSourceLibrdkafkaOptionsItems";
+import { KafkaSourceSasl } from "./KafkaSourceSasl";
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { Library } from "./Library";
@@ -1058,6 +1066,7 @@ import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
 import { Pagination } from "./Pagination";
 import { Parameter } from "./Parameter";
+import { ParseJSONProcessor } from "./ParseJSONProcessor";
 import { PartialAPIKey } from "./PartialAPIKey";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
@@ -1069,6 +1078,10 @@ import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificati
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
+import { Pipeline } from "./Pipeline";
+import { PipelineData } from "./PipelineData";
+import { PipelineDataAttributes } from "./PipelineDataAttributes";
+import { PipelineDataAttributesConfig } from "./PipelineDataAttributesConfig";
 import { Powerpack } from "./Powerpack";
 import { PowerpackAttributes } from "./PowerpackAttributes";
 import { PowerpackData } from "./PowerpackData";
@@ -1103,6 +1116,9 @@ import { ProjectedCostResponse } from "./ProjectedCostResponse";
 import { ProjectsResponse } from "./ProjectsResponse";
 import { PublishAppResponse } from "./PublishAppResponse";
 import { QueryFormula } from "./QueryFormula";
+import { QuotaLimit } from "./QuotaLimit";
+import { QuotaProcessor } from "./QuotaProcessor";
+import { QuotaProcessorOverride } from "./QuotaProcessorOverride";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
 import { RUMAggregateSort } from "./RUMAggregateSort";
@@ -1179,6 +1195,9 @@ import { RelationshipToUserTeamUser } from "./RelationshipToUserTeamUser";
 import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { Remediation } from "./Remediation";
+import { RemoveFieldsProcessor } from "./RemoveFieldsProcessor";
+import { RenameFieldsProcessor } from "./RenameFieldsProcessor";
+import { RenameFieldsProcessorFieldsItems } from "./RenameFieldsProcessorFieldsItems";
 import { ReorderRetentionFiltersRequest } from "./ReorderRetentionFiltersRequest";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RestrictionPolicy } from "./RestrictionPolicy";
@@ -1547,6 +1566,7 @@ import { TimeseriesFormulaRequestAttributes } from "./TimeseriesFormulaRequestAt
 import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
+import { Tls } from "./Tls";
 import { TriggerRateLimit } from "./TriggerRateLimit";
 import { Unit } from "./Unit";
 import { UnpublishAppResponse } from "./UnpublishAppResponse";
@@ -1688,6 +1708,7 @@ const enumsMap: { [key: string]: any[] } = {
   ActionConnectionDataType: ["action_connection"],
   ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
+  AddFieldsProcessorType: ["add_fields"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   AppBuilderEventName: [
     "pageChange",
@@ -1956,6 +1977,8 @@ const enumsMap: { [key: string]: any[] } = {
     "host_timeboard",
   ],
   DataTransformType: ["dataTransform"],
+  DatadogAgentSourceType: ["datadog_agent"],
+  DatadogLogsDestinationType: ["datadog_logs"],
   DetailedFindingType: ["detailed_finding"],
   DomainAllowlistType: ["domain_allowlist"],
   DowntimeIncludedMonitorType: ["monitors"],
@@ -2006,6 +2029,7 @@ const enumsMap: { [key: string]: any[] } = {
   EventsSortType: ["alphabetical", "measure"],
   FastlyAccountType: ["fastly-accounts"],
   FastlyServiceType: ["fastly-services"],
+  FilterProcessorType: ["filter"],
   FindingEvaluation: ["pass", "fail"],
   FindingMuteReason: [
     "PENDING_FIX",
@@ -2087,6 +2111,8 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_OBJECT",
   ],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
+  KafkaSourceSaslMechanism: ["PLAIN", "SCRAM-SHA-256", "SCRAM-SHA-512"],
+  KafkaSourceType: ["kafka"],
   LeakedKeyType: ["leaked_keys"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
@@ -2190,11 +2216,14 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  ParseJSONProcessorType: ["parse_json"],
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
   QuerySortOrder: ["asc", "desc"],
+  QuotaLimitEnforceType: ["bytes", "events"],
+  QuotaProcessorType: ["quota"],
   RUMAggregateSortType: ["alphabetical", "measure"],
   RUMAggregationFunction: [
     "count",
@@ -2232,6 +2261,8 @@ const enumsMap: { [key: string]: any[] } = {
     "RelationTypeImplementedBy",
     "RelationTypeImplements",
   ],
+  RemoveFieldsProcessorType: ["remove_fields"],
+  RenameFieldsProcessorType: ["rename_fields"],
   RestrictionPolicyType: ["restriction_policy"],
   RetentionFilterAllType: [
     "spans-sampling-processor",
@@ -2673,6 +2704,7 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
+  AddFieldsProcessor: AddFieldsProcessor,
   Advisory: Advisory,
   Annotation: Annotation,
   AnnotationDisplay: AnnotationDisplay,
@@ -3159,6 +3191,8 @@ const typeMap: { [index: string]: any } = {
   DataTransform: DataTransform,
   DataTransformProperties: DataTransformProperties,
   DatabaseMonitoringTriggerWrapper: DatabaseMonitoringTriggerWrapper,
+  DatadogAgentSource: DatadogAgentSource,
+  DatadogLogsDestination: DatadogLogsDestination,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
   DeleteAppsRequest: DeleteAppsRequest,
@@ -3320,6 +3354,8 @@ const typeMap: { [index: string]: any } = {
   FastlyServiceRequest: FastlyServiceRequest,
   FastlyServiceResponse: FastlyServiceResponse,
   FastlyServicesResponse: FastlyServicesResponse,
+  FieldItem: FieldItem,
+  FilterProcessor: FilterProcessor,
   Finding: Finding,
   FindingAttributes: FindingAttributes,
   FindingMute: FindingMute,
@@ -3517,6 +3553,9 @@ const typeMap: { [index: string]: any } = {
   JobCreateResponseData: JobCreateResponseData,
   JobDefinition: JobDefinition,
   JobDefinitionFromRule: JobDefinitionFromRule,
+  KafkaSource: KafkaSource,
+  KafkaSourceLibrdkafkaOptionsItems: KafkaSourceLibrdkafkaOptionsItems,
+  KafkaSourceSasl: KafkaSourceSasl,
   LeakedKey: LeakedKey,
   LeakedKeyAttributes: LeakedKeyAttributes,
   Library: Library,
@@ -3812,6 +3851,7 @@ const typeMap: { [index: string]: any } = {
   OutputSchemaParameters: OutputSchemaParameters,
   Pagination: Pagination,
   Parameter: Parameter,
+  ParseJSONProcessor: ParseJSONProcessor,
   PartialAPIKey: PartialAPIKey,
   PartialAPIKeyAttributes: PartialAPIKeyAttributes,
   PartialApplicationKey: PartialApplicationKey,
@@ -3824,6 +3864,10 @@ const typeMap: { [index: string]: any } = {
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
+  Pipeline: Pipeline,
+  PipelineData: PipelineData,
+  PipelineDataAttributes: PipelineDataAttributes,
+  PipelineDataAttributesConfig: PipelineDataAttributesConfig,
   Powerpack: Powerpack,
   PowerpackAttributes: PowerpackAttributes,
   PowerpackData: PowerpackData,
@@ -3858,6 +3902,9 @@ const typeMap: { [index: string]: any } = {
   ProjectsResponse: ProjectsResponse,
   PublishAppResponse: PublishAppResponse,
   QueryFormula: QueryFormula,
+  QuotaLimit: QuotaLimit,
+  QuotaProcessor: QuotaProcessor,
+  QuotaProcessorOverride: QuotaProcessorOverride,
   RUMAggregateBucketValueTimeseriesPoint:
     RUMAggregateBucketValueTimeseriesPoint,
   RUMAggregateRequest: RUMAggregateRequest,
@@ -3940,6 +3987,9 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUserTeamUserData: RelationshipToUserTeamUserData,
   RelationshipToUsers: RelationshipToUsers,
   Remediation: Remediation,
+  RemoveFieldsProcessor: RemoveFieldsProcessor,
+  RenameFieldsProcessor: RenameFieldsProcessor,
+  RenameFieldsProcessorFieldsItems: RenameFieldsProcessorFieldsItems,
   ReorderRetentionFiltersRequest: ReorderRetentionFiltersRequest,
   ResponseMetaAttributes: ResponseMetaAttributes,
   RestrictionPolicy: RestrictionPolicy,
@@ -4362,6 +4412,7 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponse: TimeseriesResponse,
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
+  Tls: Tls,
   TriggerRateLimit: TriggerRateLimit,
   Unit: Unit,
   UnpublishAppResponse: UnpublishAppResponse,
@@ -4625,6 +4676,19 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorConfigPolicyPolicy: ["MonitorConfigPolicyTagPolicy"],
   MonitorConfigPolicyPolicyCreateRequest: [
     "MonitorConfigPolicyTagPolicyCreateRequest",
+  ],
+  PipelineDataAttributesConfigDestinationsItem: ["DatadogLogsDestination"],
+  PipelineDataAttributesConfigProcessorsItem: [
+    "FilterProcessor",
+    "ParseJSONProcessor",
+    "QuotaProcessor",
+    "AddFieldsProcessor",
+    "RemoveFieldsProcessor",
+    "RenameFieldsProcessor",
+  ],
+  PipelineDataAttributesConfigSourcesItem: [
+    "DatadogAgentSource",
+    "KafkaSource",
   ],
   Query: ["ActionQuery", "DataTransform", "StateVariable"],
   RUMAggregateBucketValue: [
