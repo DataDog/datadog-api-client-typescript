@@ -4970,6 +4970,29 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListTagsResponse",
     },
+    "v2.GetAggregatedConnections": {
+        "from": {
+            "type": "number",
+            "format": "int64",
+            },
+        "to": {
+            "type": "number",
+            "format": "int64",
+            },
+        "groupBy": {
+            "type": "string",
+            "format": "",
+            },
+        "tags": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "SingleAggregatedConnectionResponseArray",
+    },
     "v2.ListOrgConfigs": {
         "operationResponseType": "OrgConfigListResponse",
     },
