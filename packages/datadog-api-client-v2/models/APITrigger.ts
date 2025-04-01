@@ -5,15 +5,20 @@
  */
 import { TriggerRateLimit } from "./TriggerRateLimit";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Trigger a workflow from an API request. The workflow must be published.
- */
+*/
 export class APITrigger {
   /**
    * Defines a rate limit for a trigger.
-   */
+  */
   "rateLimit"?: TriggerRateLimit;
 
   /**
@@ -32,22 +37,48 @@ export class APITrigger {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    rateLimit: {
-      baseName: "rateLimit",
-      type: "TriggerRateLimit",
+    "rateLimit": {
+      "baseName": "rateLimit",
+      "type": "TriggerRateLimit",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return APITrigger.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

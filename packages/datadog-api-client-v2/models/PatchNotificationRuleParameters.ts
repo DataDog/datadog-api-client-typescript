@@ -5,15 +5,20 @@
  */
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Body of the notification rule patch request.
- */
+*/
 export class PatchNotificationRuleParameters {
   /**
    * Data of the notification rule patch request: the rule ID, the rule type, and the rule attributes. All fields are required.
-   */
+  */
   "data"?: PatchNotificationRuleParametersData;
 
   /**
@@ -32,22 +37,48 @@ export class PatchNotificationRuleParameters {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "PatchNotificationRuleParametersData",
+    "data": {
+      "baseName": "data",
+      "type": "PatchNotificationRuleParametersData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PatchNotificationRuleParameters.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

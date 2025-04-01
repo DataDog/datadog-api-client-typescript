@@ -5,15 +5,20 @@
  */
 import { OrgConfigRead } from "./OrgConfigRead";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A response with a single Org Config.
- */
+*/
 export class OrgConfigGetResponse {
   /**
    * A single Org Config.
-   */
+  */
   "data": OrgConfigRead;
 
   /**
@@ -32,23 +37,49 @@ export class OrgConfigGetResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OrgConfigRead",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "OrgConfigRead",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrgConfigGetResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The source of the anonymous assignee.
- */
+*/
 
-export type IncidentTodoAnonymousAssigneeSource =
-  | typeof SLACK
-  | typeof MICROSOFT_TEAMS
-  | UnparsedObject;
-export const SLACK = "slack";
-export const MICROSOFT_TEAMS = "microsoft_teams";
+export type IncidentTodoAnonymousAssigneeSource = typeof SLACK| typeof MICROSOFT_TEAMS | UnparsedObject;
+export const SLACK = 'slack';
+export const MICROSOFT_TEAMS = 'microsoft_teams';

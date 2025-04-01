@@ -5,20 +5,25 @@
  */
 import { SyntheticsTiming } from "./SyntheticsTiming";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Result of the last API test run.
- */
+*/
 export class SyntheticsAPITestResultShortResult {
   /**
    * Describes if the test run has passed or failed.
-   */
+  */
   "passed"?: boolean;
   /**
    * Object containing all metrics and their values collected for a Synthetic API test.
    * See the [Synthetic Monitoring Metrics documentation](https://docs.datadoghq.com/synthetics/metrics/).
-   */
+  */
   "timings"?: SyntheticsTiming;
 
   /**
@@ -37,26 +42,52 @@ export class SyntheticsAPITestResultShortResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    passed: {
-      baseName: "passed",
-      type: "boolean",
+    "passed": {
+      "baseName": "passed",
+      "type": "boolean",
     },
-    timings: {
-      baseName: "timings",
-      type: "SyntheticsTiming",
+    "timings": {
+      "baseName": "timings",
+      "type": "SyntheticsTiming",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsAPITestResultShortResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of Entity V3 Service Kind object.
- */
+*/
 
 export type EntityV3ServiceKind = typeof SERVICE | UnparsedObject;
-export const SERVICE = "service";
+export const SERVICE = 'service';

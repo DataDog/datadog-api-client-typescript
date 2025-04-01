@@ -5,15 +5,20 @@
  */
 import { ToplistWidgetFlatType } from "./ToplistWidgetFlatType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Top list widget flat display.
- */
+*/
 export class ToplistWidgetFlat {
   /**
    * Top list widget flat display type.
-   */
+  */
   "type": ToplistWidgetFlatType;
 
   /**
@@ -32,23 +37,49 @@ export class ToplistWidgetFlat {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "ToplistWidgetFlatType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ToplistWidgetFlatType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ToplistWidgetFlat.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

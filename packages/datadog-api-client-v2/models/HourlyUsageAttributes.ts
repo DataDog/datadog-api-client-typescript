@@ -5,43 +5,48 @@
  */
 import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of hourly usage for a product family for an org for a time period.
- */
+*/
 export class HourlyUsageAttributes {
   /**
    * The account name.
-   */
+  */
   "accountName"?: string;
   /**
    * The account public ID.
-   */
+  */
   "accountPublicId"?: string;
   /**
    * List of the measured usage values for the product family for the org for the time period.
-   */
+  */
   "measurements"?: Array<HourlyUsageMeasurement>;
   /**
    * The organization name.
-   */
+  */
   "orgName"?: string;
   /**
    * The product for which usage is being reported.
-   */
+  */
   "productFamily"?: string;
   /**
    * The organization public ID.
-   */
+  */
   "publicId"?: string;
   /**
    * The region of the Datadog instance that the organization belongs to.
-   */
+  */
   "region"?: string;
   /**
    * Datetime in ISO-8601 format, UTC. The hour for the usage.
-   */
+  */
   "timestamp"?: Date;
 
   /**
@@ -60,51 +65,77 @@ export class HourlyUsageAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountName: {
-      baseName: "account_name",
-      type: "string",
+    "accountName": {
+      "baseName": "account_name",
+      "type": "string",
     },
-    accountPublicId: {
-      baseName: "account_public_id",
-      type: "string",
+    "accountPublicId": {
+      "baseName": "account_public_id",
+      "type": "string",
     },
-    measurements: {
-      baseName: "measurements",
-      type: "Array<HourlyUsageMeasurement>",
+    "measurements": {
+      "baseName": "measurements",
+      "type": "Array<HourlyUsageMeasurement>",
     },
-    orgName: {
-      baseName: "org_name",
-      type: "string",
+    "orgName": {
+      "baseName": "org_name",
+      "type": "string",
     },
-    productFamily: {
-      baseName: "product_family",
-      type: "string",
+    "productFamily": {
+      "baseName": "product_family",
+      "type": "string",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
     },
-    region: {
-      baseName: "region",
-      type: "string",
+    "region": {
+      "baseName": "region",
+      "type": "string",
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "Date",
-      format: "date-time",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "Date",
+      "format": "date-time",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HourlyUsageAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,35 +6,40 @@
 import { SyntheticsPrivateLocationMetadata } from "./SyntheticsPrivateLocationMetadata";
 import { SyntheticsPrivateLocationSecrets } from "./SyntheticsPrivateLocationSecrets";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing information about the private location to create.
- */
+*/
 export class SyntheticsPrivateLocation {
   /**
    * Description of the private location.
-   */
+  */
   "description": string;
   /**
    * Unique identifier of the private location.
-   */
+  */
   "id"?: string;
   /**
    * Object containing metadata about the private location.
-   */
+  */
   "metadata"?: SyntheticsPrivateLocationMetadata;
   /**
    * Name of the private location.
-   */
+  */
   "name": string;
   /**
    * Secrets for the private location. Only present in the response when creating the private location.
-   */
+  */
   "secrets"?: SyntheticsPrivateLocationSecrets;
   /**
    * Array of tags attached to the private location.
-   */
+  */
   "tags": Array<string>;
 
   /**
@@ -53,45 +58,71 @@ export class SyntheticsPrivateLocation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
+    "description": {
+      "baseName": "description",
+      "type": "string",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "SyntheticsPrivateLocationMetadata",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "SyntheticsPrivateLocationMetadata",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    secrets: {
-      baseName: "secrets",
-      type: "SyntheticsPrivateLocationSecrets",
+    "secrets": {
+      "baseName": "secrets",
+      "type": "SyntheticsPrivateLocationSecrets",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-      required: true,
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsPrivateLocation.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

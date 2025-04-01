@@ -5,35 +5,40 @@
  */
 import { MonitorOverallStates } from "./MonitorOverallStates";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Monitor state for a single group.
- */
+*/
 export class MonitorStateGroup {
   /**
    * Latest timestamp the monitor was in NO_DATA state.
-   */
+  */
   "lastNodataTs"?: number;
   /**
    * Latest timestamp of the notification sent for this monitor group.
-   */
+  */
   "lastNotifiedTs"?: number;
   /**
    * Latest timestamp the monitor group was resolved.
-   */
+  */
   "lastResolvedTs"?: number;
   /**
    * Latest timestamp the monitor group triggered.
-   */
+  */
   "lastTriggeredTs"?: number;
   /**
    * The name of the monitor.
-   */
+  */
   "name"?: string;
   /**
    * The different states your monitor can be in.
-   */
+  */
   "status"?: MonitorOverallStates;
 
   /**
@@ -52,46 +57,72 @@ export class MonitorStateGroup {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lastNodataTs: {
-      baseName: "last_nodata_ts",
-      type: "number",
-      format: "int64",
+    "lastNodataTs": {
+      "baseName": "last_nodata_ts",
+      "type": "number",
+      "format": "int64",
     },
-    lastNotifiedTs: {
-      baseName: "last_notified_ts",
-      type: "number",
-      format: "int64",
+    "lastNotifiedTs": {
+      "baseName": "last_notified_ts",
+      "type": "number",
+      "format": "int64",
     },
-    lastResolvedTs: {
-      baseName: "last_resolved_ts",
-      type: "number",
-      format: "int64",
+    "lastResolvedTs": {
+      "baseName": "last_resolved_ts",
+      "type": "number",
+      "format": "int64",
     },
-    lastTriggeredTs: {
-      baseName: "last_triggered_ts",
-      type: "number",
-      format: "int64",
+    "lastTriggeredTs": {
+      "baseName": "last_triggered_ts",
+      "type": "number",
+      "format": "int64",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "MonitorOverallStates",
+    "status": {
+      "baseName": "status",
+      "type": "MonitorOverallStates",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorStateGroup.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

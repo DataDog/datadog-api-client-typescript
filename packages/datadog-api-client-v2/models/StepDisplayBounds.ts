@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `StepDisplayBounds` object.
- */
+*/
 export class StepDisplayBounds {
   /**
    * The `bounds` `x`.
-   */
+  */
   "x"?: number;
   /**
    * The `bounds` `y`.
-   */
+  */
   "y"?: number;
 
   /**
@@ -35,28 +40,54 @@ export class StepDisplayBounds {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    x: {
-      baseName: "x",
-      type: "number",
-      format: "double",
+    "x": {
+      "baseName": "x",
+      "type": "number",
+      "format": "double",
     },
-    y: {
-      baseName: "y",
-      type: "number",
-      format: "double",
+    "y": {
+      "baseName": "y",
+      "type": "number",
+      "format": "double",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StepDisplayBounds.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

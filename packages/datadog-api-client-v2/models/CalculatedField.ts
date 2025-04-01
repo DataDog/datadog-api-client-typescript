@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Calculated field.
- */
+*/
 export class CalculatedField {
   /**
    * Expression.
-   */
+  */
   "expression": string;
   /**
    * Field name.
-   */
+  */
   "name": string;
 
   /**
@@ -35,28 +40,54 @@ export class CalculatedField {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    expression: {
-      baseName: "expression",
-      type: "string",
-      required: true,
+    "expression": {
+      "baseName": "expression",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CalculatedField.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

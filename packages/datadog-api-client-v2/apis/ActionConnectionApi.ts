@@ -1,20 +1,18 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+  HttpFile
+  } from "../../datadog-api-client-common/http/http";
+
+import FormData from "form-data";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+
 
 import { CreateActionConnectionRequest } from "../models/CreateActionConnectionRequest";
 import { CreateActionConnectionResponse } from "../models/CreateActionConnectionResponse";
@@ -24,31 +22,26 @@ import { UpdateActionConnectionRequest } from "../models/UpdateActionConnectionR
 import { UpdateActionConnectionResponse } from "../models/UpdateActionConnectionResponse";
 
 export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
-  public async createActionConnection(
-    body: CreateActionConnectionRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createActionConnection(body: CreateActionConnectionRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createActionConnection");
+      throw new RequiredError('body', 'createActionConnection');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/actions/connections";
+    const localVarPath = '/api/v2/actions/connections';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ActionConnectionApi.createActionConnection")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.ActionConnectionApi.createActionConnection').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreateActionConnectionRequest", ""),
@@ -57,114 +50,82 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async deleteActionConnection(
-    connectionId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async deleteActionConnection(connectionId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'connectionId' is not null or undefined
     if (connectionId === null || connectionId === undefined) {
-      throw new RequiredError("connectionId", "deleteActionConnection");
+      throw new RequiredError('connectionId', 'deleteActionConnection');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/actions/connections/{connection_id}".replace(
-      "{connection_id}",
-      encodeURIComponent(String(connectionId))
-    );
+    const localVarPath = '/api/v2/actions/connections/{connection_id}'
+      .replace('{connection_id}', encodeURIComponent(String(connectionId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ActionConnectionApi.deleteActionConnection")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.ActionConnectionApi.deleteActionConnection').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async getActionConnection(
-    connectionId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getActionConnection(connectionId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'connectionId' is not null or undefined
     if (connectionId === null || connectionId === undefined) {
-      throw new RequiredError("connectionId", "getActionConnection");
+      throw new RequiredError('connectionId', 'getActionConnection');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/actions/connections/{connection_id}".replace(
-      "{connection_id}",
-      encodeURIComponent(String(connectionId))
-    );
+    const localVarPath = '/api/v2/actions/connections/{connection_id}'
+      .replace('{connection_id}', encodeURIComponent(String(connectionId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ActionConnectionApi.getActionConnection")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.ActionConnectionApi.getActionConnection').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async updateActionConnection(
-    connectionId: string,
-    body: UpdateActionConnectionRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async updateActionConnection(connectionId: string,body: UpdateActionConnectionRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'connectionId' is not null or undefined
     if (connectionId === null || connectionId === undefined) {
-      throw new RequiredError("connectionId", "updateActionConnection");
+      throw new RequiredError('connectionId', 'updateActionConnection');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateActionConnection");
+      throw new RequiredError('body', 'updateActionConnection');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/actions/connections/{connection_id}".replace(
-      "{connection_id}",
-      encodeURIComponent(String(connectionId))
-    );
+    const localVarPath = '/api/v2/actions/connections/{connection_id}'
+      .replace('{connection_id}', encodeURIComponent(String(connectionId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ActionConnectionApi.updateActionConnection")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config.getServer('v2.ActionConnectionApi.updateActionConnection').makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UpdateActionConnectionRequest", ""),
@@ -173,16 +134,14 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 }
 
 export class ActionConnectionApiResponseProcessor {
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -190,12 +149,8 @@ export class ActionConnectionApiResponseProcessor {
    * @params response Response returned by the server for a request to createActionConnection
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createActionConnection(
-    response: ResponseContext
-  ): Promise<CreateActionConnectionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createActionConnection(response: ResponseContext): Promise<CreateActionConnectionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: CreateActionConnectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -203,15 +158,8 @@ export class ActionConnectionApiResponseProcessor {
       ) as CreateActionConnectionResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -220,32 +168,22 @@ export class ActionConnectionApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreateActionConnectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "CreateActionConnectionResponse",
-        ""
+        "CreateActionConnectionResponse", ""
       ) as CreateActionConnectionResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -255,24 +193,13 @@ export class ActionConnectionApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteActionConnection
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteActionConnection(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteActionConnection(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -281,32 +208,22 @@ export class ActionConnectionApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
+        "void", ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -316,12 +233,8 @@ export class ActionConnectionApiResponseProcessor {
    * @params response Response returned by the server for a request to getActionConnection
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getActionConnection(
-    response: ResponseContext
-  ): Promise<GetActionConnectionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getActionConnection(response: ResponseContext): Promise<GetActionConnectionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: GetActionConnectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -329,16 +242,8 @@ export class ActionConnectionApiResponseProcessor {
       ) as GetActionConnectionResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -347,32 +252,22 @@ export class ActionConnectionApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GetActionConnectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetActionConnectionResponse",
-        ""
+        "GetActionConnectionResponse", ""
       ) as GetActionConnectionResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -382,12 +277,8 @@ export class ActionConnectionApiResponseProcessor {
    * @params response Response returned by the server for a request to updateActionConnection
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateActionConnection(
-    response: ResponseContext
-  ): Promise<UpdateActionConnectionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateActionConnection(response: ResponseContext): Promise<UpdateActionConnectionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UpdateActionConnectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -395,16 +286,8 @@ export class ActionConnectionApiResponseProcessor {
       ) as UpdateActionConnectionResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -413,32 +296,22 @@ export class ActionConnectionApiResponseProcessor {
         ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<JSONAPIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UpdateActionConnectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UpdateActionConnectionResponse",
-        ""
+        "UpdateActionConnectionResponse", ""
       ) as UpdateActionConnectionResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -446,7 +319,7 @@ export interface ActionConnectionApiCreateActionConnectionRequest {
   /**
    * @type CreateActionConnectionRequest
    */
-  body: CreateActionConnectionRequest;
+  body: CreateActionConnectionRequest
 }
 
 export interface ActionConnectionApiDeleteActionConnectionRequest {
@@ -454,7 +327,7 @@ export interface ActionConnectionApiDeleteActionConnectionRequest {
    * The ID of the action connection
    * @type string
    */
-  connectionId: string;
+  connectionId: string
 }
 
 export interface ActionConnectionApiGetActionConnectionRequest {
@@ -462,7 +335,7 @@ export interface ActionConnectionApiGetActionConnectionRequest {
    * The ID of the action connection
    * @type string
    */
-  connectionId: string;
+  connectionId: string
 }
 
 export interface ActionConnectionApiUpdateActionConnectionRequest {
@@ -470,12 +343,12 @@ export interface ActionConnectionApiUpdateActionConnectionRequest {
    * The ID of the action connection
    * @type string
    */
-  connectionId: string;
+  connectionId: string
   /**
    * Update an existing Action Connection request body
    * @type UpdateActionConnectionRequest
    */
-  body: UpdateActionConnectionRequest;
+  body: UpdateActionConnectionRequest
 }
 
 export class ActionConnectionApi {
@@ -483,35 +356,21 @@ export class ActionConnectionApi {
   private responseProcessor: ActionConnectionApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: ActionConnectionApiRequestFactory,
-    responseProcessor?: ActionConnectionApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: ActionConnectionApiRequestFactory, responseProcessor?: ActionConnectionApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new ActionConnectionApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new ActionConnectionApiResponseProcessor();
+    this.requestFactory = requestFactory || new ActionConnectionApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new ActionConnectionApiResponseProcessor();
   }
 
   /**
    * Create a new Action Connection
    * @param param The request object
    */
-  public createActionConnection(
-    param: ActionConnectionApiCreateActionConnectionRequest,
-    options?: Configuration
-  ): Promise<CreateActionConnectionResponse> {
-    const requestContextPromise = this.requestFactory.createActionConnection(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createActionConnection(responseContext);
+  public createActionConnection(param: ActionConnectionApiCreateActionConnectionRequest, options?: Configuration): Promise<CreateActionConnectionResponse> {
+    const requestContextPromise = this.requestFactory.createActionConnection(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createActionConnection(responseContext);
         });
     });
   }
@@ -520,19 +379,11 @@ export class ActionConnectionApi {
    * Delete an existing Action Connection
    * @param param The request object
    */
-  public deleteActionConnection(
-    param: ActionConnectionApiDeleteActionConnectionRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteActionConnection(
-      param.connectionId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteActionConnection(responseContext);
+  public deleteActionConnection(param: ActionConnectionApiDeleteActionConnectionRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteActionConnection(param.connectionId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteActionConnection(responseContext);
         });
     });
   }
@@ -541,19 +392,11 @@ export class ActionConnectionApi {
    * Get an existing Action Connection
    * @param param The request object
    */
-  public getActionConnection(
-    param: ActionConnectionApiGetActionConnectionRequest,
-    options?: Configuration
-  ): Promise<GetActionConnectionResponse> {
-    const requestContextPromise = this.requestFactory.getActionConnection(
-      param.connectionId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getActionConnection(responseContext);
+  public getActionConnection(param: ActionConnectionApiGetActionConnectionRequest, options?: Configuration): Promise<GetActionConnectionResponse> {
+    const requestContextPromise = this.requestFactory.getActionConnection(param.connectionId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getActionConnection(responseContext);
         });
     });
   }
@@ -562,20 +405,11 @@ export class ActionConnectionApi {
    * Update an existing Action Connection
    * @param param The request object
    */
-  public updateActionConnection(
-    param: ActionConnectionApiUpdateActionConnectionRequest,
-    options?: Configuration
-  ): Promise<UpdateActionConnectionResponse> {
-    const requestContextPromise = this.requestFactory.updateActionConnection(
-      param.connectionId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateActionConnection(responseContext);
+  public updateActionConnection(param: ActionConnectionApiUpdateActionConnectionRequest, options?: Configuration): Promise<UpdateActionConnectionResponse> {
+    const requestContextPromise = this.requestFactory.updateActionConnection(param.connectionId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateActionConnection(responseContext);
         });
     });
   }

@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Included related entity meta.
- */
+*/
 export class EntityResponseIncludedRelatedEntityMeta {
   /**
    * Entity creation time.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Entity relation defined by.
-   */
+  */
   "definedBy"?: string;
   /**
    * Entity modification time.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * Entity relation source.
-   */
+  */
   "source"?: string;
 
   /**
@@ -43,36 +48,62 @@ export class EntityResponseIncludedRelatedEntityMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "createdAt",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "createdAt",
+      "type": "Date",
+      "format": "date-time",
     },
-    definedBy: {
-      baseName: "defined_by",
-      type: "string",
+    "definedBy": {
+      "baseName": "defined_by",
+      "type": "string",
     },
-    modifiedAt: {
-      baseName: "modifiedAt",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modifiedAt",
+      "type": "Date",
+      "format": "date-time",
     },
-    source: {
-      baseName: "source",
-      type: "string",
+    "source": {
+      "baseName": "source",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseIncludedRelatedEntityMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

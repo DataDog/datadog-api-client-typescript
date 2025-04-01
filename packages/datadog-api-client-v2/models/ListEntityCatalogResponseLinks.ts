@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List entity response links.
- */
+*/
 export class ListEntityCatalogResponseLinks {
   /**
    * Next link.
-   */
+  */
   "next"?: string;
   /**
    * Previous link.
-   */
+  */
   "previous"?: string;
   /**
    * Current link.
-   */
+  */
   "self"?: string;
 
   /**
@@ -39,30 +44,56 @@ export class ListEntityCatalogResponseLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    next: {
-      baseName: "next",
-      type: "string",
+    "next": {
+      "baseName": "next",
+      "type": "string",
     },
-    previous: {
-      baseName: "previous",
-      type: "string",
+    "previous": {
+      "baseName": "previous",
+      "type": "string",
     },
-    self: {
-      baseName: "self",
-      type: "string",
+    "self": {
+      "baseName": "self",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListEntityCatalogResponseLinks.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

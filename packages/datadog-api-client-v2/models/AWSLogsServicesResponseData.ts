@@ -6,23 +6,28 @@
 import { AWSLogsServicesResponseAttributes } from "./AWSLogsServicesResponseAttributes";
 import { AWSLogsServicesResponseDataType } from "./AWSLogsServicesResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS Logs Services response body
- */
+*/
 export class AWSLogsServicesResponseData {
   /**
    * AWS Logs Services response body
-   */
+  */
   "attributes"?: AWSLogsServicesResponseAttributes;
   /**
    * The `AWSLogsServicesResponseData` `id`.
-   */
+  */
   "id": string;
   /**
    * The `AWSLogsServicesResponseData` `type`.
-   */
+  */
   "type": AWSLogsServicesResponseDataType;
 
   /**
@@ -41,32 +46,58 @@ export class AWSLogsServicesResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSLogsServicesResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSLogsServicesResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSLogsServicesResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSLogsServicesResponseDataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSLogsServicesResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

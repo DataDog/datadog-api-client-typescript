@@ -5,15 +5,20 @@
  */
 import { UsageCloudSecurityPostureManagementHour } from "./UsageCloudSecurityPostureManagementHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response containing the Cloud Security Management Pro usage for each hour for a given organization.
- */
+*/
 export class UsageCloudSecurityPostureManagementResponse {
   /**
    * Get hourly usage for Cloud Security Management Pro.
-   */
+  */
   "usage"?: Array<UsageCloudSecurityPostureManagementHour>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageCloudSecurityPostureManagementResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageCloudSecurityPostureManagementHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageCloudSecurityPostureManagementHour>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageCloudSecurityPostureManagementResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

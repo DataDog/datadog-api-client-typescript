@@ -11,67 +11,72 @@ import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Update an existing rule.
- */
+*/
 export class SecurityMonitoringRuleUpdatePayload {
   /**
    * Cases for generating signals.
-   */
+  */
   "cases"?: Array<SecurityMonitoringRuleCase>;
   /**
    * How to generate compliance signals. Useful for cloud_configuration rules only.
-   */
+  */
   "complianceSignalOptions"?: CloudConfigurationRuleComplianceSignalOptions;
   /**
    * Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
-   */
+  */
   "filters"?: Array<SecurityMonitoringFilter>;
   /**
    * Additional grouping to perform on top of the existing groups in the query section. Must be a subset of the existing groups.
-   */
+  */
   "groupSignalsBy"?: Array<string>;
   /**
    * Whether the notifications include the triggering group-by values in their title.
-   */
+  */
   "hasExtendedTitle"?: boolean;
   /**
    * Whether the rule is enabled.
-   */
+  */
   "isEnabled"?: boolean;
   /**
    * Message for generated signals.
-   */
+  */
   "message"?: string;
   /**
    * Name of the rule.
-   */
+  */
   "name"?: string;
   /**
    * Options.
-   */
+  */
   "options"?: SecurityMonitoringRuleOptions;
   /**
    * Queries for selecting logs which are part of the rule.
-   */
+  */
   "queries"?: Array<SecurityMonitoringRuleQuery>;
   /**
    * Reference tables for the rule.
-   */
+  */
   "referenceTables"?: Array<SecurityMonitoringReferenceTable>;
   /**
    * Tags for generated signals.
-   */
+  */
   "tags"?: Array<string>;
   /**
    * Cases for generating signals from third-party rules. Only available for third-party rules.
-   */
+  */
   "thirdPartyCases"?: Array<SecurityMonitoringThirdPartyRuleCase>;
   /**
    * The version of the rule being updated.
-   */
+  */
   "version"?: number;
 
   /**
@@ -90,75 +95,101 @@ export class SecurityMonitoringRuleUpdatePayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cases: {
-      baseName: "cases",
-      type: "Array<SecurityMonitoringRuleCase>",
+    "cases": {
+      "baseName": "cases",
+      "type": "Array<SecurityMonitoringRuleCase>",
     },
-    complianceSignalOptions: {
-      baseName: "complianceSignalOptions",
-      type: "CloudConfigurationRuleComplianceSignalOptions",
+    "complianceSignalOptions": {
+      "baseName": "complianceSignalOptions",
+      "type": "CloudConfigurationRuleComplianceSignalOptions",
     },
-    filters: {
-      baseName: "filters",
-      type: "Array<SecurityMonitoringFilter>",
+    "filters": {
+      "baseName": "filters",
+      "type": "Array<SecurityMonitoringFilter>",
     },
-    groupSignalsBy: {
-      baseName: "groupSignalsBy",
-      type: "Array<string>",
+    "groupSignalsBy": {
+      "baseName": "groupSignalsBy",
+      "type": "Array<string>",
     },
-    hasExtendedTitle: {
-      baseName: "hasExtendedTitle",
-      type: "boolean",
+    "hasExtendedTitle": {
+      "baseName": "hasExtendedTitle",
+      "type": "boolean",
     },
-    isEnabled: {
-      baseName: "isEnabled",
-      type: "boolean",
+    "isEnabled": {
+      "baseName": "isEnabled",
+      "type": "boolean",
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    options: {
-      baseName: "options",
-      type: "SecurityMonitoringRuleOptions",
+    "options": {
+      "baseName": "options",
+      "type": "SecurityMonitoringRuleOptions",
     },
-    queries: {
-      baseName: "queries",
-      type: "Array<SecurityMonitoringRuleQuery>",
+    "queries": {
+      "baseName": "queries",
+      "type": "Array<SecurityMonitoringRuleQuery>",
     },
-    referenceTables: {
-      baseName: "referenceTables",
-      type: "Array<SecurityMonitoringReferenceTable>",
+    "referenceTables": {
+      "baseName": "referenceTables",
+      "type": "Array<SecurityMonitoringReferenceTable>",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    thirdPartyCases: {
-      baseName: "thirdPartyCases",
-      type: "Array<SecurityMonitoringThirdPartyRuleCase>",
+    "thirdPartyCases": {
+      "baseName": "thirdPartyCases",
+      "type": "Array<SecurityMonitoringThirdPartyRuleCase>",
     },
-    version: {
-      baseName: "version",
-      type: "number",
-      format: "int32",
+    "version": {
+      "baseName": "version",
+      "type": "number",
+      "format": "int32",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleUpdatePayload.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { NumberFormatUnitCustomType } from "./NumberFormatUnitCustomType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Custom unit.
- */
+*/
 export class NumberFormatUnitCustom {
   /**
    * The label for the custom unit.
-   */
+  */
   "label"?: string;
   /**
    * The type of custom unit.
-   */
+  */
   "type"?: NumberFormatUnitCustomType;
 
   /**
@@ -36,26 +41,52 @@ export class NumberFormatUnitCustom {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    label: {
-      baseName: "label",
-      type: "string",
+    "label": {
+      "baseName": "label",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "NumberFormatUnitCustomType",
+    "type": {
+      "baseName": "type",
+      "type": "NumberFormatUnitCustomType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NumberFormatUnitCustom.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

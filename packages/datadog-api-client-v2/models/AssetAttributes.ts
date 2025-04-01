@@ -8,39 +8,44 @@ import { AssetRisks } from "./AssetRisks";
 import { AssetType } from "./AssetType";
 import { AssetVersion } from "./AssetVersion";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API attributes of the asset.
- */
+*/
 export class AssetAttributes {
   /**
    * Asset architecture.
-   */
+  */
   "arch"?: string;
   /**
    * List of environments where the asset is deployed.
-   */
+  */
   "environments": Array<string>;
   /**
    * Asset name.
-   */
+  */
   "name": string;
   /**
    * Asset operating system.
-   */
+  */
   "operatingSystem"?: AssetOperatingSystem;
   /**
    * Asset risks.
-   */
+  */
   "risks": AssetRisks;
   /**
    * The asset type
-   */
+  */
   "type": AssetType;
   /**
    * Asset version.
-   */
+  */
   "version"?: AssetVersion;
 
   /**
@@ -59,50 +64,76 @@ export class AssetAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    arch: {
-      baseName: "arch",
-      type: "string",
+    "arch": {
+      "baseName": "arch",
+      "type": "string",
     },
-    environments: {
-      baseName: "environments",
-      type: "Array<string>",
-      required: true,
+    "environments": {
+      "baseName": "environments",
+      "type": "Array<string>",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    operatingSystem: {
-      baseName: "operating_system",
-      type: "AssetOperatingSystem",
+    "operatingSystem": {
+      "baseName": "operating_system",
+      "type": "AssetOperatingSystem",
     },
-    risks: {
-      baseName: "risks",
-      type: "AssetRisks",
-      required: true,
+    "risks": {
+      "baseName": "risks",
+      "type": "AssetRisks",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AssetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AssetType",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "AssetVersion",
+    "version": {
+      "baseName": "version",
+      "type": "AssetVersion",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AssetAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,24 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
+import { TimeseriesResponseTimesItem } from "./TimeseriesResponseTimesItem";
+import { TimeseriesResponseValues } from "./TimeseriesResponseValues";
+import { TimeseriesResponseValuesItem } from "./TimeseriesResponseValuesItem";
+
+import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+
+
+
 /**
  * The object describing a timeseries response.
- */
+*/
 export class TimeseriesResponseAttributes {
   /**
    * Array of response series. The index here corresponds to the index in the `formulas` or `queries` array from the request.
-   */
+  */
   "series"?: Array<TimeseriesResponseSeries>;
   /**
    * Array of times, 1-1 match with individual values arrays.
-   */
+  */
   "times"?: Array<number>;
   /**
    * Array of value-arrays. The index here corresponds to the index in the `formulas` or `queries` array from the request.
-   */
+  */
   "values"?: Array<Array<number | null>>;
 
   /**
@@ -40,32 +48,58 @@ export class TimeseriesResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    series: {
-      baseName: "series",
-      type: "Array<TimeseriesResponseSeries>",
+    "series": {
+      "baseName": "series",
+      "type": "Array<TimeseriesResponseSeries>",
     },
-    times: {
-      baseName: "times",
-      type: "Array<number>",
-      format: "int64",
+    "times": {
+      "baseName": "times",
+      "type": "Array<number>",
+      "format": "int64",
     },
-    values: {
-      baseName: "values",
-      type: "Array<Array<number>>",
-      format: "double",
+    "values": {
+      "baseName": "values",
+      "type": "Array<Array<number>>",
+      "format": "double",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TimeseriesResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { NotebookResponseData } from "./NotebookResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The description of a notebook response.
- */
+*/
 export class NotebookResponse {
   /**
    * The data for a notebook.
-   */
+  */
   "data"?: NotebookResponseData;
 
   /**
@@ -32,22 +37,48 @@ export class NotebookResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "NotebookResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "NotebookResponseData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotebookResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

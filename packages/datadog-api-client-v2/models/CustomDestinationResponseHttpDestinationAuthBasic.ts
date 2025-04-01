@@ -5,15 +5,20 @@
  */
 import { CustomDestinationResponseHttpDestinationAuthBasicType } from "./CustomDestinationResponseHttpDestinationAuthBasicType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Basic access authentication.
- */
+*/
 export class CustomDestinationResponseHttpDestinationAuthBasic {
   /**
    * Type of the basic access authentication.
-   */
+  */
   "type": CustomDestinationResponseHttpDestinationAuthBasicType;
 
   /**
@@ -32,23 +37,49 @@ export class CustomDestinationResponseHttpDestinationAuthBasic {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "CustomDestinationResponseHttpDestinationAuthBasicType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomDestinationResponseHttpDestinationAuthBasicType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationResponseHttpDestinationAuthBasic.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

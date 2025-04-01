@@ -7,31 +7,36 @@ import { LogQueryDefinitionGroupBy } from "./LogQueryDefinitionGroupBy";
 import { LogQueryDefinitionSearch } from "./LogQueryDefinitionSearch";
 import { LogsQueryCompute } from "./LogsQueryCompute";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The log query.
- */
+*/
 export class LogQueryDefinition {
   /**
    * Define computation for a log query.
-   */
+  */
   "compute"?: LogsQueryCompute;
   /**
    * List of tag prefixes to group by in the case of a cluster check.
-   */
+  */
   "groupBy"?: Array<LogQueryDefinitionGroupBy>;
   /**
    * A coma separated-list of index names. Use "*" query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
-   */
+  */
   "index"?: string;
   /**
    * This field is mutually exclusive with `compute`.
-   */
+  */
   "multiCompute"?: Array<LogsQueryCompute>;
   /**
    * The query being made on the logs.
-   */
+  */
   "search"?: LogQueryDefinitionSearch;
 
   /**
@@ -50,38 +55,64 @@ export class LogQueryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "LogsQueryCompute",
+    "compute": {
+      "baseName": "compute",
+      "type": "LogsQueryCompute",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<LogQueryDefinitionGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<LogQueryDefinitionGroupBy>",
     },
-    index: {
-      baseName: "index",
-      type: "string",
+    "index": {
+      "baseName": "index",
+      "type": "string",
     },
-    multiCompute: {
-      baseName: "multi_compute",
-      type: "Array<LogsQueryCompute>",
+    "multiCompute": {
+      "baseName": "multi_compute",
+      "type": "Array<LogsQueryCompute>",
     },
-    search: {
-      baseName: "search",
-      type: "LogQueryDefinitionSearch",
+    "search": {
+      "baseName": "search",
+      "type": "LogQueryDefinitionSearch",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogQueryDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

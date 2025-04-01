@@ -8,31 +8,36 @@ import { AppMeta } from "./AppMeta";
 import { ListAppsResponseDataItemsAttributes } from "./ListAppsResponseDataItemsAttributes";
 import { ListAppsResponseDataItemsRelationships } from "./ListAppsResponseDataItemsRelationships";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An app definition object. This contains only basic information about the app such as ID, name, and tags.
- */
+*/
 export class ListAppsResponseDataItems {
   /**
    * Basic information about the app such as name, description, and tags.
-   */
+  */
   "attributes": ListAppsResponseDataItemsAttributes;
   /**
    * The ID of the app.
-   */
+  */
   "id": string;
   /**
    * Metadata of an app.
-   */
+  */
   "meta"?: AppMeta;
   /**
    * The app's publication information.
-   */
+  */
   "relationships"?: ListAppsResponseDataItemsRelationships;
   /**
    * The app definition type.
-   */
+  */
   "type": AppDefinitionType;
 
   /**
@@ -51,42 +56,68 @@ export class ListAppsResponseDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ListAppsResponseDataItemsAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ListAppsResponseDataItemsAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
+      "format": "uuid",
     },
-    meta: {
-      baseName: "meta",
-      type: "AppMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "AppMeta",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ListAppsResponseDataItemsRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ListAppsResponseDataItemsRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "AppDefinitionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AppDefinitionType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListAppsResponseDataItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

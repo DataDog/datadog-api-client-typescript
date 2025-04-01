@@ -4,47 +4,52 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Details of a rule.
- */
+*/
 export class RuleAttributes {
   /**
    * The scorecard name to which this rule must belong.
-   */
+  */
   "category"?: string;
   /**
    * Creation time of the rule outcome.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Defines if the rule is a custom rule.
-   */
+  */
   "custom"?: boolean;
   /**
    * Explanation of the rule.
-   */
+  */
   "description"?: string;
   /**
    * If enabled, the rule is calculated as part of the score.
-   */
+  */
   "enabled"?: boolean;
   /**
    * Time of the last rule outcome modification.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * Name of the rule.
-   */
+  */
   "name"?: string;
   /**
    * Owner of the rule.
-   */
+  */
   "owner"?: string;
   /**
    * The scorecard name to which this rule must belong.
-   */
+  */
   "scorecardName"?: string;
 
   /**
@@ -63,56 +68,82 @@ export class RuleAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "string",
+    "category": {
+      "baseName": "category",
+      "type": "string",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    custom: {
-      baseName: "custom",
-      type: "boolean",
+    "custom": {
+      "baseName": "custom",
+      "type": "boolean",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    owner: {
-      baseName: "owner",
-      type: "string",
+    "owner": {
+      "baseName": "owner",
+      "type": "string",
     },
-    scorecardName: {
-      baseName: "scorecard_name",
-      type: "string",
+    "scorecardName": {
+      "baseName": "scorecard_name",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RuleAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

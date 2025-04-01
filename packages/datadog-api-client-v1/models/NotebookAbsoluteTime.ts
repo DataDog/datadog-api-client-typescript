@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Absolute timeframe.
- */
+*/
 export class NotebookAbsoluteTime {
   /**
    * The end time.
-   */
+  */
   "end": Date;
   /**
    * Indicates whether the timeframe should be shifted to end at the current time.
-   */
+  */
   "live"?: boolean;
   /**
    * The start time.
-   */
+  */
   "start": Date;
 
   /**
@@ -39,34 +44,60 @@ export class NotebookAbsoluteTime {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    end: {
-      baseName: "end",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "end": {
+      "baseName": "end",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    live: {
-      baseName: "live",
-      type: "boolean",
+    "live": {
+      "baseName": "live",
+      "type": "boolean",
     },
-    start: {
-      baseName: "start",
-      type: "Date",
-      required: true,
-      format: "date-time",
+    "start": {
+      "baseName": "start",
+      "type": "Date",
+      "required": true,
+      "format": "date-time",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotebookAbsoluteTime.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Include only these services. Defaults to `[]`.
- */
+*/
 export class XRayServicesIncludeOnly {
   /**
    * Include only these services.
-   */
+  */
   "includeOnly": Array<string>;
 
   /**
@@ -31,23 +36,49 @@ export class XRayServicesIncludeOnly {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    includeOnly: {
-      baseName: "include_only",
-      type: "Array<string>",
-      required: true,
+    "includeOnly": {
+      "baseName": "include_only",
+      "type": "Array<string>",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return XRayServicesIncludeOnly.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

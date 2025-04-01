@@ -6,19 +6,24 @@
 import { DashboardInviteType } from "./DashboardInviteType";
 import { SharedDashboardInvitesDataObjectAttributes } from "./SharedDashboardInvitesDataObjectAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the information for an invitation to a shared dashboard.
- */
+*/
 export class SharedDashboardInvitesDataObject {
   /**
    * Attributes of the shared dashboard invitation
-   */
+  */
   "attributes": SharedDashboardInvitesDataObjectAttributes;
   /**
    * Type for shared dashboard invitation request body.
-   */
+  */
   "type": DashboardInviteType;
 
   /**
@@ -37,28 +42,54 @@ export class SharedDashboardInvitesDataObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SharedDashboardInvitesDataObjectAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SharedDashboardInvitesDataObjectAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DashboardInviteType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DashboardInviteType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SharedDashboardInvitesDataObject.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

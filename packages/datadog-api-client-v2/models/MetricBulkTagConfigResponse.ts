@@ -5,16 +5,21 @@
  */
 import { MetricBulkTagConfigStatus } from "./MetricBulkTagConfigStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Wrapper for a single bulk tag configuration status response.
- */
+*/
 export class MetricBulkTagConfigResponse {
   /**
    * The status of a request to bulk configure metric tags.
    * It contains the fields from the original request for reference.
-   */
+  */
   "data"?: MetricBulkTagConfigStatus;
 
   /**
@@ -33,22 +38,48 @@ export class MetricBulkTagConfigResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricBulkTagConfigStatus",
+    "data": {
+      "baseName": "data",
+      "type": "MetricBulkTagConfigStatus",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricBulkTagConfigResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

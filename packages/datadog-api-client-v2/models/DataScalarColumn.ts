@@ -6,27 +6,32 @@
 import { ScalarColumnTypeNumber } from "./ScalarColumnTypeNumber";
 import { ScalarMeta } from "./ScalarMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A column containing the numerical results for a formula or query.
- */
+*/
 export class DataScalarColumn {
   /**
    * Metadata for the resulting numerical values.
-   */
+  */
   "meta"?: ScalarMeta;
   /**
    * The name referencing the formula or query for this column.
-   */
+  */
   "name"?: string;
   /**
    * The type of column present for numbers.
-   */
+  */
   "type"?: ScalarColumnTypeNumber;
   /**
    * The array of numerical values for one formula or query.
-   */
+  */
   "values"?: Array<number | null>;
 
   /**
@@ -45,35 +50,61 @@ export class DataScalarColumn {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    meta: {
-      baseName: "meta",
-      type: "ScalarMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ScalarMeta",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ScalarColumnTypeNumber",
+    "type": {
+      "baseName": "type",
+      "type": "ScalarColumnTypeNumber",
     },
-    values: {
-      baseName: "values",
-      type: "Array<number>",
-      format: "double",
+    "values": {
+      "baseName": "values",
+      "type": "Array<number>",
+      "format": "double",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DataScalarColumn.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Key/Value pair of attributes used for create request.
- */
+*/
 export class AuthNMappingCreateAttributes {
   /**
    * Key portion of a key/value pair of the attribute sent from the Identity Provider.
-   */
+  */
   "attributeKey"?: string;
   /**
    * Value portion of a key/value pair of the attribute sent from the Identity Provider.
-   */
+  */
   "attributeValue"?: string;
 
   /**
@@ -35,26 +40,52 @@ export class AuthNMappingCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributeKey: {
-      baseName: "attribute_key",
-      type: "string",
+    "attributeKey": {
+      "baseName": "attribute_key",
+      "type": "string",
     },
-    attributeValue: {
-      baseName: "attribute_value",
-      type: "string",
+    "attributeValue": {
+      "baseName": "attribute_value",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AuthNMappingCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

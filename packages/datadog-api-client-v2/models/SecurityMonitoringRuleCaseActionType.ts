@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The action type.
- */
+*/
 
-export type SecurityMonitoringRuleCaseActionType =
-  | typeof BLOCK_IP
-  | typeof BLOCK_USER
-  | UnparsedObject;
-export const BLOCK_IP = "block_ip";
-export const BLOCK_USER = "block_user";
+export type SecurityMonitoringRuleCaseActionType = typeof BLOCK_IP| typeof BLOCK_USER | UnparsedObject;
+export const BLOCK_IP = 'block_ip';
+export const BLOCK_USER = 'block_user';

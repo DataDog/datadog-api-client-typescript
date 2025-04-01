@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A list of current AWS services for which Datadog offers automatic log collection.
- */
+*/
 export class AWSLogsServicesRequest {
   /**
    * Your AWS Account ID without dashes.
-   */
+  */
   "accountId": string;
   /**
    * Array of services IDs set to enable automatic log collection. Discover the list of available services with the get list of AWS log ready services API endpoint.
-   */
+  */
   "services": Array<string>;
 
   /**
@@ -35,28 +40,54 @@ export class AWSLogsServicesRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-      required: true,
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
+      "required": true,
     },
-    services: {
-      baseName: "services",
-      type: "Array<string>",
-      required: true,
+    "services": {
+      "baseName": "services",
+      "type": "Array<string>",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSLogsServicesRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

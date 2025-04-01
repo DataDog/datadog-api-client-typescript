@@ -5,19 +5,24 @@
  */
 import { SyntheticsWarningType } from "./SyntheticsWarningType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object collecting warnings for a given step.
- */
+*/
 export class SyntheticsStepDetailWarning {
   /**
    * Message for the warning.
-   */
+  */
   "message": string;
   /**
    * User locator used.
-   */
+  */
   "type": SyntheticsWarningType;
 
   /**
@@ -36,28 +41,54 @@ export class SyntheticsStepDetailWarning {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    message: {
-      baseName: "message",
-      type: "string",
-      required: true,
+    "message": {
+      "baseName": "message",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsWarningType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsWarningType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsStepDetailWarning.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

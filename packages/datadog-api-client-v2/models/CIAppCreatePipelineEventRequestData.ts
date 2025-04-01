@@ -6,19 +6,24 @@
 import { CIAppCreatePipelineEventRequestAttributes } from "./CIAppCreatePipelineEventRequestAttributes";
 import { CIAppCreatePipelineEventRequestDataType } from "./CIAppCreatePipelineEventRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data of the pipeline event to create.
- */
+*/
 export class CIAppCreatePipelineEventRequestData {
   /**
    * Attributes of the pipeline event to create.
-   */
+  */
   "attributes"?: CIAppCreatePipelineEventRequestAttributes;
   /**
    * Type of the event.
-   */
+  */
   "type"?: CIAppCreatePipelineEventRequestDataType;
 
   /**
@@ -37,26 +42,52 @@ export class CIAppCreatePipelineEventRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CIAppCreatePipelineEventRequestAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CIAppCreatePipelineEventRequestAttributes",
     },
-    type: {
-      baseName: "type",
-      type: "CIAppCreatePipelineEventRequestDataType",
+    "type": {
+      "baseName": "type",
+      "type": "CIAppCreatePipelineEventRequestDataType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CIAppCreatePipelineEventRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

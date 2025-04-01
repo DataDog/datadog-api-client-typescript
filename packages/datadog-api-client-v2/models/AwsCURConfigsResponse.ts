@@ -5,15 +5,20 @@
  */
 import { AwsCURConfig } from "./AwsCURConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of AWS CUR configs.
- */
+*/
 export class AwsCURConfigsResponse {
   /**
    * An AWS CUR config.
-   */
+  */
   "data"?: Array<AwsCURConfig>;
 
   /**
@@ -32,22 +37,48 @@ export class AwsCURConfigsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<AwsCURConfig>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<AwsCURConfig>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AwsCURConfigsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

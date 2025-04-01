@@ -7,27 +7,32 @@ import { SensitiveDataScannerRuleAttributes } from "./SensitiveDataScannerRuleAt
 import { SensitiveDataScannerRuleRelationships } from "./SensitiveDataScannerRuleRelationships";
 import { SensitiveDataScannerRuleType } from "./SensitiveDataScannerRuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data related to the update of a rule.
- */
+*/
 export class SensitiveDataScannerRuleUpdate {
   /**
    * Attributes of the Sensitive Data Scanner rule.
-   */
+  */
   "attributes"?: SensitiveDataScannerRuleAttributes;
   /**
    * ID of the rule.
-   */
+  */
   "id"?: string;
   /**
    * Relationships of a scanning rule.
-   */
+  */
   "relationships"?: SensitiveDataScannerRuleRelationships;
   /**
    * Sensitive Data Scanner rule type.
-   */
+  */
   "type"?: SensitiveDataScannerRuleType;
 
   /**
@@ -46,34 +51,60 @@ export class SensitiveDataScannerRuleUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SensitiveDataScannerRuleAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SensitiveDataScannerRuleAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "SensitiveDataScannerRuleRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "SensitiveDataScannerRuleRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "SensitiveDataScannerRuleType",
+    "type": {
+      "baseName": "type",
+      "type": "SensitiveDataScannerRuleType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerRuleUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

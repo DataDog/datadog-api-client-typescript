@@ -5,19 +5,24 @@
  */
 import { RuleType } from "./RuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API relationship to an outcome, which returns the related rule id.
- */
+*/
 export class RelationshipToOutcomeData {
   /**
    * The unique ID for a scorecard rule.
-   */
+  */
   "id"?: string;
   /**
    * The JSON:API type for scorecard rules.
-   */
+  */
   "type"?: RuleType;
 
   /**
@@ -36,26 +41,52 @@ export class RelationshipToOutcomeData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "RuleType",
+    "type": {
+      "baseName": "type",
+      "type": "RuleType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToOutcomeData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

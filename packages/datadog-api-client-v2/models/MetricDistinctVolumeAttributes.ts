@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the definition of a metric's distinct volume.
- */
+*/
 export class MetricDistinctVolumeAttributes {
   /**
    * Distinct volume for the given metric.
-   */
+  */
   "distinctVolume"?: number;
 
   /**
@@ -31,23 +36,49 @@ export class MetricDistinctVolumeAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    distinctVolume: {
-      baseName: "distinct_volume",
-      type: "number",
-      format: "int64",
+    "distinctVolume": {
+      "baseName": "distinct_volume",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricDistinctVolumeAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

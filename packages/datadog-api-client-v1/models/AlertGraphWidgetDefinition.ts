@@ -8,39 +8,44 @@ import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 import { WidgetVizType } from "./WidgetVizType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.
- */
+*/
 export class AlertGraphWidgetDefinition {
   /**
    * ID of the alert to use in the widget.
-   */
+  */
   "alertId": string;
   /**
    * Time setting for the widget.
-   */
+  */
   "time"?: WidgetTime;
   /**
    * The title of the widget.
-   */
+  */
   "title"?: string;
   /**
    * How to align the text on the widget.
-   */
+  */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-   */
+  */
   "titleSize"?: string;
   /**
    * Type of the alert graph widget.
-   */
+  */
   "type": AlertGraphWidgetDefinitionType;
   /**
    * Whether to display the Alert Graph as a timeseries or a top list.
-   */
+  */
   "vizType": WidgetVizType;
 
   /**
@@ -59,49 +64,75 @@ export class AlertGraphWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    alertId: {
-      baseName: "alert_id",
-      type: "string",
-      required: true,
+    "alertId": {
+      "baseName": "alert_id",
+      "type": "string",
+      "required": true,
     },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
+    "time": {
+      "baseName": "time",
+      "type": "WidgetTime",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
+    "titleAlign": {
+      "baseName": "title_align",
+      "type": "WidgetTextAlign",
     },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
+    "titleSize": {
+      "baseName": "title_size",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AlertGraphWidgetDefinitionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AlertGraphWidgetDefinitionType",
+      "required": true,
     },
-    vizType: {
-      baseName: "viz_type",
-      type: "WidgetVizType",
-      required: true,
+    "vizType": {
+      "baseName": "viz_type",
+      "type": "WidgetVizType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AlertGraphWidgetDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

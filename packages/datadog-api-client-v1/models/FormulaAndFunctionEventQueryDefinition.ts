@@ -3,48 +3,54 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CrossOrgUuidsItem } from "./CrossOrgUuidsItem";
 import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunctionEventQueryDefinitionCompute";
 import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
 import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
 import { FormulaAndFunctionEventsDataSource } from "./FormulaAndFunctionEventsDataSource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A formula and functions events query.
- */
+*/
 export class FormulaAndFunctionEventQueryDefinition {
   /**
    * Compute options.
-   */
+  */
   "compute": FormulaAndFunctionEventQueryDefinitionCompute;
   /**
    * The source organization UUID for cross organization queries. Feature in Private Beta.
-   */
+  */
   "crossOrgUuids"?: Array<string>;
   /**
    * Data source for event platform-based queries.
-   */
+  */
   "dataSource": FormulaAndFunctionEventsDataSource;
   /**
    * Group by options.
-   */
+  */
   "groupBy"?: Array<FormulaAndFunctionEventQueryGroupBy>;
   /**
    * An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-   */
+  */
   "indexes"?: Array<string>;
   /**
    * Name of the query for use in formulas.
-   */
+  */
   "name": string;
   /**
    * Search options.
-   */
+  */
   "search"?: FormulaAndFunctionEventQueryDefinitionSearch;
   /**
    * Option for storage location. Feature in Private Beta.
-   */
+  */
   "storage"?: string;
 
   /**
@@ -63,53 +69,79 @@ export class FormulaAndFunctionEventQueryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "FormulaAndFunctionEventQueryDefinitionCompute",
-      required: true,
+    "compute": {
+      "baseName": "compute",
+      "type": "FormulaAndFunctionEventQueryDefinitionCompute",
+      "required": true,
     },
-    crossOrgUuids: {
-      baseName: "cross_org_uuids",
-      type: "Array<string>",
+    "crossOrgUuids": {
+      "baseName": "cross_org_uuids",
+      "type": "Array<string>",
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "FormulaAndFunctionEventsDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "FormulaAndFunctionEventsDataSource",
+      "required": true,
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<FormulaAndFunctionEventQueryGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<FormulaAndFunctionEventQueryGroupBy>",
     },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
+    "indexes": {
+      "baseName": "indexes",
+      "type": "Array<string>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    search: {
-      baseName: "search",
-      type: "FormulaAndFunctionEventQueryDefinitionSearch",
+    "search": {
+      "baseName": "search",
+      "type": "FormulaAndFunctionEventQueryDefinitionSearch",
     },
-    storage: {
-      baseName: "storage",
-      type: "string",
+    "storage": {
+      "baseName": "storage",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FormulaAndFunctionEventQueryDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

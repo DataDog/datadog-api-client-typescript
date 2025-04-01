@@ -9,75 +9,80 @@ import { WidgetSizeFormat } from "./WidgetSizeFormat";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The service summary displays the graphs of a chosen service in your screenboard. Only available on FREE layout dashboards.
- */
+*/
 export class ServiceSummaryWidgetDefinition {
   /**
    * Number of columns to display.
-   */
+  */
   "displayFormat"?: WidgetServiceSummaryDisplayFormat;
   /**
    * APM environment.
-   */
+  */
   "env": string;
   /**
    * APM service.
-   */
+  */
   "service": string;
   /**
    * Whether to show the latency breakdown or not.
-   */
+  */
   "showBreakdown"?: boolean;
   /**
    * Whether to show the latency distribution or not.
-   */
+  */
   "showDistribution"?: boolean;
   /**
    * Whether to show the error metrics or not.
-   */
+  */
   "showErrors"?: boolean;
   /**
    * Whether to show the hits metrics or not.
-   */
+  */
   "showHits"?: boolean;
   /**
    * Whether to show the latency metrics or not.
-   */
+  */
   "showLatency"?: boolean;
   /**
    * Whether to show the resource list or not.
-   */
+  */
   "showResourceList"?: boolean;
   /**
    * Size of the widget.
-   */
+  */
   "sizeFormat"?: WidgetSizeFormat;
   /**
    * APM span name.
-   */
+  */
   "spanName": string;
   /**
    * Time setting for the widget.
-   */
+  */
   "time"?: WidgetTime;
   /**
    * Title of the widget.
-   */
+  */
   "title"?: string;
   /**
    * How to align the text on the widget.
-   */
+  */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-   */
+  */
   "titleSize"?: string;
   /**
    * Type of the service summary widget.
-   */
+  */
   "type": ServiceSummaryWidgetDefinitionType;
 
   /**
@@ -96,86 +101,112 @@ export class ServiceSummaryWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayFormat: {
-      baseName: "display_format",
-      type: "WidgetServiceSummaryDisplayFormat",
+    "displayFormat": {
+      "baseName": "display_format",
+      "type": "WidgetServiceSummaryDisplayFormat",
     },
-    env: {
-      baseName: "env",
-      type: "string",
-      required: true,
+    "env": {
+      "baseName": "env",
+      "type": "string",
+      "required": true,
     },
-    service: {
-      baseName: "service",
-      type: "string",
-      required: true,
+    "service": {
+      "baseName": "service",
+      "type": "string",
+      "required": true,
     },
-    showBreakdown: {
-      baseName: "show_breakdown",
-      type: "boolean",
+    "showBreakdown": {
+      "baseName": "show_breakdown",
+      "type": "boolean",
     },
-    showDistribution: {
-      baseName: "show_distribution",
-      type: "boolean",
+    "showDistribution": {
+      "baseName": "show_distribution",
+      "type": "boolean",
     },
-    showErrors: {
-      baseName: "show_errors",
-      type: "boolean",
+    "showErrors": {
+      "baseName": "show_errors",
+      "type": "boolean",
     },
-    showHits: {
-      baseName: "show_hits",
-      type: "boolean",
+    "showHits": {
+      "baseName": "show_hits",
+      "type": "boolean",
     },
-    showLatency: {
-      baseName: "show_latency",
-      type: "boolean",
+    "showLatency": {
+      "baseName": "show_latency",
+      "type": "boolean",
     },
-    showResourceList: {
-      baseName: "show_resource_list",
-      type: "boolean",
+    "showResourceList": {
+      "baseName": "show_resource_list",
+      "type": "boolean",
     },
-    sizeFormat: {
-      baseName: "size_format",
-      type: "WidgetSizeFormat",
+    "sizeFormat": {
+      "baseName": "size_format",
+      "type": "WidgetSizeFormat",
     },
-    spanName: {
-      baseName: "span_name",
-      type: "string",
-      required: true,
+    "spanName": {
+      "baseName": "span_name",
+      "type": "string",
+      "required": true,
     },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
+    "time": {
+      "baseName": "time",
+      "type": "WidgetTime",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
+    "titleAlign": {
+      "baseName": "title_align",
+      "type": "WidgetTextAlign",
     },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
+    "titleSize": {
+      "baseName": "title_size",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ServiceSummaryWidgetDefinitionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceSummaryWidgetDefinitionType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceSummaryWidgetDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

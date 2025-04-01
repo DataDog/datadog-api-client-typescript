@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The style to apply to the widget.
- */
+*/
 export class GeomapWidgetDefinitionStyle {
   /**
    * The color palette to apply to the widget.
-   */
+  */
   "palette": string;
   /**
    * Whether to flip the palette tones.
-   */
+  */
   "paletteFlip": boolean;
 
   /**
@@ -35,28 +40,54 @@ export class GeomapWidgetDefinitionStyle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    palette: {
-      baseName: "palette",
-      type: "string",
-      required: true,
+    "palette": {
+      "baseName": "palette",
+      "type": "string",
+      "required": true,
     },
-    paletteFlip: {
-      baseName: "palette_flip",
-      type: "boolean",
-      required: true,
+    "paletteFlip": {
+      "baseName": "palette_flip",
+      "type": "boolean",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GeomapWidgetDefinitionStyle.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

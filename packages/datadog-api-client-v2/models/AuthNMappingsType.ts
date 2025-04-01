@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * AuthN Mappings resource type.
- */
+*/
 
 export type AuthNMappingsType = typeof AUTHN_MAPPINGS | UnparsedObject;
-export const AUTHN_MAPPINGS = "authn_mappings";
+export const AUTHN_MAPPINGS = 'authn_mappings';

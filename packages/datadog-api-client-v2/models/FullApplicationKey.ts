@@ -7,27 +7,32 @@ import { ApplicationKeyRelationships } from "./ApplicationKeyRelationships";
 import { ApplicationKeysType } from "./ApplicationKeysType";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Datadog application key.
- */
+*/
 export class FullApplicationKey {
   /**
    * Attributes of a full application key.
-   */
+  */
   "attributes"?: FullApplicationKeyAttributes;
   /**
    * ID of the application key.
-   */
+  */
   "id"?: string;
   /**
    * Resources related to the application key.
-   */
+  */
   "relationships"?: ApplicationKeyRelationships;
   /**
    * Application Keys resource type.
-   */
+  */
   "type"?: ApplicationKeysType;
 
   /**
@@ -46,34 +51,60 @@ export class FullApplicationKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FullApplicationKeyAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FullApplicationKeyAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ApplicationKeyRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ApplicationKeyRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "ApplicationKeysType",
+    "type": {
+      "baseName": "type",
+      "type": "ApplicationKeysType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FullApplicationKey.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

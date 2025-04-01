@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Account type for an Okta account.
- */
+*/
 
 export type OktaAccountType = typeof OKTA_ACCOUNTS | UnparsedObject;
-export const OKTA_ACCOUNTS = "okta-accounts";
+export const OKTA_ACCOUNTS = 'okta-accounts';

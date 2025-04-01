@@ -7,23 +7,28 @@ import { RUMEvent } from "./RUMEvent";
 import { RUMResponseLinks } from "./RUMResponseLinks";
 import { RUMResponseMetadata } from "./RUMResponseMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object with all events matching the request and pagination information.
- */
+*/
 export class RUMEventsResponse {
   /**
    * Array of events matching the request.
-   */
+  */
   "data"?: Array<RUMEvent>;
   /**
    * Links attributes.
-   */
+  */
   "links"?: RUMResponseLinks;
   /**
    * The metadata associated with a request.
-   */
+  */
   "meta"?: RUMResponseMetadata;
 
   /**
@@ -42,30 +47,56 @@ export class RUMEventsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RUMEvent>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<RUMEvent>",
     },
-    links: {
-      baseName: "links",
-      type: "RUMResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "RUMResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "RUMResponseMetadata",
+    "meta": {
+      "baseName": "meta",
+      "type": "RUMResponseMetadata",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RUMEventsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

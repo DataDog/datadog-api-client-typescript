@@ -5,15 +5,20 @@
  */
 import { GCPSTSDelegateAccount } from "./GCPSTSDelegateAccount";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Your delegate service account response data.
- */
+*/
 export class GCPSTSDelegateAccountResponse {
   /**
    * Datadog principal service account info.
-   */
+  */
   "data"?: GCPSTSDelegateAccount;
 
   /**
@@ -32,22 +37,48 @@ export class GCPSTSDelegateAccountResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GCPSTSDelegateAccount",
+    "data": {
+      "baseName": "data",
+      "type": "GCPSTSDelegateAccount",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPSTSDelegateAccountResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

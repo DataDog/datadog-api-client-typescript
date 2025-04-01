@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The spans aggregate bucket type.
- */
+*/
 
 export type SpansAggregateBucketType = typeof BUCKET | UnparsedObject;
-export const BUCKET = "bucket";
+export const BUCKET = 'bucket';

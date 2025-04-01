@@ -4,31 +4,25 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Supported relation types.
- */
+*/
 
-export type RelationType =
-  | typeof RELATIONTYPEOWNS
-  | typeof RELATIONTYPEOWNEDBY
-  | typeof RELATIONTYPEDEPENDSON
-  | typeof RELATIONTYPEDEPENDENCYOF
-  | typeof RELATIONTYPEPARTSOF
-  | typeof RELATIONTYPEHASPART
-  | typeof RELATIONTYPEOTHEROWNS
-  | typeof RELATIONTYPEOTHEROWNEDBY
-  | typeof RELATIONTYPEIMPLEMENTEDBY
-  | typeof RELATIONTYPEIMPLEMENTS
-  | UnparsedObject;
-export const RELATIONTYPEOWNS = "RelationTypeOwns";
-export const RELATIONTYPEOWNEDBY = "RelationTypeOwnedBy";
-export const RELATIONTYPEDEPENDSON = "RelationTypeDependsOn";
-export const RELATIONTYPEDEPENDENCYOF = "RelationTypeDependencyOf";
-export const RELATIONTYPEPARTSOF = "RelationTypePartsOf";
-export const RELATIONTYPEHASPART = "RelationTypeHasPart";
-export const RELATIONTYPEOTHEROWNS = "RelationTypeOtherOwns";
-export const RELATIONTYPEOTHEROWNEDBY = "RelationTypeOtherOwnedBy";
-export const RELATIONTYPEIMPLEMENTEDBY = "RelationTypeImplementedBy";
-export const RELATIONTYPEIMPLEMENTS = "RelationTypeImplements";
+export type RelationType = typeof RELATIONTYPEOWNS| typeof RELATIONTYPEOWNEDBY| typeof RELATIONTYPEDEPENDSON| typeof RELATIONTYPEDEPENDENCYOF| typeof RELATIONTYPEPARTSOF| typeof RELATIONTYPEHASPART| typeof RELATIONTYPEOTHEROWNS| typeof RELATIONTYPEOTHEROWNEDBY| typeof RELATIONTYPEIMPLEMENTEDBY| typeof RELATIONTYPEIMPLEMENTS | UnparsedObject;
+export const RELATIONTYPEOWNS = 'RelationTypeOwns';
+export const RELATIONTYPEOWNEDBY = 'RelationTypeOwnedBy';
+export const RELATIONTYPEDEPENDSON = 'RelationTypeDependsOn';
+export const RELATIONTYPEDEPENDENCYOF = 'RelationTypeDependencyOf';
+export const RELATIONTYPEPARTSOF = 'RelationTypePartsOf';
+export const RELATIONTYPEHASPART = 'RelationTypeHasPart';
+export const RELATIONTYPEOTHEROWNS = 'RelationTypeOtherOwns';
+export const RELATIONTYPEOTHEROWNEDBY = 'RelationTypeOtherOwnedBy';
+export const RELATIONTYPEIMPLEMENTEDBY = 'RelationTypeImplementedBy';
+export const RELATIONTYPEIMPLEMENTS = 'RelationTypeImplements';

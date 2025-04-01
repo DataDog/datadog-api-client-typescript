@@ -7,23 +7,28 @@ import { ContainerImageItem } from "./ContainerImageItem";
 import { ContainerImageMeta } from "./ContainerImageMeta";
 import { ContainerImagesResponseLinks } from "./ContainerImagesResponseLinks";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of Container Images.
- */
+*/
 export class ContainerImagesResponse {
   /**
    * Array of Container Image objects.
-   */
+  */
   "data"?: Array<ContainerImageItem>;
   /**
    * Pagination links.
-   */
+  */
   "links"?: ContainerImagesResponseLinks;
   /**
    * Response metadata object.
-   */
+  */
   "meta"?: ContainerImageMeta;
 
   /**
@@ -42,30 +47,56 @@ export class ContainerImagesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ContainerImageItem>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<ContainerImageItem>",
     },
-    links: {
-      baseName: "links",
-      type: "ContainerImagesResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "ContainerImagesResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "ContainerImageMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ContainerImageMeta",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ContainerImagesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the resource.
- */
+*/
 
-export type ApmRetentionFilterType =
-  | typeof apm_retention_filter
-  | UnparsedObject;
-export const apm_retention_filter = "apm_retention_filter";
+export type ApmRetentionFilterType = typeof apm_retention_filter | UnparsedObject;
+export const apm_retention_filter = 'apm_retention_filter';

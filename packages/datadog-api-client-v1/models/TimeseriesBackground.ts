@@ -6,19 +6,24 @@
 import { TimeseriesBackgroundType } from "./TimeseriesBackgroundType";
 import { WidgetAxis } from "./WidgetAxis";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Set a timeseries on the widget background.
- */
+*/
 export class TimeseriesBackground {
   /**
    * Timeseries is made using an area or bars.
-   */
+  */
   "type": TimeseriesBackgroundType;
   /**
    * Axis controls for the widget.
-   */
+  */
   "yaxis"?: WidgetAxis;
 
   /**
@@ -37,27 +42,53 @@ export class TimeseriesBackground {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "TimeseriesBackgroundType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TimeseriesBackgroundType",
+      "required": true,
     },
-    yaxis: {
-      baseName: "yaxis",
-      type: "WidgetAxis",
+    "yaxis": {
+      "baseName": "yaxis",
+      "type": "WidgetAxis",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TimeseriesBackground.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

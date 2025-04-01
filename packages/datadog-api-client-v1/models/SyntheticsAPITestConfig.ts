@@ -8,31 +8,36 @@ import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration object for a Synthetic API test.
- */
+*/
 export class SyntheticsAPITestConfig {
   /**
    * Array of assertions used for the test. Required for single API tests.
-   */
+  */
   "assertions"?: Array<SyntheticsAssertion>;
   /**
    * Array of variables used for the test.
-   */
+  */
   "configVariables"?: Array<SyntheticsConfigVariable>;
   /**
    * Object describing the Synthetic test request.
-   */
+  */
   "request"?: SyntheticsTestRequest;
   /**
    * When the test subtype is `multi`, the steps of the test.
-   */
+  */
   "steps"?: Array<SyntheticsAPIStep>;
   /**
    * Variables defined from JavaScript code.
-   */
+  */
   "variablesFromScript"?: string;
 
   /**
@@ -51,38 +56,64 @@ export class SyntheticsAPITestConfig {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assertions: {
-      baseName: "assertions",
-      type: "Array<SyntheticsAssertion>",
+    "assertions": {
+      "baseName": "assertions",
+      "type": "Array<SyntheticsAssertion>",
     },
-    configVariables: {
-      baseName: "configVariables",
-      type: "Array<SyntheticsConfigVariable>",
+    "configVariables": {
+      "baseName": "configVariables",
+      "type": "Array<SyntheticsConfigVariable>",
     },
-    request: {
-      baseName: "request",
-      type: "SyntheticsTestRequest",
+    "request": {
+      "baseName": "request",
+      "type": "SyntheticsTestRequest",
     },
-    steps: {
-      baseName: "steps",
-      type: "Array<SyntheticsAPIStep>",
+    "steps": {
+      "baseName": "steps",
+      "type": "Array<SyntheticsAPIStep>",
     },
-    variablesFromScript: {
-      baseName: "variablesFromScript",
-      type: "string",
+    "variablesFromScript": {
+      "baseName": "variablesFromScript",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsAPITestConfig.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

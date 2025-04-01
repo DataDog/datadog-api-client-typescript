@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of Container Image Group.
- */
+*/
 
-export type ContainerImageGroupType =
-  | typeof CONTAINER_IMAGE_GROUP
-  | UnparsedObject;
-export const CONTAINER_IMAGE_GROUP = "container_image_group";
+export type ContainerImageGroupType = typeof CONTAINER_IMAGE_GROUP | UnparsedObject;
+export const CONTAINER_IMAGE_GROUP = 'container_image_group';

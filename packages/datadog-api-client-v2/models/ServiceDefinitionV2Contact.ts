@@ -7,14 +7,15 @@ import { ServiceDefinitionV2Email } from "./ServiceDefinitionV2Email";
 import { ServiceDefinitionV2MSTeams } from "./ServiceDefinitionV2MSTeams";
 import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Service owner's contacts information.
- */
+*/
 
-export type ServiceDefinitionV2Contact =
-  | ServiceDefinitionV2Email
-  | ServiceDefinitionV2Slack
-  | ServiceDefinitionV2MSTeams
-  | UnparsedObject;
+export type ServiceDefinitionV2Contact = ServiceDefinitionV2Email | ServiceDefinitionV2Slack | ServiceDefinitionV2MSTeams | UnparsedObject;

@@ -5,15 +5,20 @@
  */
 import { UsageIoTHour } from "./UsageIoTHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the IoT usage for each hour for a given organization.
- */
+*/
 export class UsageIoTResponse {
   /**
    * Get hourly usage for IoT.
-   */
+  */
   "usage"?: Array<UsageIoTHour>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageIoTResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageIoTHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageIoTHour>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageIoTResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { RelationshipToTeam } from "./RelationshipToTeam";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship of AuthN Mapping to a Team.
- */
+*/
 export class AuthNMappingRelationshipToTeam {
   /**
    * Relationship to team.
-   */
+  */
   "team": RelationshipToTeam;
 
   /**
@@ -32,23 +37,49 @@ export class AuthNMappingRelationshipToTeam {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    team: {
-      baseName: "team",
-      type: "RelationshipToTeam",
-      required: true,
+    "team": {
+      "baseName": "team",
+      "type": "RelationshipToTeam",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AuthNMappingRelationshipToTeam.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

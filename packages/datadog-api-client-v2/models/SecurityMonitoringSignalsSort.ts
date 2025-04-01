@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The sort parameters used for querying security signals.
- */
+*/
 
-export type SecurityMonitoringSignalsSort =
-  | typeof TIMESTAMP_ASCENDING
-  | typeof TIMESTAMP_DESCENDING
-  | UnparsedObject;
-export const TIMESTAMP_ASCENDING = "timestamp";
-export const TIMESTAMP_DESCENDING = "-timestamp";
+export type SecurityMonitoringSignalsSort = typeof TIMESTAMP_ASCENDING| typeof TIMESTAMP_DESCENDING | UnparsedObject;
+export const TIMESTAMP_ASCENDING = 'timestamp';
+export const TIMESTAMP_DESCENDING = '-timestamp';

@@ -5,35 +5,40 @@
  */
 import { BillConfig } from "./BillConfig";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for Azure config Post Request.
- */
+*/
 export class AzureUCConfigPostRequestAttributes {
   /**
    * The tenant ID of the azure account.
-   */
+  */
   "accountId": string;
   /**
    * Bill config.
-   */
+  */
   "actualBillConfig": BillConfig;
   /**
    * Bill config.
-   */
+  */
   "amortizedBillConfig": BillConfig;
   /**
    * The client ID of the azure account.
-   */
+  */
   "clientId": string;
   /**
    * Whether or not the Cloud Cost Management account is enabled.
-   */
+  */
   "isEnabled"?: boolean;
   /**
    * The scope of your observed subscription.
-   */
+  */
   "scope": string;
 
   /**
@@ -52,47 +57,73 @@ export class AzureUCConfigPostRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-      required: true,
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
+      "required": true,
     },
-    actualBillConfig: {
-      baseName: "actual_bill_config",
-      type: "BillConfig",
-      required: true,
+    "actualBillConfig": {
+      "baseName": "actual_bill_config",
+      "type": "BillConfig",
+      "required": true,
     },
-    amortizedBillConfig: {
-      baseName: "amortized_bill_config",
-      type: "BillConfig",
-      required: true,
+    "amortizedBillConfig": {
+      "baseName": "amortized_bill_config",
+      "type": "BillConfig",
+      "required": true,
     },
-    clientId: {
-      baseName: "client_id",
-      type: "string",
-      required: true,
+    "clientId": {
+      "baseName": "client_id",
+      "type": "string",
+      "required": true,
     },
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
+    "isEnabled": {
+      "baseName": "is_enabled",
+      "type": "boolean",
     },
-    scope: {
-      baseName: "scope",
-      type: "string",
-      required: true,
+    "scope": {
+      "baseName": "scope",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AzureUCConfigPostRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

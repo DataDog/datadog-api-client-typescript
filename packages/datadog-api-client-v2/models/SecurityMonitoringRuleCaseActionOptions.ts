@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for the rule action
- */
+*/
 export class SecurityMonitoringRuleCaseActionOptions {
   /**
    * Duration of the action in seconds. 0 indicates no expiration.
-   */
+  */
   "duration"?: number;
 
   /**
@@ -31,23 +36,49 @@ export class SecurityMonitoringRuleCaseActionOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    duration: {
-      baseName: "duration",
-      type: "number",
-      format: "int64",
+    "duration": {
+      "baseName": "duration",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleCaseActionOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

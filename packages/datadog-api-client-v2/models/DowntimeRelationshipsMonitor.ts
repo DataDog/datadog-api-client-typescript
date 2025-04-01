@@ -5,15 +5,20 @@
  */
 import { DowntimeRelationshipsMonitorData } from "./DowntimeRelationshipsMonitorData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The monitor identified by the downtime.
- */
+*/
 export class DowntimeRelationshipsMonitor {
   /**
    * Data for the monitor.
-   */
+  */
   "data"?: DowntimeRelationshipsMonitorData;
 
   /**
@@ -32,22 +37,48 @@ export class DowntimeRelationshipsMonitor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DowntimeRelationshipsMonitorData",
+    "data": {
+      "baseName": "data",
+      "type": "DowntimeRelationshipsMonitorData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DowntimeRelationshipsMonitor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { MetricSearchResponseResults } from "./MetricSearchResponseResults";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the list of metrics matching the search query.
- */
+*/
 export class MetricSearchResponse {
   /**
    * Search result.
-   */
+  */
   "results"?: MetricSearchResponseResults;
 
   /**
@@ -32,22 +37,48 @@ export class MetricSearchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    results: {
-      baseName: "results",
-      type: "MetricSearchResponseResults",
+    "results": {
+      "baseName": "results",
+      "type": "MetricSearchResponseResults",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricSearchResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

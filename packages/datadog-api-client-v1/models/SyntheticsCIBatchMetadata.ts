@@ -6,19 +6,24 @@
 import { SyntheticsCIBatchMetadataCI } from "./SyntheticsCIBatchMetadataCI";
 import { SyntheticsCIBatchMetadataGit } from "./SyntheticsCIBatchMetadataGit";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for the Synthetic tests run.
- */
+*/
 export class SyntheticsCIBatchMetadata {
   /**
    * Description of the CI provider.
-   */
+  */
   "ci"?: SyntheticsCIBatchMetadataCI;
   /**
    * Git information.
-   */
+  */
   "git"?: SyntheticsCIBatchMetadataGit;
 
   /**
@@ -37,26 +42,52 @@ export class SyntheticsCIBatchMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ci: {
-      baseName: "ci",
-      type: "SyntheticsCIBatchMetadataCI",
+    "ci": {
+      "baseName": "ci",
+      "type": "SyntheticsCIBatchMetadataCI",
     },
-    git: {
-      baseName: "git",
-      type: "SyntheticsCIBatchMetadataGit",
+    "git": {
+      "baseName": "git",
+      "type": "SyntheticsCIBatchMetadataGit",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsCIBatchMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

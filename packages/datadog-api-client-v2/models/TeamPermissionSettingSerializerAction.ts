@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The identifier for the action
- */
+*/
 
-export type TeamPermissionSettingSerializerAction =
-  | typeof MANAGE_MEMBERSHIP
-  | typeof EDIT
-  | UnparsedObject;
-export const MANAGE_MEMBERSHIP = "manage_membership";
-export const EDIT = "edit";
+export type TeamPermissionSettingSerializerAction = typeof MANAGE_MEMBERSHIP| typeof EDIT | UnparsedObject;
+export const MANAGE_MEMBERSHIP = 'manage_membership';
+export const EDIT = 'edit';

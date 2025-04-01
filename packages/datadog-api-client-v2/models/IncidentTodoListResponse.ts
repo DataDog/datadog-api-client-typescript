@@ -7,23 +7,28 @@ import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentTodoResponseData } from "./IncidentTodoResponseData";
 import { IncidentTodoResponseIncludedItem } from "./IncidentTodoResponseIncludedItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with a list of incident todos.
- */
+*/
 export class IncidentTodoListResponse {
   /**
    * An array of incident todos.
-   */
+  */
   "data": Array<IncidentTodoResponseData>;
   /**
    * Included related resources that the user requested.
-   */
+  */
   "included"?: Array<IncidentTodoResponseIncludedItem>;
   /**
    * The metadata object containing pagination metadata.
-   */
+  */
   "meta"?: IncidentResponseMeta;
 
   /**
@@ -42,31 +47,57 @@ export class IncidentTodoListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentTodoResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<IncidentTodoResponseData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentTodoResponseIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<IncidentTodoResponseIncludedItem>",
     },
-    meta: {
-      baseName: "meta",
-      type: "IncidentResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "IncidentResponseMeta",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentTodoListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data envelope for `CreateOpenAPIResponse`.
- */
+*/
 export class CreateOpenAPIResponseData {
   /**
    * Attributes for `CreateOpenAPI`.
-   */
+  */
   "attributes"?: CreateOpenAPIResponseAttributes;
   /**
    * API identifier.
-   */
+  */
   "id"?: string;
 
   /**
@@ -36,27 +41,53 @@ export class CreateOpenAPIResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateOpenAPIResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateOpenAPIResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateOpenAPIResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,10 +6,15 @@
 import { Container } from "./Container";
 import { ContainerGroup } from "./ContainerGroup";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Possible Container models.
- */
+*/
 
 export type ContainerItem = Container | ContainerGroup | UnparsedObject;

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Error budget remaining for an SLO.
- */
+*/
 export class SLORawErrorBudgetRemaining {
   /**
    * Error budget remaining unit.
-   */
+  */
   "unit"?: string;
   /**
    * Error budget remaining value.
-   */
+  */
   "value"?: number;
 
   /**
@@ -35,27 +40,53 @@ export class SLORawErrorBudgetRemaining {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    unit: {
-      baseName: "unit",
-      type: "string",
+    "unit": {
+      "baseName": "unit",
+      "type": "string",
     },
-    value: {
-      baseName: "value",
-      type: "number",
-      format: "double",
+    "value": {
+      "baseName": "value",
+      "type": "number",
+      "format": "double",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLORawErrorBudgetRemaining.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

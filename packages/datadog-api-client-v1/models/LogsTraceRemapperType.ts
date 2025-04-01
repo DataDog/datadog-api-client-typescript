@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of logs trace remapper.
- */
+*/
 
 export type LogsTraceRemapperType = typeof TRACE_ID_REMAPPER | UnparsedObject;
-export const TRACE_ID_REMAPPER = "trace-id-remapper";
+export const TRACE_ID_REMAPPER = 'trace-id-remapper';

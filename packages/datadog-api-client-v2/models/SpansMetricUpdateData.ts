@@ -6,19 +6,24 @@
 import { SpansMetricType } from "./SpansMetricType";
 import { SpansMetricUpdateAttributes } from "./SpansMetricUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The new span-based metric properties.
- */
+*/
 export class SpansMetricUpdateData {
   /**
    * The span-based metric properties that will be updated.
-   */
+  */
   "attributes": SpansMetricUpdateAttributes;
   /**
    * The type of resource. The value should always be spans_metrics.
-   */
+  */
   "type": SpansMetricType;
 
   /**
@@ -37,28 +42,54 @@ export class SpansMetricUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SpansMetricUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SpansMetricUpdateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SpansMetricType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SpansMetricType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SpansMetricUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Item in the Microsoft Teams integration metadata teams array.
- */
+*/
 export class MSTeamsIntegrationMetadataTeamsItem {
   /**
    * Microsoft Teams channel ID.
-   */
+  */
   "msChannelId": string;
   /**
    * Microsoft Teams channel name.
-   */
+  */
   "msChannelName": string;
   /**
    * Microsoft Teams tenant ID.
-   */
+  */
   "msTenantId": string;
   /**
    * URL redirecting to the Microsoft Teams channel.
-   */
+  */
   "redirectUrl": string;
 
   /**
@@ -43,38 +48,64 @@ export class MSTeamsIntegrationMetadataTeamsItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    msChannelId: {
-      baseName: "ms_channel_id",
-      type: "string",
-      required: true,
+    "msChannelId": {
+      "baseName": "ms_channel_id",
+      "type": "string",
+      "required": true,
     },
-    msChannelName: {
-      baseName: "ms_channel_name",
-      type: "string",
-      required: true,
+    "msChannelName": {
+      "baseName": "ms_channel_name",
+      "type": "string",
+      "required": true,
     },
-    msTenantId: {
-      baseName: "ms_tenant_id",
-      type: "string",
-      required: true,
+    "msTenantId": {
+      "baseName": "ms_tenant_id",
+      "type": "string",
+      "required": true,
     },
-    redirectUrl: {
-      baseName: "redirect_url",
-      type: "string",
-      required: true,
+    "redirectUrl": {
+      "baseName": "redirect_url",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MSTeamsIntegrationMetadataTeamsItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

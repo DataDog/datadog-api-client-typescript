@@ -6,25 +6,30 @@
 import { AWSAccountResponseAttributes } from "./AWSAccountResponseAttributes";
 import { AWSAccountType } from "./AWSAccountType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS Account response data.
- */
+*/
 export class AWSAccountResponseData {
   /**
    * AWS Account response attributes.
-   */
+  */
   "attributes"?: AWSAccountResponseAttributes;
   /**
    * Unique Datadog ID of the AWS Account Integration Config.
    * To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
    * endpoint and query by AWS Account ID.
-   */
+  */
   "id": string;
   /**
    * AWS Account resource type.
-   */
+  */
   "type": AWSAccountType;
 
   /**
@@ -43,32 +48,58 @@ export class AWSAccountResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AWSAccountResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AWSAccountResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AWSAccountType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AWSAccountType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSAccountResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

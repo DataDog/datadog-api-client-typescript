@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Container Image breakdown by supported platform.
- */
+*/
 export class ContainerImageFlavor {
   /**
    * Time the platform-specific Container Image was built.
-   */
+  */
   "builtAt"?: string;
   /**
    * Operating System architecture supported by the Container Image.
-   */
+  */
   "osArchitecture"?: string;
   /**
    * Operating System name supported by the Container Image.
-   */
+  */
   "osName"?: string;
   /**
    * Operating System version supported by the Container Image.
-   */
+  */
   "osVersion"?: string;
   /**
    * Size of the platform-specific Container Image.
-   */
+  */
   "size"?: number;
 
   /**
@@ -47,39 +52,65 @@ export class ContainerImageFlavor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    builtAt: {
-      baseName: "built_at",
-      type: "string",
+    "builtAt": {
+      "baseName": "built_at",
+      "type": "string",
     },
-    osArchitecture: {
-      baseName: "os_architecture",
-      type: "string",
+    "osArchitecture": {
+      "baseName": "os_architecture",
+      "type": "string",
     },
-    osName: {
-      baseName: "os_name",
-      type: "string",
+    "osName": {
+      "baseName": "os_name",
+      "type": "string",
     },
-    osVersion: {
-      baseName: "os_version",
-      type: "string",
+    "osVersion": {
+      "baseName": "os_version",
+      "type": "string",
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ContainerImageFlavor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

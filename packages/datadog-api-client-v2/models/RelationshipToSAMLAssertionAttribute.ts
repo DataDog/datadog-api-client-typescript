@@ -5,15 +5,20 @@
  */
 import { RelationshipToSAMLAssertionAttributeData } from "./RelationshipToSAMLAssertionAttributeData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AuthN Mapping relationship to SAML Assertion Attribute.
- */
+*/
 export class RelationshipToSAMLAssertionAttribute {
   /**
    * Data of AuthN Mapping relationship to SAML Assertion Attribute.
-   */
+  */
   "data": RelationshipToSAMLAssertionAttributeData;
 
   /**
@@ -32,23 +37,49 @@ export class RelationshipToSAMLAssertionAttribute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RelationshipToSAMLAssertionAttributeData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "RelationshipToSAMLAssertionAttributeData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToSAMLAssertionAttribute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

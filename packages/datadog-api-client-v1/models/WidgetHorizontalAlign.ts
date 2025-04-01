@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Horizontal alignment.
- */
+*/
 
-export type WidgetHorizontalAlign =
-  | typeof CENTER
-  | typeof LEFT
-  | typeof RIGHT
-  | UnparsedObject;
-export const CENTER = "center";
-export const LEFT = "left";
-export const RIGHT = "right";
+export type WidgetHorizontalAlign = typeof CENTER| typeof LEFT| typeof RIGHT | UnparsedObject;
+export const CENTER = 'center';
+export const LEFT = 'left';
+export const RIGHT = 'right';

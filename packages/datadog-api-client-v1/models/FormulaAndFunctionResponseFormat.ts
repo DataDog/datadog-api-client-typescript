@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
- */
+*/
 
-export type FormulaAndFunctionResponseFormat =
-  | typeof TIMESERIES
-  | typeof SCALAR
-  | typeof EVENT_LIST
-  | UnparsedObject;
-export const TIMESERIES = "timeseries";
-export const SCALAR = "scalar";
-export const EVENT_LIST = "event_list";
+export type FormulaAndFunctionResponseFormat = typeof TIMESERIES| typeof SCALAR| typeof EVENT_LIST | UnparsedObject;
+export const TIMESERIES = 'timeseries';
+export const SCALAR = 'scalar';
+export const EVENT_LIST = 'event_list';

@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Composed target for `validatesXPath` operator.
- */
+*/
 export class SyntheticsAssertionXPathTargetTarget {
   /**
    * The specific operator to use on the path.
-   */
+  */
   "operator"?: string;
   /**
    * The path target value to compare to.
-   */
+  */
   "targetValue"?: any;
   /**
    * The X path to assert.
-   */
+  */
   "xPath"?: string;
 
   /**
@@ -39,30 +44,56 @@ export class SyntheticsAssertionXPathTargetTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "string",
+    "operator": {
+      "baseName": "operator",
+      "type": "string",
     },
-    targetValue: {
-      baseName: "targetValue",
-      type: "any",
+    "targetValue": {
+      "baseName": "targetValue",
+      "type": "any",
     },
-    xPath: {
-      baseName: "xPath",
-      type: "string",
+    "xPath": {
+      "baseName": "xPath",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsAssertionXPathTargetTarget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

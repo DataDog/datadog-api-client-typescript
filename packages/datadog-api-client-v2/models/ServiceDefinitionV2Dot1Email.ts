@@ -5,23 +5,28 @@
  */
 import { ServiceDefinitionV2Dot1EmailType } from "./ServiceDefinitionV2Dot1EmailType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Service owner's email.
- */
+*/
 export class ServiceDefinitionV2Dot1Email {
   /**
    * Contact value.
-   */
+  */
   "contact": string;
   /**
    * Contact email.
-   */
+  */
   "name"?: string;
   /**
    * Contact type.
-   */
+  */
   "type": ServiceDefinitionV2Dot1EmailType;
 
   /**
@@ -40,32 +45,58 @@ export class ServiceDefinitionV2Dot1Email {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    contact: {
-      baseName: "contact",
-      type: "string",
-      required: true,
+    "contact": {
+      "baseName": "contact",
+      "type": "string",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ServiceDefinitionV2Dot1EmailType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ServiceDefinitionV2Dot1EmailType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionV2Dot1Email.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

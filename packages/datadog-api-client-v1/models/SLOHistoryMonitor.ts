@@ -5,24 +5,29 @@
  */
 import { SLOHistoryResponseErrorWithType } from "./SLOHistoryResponseErrorWithType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value.
  * This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
- */
+*/
 export class SLOHistoryMonitor {
   /**
    * A mapping of threshold `timeframe` to the remaining error budget.
-   */
-  "errorBudgetRemaining"?: { [key: string]: number };
+  */
+  "errorBudgetRemaining"?: { [key: string]: number; };
   /**
    * An array of error objects returned while querying the history data for the service level objective.
-   */
+  */
   "errors"?: Array<SLOHistoryResponseErrorWithType>;
   /**
    * For groups in a grouped SLO, this is the group name.
-   */
+  */
   "group"?: string;
   /**
    * The state transition history for the monitor. It is represented as
@@ -32,40 +37,40 @@ export class SLOHistoryMonitor {
    * Periods of no data are counted either as uptime or downtime depending on monitor settings.
    * See [SLO documentation](https://docs.datadoghq.com/service_management/service_level_objectives/monitor/#missing-data)
    * for detailed information.
-   */
+  */
   "history"?: Array<[number, number]>;
   /**
    * For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
-   */
+  */
   "monitorModified"?: number;
   /**
    * For `monitor` based SLOs, this describes the type of monitor.
-   */
+  */
   "monitorType"?: string;
   /**
    * For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name.
-   */
+  */
   "name"?: string;
   /**
    * The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp. Use `span_precision` instead.
-   */
+  */
   "precision"?: number;
   /**
    * For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime
    * calculation.
-   */
+  */
   "preview"?: boolean;
   /**
    * The current SLI value of the SLO over the history window.
-   */
+  */
   "sliValue"?: number;
   /**
    * The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp.
-   */
+  */
   "spanPrecision"?: number;
   /**
    * Use `sli_value` instead.
-   */
+  */
   "uptime"?: number;
 
   /**
@@ -84,72 +89,98 @@ export class SLOHistoryMonitor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errorBudgetRemaining: {
-      baseName: "error_budget_remaining",
-      type: "{ [key: string]: number; }",
+    "errorBudgetRemaining": {
+      "baseName": "error_budget_remaining",
+      "type": "{ [key: string]: number; }",
     },
-    errors: {
-      baseName: "errors",
-      type: "Array<SLOHistoryResponseErrorWithType>",
+    "errors": {
+      "baseName": "errors",
+      "type": "Array<SLOHistoryResponseErrorWithType>",
     },
-    group: {
-      baseName: "group",
-      type: "string",
+    "group": {
+      "baseName": "group",
+      "type": "string",
     },
-    history: {
-      baseName: "history",
-      type: "Array<[number, number]>",
-      format: "double",
+    "history": {
+      "baseName": "history",
+      "type": "Array<[number, number]>",
+      "format": "double",
     },
-    monitorModified: {
-      baseName: "monitor_modified",
-      type: "number",
-      format: "int64",
+    "monitorModified": {
+      "baseName": "monitor_modified",
+      "type": "number",
+      "format": "int64",
     },
-    monitorType: {
-      baseName: "monitor_type",
-      type: "string",
+    "monitorType": {
+      "baseName": "monitor_type",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    precision: {
-      baseName: "precision",
-      type: "number",
-      format: "double",
+    "precision": {
+      "baseName": "precision",
+      "type": "number",
+      "format": "double",
     },
-    preview: {
-      baseName: "preview",
-      type: "boolean",
+    "preview": {
+      "baseName": "preview",
+      "type": "boolean",
     },
-    sliValue: {
-      baseName: "sli_value",
-      type: "number",
-      format: "double",
+    "sliValue": {
+      "baseName": "sli_value",
+      "type": "number",
+      "format": "double",
     },
-    spanPrecision: {
-      baseName: "span_precision",
-      type: "number",
-      format: "double",
+    "spanPrecision": {
+      "baseName": "span_precision",
+      "type": "number",
+      "format": "double",
     },
-    uptime: {
-      baseName: "uptime",
-      type: "number",
-      format: "double",
+    "uptime": {
+      "baseName": "uptime",
+      "type": "number",
+      "format": "double",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOHistoryMonitor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,23 +5,28 @@
  */
 import { CompletionConditionOperator } from "./CompletionConditionOperator";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `CompletionCondition` object.
- */
+*/
 export class CompletionCondition {
   /**
    * The `CompletionCondition` `operand1`.
-   */
+  */
   "operand1": any;
   /**
    * The `CompletionCondition` `operand2`.
-   */
+  */
   "operand2"?: any;
   /**
    * The definition of `CompletionConditionOperator` object.
-   */
+  */
   "operator": CompletionConditionOperator;
 
   /**
@@ -40,32 +45,58 @@ export class CompletionCondition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    operand1: {
-      baseName: "operand1",
-      type: "any",
-      required: true,
+    "operand1": {
+      "baseName": "operand1",
+      "type": "any",
+      "required": true,
     },
-    operand2: {
-      baseName: "operand2",
-      type: "any",
+    "operand2": {
+      "baseName": "operand2",
+      "type": "any",
     },
-    operator: {
-      baseName: "operator",
-      type: "CompletionConditionOperator",
-      required: true,
+    "operator": {
+      "baseName": "operator",
+      "type": "CompletionConditionOperator",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CompletionCondition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of logs message remapper.
- */
+*/
 
 export type LogsMessageRemapperType = typeof MESSAGE_REMAPPER | UnparsedObject;
-export const MESSAGE_REMAPPER = "message-remapper";
+export const MESSAGE_REMAPPER = 'message-remapper';

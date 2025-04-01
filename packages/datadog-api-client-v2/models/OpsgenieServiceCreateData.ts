@@ -6,19 +6,24 @@
 import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
 import { OpsgenieServiceType } from "./OpsgenieServiceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Opsgenie service data for a create request.
- */
+*/
 export class OpsgenieServiceCreateData {
   /**
    * The Opsgenie service attributes for a create request.
-   */
+  */
   "attributes": OpsgenieServiceCreateAttributes;
   /**
    * Opsgenie service resource type.
-   */
+  */
   "type": OpsgenieServiceType;
 
   /**
@@ -37,28 +42,54 @@ export class OpsgenieServiceCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OpsgenieServiceCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OpsgenieServiceCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OpsgenieServiceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OpsgenieServiceType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpsgenieServiceCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

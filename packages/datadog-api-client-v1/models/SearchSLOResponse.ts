@@ -7,23 +7,28 @@ import { SearchSLOResponseData } from "./SearchSLOResponseData";
 import { SearchSLOResponseLinks } from "./SearchSLOResponseLinks";
 import { SearchSLOResponseMeta } from "./SearchSLOResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A search SLO response containing results from the search query.
- */
+*/
 export class SearchSLOResponse {
   /**
    * Data from search SLO response.
-   */
+  */
   "data"?: SearchSLOResponseData;
   /**
    * Pagination links.
-   */
+  */
   "links"?: SearchSLOResponseLinks;
   /**
    * Searches metadata returned by the API.
-   */
+  */
   "meta"?: SearchSLOResponseMeta;
 
   /**
@@ -42,30 +47,56 @@ export class SearchSLOResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SearchSLOResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "SearchSLOResponseData",
     },
-    links: {
-      baseName: "links",
-      type: "SearchSLOResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "SearchSLOResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "SearchSLOResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "SearchSLOResponseMeta",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SearchSLOResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

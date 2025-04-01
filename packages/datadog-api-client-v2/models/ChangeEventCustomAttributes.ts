@@ -7,37 +7,42 @@ import { ChangeEventCustomAttributesAuthor } from "./ChangeEventCustomAttributes
 import { ChangeEventCustomAttributesChangedResource } from "./ChangeEventCustomAttributesChangedResource";
 import { ChangeEventCustomAttributesImpactedResourcesItems } from "./ChangeEventCustomAttributesImpactedResourcesItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object representing custom change event attributes.
- */
+*/
 export class ChangeEventCustomAttributes {
   /**
    * Object representing the entity which made the change. Optional field but if provided should include `type` and `name`.
-   */
+  */
   "author"?: ChangeEventCustomAttributesAuthor;
   /**
    * Free form object with information related to the `change` event. Can be arbitrarily nested and contain any valid JSON.
-   */
-  "changeMetadata"?: { [key: string]: any };
+  */
+  "changeMetadata"?: { [key: string]: any; };
   /**
    * Object representing a uniquely identified resource.
-   */
+  */
   "changedResource": ChangeEventCustomAttributesChangedResource;
   /**
    * A list of resources impacted by this change. It is recommended to provide an impacted resource to display
    * the change event at the right location. Only resources of type `service` are supported.
-   */
+  */
   "impactedResources"?: Array<ChangeEventCustomAttributesImpactedResourcesItems>;
   /**
    * Free form object to track new value of the changed resource.
-   */
-  "newValue"?: { [key: string]: any };
+  */
+  "newValue"?: { [key: string]: any; };
   /**
    * Free form object to track previous value of the changed resource.
-   */
-  "prevValue"?: { [key: string]: any };
+  */
+  "prevValue"?: { [key: string]: any; };
 
   /**
    * A container for additional, undeclared properties.
@@ -55,43 +60,69 @@ export class ChangeEventCustomAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    author: {
-      baseName: "author",
-      type: "ChangeEventCustomAttributesAuthor",
+    "author": {
+      "baseName": "author",
+      "type": "ChangeEventCustomAttributesAuthor",
     },
-    changeMetadata: {
-      baseName: "change_metadata",
-      type: "{ [key: string]: any; }",
+    "changeMetadata": {
+      "baseName": "change_metadata",
+      "type": "{ [key: string]: any; }",
     },
-    changedResource: {
-      baseName: "changed_resource",
-      type: "ChangeEventCustomAttributesChangedResource",
-      required: true,
+    "changedResource": {
+      "baseName": "changed_resource",
+      "type": "ChangeEventCustomAttributesChangedResource",
+      "required": true,
     },
-    impactedResources: {
-      baseName: "impacted_resources",
-      type: "Array<ChangeEventCustomAttributesImpactedResourcesItems>",
+    "impactedResources": {
+      "baseName": "impacted_resources",
+      "type": "Array<ChangeEventCustomAttributesImpactedResourcesItems>",
     },
-    newValue: {
-      baseName: "new_value",
-      type: "{ [key: string]: any; }",
+    "newValue": {
+      "baseName": "new_value",
+      "type": "{ [key: string]: any; }",
     },
-    prevValue: {
-      baseName: "prev_value",
-      type: "{ [key: string]: any; }",
+    "prevValue": {
+      "baseName": "prev_value",
+      "type": "{ [key: string]: any; }",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeEventCustomAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

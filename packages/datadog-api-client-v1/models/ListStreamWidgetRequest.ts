@@ -7,23 +7,28 @@ import { ListStreamColumn } from "./ListStreamColumn";
 import { ListStreamQuery } from "./ListStreamQuery";
 import { ListStreamResponseFormat } from "./ListStreamResponseFormat";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Updated list stream widget.
- */
+*/
 export class ListStreamWidgetRequest {
   /**
    * Widget columns.
-   */
+  */
   "columns": Array<ListStreamColumn>;
   /**
    * Updated list stream widget.
-   */
+  */
   "query": ListStreamQuery;
   /**
    * Widget response format.
-   */
+  */
   "responseFormat": ListStreamResponseFormat;
 
   /**
@@ -42,33 +47,59 @@ export class ListStreamWidgetRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<ListStreamColumn>",
-      required: true,
+    "columns": {
+      "baseName": "columns",
+      "type": "Array<ListStreamColumn>",
+      "required": true,
     },
-    query: {
-      baseName: "query",
-      type: "ListStreamQuery",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "ListStreamQuery",
+      "required": true,
     },
-    responseFormat: {
-      baseName: "response_format",
-      type: "ListStreamResponseFormat",
-      required: true,
+    "responseFormat": {
+      "baseName": "response_format",
+      "type": "ListStreamResponseFormat",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListStreamWidgetRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

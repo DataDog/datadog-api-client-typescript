@@ -5,31 +5,36 @@
  */
 import { RumRetentionFilterEventType } from "./RumRetentionFilterEventType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The object describing attributes of a RUM retention filter to create.
- */
+*/
 export class RumRetentionFilterCreateAttributes {
   /**
    * Whether the retention filter is enabled.
-   */
+  */
   "enabled"?: boolean;
   /**
    * The type of RUM events to filter on.
-   */
+  */
   "eventType": RumRetentionFilterEventType;
   /**
    * The name of a RUM retention filter.
-   */
+  */
   "name": string;
   /**
    * The query string for a RUM retention filter.
-   */
+  */
   "query"?: string;
   /**
    * The sample rate for a RUM retention filter, between 0 and 100.
-   */
+  */
   "sampleRate": number;
 
   /**
@@ -48,42 +53,68 @@ export class RumRetentionFilterCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    enabled: {
-      baseName: "enabled",
-      type: "boolean",
+    "enabled": {
+      "baseName": "enabled",
+      "type": "boolean",
     },
-    eventType: {
-      baseName: "event_type",
-      type: "RumRetentionFilterEventType",
-      required: true,
+    "eventType": {
+      "baseName": "event_type",
+      "type": "RumRetentionFilterEventType",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    query: {
-      baseName: "query",
-      type: "string",
+    "query": {
+      "baseName": "query",
+      "type": "string",
     },
-    sampleRate: {
-      baseName: "sample_rate",
-      type: "number",
-      required: true,
-      format: "int64",
+    "sampleRate": {
+      "baseName": "sample_rate",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumRetentionFilterCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

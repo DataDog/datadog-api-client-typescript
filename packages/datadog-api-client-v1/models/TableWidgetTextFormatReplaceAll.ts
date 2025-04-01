@@ -5,19 +5,24 @@
  */
 import { TableWidgetTextFormatReplaceAllType } from "./TableWidgetTextFormatReplaceAllType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Match All definition.
- */
+*/
 export class TableWidgetTextFormatReplaceAll {
   /**
    * Table widget text format replace all type.
-   */
+  */
   "type": TableWidgetTextFormatReplaceAllType;
   /**
    * Replace All type.
-   */
+  */
   "_with": string;
 
   /**
@@ -36,28 +41,54 @@ export class TableWidgetTextFormatReplaceAll {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "TableWidgetTextFormatReplaceAllType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TableWidgetTextFormatReplaceAllType",
+      "required": true,
     },
-    _with: {
-      baseName: "with",
-      type: "string",
-      required: true,
+    "_with": {
+      "baseName": "with",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TableWidgetTextFormatReplaceAll.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the service map widget.
- */
+*/
 
 export type ServiceMapWidgetDefinitionType = typeof SERVICEMAP | UnparsedObject;
-export const SERVICEMAP = "servicemap";
+export const SERVICEMAP = 'servicemap';

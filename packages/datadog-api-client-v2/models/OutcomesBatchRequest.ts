@@ -5,15 +5,20 @@
  */
 import { OutcomesBatchRequestData } from "./OutcomesBatchRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Scorecard outcomes batch request.
- */
+*/
 export class OutcomesBatchRequest {
   /**
    * Scorecard outcomes batch request data.
-   */
+  */
   "data"?: OutcomesBatchRequestData;
 
   /**
@@ -32,22 +37,48 @@ export class OutcomesBatchRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OutcomesBatchRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "OutcomesBatchRequestData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OutcomesBatchRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

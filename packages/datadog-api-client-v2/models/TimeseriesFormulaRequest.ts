@@ -6,19 +6,24 @@
 import { TimeseriesFormulaRequestAttributes } from "./TimeseriesFormulaRequestAttributes";
 import { TimeseriesFormulaRequestType } from "./TimeseriesFormulaRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single timeseries query to be executed.
- */
+*/
 export class TimeseriesFormulaRequest {
   /**
    * The object describing a timeseries formula request.
-   */
+  */
   "attributes": TimeseriesFormulaRequestAttributes;
   /**
    * The type of the resource. The value should always be timeseries_request.
-   */
+  */
   "type": TimeseriesFormulaRequestType;
 
   /**
@@ -37,28 +42,54 @@ export class TimeseriesFormulaRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TimeseriesFormulaRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TimeseriesFormulaRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TimeseriesFormulaRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TimeseriesFormulaRequestType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TimeseriesFormulaRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

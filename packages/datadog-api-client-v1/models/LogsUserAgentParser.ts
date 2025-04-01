@@ -5,36 +5,41 @@
  */
 import { LogsUserAgentParserType } from "./LogsUserAgentParserType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data.
  * It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
- */
+*/
 export class LogsUserAgentParser {
   /**
    * Whether or not the processor is enabled.
-   */
+  */
   "isEnabled"?: boolean;
   /**
    * Define if the source attribute is URL encoded or not.
-   */
+  */
   "isEncoded"?: boolean;
   /**
    * Name of the processor.
-   */
+  */
   "name"?: string;
   /**
    * Array of source attributes.
-   */
+  */
   "sources": Array<string>;
   /**
    * Name of the parent attribute that contains all the extracted details from the `sources`.
-   */
+  */
   "target": string;
   /**
    * Type of logs User-Agent parser.
-   */
+  */
   "type": LogsUserAgentParserType;
 
   /**
@@ -53,45 +58,71 @@ export class LogsUserAgentParser {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
+    "isEnabled": {
+      "baseName": "is_enabled",
+      "type": "boolean",
     },
-    isEncoded: {
-      baseName: "is_encoded",
-      type: "boolean",
+    "isEncoded": {
+      "baseName": "is_encoded",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    sources: {
-      baseName: "sources",
-      type: "Array<string>",
-      required: true,
+    "sources": {
+      "baseName": "sources",
+      "type": "Array<string>",
+      "required": true,
     },
-    target: {
-      baseName: "target",
-      type: "string",
-      required: true,
+    "target": {
+      "baseName": "target",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LogsUserAgentParserType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LogsUserAgentParserType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsUserAgentParser.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

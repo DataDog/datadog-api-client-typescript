@@ -5,39 +5,44 @@
  */
 import { IncidentTodoAssignee } from "./IncidentTodoAssignee";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident todo's attributes.
- */
+*/
 export class IncidentTodoAttributes {
   /**
    * Array of todo assignees.
-   */
+  */
   "assignees": Array<IncidentTodoAssignee>;
   /**
    * Timestamp when the todo was completed.
-   */
+  */
   "completed"?: string;
   /**
    * The follow-up task's content.
-   */
+  */
   "content": string;
   /**
    * Timestamp when the incident todo was created.
-   */
+  */
   "created"?: Date;
   /**
    * Timestamp when the todo should be completed by.
-   */
+  */
   "dueDate"?: string;
   /**
    * UUID of the incident this todo is connected to.
-   */
+  */
   "incidentId"?: string;
   /**
    * Timestamp when the incident todo was last modified.
-   */
+  */
   "modified"?: Date;
 
   /**
@@ -56,50 +61,76 @@ export class IncidentTodoAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignees: {
-      baseName: "assignees",
-      type: "Array<IncidentTodoAssignee>",
-      required: true,
+    "assignees": {
+      "baseName": "assignees",
+      "type": "Array<IncidentTodoAssignee>",
+      "required": true,
     },
-    completed: {
-      baseName: "completed",
-      type: "string",
+    "completed": {
+      "baseName": "completed",
+      "type": "string",
     },
-    content: {
-      baseName: "content",
-      type: "string",
-      required: true,
+    "content": {
+      "baseName": "content",
+      "type": "string",
+      "required": true,
     },
-    created: {
-      baseName: "created",
-      type: "Date",
-      format: "date-time",
+    "created": {
+      "baseName": "created",
+      "type": "Date",
+      "format": "date-time",
     },
-    dueDate: {
-      baseName: "due_date",
-      type: "string",
+    "dueDate": {
+      "baseName": "due_date",
+      "type": "string",
     },
-    incidentId: {
-      baseName: "incident_id",
-      type: "string",
+    "incidentId": {
+      "baseName": "incident_id",
+      "type": "string",
     },
-    modified: {
-      baseName: "modified",
-      type: "Date",
-      format: "date-time",
+    "modified": {
+      "baseName": "modified",
+      "type": "Date",
+      "format": "date-time",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentTodoAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

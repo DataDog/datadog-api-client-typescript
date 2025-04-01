@@ -6,19 +6,24 @@
 import { IncidentAttachmentPostmortemAttachmentType } from "./IncidentAttachmentPostmortemAttachmentType";
 import { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./IncidentAttachmentsPostmortemAttributesAttachmentObject";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes object for a postmortem attachment.
- */
+*/
 export class IncidentAttachmentPostmortemAttributes {
   /**
    * The postmortem attachment.
-   */
+  */
   "attachment": IncidentAttachmentsPostmortemAttributesAttachmentObject;
   /**
    * The type of postmortem attachment attributes.
-   */
+  */
   "attachmentType": IncidentAttachmentPostmortemAttachmentType;
 
   /**
@@ -37,28 +42,54 @@ export class IncidentAttachmentPostmortemAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attachment: {
-      baseName: "attachment",
-      type: "IncidentAttachmentsPostmortemAttributesAttachmentObject",
-      required: true,
+    "attachment": {
+      "baseName": "attachment",
+      "type": "IncidentAttachmentsPostmortemAttributesAttachmentObject",
+      "required": true,
     },
-    attachmentType: {
-      baseName: "attachment_type",
-      type: "IncidentAttachmentPostmortemAttachmentType",
-      required: true,
+    "attachmentType": {
+      "baseName": "attachment_type",
+      "type": "IncidentAttachmentPostmortemAttachmentType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentAttachmentPostmortemAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

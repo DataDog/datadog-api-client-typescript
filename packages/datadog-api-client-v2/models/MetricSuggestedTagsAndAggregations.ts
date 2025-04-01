@@ -6,23 +6,28 @@
 import { MetricActiveConfigurationType } from "./MetricActiveConfigurationType";
 import { MetricSuggestedTagsAttributes } from "./MetricSuggestedTagsAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single metric's actively queried tags and aggregations.
- */
+*/
 export class MetricSuggestedTagsAndAggregations {
   /**
    * Object containing the definition of a metric's actively queried tags and aggregations.
-   */
+  */
   "attributes"?: MetricSuggestedTagsAttributes;
   /**
    * The metric name for this resource.
-   */
+  */
   "id"?: string;
   /**
    * The metric actively queried configuration resource type.
-   */
+  */
   "type"?: MetricActiveConfigurationType;
 
   /**
@@ -41,30 +46,56 @@ export class MetricSuggestedTagsAndAggregations {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MetricSuggestedTagsAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MetricSuggestedTagsAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "MetricActiveConfigurationType",
+    "type": {
+      "baseName": "type",
+      "type": "MetricActiveConfigurationType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricSuggestedTagsAndAggregations.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

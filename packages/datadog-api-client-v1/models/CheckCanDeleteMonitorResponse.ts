@@ -5,20 +5,25 @@
  */
 import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response of monitor IDs that can or can't be safely deleted.
- */
+*/
 export class CheckCanDeleteMonitorResponse {
   /**
    * Wrapper object with the list of monitor IDs.
-   */
+  */
   "data": CheckCanDeleteMonitorResponseData;
   /**
    * A mapping of Monitor ID to strings denoting where it's used.
-   */
-  "errors"?: { [key: string]: Array<string> };
+  */
+  "errors"?: { [key: string]: Array<string>; };
 
   /**
    * A container for additional, undeclared properties.
@@ -36,27 +41,53 @@ export class CheckCanDeleteMonitorResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CheckCanDeleteMonitorResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "CheckCanDeleteMonitorResponseData",
+      "required": true,
     },
-    errors: {
-      baseName: "errors",
-      type: "{ [key: string]: Array<string>; }",
+    "errors": {
+      "baseName": "errors",
+      "type": "{ [key: string]: Array<string>; }",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CheckCanDeleteMonitorResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

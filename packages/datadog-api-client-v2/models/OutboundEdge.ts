@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `OutboundEdge` object.
- */
+*/
 export class OutboundEdge {
   /**
    * The `OutboundEdge` `branchName`.
-   */
+  */
   "branchName": string;
   /**
    * The `OutboundEdge` `nextStepName`.
-   */
+  */
   "nextStepName": string;
 
   /**
@@ -35,28 +40,54 @@ export class OutboundEdge {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    branchName: {
-      baseName: "branchName",
-      type: "string",
-      required: true,
+    "branchName": {
+      "baseName": "branchName",
+      "type": "string",
+      "required": true,
     },
-    nextStepName: {
-      baseName: "nextStepName",
-      type: "string",
-      required: true,
+    "nextStepName": {
+      "baseName": "nextStepName",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OutboundEdge.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

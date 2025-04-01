@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Information about a single test run.
- */
+*/
 export class SyntheticsTriggerCITestRunResult {
   /**
    * The device ID.
-   */
+  */
   "device"?: string;
   /**
    * The location ID of the test run.
-   */
+  */
   "location"?: number;
   /**
    * The public ID of the Synthetic test.
-   */
+  */
   "publicId"?: string;
   /**
    * ID of the result.
-   */
+  */
   "resultId"?: string;
 
   /**
@@ -43,35 +48,61 @@ export class SyntheticsTriggerCITestRunResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    device: {
-      baseName: "device",
-      type: "string",
+    "device": {
+      "baseName": "device",
+      "type": "string",
     },
-    location: {
-      baseName: "location",
-      type: "number",
-      format: "int64",
+    "location": {
+      "baseName": "location",
+      "type": "number",
+      "format": "int64",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
     },
-    resultId: {
-      baseName: "result_id",
-      type: "string",
+    "resultId": {
+      "baseName": "result_id",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTriggerCITestRunResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

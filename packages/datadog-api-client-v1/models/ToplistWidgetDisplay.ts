@@ -6,13 +6,15 @@
 import { ToplistWidgetFlat } from "./ToplistWidgetFlat";
 import { ToplistWidgetStacked } from "./ToplistWidgetStacked";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Top list widget display options.
- */
+*/
 
-export type ToplistWidgetDisplay =
-  | ToplistWidgetStacked
-  | ToplistWidgetFlat
-  | UnparsedObject;
+export type ToplistWidgetDisplay = ToplistWidgetStacked | ToplistWidgetFlat | UnparsedObject;

@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The interface status
- */
+*/
 
-export type InterfaceAttributesStatus =
-  | typeof UP
-  | typeof DOWN
-  | typeof WARNING
-  | typeof OFF
-  | UnparsedObject;
-export const UP = "up";
-export const DOWN = "down";
-export const WARNING = "warning";
-export const OFF = "off";
+export type InterfaceAttributesStatus = typeof UP| typeof DOWN| typeof WARNING| typeof OFF | UnparsedObject;
+export const UP = 'up';
+export const DOWN = 'down';
+export const WARNING = 'warning';
+export const OFF = 'off';

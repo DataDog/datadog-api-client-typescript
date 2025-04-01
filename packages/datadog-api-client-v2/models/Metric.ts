@@ -5,19 +5,24 @@
  */
 import { MetricType } from "./MetricType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single metric tag configuration.
- */
+*/
 export class Metric {
   /**
    * The metric name for this resource.
-   */
+  */
   "id"?: string;
   /**
    * The metric resource type.
-   */
+  */
   "type"?: MetricType;
 
   /**
@@ -36,26 +41,52 @@ export class Metric {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "MetricType",
+    "type": {
+      "baseName": "type",
+      "type": "MetricType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Metric.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

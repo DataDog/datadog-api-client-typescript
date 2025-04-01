@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of AWS CUR config Patch Request.
- */
+*/
 
-export type AwsCURConfigPatchRequestType =
-  | typeof AWS_CUR_CONFIG_PATCH_REQUEST
-  | UnparsedObject;
-export const AWS_CUR_CONFIG_PATCH_REQUEST = "aws_cur_config_patch_request";
+export type AwsCURConfigPatchRequestType = typeof AWS_CUR_CONFIG_PATCH_REQUEST | UnparsedObject;
+export const AWS_CUR_CONFIG_PATCH_REQUEST = 'aws_cur_config_patch_request';

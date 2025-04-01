@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing token of deleted shared dashboard.
- */
+*/
 export class DeleteSharedDashboardResponse {
   /**
    * Token associated with the shared dashboard that was revoked.
-   */
+  */
   "deletedPublicDashboardToken"?: string;
 
   /**
@@ -31,22 +36,48 @@ export class DeleteSharedDashboardResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    deletedPublicDashboardToken: {
-      baseName: "deleted_public_dashboard_token",
-      type: "string",
+    "deletedPublicDashboardToken": {
+      "baseName": "deleted_public_dashboard_token",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeleteSharedDashboardResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

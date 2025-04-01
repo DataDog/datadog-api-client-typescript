@@ -5,15 +5,20 @@
  */
 import { MetricOrigin } from "./MetricOrigin";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for the metric.
- */
+*/
 export class MetricMetadata {
   /**
    * Metric origin information.
-   */
+  */
   "origin"?: MetricOrigin;
 
   /**
@@ -32,22 +37,48 @@ export class MetricMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    origin: {
-      baseName: "origin",
-      type: "MetricOrigin",
+    "origin": {
+      "baseName": "origin",
+      "type": "MetricOrigin",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

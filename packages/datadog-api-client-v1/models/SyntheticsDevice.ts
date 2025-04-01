@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing the device used to perform the Synthetic test.
- */
+*/
 export class SyntheticsDevice {
   /**
    * Screen height of the device.
-   */
+  */
   "height": number;
   /**
    * The device ID.
-   */
+  */
   "id": string;
   /**
    * Whether or not the device is a mobile.
-   */
+  */
   "isMobile"?: boolean;
   /**
    * The device name.
-   */
+  */
   "name": string;
   /**
    * Screen width of the device.
-   */
+  */
   "width": number;
 
   /**
@@ -47,44 +52,70 @@ export class SyntheticsDevice {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    height: {
-      baseName: "height",
-      type: "number",
-      required: true,
-      format: "int64",
+    "height": {
+      "baseName": "height",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    isMobile: {
-      baseName: "isMobile",
-      type: "boolean",
+    "isMobile": {
+      "baseName": "isMobile",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    width: {
-      baseName: "width",
-      type: "number",
-      required: true,
-      format: "int64",
+    "width": {
+      "baseName": "width",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsDevice.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

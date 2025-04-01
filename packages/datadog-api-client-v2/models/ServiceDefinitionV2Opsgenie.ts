@@ -5,19 +5,24 @@
  */
 import { ServiceDefinitionV2OpsgenieRegion } from "./ServiceDefinitionV2OpsgenieRegion";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Opsgenie integration for the service.
- */
+*/
 export class ServiceDefinitionV2Opsgenie {
   /**
    * Opsgenie instance region.
-   */
+  */
   "region"?: ServiceDefinitionV2OpsgenieRegion;
   /**
    * Opsgenie service url.
-   */
+  */
   "serviceUrl": string;
 
   /**
@@ -36,27 +41,53 @@ export class ServiceDefinitionV2Opsgenie {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    region: {
-      baseName: "region",
-      type: "ServiceDefinitionV2OpsgenieRegion",
+    "region": {
+      "baseName": "region",
+      "type": "ServiceDefinitionV2OpsgenieRegion",
     },
-    serviceUrl: {
-      baseName: "service-url",
-      type: "string",
-      required: true,
+    "serviceUrl": {
+      "baseName": "service-url",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionV2Opsgenie.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

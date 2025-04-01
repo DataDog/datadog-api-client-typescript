@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the Sunburst widget.
- */
+*/
 
 export type SunburstWidgetDefinitionType = typeof SUNBURST | UnparsedObject;
-export const SUNBURST = "sunburst";
+export const SUNBURST = 'sunburst';

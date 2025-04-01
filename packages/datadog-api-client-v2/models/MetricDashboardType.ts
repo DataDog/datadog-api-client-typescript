@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Dashboard resource type.
- */
+*/
 
 export type MetricDashboardType = typeof DASHBOARDS | UnparsedObject;
-export const DASHBOARDS = "dashboards";
+export const DASHBOARDS = 'dashboards';

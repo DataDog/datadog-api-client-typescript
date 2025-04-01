@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object describing the error with error type and error message.
- */
+*/
 export class SLOHistoryResponseErrorWithType {
   /**
    * A message with more details about the error.
-   */
+  */
   "errorMessage": string;
   /**
    * Type of the error.
-   */
+  */
   "errorType": string;
 
   /**
@@ -35,28 +40,54 @@ export class SLOHistoryResponseErrorWithType {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errorMessage: {
-      baseName: "error_message",
-      type: "string",
-      required: true,
+    "errorMessage": {
+      "baseName": "error_message",
+      "type": "string",
+      "required": true,
     },
-    errorType: {
-      baseName: "error_type",
-      type: "string",
-      required: true,
+    "errorType": {
+      "baseName": "error_type",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOHistoryResponseErrorWithType.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

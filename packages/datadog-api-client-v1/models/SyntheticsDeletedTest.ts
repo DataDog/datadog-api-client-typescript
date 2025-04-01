@@ -4,20 +4,25 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing a deleted Synthetic test ID with the associated
  * deletion timestamp.
- */
+*/
 export class SyntheticsDeletedTest {
   /**
    * Deletion timestamp of the Synthetic test ID.
-   */
+  */
   "deletedAt"?: Date;
   /**
    * The Synthetic test ID deleted.
-   */
+  */
   "publicId"?: string;
 
   /**
@@ -36,27 +41,53 @@ export class SyntheticsDeletedTest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    deletedAt: {
-      baseName: "deleted_at",
-      type: "Date",
-      format: "date-time",
+    "deletedAt": {
+      "baseName": "deleted_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsDeletedTest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

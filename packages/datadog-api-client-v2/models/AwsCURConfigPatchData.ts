@@ -6,19 +6,24 @@
 import { AwsCURConfigPatchRequestAttributes } from "./AwsCURConfigPatchRequestAttributes";
 import { AwsCURConfigPatchRequestType } from "./AwsCURConfigPatchRequestType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS CUR config Patch data.
- */
+*/
 export class AwsCURConfigPatchData {
   /**
    * Attributes for AWS CUR config Patch Request.
-   */
+  */
   "attributes": AwsCURConfigPatchRequestAttributes;
   /**
    * Type of AWS CUR config Patch Request.
-   */
+  */
   "type": AwsCURConfigPatchRequestType;
 
   /**
@@ -37,28 +42,54 @@ export class AwsCURConfigPatchData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AwsCURConfigPatchRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AwsCURConfigPatchRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AwsCURConfigPatchRequestType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AwsCURConfigPatchRequestType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AwsCURConfigPatchData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

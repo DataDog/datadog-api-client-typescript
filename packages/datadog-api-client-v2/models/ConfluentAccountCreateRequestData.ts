@@ -6,19 +6,24 @@
 import { ConfluentAccountCreateRequestAttributes } from "./ConfluentAccountCreateRequestAttributes";
 import { ConfluentAccountType } from "./ConfluentAccountType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data body for adding a Confluent account.
- */
+*/
 export class ConfluentAccountCreateRequestData {
   /**
    * Attributes associated with the account creation request.
-   */
+  */
   "attributes": ConfluentAccountCreateRequestAttributes;
   /**
    * The JSON:API type for this API. Should always be `confluent-cloud-accounts`.
-   */
+  */
   "type": ConfluentAccountType;
 
   /**
@@ -37,28 +42,54 @@ export class ConfluentAccountCreateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ConfluentAccountCreateRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ConfluentAccountCreateRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ConfluentAccountType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ConfluentAccountType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConfluentAccountCreateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Endpoint info extracted from an `OpenAPI` specification.
- */
+*/
 export class OpenAPIEndpoint {
   /**
    * The endpoint method.
-   */
+  */
   "method"?: string;
   /**
    * The endpoint path.
-   */
+  */
   "path"?: string;
 
   /**
@@ -35,26 +40,52 @@ export class OpenAPIEndpoint {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    method: {
-      baseName: "method",
-      type: "string",
+    "method": {
+      "baseName": "method",
+      "type": "string",
     },
-    path: {
-      baseName: "path",
-      type: "string",
+    "path": {
+      "baseName": "path",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpenAPIEndpoint.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

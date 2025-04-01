@@ -5,15 +5,20 @@
  */
 import { UsageDataObject } from "./UsageDataObject";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Observability Pipelines usage response.
- */
+*/
 export class UsageObservabilityPipelinesResponse {
   /**
    * Response containing Observability Pipelines usage.
-   */
+  */
   "data"?: Array<UsageDataObject>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageObservabilityPipelinesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<UsageDataObject>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<UsageDataObject>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageObservabilityPipelinesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

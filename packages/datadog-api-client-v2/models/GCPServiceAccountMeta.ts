@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Additional information related to your service account.
- */
+*/
 export class GCPServiceAccountMeta {
   /**
    * The current list of projects accessible from your service account.
-   */
+  */
   "accessibleProjects"?: Array<string>;
 
   /**
@@ -31,22 +36,48 @@ export class GCPServiceAccountMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accessibleProjects: {
-      baseName: "accessible_projects",
-      type: "Array<string>",
+    "accessibleProjects": {
+      "baseName": "accessible_projects",
+      "type": "Array<string>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPServiceAccountMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

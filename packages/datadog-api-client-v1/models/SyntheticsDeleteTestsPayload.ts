@@ -4,21 +4,26 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A JSON list of the ID or IDs of the Synthetic tests that you want
  * to delete.
- */
+*/
 export class SyntheticsDeleteTestsPayload {
   /**
    * Delete the Synthetic test even if it's referenced by other resources
    * (for example, SLOs and composite monitors).
-   */
+  */
   "forceDeleteDependencies"?: boolean;
   /**
    * An array of Synthetic test IDs you want to delete.
-   */
+  */
   "publicIds"?: Array<string>;
 
   /**
@@ -37,26 +42,52 @@ export class SyntheticsDeleteTestsPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    forceDeleteDependencies: {
-      baseName: "force_delete_dependencies",
-      type: "boolean",
+    "forceDeleteDependencies": {
+      "baseName": "force_delete_dependencies",
+      "type": "boolean",
     },
-    publicIds: {
-      baseName: "public_ids",
-      type: "Array<string>",
+    "publicIds": {
+      "baseName": "public_ids",
+      "type": "Array<string>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsDeleteTestsPayload.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

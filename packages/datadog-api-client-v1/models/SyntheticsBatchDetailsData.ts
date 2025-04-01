@@ -7,23 +7,28 @@ import { SyntheticsBatchResult } from "./SyntheticsBatchResult";
 import { SyntheticsBatchStatus } from "./SyntheticsBatchStatus";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Wrapper object that contains the details of a batch.
- */
+*/
 export class SyntheticsBatchDetailsData {
   /**
    * Metadata for the Synthetic tests run.
-   */
+  */
   "metadata"?: SyntheticsCIBatchMetadata;
   /**
    * List of results for the batch.
-   */
+  */
   "results"?: Array<SyntheticsBatchResult>;
   /**
    * Determines whether the batch has passed, failed, or is in progress.
-   */
+  */
   "status"?: SyntheticsBatchStatus;
 
   /**
@@ -42,30 +47,56 @@ export class SyntheticsBatchDetailsData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    metadata: {
-      baseName: "metadata",
-      type: "SyntheticsCIBatchMetadata",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "SyntheticsCIBatchMetadata",
     },
-    results: {
-      baseName: "results",
-      type: "Array<SyntheticsBatchResult>",
+    "results": {
+      "baseName": "results",
+      "type": "Array<SyntheticsBatchResult>",
     },
-    status: {
-      baseName: "status",
-      type: "SyntheticsBatchStatus",
+    "status": {
+      "baseName": "status",
+      "type": "SyntheticsBatchStatus",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsBatchDetailsData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,18 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The duration in days during which values are learned, and after which signals will be generated for values that
  * weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
- */
+*/
 
-export type SecurityMonitoringRuleNewValueOptionsLearningDuration =
-  | typeof ZERO_DAYS
-  | typeof ONE_DAY
-  | typeof SEVEN_DAYS
-  | UnparsedObject;
+export type SecurityMonitoringRuleNewValueOptionsLearningDuration = typeof ZERO_DAYS| typeof ONE_DAY| typeof SEVEN_DAYS | UnparsedObject;
 export const ZERO_DAYS = 0;
 export const ONE_DAY = 1;
 export const SEVEN_DAYS = 7;

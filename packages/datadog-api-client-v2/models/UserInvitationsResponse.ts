@@ -5,15 +5,20 @@
  */
 import { UserInvitationResponseData } from "./UserInvitationResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * User invitations as returned by the API.
- */
+*/
 export class UserInvitationsResponse {
   /**
    * Array of user invitations.
-   */
+  */
   "data"?: Array<UserInvitationResponseData>;
 
   /**
@@ -32,22 +37,48 @@ export class UserInvitationsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<UserInvitationResponseData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<UserInvitationResponseData>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserInvitationsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+
