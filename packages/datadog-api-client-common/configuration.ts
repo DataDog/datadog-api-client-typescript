@@ -263,6 +263,7 @@ export function createConfiguration(
       "v2.listAWSNamespaces": false,
       "v2.updateAWSAccount": false,
       "v2.listAWSLogsServices": false,
+      "v2.getAggregatedConnections": false,
       "v2.cancelHistoricalJob": false,
       "v2.convertJobResultToSignal": false,
       "v2.deleteHistoricalJob": false,
