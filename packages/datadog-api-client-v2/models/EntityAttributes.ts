@@ -4,43 +4,48 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Entity attributes.
- */
+*/
 export class EntityAttributes {
   /**
    * The API version.
-   */
+  */
   "apiVersion"?: string;
   /**
    * The description.
-   */
+  */
   "description"?: string;
   /**
    * The display name.
-   */
+  */
   "displayName"?: string;
   /**
    * The kind.
-   */
+  */
   "kind"?: string;
   /**
    * The name.
-   */
+  */
   "name"?: string;
   /**
    * The namespace.
-   */
+  */
   "namespace"?: string;
   /**
    * The owner.
-   */
+  */
   "owner"?: string;
   /**
    * The tags.
-   */
+  */
   "tags"?: Array<string>;
 
   /**
@@ -59,50 +64,76 @@ export class EntityAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiVersion: {
-      baseName: "apiVersion",
-      type: "string",
+    "apiVersion": {
+      "baseName": "apiVersion",
+      "type": "string",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    displayName: {
-      baseName: "displayName",
-      type: "string",
+    "displayName": {
+      "baseName": "displayName",
+      "type": "string",
     },
-    kind: {
-      baseName: "kind",
-      type: "string",
+    "kind": {
+      "baseName": "kind",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    namespace: {
-      baseName: "namespace",
-      type: "string",
+    "namespace": {
+      "baseName": "namespace",
+      "type": "string",
     },
-    owner: {
-      baseName: "owner",
-      type: "string",
+    "owner": {
+      "baseName": "owner",
+      "type": "string",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

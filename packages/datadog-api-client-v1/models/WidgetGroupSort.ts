@@ -6,23 +6,28 @@
 import { GroupType } from "./GroupType";
 import { WidgetSort } from "./WidgetSort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The group to sort the widget by.
- */
+*/
 export class WidgetGroupSort {
   /**
    * The name of the group.
-   */
+  */
   "name": string;
   /**
    * Widget sorting methods.
-   */
+  */
   "order": WidgetSort;
   /**
    * Set the sort type to group.
-   */
+  */
   "type": GroupType;
 
   /**
@@ -41,33 +46,59 @@ export class WidgetGroupSort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    order: {
-      baseName: "order",
-      type: "WidgetSort",
-      required: true,
+    "order": {
+      "baseName": "order",
+      "type": "WidgetSort",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GroupType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GroupType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WidgetGroupSort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

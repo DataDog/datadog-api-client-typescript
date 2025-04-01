@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of logs arithmetic processor.
- */
+*/
 
-export type LogsArithmeticProcessorType =
-  | typeof ARITHMETIC_PROCESSOR
-  | UnparsedObject;
-export const ARITHMETIC_PROCESSOR = "arithmetic-processor";
+export type LogsArithmeticProcessorType = typeof ARITHMETIC_PROCESSOR | UnparsedObject;
+export const ARITHMETIC_PROCESSOR = 'arithmetic-processor';

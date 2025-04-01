@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Monitor Downtime Match resource type.
- */
+*/
 
-export type MonitorDowntimeMatchResourceType =
-  | typeof DOWNTIME_MATCH
-  | UnparsedObject;
-export const DOWNTIME_MATCH = "downtime_match";
+export type MonitorDowntimeMatchResourceType = typeof DOWNTIME_MATCH | UnparsedObject;
+export const DOWNTIME_MATCH = 'downtime_match';

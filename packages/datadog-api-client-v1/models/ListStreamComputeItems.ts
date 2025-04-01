@@ -5,19 +5,24 @@
  */
 import { ListStreamComputeAggregation } from "./ListStreamComputeAggregation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of facets and aggregations which to compute.
- */
+*/
 export class ListStreamComputeItems {
   /**
    * Aggregation value.
-   */
+  */
   "aggregation": ListStreamComputeAggregation;
   /**
    * Facet name.
-   */
+  */
   "facet"?: string;
 
   /**
@@ -36,27 +41,53 @@ export class ListStreamComputeItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "ListStreamComputeAggregation",
-      required: true,
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "ListStreamComputeAggregation",
+      "required": true,
     },
-    facet: {
-      baseName: "facet",
-      type: "string",
+    "facet": {
+      "baseName": "facet",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListStreamComputeItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

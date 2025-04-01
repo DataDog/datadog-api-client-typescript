@@ -9,47 +9,52 @@ import { ListStreamSource } from "./ListStreamSource";
 import { WidgetEventSize } from "./WidgetEventSize";
 import { WidgetFieldSort } from "./WidgetFieldSort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Updated list stream widget.
- */
+*/
 export class ListStreamQuery {
   /**
    * Specifies the field for logs pattern clustering. Usable only with logs_pattern_stream.
-   */
+  */
   "clusteringPatternFieldPath"?: string;
   /**
    * Compute configuration for the List Stream Widget. Compute can be used only with the logs_transaction_stream (from 1 to 5 items) list stream source.
-   */
+  */
   "compute"?: Array<ListStreamComputeItems>;
   /**
    * Source from which to query items to display in the stream.
-   */
+  */
   "dataSource": ListStreamSource;
   /**
    * Size to use to display an event.
-   */
+  */
   "eventSize"?: WidgetEventSize;
   /**
    * Group by configuration for the List Stream Widget. Group by can be used only with logs_pattern_stream (up to 4 items) or logs_transaction_stream (one group by item is required) list stream source.
-   */
+  */
   "groupBy"?: Array<ListStreamGroupByItems>;
   /**
    * List of indexes.
-   */
+  */
   "indexes"?: Array<string>;
   /**
    * Widget query.
-   */
+  */
   "queryString": string;
   /**
    * Which column and order to sort by
-   */
+  */
   "sort"?: WidgetFieldSort;
   /**
    * Option for storage location. Feature in Private Beta.
-   */
+  */
   "storage"?: string;
 
   /**
@@ -68,56 +73,82 @@ export class ListStreamQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    clusteringPatternFieldPath: {
-      baseName: "clustering_pattern_field_path",
-      type: "string",
+    "clusteringPatternFieldPath": {
+      "baseName": "clustering_pattern_field_path",
+      "type": "string",
     },
-    compute: {
-      baseName: "compute",
-      type: "Array<ListStreamComputeItems>",
+    "compute": {
+      "baseName": "compute",
+      "type": "Array<ListStreamComputeItems>",
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "ListStreamSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "ListStreamSource",
+      "required": true,
     },
-    eventSize: {
-      baseName: "event_size",
-      type: "WidgetEventSize",
+    "eventSize": {
+      "baseName": "event_size",
+      "type": "WidgetEventSize",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<ListStreamGroupByItems>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<ListStreamGroupByItems>",
     },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
+    "indexes": {
+      "baseName": "indexes",
+      "type": "Array<string>",
     },
-    queryString: {
-      baseName: "query_string",
-      type: "string",
-      required: true,
+    "queryString": {
+      "baseName": "query_string",
+      "type": "string",
+      "required": true,
     },
-    sort: {
-      baseName: "sort",
-      type: "WidgetFieldSort",
+    "sort": {
+      "baseName": "sort",
+      "type": "WidgetFieldSort",
     },
-    storage: {
-      baseName: "storage",
-      type: "string",
+    "storage": {
+      "baseName": "storage",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListStreamQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

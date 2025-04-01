@@ -6,40 +6,45 @@
 import { SLORawErrorBudgetRemaining } from "./SLORawErrorBudgetRemaining";
 import { SLOState } from "./SLOState";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Status of the SLO's primary timeframe.
- */
+*/
 export class SLOStatus {
   /**
    * Error message if SLO status or error budget could not be calculated.
-   */
+  */
   "calculationError"?: string;
   /**
    * Remaining error budget of the SLO in percentage.
-   */
+  */
   "errorBudgetRemaining"?: number;
   /**
    * timestamp (UNIX time in seconds) of when the SLO status and error budget
    * were calculated.
-   */
+  */
   "indexedAt"?: number;
   /**
    * Error budget remaining for an SLO.
-   */
+  */
   "rawErrorBudgetRemaining"?: SLORawErrorBudgetRemaining;
   /**
    * The current service level indicator (SLI) of the SLO, also known as 'status'. This is a percentage value from 0-100 (inclusive).
-   */
+  */
   "sli"?: number;
   /**
    * The number of decimal places the SLI value is accurate to.
-   */
+  */
   "spanPrecision"?: number;
   /**
    * State of the SLO.
-   */
+  */
   "state"?: SLOState;
 
   /**
@@ -58,50 +63,76 @@ export class SLOStatus {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    calculationError: {
-      baseName: "calculation_error",
-      type: "string",
+    "calculationError": {
+      "baseName": "calculation_error",
+      "type": "string",
     },
-    errorBudgetRemaining: {
-      baseName: "error_budget_remaining",
-      type: "number",
-      format: "double",
+    "errorBudgetRemaining": {
+      "baseName": "error_budget_remaining",
+      "type": "number",
+      "format": "double",
     },
-    indexedAt: {
-      baseName: "indexed_at",
-      type: "number",
-      format: "int64",
+    "indexedAt": {
+      "baseName": "indexed_at",
+      "type": "number",
+      "format": "int64",
     },
-    rawErrorBudgetRemaining: {
-      baseName: "raw_error_budget_remaining",
-      type: "SLORawErrorBudgetRemaining",
+    "rawErrorBudgetRemaining": {
+      "baseName": "raw_error_budget_remaining",
+      "type": "SLORawErrorBudgetRemaining",
     },
-    sli: {
-      baseName: "sli",
-      type: "number",
-      format: "double",
+    "sli": {
+      "baseName": "sli",
+      "type": "number",
+      "format": "double",
     },
-    spanPrecision: {
-      baseName: "span_precision",
-      type: "number",
-      format: "int64",
+    "spanPrecision": {
+      "baseName": "span_precision",
+      "type": "number",
+      "format": "int64",
     },
-    state: {
-      baseName: "state",
-      type: "SLOState",
+    "state": {
+      "baseName": "state",
+      "type": "SLOState",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOStatus.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

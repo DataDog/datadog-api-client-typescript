@@ -6,23 +6,28 @@
 import { EntityResponseIncludedRawSchemaAttributes } from "./EntityResponseIncludedRawSchemaAttributes";
 import { EntityResponseIncludedRawSchemaType } from "./EntityResponseIncludedRawSchemaType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Included raw schema.
- */
+*/
 export class EntityResponseIncludedRawSchema {
   /**
    * Included raw schema attributes.
-   */
+  */
   "attributes"?: EntityResponseIncludedRawSchemaAttributes;
   /**
    * Raw schema ID.
-   */
+  */
   "id"?: string;
   /**
    * Raw schema type.
-   */
+  */
   "type"?: EntityResponseIncludedRawSchemaType;
 
   /**
@@ -41,30 +46,56 @@ export class EntityResponseIncludedRawSchema {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "EntityResponseIncludedRawSchemaAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EntityResponseIncludedRawSchemaAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "EntityResponseIncludedRawSchemaType",
+    "type": {
+      "baseName": "type",
+      "type": "EntityResponseIncludedRawSchemaType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseIncludedRawSchema.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

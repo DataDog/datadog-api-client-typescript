@@ -6,23 +6,28 @@
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsType } from "./ActiveBillingDimensionsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Active billing dimensions data.
- */
+*/
 export class ActiveBillingDimensionsBody {
   /**
    * List of active billing dimensions.
-   */
+  */
   "attributes"?: ActiveBillingDimensionsAttributes;
   /**
    * Unique ID of the response.
-   */
+  */
   "id"?: string;
   /**
    * Type of active billing dimensions data.
-   */
+  */
   "type"?: ActiveBillingDimensionsType;
 
   /**
@@ -41,30 +46,56 @@ export class ActiveBillingDimensionsBody {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ActiveBillingDimensionsAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ActiveBillingDimensionsAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ActiveBillingDimensionsType",
+    "type": {
+      "baseName": "type",
+      "type": "ActiveBillingDimensionsType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ActiveBillingDimensionsBody.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

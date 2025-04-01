@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Action that will trigger a monitor notification if the downtime is in the `notify_end_types` state.
- */
+*/
 
-export type DowntimeNotifyEndStateActions =
-  | typeof CANCELED
-  | typeof EXPIRED
-  | UnparsedObject;
-export const CANCELED = "canceled";
-export const EXPIRED = "expired";
+export type DowntimeNotifyEndStateActions = typeof CANCELED| typeof EXPIRED | UnparsedObject;
+export const CANCELED = 'canceled';
+export const EXPIRED = 'expired';

@@ -7,23 +7,28 @@ import { IncidentIntegrationMetadataResponseData } from "./IncidentIntegrationMe
 import { IncidentIntegrationMetadataResponseIncludedItem } from "./IncidentIntegrationMetadataResponseIncludedItem";
 import { IncidentResponseMeta } from "./IncidentResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with a list of incident integration metadata.
- */
+*/
 export class IncidentIntegrationMetadataListResponse {
   /**
    * An array of incident integration metadata.
-   */
+  */
   "data": Array<IncidentIntegrationMetadataResponseData>;
   /**
    * Included related resources that the user requested.
-   */
+  */
   "included"?: Array<IncidentIntegrationMetadataResponseIncludedItem>;
   /**
    * The metadata object containing pagination metadata.
-   */
+  */
   "meta"?: IncidentResponseMeta;
 
   /**
@@ -42,31 +47,57 @@ export class IncidentIntegrationMetadataListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentIntegrationMetadataResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<IncidentIntegrationMetadataResponseData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentIntegrationMetadataResponseIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<IncidentIntegrationMetadataResponseIncludedItem>",
     },
-    meta: {
-      baseName: "meta",
-      type: "IncidentResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "IncidentResponseMeta",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentIntegrationMetadataListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response from the create data deletion request endpoint.
- */
+*/
 export class CreateDataDeletionResponseBody {
   /**
    * The created data deletion request information.
-   */
+  */
   "data"?: DataDeletionResponseItem;
   /**
    * The metadata of the data deletion response.
-   */
+  */
   "meta"?: DataDeletionResponseMeta;
 
   /**
@@ -37,26 +42,52 @@ export class CreateDataDeletionResponseBody {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DataDeletionResponseItem",
+    "data": {
+      "baseName": "data",
+      "type": "DataDeletionResponseItem",
     },
-    meta: {
-      baseName: "meta",
-      type: "DataDeletionResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "DataDeletionResponseMeta",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateDataDeletionResponseBody.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

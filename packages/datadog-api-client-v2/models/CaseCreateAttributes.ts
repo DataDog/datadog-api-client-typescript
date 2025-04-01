@@ -6,27 +6,32 @@
 import { CasePriority } from "./CasePriority";
 import { CaseType } from "./CaseType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case creation attributes
- */
+*/
 export class CaseCreateAttributes {
   /**
    * Description
-   */
+  */
   "description"?: string;
   /**
    * Case priority
-   */
+  */
   "priority"?: CasePriority;
   /**
    * Title
-   */
+  */
   "title": string;
   /**
    * Case type
-   */
+  */
   "type": CaseType;
 
   /**
@@ -45,36 +50,62 @@ export class CaseCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    priority: {
-      baseName: "priority",
-      type: "CasePriority",
+    "priority": {
+      "baseName": "priority",
+      "type": "CasePriority",
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

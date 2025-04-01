@@ -7,23 +7,28 @@ import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentTeamIncludedItems } from "./IncidentTeamIncludedItems";
 import { IncidentTeamResponseData } from "./IncidentTeamResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with a list of incident team payloads.
- */
+*/
 export class IncidentTeamsResponse {
   /**
    * An array of incident teams.
-   */
+  */
   "data": Array<IncidentTeamResponseData>;
   /**
    * Included related resources which the user requested.
-   */
+  */
   "included"?: Array<IncidentTeamIncludedItems>;
   /**
    * The metadata object containing pagination metadata.
-   */
+  */
   "meta"?: IncidentResponseMeta;
 
   /**
@@ -42,31 +47,57 @@ export class IncidentTeamsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<IncidentTeamResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<IncidentTeamResponseData>",
+      "required": true,
     },
-    included: {
-      baseName: "included",
-      type: "Array<IncidentTeamIncludedItems>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<IncidentTeamIncludedItems>",
     },
-    meta: {
-      baseName: "meta",
-      type: "IncidentResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "IncidentResponseMeta",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentTeamsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

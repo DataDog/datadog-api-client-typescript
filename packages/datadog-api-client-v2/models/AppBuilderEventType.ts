@@ -4,27 +4,23 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The response to the event.
- */
+*/
 
-export type AppBuilderEventType =
-  | typeof CUSTOM
-  | typeof SETCOMPONENTSTATE
-  | typeof TRIGGERQUERY
-  | typeof OPENMODAL
-  | typeof CLOSEMODAL
-  | typeof OPENURL
-  | typeof DOWNLOADFILE
-  | typeof SETSTATEVARIABLEVALUE
-  | UnparsedObject;
-export const CUSTOM = "custom";
-export const SETCOMPONENTSTATE = "setComponentState";
-export const TRIGGERQUERY = "triggerQuery";
-export const OPENMODAL = "openModal";
-export const CLOSEMODAL = "closeModal";
-export const OPENURL = "openUrl";
-export const DOWNLOADFILE = "downloadFile";
-export const SETSTATEVARIABLEVALUE = "setStateVariableValue";
+export type AppBuilderEventType = typeof CUSTOM| typeof SETCOMPONENTSTATE| typeof TRIGGERQUERY| typeof OPENMODAL| typeof CLOSEMODAL| typeof OPENURL| typeof DOWNLOADFILE| typeof SETSTATEVARIABLEVALUE | UnparsedObject;
+export const CUSTOM = 'custom';
+export const SETCOMPONENTSTATE = 'setComponentState';
+export const TRIGGERQUERY = 'triggerQuery';
+export const OPENMODAL = 'openModal';
+export const CLOSEMODAL = 'closeModal';
+export const OPENURL = 'openUrl';
+export const DOWNLOADFILE = 'downloadFile';
+export const SETSTATEVARIABLEVALUE = 'setStateVariableValue';

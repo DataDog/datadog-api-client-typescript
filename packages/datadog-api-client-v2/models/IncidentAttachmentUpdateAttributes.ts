@@ -6,13 +6,15 @@
 import { IncidentAttachmentLinkAttributes } from "./IncidentAttachmentLinkAttributes";
 import { IncidentAttachmentPostmortemAttributes } from "./IncidentAttachmentPostmortemAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Incident attachment attributes.
- */
+*/
 
-export type IncidentAttachmentUpdateAttributes =
-  | IncidentAttachmentPostmortemAttributes
-  | IncidentAttachmentLinkAttributes
-  | UnparsedObject;
+export type IncidentAttachmentUpdateAttributes = IncidentAttachmentPostmortemAttributes | IncidentAttachmentLinkAttributes | UnparsedObject;

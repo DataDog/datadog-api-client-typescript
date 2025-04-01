@@ -3,20 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SecurityMonitoringSignalIncidentIdsItem } from "./SecurityMonitoringSignalIncidentIdsItem";
+
+import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+
+
+
 /**
  * Attributes describing the new list of related signals for a security signal.
- */
+*/
 export class SecurityMonitoringSignalIncidentsUpdateAttributes {
   /**
    * Array of incidents that are associated with this signal.
-   */
+  */
   "incidentIds": Array<number>;
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
-   */
+  */
   "version"?: number;
 
   /**
@@ -35,29 +41,55 @@ export class SecurityMonitoringSignalIncidentsUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    incidentIds: {
-      baseName: "incident_ids",
-      type: "Array<number>",
-      required: true,
-      format: "int64",
+    "incidentIds": {
+      "baseName": "incident_ids",
+      "type": "Array<number>",
+      "required": true,
+      "format": "int64",
     },
-    version: {
-      baseName: "version",
-      type: "number",
-      format: "int64",
+    "version": {
+      "baseName": "version",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalIncidentsUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { SpansListRequestData } from "./SpansListRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The request for a spans list.
- */
+*/
 export class SpansListRequest {
   /**
    * The object containing the query content.
-   */
+  */
   "data"?: SpansListRequestData;
 
   /**
@@ -32,22 +37,48 @@ export class SpansListRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SpansListRequestData",
+    "data": {
+      "baseName": "data",
+      "type": "SpansListRequestData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SpansListRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

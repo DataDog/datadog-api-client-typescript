@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The S3 Archive's integration destination.
- */
+*/
 export class LogsArchiveIntegrationS3 {
   /**
    * The account ID for the integration.
-   */
+  */
   "accountId": string;
   /**
    * The path of the integration.
-   */
+  */
   "roleName": string;
 
   /**
@@ -35,28 +40,54 @@ export class LogsArchiveIntegrationS3 {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-      required: true,
+    "accountId": {
+      "baseName": "account_id",
+      "type": "string",
+      "required": true,
     },
-    roleName: {
-      baseName: "role_name",
-      type: "string",
-      required: true,
+    "roleName": {
+      "baseName": "role_name",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsArchiveIntegrationS3.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

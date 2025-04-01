@@ -5,15 +5,20 @@
  */
 import { StepDisplayBounds } from "./StepDisplayBounds";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `StepDisplay` object.
- */
+*/
 export class StepDisplay {
   /**
    * The definition of `StepDisplayBounds` object.
-   */
+  */
   "bounds"?: StepDisplayBounds;
 
   /**
@@ -32,22 +37,48 @@ export class StepDisplay {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bounds: {
-      baseName: "bounds",
-      type: "StepDisplayBounds",
+    "bounds": {
+      "baseName": "bounds",
+      "type": "StepDisplayBounds",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StepDisplay.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

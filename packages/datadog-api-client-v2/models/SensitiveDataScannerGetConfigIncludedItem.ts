@@ -6,13 +6,15 @@
 import { SensitiveDataScannerGroupIncludedItem } from "./SensitiveDataScannerGroupIncludedItem";
 import { SensitiveDataScannerRuleIncludedItem } from "./SensitiveDataScannerRuleIncludedItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An object related to the configuration.
- */
+*/
 
-export type SensitiveDataScannerGetConfigIncludedItem =
-  | SensitiveDataScannerRuleIncludedItem
-  | SensitiveDataScannerGroupIncludedItem
-  | UnparsedObject;
+export type SensitiveDataScannerGetConfigIncludedItem = SensitiveDataScannerRuleIncludedItem | SensitiveDataScannerGroupIncludedItem | UnparsedObject;

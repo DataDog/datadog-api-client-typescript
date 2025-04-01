@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Facet value and number of occurrences for a property field of an incident.
- */
+*/
 export class IncidentSearchResponseFieldFacetData {
   /**
    * Count of the facet value appearing in search results.
-   */
+  */
   "count"?: number;
   /**
    * The facet value appearing in search results.
-   */
+  */
   "name"?: string;
 
   /**
@@ -35,27 +40,53 @@ export class IncidentSearchResponseFieldFacetData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    count: {
-      baseName: "count",
-      type: "number",
-      format: "int32",
+    "count": {
+      "baseName": "count",
+      "type": "number",
+      "format": "int32",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentSearchResponseFieldFacetData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

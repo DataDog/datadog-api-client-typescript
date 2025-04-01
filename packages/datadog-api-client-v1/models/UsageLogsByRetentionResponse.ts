@@ -5,15 +5,20 @@
  */
 import { UsageLogsByRetentionHour } from "./UsageLogsByRetentionHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the indexed logs usage broken down by retention period for an organization during a given hour.
- */
+*/
 export class UsageLogsByRetentionResponse {
   /**
    * Get hourly usage for indexed logs by retention period.
-   */
+  */
   "usage"?: Array<UsageLogsByRetentionHour>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageLogsByRetentionResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageLogsByRetentionHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageLogsByRetentionHour>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageLogsByRetentionResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

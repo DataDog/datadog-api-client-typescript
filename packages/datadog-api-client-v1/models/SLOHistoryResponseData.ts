@@ -10,62 +10,67 @@ import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { SLOTypeNumeric } from "./SLOTypeNumeric";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An array of service level objective objects.
- */
+*/
 export class SLOHistoryResponseData {
   /**
    * The `from` timestamp in epoch seconds.
-   */
+  */
   "fromTs"?: number;
   /**
    * For `metric` based SLOs where the query includes a group-by clause, this represents the list of grouping parameters.
-   *
+   * 
    * This is not included in responses for `monitor` based SLOs.
-   */
+  */
   "groupBy"?: Array<string>;
   /**
    * For grouped SLOs, this represents SLI data for specific groups.
-   *
+   * 
    * This is not included in the responses for `metric` based SLOs.
-   */
+  */
   "groups"?: Array<SLOHistoryMonitor>;
   /**
    * For multi-monitor SLOs, this represents SLI data for specific monitors.
-   *
+   * 
    * This is not included in the responses for `metric` based SLOs.
-   */
+  */
   "monitors"?: Array<SLOHistoryMonitor>;
   /**
    * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value.
    * This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
-   */
+  */
   "overall"?: SLOHistorySLIData;
   /**
    * A `metric` based SLO history response.
-   *
+   * 
    * This is not included in responses for `monitor` based SLOs.
-   */
+  */
   "series"?: SLOHistoryMetrics;
   /**
    * mapping of string timeframe to the SLO threshold.
-   */
-  "thresholds"?: { [key: string]: SLOThreshold };
+  */
+  "thresholds"?: { [key: string]: SLOThreshold; };
   /**
    * The `to` timestamp in epoch seconds.
-   */
+  */
   "toTs"?: number;
   /**
    * The type of the service level objective.
-   */
+  */
   "type"?: SLOType;
   /**
    * A numeric representation of the type of the service level objective (`0` for
    * monitor, `1` for metric). Always included in service level objective responses.
    * Ignored in create/update requests.
-   */
+  */
   "typeId"?: SLOTypeNumeric;
 
   /**
@@ -84,61 +89,87 @@ export class SLOHistoryResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fromTs: {
-      baseName: "from_ts",
-      type: "number",
-      format: "int64",
+    "fromTs": {
+      "baseName": "from_ts",
+      "type": "number",
+      "format": "int64",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<string>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<string>",
     },
-    groups: {
-      baseName: "groups",
-      type: "Array<SLOHistoryMonitor>",
+    "groups": {
+      "baseName": "groups",
+      "type": "Array<SLOHistoryMonitor>",
     },
-    monitors: {
-      baseName: "monitors",
-      type: "Array<SLOHistoryMonitor>",
+    "monitors": {
+      "baseName": "monitors",
+      "type": "Array<SLOHistoryMonitor>",
     },
-    overall: {
-      baseName: "overall",
-      type: "SLOHistorySLIData",
+    "overall": {
+      "baseName": "overall",
+      "type": "SLOHistorySLIData",
     },
-    series: {
-      baseName: "series",
-      type: "SLOHistoryMetrics",
+    "series": {
+      "baseName": "series",
+      "type": "SLOHistoryMetrics",
     },
-    thresholds: {
-      baseName: "thresholds",
-      type: "{ [key: string]: SLOThreshold; }",
+    "thresholds": {
+      "baseName": "thresholds",
+      "type": "{ [key: string]: SLOThreshold; }",
     },
-    toTs: {
-      baseName: "to_ts",
-      type: "number",
-      format: "int64",
+    "toTs": {
+      "baseName": "to_ts",
+      "type": "number",
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "SLOType",
+    "type": {
+      "baseName": "type",
+      "type": "SLOType",
     },
-    typeId: {
-      baseName: "type_id",
-      type: "SLOTypeNumeric",
-      format: "int32",
+    "typeId": {
+      "baseName": "type_id",
+      "type": "SLOTypeNumeric",
+      "format": "int32",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOHistoryResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

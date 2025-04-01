@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The incident service's attributes from a response.
- */
+*/
 export class IncidentServiceResponseAttributes {
   /**
    * Timestamp of when the incident service was created.
-   */
+  */
   "created"?: Date;
   /**
    * Timestamp of when the incident service was modified.
-   */
+  */
   "modified"?: Date;
   /**
    * Name of the incident service.
-   */
+  */
   "name"?: string;
 
   /**
@@ -39,32 +44,58 @@ export class IncidentServiceResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    created: {
-      baseName: "created",
-      type: "Date",
-      format: "date-time",
+    "created": {
+      "baseName": "created",
+      "type": "Date",
+      "format": "date-time",
     },
-    modified: {
-      baseName: "modified",
-      type: "Date",
-      format: "date-time",
+    "modified": {
+      "baseName": "modified",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentServiceResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

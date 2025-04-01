@@ -5,15 +5,20 @@
  */
 import { User } from "./User";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Datadog User.
- */
+*/
 export class UserResponse {
   /**
    * Create, edit, and disable users.
-   */
+  */
   "user"?: User;
 
   /**
@@ -32,22 +37,48 @@ export class UserResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    user: {
-      baseName: "user",
-      type: "User",
+    "user": {
+      "baseName": "user",
+      "type": "User",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

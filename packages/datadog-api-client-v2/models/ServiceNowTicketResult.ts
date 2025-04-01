@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * ServiceNow ticket information
- */
+*/
 export class ServiceNowTicketResult {
   /**
    * Link to the Incident created on ServiceNow
-   */
+  */
   "sysTargetLink"?: string;
 
   /**
@@ -31,22 +36,48 @@ export class ServiceNowTicketResult {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    sysTargetLink: {
-      baseName: "sys_target_link",
-      type: "string",
+    "sysTargetLink": {
+      "baseName": "sys_target_link",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceNowTicketResult.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

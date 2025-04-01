@@ -5,23 +5,28 @@
  */
 import { CustomCostsFileMetadata } from "./CustomCostsFileMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON API format for a Custom Costs file.
- */
+*/
 export class CustomCostsFileMetadataHighLevel {
   /**
    * Schema of a Custom Costs metadata.
-   */
+  */
   "attributes"?: CustomCostsFileMetadata;
   /**
    * ID of the Custom Costs metadata.
-   */
+  */
   "id"?: string;
   /**
    * Type of the Custom Costs file metadata.
-   */
+  */
   "type"?: string;
 
   /**
@@ -40,30 +45,56 @@ export class CustomCostsFileMetadataHighLevel {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CustomCostsFileMetadata",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CustomCostsFileMetadata",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomCostsFileMetadataHighLevel.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

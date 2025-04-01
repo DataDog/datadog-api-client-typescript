@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Table widget text format replace sub-string type.
- */
+*/
 
-export type TableWidgetTextFormatReplaceSubstringType =
-  | typeof SUBSTRING
-  | UnparsedObject;
-export const SUBSTRING = "substring";
+export type TableWidgetTextFormatReplaceSubstringType = typeof SUBSTRING | UnparsedObject;
+export const SUBSTRING = 'substring';

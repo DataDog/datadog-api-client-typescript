@@ -5,15 +5,20 @@
  */
 import { SensitiveDataScannerMetaVersionOnly } from "./SensitiveDataScannerMetaVersionOnly";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Delete group response.
- */
+*/
 export class SensitiveDataScannerGroupDeleteResponse {
   /**
    * Meta payload containing information about the API.
-   */
+  */
   "meta"?: SensitiveDataScannerMetaVersionOnly;
 
   /**
@@ -32,22 +37,48 @@ export class SensitiveDataScannerGroupDeleteResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    meta: {
-      baseName: "meta",
-      type: "SensitiveDataScannerMetaVersionOnly",
+    "meta": {
+      "baseName": "meta",
+      "type": "SensitiveDataScannerMetaVersionOnly",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerGroupDeleteResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

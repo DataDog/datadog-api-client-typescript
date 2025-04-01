@@ -5,15 +5,20 @@
  */
 import { MetricBulkTagConfigDelete } from "./MetricBulkTagConfigDelete";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Wrapper object for a single bulk tag deletion request.
- */
+*/
 export class MetricBulkTagConfigDeleteRequest {
   /**
    * Request object to bulk delete all tag configurations for metrics matching the given prefix.
-   */
+  */
   "data": MetricBulkTagConfigDelete;
 
   /**
@@ -32,23 +37,49 @@ export class MetricBulkTagConfigDeleteRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricBulkTagConfigDelete",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "MetricBulkTagConfigDelete",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricBulkTagConfigDeleteRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

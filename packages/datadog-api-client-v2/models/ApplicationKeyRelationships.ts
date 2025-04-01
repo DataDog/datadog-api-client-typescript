@@ -5,15 +5,20 @@
  */
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Resources related to the application key.
- */
+*/
 export class ApplicationKeyRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "ownedBy"?: RelationshipToUser;
 
   /**
@@ -32,22 +37,48 @@ export class ApplicationKeyRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ownedBy: {
-      baseName: "owned_by",
-      type: "RelationshipToUser",
+    "ownedBy": {
+      "baseName": "owned_by",
+      "type": "RelationshipToUser",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationKeyRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The incident's integration relationships from a response.
- */
+*/
 export class IncidentIntegrationRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "createdByUser"?: RelationshipToUser;
   /**
    * Relationship to user.
-   */
+  */
   "lastModifiedByUser"?: RelationshipToUser;
 
   /**
@@ -36,26 +41,52 @@ export class IncidentIntegrationRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "RelationshipToUser",
+    "createdByUser": {
+      "baseName": "created_by_user",
+      "type": "RelationshipToUser",
     },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "RelationshipToUser",
+    "lastModifiedByUser": {
+      "baseName": "last_modified_by_user",
+      "type": "RelationshipToUser",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentIntegrationRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

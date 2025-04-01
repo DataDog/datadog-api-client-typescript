@@ -5,12 +5,15 @@
  */
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A formula and function query.
- */
+*/
 
-export type SLODataSourceQueryDefinition =
-  | FormulaAndFunctionMetricQueryDefinition
-  | UnparsedObject;
+export type SLODataSourceQueryDefinition = FormulaAndFunctionMetricQueryDefinition | UnparsedObject;

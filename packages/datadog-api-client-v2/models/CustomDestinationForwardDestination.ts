@@ -7,14 +7,15 @@ import { CustomDestinationForwardDestinationElasticsearch } from "./CustomDestin
 import { CustomDestinationForwardDestinationHttp } from "./CustomDestinationForwardDestinationHttp";
 import { CustomDestinationForwardDestinationSplunk } from "./CustomDestinationForwardDestinationSplunk";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A custom destination's location to forward logs.
- */
+*/
 
-export type CustomDestinationForwardDestination =
-  | CustomDestinationForwardDestinationHttp
-  | CustomDestinationForwardDestinationSplunk
-  | CustomDestinationForwardDestinationElasticsearch
-  | UnparsedObject;
+export type CustomDestinationForwardDestination = CustomDestinationForwardDestinationHttp | CustomDestinationForwardDestinationSplunk | CustomDestinationForwardDestinationElasticsearch | UnparsedObject;

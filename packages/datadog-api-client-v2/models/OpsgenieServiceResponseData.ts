@@ -6,23 +6,28 @@
 import { OpsgenieServiceResponseAttributes } from "./OpsgenieServiceResponseAttributes";
 import { OpsgenieServiceType } from "./OpsgenieServiceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Opsgenie service data from a response.
- */
+*/
 export class OpsgenieServiceResponseData {
   /**
    * The attributes from an Opsgenie service response.
-   */
+  */
   "attributes": OpsgenieServiceResponseAttributes;
   /**
    * The ID of the Opsgenie service.
-   */
+  */
   "id": string;
   /**
    * Opsgenie service resource type.
-   */
+  */
   "type": OpsgenieServiceType;
 
   /**
@@ -41,33 +46,59 @@ export class OpsgenieServiceResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OpsgenieServiceResponseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OpsgenieServiceResponseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "OpsgenieServiceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OpsgenieServiceType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpsgenieServiceResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

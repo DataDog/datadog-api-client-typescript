@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the powerpack widget.
- */
+*/
 
 export type PowerpackWidgetDefinitionType = typeof POWERPACK | UnparsedObject;
-export const POWERPACK = "powerpack";
+export const POWERPACK = 'powerpack';

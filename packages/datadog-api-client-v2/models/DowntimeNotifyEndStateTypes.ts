@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * State that will trigger a monitor notification when the `notify_end_types` action occurs.
- */
+*/
 
-export type DowntimeNotifyEndStateTypes =
-  | typeof ALERT
-  | typeof NO_DATA
-  | typeof WARN
-  | UnparsedObject;
-export const ALERT = "alert";
-export const NO_DATA = "no data";
-export const WARN = "warn";
+export type DowntimeNotifyEndStateTypes = typeof ALERT| typeof NO_DATA| typeof WARN | UnparsedObject;
+export const ALERT = 'alert';
+export const NO_DATA = 'no data';
+export const WARN = 'warn';

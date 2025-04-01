@@ -5,15 +5,20 @@
  */
 import { HTTPLogError } from "./HTTPLogError";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Invalid query performed.
- */
+*/
 export class HTTPLogErrors {
   /**
    * Structured errors.
-   */
+  */
   "errors"?: Array<HTTPLogError>;
 
   /**
@@ -32,22 +37,48 @@ export class HTTPLogErrors {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<HTTPLogError>",
+    "errors": {
+      "baseName": "errors",
+      "type": "Array<HTTPLogError>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HTTPLogErrors.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

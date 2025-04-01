@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of `RetryStrategyKind` object.
- */
+*/
 
 export type RetryStrategyKind = typeof RETRY_STRATEGY_LINEAR | UnparsedObject;
-export const RETRY_STRATEGY_LINEAR = "RETRY_STRATEGY_LINEAR";
+export const RETRY_STRATEGY_LINEAR = 'RETRY_STRATEGY_LINEAR';

@@ -5,43 +5,48 @@
  */
 import { Creator } from "./Creator";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Your Datadog Dashboards.
- */
+*/
 export class DashboardList {
   /**
    * Object describing the creator of the shared element.
-   */
+  */
   "author"?: Creator;
   /**
    * Date of creation of the dashboard list.
-   */
+  */
   "created"?: Date;
   /**
    * The number of dashboards in the list.
-   */
+  */
   "dashboardCount"?: number;
   /**
    * The ID of the dashboard list.
-   */
+  */
   "id"?: number;
   /**
    * Whether or not the list is in the favorites.
-   */
+  */
   "isFavorite"?: boolean;
   /**
    * Date of last edition of the dashboard list.
-   */
+  */
   "modified"?: Date;
   /**
    * The name of the dashboard list.
-   */
+  */
   "name": string;
   /**
    * The type of dashboard list.
-   */
+  */
   "type"?: string;
 
   /**
@@ -60,55 +65,81 @@ export class DashboardList {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    author: {
-      baseName: "author",
-      type: "Creator",
+    "author": {
+      "baseName": "author",
+      "type": "Creator",
     },
-    created: {
-      baseName: "created",
-      type: "Date",
-      format: "date-time",
+    "created": {
+      "baseName": "created",
+      "type": "Date",
+      "format": "date-time",
     },
-    dashboardCount: {
-      baseName: "dashboard_count",
-      type: "number",
-      format: "int64",
+    "dashboardCount": {
+      "baseName": "dashboard_count",
+      "type": "number",
+      "format": "int64",
     },
-    id: {
-      baseName: "id",
-      type: "number",
-      format: "int64",
+    "id": {
+      "baseName": "id",
+      "type": "number",
+      "format": "int64",
     },
-    isFavorite: {
-      baseName: "is_favorite",
-      type: "boolean",
+    "isFavorite": {
+      "baseName": "is_favorite",
+      "type": "boolean",
     },
-    modified: {
-      baseName: "modified",
-      type: "Date",
-      format: "date-time",
+    "modified": {
+      "baseName": "modified",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardList.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

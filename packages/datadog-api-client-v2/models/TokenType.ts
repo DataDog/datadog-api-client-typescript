@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of `TokenType` object.
- */
+*/
 
 export type TokenType = typeof SECRET | UnparsedObject;
-export const SECRET = "SECRET";
+export const SECRET = 'SECRET';

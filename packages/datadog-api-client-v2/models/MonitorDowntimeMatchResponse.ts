@@ -6,19 +6,24 @@
 import { DowntimeMeta } from "./DowntimeMeta";
 import { MonitorDowntimeMatchResponseData } from "./MonitorDowntimeMatchResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for retrieving all downtime matches for a monitor.
- */
+*/
 export class MonitorDowntimeMatchResponse {
   /**
    * An array of downtime matches.
-   */
+  */
   "data"?: Array<MonitorDowntimeMatchResponseData>;
   /**
    * Pagination metadata returned by the API.
-   */
+  */
   "meta"?: DowntimeMeta;
 
   /**
@@ -37,26 +42,52 @@ export class MonitorDowntimeMatchResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<MonitorDowntimeMatchResponseData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<MonitorDowntimeMatchResponseData>",
     },
-    meta: {
-      baseName: "meta",
-      type: "DowntimeMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "DowntimeMeta",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorDowntimeMatchResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

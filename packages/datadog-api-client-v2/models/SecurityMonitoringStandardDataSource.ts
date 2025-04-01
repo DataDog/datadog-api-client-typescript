@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Source of events, either logs or audit trail.
- */
+*/
 
-export type SecurityMonitoringStandardDataSource =
-  | typeof LOGS
-  | typeof AUDIT
-  | UnparsedObject;
-export const LOGS = "logs";
-export const AUDIT = "audit";
+export type SecurityMonitoringStandardDataSource = typeof LOGS| typeof AUDIT | UnparsedObject;
+export const LOGS = 'logs';
+export const AUDIT = 'audit';

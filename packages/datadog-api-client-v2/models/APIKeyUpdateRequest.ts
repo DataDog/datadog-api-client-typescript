@@ -5,15 +5,20 @@
  */
 import { APIKeyUpdateData } from "./APIKeyUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request used to update an API key.
- */
+*/
 export class APIKeyUpdateRequest {
   /**
    * Object used to update an API key.
-   */
+  */
   "data": APIKeyUpdateData;
 
   /**
@@ -32,23 +37,49 @@ export class APIKeyUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "APIKeyUpdateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "APIKeyUpdateData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return APIKeyUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

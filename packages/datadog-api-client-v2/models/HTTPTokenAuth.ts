@@ -9,31 +9,36 @@ import { HTTPToken } from "./HTTPToken";
 import { HTTPTokenAuthType } from "./HTTPTokenAuthType";
 import { UrlParam } from "./UrlParam";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `HTTPTokenAuth` object.
- */
+*/
 export class HTTPTokenAuth {
   /**
    * The definition of `HTTPBody` object.
-   */
+  */
   "body"?: HTTPBody;
   /**
    * The `HTTPTokenAuth` `headers`.
-   */
+  */
   "headers"?: Array<HTTPHeader>;
   /**
    * The `HTTPTokenAuth` `tokens`.
-   */
+  */
   "tokens"?: Array<HTTPToken>;
   /**
    * The definition of `HTTPTokenAuthType` object.
-   */
+  */
   "type": HTTPTokenAuthType;
   /**
    * The `HTTPTokenAuth` `url_parameters`.
-   */
+  */
   "urlParameters"?: Array<UrlParam>;
 
   /**
@@ -52,39 +57,65 @@ export class HTTPTokenAuth {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    body: {
-      baseName: "body",
-      type: "HTTPBody",
+    "body": {
+      "baseName": "body",
+      "type": "HTTPBody",
     },
-    headers: {
-      baseName: "headers",
-      type: "Array<HTTPHeader>",
+    "headers": {
+      "baseName": "headers",
+      "type": "Array<HTTPHeader>",
     },
-    tokens: {
-      baseName: "tokens",
-      type: "Array<HTTPToken>",
+    "tokens": {
+      "baseName": "tokens",
+      "type": "Array<HTTPToken>",
     },
-    type: {
-      baseName: "type",
-      type: "HTTPTokenAuthType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "HTTPTokenAuthType",
+      "required": true,
     },
-    urlParameters: {
-      baseName: "url_parameters",
-      type: "Array<UrlParam>",
+    "urlParameters": {
+      "baseName": "url_parameters",
+      "type": "Array<UrlParam>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HTTPTokenAuth.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

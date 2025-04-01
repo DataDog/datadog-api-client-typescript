@@ -5,15 +5,20 @@
  */
 import { UsageOnlineArchiveHour } from "./UsageOnlineArchiveHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Online Archive usage response.
- */
+*/
 export class UsageOnlineArchiveResponse {
   /**
    * Response containing Online Archive usage.
-   */
+  */
   "usage"?: Array<UsageOnlineArchiveHour>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageOnlineArchiveResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageOnlineArchiveHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageOnlineArchiveHour>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageOnlineArchiveResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

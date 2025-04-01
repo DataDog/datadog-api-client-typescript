@@ -6,23 +6,28 @@
 import { OutcomesResponseIncludedRuleAttributes } from "./OutcomesResponseIncludedRuleAttributes";
 import { RuleType } from "./RuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the included rule.
- */
+*/
 export class OutcomesResponseIncludedItem {
   /**
    * Details of a rule.
-   */
+  */
   "attributes"?: OutcomesResponseIncludedRuleAttributes;
   /**
    * The unique ID for a scorecard rule.
-   */
+  */
   "id"?: string;
   /**
    * The JSON:API type for scorecard rules.
-   */
+  */
   "type"?: RuleType;
 
   /**
@@ -41,30 +46,56 @@ export class OutcomesResponseIncludedItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "OutcomesResponseIncludedRuleAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "OutcomesResponseIncludedRuleAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "RuleType",
+    "type": {
+      "baseName": "type",
+      "type": "RuleType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OutcomesResponseIncludedItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

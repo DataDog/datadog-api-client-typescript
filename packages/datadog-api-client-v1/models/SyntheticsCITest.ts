@@ -5,70 +5,76 @@
  */
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
+import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
+
+import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+
+
+
 /**
  * Configuration for Continuous Testing.
- */
+*/
 export class SyntheticsCITest {
   /**
    * Disable certificate checks in API tests.
-   */
+  */
   "allowInsecureCertificates"?: boolean;
   /**
    * Object to handle basic authentication when performing the test.
-   */
+  */
   "basicAuth"?: SyntheticsBasicAuth;
   /**
    * Body to include in the test.
-   */
+  */
   "body"?: string;
   /**
    * Type of the data sent in a Synthetic API test.
-   */
+  */
   "bodyType"?: string;
   /**
    * Cookies for the request.
-   */
+  */
   "cookies"?: string;
   /**
    * For browser test, array with the different device IDs used to run the test.
-   */
+  */
   "deviceIds"?: Array<string>;
   /**
    * For API HTTP test, whether or not the test should follow redirects.
-   */
+  */
   "followRedirects"?: boolean;
   /**
    * Headers to include when performing the test.
-   */
-  "headers"?: { [key: string]: string };
+  */
+  "headers"?: { [key: string]: string; };
   /**
    * Array of locations used to run the test.
-   */
+  */
   "locations"?: Array<string>;
   /**
    * Metadata for the Synthetic tests run.
-   */
+  */
   "metadata"?: SyntheticsCIBatchMetadata;
   /**
    * The public ID of the Synthetic test to trigger.
-   */
+  */
   "publicId": string;
   /**
    * Object describing the retry strategy to apply to a Synthetic test.
-   */
+  */
   "retry"?: SyntheticsTestOptionsRetry;
   /**
    * Starting URL for the browser test.
-   */
+  */
   "startUrl"?: string;
   /**
    * Variables to replace in the test.
-   */
-  "variables"?: { [key: string]: string };
+  */
+  "variables"?: { [key: string]: string; };
 
   /**
    * A container for additional, undeclared properties.
@@ -86,75 +92,101 @@ export class SyntheticsCITest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    allowInsecureCertificates: {
-      baseName: "allowInsecureCertificates",
-      type: "boolean",
+    "allowInsecureCertificates": {
+      "baseName": "allowInsecureCertificates",
+      "type": "boolean",
     },
-    basicAuth: {
-      baseName: "basicAuth",
-      type: "SyntheticsBasicAuth",
+    "basicAuth": {
+      "baseName": "basicAuth",
+      "type": "SyntheticsBasicAuth",
     },
-    body: {
-      baseName: "body",
-      type: "string",
+    "body": {
+      "baseName": "body",
+      "type": "string",
     },
-    bodyType: {
-      baseName: "bodyType",
-      type: "string",
+    "bodyType": {
+      "baseName": "bodyType",
+      "type": "string",
     },
-    cookies: {
-      baseName: "cookies",
-      type: "string",
+    "cookies": {
+      "baseName": "cookies",
+      "type": "string",
     },
-    deviceIds: {
-      baseName: "deviceIds",
-      type: "Array<string>",
+    "deviceIds": {
+      "baseName": "deviceIds",
+      "type": "Array<string>",
     },
-    followRedirects: {
-      baseName: "followRedirects",
-      type: "boolean",
+    "followRedirects": {
+      "baseName": "followRedirects",
+      "type": "boolean",
     },
-    headers: {
-      baseName: "headers",
-      type: "{ [key: string]: string; }",
+    "headers": {
+      "baseName": "headers",
+      "type": "{ [key: string]: string; }",
     },
-    locations: {
-      baseName: "locations",
-      type: "Array<string>",
+    "locations": {
+      "baseName": "locations",
+      "type": "Array<string>",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "SyntheticsCIBatchMetadata",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "SyntheticsCIBatchMetadata",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-      required: true,
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
+      "required": true,
     },
-    retry: {
-      baseName: "retry",
-      type: "SyntheticsTestOptionsRetry",
+    "retry": {
+      "baseName": "retry",
+      "type": "SyntheticsTestOptionsRetry",
     },
-    startUrl: {
-      baseName: "startUrl",
-      type: "string",
+    "startUrl": {
+      "baseName": "startUrl",
+      "type": "string",
     },
-    variables: {
-      baseName: "variables",
-      type: "{ [key: string]: string; }",
+    "variables": {
+      "baseName": "variables",
+      "type": "{ [key: string]: string; }",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsCITest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

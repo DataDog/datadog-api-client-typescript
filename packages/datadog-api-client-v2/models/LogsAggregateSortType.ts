@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of sorting algorithm
- */
+*/
 
-export type LogsAggregateSortType =
-  | typeof ALPHABETICAL
-  | typeof MEASURE
-  | UnparsedObject;
-export const ALPHABETICAL = "alphabetical";
-export const MEASURE = "measure";
+export type LogsAggregateSortType = typeof ALPHABETICAL| typeof MEASURE | UnparsedObject;
+export const ALPHABETICAL = 'alphabetical';
+export const MEASURE = 'measure';

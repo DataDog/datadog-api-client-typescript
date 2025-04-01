@@ -6,19 +6,24 @@
 import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
 import { ActionConnectionDataType } from "./ActionConnectionDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data related to the connection update.
- */
+*/
 export class ActionConnectionDataUpdate {
   /**
    * The definition of `ActionConnectionAttributesUpdate` object.
-   */
+  */
   "attributes": ActionConnectionAttributesUpdate;
   /**
    * The definition of `ActionConnectionDataType` object.
-   */
+  */
   "type": ActionConnectionDataType;
 
   /**
@@ -37,28 +42,54 @@ export class ActionConnectionDataUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ActionConnectionAttributesUpdate",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ActionConnectionAttributesUpdate",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ActionConnectionDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ActionConnectionDataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ActionConnectionDataUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

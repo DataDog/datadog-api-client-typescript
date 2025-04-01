@@ -7,23 +7,28 @@ import { SpansMetricFilter } from "./SpansMetricFilter";
 import { SpansMetricGroupBy } from "./SpansMetricGroupBy";
 import { SpansMetricUpdateCompute } from "./SpansMetricUpdateCompute";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The span-based metric properties that will be updated.
- */
+*/
 export class SpansMetricUpdateAttributes {
   /**
    * The compute rule to compute the span-based metric.
-   */
+  */
   "compute"?: SpansMetricUpdateCompute;
   /**
    * The span-based metric filter. Spans matching this filter will be aggregated in this metric.
-   */
+  */
   "filter"?: SpansMetricFilter;
   /**
    * The rules for the group by.
-   */
+  */
   "groupBy"?: Array<SpansMetricGroupBy>;
 
   /**
@@ -42,30 +47,56 @@ export class SpansMetricUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "SpansMetricUpdateCompute",
+    "compute": {
+      "baseName": "compute",
+      "type": "SpansMetricUpdateCompute",
     },
-    filter: {
-      baseName: "filter",
-      type: "SpansMetricFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "SpansMetricFilter",
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<SpansMetricGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<SpansMetricGroupBy>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SpansMetricUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

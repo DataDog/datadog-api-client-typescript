@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Azure archive's integration destination.
- */
+*/
 export class LogsArchiveIntegrationAzure {
   /**
    * A client ID.
-   */
+  */
   "clientId": string;
   /**
    * A tenant ID.
-   */
+  */
   "tenantId": string;
 
   /**
@@ -35,28 +40,54 @@ export class LogsArchiveIntegrationAzure {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    clientId: {
-      baseName: "client_id",
-      type: "string",
-      required: true,
+    "clientId": {
+      "baseName": "client_id",
+      "type": "string",
+      "required": true,
     },
-    tenantId: {
-      baseName: "tenant_id",
-      type: "string",
-      required: true,
+    "tenantId": {
+      "baseName": "tenant_id",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsArchiveIntegrationAzure.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

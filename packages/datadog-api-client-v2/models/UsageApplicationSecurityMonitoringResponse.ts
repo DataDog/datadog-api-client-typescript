@@ -5,15 +5,20 @@
  */
 import { UsageDataObject } from "./UsageDataObject";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Application Security Monitoring usage response.
- */
+*/
 export class UsageApplicationSecurityMonitoringResponse {
   /**
    * Response containing Application Security Monitoring usage.
-   */
+  */
   "data"?: Array<UsageDataObject>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageApplicationSecurityMonitoringResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<UsageDataObject>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<UsageDataObject>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageApplicationSecurityMonitoringResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

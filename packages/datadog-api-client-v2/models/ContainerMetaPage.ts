@@ -5,35 +5,40 @@
  */
 import { ContainerMetaPageType } from "./ContainerMetaPageType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Paging attributes.
- */
+*/
 export class ContainerMetaPage {
   /**
    * The cursor used to get the current results, if any.
-   */
+  */
   "cursor"?: string;
   /**
    * Number of results returned
-   */
+  */
   "limit"?: number;
   /**
    * The cursor used to get the next results, if any.
-   */
+  */
   "nextCursor"?: string;
   /**
    * The cursor used to get the previous results, if any.
-   */
+  */
   "prevCursor"?: string;
   /**
    * Total number of records that match the query.
-   */
+  */
   "total"?: number;
   /**
    * Type of Container pagination.
-   */
+  */
   "type"?: ContainerMetaPageType;
 
   /**
@@ -52,44 +57,70 @@ export class ContainerMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cursor: {
-      baseName: "cursor",
-      type: "string",
+    "cursor": {
+      "baseName": "cursor",
+      "type": "string",
     },
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int32",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int32",
     },
-    nextCursor: {
-      baseName: "next_cursor",
-      type: "string",
+    "nextCursor": {
+      "baseName": "next_cursor",
+      "type": "string",
     },
-    prevCursor: {
-      baseName: "prev_cursor",
-      type: "string",
+    "prevCursor": {
+      "baseName": "prev_cursor",
+      "type": "string",
     },
-    total: {
-      baseName: "total",
-      type: "number",
-      format: "int64",
+    "total": {
+      "baseName": "total",
+      "type": "number",
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "ContainerMetaPageType",
+    "type": {
+      "baseName": "type",
+      "type": "ContainerMetaPageType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ContainerMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

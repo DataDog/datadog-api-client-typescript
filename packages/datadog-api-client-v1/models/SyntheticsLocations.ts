@@ -5,15 +5,20 @@
  */
 import { SyntheticsLocation } from "./SyntheticsLocation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of Synthetic locations.
- */
+*/
 export class SyntheticsLocations {
   /**
    * List of Synthetic locations.
-   */
+  */
   "locations"?: Array<SyntheticsLocation>;
 
   /**
@@ -32,22 +37,48 @@ export class SyntheticsLocations {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    locations: {
-      baseName: "locations",
-      type: "Array<SyntheticsLocation>",
+    "locations": {
+      "baseName": "locations",
+      "type": "Array<SyntheticsLocation>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsLocations.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { RumMetricType } from "./RumMetricType";
 import { RumMetricUpdateAttributes } from "./RumMetricUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The new rum-based metric properties.
- */
+*/
 export class RumMetricUpdateData {
   /**
    * The rum-based metric properties that will be updated.
-   */
+  */
   "attributes": RumMetricUpdateAttributes;
   /**
    * The name of the rum-based metric.
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource. The value should always be rum_metrics.
-   */
+  */
   "type": RumMetricType;
 
   /**
@@ -41,32 +46,58 @@ export class RumMetricUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RumMetricUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RumMetricUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "RumMetricType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RumMetricType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumMetricUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

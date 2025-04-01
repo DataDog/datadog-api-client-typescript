@@ -4,24 +4,30 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CIAppTestLevel } from "./CIAppTestLevel";
+import { TagsEventAttributeItem } from "./TagsEventAttributeItem";
+
+import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+
+
+
 /**
  * JSON object containing all event attributes and their associated values.
- */
+*/
 export class CIAppEventAttributes {
   /**
    * JSON object of attributes from CI Visibility test events.
-   */
-  "attributes"?: { [key: string]: any };
+  */
+  "attributes"?: { [key: string]: any; };
   /**
    * Array of tags associated with your event.
-   */
+  */
   "tags"?: Array<string>;
   /**
    * Test run level.
-   */
+  */
   "testLevel"?: CIAppTestLevel;
 
   /**
@@ -40,30 +46,56 @@ export class CIAppEventAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "{ [key: string]: any; }",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "{ [key: string]: any; }",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    testLevel: {
-      baseName: "test_level",
-      type: "CIAppTestLevel",
+    "testLevel": {
+      "baseName": "test_level",
+      "type": "CIAppTestLevel",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CIAppEventAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

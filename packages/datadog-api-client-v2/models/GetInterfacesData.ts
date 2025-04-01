@@ -5,23 +5,28 @@
  */
 import { InterfaceAttributes } from "./InterfaceAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The interfaces list data
- */
+*/
 export class GetInterfacesData {
   /**
    * The interface attributes
-   */
+  */
   "attributes"?: InterfaceAttributes;
   /**
    * The interface ID
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource. The value should always be interface.
-   */
+  */
   "type"?: string;
 
   /**
@@ -40,30 +45,56 @@ export class GetInterfacesData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "InterfaceAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "InterfaceAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GetInterfacesData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

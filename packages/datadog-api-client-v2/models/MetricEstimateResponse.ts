@@ -5,15 +5,20 @@
  */
 import { MetricEstimate } from "./MetricEstimate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object that includes metric cardinality estimates.
- */
+*/
 export class MetricEstimateResponse {
   /**
    * Object for a metric cardinality estimate.
-   */
+  */
   "data"?: MetricEstimate;
 
   /**
@@ -32,22 +37,48 @@ export class MetricEstimateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricEstimate",
+    "data": {
+      "baseName": "data",
+      "type": "MetricEstimate",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricEstimateResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

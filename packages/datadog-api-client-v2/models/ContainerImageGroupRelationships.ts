@@ -5,15 +5,20 @@
  */
 import { ContainerImageGroupImagesRelationshipsLink } from "./ContainerImageGroupImagesRelationshipsLink";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships inside a Container Image Group.
- */
+*/
 export class ContainerImageGroupRelationships {
   /**
    * Relationships to Container Images inside a Container Image Group.
-   */
+  */
   "containerImages"?: ContainerImageGroupImagesRelationshipsLink;
 
   /**
@@ -32,22 +37,48 @@ export class ContainerImageGroupRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    containerImages: {
-      baseName: "container_images",
-      type: "ContainerImageGroupImagesRelationshipsLink",
+    "containerImages": {
+      "baseName": "container_images",
+      "type": "ContainerImageGroupImagesRelationshipsLink",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ContainerImageGroupRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

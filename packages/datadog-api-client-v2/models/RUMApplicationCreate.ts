@@ -6,19 +6,24 @@
 import { RUMApplicationCreateAttributes } from "./RUMApplicationCreateAttributes";
 import { RUMApplicationCreateType } from "./RUMApplicationCreateType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * RUM application creation.
- */
+*/
 export class RUMApplicationCreate {
   /**
    * RUM application creation attributes.
-   */
+  */
   "attributes": RUMApplicationCreateAttributes;
   /**
    * RUM application creation type.
-   */
+  */
   "type": RUMApplicationCreateType;
 
   /**
@@ -37,28 +42,54 @@ export class RUMApplicationCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RUMApplicationCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RUMApplicationCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "RUMApplicationCreateType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RUMApplicationCreateType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RUMApplicationCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

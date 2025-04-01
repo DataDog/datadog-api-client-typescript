@@ -6,27 +6,32 @@
 import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
 import { SecurityMonitoringThirdPartyRootQuery } from "./SecurityMonitoringThirdPartyRootQuery";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options on third party detection method.
- */
+*/
 export class SecurityMonitoringRuleThirdPartyOptions {
   /**
    * Notification targets for the logs that do not correspond to any of the cases.
-   */
+  */
   "defaultNotifications"?: Array<string>;
   /**
    * Severity of the Security Signal.
-   */
+  */
   "defaultStatus"?: SecurityMonitoringRuleSeverity;
   /**
    * Queries to be combined with third party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
-   */
+  */
   "rootQueries"?: Array<SecurityMonitoringThirdPartyRootQuery>;
   /**
    * A template for the signal title; if omitted, the title is generated based on the case name.
-   */
+  */
   "signalTitleTemplate"?: string;
 
   /**
@@ -45,34 +50,60 @@ export class SecurityMonitoringRuleThirdPartyOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    defaultNotifications: {
-      baseName: "defaultNotifications",
-      type: "Array<string>",
+    "defaultNotifications": {
+      "baseName": "defaultNotifications",
+      "type": "Array<string>",
     },
-    defaultStatus: {
-      baseName: "defaultStatus",
-      type: "SecurityMonitoringRuleSeverity",
+    "defaultStatus": {
+      "baseName": "defaultStatus",
+      "type": "SecurityMonitoringRuleSeverity",
     },
-    rootQueries: {
-      baseName: "rootQueries",
-      type: "Array<SecurityMonitoringThirdPartyRootQuery>",
+    "rootQueries": {
+      "baseName": "rootQueries",
+      "type": "Array<SecurityMonitoringThirdPartyRootQuery>",
     },
-    signalTitleTemplate: {
-      baseName: "signalTitleTemplate",
-      type: "string",
+    "signalTitleTemplate": {
+      "baseName": "signalTitleTemplate",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleThirdPartyOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

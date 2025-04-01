@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of LeakedKeyType object.
- */
+*/
 
 export type LeakedKeyType = typeof LEAKED_KEYS | UnparsedObject;
-export const LEAKED_KEYS = "leaked_keys";
+export const LEAKED_KEYS = 'leaked_keys';

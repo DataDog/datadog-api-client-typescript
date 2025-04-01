@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the resource. The value should always be `security_filters`.
- */
+*/
 
 export type SecurityFilterType = typeof SECURITY_FILTERS | UnparsedObject;
-export const SECURITY_FILTERS = "security_filters";
+export const SECURITY_FILTERS = 'security_filters';

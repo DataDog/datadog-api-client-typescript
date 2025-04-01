@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the assertion.
- */
+*/
 
 export type SyntheticsAssertionBodyHashType = typeof BODY_HASH | UnparsedObject;
-export const BODY_HASH = "bodyHash";
+export const BODY_HASH = 'bodyHash';

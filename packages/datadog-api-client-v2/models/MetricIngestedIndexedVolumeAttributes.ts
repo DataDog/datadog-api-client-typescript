@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the definition of a metric's ingested and indexed volume.
- */
+*/
 export class MetricIngestedIndexedVolumeAttributes {
   /**
    * Indexed volume for the given metric.
-   */
+  */
   "indexedVolume"?: number;
   /**
    * Ingested volume for the given metric.
-   */
+  */
   "ingestedVolume"?: number;
 
   /**
@@ -35,28 +40,54 @@ export class MetricIngestedIndexedVolumeAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    indexedVolume: {
-      baseName: "indexed_volume",
-      type: "number",
-      format: "int64",
+    "indexedVolume": {
+      "baseName": "indexed_volume",
+      "type": "number",
+      "format": "int64",
     },
-    ingestedVolume: {
-      baseName: "ingested_volume",
-      type: "number",
-      format: "int64",
+    "ingestedVolume": {
+      "baseName": "ingested_volume",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricIngestedIndexedVolumeAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

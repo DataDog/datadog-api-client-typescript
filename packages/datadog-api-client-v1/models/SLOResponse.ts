@@ -5,21 +5,26 @@
  */
 import { SLOResponseData } from "./SLOResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A service level objective response containing a single service level objective.
- */
+*/
 export class SLOResponse {
   /**
    * A service level objective object includes a service level indicator, thresholds
    * for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
-   */
+  */
   "data"?: SLOResponseData;
   /**
    * An array of error messages. Each endpoint documents how/whether this field is
    * used.
-   */
+  */
   "errors"?: Array<string>;
 
   /**
@@ -38,26 +43,52 @@ export class SLOResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SLOResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "SLOResponseData",
     },
-    errors: {
-      baseName: "errors",
-      type: "Array<string>",
+    "errors": {
+      "baseName": "errors",
+      "type": "Array<string>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the resource. The value should always be retention_filters.
- */
+*/
 
 export type RumRetentionFilterType = typeof RETENTION_FILTERS | UnparsedObject;
-export const RETENTION_FILTERS = "retention_filters";
+export const RETENTION_FILTERS = 'retention_filters';

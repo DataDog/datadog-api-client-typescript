@@ -6,19 +6,24 @@
 import { SLODataSourceQueryDefinition } from "./SLODataSourceQueryDefinition";
 import { SLOFormula } from "./SLOFormula";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The queries and formula used to calculate the SLI value.
- */
+*/
 export class SLOTimeSliceQuery {
   /**
    * A list that contains exactly one formula, as only a single formula may be used in a time-slice SLO.
-   */
+  */
   "formulas": [SLOFormula];
   /**
    * A list of queries that are used to calculate the SLI value.
-   */
+  */
   "queries": Array<SLODataSourceQueryDefinition>;
 
   /**
@@ -37,28 +42,54 @@ export class SLOTimeSliceQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    formulas: {
-      baseName: "formulas",
-      type: "[SLOFormula]",
-      required: true,
+    "formulas": {
+      "baseName": "formulas",
+      "type": "[SLOFormula]",
+      "required": true,
     },
-    queries: {
-      baseName: "queries",
-      type: "Array<SLODataSourceQueryDefinition>",
-      required: true,
+    "queries": {
+      "baseName": "queries",
+      "type": "Array<SLODataSourceQueryDefinition>",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOTimeSliceQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

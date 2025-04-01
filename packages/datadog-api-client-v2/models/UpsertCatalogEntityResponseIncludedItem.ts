@@ -5,12 +5,15 @@
  */
 import { EntityResponseIncludedSchema } from "./EntityResponseIncludedSchema";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Upsert entity response included item.
- */
+*/
 
-export type UpsertCatalogEntityResponseIncludedItem =
-  | EntityResponseIncludedSchema
-  | UnparsedObject;
+export type UpsertCatalogEntityResponseIncludedItem = EntityResponseIncludedSchema | UnparsedObject;

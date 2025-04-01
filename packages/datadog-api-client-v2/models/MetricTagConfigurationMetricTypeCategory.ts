@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The metric's type category.
- */
+*/
 
-export type MetricTagConfigurationMetricTypeCategory =
-  | typeof NON_DISTRIBUTION
-  | typeof DISTRIBUTION
-  | UnparsedObject;
-export const NON_DISTRIBUTION = "non_distribution";
-export const DISTRIBUTION = "distribution";
+export type MetricTagConfigurationMetricTypeCategory = typeof NON_DISTRIBUTION| typeof DISTRIBUTION | UnparsedObject;
+export const NON_DISTRIBUTION = 'non_distribution';
+export const DISTRIBUTION = 'distribution';

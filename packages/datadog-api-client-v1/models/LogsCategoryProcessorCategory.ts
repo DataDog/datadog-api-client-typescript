@@ -5,19 +5,24 @@
  */
 import { LogsFilter } from "./LogsFilter";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing the logs filter.
- */
+*/
 export class LogsCategoryProcessorCategory {
   /**
    * Filter for logs.
-   */
+  */
   "filter"?: LogsFilter;
   /**
    * Value to assign to the target attribute.
-   */
+  */
   "name"?: string;
 
   /**
@@ -36,26 +41,52 @@ export class LogsCategoryProcessorCategory {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "LogsFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "LogsFilter",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsCategoryProcessorCategory.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

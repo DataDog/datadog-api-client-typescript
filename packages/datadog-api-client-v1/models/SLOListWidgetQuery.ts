@@ -5,23 +5,28 @@
  */
 import { WidgetFieldSort } from "./WidgetFieldSort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Updated SLO List widget.
- */
+*/
 export class SLOListWidgetQuery {
   /**
    * Maximum number of results to display in the table.
-   */
+  */
   "limit"?: number;
   /**
    * Widget query.
-   */
+  */
   "queryString": string;
   /**
    * Options for sorting results.
-   */
+  */
   "sort"?: Array<WidgetFieldSort>;
 
   /**
@@ -40,32 +45,58 @@ export class SLOListWidgetQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    limit: {
-      baseName: "limit",
-      type: "number",
-      format: "int64",
+    "limit": {
+      "baseName": "limit",
+      "type": "number",
+      "format": "int64",
     },
-    queryString: {
-      baseName: "query_string",
-      type: "string",
-      required: true,
+    "queryString": {
+      "baseName": "query_string",
+      "type": "string",
+      "required": true,
     },
-    sort: {
-      baseName: "sort",
-      type: "Array<WidgetFieldSort>",
+    "sort": {
+      "baseName": "sort",
+      "type": "Array<WidgetFieldSort>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOListWidgetQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,23 +7,28 @@ import { TeamCreateAttributes } from "./TeamCreateAttributes";
 import { TeamCreateRelationships } from "./TeamCreateRelationships";
 import { TeamType } from "./TeamType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team create
- */
+*/
 export class TeamCreate {
   /**
    * Team creation attributes
-   */
+  */
   "attributes": TeamCreateAttributes;
   /**
    * Relationships formed with the team on creation
-   */
+  */
   "relationships"?: TeamCreateRelationships;
   /**
    * Team type
-   */
+  */
   "type": TeamType;
 
   /**
@@ -42,32 +47,58 @@ export class TeamCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TeamCreateAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "TeamCreateRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "TeamCreateRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "TeamType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Git information.
- */
+*/
 export class SyntheticsCIBatchMetadataGit {
   /**
    * Branch name.
-   */
+  */
   "branch"?: string;
   /**
    * The commit SHA.
-   */
+  */
   "commitSha"?: string;
 
   /**
@@ -35,26 +40,52 @@ export class SyntheticsCIBatchMetadataGit {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    branch: {
-      baseName: "branch",
-      type: "string",
+    "branch": {
+      "baseName": "branch",
+      "type": "string",
     },
-    commitSha: {
-      baseName: "commitSha",
-      type: "string",
+    "commitSha": {
+      "baseName": "commitSha",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsCIBatchMetadataGit.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,23 +7,28 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The incident's relationships for an update request.
- */
+*/
 export class IncidentUpdateRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "commanderUser"?: NullableRelationshipToUser;
   /**
    * A relationship reference for multiple integration metadata objects.
-   */
+  */
   "integrations"?: RelationshipToIncidentIntegrationMetadatas;
   /**
    * A relationship reference for postmortems.
-   */
+  */
   "postmortem"?: RelationshipToIncidentPostmortem;
 
   /**
@@ -42,30 +47,56 @@ export class IncidentUpdateRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commanderUser: {
-      baseName: "commander_user",
-      type: "NullableRelationshipToUser",
+    "commanderUser": {
+      "baseName": "commander_user",
+      "type": "NullableRelationshipToUser",
     },
-    integrations: {
-      baseName: "integrations",
-      type: "RelationshipToIncidentIntegrationMetadatas",
+    "integrations": {
+      "baseName": "integrations",
+      "type": "RelationshipToIncidentIntegrationMetadatas",
     },
-    postmortem: {
-      baseName: "postmortem",
-      type: "RelationshipToIncidentPostmortem",
+    "postmortem": {
+      "baseName": "postmortem",
+      "type": "RelationshipToIncidentPostmortem",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUpdateRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

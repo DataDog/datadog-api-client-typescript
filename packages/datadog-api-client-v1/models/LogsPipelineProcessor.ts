@@ -7,35 +7,40 @@ import { LogsFilter } from "./LogsFilter";
 import { LogsPipelineProcessorType } from "./LogsPipelineProcessorType";
 import { LogsProcessor } from "./LogsProcessor";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Nested Pipelines are pipelines within a pipeline. Use Nested Pipelines to split the processing into two steps.
  * For example, first use a high-level filtering such as team and then a second level of filtering based on the
  * integration, service, or any other tag or attribute.
- *
+ * 
  * A pipeline can contain Nested Pipelines and Processors whereas a Nested Pipeline can only contain Processors.
- */
+*/
 export class LogsPipelineProcessor {
   /**
    * Filter for logs.
-   */
+  */
   "filter"?: LogsFilter;
   /**
    * Whether or not the processor is enabled.
-   */
+  */
   "isEnabled"?: boolean;
   /**
    * Name of the processor.
-   */
+  */
   "name"?: string;
   /**
    * Ordered list of processors in this pipeline.
-   */
+  */
   "processors"?: Array<LogsProcessor>;
   /**
    * Type of logs pipeline processor.
-   */
+  */
   "type": LogsPipelineProcessorType;
 
   /**
@@ -54,39 +59,65 @@ export class LogsPipelineProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "LogsFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "LogsFilter",
     },
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
+    "isEnabled": {
+      "baseName": "is_enabled",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    processors: {
-      baseName: "processors",
-      type: "Array<LogsProcessor>",
+    "processors": {
+      "baseName": "processors",
+      "type": "Array<LogsProcessor>",
     },
-    type: {
-      baseName: "type",
-      type: "LogsPipelineProcessorType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LogsPipelineProcessorType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsPipelineProcessor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

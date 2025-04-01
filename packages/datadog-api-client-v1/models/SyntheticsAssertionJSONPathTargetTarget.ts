@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Composed target for `validatesJSONPath` operator.
- */
+*/
 export class SyntheticsAssertionJSONPathTargetTarget {
   /**
    * The element from the list of results to assert on.  To choose from the first element in the list `firstElementMatches`, every element in the list `everyElementMatches`, at least one element in the list `atLeastOneElementMatches` or the serialized value of the list `serializationMatches`.
-   */
+  */
   "elementsOperator"?: string;
   /**
    * The JSON path to assert.
-   */
+  */
   "jsonPath"?: string;
   /**
    * The specific operator to use on the path.
-   */
+  */
   "operator"?: string;
   /**
    * The path target value to compare to.
-   */
+  */
   "targetValue"?: any;
 
   /**
@@ -43,34 +48,60 @@ export class SyntheticsAssertionJSONPathTargetTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    elementsOperator: {
-      baseName: "elementsOperator",
-      type: "string",
+    "elementsOperator": {
+      "baseName": "elementsOperator",
+      "type": "string",
     },
-    jsonPath: {
-      baseName: "jsonPath",
-      type: "string",
+    "jsonPath": {
+      "baseName": "jsonPath",
+      "type": "string",
     },
-    operator: {
-      baseName: "operator",
-      type: "string",
+    "operator": {
+      "baseName": "operator",
+      "type": "string",
     },
-    targetValue: {
-      baseName: "targetValue",
-      type: "any",
+    "targetValue": {
+      "baseName": "targetValue",
+      "type": "any",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsAssertionJSONPathTargetTarget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

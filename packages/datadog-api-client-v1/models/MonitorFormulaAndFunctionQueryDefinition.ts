@@ -6,13 +6,15 @@
 import { MonitorFormulaAndFunctionCostQueryDefinition } from "./MonitorFormulaAndFunctionCostQueryDefinition";
 import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A formula and function query.
- */
+*/
 
-export type MonitorFormulaAndFunctionQueryDefinition =
-  | MonitorFormulaAndFunctionEventQueryDefinition
-  | MonitorFormulaAndFunctionCostQueryDefinition
-  | UnparsedObject;
+export type MonitorFormulaAndFunctionQueryDefinition = MonitorFormulaAndFunctionEventQueryDefinition | MonitorFormulaAndFunctionCostQueryDefinition | UnparsedObject;

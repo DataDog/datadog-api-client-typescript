@@ -6,13 +6,15 @@
 import { MetricDistinctVolume } from "./MetricDistinctVolume";
 import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Possible response objects for a metric's volume.
- */
+*/
 
-export type MetricVolumes =
-  | MetricDistinctVolume
-  | MetricIngestedIndexedVolume
-  | UnparsedObject;
+export type MetricVolumes = MetricDistinctVolume | MetricIngestedIndexedVolume | UnparsedObject;

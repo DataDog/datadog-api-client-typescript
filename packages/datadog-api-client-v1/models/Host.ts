@@ -6,67 +6,72 @@
 import { HostMeta } from "./HostMeta";
 import { HostMetrics } from "./HostMetrics";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object representing a host.
- */
+*/
 export class Host {
   /**
    * Host aliases collected by Datadog.
-   */
+  */
   "aliases"?: Array<string>;
   /**
    * The Datadog integrations reporting metrics for the host.
-   */
+  */
   "apps"?: Array<string>;
   /**
    * AWS name of your host.
-   */
+  */
   "awsName"?: string;
   /**
    * The host name.
-   */
+  */
   "hostName"?: string;
   /**
    * The host ID.
-   */
+  */
   "id"?: number;
   /**
    * If a host is muted or unmuted.
-   */
+  */
   "isMuted"?: boolean;
   /**
    * Last time the host reported a metric data point.
-   */
+  */
   "lastReportedTime"?: number;
   /**
    * Metadata associated with your host.
-   */
+  */
   "meta"?: HostMeta;
   /**
    * Host Metrics collected.
-   */
+  */
   "metrics"?: HostMetrics;
   /**
    * Timeout of the mute applied to your host.
-   */
+  */
   "muteTimeout"?: number;
   /**
    * The host name.
-   */
+  */
   "name"?: string;
   /**
    * Source or cloud provider associated with your host.
-   */
+  */
   "sources"?: Array<string>;
   /**
    * List of tags for each source (AWS, Datadog Agent, Chef..).
-   */
-  "tagsBySource"?: { [key: string]: Array<string> };
+  */
+  "tagsBySource"?: { [key: string]: Array<string>; };
   /**
    * Displays UP when the expected metrics are received and displays `???` if no metrics are received.
-   */
+  */
   "up"?: boolean;
 
   /**
@@ -85,77 +90,103 @@ export class Host {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aliases: {
-      baseName: "aliases",
-      type: "Array<string>",
+    "aliases": {
+      "baseName": "aliases",
+      "type": "Array<string>",
     },
-    apps: {
-      baseName: "apps",
-      type: "Array<string>",
+    "apps": {
+      "baseName": "apps",
+      "type": "Array<string>",
     },
-    awsName: {
-      baseName: "aws_name",
-      type: "string",
+    "awsName": {
+      "baseName": "aws_name",
+      "type": "string",
     },
-    hostName: {
-      baseName: "host_name",
-      type: "string",
+    "hostName": {
+      "baseName": "host_name",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "number",
-      format: "int64",
+    "id": {
+      "baseName": "id",
+      "type": "number",
+      "format": "int64",
     },
-    isMuted: {
-      baseName: "is_muted",
-      type: "boolean",
+    "isMuted": {
+      "baseName": "is_muted",
+      "type": "boolean",
     },
-    lastReportedTime: {
-      baseName: "last_reported_time",
-      type: "number",
-      format: "int64",
+    "lastReportedTime": {
+      "baseName": "last_reported_time",
+      "type": "number",
+      "format": "int64",
     },
-    meta: {
-      baseName: "meta",
-      type: "HostMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "HostMeta",
     },
-    metrics: {
-      baseName: "metrics",
-      type: "HostMetrics",
+    "metrics": {
+      "baseName": "metrics",
+      "type": "HostMetrics",
     },
-    muteTimeout: {
-      baseName: "mute_timeout",
-      type: "number",
-      format: "int64",
+    "muteTimeout": {
+      "baseName": "mute_timeout",
+      "type": "number",
+      "format": "int64",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    sources: {
-      baseName: "sources",
-      type: "Array<string>",
+    "sources": {
+      "baseName": "sources",
+      "type": "Array<string>",
     },
-    tagsBySource: {
-      baseName: "tags_by_source",
-      type: "{ [key: string]: Array<string>; }",
+    "tagsBySource": {
+      "baseName": "tags_by_source",
+      "type": "{ [key: string]: Array<string>; }",
     },
-    up: {
-      baseName: "up",
-      type: "boolean",
+    "up": {
+      "baseName": "up",
+      "type": "boolean",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Host.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Size of the widget.
- */
+*/
 
-export type WidgetSizeFormat =
-  | typeof SMALL
-  | typeof MEDIUM
-  | typeof LARGE
-  | UnparsedObject;
-export const SMALL = "small";
-export const MEDIUM = "medium";
-export const LARGE = "large";
+export type WidgetSizeFormat = typeof SMALL| typeof MEDIUM| typeof LARGE | UnparsedObject;
+export const SMALL = 'small';
+export const MEDIUM = 'medium';
+export const LARGE = 'large';

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Information on the total number of apps, to be used for pagination.
- */
+*/
 export class ListAppsResponseMetaPage {
   /**
    * The total number of apps under the Datadog organization, disregarding any filters applied.
-   */
+  */
   "totalCount"?: number;
   /**
    * The total number of apps that match the specified filters.
-   */
+  */
   "totalFilteredCount"?: number;
 
   /**
@@ -35,28 +40,54 @@ export class ListAppsResponseMetaPage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    totalCount: {
-      baseName: "totalCount",
-      type: "number",
-      format: "int64",
+    "totalCount": {
+      "baseName": "totalCount",
+      "type": "number",
+      "format": "int64",
     },
-    totalFilteredCount: {
-      baseName: "totalFilteredCount",
-      type: "number",
-      format: "int64",
+    "totalFilteredCount": {
+      "baseName": "totalFilteredCount",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListAppsResponseMetaPage.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

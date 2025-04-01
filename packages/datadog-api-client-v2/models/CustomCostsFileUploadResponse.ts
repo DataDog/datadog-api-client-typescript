@@ -6,19 +6,24 @@
 import { CustomCostsFileMetadataHighLevel } from "./CustomCostsFileMetadataHighLevel";
 import { CustomCostUploadResponseMeta } from "./CustomCostUploadResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for Uploaded Custom Costs files.
- */
+*/
 export class CustomCostsFileUploadResponse {
   /**
    * JSON API format for a Custom Costs file.
-   */
+  */
   "data"?: CustomCostsFileMetadataHighLevel;
   /**
    * Meta for the response from the Upload Custom Costs endpoints.
-   */
+  */
   "meta"?: CustomCostUploadResponseMeta;
 
   /**
@@ -37,26 +42,52 @@ export class CustomCostsFileUploadResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CustomCostsFileMetadataHighLevel",
+    "data": {
+      "baseName": "data",
+      "type": "CustomCostsFileMetadataHighLevel",
     },
-    meta: {
-      baseName: "meta",
-      type: "CustomCostUploadResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "CustomCostUploadResponseMeta",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomCostsFileUploadResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

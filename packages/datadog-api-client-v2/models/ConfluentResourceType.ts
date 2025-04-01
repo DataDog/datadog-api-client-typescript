@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for this request.
- */
+*/
 
-export type ConfluentResourceType =
-  | typeof CONFLUENT_CLOUD_RESOURCES
-  | UnparsedObject;
-export const CONFLUENT_CLOUD_RESOURCES = "confluent-cloud-resources";
+export type ConfluentResourceType = typeof CONFLUENT_CLOUD_RESOURCES | UnparsedObject;
+export const CONFLUENT_CLOUD_RESOURCES = 'confluent-cloud-resources';

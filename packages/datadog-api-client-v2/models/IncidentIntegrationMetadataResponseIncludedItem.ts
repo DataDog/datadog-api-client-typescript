@@ -5,12 +5,15 @@
  */
 import { User } from "./User";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An object related to an incident integration metadata that is included in the response.
- */
+*/
 
-export type IncidentIntegrationMetadataResponseIncludedItem =
-  | User
-  | UnparsedObject;
+export type IncidentIntegrationMetadataResponseIncludedItem = User | UnparsedObject;

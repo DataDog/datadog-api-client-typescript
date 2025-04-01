@@ -7,23 +7,28 @@ import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { User } from "./User";
 import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing information about multiple users.
- */
+*/
 export class UsersResponse {
   /**
    * Array of returned users.
-   */
+  */
   "data"?: Array<User>;
   /**
    * Array of objects related to the users.
-   */
+  */
   "included"?: Array<UserResponseIncludedItem>;
   /**
    * Object describing meta attributes of response.
-   */
+  */
   "meta"?: ResponseMetaAttributes;
 
   /**
@@ -42,30 +47,56 @@ export class UsersResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<User>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<User>",
     },
-    included: {
-      baseName: "included",
-      type: "Array<UserResponseIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<UserResponseIncludedItem>",
     },
-    meta: {
-      baseName: "meta",
-      type: "ResponseMetaAttributes",
+    "meta": {
+      "baseName": "meta",
+      "type": "ResponseMetaAttributes",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsersResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

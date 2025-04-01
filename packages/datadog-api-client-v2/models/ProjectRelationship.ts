@@ -5,15 +5,20 @@
  */
 import { ProjectRelationshipData } from "./ProjectRelationshipData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to project
- */
+*/
 export class ProjectRelationship {
   /**
    * Relationship to project object
-   */
+  */
   "data": ProjectRelationshipData;
 
   /**
@@ -32,23 +37,49 @@ export class ProjectRelationship {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ProjectRelationshipData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ProjectRelationshipData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectRelationship.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

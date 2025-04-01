@@ -5,19 +5,24 @@
  */
 import { ApmRetentionFilterType } from "./ApmRetentionFilterType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The retention filter object .
- */
+*/
 export class RetentionFilterWithoutAttributes {
   /**
    * The ID of the retention filter.
-   */
+  */
   "id": string;
   /**
    * The type of the resource.
-   */
+  */
   "type": ApmRetentionFilterType;
 
   /**
@@ -36,28 +41,54 @@ export class RetentionFilterWithoutAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ApmRetentionFilterType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ApmRetentionFilterType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetentionFilterWithoutAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

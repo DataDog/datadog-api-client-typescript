@@ -6,19 +6,24 @@
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { ProjectRelationship } from "./ProjectRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationships formed with the case on creation
- */
+*/
 export class CaseCreateRelationships {
   /**
    * Relationship to user.
-   */
+  */
   "assignee"?: NullableUserRelationship;
   /**
    * Relationship to project
-   */
+  */
   "project": ProjectRelationship;
 
   /**
@@ -37,27 +42,53 @@ export class CaseCreateRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignee: {
-      baseName: "assignee",
-      type: "NullableUserRelationship",
+    "assignee": {
+      "baseName": "assignee",
+      "type": "NullableUserRelationship",
     },
-    project: {
-      baseName: "project",
-      type: "ProjectRelationship",
-      required: true,
+    "project": {
+      "baseName": "project",
+      "type": "ProjectRelationship",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseCreateRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

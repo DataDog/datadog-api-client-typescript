@@ -5,19 +5,24 @@
  */
 import { ServiceDefinitionV2Opsgenie } from "./ServiceDefinitionV2Opsgenie";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Third party integrations that Datadog supports.
- */
+*/
 export class ServiceDefinitionV2Integrations {
   /**
    * Opsgenie integration for the service.
-   */
+  */
   "opsgenie"?: ServiceDefinitionV2Opsgenie;
   /**
    * PagerDuty service URL for the service.
-   */
+  */
   "pagerduty"?: string;
 
   /**
@@ -36,26 +41,52 @@ export class ServiceDefinitionV2Integrations {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    opsgenie: {
-      baseName: "opsgenie",
-      type: "ServiceDefinitionV2Opsgenie",
+    "opsgenie": {
+      "baseName": "opsgenie",
+      "type": "ServiceDefinitionV2Opsgenie",
     },
-    pagerduty: {
-      baseName: "pagerduty",
-      type: "string",
+    "pagerduty": {
+      "baseName": "pagerduty",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionV2Integrations.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

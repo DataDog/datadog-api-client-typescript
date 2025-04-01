@@ -5,35 +5,40 @@
  */
 import { SyntheticsBasicAuthSigv4Type } from "./SyntheticsBasicAuthSigv4Type";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object to handle `SIGV4` authentication when performing the test.
- */
+*/
 export class SyntheticsBasicAuthSigv4 {
   /**
    * Access key for the `SIGV4` authentication.
-   */
+  */
   "accessKey": string;
   /**
    * Region for the `SIGV4` authentication.
-   */
+  */
   "region"?: string;
   /**
    * Secret key for the `SIGV4` authentication.
-   */
+  */
   "secretKey": string;
   /**
    * Service name for the `SIGV4` authentication.
-   */
+  */
   "serviceName"?: string;
   /**
    * Session token for the `SIGV4` authentication.
-   */
+  */
   "sessionToken"?: string;
   /**
    * The type of authentication to use when performing the test.
-   */
+  */
   "type": SyntheticsBasicAuthSigv4Type;
 
   /**
@@ -52,45 +57,71 @@ export class SyntheticsBasicAuthSigv4 {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accessKey: {
-      baseName: "accessKey",
-      type: "string",
-      required: true,
+    "accessKey": {
+      "baseName": "accessKey",
+      "type": "string",
+      "required": true,
     },
-    region: {
-      baseName: "region",
-      type: "string",
+    "region": {
+      "baseName": "region",
+      "type": "string",
     },
-    secretKey: {
-      baseName: "secretKey",
-      type: "string",
-      required: true,
+    "secretKey": {
+      "baseName": "secretKey",
+      "type": "string",
+      "required": true,
     },
-    serviceName: {
-      baseName: "serviceName",
-      type: "string",
+    "serviceName": {
+      "baseName": "serviceName",
+      "type": "string",
     },
-    sessionToken: {
-      baseName: "sessionToken",
-      type: "string",
+    "sessionToken": {
+      "baseName": "sessionToken",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsBasicAuthSigv4Type",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsBasicAuthSigv4Type",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsBasicAuthSigv4.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

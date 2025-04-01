@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Total number of host currently monitored by Datadog.
- */
+*/
 export class HostTotals {
   /**
    * Total number of active host (UP and ???) reporting to Datadog.
-   */
+  */
   "totalActive"?: number;
   /**
    * Number of host that are UP and reporting to Datadog.
-   */
+  */
   "totalUp"?: number;
 
   /**
@@ -35,28 +40,54 @@ export class HostTotals {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    totalActive: {
-      baseName: "total_active",
-      type: "number",
-      format: "int64",
+    "totalActive": {
+      "baseName": "total_active",
+      "type": "number",
+      "format": "int64",
     },
-    totalUp: {
-      baseName: "total_up",
-      type: "number",
-      format: "int64",
+    "totalUp": {
+      "baseName": "total_up",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HostTotals.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

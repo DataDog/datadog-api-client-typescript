@@ -5,15 +5,20 @@
  */
 import { DomainAllowlist } from "./DomainAllowlist";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request containing the desired email domain allowlist configuration.
- */
+*/
 export class DomainAllowlistRequest {
   /**
    * The email domain allowlist for an org.
-   */
+  */
   "data": DomainAllowlist;
 
   /**
@@ -32,23 +37,49 @@ export class DomainAllowlistRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DomainAllowlist",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "DomainAllowlist",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DomainAllowlistRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

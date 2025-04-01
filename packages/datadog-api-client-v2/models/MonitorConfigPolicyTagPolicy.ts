@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Tag attributes of a monitor configuration policy.
- */
+*/
 export class MonitorConfigPolicyTagPolicy {
   /**
    * The key of the tag.
-   */
+  */
   "tagKey"?: string;
   /**
    * If a tag key is required for monitor creation.
-   */
+  */
   "tagKeyRequired"?: boolean;
   /**
    * Valid values for the tag.
-   */
+  */
   "validTagValues"?: Array<string>;
 
   /**
@@ -39,30 +44,56 @@ export class MonitorConfigPolicyTagPolicy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tagKey: {
-      baseName: "tag_key",
-      type: "string",
+    "tagKey": {
+      "baseName": "tag_key",
+      "type": "string",
     },
-    tagKeyRequired: {
-      baseName: "tag_key_required",
-      type: "boolean",
+    "tagKeyRequired": {
+      "baseName": "tag_key_required",
+      "type": "boolean",
     },
-    validTagValues: {
-      baseName: "valid_tag_values",
-      type: "Array<string>",
+    "validTagValues": {
+      "baseName": "valid_tag_values",
+      "type": "Array<string>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorConfigPolicyTagPolicy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

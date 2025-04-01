@@ -27,13 +27,8 @@ export class BaseAPIRequestFactory {
  * @extends {Error}
  */
 export class RequiredError extends Error {
-  constructor(
-    public field: string,
-    operation: string
-  ) {
-    super(
-      `Required parameter ${field} was null or undefined when calling ${operation}.`
-    );
+  constructor(public field: string, operation: string) {
+    super(`Required parameter ${field} was null or undefined when calling ${operation}.`);
     this.name = "RequiredError";
   }
 }

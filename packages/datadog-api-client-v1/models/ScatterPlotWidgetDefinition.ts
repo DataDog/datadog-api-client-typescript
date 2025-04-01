@@ -10,51 +10,56 @@ import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
- */
+*/
 export class ScatterPlotWidgetDefinition {
   /**
    * List of groups used for colors.
-   */
+  */
   "colorByGroups"?: Array<string>;
   /**
    * List of custom links.
-   */
+  */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
    * Widget definition.
-   */
+  */
   "requests": ScatterPlotWidgetDefinitionRequests;
   /**
    * Time setting for the widget.
-   */
+  */
   "time"?: WidgetTime;
   /**
    * Title of your widget.
-   */
+  */
   "title"?: string;
   /**
    * How to align the text on the widget.
-   */
+  */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-   */
+  */
   "titleSize"?: string;
   /**
    * Type of the scatter plot widget.
-   */
+  */
   "type": ScatterPlotWidgetDefinitionType;
   /**
    * Axis controls for the widget.
-   */
+  */
   "xaxis"?: WidgetAxis;
   /**
    * Axis controls for the widget.
-   */
+  */
   "yaxis"?: WidgetAxis;
 
   /**
@@ -73,60 +78,86 @@ export class ScatterPlotWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    colorByGroups: {
-      baseName: "color_by_groups",
-      type: "Array<string>",
+    "colorByGroups": {
+      "baseName": "color_by_groups",
+      "type": "Array<string>",
     },
-    customLinks: {
-      baseName: "custom_links",
-      type: "Array<WidgetCustomLink>",
+    "customLinks": {
+      "baseName": "custom_links",
+      "type": "Array<WidgetCustomLink>",
     },
-    requests: {
-      baseName: "requests",
-      type: "ScatterPlotWidgetDefinitionRequests",
-      required: true,
+    "requests": {
+      "baseName": "requests",
+      "type": "ScatterPlotWidgetDefinitionRequests",
+      "required": true,
     },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
+    "time": {
+      "baseName": "time",
+      "type": "WidgetTime",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
+    "titleAlign": {
+      "baseName": "title_align",
+      "type": "WidgetTextAlign",
     },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
+    "titleSize": {
+      "baseName": "title_size",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ScatterPlotWidgetDefinitionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ScatterPlotWidgetDefinitionType",
+      "required": true,
     },
-    xaxis: {
-      baseName: "xaxis",
-      type: "WidgetAxis",
+    "xaxis": {
+      "baseName": "xaxis",
+      "type": "WidgetAxis",
     },
-    yaxis: {
-      baseName: "yaxis",
-      type: "WidgetAxis",
+    "yaxis": {
+      "baseName": "yaxis",
+      "type": "WidgetAxis",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScatterPlotWidgetDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

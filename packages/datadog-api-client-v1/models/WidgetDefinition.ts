@@ -38,45 +38,15 @@ import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
- */
+*/
 
-export type WidgetDefinition =
-  | AlertGraphWidgetDefinition
-  | AlertValueWidgetDefinition
-  | ChangeWidgetDefinition
-  | CheckStatusWidgetDefinition
-  | DistributionWidgetDefinition
-  | EventStreamWidgetDefinition
-  | EventTimelineWidgetDefinition
-  | FreeTextWidgetDefinition
-  | FunnelWidgetDefinition
-  | GeomapWidgetDefinition
-  | GroupWidgetDefinition
-  | HeatMapWidgetDefinition
-  | HostMapWidgetDefinition
-  | IFrameWidgetDefinition
-  | ImageWidgetDefinition
-  | ListStreamWidgetDefinition
-  | LogStreamWidgetDefinition
-  | MonitorSummaryWidgetDefinition
-  | NoteWidgetDefinition
-  | PowerpackWidgetDefinition
-  | QueryValueWidgetDefinition
-  | RunWorkflowWidgetDefinition
-  | SLOListWidgetDefinition
-  | SLOWidgetDefinition
-  | ScatterPlotWidgetDefinition
-  | ServiceMapWidgetDefinition
-  | ServiceSummaryWidgetDefinition
-  | SplitGraphWidgetDefinition
-  | SunburstWidgetDefinition
-  | TableWidgetDefinition
-  | TimeseriesWidgetDefinition
-  | ToplistWidgetDefinition
-  | TopologyMapWidgetDefinition
-  | TreeMapWidgetDefinition
-  | UnparsedObject;
+export type WidgetDefinition = AlertGraphWidgetDefinition | AlertValueWidgetDefinition | ChangeWidgetDefinition | CheckStatusWidgetDefinition | DistributionWidgetDefinition | EventStreamWidgetDefinition | EventTimelineWidgetDefinition | FreeTextWidgetDefinition | FunnelWidgetDefinition | GeomapWidgetDefinition | GroupWidgetDefinition | HeatMapWidgetDefinition | HostMapWidgetDefinition | IFrameWidgetDefinition | ImageWidgetDefinition | ListStreamWidgetDefinition | LogStreamWidgetDefinition | MonitorSummaryWidgetDefinition | NoteWidgetDefinition | PowerpackWidgetDefinition | QueryValueWidgetDefinition | RunWorkflowWidgetDefinition | SLOListWidgetDefinition | SLOWidgetDefinition | ScatterPlotWidgetDefinition | ServiceMapWidgetDefinition | ServiceSummaryWidgetDefinition | SplitGraphWidgetDefinition | SunburstWidgetDefinition | TableWidgetDefinition | TimeseriesWidgetDefinition | ToplistWidgetDefinition | TopologyMapWidgetDefinition | TreeMapWidgetDefinition | UnparsedObject;

@@ -5,19 +5,24 @@
  */
 import { MetricMonitorType } from "./MetricMonitorType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object of type `monitor` that can be referenced in the `included` data.
- */
+*/
 export class MetricAssetMonitorRelationship {
   /**
    * The related monitor's ID.
-   */
+  */
   "id"?: string;
   /**
    * Monitor resource type.
-   */
+  */
   "type"?: MetricMonitorType;
 
   /**
@@ -36,26 +41,52 @@ export class MetricAssetMonitorRelationship {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "MetricMonitorType",
+    "type": {
+      "baseName": "type",
+      "type": "MetricMonitorType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricAssetMonitorRelationship.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

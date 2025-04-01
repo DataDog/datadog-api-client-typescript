@@ -5,15 +5,20 @@
  */
 import { SearchServiceLevelObjectiveData } from "./SearchServiceLevelObjectiveData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A service level objective data container.
- */
+*/
 export class SearchServiceLevelObjective {
   /**
    * A service level objective ID and attributes.
-   */
+  */
   "data"?: SearchServiceLevelObjectiveData;
 
   /**
@@ -32,22 +37,48 @@ export class SearchServiceLevelObjective {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SearchServiceLevelObjectiveData",
+    "data": {
+      "baseName": "data",
+      "type": "SearchServiceLevelObjectiveData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SearchServiceLevelObjective.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

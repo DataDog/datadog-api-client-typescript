@@ -5,15 +5,20 @@
  */
 import { FastlyServiceData } from "./FastlyServiceData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Payload schema for Fastly service requests.
- */
+*/
 export class FastlyServiceRequest {
   /**
    * Data object for Fastly service requests.
-   */
+  */
   "data": FastlyServiceData;
 
   /**
@@ -32,23 +37,49 @@ export class FastlyServiceRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "FastlyServiceData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "FastlyServiceData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FastlyServiceRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

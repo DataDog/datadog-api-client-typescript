@@ -21,28 +21,15 @@ import { LogsURLParser } from "./LogsURLParser";
 import { LogsUserAgentParser } from "./LogsUserAgentParser";
 import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupProcessor";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Definition of a logs processor.
- */
+*/
 
-export type LogsProcessor =
-  | LogsGrokParser
-  | LogsDateRemapper
-  | LogsStatusRemapper
-  | LogsServiceRemapper
-  | LogsMessageRemapper
-  | LogsAttributeRemapper
-  | LogsURLParser
-  | LogsUserAgentParser
-  | LogsCategoryProcessor
-  | LogsArithmeticProcessor
-  | LogsStringBuilderProcessor
-  | LogsPipelineProcessor
-  | LogsGeoIPParser
-  | LogsLookupProcessor
-  | ReferenceTableLogsLookupProcessor
-  | LogsTraceRemapper
-  | LogsSpanRemapper
-  | UnparsedObject;
+export type LogsProcessor = LogsGrokParser | LogsDateRemapper | LogsStatusRemapper | LogsServiceRemapper | LogsMessageRemapper | LogsAttributeRemapper | LogsURLParser | LogsUserAgentParser | LogsCategoryProcessor | LogsArithmeticProcessor | LogsStringBuilderProcessor | LogsPipelineProcessor | LogsGeoIPParser | LogsLookupProcessor | ReferenceTableLogsLookupProcessor | LogsTraceRemapper | LogsSpanRemapper | UnparsedObject;

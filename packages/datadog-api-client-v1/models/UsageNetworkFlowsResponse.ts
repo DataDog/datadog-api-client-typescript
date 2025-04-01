@@ -5,15 +5,20 @@
  */
 import { UsageNetworkFlowsHour } from "./UsageNetworkFlowsHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the number of netflow events indexed for each hour for a given organization.
- */
+*/
 export class UsageNetworkFlowsResponse {
   /**
    * Get hourly usage for Network Flows.
-   */
+  */
   "usage"?: Array<UsageNetworkFlowsHour>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageNetworkFlowsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageNetworkFlowsHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageNetworkFlowsHour>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageNetworkFlowsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

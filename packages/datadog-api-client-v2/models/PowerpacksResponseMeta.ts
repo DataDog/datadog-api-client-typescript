@@ -5,15 +5,20 @@
  */
 import { PowerpacksResponseMetaPagination } from "./PowerpacksResponseMetaPagination";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Powerpack response metadata.
- */
+*/
 export class PowerpacksResponseMeta {
   /**
    * Powerpack response pagination metadata.
-   */
+  */
   "pagination"?: PowerpacksResponseMetaPagination;
 
   /**
@@ -32,22 +37,48 @@ export class PowerpacksResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pagination: {
-      baseName: "pagination",
-      type: "PowerpacksResponseMetaPagination",
+    "pagination": {
+      "baseName": "pagination",
+      "type": "PowerpacksResponseMetaPagination",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PowerpacksResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

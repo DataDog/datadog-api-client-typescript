@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Git info for DORA Metrics events.
- */
+*/
 export class DORAGitInfo {
   /**
    * Git Commit SHA.
-   */
+  */
   "commitSha": string;
   /**
    * Git Repository URL
-   */
+  */
   "repositoryUrl": string;
 
   /**
@@ -35,28 +40,54 @@ export class DORAGitInfo {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commitSha: {
-      baseName: "commit_sha",
-      type: "string",
-      required: true,
+    "commitSha": {
+      "baseName": "commit_sha",
+      "type": "string",
+      "required": true,
     },
-    repositoryUrl: {
-      baseName: "repository_url",
-      type: "string",
-      required: true,
+    "repositoryUrl": {
+      "baseName": "repository_url",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORAGitInfo.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

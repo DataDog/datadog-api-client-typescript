@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Monitor configuration policy resource type.
- */
+*/
 
-export type MonitorConfigPolicyResourceType =
-  | typeof MONITOR_CONFIG_POLICY
-  | UnparsedObject;
-export const MONITOR_CONFIG_POLICY = "monitor-config-policy";
+export type MonitorConfigPolicyResourceType = typeof MONITOR_CONFIG_POLICY | UnparsedObject;
+export const MONITOR_CONFIG_POLICY = 'monitor-config-policy';
