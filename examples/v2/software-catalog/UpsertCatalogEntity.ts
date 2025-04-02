@@ -61,6 +61,7 @@ const params: v2.SoftwareCatalogApiUpsertCatalogEntityRequest = {
       tags: ["this:tag", "that:tag"],
     },
     spec: {
+      componentOf: [],
       dependsOn: [],
       languages: [],
     },
