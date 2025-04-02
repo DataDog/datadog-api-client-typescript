@@ -2387,7 +2387,14 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityMonitoringSignalState: ["open", "archived", "under_review"],
   SecurityMonitoringSignalType: ["signal"],
   SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
-  SecurityMonitoringStandardDataSource: ["logs", "audit"],
+  SecurityMonitoringStandardDataSource: [
+    "logs",
+    "audit",
+    "app_sec_spans",
+    "spans",
+    "security_runtime",
+    "network",
+  ],
   SecurityMonitoringSuppressionType: ["suppressions"],
   SensitiveDataScannerConfigurationType: [
     "sensitive_data_scanner_configuration",
