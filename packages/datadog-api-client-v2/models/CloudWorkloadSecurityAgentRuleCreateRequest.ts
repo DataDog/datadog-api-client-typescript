@@ -8,11 +8,11 @@ import { CloudWorkloadSecurityAgentRuleCreateData } from "./CloudWorkloadSecurit
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Request object that includes the Agent rule to create.
+ * Request object that includes the Agent rule to create
  */
 export class CloudWorkloadSecurityAgentRuleCreateRequest {
   /**
-   * Object for a single Agent rule.
+   * Object for a single Agent rule
    */
   "data": CloudWorkloadSecurityAgentRuleCreateData;
 

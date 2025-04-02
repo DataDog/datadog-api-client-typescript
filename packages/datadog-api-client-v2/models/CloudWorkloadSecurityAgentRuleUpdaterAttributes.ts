@@ -7,15 +7,15 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The attributes of the user who last updated the Agent rule.
+ * The attributes of the user who last updated the Agent rule
  */
 export class CloudWorkloadSecurityAgentRuleUpdaterAttributes {
   /**
-   * The handle of the user.
+   * The handle of the user
    */
   "handle"?: string;
   /**
-   * The name of the user.
+   * The name of the user
    */
   "name"?: string;
 
