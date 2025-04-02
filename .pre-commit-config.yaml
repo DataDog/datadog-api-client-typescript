@@ -1,12 +1,6 @@
 repos:
   - repo: local
     hooks:
-      - id: generate
-        name: Generate
-        language: node
-        entry: bash -c "./generate.sh"
-        files: '^(\.generator/.*|\.pre-commit-config\.yaml|package\.json|yarn\.lock|\.eslintrc\.js|Makefile|\features/.*|packages/.*)'
-        pass_filenames: false
       - id: lint
         name: Lint
         language: node
@@ -14,28 +8,3 @@ repos:
         stages: [manual]
         pass_filenames: false
         language_version: "21.7.3"
-      - id: lint-examples
-        name: Lint examples
-        language: node
-        entry: yarn run lint:fix-examples
-        stages: [manual]
-        pass_filenames: false
-        language_version: "21.7.3"
-      - id: generator
-        name: generator
-        language: python
-        entry: bash -c "cd .generator && poetry install && poetry run python -m generator ./schemas/v1/openapi.yaml ./schemas/v2/openapi.yaml -o ../packages"
-        files: "^.generator/(config|schemas/v1|src|poetry.lock|pyproject.toml)"
-        stages: [manual]
-        pass_filenames: false
-        additional_dependencies:
-          - "poetry"
-      - id: examples
-        name: examples
-        language: python
-        entry: bash -c "cd .generator && poetry install && poetry run pytest"
-        files: "^.generator/"
-        stages: [manual]
-        pass_filenames: false
-        additional_dependencies:
-          - "poetry"

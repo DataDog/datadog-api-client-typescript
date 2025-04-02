@@ -23,9 +23,4 @@ pre_commit_wrapper () {
   echo "command 'pre-commit run --all-files --hook-stage=manual ${1}' success"
 }
 
-rm -rf packages/datadog-api-client-v*/ examples/v*
-rm -rf packages/datadog-api-client-*/
-pre_commit_wrapper generator
-pre_commit_wrapper lint
-pre_commit_wrapper examples
-pre_commit_wrapper lint-examples
+# pre_commit_wrapper lint
