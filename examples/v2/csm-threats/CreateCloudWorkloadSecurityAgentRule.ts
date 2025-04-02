@@ -11,9 +11,10 @@ const params: v2.CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest = {
   body: {
     data: {
       attributes: {
-        description: "Test Agent rule",
+        description: "My Agent rule",
         enabled: true,
         expression: `exec.file.name == "sh"`,
+        filters: [],
         name: "examplecsmthreat",
       },
       type: "agent_rule",
