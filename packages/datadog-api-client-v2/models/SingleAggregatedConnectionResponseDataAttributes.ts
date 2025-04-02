@@ -31,7 +31,7 @@ export class SingleAggregatedConnectionResponseDataAttributes {
    */
   "packetsSentByServer"?: number;
   /**
-   * Measured as TCP smoothed roundtrip time in microseconds (the time between a TCP frame being sent and acknowledged).
+   * Measured as TCP smoothed round trip time in microseconds (the time between a TCP frame being sent and acknowledged).
    */
   "rttMicroSeconds"?: number;
   /**
