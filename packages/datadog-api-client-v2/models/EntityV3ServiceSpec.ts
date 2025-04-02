@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EntityV3ServiceSpec {
   /**
+   * A list of components the service is a part of
+   */
+  "componentOf"?: Array<string>;
+  /**
    * A list of components the service depends on.
    */
   "dependsOn"?: Array<string>;
@@ -40,6 +44,10 @@ export class EntityV3ServiceSpec {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    componentOf: {
+      baseName: "componentOf",
+      type: "Array<string>",
+    },
     dependsOn: {
       baseName: "dependsOn",
       type: "Array<string>",
