@@ -1,5 +1,5 @@
 /**
- * Get all aggregated connections returns "OK" response
+ * Get aggregated connections returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
