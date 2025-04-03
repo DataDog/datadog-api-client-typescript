@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DistributionPointItem } from "./DistributionPointItem";
+import { DistributionPointItems } from "./DistributionPointItems";
 import { DistributionPointsType } from "./DistributionPointsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -23,7 +23,7 @@ export class DistributionPointsSeries {
   /**
    * Points relating to the distribution point metric. All points must be tuples with timestamp and a list of values (cannot be a string). Timestamps should be in POSIX time in seconds.
    */
-  "points": Array<[DistributionPointItem, DistributionPointItem]>;
+  "points": Array<[DistributionPointItems, DistributionPointItems]>;
   /**
    * A list of tags associated with the distribution point metric.
    */
@@ -60,7 +60,7 @@ export class DistributionPointsSeries {
     },
     points: {
       baseName: "points",
-      type: "Array<[DistributionPointItem, DistributionPointItem]>",
+      type: "Array<[DistributionPointItems, DistributionPointItems]>",
       required: true,
     },
     tags: {

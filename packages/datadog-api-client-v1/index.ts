@@ -411,7 +411,7 @@ export { DashboardTemplateVariablePresetValue } from "./models/DashboardTemplate
 export { DashboardType } from "./models/DashboardType";
 export { DeletedMonitor } from "./models/DeletedMonitor";
 export { DeleteSharedDashboardResponse } from "./models/DeleteSharedDashboardResponse";
-export { DistributionPointItem } from "./models/DistributionPointItem";
+export { DistributionPointItems } from "./models/DistributionPointItems";
 export { DistributionPointsContentEncoding } from "./models/DistributionPointsContentEncoding";
 export { DistributionPointsPayload } from "./models/DistributionPointsPayload";
 export { DistributionPointsSeries } from "./models/DistributionPointsSeries";

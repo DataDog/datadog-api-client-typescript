@@ -2350,7 +2350,7 @@ const typeMap: { [index: string]: any } = {
 };
 
 const oneOfMap: { [index: string]: string[] } = {
-  DistributionPointItem: ["number", "Array<number>"],
+  DistributionPointItems: ["number", "Array<number>"],
   DistributionWidgetHistogramRequestQuery: [
     "FormulaAndFunctionMetricQueryDefinition",
     "FormulaAndFunctionEventQueryDefinition",

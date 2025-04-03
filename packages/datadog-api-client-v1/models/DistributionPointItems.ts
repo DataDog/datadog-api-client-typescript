@@ -10,4 +10,4 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * List of distribution point.
  */
 
-export type DistributionPointItem = number | Array<number> | UnparsedObject;
+export type DistributionPointItems = number | Array<number> | UnparsedObject;
