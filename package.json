@@ -27,7 +27,7 @@
     "build": "tsc",
     "lint": "yarn install --ignore-scripts; eslint --ext .ts src",
     "lint:fix": "yarn install --ignore-scripts;  yarn lint --fix",
-    "format": "yarn install --ignore-scripts; prettier --write --ignore-unknown '**.ts'"
+    "format": "yarn install --ignore-scripts; prettier --write --ignore-unknown '**.{js,ts}'"
   },
   "dependencies": {
     "@types/buffer-from": "^1.1.0",
