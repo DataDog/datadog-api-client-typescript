@@ -102,7 +102,7 @@ def cli(specs, output):
                 fp.write(model_j2.render(name=name, model=model))
 
         for name, operations in apis.items():
-            filename = name.replace(" ", "") + "Api.ts"
+            filename = name.replace(" ", "").replace("-", "") + "Api.ts"
             api_path = package_path / "apis" / filename
             api_path.parent.mkdir(parents=True, exist_ok=True)
             with api_path.open("w+") as fp:
