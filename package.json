@@ -25,9 +25,9 @@
   "typings": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint --ext .ts src",
-    "lint:fix": "yarn lint --fix",
-    "format": "prettier --write --ignore-unknown src"
+    "lint": "yarn install --ignore-scripts; eslint --ext .ts src",
+    "lint:fix": "yarn install --ignore-scripts;  yarn lint --fix",
+    "format": "yarn install --ignore-scripts; prettier --write --ignore-unknown src"
   },
   "dependencies": {
     "@types/buffer-from": "^1.1.0",
