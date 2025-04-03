@@ -1,0 +1,877 @@
+[
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"action_connection\",\n    \"attributes\": {\n        \"name\": \"Cassette Connection DELETE\",\n        \"integration\": {\n            \"type\": \"AWS\",\n            \"credentials\": {\n                \"type\": \"AWSAssumeRole\",\n                \"role\": \"MyRole\",\n                \"account_id\": \"123456789123\"\n            }\n        }\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"action_connection\" in the system",
+    "key": "action_connection",
+    "tag": "Action Connection",
+    "operationId": "CreateActionConnection"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{ unique }}\"\n    },\n    \"type\": \"api_keys\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"api_key\" in the system",
+    "key": "api_key",
+    "tag": "Key Management",
+    "operationId": "CreateAPIKey"
+  },
+  {
+    "parameters": [
+      {
+        "name": "openapi_spec_file",
+        "value": "\"openapi-spec.yaml\""
+      }
+    ],
+    "step": "there is a valid \"managed_api\" in the system",
+    "key": "managed_api",
+    "tag": "API Management",
+    "operationId": "CreateOpenAPI"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"id\": \"{{ unique }}\",\n    \"attributes\": {\n      \"filter\": {\n        \"query\": \"source:{{ unique }}\"\n      },\n      \"compute\": {\n        \"aggregation_type\": \"distribution\",\n        \"path\": \"@duration\",\n        \"include_percentiles\": false\n      },\n      \"group_by\": [\n        {\n            \"path\": \"resource_name\",\n            \"tag_name\": \"resource_name\"\n        }\n      ]\n    },\n    \"type\": \"spans_metrics\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"spans_metric\" in the system",
+    "key": "spans_metric",
+    "tag": "Spans Metrics",
+    "operationId": "CreateSpansMetric"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n    \"data\": {\n        \"attributes\": {\n            \"name\": \"demo retention filter\",\n            \"rate\": 0.90,\n            \"filter\": {\n                \"query\": \"@_top_level:1 test:service-demo\"\n            },\n            \"enabled\": true,\n            \"filter_type\": \"spans-sampling-processor\"\n        },\n        \"type\": \"apm_retention_filter\"\n    }\n}"
+      }
+    ],
+    "step": "there is a valid \"retention_filter\" in the system",
+    "key": "retention_filter",
+    "tag": "APM Retention Filters",
+    "operationId": "CreateApmRetentionFilter"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\"data\":{\"type\":\"appDefinitions\",\"attributes\":{\"rootInstanceName\":\"grid0\",\"components\":[{\"name\":\"grid0\",\"type\":\"grid\",\"properties\":{\"children\":[{\"type\":\"gridCell\",\"name\":\"gridCell0\",\"properties\":{\"children\":[{\"name\":\"text0\",\"type\":\"text\",\"properties\":{\"content\":\"# Cat Facts\",\"contentType\":\"markdown\",\"textAlign\":\"left\",\"verticalAlign\":\"top\",\"isVisible\":true},\"events\":[]}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"x\":0,\"y\":0,\"width\":4,\"height\":5}}},\"events\":[]},{\"type\":\"gridCell\",\"name\":\"gridCell2\",\"properties\":{\"children\":[{\"name\":\"table0\",\"type\":\"table\",\"properties\":{\"data\":\"${fetchFacts?.outputs?.body?.data}\",\"columns\":[{\"dataPath\":\"fact\",\"header\":\"fact\",\"isHidden\":false,\"id\":\"0ae2ae9e-0280-4389-83c6-1c5949f7e674\"},{\"dataPath\":\"length\",\"header\":\"length\",\"isHidden\":true,\"id\":\"c9048611-0196-4a00-9366-1ef9e3ec0408\"},{\"id\":\"8fa9284b-7a58-4f13-9959-57b7d8a7fe8f\",\"dataPath\":\"Due Date\",\"header\":\"Unused Old Column\",\"disableSortBy\":false,\"formatter\":{\"type\":\"formatted_time\",\"format\":\"LARGE_WITHOUT_TIME\"},\"isDeleted\":true}],\"summary\":true,\"pageSize\":\"${pageSize?.value}\",\"paginationType\":\"server_side\",\"isLoading\":\"${fetchFacts?.isLoading}\",\"rowButtons\":[],\"isWrappable\":false,\"isScrollable\":\"vertical\",\"isSubRowsEnabled\":false,\"globalFilter\":false,\"isVisible\":true,\"totalCount\":\"${fetchFacts?.outputs?.body?.total}\"},\"events\":[]}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"x\":0,\"y\":5,\"width\":12,\"height\":96}}},\"events\":[]},{\"type\":\"gridCell\",\"name\":\"gridCell1\",\"properties\":{\"children\":[{\"name\":\"text1\",\"type\":\"text\",\"properties\":{\"content\":\"## Random Fact\\n\\n${randomFact?.outputs?.fact}\",\"contentType\":\"markdown\",\"textAlign\":\"left\",\"verticalAlign\":\"top\",\"isVisible\":true},\"events\":[]}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"x\":0,\"y\":101,\"width\":12,\"height\":16}}},\"events\":[]},{\"type\":\"gridCell\",\"name\":\"gridCell3\",\"properties\":{\"children\":[{\"name\":\"button0\",\"type\":\"button\",\"properties\":{\"label\":\"Increase Page Size\",\"level\":\"default\",\"isPrimary\":true,\"isBorderless\":false,\"isLoading\":false,\"isDisabled\":false,\"isVisible\":true,\"iconLeft\":\"angleUp\",\"iconRight\":\"\"},\"events\":[{\"variableName\":\"pageSize\",\"value\":\"${pageSize?.value + 1}\",\"name\":\"click\",\"type\":\"setStateVariableValue\"}]}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"x\":10,\"y\":134,\"width\":2,\"height\":4}}},\"events\":[]},{\"type\":\"gridCell\",\"name\":\"gridCell4\",\"properties\":{\"children\":[{\"name\":\"button1\",\"type\":\"button\",\"properties\":{\"label\":\"Decrease Page Size\",\"level\":\"default\",\"isPrimary\":true,\"isBorderless\":false,\"isLoading\":false,\"isDisabled\":false,\"isVisible\":true,\"iconLeft\":\"angleDown\",\"iconRight\":\"\"},\"events\":[{\"variableName\":\"pageSize\",\"value\":\"${pageSize?.value - 1}\",\"name\":\"click\",\"type\":\"setStateVariableValue\"}]}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"x\":10,\"y\":138,\"width\":2,\"height\":4}}},\"events\":[]}],\"backgroundColor\":\"default\"},\"events\":[]}],\"queries\":[{\"id\":\"92ff0bb8-553b-4f31-87c7-ef5bd16d47d5\",\"type\":\"action\",\"name\":\"fetchFacts\",\"events\":[],\"properties\":{\"spec\":{\"fqn\":\"com.datadoghq.http.request\",\"connectionId\":\"5e63f4a8-4ce6-47de-ba11-f6617c1d54f3\",\"inputs\":{\"verb\":\"GET\",\"url\":\"https://catfact.ninja/facts\",\"urlParams\":[{\"key\":\"limit\",\"value\":\"${pageSize.value.toString()}\"},{\"key\":\"page\",\"value\":\"${(table0.pageIndex + 1).toString()}\"}]}}}},{\"type\":\"stateVariable\",\"name\":\"pageSize\",\"properties\":{\"defaultValue\":\"${20}\"},\"id\":\"afd03c81-4075-4432-8618-ba09d52d2f2d\"},{\"type\":\"dataTransform\",\"name\":\"randomFact\",\"properties\":{\"outputs\":\"${(() => {const facts = fetchFacts.outputs.body.data\\nreturn facts[Math.floor(Math.random()*facts.length)]\\n})()}\"},\"id\":\"0fb22859-47dc-4137-9e41-7b67d04c525c\"}],\"name\":\"Example Cat Facts Viewer\",\"description\":\"This is a slightly complicated example app that fetches and displays cat facts\"}}}"
+      }
+    ],
+    "step": "there is a valid \"app\" in the system",
+    "key": "app",
+    "tag": "App Builder",
+    "operationId": "CreateApp"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n     \"attribute_key\": \"{{ unique_lower_alnum }}\",\n     \"attribute_value\": \"{{ unique }}\"\n    },\n    \"relationships\": {\n       \"role\": {\n         \"data\": {\n           \"id\": \"{{ role.data.id }}\",\n           \"type\": \"{{ role.data.type }}\"\n         }\n      }\n    },\n    \"type\": \"authn_mappings\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"authn_mapping\" in the system",
+    "key": "authn_mapping",
+    "tag": "AuthN Mappings",
+    "operationId": "CreateAuthNMapping"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"title\": \"My new case\",\n      \"type\": \"STANDARD\",\n      \"priority\": \"P4\"\n    },\n    \"relationships\": {\n      \"project\": {\n        \"data\": {\n          \"id\": \"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\n          \"type\": \"project\"\n        }\n      }\n    },\n    \"type\": \"case\"\n  }\n}"
+      }
+    ],
+    "source": "data",
+    "step": "there is a valid \"case\" in the system",
+    "key": "case",
+    "tag": "Case Management",
+    "operationId": "CreateCase"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"apiVersion\": \"v3\",\n  \"kind\": \"service\",\n  \"metadata\": {\n    \"name\": \"service-{{ unique_lower_alnum }}\",\n    \"displayName\": \"Shopping Cart\",\n    \"inheritFrom\": \"service:otherService\",\n    \"tags\": [\n      \"tag:value\"\n    ],\n    \"links\": [\n      {\n        \"name\": \"shopping-cart runbook\",\n        \"type\": \"runbook\",\n        \"url\": \"https://runbook/shopping-cart\"\n      },\n      {\n        \"name\": \"shopping-cart architecture\",\n        \"provider\": \"gdoc\",\n        \"url\": \"https://google.drive/shopping-cart-architecture\",\n        \"type\": \"doc\"\n      },\n      {\n        \"name\": \"shopping-cart Wiki\",\n        \"provider\": \"wiki\",\n        \"url\": \"https://wiki/shopping-cart\",\n        \"type\": \"doc\"\n      },\n      {\n        \"name\": \"shopping-cart source code\",\n        \"provider\": \"github\",\n        \"url\": \"http://github/shopping-cart\",\n        \"type\": \"repo\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"name\": \"Support Email\",\n        \"type\": \"email\",\n        \"contact\": \"team@shopping.com\"\n      },\n      {\n        \"name\": \"Support Slack\",\n        \"type\": \"slack\",\n        \"contact\": \"https://www.slack.com/archives/shopping-cart\"\n      }\n    ],\n    \"owner\": \"myteam\",\n    \"additionalOwners\": [\n      {\n        \"name\": \"opsTeam\",\n        \"type\": \"operator\"\n      }\n    ]\n  },\n  \"integrations\": {\n    \"pagerduty\": {\n      \"serviceURL\": \"https://www.pagerduty.com/service-directory/Pshopping-cart\"\n    },\n    \"opsgenie\": {\n      \"serviceURL\": \"https://www.opsgenie.com/service/shopping-cart\",\n      \"region\": \"US\"\n    }\n  },\n  \"extensions\": {\n    \"datadoghq.com/shopping-cart\": {\n      \"customField\": \"customValue\"\n    }\n  },\n  \"spec\": {\n    \"lifecycle\": \"production\",\n    \"tier\": \"1\",\n    \"type\": \"web\",\n    \"languages\": [\n      \"go\",\n      \"python\"\n    ],\n    \"dependsOn\": [\n      \"service:serviceA\",\n      \"service:serviceB\"\n    ]\n  },\n  \"datadog\": {\n    \"performanceData\": {\n      \"tags\": [\n        \"service:shopping-cart\",\n        \"hostname:shopping-cart\"\n      ]\n    },\n    \"events\": [\n      {\n        \"name\": \"deployment events\",\n        \"query\": \"app:myapp AND type:github\"\n      },\n      {\n        \"name\": \"event type B\",\n        \"query\": \"app:myapp AND type:github\"\n      }\n    ],\n    \"logs\": [\n      {\n        \"name\": \"critical logs\",\n        \"query\": \"app:myapp AND type:github\"\n      },\n      {\n        \"name\": \"ops logs\",\n        \"query\": \"app:myapp AND type:github\"\n      }\n    ],\n    \"pipelines\": {\n      \"fingerprints\": [\n        \"fp1\",\n        \"fp2\"\n      ]\n    },\n    \"codeLocations\": [\n      {\n        \"repositoryURL\": \"http://github/shopping-cart.git\",\n        \"paths\": [\n          \"baz/*.c\",\n          \"bat/**/*\",\n          \"../plop/*.java\"\n        ]\n      },\n      {\n        \"repositoryURL\": \"http://github/shopping-cart-2.git\",\n        \"paths\": [\n          \"baz/*.c\",\n          \"bat/**/*\",\n          \"../plop/*.java\"\n        ]\n      }\n    ]\n  }\n}"
+      }
+    ],
+    "step": "there is a valid entity in the system",
+    "key": "entity",
+    "tag": "Software Catalog",
+    "operationId": "UpsertCatalogEntity"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{ unique }}\"\n    },\n    \"type\": \"application_keys\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"application_key\" in the system",
+    "key": "application_key",
+    "tag": "Key Management",
+    "operationId": "CreateCurrentUserApplicationKey"
+  },
+  {
+    "parameters": [
+      {
+        "name": "dashboard_list_id",
+        "source": "dashboard_list.id"
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"dashboards\": [\n    {\n      \"id\": \"{{ dashboard.id }}\",\n      \"type\": \"custom_timeboard\"\n    }\n  ]\n}"
+      }
+    ],
+    "step": "the \"dashboard_list\" has the \"dashboard\"",
+    "key": "dashboard_list_dashboard",
+    "tag": "Dashboard Lists",
+    "operationId": "CreateDashboardListItems"
+  },
+  {
+    "parameters": [
+      {
+        "name": "dashboard_list_id",
+        "source": "dashboard_list.id"
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"dashboards\": [\n    {\n      \"id\": \"{{ screenboard_dashboard.id }}\",\n      \"type\": \"custom_screenboard\"\n    }\n  ]\n}"
+      }
+    ],
+    "step": "the \"dashboard_list\" has the \"screenboard_dashboard\"",
+    "key": "dashboard_list_screenboard_dashboard",
+    "tag": "Dashboard Lists",
+    "operationId": "CreateDashboardListItems"
+  },
+  {
+    "parameters": [
+      {
+        "name": "product",
+        "value": "\"logs\""
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"from\": 1672527600000,\n      \"to\": 1704063600000,\n      \"indexes\": [\"test-index\", \"test-index-2\"],\n      \"query\": {\"host\": \"abc\", \"service\": \"xyz\"}\n    },\n    \"type\": \"create_deletion_req\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"deletion_request\" in the system",
+    "key": "deletion_request",
+    "tag": "Data Deletion",
+    "operationId": "CreateDataDeletionRequest"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"message\": \"test message\",\n      \"monitor_identifier\": {\n        \"monitor_tags\": [\"cat:hat\"]\n      },\n      \"scope\": \"test:{{ unique_lower_alnum }}\",\n      \"schedule\": {\n        \"start\": null\n      }\n    },\n    \"type\": \"downtime\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"downtime_v2\" in the system",
+    "key": "downtime_v2",
+    "tag": "Downtimes",
+    "operationId": "CreateDowntime"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"title\": \"{{ unique }}\",\n      \"customer_impacted\": false\n     },\n     \"type\": \"incidents\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"incident\" in the system",
+    "key": "incident",
+    "tag": "Incidents",
+    "operationId": "CreateIncident"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"Security Incident\",\n      \"description\": \"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\n      \"is_default\": false\n    },\n    \"type\": \"incident_types\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"incident_type\" in the system",
+    "key": "incident_type",
+    "tag": "Incidents",
+    "operationId": "CreateIncidentType"
+  },
+  {
+    "parameters": [
+      {
+        "name": "incident_id",
+        "source": "incident.data.id"
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"data\": [\n    {\n      \"attributes\": {\n        \"attachment_type\": \"link\",\n        \"attachment\": {\n          \"documentUrl\": \"https://www.example.com/doc\",\n          \"title\": \"Important Doc\"\n        }\n      },\n      \"type\": \"incident_attachments\"\n    }\n  ]\n}"
+      }
+    ],
+    "step": "the \"incident\" has an \"incident_attachment\"",
+    "key": "incident_attachment",
+    "tag": "Incidents",
+    "operationId": "UpdateIncidentAttachments"
+  },
+  {
+    "parameters": [
+      {
+        "name": "incident_id",
+        "source": "incident.data.id"
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"integration_type\": 1,\n      \"incident_id\": \"{{ incident.data.id }}\",\n      \"status\": 2,\n      \"metadata\": {\n        \"channels\": [\n          {\n            \"channel_id\": \"C0123456789\",\n            \"team_id\": \"T01234567\",\n            \"channel_name\": \"#example-channel-name\",\n            \"redirect_url\": \"https://slack.com/app_redirect?channel=C0123456789&team=T01234567\"\n          }\n        ]\n      }\n    },\n    \"type\": \"incident_integrations\"\n  }\n}"
+      }
+    ],
+    "step": "the \"incident\" has an \"incident_integration_metadata\"",
+    "key": "incident_integration_metadata",
+    "tag": "Incidents",
+    "operationId": "CreateIncidentIntegration"
+  },
+  {
+    "parameters": [
+      {
+        "name": "incident_id",
+        "source": "incident.data.id"
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"content\": \"Follow up with customer about the impact they saw.\",\n      \"assignees\": [\n        \"@test.user@test.com\",\n        {\n          \"icon\": \"https://a.slack-edge.com/80588/img/slackbot_48.png\",\n          \"id\": \"USLACKBOT\",\n          \"name\": \"Slackbot\",\n          \"source\": \"slack\"\n        }\n      ]\n    },\n    \"type\": \"incident_todos\"\n  }\n}"
+      }
+    ],
+    "step": "the \"incident\" has an \"incident_todo\"",
+    "key": "incident_todo",
+    "tag": "Incidents",
+    "operationId": "CreateIncidentTodo"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"account\",\n    \"attributes\": {\n      \"account_tags\": [\n        \"key:value\"\n      ],\n      \"auth_config\": {\n        \"role_name\": \"DatadogIntegrationRole\"\n      },\n      \"aws_account_id\": \"123456789012\",\n      \"aws_partition\": \"aws\",\n      \"aws_regions\": {\n        \"include_only\": [\n          \"us-east-1\"\n        ]\n      },\n      \"logs_config\": {\n        \"lambda_forwarder\": {\n          \"lambdas\": [\n            \"arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder\"\n          ],\n          \"sources\": [\n            \"s3\"\n          ]\n        }\n      },\n      \"metrics_config\": {\n        \"enabled\": true,\n        \"automute_enabled\": true,\n        \"collect_custom_metrics\": false,\n        \"collect_cloudwatch_alarms\": false,\n        \"tag_filters\": [\n          {\n            \"namespace\": \"AWS/EC2\",\n            \"tags\": [\n              \"key:value\"\n            ]\n          }\n        ],\n        \"namespace_filters\": {\n          \"include_only\": [\n            \"AWS/EC2\"\n          ]\n        }\n      },\n      \"resources_config\": {\n        \"cloud_security_posture_management_collection\": false,\n        \"extended_collection\": false\n      },\n      \"traces_config\": {\n        \"xray_services\": {\n          \"include_only\": [\n            \"AWS/AppSync\"\n          ]\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"aws_account_v2\" in the system",
+    "key": "aws_account_v2",
+    "tag": "AWS Integration",
+    "operationId": "CreateAWSAccount"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"client_email\": \"Test-{{ unique_hash }}@example.com\",\n      \"host_filters\": []\n    },\n    \"type\": \"gcp_service_account\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"gcp_sts_account\" in the system",
+    "key": "gcp_sts_account",
+    "tag": "GCP Integration",
+    "operationId": "CreateGCPSTSAccount"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{ unique }}\",\n      \"tenant_id\": \"4d3bac44-0230-4732-9e70-cc00736f0a97\",\n      \"team_id\": \"e5f50a58-c929-4fb3-8866-e2cd836de3c2\",\n      \"channel_id\": \"19:iD_D2xy_sAa-JV851JJYwIa6mlW9F9Nxm3SLyZq68qY1@thread.tacv2\"\n     },\n     \"type\": \"tenant-based-handle\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"tenant_based_handle\" in the system",
+    "key": "tenant_based_handle",
+    "tag": "Microsoft Teams Integration",
+    "operationId": "CreateTenantBasedHandle"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{ unique }}\",\n      \"url\": \"https://prod-100.westus.logic.azure.com:443/workflows/abcd1234\"\n     },\n     \"type\": \"workflows-webhook-handle\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"workflows_webhook_handle\" in the system",
+    "key": "workflows_webhook_handle",
+    "tag": "Microsoft Teams Integration",
+    "operationId": "CreateWorkflowsWebhookHandle"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{ unique }}\",\n      \"opsgenie_api_key\": \"00000000-0000-0000-0000-000000000000\",\n      \"region\": \"us\"\n     },\n     \"type\": \"opsgenie-service\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"opsgenie_service\" in the system",
+    "key": "opsgenie_service",
+    "tag": "Opsgenie Integration",
+    "operationId": "CreateOpsgenieService"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"cloudflare-accounts\",\n    \"attributes\": {\n      \"api_key\": \"fakekey\",\n      \"name\": \"{{ unique_lower_alnum }}\",\n      \"email\": \"dev@datadog.com\",\n      \"zones\": [\"zone-id-1\", \"zone-id-2\"],\n      \"resources\": [\"web\", \"dns\"]\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"cloudflare_account\" in the system",
+    "key": "cloudflare_account",
+    "tag": "Cloudflare Integration",
+    "operationId": "CreateCloudflareAccount"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"confluent-cloud-accounts\",\n    \"attributes\": {\n      \"api_key\": \"{{ unique_alnum }}\",\n      \"api_secret\": \"test-api-secret\",\n      \"tags\": [\n        \"tag1\",\n        \"tag2:val2\"\n      ],\n      \"resources\": [\n        {\n          \"id\": \"test-resource-id\",\n          \"resource_type\": \"kafka\",\n          \"tags\": [\n            \"tag1\",\n            \"tag2:val2\"\n          ]\n        }\n      ]\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"confluent_account\" in the system",
+    "key": "confluent_account",
+    "tag": "Confluent Cloud",
+    "operationId": "CreateConfluentAccount"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"fastly-accounts\",\n    \"attributes\": {\n      \"api_key\": \"{{ unique_alnum }}\",\n      \"name\": \"{{ unique }}\",\n      \"services\": []\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"fastly_account\" in the system",
+    "key": "fastly_account",
+    "tag": "Fastly Integration",
+    "operationId": "CreateFastlyAccount"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"okta-accounts\",\n    \"attributes\": {\n      \"auth_method\": \"oauth\",\n      \"name\": \"{{ unique_lower_alnum }}\",\n      \"domain\": \"https://dev-test.okta.com/\",\n      \"client_id\": \"fakeclientid\",\n      \"client_secret\": \"fakeclientsecret\"\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"okta_account\" in the system",
+    "key": "okta_account",
+    "tag": "Okta Integration",
+    "operationId": "CreateOktaAccount"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"enabled\": false,\n      \"entries\": []\n    },\n    \"type\": \"ip_allowlist\"\n  }\n}"
+      }
+    ],
+    "step": "the \"ip_allowlist_empty_disabled\" has no entries and is disabled",
+    "key": "ip_allowlist_empty_disabled",
+    "tag": "IP Allowlist",
+    "operationId": "UpdateIPAllowlist"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"enabled\": false,\n      \"entries\": [\n        {\n          \"data\": {\n            \"attributes\": {\n              \"cidr_block\": \"127.0.0.1\",\n              \"note\": \"{{ unique }}\"\n            },\n            \"type\": \"ip_allowlist_entry\"\n          }\n        },\n        {\n          \"data\": {\n            \"attributes\": {\n              \"cidr_block\": \"0.0.0.0\",\n              \"note\": \"{{ unique }}\"\n            },\n            \"type\": \"ip_allowlist_entry\"\n          }\n        }\n      ]\n    },\n    \"type\": \"ip_allowlist\"\n  }\n}"
+      }
+    ],
+    "step": "the \"ip_allowlist_nonempty_disabled\" has two entries and is disabled",
+    "key": "ip_allowlist_nonempty_disabled",
+    "tag": "IP Allowlist",
+    "operationId": "UpdateIPAllowlist"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{ unique }}\",\n      \"query\": \"source:nginx\",\n      \"enabled\": false,\n      \"forwarder_destination\": {\n        \"type\": \"http\",\n        \"endpoint\": \"https://example.com\",\n        \"auth\": {\n          \"type\": \"basic\",\n          \"username\": \"my-username\",\n          \"password\": \"my-password\"\n        }\n      },\n      \"forward_tags_restriction_list_type\": \"BLOCK_LIST\",\n      \"forward_tags_restriction_list\": [\"host\"],\n      \"forward_tags\": false\n    },\n    \"type\": \"custom_destination\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"custom_destination\" in the system",
+    "key": "custom_destination",
+    "tag": "Logs Custom Destinations",
+    "operationId": "CreateLogsCustomDestination"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"id\": \"{{ unique }}\",\n    \"attributes\": {\n      \"filter\": {\n        \"query\": \"source:{{ unique }}\"\n      },\n      \"compute\": {\n        \"aggregation_type\": \"count\"\n      }\n    },\n    \"type\": \"logs_metrics\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"logs_metric\" in the system",
+    "key": "logs_metric",
+    "tag": "Logs Metrics",
+    "operationId": "CreateLogsMetric"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"id\": \"{{ unique }}\",\n    \"attributes\": {\n      \"filter\": {\n        \"query\": \"source:{{ unique }}\"\n      },\n      \"compute\": {\n        \"aggregation_type\": \"distribution\",\n        \"path\": \"@duration\",\n        \"include_percentiles\": true\n      }\n    },\n    \"type\": \"logs_metrics\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"logs_metric_percentile\" in the system",
+    "key": "logs_metric_percentile",
+    "tag": "Logs Metrics",
+    "operationId": "CreateLogsMetric"
+  },
+  {
+    "parameters": [
+      {
+        "name": "metric_name",
+        "value": "\"{{ unique_alnum }}\""
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"tags\":[\"app\", \"datacenter\", \"{{ unique_alnum }}\"],\n      \"metric_type\":\"gauge\"\n     },\n     \"type\": \"manage_tags\",\n     \"id\": \"{{ unique_alnum }}\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"metric_tag_configuration\" in the system",
+    "key": "metric_tag_configuration",
+    "tag": "Metrics",
+    "operationId": "CreateTagConfiguration"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"monitor-config-policy\",\n    \"attributes\": {\n      \"policy_type\": \"tag\",\n      \"policy\": {\n        \"tag_key\": \"{{ unique_lower_alnum }}\", \"tag_key_required\": false, \"valid_tag_values\": [\"prod\", \"staging\"]\n      }\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"monitor_configuration_policy\" in the system",
+    "key": "monitor_configuration_policy",
+    "tag": "Monitors",
+    "operationId": "CreateMonitorConfigPolicy"
+  },
+  {
+    "source": "data[4]",
+    "step": "there is a valid \"permission\" in the system",
+    "key": "permission",
+    "tag": "Roles",
+    "operationId": "ListPermissions"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n    \"data\": {\n        \"attributes\": {\n            \"description\": \"Sample powerpack\",\n            \"group_widget\": {\n                \"definition\": {\n                    \"layout_type\": \"ordered\",\n                    \"show_title\": true,\n                    \"title\": \"Sample Powerpack\",\n                    \"type\": \"group\",\n                    \"widgets\": [\n                        {\n                            \"definition\": {\n                                \"content\": \"test\",\n                                \"type\": \"note\"\n                            }\n                        }\n                    ]\n                },\n                \"layout\": {\n                    \"height\": 3,\n                    \"width\": 12,\n                    \"x\": 0,\n                    \"y\": 0\n                },\n                \"live_span\": \"1h\"\n            },\n            \"name\": \"{{ unique }}\",\n            \"tags\": [\n                \"tag:sample\"\n            ],\n            \"template_variables\": [\n                {\n                    \"defaults\": [\n                        \"*\"\n                    ],\n                    \"name\": \"sample\"\n                }\n            ]\n        },\n        \"type\": \"powerpack\"\n    }\n}"
+      }
+    ],
+    "step": "there is a valid \"powerpack\" in the system",
+    "key": "powerpack",
+    "tag": "Powerpack",
+    "operationId": "CreatePowerpack"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"custom_rule\",\n    \"attributes\": {\n      \"blocking\": false,\n      \"conditions\": [\n        {\n          \"operator\": \"match_regex\",\n          \"parameters\": {\n            \"inputs\": [\n              {\n                \"address\": \"server.request.query\",\n                \"key_path\": [\n                  \"id\"\n                ]\n              }\n            ],\n            \"regex\": \"badactor\"\n          }\n        }\n      ],\n      \"enabled\": true,\n      \"name\": \"test\",\n      \"path_glob\": \"/test\",\n      \"scope\": [\n        {\n          \"env\": \"test\",\n          \"service\": \"test\"\n        }\n      ],\n      \"tags\": {\n        \"category\": \"attack_attempt\",\n        \"type\": \"test\"\n      }\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"custom_rule\" in the system",
+    "key": "custom_rule",
+    "tag": "Application Security",
+    "operationId": "CreateApplicationSecurityWafCustomRule"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"exclusion_filter\",\n    \"attributes\": {\n      \"description\": \"My Exclusion Filter\",\n      \"enabled\": true,\n      \"path_glob\": \"*\",\n      \"parameters\": [\n        \"list.search.query\"\n      ],\n      \"rules_target\": [\n        {\n          \"tags\": {\n            \"category\":\"attack_attempt\",\n            \"type\":\"xss\"\n          }\n        }\n      ],\n      \"scope\": [\n        {\n          \"env\": \"staging\",\n          \"service\": \"event-query\"\n        }\n      ]\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"exclusion_filter\" in the system",
+    "key": "exclusion_filter",
+    "tag": "Application Security",
+    "operationId": "CreateApplicationSecurityWafExclusionFilter"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"agent_rule\",\n    \"attributes\": {\n      \"name\": \"{{ unique_lower_alnum }}\",\n      \"description\": \"My Agent rule\",\n      \"expression\": \"exec.file.name == \\\"sh\\\"\",\n      \"enabled\": true\n     }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"agent_rule_rc\" in the system",
+    "key": "agent_rule",
+    "tag": "CSM Threats",
+    "operationId": "CreateCSMThreatsAgentRule"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{ unique }}\"\n     },\n     \"type\": \"roles\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"role\" in the system",
+    "key": "role",
+    "tag": "Roles",
+    "operationId": "CreateRole"
+  },
+  {
+    "parameters": [
+      {
+        "name": "role_id",
+        "source": "role.data.id"
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"id\": \"{{ permission.id }}\",\n    \"type\": \"{{ permission.type }}\"\n  }\n}"
+      }
+    ],
+    "step": "the \"permission\" is granted to the \"role\"",
+    "key": "permission_role",
+    "tag": "Roles",
+    "operationId": "AddPermissionToRole"
+  },
+  {
+    "parameters": [
+      {
+        "name": "role_id",
+        "source": "role.data.id"
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"id\": \"{{ user.data.id }}\",\n    \"type\": \"{{ user.data.type }}\"\n  }\n}"
+      }
+    ],
+    "step": "the \"user\" has the \"role\"",
+    "key": "permission_role",
+    "tag": "Roles",
+    "operationId": "AddUserToRole"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{ \"data\": {\n    \"type\": \"rum_application_create\",\n    \"attributes\": {\n        \"name\": \"test-rum-{{ unique_hash }}\",\n        \"type\": \"ios\"\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"rum_application\" in the system",
+    "key": "rum_application",
+    "tag": "RUM",
+    "operationId": "CreateRUMApplication"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"id\": \"{{ unique_lower_alnum }}\",\n    \"type\": \"rum_metrics\",\n    \"attributes\": {\n      \"event_type\": \"session\",\n      \"compute\": {\n        \"aggregation_type\": \"distribution\",\n        \"include_percentiles\": true,\n        \"path\": \"@duration\"\n      },\n      \"filter\": {\n        \"query\": \"source:{{ unique }}\"\n      },\n      \"group_by\": [{\n        \"path\": \"@browser.name\",\n        \"tag_name\": \"browser_name\"\n      }],\n      \"uniqueness\": {\n        \"when\": \"match\"\n      }\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"rum_metric\" in the system",
+    "key": "rum_metric",
+    "tag": "Rum Metrics",
+    "operationId": "CreateRumMetric"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"rule\",\n    \"attributes\": {\n      \"name\": \"{{ unique }}\",\n      \"enabled\": true,\n      \"owner\": \"Datadog\",\n      \"scorecard_name\": \"OpenAPI Spec Test Best Practices\"\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"create_scorecard_rule\" in the system",
+    "key": "create_scorecard_rule",
+    "tag": "Service Scorecards",
+    "operationId": "CreateScorecardRule"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"notification_rules\",\n    \"attributes\": {\n      \"name\": \"{{ unique }}\",\n      \"selectors\": {\n        \"rule_types\": [\"signal_correlation\"],\n        \"trigger_source\": \"security_signals\",\n        \"severities\": [\"critical\"],\n        \"query\": \"env:test\"\n      },\n      \"targets\": [\"@email@email.com\"],\n      \"enabled\": true\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"valid_signal_notification_rule\" in the system",
+    "key": "valid_signal_notification_rule",
+    "tag": "Security Monitoring",
+    "operationId": "CreateSignalNotificationRule"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"notification_rules\",\n    \"attributes\": {\n      \"name\": \"{{ unique }}\",\n      \"selectors\": {\n        \"rule_types\": [\"misconfiguration\", \"attack_path\"],\n        \"trigger_source\": \"security_findings\",\n        \"severities\": [\"critical\"],\n        \"query\": \"env:test\"\n      },\n      \"time_aggregation\": 86400,\n      \"targets\": [\"@email@email.com\"],\n      \"enabled\": true\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"valid_vulnerability_notification_rule\" in the system",
+    "key": "valid_vulnerability_notification_rule",
+    "tag": "Security Monitoring",
+    "operationId": "CreateVulnerabilityNotificationRule"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"agent_rule\",\n    \"attributes\": {\n      \"name\": \"{{ unique_lower_alnum }}\",\n      \"description\": \"My Agent rule\",\n      \"expression\": \"exec.file.name == \\\"sh\\\"\",\n      \"enabled\": true\n     }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"agent_rule\" in the system",
+    "key": "agent_rule",
+    "tag": "CSM Threats",
+    "operationId": "CreateCloudWorkloadSecurityAgentRule"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"security_filters\",\n    \"attributes\": {\n      \"name\": \"{{ unique }}\",\n      \"query\": \"service:{{ unique_alnum }}\",\n      \"exclusion_filters\":[\n        {\n          \"name\": \"Exclude logs from staging\",\n          \"query\": \"source:staging\"\n        }\n     ],\n      \"filtered_data_type\":\"logs\",\n      \"is_enabled\": true\n     }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"security_filter\" in the system",
+    "key": "security_filter",
+    "tag": "Security Monitoring",
+    "operationId": "CreateSecurityFilter"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"suppressions\",\n    \"attributes\": {\n      \"enabled\": true,\n      \"name\": \"{{ unique }}\",\n      \"description\": \"{{ unique }}\",\n      \"rule_query\": \"source:cloudtrail\",\n      \"suppression_query\": \"env:test\"\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"suppression\" in the system",
+    "key": "suppression",
+    "tag": "Security Monitoring",
+    "operationId": "CreateSecurityMonitoringSuppression"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"name\": \"{{ unique }}_cloud\",\n  \"tags\": [\"a:tag\"],\n  \"type\": \"cloud_configuration\",\n  \"isEnabled\": false,\n  \"message\": \"Cloud configuration rule\",\n  \"options\": {\n    \"complianceRuleOptions\": {\n      \"resourceType\": \"gcp_compute_disk\",\n      \"regoRule\": {\n        \"policy\": \"package datadog\\n\\nimport data.datadog.output as dd_output\\n\\nimport future.keywords.contains\\nimport future.keywords.if\\nimport future.keywords.in\\n\\nmilliseconds_in_a_day := ((1000 * 60) * 60) * 24\\n\\neval(iam_service_account_key) = \\\"skip\\\" if {\\n\\tiam_service_account_key.disabled\\n} else = \\\"pass\\\" if {\\n\\t(iam_service_account_key.resource_seen_at / milliseconds_in_a_day) - (iam_service_account_key.valid_after_time / milliseconds_in_a_day) <= 90\\n} else = \\\"fail\\\"\\n\\n# This part remains unchanged for all rules\\nresults contains result if {\\n\\tsome resource in input.resources[input.main_resource_type]\\n\\tresult := dd_output.format(resource, eval(resource))\\n}\\n\",\n        \"resourceTypes\": [\n          \"gcp_compute_disk\"\n        ]\n      },\n      \"complexRule\": false\n    }\n  },\n  \"complianceSignalOptions\": {\n    \"userActivationStatus\": true,\n    \"userGroupByFields\": [\"@account_id\"]\n  },\n  \"cases\": [\n    {\n      \"status\": \"info\",\n      \"notifications\": [\"channel\"]\n    }\n  ]\n}"
+      }
+    ],
+    "step": "there is a valid \"cloud_configuration_rule\" in the system",
+    "key": "cloud_configuration_rule",
+    "tag": "Security Monitoring",
+    "operationId": "CreateSecurityMonitoringRule"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"name\": \"{{ unique }}\",\n  \"queries\": [{\n    \"query\": \"@test:true\",\n    \"aggregation\": \"count\",\n    \"groupByFields\": [],\n    \"distinctFields\": [],\n    \"metrics\": []\n  }],\n  \"filters\": [],\n  \"cases\": [{\n    \"name\": \"\",\n    \"status\": \"info\",\n    \"condition\": \"a > 0\",\n    \"notifications\": []\n  }],\n  \"options\": {\n    \"evaluationWindow\": 900,\n    \"keepAlive\": 3600,\n    \"maxSignalDuration\": 86400\n  },\n  \"message\": \"Test rule\",\n  \"tags\": [],\n  \"isEnabled\": true,\n  \"type\": \"log_detection\"\n}"
+      }
+    ],
+    "step": "there is a valid \"security_rule\" in the system",
+    "key": "security_rule",
+    "tag": "Security Monitoring",
+    "operationId": "CreateSecurityMonitoringRule"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"name\": \"{{ unique }}_bis\",\n  \"queries\": [{\n    \"query\": \"@test:false\",\n    \"aggregation\": \"count\",\n    \"groupByFields\": [],\n    \"distinctFields\": [],\n    \"metrics\": []\n  }],\n  \"filters\": [],\n  \"cases\": [{\n    \"name\": \"\",\n    \"status\": \"info\",\n    \"condition\": \"a > 0\",\n    \"notifications\": []\n  }],\n  \"options\": {\n    \"evaluationWindow\": 900,\n    \"keepAlive\": 3600,\n    \"maxSignalDuration\": 86400\n  },\n  \"message\": \"Test rule Bis\",\n  \"tags\": [],\n  \"isEnabled\": true,\n  \"type\": \"log_detection\"\n}"
+      }
+    ],
+    "step": "there is a valid \"security_rule_bis\" in the system",
+    "key": "security_rule_bis",
+    "tag": "Security Monitoring",
+    "operationId": "CreateSecurityMonitoringRule"
+  },
+  {
+    "step": "a valid \"configuration\" in the system",
+    "key": "configuration",
+    "tag": "Sensitive Data Scanner",
+    "operationId": "ListScanningGroups"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"sensitive_data_scanner_group\",\n    \"attributes\": {\n      \"name\": \"my-test-group\",\n      \"is_enabled\": false,\n      \"product_list\": [\n          \"logs\"\n      ],\n      \"filter\": {\n          \"query\": \"*\"\n      }\n    },\n    \"relationships\": {\n      \"configuration\": {\n        \"data\": {\n          \"id\": \"{{ configuration.data.id }}\",\n          \"type\": \"{{ configuration.data.type }}\"\n        }\n      },\n      \"rules\": {\n          \"data\": []\n      }\n    }\n  },\n  \"meta\": {}\n}"
+      }
+    ],
+    "step": "there is a valid \"scanning_group\" in the system",
+    "key": "group",
+    "tag": "Sensitive Data Scanner",
+    "operationId": "CreateScanningGroup"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"sensitive_data_scanner_rule\",\n    \"attributes\": {\n      \"name\": \"{{ unique }}\",\n      \"pattern\": \"pattern\",\n      \"namespaces\": [\"admin.email\"],\n      \"text_replacement\": {\n        \"type\": \"none\"\n      },\n      \"tags\":[\n        \"sensitive_data:true\"\n      ],\n      \"is_enabled\":true\n    },\n    \"relationships\": {\n      \"group\": {\n        \"data\": {\n          \"id\": \"{{ group.data.id }}\",\n          \"type\": \"{{ group.data.type }}\"\n        }\n      }\n    }\n  },\n  \"meta\": {}\n}"
+      }
+    ],
+    "step": "the \"scanning_group\" has a \"scanning_rule\"",
+    "key": "rule",
+    "tag": "Sensitive Data Scanner",
+    "operationId": "CreateScanningRule"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"email\": \"{{ unique }}@datadoghq.com\",\n      \"title\": \"user title\",\n      \"service_account\": true\n     },\n     \"type\": \"users\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"service_account_user\" in the system",
+    "key": "service_account_user",
+    "tag": "Service Accounts",
+    "operationId": "CreateServiceAccount"
+  },
+  {
+    "parameters": [
+      {
+        "name": "service_account_id",
+        "value": "\"{{ service_account_user.data.id }}\""
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{ unique }}\"\n    },\n    \"type\": \"application_keys\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"service_account_application_key\" for \"service_account_user\"",
+    "key": "service_account_application_key",
+    "tag": "Service Accounts",
+    "operationId": "CreateServiceAccountApplicationKey"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{ unique }}\"\n     },\n     \"type\": \"services\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"service\" in the system",
+    "key": "service",
+    "tag": "Incident Services",
+    "operationId": "CreateIncidentService"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"dd-service\": \"service-{{ unique_lower_alnum }}\",\n  \"dd-team\": \"my-team\",\n  \"docs\": [{\"name\": \"Architecture\",\n            \"provider\": \"google drive\",\n            \"url\": \"https://gdrive/mygivedoc\"}],\n  \"extensions\": {\"frogextension\": \"extensionfrogvalue\"},\n  \"integrations\": {\"opsgenie\": {\"region\": \"US\",\n                                \"service-url\": \"https://my-org.opsgenie.com/service/123e4567-e89b-12d3-a456-426614174000\"},\n                   \"pagerduty\": \"https://my-org.pagerduty.com/service-directory/PMyService\"},\n  \"links\": [{\"name\": \"Runbook\", \"type\": \"runbook\", \"url\": \"https://my-runbook\"}],\n  \"repos\": [{\"name\": \"Source Code\",\n             \"provider\": \"GitHub\",\n             \"url\": \"https://github.com/DataDog/given\"}],\n  \"schema-version\": \"v2\",\n  \"tags\": [\"this:tag\", \"service:tag\"],\n  \"team\": \"super-team\"\n}"
+      }
+    ],
+    "step": "there is a valid \"service_definition\" in the system",
+    "key": "service_definition",
+    "tag": "Service Definition",
+    "operationId": "CreateOrUpdateServiceDefinitions"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"historicalDetectionsJobCreate\",\n    \"attributes\": {\n      \"jobDefinition\": {\n        \"type\": \"log_detection\",\n        \"name\": \"Excessive number of failed attempts.\",\n        \"queries\": [\n          {\n            \"query\": \"source:non_existing_src_weekend\",\n            \"aggregation\": \"count\",\n            \"groupByFields\": [],\n            \"distinctFields\": []\n          }\n        ],\n        \"cases\": [\n          {\n            \"name\": \"Condition 1\",\n            \"status\": \"info\",\n            \"notifications\": [],\n            \"condition\": \"a > 1\"\n          }\n        ],\n        \"options\": {\n          \"keepAlive\": 3600,\n          \"maxSignalDuration\": 86400,\n          \"evaluationWindow\": 900\n        },\n        \"message\": \"A large number of failed login attempts.\",\n        \"tags\": [],\n        \"from\": 1730387522611,\n        \"to\": 1730387532611,\n        \"index\": \"main\"\n      }\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"historical_job\" in the system",
+    "key": "historical_job",
+    "tag": "Security Monitoring",
+    "operationId": "RunHistoricalJob"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"query\": \"slo_type:metric \\\"SLO Reporting Test\\\"\",\n      \"interval\": \"monthly\",\n      \"from_ts\": {{ timestamp(\"now - 21d\") }},\n      \"to_ts\":  {{ timestamp(\"now\") }}\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"report\" in the system",
+    "key": "report",
+    "tag": "Service Level Objectives",
+    "operationId": "CreateSLOReportJob"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"handle\": \"test-handle-{{ unique_hash }}\",\n      \"name\": \"test-name-{{ unique_hash }}\"\n    },\n    \"type\": \"team\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"dd_team\" in the system",
+    "key": "dd_team",
+    "tag": "Teams",
+    "operationId": "CreateTeam"
+  },
+  {
+    "parameters": [
+      {
+        "name": "team_id",
+        "source": "dd_team.data.id"
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"label\": \"{{unique}}\",\n      \"url\": \"https://example.com\",\n      \"position\": 0\n    },\n    \"type\": \"team_links\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"team_link\" in the system",
+    "key": "team_link",
+    "tag": "Teams",
+    "operationId": "CreateTeamLink"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"role\": \"admin\"\n    },\n    \"relationships\": {\n      \"user\": {\n        \"data\": {\n          \"id\": \"{{user.data.id}}\",\n          \"type\": \"users\"\n        }\n      }\n    },\n    \"type\": \"team_memberships\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"team_membership\" in the system",
+    "key": "team_membership",
+    "tag": "Teams",
+    "operationId": "CreateTeamMembership"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"{{ unique }}\"\n     },\n     \"type\": \"teams\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"team\" in the system",
+    "key": "team",
+    "tag": "Incident Teams",
+    "operationId": "CreateIncidentTeam"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": [\n    {\n      \"relationships\": {\"user\": {\"data\": {\n        \"id\": \"{{ user.data.id }}\",\n        \"type\": \"{{ user.data.type }}\"\n      }}},\n      \"type\": \"user_invitations\"\n    }\n  ]\n}"
+      }
+    ],
+    "source": "data[0]",
+    "step": "the \"user\" has a \"user_invitation\"",
+    "key": "user_invitation",
+    "tag": "Users",
+    "operationId": "SendInvitations"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"email\": \"{{ unique }}@datadoghq.com\",\n      \"title\": \"user title\"\n     },\n     \"type\": \"users\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"user\" in the system",
+    "key": "user",
+    "tag": "Users",
+    "operationId": "CreateUser"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"workflows\",\n    \"attributes\": {\n        \"name\": \"Cassette Workflow x-given\",\n        \"spec\": {\n            \"triggers\": [\n                {\n                    \"startStepNames\": [\"No_op\"],\n                    \"workflowTrigger\": {}\n                }\n            ],\n            \"steps\": [\n              {\n                \"name\": \"No_op\",\n                \"actionId\": \"com.datadoghq.core.noop\"\n              }\n            ]\n        }\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"workflow\" in the system",
+    "key": "workflow",
+    "tag": "Workflow Automation",
+    "operationId": "CreateWorkflow"
+  }
+]

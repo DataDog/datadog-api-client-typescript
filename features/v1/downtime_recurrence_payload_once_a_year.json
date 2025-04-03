@@ -1,0 +1,22 @@
+{
+  "message": "{{ unique }}",
+  "recurrence": {
+    "period": 1,
+    "type": "years"
+  },
+  "scope": ["*"],
+  "start": {{ timestamp("now") }},
+  "end": {{ timestamp("now + 1h") }},
+  "timezone": "Etc/UTC",
+  "mute_first_recovery_notification": true,
+  "monitor_tags": [
+    "tag0"
+  ],
+  "notify_end_states": [
+    "alert",
+    "warn"
+  ],
+  "notify_end_types": [
+    "expired"
+  ]
+}

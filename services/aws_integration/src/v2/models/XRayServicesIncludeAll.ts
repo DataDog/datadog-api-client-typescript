@@ -1,0 +1,45 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * Include all services.
+ */
+export class XRayServicesIncludeAll {
+  /**
+   * Include all services.
+   */
+  "includeAll": boolean;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    includeAll: {
+      baseName: "include_all",
+      type: "boolean",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return XRayServicesIncludeAll.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

@@ -1,0 +1,34 @@
+Component,Licence,Copyright
+@cucumber/cucumber,MIT,Copyright (c) Julien Biezemans and contributors
+@cucumber/messages,MIT,Copyright (c) Cucumber Ltd
+@pollyjs/adapter-node-http,Apache-2.0,
+@pollyjs/core,Apache-2.0,
+@pollyjs/persister-fs,Apache-2.0,
+@types/buffer-from,MIT,Copyright Nat Burns
+@types/chai,MIT,Copyright Microsoft Corporation
+@types/jest,MIT,Copyright Microsoft Corporation
+@types/node,MIT,Copyright Microsoft Corporation
+@types/pako,MIT,Copyright Caleb Eggensperger Muhammet Öztürk
+@typescript-eslint/eslint-plugin,MIT,Copyright (c) 2019 TypeScript ESLint and other contributors
+@typescript-eslint/parser,BSD-2-Clause,
+buffer-from,MIT,Copyright (c) 2016, 2018 Linus Unnebäck
+chai,MIT,Copyright (c) 2017 Chai.js Assertion Library
+chai-quantifiers,MIT,
+cross-fetch,MIT,Copyright (c) 2017 Leonardo Quixadá
+jest,MIT,Copyright (c) Facebook, Inc. and its affiliates.
+ts-jest,MIT,Copyright (c) 2016-2018
+dd-trace,BSD-3-Clause,Copyright 2016-Present Datadog Inc.
+es6-promise,MIT,Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors
+eslint-plugin-import,MIT,Copyright (c) 2015 Ben Mosher
+eslint-plugin-node,MIT,Copyright (c) 2015 Toru Nagashima
+eslint-plugin-unused-imports,MIT,Copyright (c) 2021 Mikkel Holmer
+eslint,MIT,Copyright JS Foundation and other contributors, https://js.foundation
+form-data,MIT,Copyright (c) 2012 Felix Geisendörfer (felix@debuggable.com) and contributors
+pako,MIT,Copyright (C) 2014-2017 Vitaly Puzrin and Andrei Tuputcyn
+nock,MIT,Copyright (c) 2011-2019 Pedro Teixeira and other contributors
+prettier,MIT,Copyright © James Long and contributors
+ts-node,MIT,Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
+typedoc,Apache-2.0,Copyright (c) 2015 Sebastian Lenz Copyright (c) 2016-2021 TypeDoc Contributors.
+typescript,Apache-2.0,Copyright (c) Microsoft Corporation.
+loglevel,MIT,Copyright (c) 2013 Tim Perry
+zstd.ts,BSD-2-Clause,Copyright (c) [2021] [Beeno Tung (Tung Cheung Leong)]
