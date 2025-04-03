@@ -36,7 +36,8 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/ms-teams/configuration/tenant-based-handles";
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/tenant-based-handles";
 
     // Make Request Context
     const requestContext = _config
@@ -51,7 +52,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MicrosoftTeamsCreateTenantBasedHandleRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "MicrosoftTeamsCreateTenantBasedHandleRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -77,11 +82,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MicrosoftTeamsIntegrationApi.createWorkflowsWebhookHandle")
+      .getServer(
+        "0.0.1.MicrosoftTeamsIntegrationApi.createWorkflowsWebhookHandle",
+      )
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -92,7 +100,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MicrosoftTeamsCreateWorkflowsWebhookHandleRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "MicrosoftTeamsCreateWorkflowsWebhookHandleRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -118,10 +130,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}".replace(
-      "{handle_id}",
-      encodeURIComponent(String(handleId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}".replace(
+        "{handle_id}",
+        encodeURIComponent(String(handleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -151,14 +164,17 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}".replace(
-      "{handle_id}",
-      encodeURIComponent(String(handleId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}".replace(
+        "{handle_id}",
+        encodeURIComponent(String(handleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MicrosoftTeamsIntegrationApi.deleteWorkflowsWebhookHandle")
+      .getServer(
+        "0.0.1.MicrosoftTeamsIntegrationApi.deleteWorkflowsWebhookHandle",
+      )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -196,16 +212,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/ms-teams/configuration/channel/{tenant_name}/{team_name}/{channel_name}".replace(
-      "{tenant_name}",
-      encodeURIComponent(String(tenantName)),
-    ).replace(
-      "{team_name}",
-      encodeURIComponent(String(teamName)),
-    ).replace(
-      "{channel_name}",
-      encodeURIComponent(String(channelName)),
-    );
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/channel/{tenant_name}/{team_name}/{channel_name}"
+        .replace("{tenant_name}", encodeURIComponent(String(tenantName)))
+        .replace("{team_name}", encodeURIComponent(String(teamName)))
+        .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
     const requestContext = _config
@@ -235,10 +246,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}".replace(
-      "{handle_id}",
-      encodeURIComponent(String(handleId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}".replace(
+        "{handle_id}",
+        encodeURIComponent(String(handleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -268,10 +280,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}".replace(
-      "{handle_id}",
-      encodeURIComponent(String(handleId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}".replace(
+        "{handle_id}",
+        encodeURIComponent(String(handleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -297,7 +310,8 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/integration/ms-teams/configuration/tenant-based-handles";
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/tenant-based-handles";
 
     // Make Request Context
     const requestContext = _config
@@ -338,11 +352,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MicrosoftTeamsIntegrationApi.listWorkflowsWebhookHandles")
+      .getServer(
+        "0.0.1.MicrosoftTeamsIntegrationApi.listWorkflowsWebhookHandles",
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -383,10 +400,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}".replace(
-      "{handle_id}",
-      encodeURIComponent(String(handleId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}".replace(
+        "{handle_id}",
+        encodeURIComponent(String(handleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -401,7 +419,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MicrosoftTeamsUpdateTenantBasedHandleRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "MicrosoftTeamsUpdateTenantBasedHandleRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -433,14 +455,17 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}".replace(
-      "{handle_id}",
-      encodeURIComponent(String(handleId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}".replace(
+        "{handle_id}",
+        encodeURIComponent(String(handleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MicrosoftTeamsIntegrationApi.updateWorkflowsWebhookHandle")
+      .getServer(
+        "0.0.1.MicrosoftTeamsIntegrationApi.updateWorkflowsWebhookHandle",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -451,7 +476,11 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -481,10 +510,11 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 201) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsTenantBasedHandleResponse",
-      ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandleResponse",
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
     if (
@@ -512,19 +542,17 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsTenantBasedHandleResponse",
-        "",
-      ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandleResponse",
+          "",
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
 
@@ -549,10 +577,11 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 201) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
     if (
@@ -580,19 +609,17 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-        "",
-      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+          "",
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
 
@@ -642,10 +669,7 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -699,10 +723,7 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -731,10 +752,11 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsGetChannelByNameResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsGetChannelByNameResponse",
-      ) as MicrosoftTeamsGetChannelByNameResponse;
+      const body: MicrosoftTeamsGetChannelByNameResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsGetChannelByNameResponse",
+        ) as MicrosoftTeamsGetChannelByNameResponse;
       return body;
     }
     if (
@@ -760,19 +782,17 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsGetChannelByNameResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsGetChannelByNameResponse",
-        "",
-      ) as MicrosoftTeamsGetChannelByNameResponse;
+      const body: MicrosoftTeamsGetChannelByNameResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsGetChannelByNameResponse",
+          "",
+        ) as MicrosoftTeamsGetChannelByNameResponse;
       return body;
     }
 
@@ -797,10 +817,11 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsTenantBasedHandleResponse",
-      ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandleResponse",
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
     if (
@@ -827,19 +848,17 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsTenantBasedHandleResponse",
-        "",
-      ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandleResponse",
+          "",
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
 
@@ -864,10 +883,11 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
     if (
@@ -894,19 +914,17 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-        "",
-      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+          "",
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
 
@@ -931,10 +949,11 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsTenantBasedHandlesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsTenantBasedHandlesResponse",
-      ) as MicrosoftTeamsTenantBasedHandlesResponse;
+      const body: MicrosoftTeamsTenantBasedHandlesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandlesResponse",
+        ) as MicrosoftTeamsTenantBasedHandlesResponse;
       return body;
     }
     if (
@@ -961,19 +980,17 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsTenantBasedHandlesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsTenantBasedHandlesResponse",
-        "",
-      ) as MicrosoftTeamsTenantBasedHandlesResponse;
+      const body: MicrosoftTeamsTenantBasedHandlesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandlesResponse",
+          "",
+        ) as MicrosoftTeamsTenantBasedHandlesResponse;
       return body;
     }
 
@@ -998,10 +1015,11 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
-      ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
+        ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
       return body;
     }
     if (
@@ -1028,19 +1046,17 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
-        "",
-      ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
+          "",
+        ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
       return body;
     }
 
@@ -1065,10 +1081,11 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsTenantBasedHandleResponse",
-      ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandleResponse",
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
     if (
@@ -1096,19 +1113,17 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsTenantBasedHandleResponse",
-        "",
-      ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandleResponse",
+          "",
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
 
@@ -1133,10 +1148,11 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
     if (
@@ -1164,19 +1180,17 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-        "",
-      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+          "",
+        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
 
@@ -1335,7 +1349,9 @@ export class MicrosoftTeamsIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createTenantBasedHandle(responseContext);
+          return this.responseProcessor.createTenantBasedHandle(
+            responseContext,
+          );
         });
     });
   }
@@ -1348,15 +1364,15 @@ export class MicrosoftTeamsIntegrationApi {
     param: MicrosoftTeamsIntegrationApiCreateWorkflowsWebhookHandleRequest,
     options?: Configuration,
   ): Promise<MicrosoftTeamsWorkflowsWebhookHandleResponse> {
-    const requestContextPromise = this.requestFactory.createWorkflowsWebhookHandle(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createWorkflowsWebhookHandle(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createWorkflowsWebhookHandle(responseContext);
+          return this.responseProcessor.createWorkflowsWebhookHandle(
+            responseContext,
+          );
         });
     });
   }
@@ -1377,7 +1393,9 @@ export class MicrosoftTeamsIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteTenantBasedHandle(responseContext);
+          return this.responseProcessor.deleteTenantBasedHandle(
+            responseContext,
+          );
         });
     });
   }
@@ -1390,15 +1408,15 @@ export class MicrosoftTeamsIntegrationApi {
     param: MicrosoftTeamsIntegrationApiDeleteWorkflowsWebhookHandleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteWorkflowsWebhookHandle(
-      param.handleId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteWorkflowsWebhookHandle(param.handleId, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteWorkflowsWebhookHandle(responseContext);
+          return this.responseProcessor.deleteWorkflowsWebhookHandle(
+            responseContext,
+          );
         });
     });
   }
@@ -1463,7 +1481,9 @@ export class MicrosoftTeamsIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getWorkflowsWebhookHandle(responseContext);
+          return this.responseProcessor.getWorkflowsWebhookHandle(
+            responseContext,
+          );
         });
     });
   }
@@ -1498,15 +1518,15 @@ export class MicrosoftTeamsIntegrationApi {
     param: MicrosoftTeamsIntegrationApiListWorkflowsWebhookHandlesRequest = {},
     options?: Configuration,
   ): Promise<MicrosoftTeamsWorkflowsWebhookHandlesResponse> {
-    const requestContextPromise = this.requestFactory.listWorkflowsWebhookHandles(
-      param.name,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listWorkflowsWebhookHandles(param.name, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listWorkflowsWebhookHandles(responseContext);
+          return this.responseProcessor.listWorkflowsWebhookHandles(
+            responseContext,
+          );
         });
     });
   }
@@ -1528,7 +1548,9 @@ export class MicrosoftTeamsIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTenantBasedHandle(responseContext);
+          return this.responseProcessor.updateTenantBasedHandle(
+            responseContext,
+          );
         });
     });
   }
@@ -1541,16 +1563,19 @@ export class MicrosoftTeamsIntegrationApi {
     param: MicrosoftTeamsIntegrationApiUpdateWorkflowsWebhookHandleRequest,
     options?: Configuration,
   ): Promise<MicrosoftTeamsWorkflowsWebhookHandleResponse> {
-    const requestContextPromise = this.requestFactory.updateWorkflowsWebhookHandle(
-      param.handleId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.updateWorkflowsWebhookHandle(
+        param.handleId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateWorkflowsWebhookHandle(responseContext);
+          return this.responseProcessor.updateWorkflowsWebhookHandle(
+            responseContext,
+          );
         });
     });
   }

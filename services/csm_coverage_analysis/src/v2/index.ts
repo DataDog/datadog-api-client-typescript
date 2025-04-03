@@ -1,6 +1,4 @@
-export {
-  CSMCoverageAnalysisApi,
-} from "./CSMCoverageAnalysisApi";
+export { CSMCoverageAnalysisApi } from "./CSMCoverageAnalysisApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { CsmCloudAccountsCoverageAnalysisAttributes } from "./models/CsmCloudAccountsCoverageAnalysisAttributes";

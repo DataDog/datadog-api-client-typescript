@@ -6,4 +6,5 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 export type SensitiveDataScannerConfigurationType =
   | typeof SENSITIVE_DATA_SCANNER_CONFIGURATIONS
   | UnparsedObject;
-export const SENSITIVE_DATA_SCANNER_CONFIGURATIONS = "sensitive_data_scanner_configuration";
+export const SENSITIVE_DATA_SCANNER_CONFIGURATIONS =
+  "sensitive_data_scanner_configuration";

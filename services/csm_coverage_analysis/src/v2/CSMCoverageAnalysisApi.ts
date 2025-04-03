@@ -24,11 +24,14 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/csm/onboarding/coverage_analysis/cloud_accounts";
+    const localVarPath =
+      "/api/v2/csm/onboarding/coverage_analysis/cloud_accounts";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMCoverageAnalysisApi.getCSMCloudAccountsCoverageAnalysis")
+      .getServer(
+        "0.0.1.CSMCoverageAnalysisApi.getCSMCloudAccountsCoverageAnalysis",
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -48,11 +51,14 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/csm/onboarding/coverage_analysis/hosts_and_containers";
+    const localVarPath =
+      "/api/v2/csm/onboarding/coverage_analysis/hosts_and_containers";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMCoverageAnalysisApi.getCSMHostsAndContainersCoverageAnalysis")
+      .getServer(
+        "0.0.1.CSMCoverageAnalysisApi.getCSMHostsAndContainersCoverageAnalysis",
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -76,7 +82,9 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMCoverageAnalysisApi.getCSMServerlessCoverageAnalysis")
+      .getServer(
+        "0.0.1.CSMCoverageAnalysisApi.getCSMServerlessCoverageAnalysis",
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -106,16 +114,14 @@ export class CSMCoverageAnalysisApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: CsmCloudAccountsCoverageAnalysisResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CsmCloudAccountsCoverageAnalysisResponse",
-      ) as CsmCloudAccountsCoverageAnalysisResponse;
+      const body: CsmCloudAccountsCoverageAnalysisResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CsmCloudAccountsCoverageAnalysisResponse",
+        ) as CsmCloudAccountsCoverageAnalysisResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -133,19 +139,17 @@ export class CSMCoverageAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CsmCloudAccountsCoverageAnalysisResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CsmCloudAccountsCoverageAnalysisResponse",
-        "",
-      ) as CsmCloudAccountsCoverageAnalysisResponse;
+      const body: CsmCloudAccountsCoverageAnalysisResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CsmCloudAccountsCoverageAnalysisResponse",
+          "",
+        ) as CsmCloudAccountsCoverageAnalysisResponse;
       return body;
     }
 
@@ -170,16 +174,14 @@ export class CSMCoverageAnalysisApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: CsmHostsAndContainersCoverageAnalysisResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CsmHostsAndContainersCoverageAnalysisResponse",
-      ) as CsmHostsAndContainersCoverageAnalysisResponse;
+      const body: CsmHostsAndContainersCoverageAnalysisResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CsmHostsAndContainersCoverageAnalysisResponse",
+        ) as CsmHostsAndContainersCoverageAnalysisResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -197,19 +199,17 @@ export class CSMCoverageAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CsmHostsAndContainersCoverageAnalysisResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CsmHostsAndContainersCoverageAnalysisResponse",
-        "",
-      ) as CsmHostsAndContainersCoverageAnalysisResponse;
+      const body: CsmHostsAndContainersCoverageAnalysisResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CsmHostsAndContainersCoverageAnalysisResponse",
+          "",
+        ) as CsmHostsAndContainersCoverageAnalysisResponse;
       return body;
     }
 
@@ -234,16 +234,14 @@ export class CSMCoverageAnalysisApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: CsmServerlessCoverageAnalysisResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CsmServerlessCoverageAnalysisResponse",
-      ) as CsmServerlessCoverageAnalysisResponse;
+      const body: CsmServerlessCoverageAnalysisResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CsmServerlessCoverageAnalysisResponse",
+        ) as CsmServerlessCoverageAnalysisResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -261,19 +259,17 @@ export class CSMCoverageAnalysisApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CsmServerlessCoverageAnalysisResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CsmServerlessCoverageAnalysisResponse",
-        "",
-      ) as CsmServerlessCoverageAnalysisResponse;
+      const body: CsmServerlessCoverageAnalysisResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CsmServerlessCoverageAnalysisResponse",
+          "",
+        ) as CsmServerlessCoverageAnalysisResponse;
       return body;
     }
 
@@ -309,16 +305,18 @@ export class CSMCoverageAnalysisApi {
    * scanned for security issues.
    * @param param The request object
    */
-  public getCSMCloudAccountsCoverageAnalysis(options?: Configuration,
+  public getCSMCloudAccountsCoverageAnalysis(
+    options?: Configuration,
   ): Promise<CsmCloudAccountsCoverageAnalysisResponse> {
-    const requestContextPromise = this.requestFactory.getCSMCloudAccountsCoverageAnalysis(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getCSMCloudAccountsCoverageAnalysis(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCSMCloudAccountsCoverageAnalysis(responseContext);
+          return this.responseProcessor.getCSMCloudAccountsCoverageAnalysis(
+            responseContext,
+          );
         });
     });
   }
@@ -329,16 +327,18 @@ export class CSMCoverageAnalysisApi {
    * and Containers with CSM feature(s) enabled.
    * @param param The request object
    */
-  public getCSMHostsAndContainersCoverageAnalysis(options?: Configuration,
+  public getCSMHostsAndContainersCoverageAnalysis(
+    options?: Configuration,
   ): Promise<CsmHostsAndContainersCoverageAnalysisResponse> {
-    const requestContextPromise = this.requestFactory.getCSMHostsAndContainersCoverageAnalysis(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getCSMHostsAndContainersCoverageAnalysis(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCSMHostsAndContainersCoverageAnalysis(responseContext);
+          return this.responseProcessor.getCSMHostsAndContainersCoverageAnalysis(
+            responseContext,
+          );
         });
     });
   }
@@ -349,16 +349,18 @@ export class CSMCoverageAnalysisApi {
    * Resources with CSM feature(s) enabled.
    * @param param The request object
    */
-  public getCSMServerlessCoverageAnalysis(options?: Configuration,
+  public getCSMServerlessCoverageAnalysis(
+    options?: Configuration,
   ): Promise<CsmServerlessCoverageAnalysisResponse> {
-    const requestContextPromise = this.requestFactory.getCSMServerlessCoverageAnalysis(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getCSMServerlessCoverageAnalysis(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCSMServerlessCoverageAnalysis(responseContext);
+          return this.responseProcessor.getCSMServerlessCoverageAnalysis(
+            responseContext,
+          );
         });
     });
   }

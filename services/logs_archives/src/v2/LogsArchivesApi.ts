@@ -39,10 +39,11 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-      "{archive_id}",
-      encodeURIComponent(String(archiveId)),
-    );
+    const localVarPath =
+      "/api/v2/logs/config/archives/{archive_id}/readers".replace(
+        "{archive_id}",
+        encodeURIComponent(String(archiveId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -214,10 +215,11 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-      "{archive_id}",
-      encodeURIComponent(String(archiveId)),
-    );
+    const localVarPath =
+      "/api/v2/logs/config/archives/{archive_id}/readers".replace(
+        "{archive_id}",
+        encodeURIComponent(String(archiveId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -277,10 +279,11 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-      "{archive_id}",
-      encodeURIComponent(String(archiveId)),
-    );
+    const localVarPath =
+      "/api/v2/logs/config/archives/{archive_id}/readers".replace(
+        "{archive_id}",
+        encodeURIComponent(String(archiveId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -409,9 +412,7 @@ export class LogsArchivesApiResponseProcessor {
    * @params response Response returned by the server for a request to addReadRoleToArchive
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async addReadRoleToArchive(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async addReadRoleToArchive(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -441,10 +442,7 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -501,10 +499,7 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -531,9 +526,7 @@ export class LogsArchivesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLogsArchive
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLogsArchive(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteLogsArchive(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -563,10 +556,7 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -588,9 +578,7 @@ export class LogsArchivesApiResponseProcessor {
    * @params response Response returned by the server for a request to getLogsArchive
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getLogsArchive(
-    response: ResponseContext,
-  ): Promise<LogsArchive> {
+  public async getLogsArchive(response: ResponseContext): Promise<LogsArchive> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -624,10 +612,7 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -667,10 +652,7 @@ export class LogsArchivesApiResponseProcessor {
       ) as LogsArchiveOrder;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -688,10 +670,7 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -754,10 +733,7 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -797,10 +773,7 @@ export class LogsArchivesApiResponseProcessor {
       ) as LogsArchives;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -818,10 +791,7 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -848,9 +818,7 @@ export class LogsArchivesApiResponseProcessor {
    * @params response Response returned by the server for a request to removeRoleFromArchive
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async removeRoleFromArchive(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async removeRoleFromArchive(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -880,10 +848,7 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -941,10 +906,7 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1007,10 +969,7 @@ export class LogsArchivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1120,8 +1079,7 @@ export class LogsArchivesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new LogsArchivesApiRequestFactory(this.configuration);
+      requestFactory || new LogsArchivesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsArchivesApiResponseProcessor();
   }
@@ -1216,11 +1174,11 @@ export class LogsArchivesApi {
    * This endpoint takes no JSON arguments.
    * @param param The request object
    */
-  public getLogsArchiveOrder(options?: Configuration,
+  public getLogsArchiveOrder(
+    options?: Configuration,
   ): Promise<LogsArchiveOrder> {
-    const requestContextPromise = this.requestFactory.getLogsArchiveOrder(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getLogsArchiveOrder(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1255,11 +1213,8 @@ export class LogsArchivesApi {
    * Get the list of configured logs archives with their definitions.
    * @param param The request object
    */
-  public listLogsArchives(options?: Configuration,
-  ): Promise<LogsArchives> {
-    const requestContextPromise = this.requestFactory.listLogsArchives(
-      options,
-    );
+  public listLogsArchives(options?: Configuration): Promise<LogsArchives> {
+    const requestContextPromise = this.requestFactory.listLogsArchives(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1293,7 +1248,7 @@ export class LogsArchivesApi {
 
   /**
    * Update a given archive configuration.
-   * 
+   *
    * **Note**: Using this method updates your archive configuration by **replacing**
    * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object
@@ -1319,7 +1274,7 @@ export class LogsArchivesApi {
   /**
    * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change
    * the structure and content of the data processed by other archives.
-   * 
+   *
    * **Note**: Using the `PUT` method updates your archive's order by replacing the current order
    * with the new one.
    * @param param The request object

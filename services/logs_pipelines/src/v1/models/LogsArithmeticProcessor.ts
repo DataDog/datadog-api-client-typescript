@@ -7,17 +7,17 @@ import { LogsArithmeticProcessorType } from "./LogsArithmeticProcessorType";
  * in the new attribute name) to a log with the result of the provided formula.
  * This enables you to remap different time attributes with different units into a single attribute,
  * or to compute operations on attributes within the same log.
- * 
+ *
  * The formula can use parentheses and the basic arithmetic operators `-`, `+`, `*`, `/`.
- * 
+ *
  * By default, the calculation is skipped if an attribute is missing.
  * Select “Replace missing attribute by 0” to automatically populate
  * missing attribute values with 0 to ensure that the calculation is done.
  * An attribute is missing if it is not found in the log attributes,
  * or if it cannot be converted to a number.
- * 
+ *
  * *Notes*:
- * 
+ *
  * - The operator `-` needs to be space split in the formula as it can also be contained in attribute names.
  * - If the target attribute already exists, it is overwritten by the result of the formula.
  * - Results are rounded up to the 9th decimal. For example, if the result of the formula is `0.1234567891`,

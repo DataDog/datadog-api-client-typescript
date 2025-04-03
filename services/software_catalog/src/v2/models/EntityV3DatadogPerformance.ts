@@ -20,7 +20,7 @@ export class EntityV3DatadogPerformance {
     tags: {
       baseName: "tags",
       type: "Array<string>",
-    }
+    },
   };
 
   /**

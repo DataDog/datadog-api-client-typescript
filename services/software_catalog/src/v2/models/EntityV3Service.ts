@@ -78,7 +78,7 @@ export class EntityV3Service {
     spec: {
       baseName: "spec",
       type: "EntityV3ServiceSpec",
-    }
+    },
   };
 
   /**

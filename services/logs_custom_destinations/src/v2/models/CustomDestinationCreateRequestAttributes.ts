@@ -17,7 +17,7 @@ export class CustomDestinationCreateRequestAttributes {
   "forwardTags"?: boolean;
   /**
    * List of [keys of tags](https://docs.datadoghq.com/getting_started/tagging/#define-tags) to be filtered.
-   * 
+   *
    * An empty list represents no restriction is in place and either all or no tags will be
    * forwarded depending on `forward_tags_restriction_list_type` parameter.
    */
@@ -26,7 +26,7 @@ export class CustomDestinationCreateRequestAttributes {
    * How `forward_tags_restriction_list` parameter should be interpreted.
    * If `ALLOW_LIST`, then only tags whose keys on the forwarded logs match the ones on the restriction list
    * are forwarded.
-   * 
+   *
    * `BLOCK_LIST` works the opposite way. It does not forward the tags matching the ones on the list.
    */
   "forwardTagsRestrictionListType"?: CustomDestinationAttributeTagsRestrictionListType;

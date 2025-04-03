@@ -185,10 +185,11 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/current_user/application_keys/{app_key_id}".replace(
-      "{app_key_id}",
-      encodeURIComponent(String(appKeyId)),
-    );
+    const localVarPath =
+      "/api/v2/current_user/application_keys/{app_key_id}".replace(
+        "{app_key_id}",
+        encodeURIComponent(String(appKeyId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -304,10 +305,11 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/current_user/application_keys/{app_key_id}".replace(
-      "{app_key_id}",
-      encodeURIComponent(String(appKeyId)),
-    );
+    const localVarPath =
+      "/api/v2/current_user/application_keys/{app_key_id}".replace(
+        "{app_key_id}",
+        encodeURIComponent(String(appKeyId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -418,7 +420,11 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (filterRemoteConfigReadEnabled !== undefined) {
       requestContext.setQueryParam(
         "filter[remote_config_read_enabled]",
-        ObjectSerializer.serialize(filterRemoteConfigReadEnabled, "boolean", ""),
+        ObjectSerializer.serialize(
+          filterRemoteConfigReadEnabled,
+          "boolean",
+          "",
+        ),
         "",
       );
     }
@@ -721,10 +727,11 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/current_user/application_keys/{app_key_id}".replace(
-      "{app_key_id}",
-      encodeURIComponent(String(appKeyId)),
-    );
+    const localVarPath =
+      "/api/v2/current_user/application_keys/{app_key_id}".replace(
+        "{app_key_id}",
+        encodeURIComponent(String(appKeyId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -797,10 +804,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -862,10 +866,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -892,9 +893,7 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAPIKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAPIKey(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteAPIKey(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -923,10 +922,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -948,9 +944,7 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteApplicationKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteApplicationKey(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteApplicationKey(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -979,10 +973,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1035,10 +1026,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1060,9 +1048,7 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getAPIKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getAPIKey(
-    response: ResponseContext,
-  ): Promise<APIKeyResponse> {
+  public async getAPIKey(response: ResponseContext): Promise<APIKeyResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1095,10 +1081,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1161,10 +1144,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1226,10 +1206,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1291,10 +1268,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1357,10 +1331,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1423,10 +1394,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1489,10 +1457,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1555,10 +1520,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1621,10 +1583,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1905,8 +1864,7 @@ export class KeyManagementApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new KeyManagementApiRequestFactory(this.configuration);
+      requestFactory || new KeyManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new KeyManagementApiResponseProcessor();
   }
@@ -1940,15 +1898,15 @@ export class KeyManagementApi {
     param: KeyManagementApiCreateCurrentUserApplicationKeyRequest,
     options?: Configuration,
   ): Promise<ApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.createCurrentUserApplicationKey(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createCurrentUserApplicationKey(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCurrentUserApplicationKey(responseContext);
+          return this.responseProcessor.createCurrentUserApplicationKey(
+            responseContext,
+          );
         });
     });
   }
@@ -2003,15 +1961,18 @@ export class KeyManagementApi {
     param: KeyManagementApiDeleteCurrentUserApplicationKeyRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteCurrentUserApplicationKey(
-      param.appKeyId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteCurrentUserApplicationKey(
+        param.appKeyId,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCurrentUserApplicationKey(responseContext);
+          return this.responseProcessor.deleteCurrentUserApplicationKey(
+            responseContext,
+          );
         });
     });
   }
@@ -2068,15 +2029,15 @@ export class KeyManagementApi {
     param: KeyManagementApiGetCurrentUserApplicationKeyRequest,
     options?: Configuration,
   ): Promise<ApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.getCurrentUserApplicationKey(
-      param.appKeyId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getCurrentUserApplicationKey(param.appKeyId, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getCurrentUserApplicationKey(responseContext);
+          return this.responseProcessor.getCurrentUserApplicationKey(
+            responseContext,
+          );
         });
     });
   }
@@ -2147,21 +2108,24 @@ export class KeyManagementApi {
     param: KeyManagementApiListCurrentUserApplicationKeysRequest = {},
     options?: Configuration,
   ): Promise<ListApplicationKeysResponse> {
-    const requestContextPromise = this.requestFactory.listCurrentUserApplicationKeys(
-      param.pageSize,
-      param.pageNumber,
-      param.sort,
-      param.filter,
-      param.filterCreatedAtStart,
-      param.filterCreatedAtEnd,
-      param.include,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listCurrentUserApplicationKeys(
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.filter,
+        param.filterCreatedAtStart,
+        param.filterCreatedAtEnd,
+        param.include,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCurrentUserApplicationKeys(responseContext);
+          return this.responseProcessor.listCurrentUserApplicationKeys(
+            responseContext,
+          );
         });
     });
   }
@@ -2218,16 +2182,19 @@ export class KeyManagementApi {
     param: KeyManagementApiUpdateCurrentUserApplicationKeyRequest,
     options?: Configuration,
   ): Promise<ApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.updateCurrentUserApplicationKey(
-      param.appKeyId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.updateCurrentUserApplicationKey(
+        param.appKeyId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCurrentUserApplicationKey(responseContext);
+          return this.responseProcessor.updateCurrentUserApplicationKey(
+            responseContext,
+          );
         });
     });
   }

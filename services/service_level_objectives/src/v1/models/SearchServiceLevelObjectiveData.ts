@@ -13,7 +13,7 @@ export class SearchServiceLevelObjectiveData {
   "attributes"?: SearchServiceLevelObjectiveAttributes;
   /**
    * A unique identifier for the service level objective object.
-   * 
+   *
    * Always included in service level objective responses.
    */
   "id"?: string;

@@ -124,10 +124,7 @@ export class DomainAllowlistApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -185,10 +182,7 @@ export class DomainAllowlistApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -238,11 +232,11 @@ export class DomainAllowlistApi {
    * Get the domain allowlist for an organization.
    * @param param The request object
    */
-  public getDomainAllowlist(options?: Configuration,
+  public getDomainAllowlist(
+    options?: Configuration,
   ): Promise<DomainAllowlistResponse> {
-    const requestContextPromise = this.requestFactory.getDomainAllowlist(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getDomainAllowlist(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

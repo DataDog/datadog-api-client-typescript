@@ -72,10 +72,11 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
-      "{integration_service_id}",
-      encodeURIComponent(String(integrationServiceId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
+        "{integration_service_id}",
+        encodeURIComponent(String(integrationServiceId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -105,10 +106,11 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
-      "{integration_service_id}",
-      encodeURIComponent(String(integrationServiceId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
+        "{integration_service_id}",
+        encodeURIComponent(String(integrationServiceId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -168,10 +170,11 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
-      "{integration_service_id}",
-      encodeURIComponent(String(integrationServiceId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
+        "{integration_service_id}",
+        encodeURIComponent(String(integrationServiceId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -245,10 +248,7 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -275,9 +275,7 @@ export class OpsgenieIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOpsgenieService
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOpsgenieService(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteOpsgenieService(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -307,10 +305,7 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -369,10 +364,7 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -412,10 +404,7 @@ export class OpsgenieIntegrationApiResponseProcessor {
       ) as OpsgenieServicesResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -433,10 +422,7 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -500,10 +486,7 @@ export class OpsgenieIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -646,11 +629,11 @@ export class OpsgenieIntegrationApi {
    * Get a list of all services from the Datadog Opsgenie integration.
    * @param param The request object
    */
-  public listOpsgenieServices(options?: Configuration,
+  public listOpsgenieServices(
+    options?: Configuration,
   ): Promise<OpsgenieServicesResponse> {
-    const requestContextPromise = this.requestFactory.listOpsgenieServices(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listOpsgenieServices(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

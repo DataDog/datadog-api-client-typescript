@@ -228,10 +228,7 @@ export class SpansApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -443,8 +440,7 @@ export class SpansApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new SpansApiRequestFactory(this.configuration);
+      requestFactory || new SpansApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SpansApiResponseProcessor();
   }
@@ -474,10 +470,10 @@ export class SpansApi {
   /**
    * List endpoint returns spans that match a span search query.
    * [Results are paginated][1].
-   * 
+   *
    * Use this endpoint to build complex spans filtering and search.
    * This endpoint is rate limited to `300` requests per hour.
-   * 
+   *
    * [1]: /logs/guide/collect-multiple-logs-with-pagination?tab=v2api
    * @param param The request object
    */
@@ -502,17 +498,17 @@ export class SpansApi {
    * Provide a paginated version of listSpans returning a generator with all the items.
    */
   public async *listSpansWithPagination(
-    param: SpansApiListSpansRequest, options?: Configuration,
+    param: SpansApiListSpansRequest,
+    options?: Configuration,
   ): AsyncGenerator<Span> {
-
     let pageSize = 10;
-    if (param.body.data === undefined ) {
+    if (param.body.data === undefined) {
       param.body.data = new SpansListRequestData();
     }
-    if (param.body.data.attributes === undefined ) {
+    if (param.body.data.attributes === undefined) {
       param.body.data.attributes = new SpansListRequestAttributes();
     }
-    if (param.body.data.attributes.page === undefined ) {
+    if (param.body.data.attributes.page === undefined) {
       param.body.data.attributes.page = new SpansListRequestPage();
     }
     if (param.body.data.attributes.page.limit === undefined) {
@@ -521,8 +517,12 @@ export class SpansApi {
       pageSize = param.body.data.attributes.page.limit;
     }
     while (true) {
-      const requestContext = await this.requestFactory.listSpans(param.body,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listSpans(
+        param.body,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listSpans(responseContext);
       const responseData = response.data;
@@ -556,10 +556,10 @@ export class SpansApi {
   /**
    * List endpoint returns spans that match a span search query.
    * [Results are paginated][1].
-   * 
+   *
    * Use this endpoint to see your latest spans.
    * This endpoint is rate limited to `300` requests per hour.
-   * 
+   *
    * [1]: /logs/guide/collect-multiple-logs-with-pagination?tab=v2api
    * @param param The request object
    */
@@ -589,19 +589,29 @@ export class SpansApi {
    * Provide a paginated version of listSpansGet returning a generator with all the items.
    */
   public async *listSpansGetWithPagination(
-    param: SpansApiListSpansGetRequest = {}, options?: Configuration,
+    param: SpansApiListSpansGetRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<Span> {
-
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listSpansGet(param.filterQuery,param.filterFrom,param.filterTo,param.sort,param.pageCursor,param.pageLimit,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listSpansGet(
+        param.filterQuery,
+        param.filterFrom,
+        param.filterTo,
+        param.sort,
+        param.pageCursor,
+        param.pageLimit,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listSpansGet(responseContext);
+      const response =
+        await this.responseProcessor.listSpansGet(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

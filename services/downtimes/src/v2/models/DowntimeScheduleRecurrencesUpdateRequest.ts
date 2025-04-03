@@ -30,7 +30,7 @@ export class DowntimeScheduleRecurrencesUpdateRequest {
     timezone: {
       baseName: "timezone",
       type: "string",
-    }
+    },
   };
 
   /**

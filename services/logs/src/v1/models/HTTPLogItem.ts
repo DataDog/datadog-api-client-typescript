@@ -35,7 +35,7 @@ export class HTTPLogItem {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: { [key: string]: string; } };
+  "additionalProperties"?: { [key: string]: { [key: string]: string } };
   /**
    * @ignore
    */

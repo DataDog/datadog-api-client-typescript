@@ -44,7 +44,7 @@ export class EntityV3QueueSpec {
     type: {
       baseName: "type",
       type: "string",
-    }
+    },
   };
 
   /**

@@ -123,7 +123,10 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     const requestContext = _config
       .getServer("0.0.1.APIManagementApi.getOpenAPI")
       .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "multipart/form-data, application/json");
+    requestContext.setHeaderParam(
+      "Accept",
+      "multipart/form-data, application/json",
+    );
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -262,10 +265,7 @@ export class APIManagementApiResponseProcessor {
       ) as CreateOpenAPIResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -306,10 +306,7 @@ export class APIManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -336,9 +333,7 @@ export class APIManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOpenAPI
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOpenAPI(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteOpenAPI(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -390,10 +385,7 @@ export class APIManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -415,14 +407,12 @@ export class APIManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getOpenAPI
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getOpenAPI(
-    response: ResponseContext,
-  ): Promise<HttpFile> {
+  public async getOpenAPI(response: ResponseContext): Promise<HttpFile> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: HttpFile = await response.getBodyAsFile() as HttpFile;
+      const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
       return body;
     }
     if (
@@ -470,15 +460,13 @@ export class APIManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HttpFile = await response.getBodyAsFile() as any as HttpFile;
+      const body: HttpFile =
+        (await response.getBodyAsFile()) as any as HttpFile;
       return body;
     }
 
@@ -496,9 +484,7 @@ export class APIManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listAPIs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listAPIs(
-    response: ResponseContext,
-  ): Promise<ListAPIsResponse> {
+  public async listAPIs(response: ResponseContext): Promise<ListAPIsResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -509,10 +495,7 @@ export class APIManagementApiResponseProcessor {
       ) as ListAPIsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -553,10 +536,7 @@ export class APIManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -641,10 +621,7 @@ export class APIManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -732,8 +709,7 @@ export class APIManagementApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new APIManagementApiRequestFactory(this.configuration);
+      requestFactory || new APIManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new APIManagementApiResponseProcessor();
   }

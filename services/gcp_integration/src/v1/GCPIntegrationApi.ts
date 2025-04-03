@@ -172,9 +172,7 @@ export class GCPIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createGCPIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createGCPIntegration(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async createGCPIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -207,10 +205,7 @@ export class GCPIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -237,9 +232,7 @@ export class GCPIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteGCPIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteGCPIntegration(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async deleteGCPIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -272,10 +265,7 @@ export class GCPIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -337,10 +327,7 @@ export class GCPIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -367,9 +354,7 @@ export class GCPIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateGCPIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateGCPIntegration(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async updateGCPIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -402,10 +387,7 @@ export class GCPIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -462,8 +444,7 @@ export class GCPIntegrationApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new GCPIntegrationApiRequestFactory(this.configuration);
+      requestFactory || new GCPIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new GCPIntegrationApiResponseProcessor();
   }
@@ -514,11 +495,11 @@ export class GCPIntegrationApi {
    * This endpoint is deprecated – use the V2 endpoints instead. List all Datadog-GCP integrations configured in your Datadog account.
    * @param param The request object
    */
-  public listGCPIntegration(options?: Configuration,
+  public listGCPIntegration(
+    options?: Configuration,
   ): Promise<Array<GCPAccount>> {
-    const requestContextPromise = this.requestFactory.listGCPIntegration(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listGCPIntegration(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

@@ -39,10 +39,11 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters".replace(
-      "{app_id}",
-      encodeURIComponent(String(appId)),
-    );
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters".replace(
+        "{app_id}",
+        encodeURIComponent(String(appId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -89,13 +90,10 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}".replace(
-      "{app_id}",
-      encodeURIComponent(String(appId)),
-    ).replace(
-      "{rf_id}",
-      encodeURIComponent(String(rfId)),
-    );
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
+        .replace("{app_id}", encodeURIComponent(String(appId)))
+        .replace("{rf_id}", encodeURIComponent(String(rfId)));
 
     // Make Request Context
     const requestContext = _config
@@ -131,13 +129,10 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}".replace(
-      "{app_id}",
-      encodeURIComponent(String(appId)),
-    ).replace(
-      "{rf_id}",
-      encodeURIComponent(String(rfId)),
-    );
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
+        .replace("{app_id}", encodeURIComponent(String(appId)))
+        .replace("{rf_id}", encodeURIComponent(String(rfId)));
 
     // Make Request Context
     const requestContext = _config
@@ -167,10 +162,11 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters".replace(
-      "{app_id}",
-      encodeURIComponent(String(appId)),
-    );
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters".replace(
+        "{app_id}",
+        encodeURIComponent(String(appId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -206,10 +202,11 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/applications/{app_id}/relationships/retention_filters".replace(
-      "{app_id}",
-      encodeURIComponent(String(appId)),
-    );
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/relationships/retention_filters".replace(
+        "{app_id}",
+        encodeURIComponent(String(appId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -262,13 +259,10 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}".replace(
-      "{app_id}",
-      encodeURIComponent(String(appId)),
-    ).replace(
-      "{rf_id}",
-      encodeURIComponent(String(rfId)),
-    );
+    const localVarPath =
+      "/api/v2/rum/applications/{app_id}/retention_filters/{rf_id}"
+        .replace("{app_id}", encodeURIComponent(String(appId)))
+        .replace("{rf_id}", encodeURIComponent(String(rfId)));
 
     // Make Request Context
     const requestContext = _config
@@ -341,10 +335,7 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -371,9 +362,7 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRetentionFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRetentionFilter(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteRetentionFilter(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -402,10 +391,7 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -462,10 +448,7 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -505,10 +488,7 @@ export class RumRetentionFiltersApiResponseProcessor {
       ) as RumRetentionFiltersResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -526,10 +506,7 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -563,10 +540,11 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: RumRetentionFiltersOrderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumRetentionFiltersOrderResponse",
-      ) as RumRetentionFiltersOrderResponse;
+      const body: RumRetentionFiltersOrderResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "RumRetentionFiltersOrderResponse",
+        ) as RumRetentionFiltersOrderResponse;
       return body;
     }
     if (
@@ -591,19 +569,17 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRetentionFiltersOrderResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumRetentionFiltersOrderResponse",
-        "",
-      ) as RumRetentionFiltersOrderResponse;
+      const body: RumRetentionFiltersOrderResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "RumRetentionFiltersOrderResponse",
+          "",
+        ) as RumRetentionFiltersOrderResponse;
       return body;
     }
 
@@ -657,10 +633,7 @@ export class RumRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml

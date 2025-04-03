@@ -74,10 +74,11 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/apm/config/retention-filters/{filter_id}".replace(
-      "{filter_id}",
-      encodeURIComponent(String(filterId)),
-    );
+    const localVarPath =
+      "/api/v2/apm/config/retention-filters/{filter_id}".replace(
+        "{filter_id}",
+        encodeURIComponent(String(filterId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -107,10 +108,11 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/apm/config/retention-filters/{filter_id}".replace(
-      "{filter_id}",
-      encodeURIComponent(String(filterId)),
-    );
+    const localVarPath =
+      "/api/v2/apm/config/retention-filters/{filter_id}".replace(
+        "{filter_id}",
+        encodeURIComponent(String(filterId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -211,10 +213,11 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/apm/config/retention-filters/{filter_id}".replace(
-      "{filter_id}",
-      encodeURIComponent(String(filterId)),
-    );
+    const localVarPath =
+      "/api/v2/apm/config/retention-filters/{filter_id}".replace(
+        "{filter_id}",
+        encodeURIComponent(String(filterId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -288,10 +291,7 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -349,10 +349,7 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -409,10 +406,7 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -452,10 +446,7 @@ export class APMRetentionFiltersApiResponseProcessor {
       ) as RetentionFiltersResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -473,10 +464,7 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -534,10 +522,7 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -595,10 +580,7 @@ export class APMRetentionFiltersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -685,7 +667,7 @@ export class APMRetentionFiltersApi {
   /**
    * Create a retention filter to index spans in your organization.
    * Returns the retention filter definition when the request is successful.
-   * 
+   *
    * Default filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor cannot be created.
    * @param param The request object
    */
@@ -701,14 +683,16 @@ export class APMRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createApmRetentionFilter(responseContext);
+          return this.responseProcessor.createApmRetentionFilter(
+            responseContext,
+          );
         });
     });
   }
 
   /**
    * Delete a specific retention filter from your organization.
-   * 
+   *
    * Default filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor cannot be deleted.
    * @param param The request object
    */
@@ -724,7 +708,9 @@ export class APMRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteApmRetentionFilter(responseContext);
+          return this.responseProcessor.deleteApmRetentionFilter(
+            responseContext,
+          );
         });
     });
   }
@@ -754,16 +740,18 @@ export class APMRetentionFiltersApi {
    * Get the list of APM retention filters.
    * @param param The request object
    */
-  public listApmRetentionFilters(options?: Configuration,
+  public listApmRetentionFilters(
+    options?: Configuration,
   ): Promise<RetentionFiltersResponse> {
-    const requestContextPromise = this.requestFactory.listApmRetentionFilters(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listApmRetentionFilters(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listApmRetentionFilters(responseContext);
+          return this.responseProcessor.listApmRetentionFilters(
+            responseContext,
+          );
         });
     });
   }
@@ -776,22 +764,22 @@ export class APMRetentionFiltersApi {
     param: APMRetentionFiltersApiReorderApmRetentionFiltersRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.reorderApmRetentionFilters(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.reorderApmRetentionFilters(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.reorderApmRetentionFilters(responseContext);
+          return this.responseProcessor.reorderApmRetentionFilters(
+            responseContext,
+          );
         });
     });
   }
 
   /**
    * Update a retention filter from your organization.
-   * 
+   *
    * Default filters (filters with types spans-errors-sampling-processor and spans-appsec-sampling-processor) cannot be renamed or removed.
    * @param param The request object
    */
@@ -808,7 +796,9 @@ export class APMRetentionFiltersApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateApmRetentionFilter(responseContext);
+          return this.responseProcessor.updateApmRetentionFilter(
+            responseContext,
+          );
         });
     });
   }

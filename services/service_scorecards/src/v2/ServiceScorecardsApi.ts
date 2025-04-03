@@ -33,7 +33,9 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'createScorecardOutcomesBatch'");
     if (!_config.unstableOperations["0.0.1.createScorecardOutcomesBatch"]) {
-      throw new Error("Unstable operation 'createScorecardOutcomesBatch' is disabled");
+      throw new Error(
+        "Unstable operation 'createScorecardOutcomesBatch' is disabled",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -482,10 +484,7 @@ export class ServiceScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -547,10 +546,7 @@ export class ServiceScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -577,9 +573,7 @@ export class ServiceScorecardsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteScorecardRule
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteScorecardRule(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteScorecardRule(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -609,10 +603,7 @@ export class ServiceScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -669,10 +660,7 @@ export class ServiceScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -734,10 +722,7 @@ export class ServiceScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -799,10 +784,7 @@ export class ServiceScorecardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -992,15 +974,15 @@ export class ServiceScorecardsApi {
     param: ServiceScorecardsApiCreateScorecardOutcomesBatchRequest,
     options?: Configuration,
   ): Promise<OutcomesBatchResponse> {
-    const requestContextPromise = this.requestFactory.createScorecardOutcomesBatch(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createScorecardOutcomesBatch(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createScorecardOutcomesBatch(responseContext);
+          return this.responseProcessor.createScorecardOutcomesBatch(
+            responseContext,
+          );
         });
     });
   }
@@ -1081,19 +1063,33 @@ export class ServiceScorecardsApi {
    * Provide a paginated version of listScorecardOutcomes returning a generator with all the items.
    */
   public async *listScorecardOutcomesWithPagination(
-    param: ServiceScorecardsApiListScorecardOutcomesRequest = {}, options?: Configuration,
+    param: ServiceScorecardsApiListScorecardOutcomesRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<OutcomesResponseDataItem> {
-
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listScorecardOutcomes(param.pageSize,param.pageOffset,param.include,param.fieldsOutcome,param.fieldsRule,param.filterOutcomeServiceName,param.filterOutcomeState,param.filterRuleEnabled,param.filterRuleId,param.filterRuleName,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listScorecardOutcomes(
+        param.pageSize,
+        param.pageOffset,
+        param.include,
+        param.fieldsOutcome,
+        param.fieldsRule,
+        param.filterOutcomeServiceName,
+        param.filterOutcomeState,
+        param.filterRuleEnabled,
+        param.filterRuleId,
+        param.filterRuleName,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listScorecardOutcomes(responseContext);
+      const response =
+        await this.responseProcessor.listScorecardOutcomes(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1147,19 +1143,33 @@ export class ServiceScorecardsApi {
    * Provide a paginated version of listScorecardRules returning a generator with all the items.
    */
   public async *listScorecardRulesWithPagination(
-    param: ServiceScorecardsApiListScorecardRulesRequest = {}, options?: Configuration,
+    param: ServiceScorecardsApiListScorecardRulesRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<ListRulesResponseDataItem> {
-
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listScorecardRules(param.pageSize,param.pageOffset,param.include,param.filterRuleId,param.filterRuleEnabled,param.filterRuleCustom,param.filterRuleName,param.filterRuleDescription,param.fieldsRule,param.fieldsScorecard,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listScorecardRules(
+        param.pageSize,
+        param.pageOffset,
+        param.include,
+        param.filterRuleId,
+        param.filterRuleEnabled,
+        param.filterRuleCustom,
+        param.filterRuleName,
+        param.filterRuleDescription,
+        param.fieldsRule,
+        param.fieldsScorecard,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listScorecardRules(responseContext);
+      const response =
+        await this.responseProcessor.listScorecardRules(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

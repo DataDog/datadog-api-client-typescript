@@ -6,7 +6,7 @@ import { LogsProcessor } from "./LogsProcessor";
 /**
  * Pipelines and processors operate on incoming logs,
  * parsing and transforming them into structured attributes for easier querying.
- * 
+ *
  * **Note**: These endpoints are only available for admin users.
  * Make sure to use an application key created by an admin.
  */

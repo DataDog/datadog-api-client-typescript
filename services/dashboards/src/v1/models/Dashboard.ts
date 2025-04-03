@@ -33,7 +33,7 @@ export class Dashboard {
   "id"?: string;
   /**
    * Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
-   * 
+   *
    * This property is deprecated; please use the [Restriction Policies API](https://docs.datadoghq.com/api/latest/restriction-policies/) instead to manage write authorization for individual dashboards.
    */
   "isReadOnly"?: boolean;

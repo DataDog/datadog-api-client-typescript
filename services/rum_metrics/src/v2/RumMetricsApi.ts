@@ -245,10 +245,7 @@ export class RumMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -275,9 +272,7 @@ export class RumMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRumMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRumMetric(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteRumMetric(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -306,10 +301,7 @@ export class RumMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -366,10 +358,7 @@ export class RumMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -409,10 +398,7 @@ export class RumMetricsApiResponseProcessor {
       ) as RumMetricsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -430,10 +416,7 @@ export class RumMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -497,10 +480,7 @@ export class RumMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -570,8 +550,7 @@ export class RumMetricsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new RumMetricsApiRequestFactory(this.configuration);
+      requestFactory || new RumMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RumMetricsApiResponseProcessor();
   }
@@ -644,11 +623,8 @@ export class RumMetricsApi {
    * Get the list of configured rum-based metrics with their definitions.
    * @param param The request object
    */
-  public listRumMetrics(options?: Configuration,
-  ): Promise<RumMetricsResponse> {
-    const requestContextPromise = this.requestFactory.listRumMetrics(
-      options,
-    );
+  public listRumMetrics(options?: Configuration): Promise<RumMetricsResponse> {
+    const requestContextPromise = this.requestFactory.listRumMetrics(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

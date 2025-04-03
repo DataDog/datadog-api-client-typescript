@@ -81,10 +81,11 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}/services".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/fastly/accounts/{account_id}/services".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -125,10 +126,11 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/fastly/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -164,13 +166,10 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    ).replace(
-      "{service_id}",
-      encodeURIComponent(String(serviceId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}"
+        .replace("{account_id}", encodeURIComponent(String(accountId)))
+        .replace("{service_id}", encodeURIComponent(String(serviceId)));
 
     // Make Request Context
     const requestContext = _config
@@ -200,10 +199,11 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/fastly/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -239,13 +239,10 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    ).replace(
-      "{service_id}",
-      encodeURIComponent(String(serviceId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}"
+        .replace("{account_id}", encodeURIComponent(String(accountId)))
+        .replace("{service_id}", encodeURIComponent(String(serviceId)));
 
     // Make Request Context
     const requestContext = _config
@@ -299,10 +296,11 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}/services".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/fastly/accounts/{account_id}/services".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -338,10 +336,11 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/fastly/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -394,13 +393,10 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    ).replace(
-      "{service_id}",
-      encodeURIComponent(String(serviceId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/fastly/accounts/{account_id}/services/{service_id}"
+        .replace("{account_id}", encodeURIComponent(String(accountId)))
+        .replace("{service_id}", encodeURIComponent(String(serviceId)));
 
     // Make Request Context
     const requestContext = _config
@@ -474,10 +470,7 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -540,10 +533,7 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -570,9 +560,7 @@ export class FastlyIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteFastlyAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteFastlyAccount(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteFastlyAccount(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -602,10 +590,7 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -627,9 +612,7 @@ export class FastlyIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteFastlyService
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteFastlyService(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteFastlyService(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -659,10 +642,7 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -720,10 +700,7 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -786,10 +763,7 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -852,10 +826,7 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -918,10 +889,7 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -984,10 +952,7 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1050,10 +1015,7 @@ export class FastlyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1323,11 +1285,11 @@ export class FastlyIntegrationApi {
    * List Fastly accounts.
    * @param param The request object
    */
-  public listFastlyAccounts(options?: Configuration,
+  public listFastlyAccounts(
+    options?: Configuration,
   ): Promise<FastlyAccountsResponse> {
-    const requestContextPromise = this.requestFactory.listFastlyAccounts(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listFastlyAccounts(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

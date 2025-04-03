@@ -20,7 +20,7 @@ export class EntityV3APISpecInterfaceFileRef {
     fileRef: {
       baseName: "fileRef",
       type: "string",
-    }
+    },
   };
 
   /**

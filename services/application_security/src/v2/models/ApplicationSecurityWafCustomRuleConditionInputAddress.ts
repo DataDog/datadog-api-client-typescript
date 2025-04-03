@@ -34,12 +34,14 @@ export const SERVER_REQUEST_METHOD = "server.request.method";
 export const SERVER_REQUEST_URI_RAW = "server.request.uri.raw";
 export const SERVER_REQUEST_PATH_PARAMS = "server.request.path_params";
 export const SERVER_REQUEST_QUERY = "server.request.query";
-export const SERVER_REQUEST_HEADERS_NO_COOKIES = "server.request.headers.no_cookies";
+export const SERVER_REQUEST_HEADERS_NO_COOKIES =
+  "server.request.headers.no_cookies";
 export const SERVER_REQUEST_COOKIES = "server.request.cookies";
 export const SERVER_REQUEST_TRAILERS = "server.request.trailers";
 export const SERVER_REQUEST_BODY = "server.request.body";
 export const SERVER_RESPONSE_STATUS = "server.response.status";
-export const SERVER_RESPONSE_HEADERS_NO_COOKIES = "server.response.headers.no_cookies";
+export const SERVER_RESPONSE_HEADERS_NO_COOKIES =
+  "server.response.headers.no_cookies";
 export const SERVER_RESPONSE_TRAILERS = "server.response.trailers";
 export const GRPC_SERVER_REQUEST_METADATA = "grpc.server.request.metadata";
 export const GRPC_SERVER_REQUEST_MESSAGE = "grpc.server.request.message";

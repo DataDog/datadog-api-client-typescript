@@ -116,10 +116,11 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/agentless_scanning/accounts/aws/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/agentless_scanning/accounts/aws/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -149,10 +150,11 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/agentless_scanning/ondemand/aws/{task_id}".replace(
-      "{task_id}",
-      encodeURIComponent(String(taskId)),
-    );
+    const localVarPath =
+      "/api/v2/agentless_scanning/ondemand/aws/{task_id}".replace(
+        "{task_id}",
+        encodeURIComponent(String(taskId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -236,10 +238,11 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/agentless_scanning/accounts/aws/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/agentless_scanning/accounts/aws/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -312,10 +315,7 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -378,10 +378,7 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -408,9 +405,7 @@ export class AgentlessScanningApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAwsScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAwsScanOptions(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteAwsScanOptions(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -440,10 +435,7 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -501,10 +493,7 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -544,10 +533,7 @@ export class AgentlessScanningApiResponseProcessor {
       ) as AwsOnDemandListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -565,10 +551,7 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -608,10 +591,7 @@ export class AgentlessScanningApiResponseProcessor {
       ) as AwsScanOptionsListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -629,10 +609,7 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -659,9 +636,7 @@ export class AgentlessScanningApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAwsScanOptions
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAwsScanOptions(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async updateAwsScanOptions(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -691,10 +666,7 @@ export class AgentlessScanningApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -861,11 +833,11 @@ export class AgentlessScanningApi {
    * Fetches the most recent 1000 AWS on demand tasks.
    * @param param The request object
    */
-  public listAwsOnDemandTasks(options?: Configuration,
+  public listAwsOnDemandTasks(
+    options?: Configuration,
   ): Promise<AwsOnDemandListResponse> {
-    const requestContextPromise = this.requestFactory.listAwsOnDemandTasks(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listAwsOnDemandTasks(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -879,11 +851,11 @@ export class AgentlessScanningApi {
    * Fetches the scan options configured for AWS accounts.
    * @param param The request object
    */
-  public listAwsScanOptions(options?: Configuration,
+  public listAwsScanOptions(
+    options?: Configuration,
   ): Promise<AwsScanOptionsListResponse> {
-    const requestContextPromise = this.requestFactory.listAwsScanOptions(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listAwsScanOptions(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

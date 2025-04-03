@@ -41,7 +41,15 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
-  RumRetentionFilterEventType: ["session", "view", "action", "error", "resource", "long_task", "vital"],
+  RumRetentionFilterEventType: [
+    "session",
+    "view",
+    "action",
+    "error",
+    "resource",
+    "long_task",
+    "vital",
+  ],
   RumRetentionFilterType: ["retention_filters"],
 };
 

@@ -180,7 +180,11 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     if (resourceType !== undefined) {
       requestContext.setQueryParam(
         "resource_type",
-        ObjectSerializer.serialize(resourceType, "AuthNMappingResourceType", ""),
+        ObjectSerializer.serialize(
+          resourceType,
+          "AuthNMappingResourceType",
+          "",
+        ),
         "",
       );
     }
@@ -289,10 +293,7 @@ export class AuthNMappingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -319,9 +320,7 @@ export class AuthNMappingsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAuthNMapping
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAuthNMapping(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteAuthNMapping(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -350,10 +349,7 @@ export class AuthNMappingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -410,10 +406,7 @@ export class AuthNMappingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -453,10 +446,7 @@ export class AuthNMappingsApiResponseProcessor {
       ) as AuthNMappingsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -474,10 +464,7 @@ export class AuthNMappingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -542,10 +529,7 @@ export class AuthNMappingsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -641,8 +625,7 @@ export class AuthNMappingsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new AuthNMappingsApiRequestFactory(this.configuration);
+      requestFactory || new AuthNMappingsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuthNMappingsApiResponseProcessor();
   }

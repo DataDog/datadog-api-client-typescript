@@ -29,7 +29,7 @@ export class ListFindingsPage {
       baseName: "total_filtered_count",
       type: "number",
       format: "int64",
-    }
+    },
   };
 
   /**

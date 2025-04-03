@@ -28,7 +28,7 @@ export class EntityV3DatadogCodeLocationItem {
     repositoryUrl: {
       baseName: "repositoryURL",
       type: "string",
-    }
+    },
   };
 
   /**

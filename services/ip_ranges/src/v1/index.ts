@@ -1,6 +1,4 @@
-export {
-  IPRangesApi,
-} from "./IPRangesApi";
+export { IPRangesApi } from "./IPRangesApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { IPPrefixesAgents } from "./models/IPPrefixesAgents";

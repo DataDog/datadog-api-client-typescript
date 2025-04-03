@@ -113,7 +113,7 @@ export class EntityV3Metadata {
     tags: {
       baseName: "tags",
       type: "Array<string>",
-    }
+    },
   };
 
   /**

@@ -129,9 +129,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listOrgs(
-    _options?: Configuration,
-  ): Promise<RequestContext> {
+  public async listOrgs(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
@@ -294,10 +292,7 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -359,10 +354,7 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -424,10 +416,7 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -467,10 +456,7 @@ export class OrganizationsApiResponseProcessor {
       ) as OrganizationListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -488,10 +474,7 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -553,10 +536,7 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -619,10 +599,7 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -704,20 +681,19 @@ export class OrganizationsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new OrganizationsApiRequestFactory(this.configuration);
+      requestFactory || new OrganizationsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OrganizationsApiResponseProcessor();
   }
 
   /**
    * Create a child organization.
-   * 
+   *
    * This endpoint requires the
    * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
    * feature and must be enabled by
    * [contacting support](https://docs.datadoghq.com/help/).
-   * 
+   *
    * Once a new child organization is created, you can interact with it
    * by using the `org.public_id`, `api_key.key`, and
    * `application_key.hash` provided in the response.
@@ -786,11 +762,8 @@ export class OrganizationsApi {
    * This endpoint returns data on your top-level organization.
    * @param param The request object
    */
-  public listOrgs(options?: Configuration,
-  ): Promise<OrganizationListResponse> {
-    const requestContextPromise = this.requestFactory.listOrgs(
-      options,
-    );
+  public listOrgs(options?: Configuration): Promise<OrganizationListResponse> {
+    const requestContextPromise = this.requestFactory.listOrgs(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -825,9 +798,9 @@ export class OrganizationsApi {
   /**
    * There are a couple of options for updating the Identity Provider (IdP)
    * metadata from your SAML IdP.
-   * 
+   *
    * * **Multipart Form-Data**: Post the IdP metadata file using a form post.
-   * 
+   *
    * * **XML Body:** Post the IdP metadata file as the body of the request.
    * @param param The request object
    */

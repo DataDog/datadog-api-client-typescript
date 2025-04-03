@@ -126,7 +126,11 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     if (schemaVersion !== undefined) {
       requestContext.setQueryParam(
         "schema_version",
-        ObjectSerializer.serialize(schemaVersion, "ServiceDefinitionSchemaVersions", ""),
+        ObjectSerializer.serialize(
+          schemaVersion,
+          "ServiceDefinitionSchemaVersions",
+          "",
+        ),
         "",
       );
     }
@@ -177,7 +181,11 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     if (schemaVersion !== undefined) {
       requestContext.setQueryParam(
         "schema_version",
-        ObjectSerializer.serialize(schemaVersion, "ServiceDefinitionSchemaVersions", ""),
+        ObjectSerializer.serialize(
+          schemaVersion,
+          "ServiceDefinitionSchemaVersions",
+          "",
+        ),
         "",
       );
     }
@@ -208,10 +216,11 @@ export class ServiceDefinitionApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: ServiceDefinitionCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ServiceDefinitionCreateResponse",
-      ) as ServiceDefinitionCreateResponse;
+      const body: ServiceDefinitionCreateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ServiceDefinitionCreateResponse",
+        ) as ServiceDefinitionCreateResponse;
       return body;
     }
     if (
@@ -237,19 +246,17 @@ export class ServiceDefinitionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ServiceDefinitionCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ServiceDefinitionCreateResponse",
-        "",
-      ) as ServiceDefinitionCreateResponse;
+      const body: ServiceDefinitionCreateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ServiceDefinitionCreateResponse",
+          "",
+        ) as ServiceDefinitionCreateResponse;
       return body;
     }
 
@@ -299,10 +306,7 @@ export class ServiceDefinitionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -361,10 +365,7 @@ export class ServiceDefinitionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -404,10 +405,7 @@ export class ServiceDefinitionApiResponseProcessor {
       ) as ServiceDefinitionsListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -425,10 +423,7 @@ export class ServiceDefinitionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -522,15 +517,15 @@ export class ServiceDefinitionApi {
     param: ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest,
     options?: Configuration,
   ): Promise<ServiceDefinitionCreateResponse> {
-    const requestContextPromise = this.requestFactory.createOrUpdateServiceDefinitions(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createOrUpdateServiceDefinitions(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createOrUpdateServiceDefinitions(responseContext);
+          return this.responseProcessor.createOrUpdateServiceDefinitions(
+            responseContext,
+          );
         });
     });
   }
@@ -551,7 +546,9 @@ export class ServiceDefinitionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteServiceDefinition(responseContext);
+          return this.responseProcessor.deleteServiceDefinition(
+            responseContext,
+          );
         });
     });
   }
@@ -605,9 +602,9 @@ export class ServiceDefinitionApi {
    * Provide a paginated version of listServiceDefinitions returning a generator with all the items.
    */
   public async *listServiceDefinitionsWithPagination(
-    param: ServiceDefinitionApiListServiceDefinitionsRequest = {}, options?: Configuration,
+    param: ServiceDefinitionApiListServiceDefinitionsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<ServiceDefinitionData> {
-
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -615,10 +612,17 @@ export class ServiceDefinitionApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listServiceDefinitions(param.pageSize,param.pageNumber,param.schemaVersion,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listServiceDefinitions(
+        param.pageSize,
+        param.pageNumber,
+        param.schemaVersion,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listServiceDefinitions(responseContext);
+      const response =
+        await this.responseProcessor.listServiceDefinitions(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

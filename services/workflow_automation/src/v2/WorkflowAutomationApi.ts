@@ -44,13 +44,10 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/workflows/{workflow_id}/instances/{instance_id}/cancel".replace(
-      "{workflow_id}",
-      encodeURIComponent(String(workflowId)),
-    ).replace(
-      "{instance_id}",
-      encodeURIComponent(String(instanceId)),
-    );
+    const localVarPath =
+      "/api/v2/workflows/{workflow_id}/instances/{instance_id}/cancel"
+        .replace("{workflow_id}", encodeURIComponent(String(workflowId)))
+        .replace("{instance_id}", encodeURIComponent(String(instanceId)));
 
     // Make Request Context
     const requestContext = _config
@@ -244,13 +241,10 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/workflows/{workflow_id}/instances/{instance_id}".replace(
-      "{workflow_id}",
-      encodeURIComponent(String(workflowId)),
-    ).replace(
-      "{instance_id}",
-      encodeURIComponent(String(instanceId)),
-    );
+    const localVarPath =
+      "/api/v2/workflows/{workflow_id}/instances/{instance_id}"
+        .replace("{workflow_id}", encodeURIComponent(String(workflowId)))
+        .replace("{instance_id}", encodeURIComponent(String(instanceId)));
 
     // Make Request Context
     const requestContext = _config
@@ -387,10 +381,11 @@ export class WorkflowAutomationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: WorklflowCancelInstanceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WorklflowCancelInstanceResponse",
-      ) as WorklflowCancelInstanceResponse;
+      const body: WorklflowCancelInstanceResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "WorklflowCancelInstanceResponse",
+        ) as WorklflowCancelInstanceResponse;
       return body;
     }
     if (
@@ -416,19 +411,17 @@ export class WorkflowAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: WorklflowCancelInstanceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "WorklflowCancelInstanceResponse",
-        "",
-      ) as WorklflowCancelInstanceResponse;
+      const body: WorklflowCancelInstanceResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "WorklflowCancelInstanceResponse",
+          "",
+        ) as WorklflowCancelInstanceResponse;
       return body;
     }
 
@@ -546,10 +539,7 @@ export class WorkflowAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -576,9 +566,7 @@ export class WorkflowAutomationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteWorkflow
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteWorkflow(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteWorkflow(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -734,10 +722,7 @@ export class WorkflowAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -799,10 +784,7 @@ export class WorkflowAutomationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml

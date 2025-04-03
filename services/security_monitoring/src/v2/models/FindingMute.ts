@@ -64,7 +64,7 @@ export class FindingMute {
     uuid: {
       baseName: "uuid",
       type: "string",
-    }
+    },
   };
 
   /**
