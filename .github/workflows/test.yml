@@ -58,13 +58,9 @@ jobs:
           path: ~/.cache/pre-commit
           key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
       - id: pre_commit
-        name: Run pre-commit
+        name: Run generate to fix lint and format
         if: github.event.action != 'closed' && github.event.pull_request.merged != true
-        run: |
-          pre-commit run --all-files --hook-stage=manual --color=always format
-        env:
-          FROM_REF: ${{ github.event.pull_request.base.sha }}
-          TO_REF: ${{ github.event.pull_request.head.sha }}
+        run: bash -c "./generate.sh"
       - name: Commit changes
         if: github.event.pull_request.head.repo.full_name == github.repository && failure()
         run: |-
