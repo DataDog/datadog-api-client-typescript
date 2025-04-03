@@ -11,6 +11,7 @@ const params: v1.SlackIntegrationApiUpdateSlackIntegrationChannelRequest = {
   body: {
     display: {
       message: true,
+      muteButtons: false,
       notified: true,
       snapshot: true,
       tags: true,
