@@ -1,0 +1,31 @@
+import { UnparsedObject } from "@datadog/datadog-api-client";
+
+/**
+ * The definition of `CompletionConditionOperator` object.
+ */
+export type CompletionConditionOperator =
+  | typeof OPERATOR_EQUAL
+  | typeof OPERATOR_NOT_EQUAL
+  | typeof OPERATOR_GREATER_THAN
+  | typeof OPERATOR_LESS_THAN
+  | typeof OPERATOR_GREATER_THAN_OR_EQUAL_TO
+  | typeof OPERATOR_LESS_THAN_OR_EQUAL_TO
+  | typeof OPERATOR_CONTAINS
+  | typeof OPERATOR_DOES_NOT_CONTAIN
+  | typeof OPERATOR_IS_NULL
+  | typeof OPERATOR_IS_NOT_NULL
+  | typeof OPERATOR_IS_EMPTY
+  | typeof OPERATOR_IS_NOT_EMPTY
+  | UnparsedObject;
+export const OPERATOR_EQUAL = "OPERATOR_EQUAL";
+export const OPERATOR_NOT_EQUAL = "OPERATOR_NOT_EQUAL";
+export const OPERATOR_GREATER_THAN = "OPERATOR_GREATER_THAN";
+export const OPERATOR_LESS_THAN = "OPERATOR_LESS_THAN";
+export const OPERATOR_GREATER_THAN_OR_EQUAL_TO = "OPERATOR_GREATER_THAN_OR_EQUAL_TO";
+export const OPERATOR_LESS_THAN_OR_EQUAL_TO = "OPERATOR_LESS_THAN_OR_EQUAL_TO";
+export const OPERATOR_CONTAINS = "OPERATOR_CONTAINS";
+export const OPERATOR_DOES_NOT_CONTAIN = "OPERATOR_DOES_NOT_CONTAIN";
+export const OPERATOR_IS_NULL = "OPERATOR_IS_NULL";
+export const OPERATOR_IS_NOT_NULL = "OPERATOR_IS_NOT_NULL";
+export const OPERATOR_IS_EMPTY = "OPERATOR_IS_EMPTY";
+export const OPERATOR_IS_NOT_EMPTY = "OPERATOR_IS_NOT_EMPTY";

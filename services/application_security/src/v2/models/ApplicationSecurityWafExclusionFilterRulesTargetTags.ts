@@ -1,0 +1,52 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * Target multiple WAF rules based on their tags.
+ */
+export class ApplicationSecurityWafExclusionFilterRulesTargetTags {
+  /**
+   * The category of the targeted WAF rules.
+   */
+  "category"?: string;
+  /**
+   * The type of the targeted WAF rules.
+   */
+  "type"?: string;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: { [key: string]: string; } };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    category: {
+      baseName: "category",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "string",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: string; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return ApplicationSecurityWafExclusionFilterRulesTargetTags.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

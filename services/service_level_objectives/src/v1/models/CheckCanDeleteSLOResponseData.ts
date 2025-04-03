@@ -1,0 +1,44 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+/**
+ * An array of service level objective objects.
+ */
+export class CheckCanDeleteSLOResponseData {
+  /**
+   * An array of SLO IDs that can be safely deleted.
+   */
+  "ok"?: Array<string>;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    ok: {
+      baseName: "ok",
+      type: "Array<string>",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return CheckCanDeleteSLOResponseData.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

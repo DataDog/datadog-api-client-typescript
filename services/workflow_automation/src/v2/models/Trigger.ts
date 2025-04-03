@@ -1,0 +1,40 @@
+import { UnparsedObject } from "@datadog/datadog-api-client";
+
+import { APITriggerWrapper } from "./APITriggerWrapper";
+import { AppTriggerWrapper } from "./AppTriggerWrapper";
+import { CaseTriggerWrapper } from "./CaseTriggerWrapper";
+import { ChangeEventTriggerWrapper } from "./ChangeEventTriggerWrapper";
+import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
+import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWrapper";
+import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
+import { IncidentTriggerWrapper } from "./IncidentTriggerWrapper";
+import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
+import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
+import { ScheduleTriggerWrapper } from "./ScheduleTriggerWrapper";
+import { SecurityTriggerWrapper } from "./SecurityTriggerWrapper";
+import { SelfServiceTriggerWrapper } from "./SelfServiceTriggerWrapper";
+import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
+import { SoftwareCatalogTriggerWrapper } from "./SoftwareCatalogTriggerWrapper";
+import { WorkflowTriggerWrapper } from "./WorkflowTriggerWrapper";
+
+/**
+ * One of the triggers that can start the execution of a workflow.
+ */
+export type Trigger =
+  | APITriggerWrapper
+  | AppTriggerWrapper
+  | CaseTriggerWrapper
+  | ChangeEventTriggerWrapper
+  | DatabaseMonitoringTriggerWrapper
+  | DashboardTriggerWrapper
+  | GithubWebhookTriggerWrapper
+  | IncidentTriggerWrapper
+  | MonitorTriggerWrapper
+  | NotebookTriggerWrapper
+  | ScheduleTriggerWrapper
+  | SecurityTriggerWrapper
+  | SelfServiceTriggerWrapper
+  | SlackTriggerWrapper
+  | SoftwareCatalogTriggerWrapper
+  | WorkflowTriggerWrapper
+  | UnparsedObject;
