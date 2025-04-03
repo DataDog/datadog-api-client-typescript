@@ -245,10 +245,7 @@ export class LogsMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -275,9 +272,7 @@ export class LogsMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLogsMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLogsMetric(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteLogsMetric(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -306,10 +301,7 @@ export class LogsMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -366,10 +358,7 @@ export class LogsMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -409,10 +398,7 @@ export class LogsMetricsApiResponseProcessor {
       ) as LogsMetricsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -430,10 +416,7 @@ export class LogsMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -496,10 +479,7 @@ export class LogsMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -569,8 +549,7 @@ export class LogsMetricsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new LogsMetricsApiRequestFactory(this.configuration);
+      requestFactory || new LogsMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsMetricsApiResponseProcessor();
   }
@@ -643,11 +622,10 @@ export class LogsMetricsApi {
    * Get the list of configured log-based metrics with their definitions.
    * @param param The request object
    */
-  public listLogsMetrics(options?: Configuration,
+  public listLogsMetrics(
+    options?: Configuration,
   ): Promise<LogsMetricsResponse> {
-    const requestContextPromise = this.requestFactory.listLogsMetrics(
-      options,
-    );
+    const requestContextPromise = this.requestFactory.listLogsMetrics(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

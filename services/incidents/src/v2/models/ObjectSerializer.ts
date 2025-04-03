@@ -137,7 +137,12 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentAttachmentRelatedObject: ["users"],
   IncidentAttachmentType: ["incident_attachments"],
   IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
-  IncidentFieldAttributesValueType: ["multiselect", "textarray", "metrictag", "autocomplete"],
+  IncidentFieldAttributesValueType: [
+    "multiselect",
+    "textarray",
+    "metrictag",
+    "autocomplete",
+  ],
   IncidentImpactsType: ["incident_impacts"],
   IncidentIntegrationMetadataType: ["incident_integrations"],
   IncidentPostmortemType: ["incident_postmortems"],
@@ -161,13 +166,16 @@ const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
   IncidentAttachmentData: IncidentAttachmentData,
   IncidentAttachmentLinkAttributes: IncidentAttachmentLinkAttributes,
-  IncidentAttachmentLinkAttributesAttachmentObject: IncidentAttachmentLinkAttributesAttachmentObject,
-  IncidentAttachmentPostmortemAttributes: IncidentAttachmentPostmortemAttributes,
+  IncidentAttachmentLinkAttributesAttachmentObject:
+    IncidentAttachmentLinkAttributesAttachmentObject,
+  IncidentAttachmentPostmortemAttributes:
+    IncidentAttachmentPostmortemAttributes,
   IncidentAttachmentRelationships: IncidentAttachmentRelationships,
   IncidentAttachmentUpdateData: IncidentAttachmentUpdateData,
   IncidentAttachmentUpdateRequest: IncidentAttachmentUpdateRequest,
   IncidentAttachmentUpdateResponse: IncidentAttachmentUpdateResponse,
-  IncidentAttachmentsPostmortemAttributesAttachmentObject: IncidentAttachmentsPostmortemAttributesAttachmentObject,
+  IncidentAttachmentsPostmortemAttributesAttachmentObject:
+    IncidentAttachmentsPostmortemAttributesAttachmentObject,
   IncidentAttachmentsResponse: IncidentAttachmentsResponse,
   IncidentCreateAttributes: IncidentCreateAttributes,
   IncidentCreateData: IncidentCreateData,
@@ -177,12 +185,16 @@ const typeMap: { [index: string]: any } = {
   IncidentFieldAttributesSingleValue: IncidentFieldAttributesSingleValue,
   IncidentIntegrationMetadataAttributes: IncidentIntegrationMetadataAttributes,
   IncidentIntegrationMetadataCreateData: IncidentIntegrationMetadataCreateData,
-  IncidentIntegrationMetadataCreateRequest: IncidentIntegrationMetadataCreateRequest,
-  IncidentIntegrationMetadataListResponse: IncidentIntegrationMetadataListResponse,
+  IncidentIntegrationMetadataCreateRequest:
+    IncidentIntegrationMetadataCreateRequest,
+  IncidentIntegrationMetadataListResponse:
+    IncidentIntegrationMetadataListResponse,
   IncidentIntegrationMetadataPatchData: IncidentIntegrationMetadataPatchData,
-  IncidentIntegrationMetadataPatchRequest: IncidentIntegrationMetadataPatchRequest,
+  IncidentIntegrationMetadataPatchRequest:
+    IncidentIntegrationMetadataPatchRequest,
   IncidentIntegrationMetadataResponse: IncidentIntegrationMetadataResponse,
-  IncidentIntegrationMetadataResponseData: IncidentIntegrationMetadataResponseData,
+  IncidentIntegrationMetadataResponseData:
+    IncidentIntegrationMetadataResponseData,
   IncidentIntegrationRelationships: IncidentIntegrationRelationships,
   IncidentNonDatadogCreator: IncidentNonDatadogCreator,
   IncidentNotificationHandle: IncidentNotificationHandle,
@@ -199,12 +211,17 @@ const typeMap: { [index: string]: any } = {
   IncidentSearchResponseFieldFacetData: IncidentSearchResponseFieldFacetData,
   IncidentSearchResponseIncidentsData: IncidentSearchResponseIncidentsData,
   IncidentSearchResponseMeta: IncidentSearchResponseMeta,
-  IncidentSearchResponseNumericFacetData: IncidentSearchResponseNumericFacetData,
-  IncidentSearchResponseNumericFacetDataAggregates: IncidentSearchResponseNumericFacetDataAggregates,
-  IncidentSearchResponsePropertyFieldFacetData: IncidentSearchResponsePropertyFieldFacetData,
+  IncidentSearchResponseNumericFacetData:
+    IncidentSearchResponseNumericFacetData,
+  IncidentSearchResponseNumericFacetDataAggregates:
+    IncidentSearchResponseNumericFacetDataAggregates,
+  IncidentSearchResponsePropertyFieldFacetData:
+    IncidentSearchResponsePropertyFieldFacetData,
   IncidentSearchResponseUserFacetData: IncidentSearchResponseUserFacetData,
-  IncidentTimelineCellMarkdownCreateAttributes: IncidentTimelineCellMarkdownCreateAttributes,
-  IncidentTimelineCellMarkdownCreateAttributesContent: IncidentTimelineCellMarkdownCreateAttributesContent,
+  IncidentTimelineCellMarkdownCreateAttributes:
+    IncidentTimelineCellMarkdownCreateAttributes,
+  IncidentTimelineCellMarkdownCreateAttributesContent:
+    IncidentTimelineCellMarkdownCreateAttributesContent,
   IncidentTodoAnonymousAssignee: IncidentTodoAnonymousAssignee,
   IncidentTodoAttributes: IncidentTodoAttributes,
   IncidentTodoCreateData: IncidentTodoCreateData,
@@ -241,14 +258,18 @@ const typeMap: { [index: string]: any } = {
   RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
   RelationshipToIncidentImpactData: RelationshipToIncidentImpactData,
   RelationshipToIncidentImpacts: RelationshipToIncidentImpacts,
-  RelationshipToIncidentIntegrationMetadataData: RelationshipToIncidentIntegrationMetadataData,
-  RelationshipToIncidentIntegrationMetadatas: RelationshipToIncidentIntegrationMetadatas,
+  RelationshipToIncidentIntegrationMetadataData:
+    RelationshipToIncidentIntegrationMetadataData,
+  RelationshipToIncidentIntegrationMetadatas:
+    RelationshipToIncidentIntegrationMetadatas,
   RelationshipToIncidentPostmortem: RelationshipToIncidentPostmortem,
   RelationshipToIncidentPostmortemData: RelationshipToIncidentPostmortemData,
   RelationshipToIncidentResponderData: RelationshipToIncidentResponderData,
   RelationshipToIncidentResponders: RelationshipToIncidentResponders,
-  RelationshipToIncidentUserDefinedFieldData: RelationshipToIncidentUserDefinedFieldData,
-  RelationshipToIncidentUserDefinedFields: RelationshipToIncidentUserDefinedFields,
+  RelationshipToIncidentUserDefinedFieldData:
+    RelationshipToIncidentUserDefinedFieldData,
+  RelationshipToIncidentUserDefinedFields:
+    RelationshipToIncidentUserDefinedFields,
   RelationshipToOrganization: RelationshipToOrganization,
   RelationshipToOrganizationData: RelationshipToOrganizationData,
   RelationshipToOrganizations: RelationshipToOrganizations,

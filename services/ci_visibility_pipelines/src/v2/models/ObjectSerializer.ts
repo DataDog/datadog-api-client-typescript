@@ -65,7 +65,24 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 const enumsMap: { [key: string]: any[] } = {
   CIAppAggregateSortType: ["alphabetical", "measure"],
-  CIAppAggregationFunction: ["count", "cardinality", "pc75", "pc90", "pc95", "pc98", "pc99", "sum", "min", "max", "avg", "median", "latest", "earliest", "most_frequent", "delta"],
+  CIAppAggregationFunction: [
+    "count",
+    "cardinality",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+    "median",
+    "latest",
+    "earliest",
+    "most_frequent",
+    "delta",
+  ],
   CIAppCIErrorDomain: ["provider", "user", "unknown"],
   CIAppComputeType: ["timeseries", "total"],
   CIAppCreatePipelineEventRequestDataType: ["cipipeline_resource_request"],
@@ -73,7 +90,13 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppPipelineEventJobStatus: ["success", "error", "canceled", "skipped"],
   CIAppPipelineEventPipelineInProgressStatus: ["running"],
   CIAppPipelineEventPipelineLevel: ["pipeline"],
-  CIAppPipelineEventPipelineStatus: ["success", "error", "canceled", "skipped", "blocked"],
+  CIAppPipelineEventPipelineStatus: [
+    "success",
+    "error",
+    "canceled",
+    "skipped",
+    "blocked",
+  ],
   CIAppPipelineEventStageLevel: ["stage"],
   CIAppPipelineEventStageStatus: ["success", "error", "canceled", "skipped"],
   CIAppPipelineEventStepLevel: ["step"],
@@ -87,12 +110,14 @@ const enumsMap: { [key: string]: any[] } = {
 
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
-  CIAppAggregateBucketValueTimeseriesPoint: CIAppAggregateBucketValueTimeseriesPoint,
+  CIAppAggregateBucketValueTimeseriesPoint:
+    CIAppAggregateBucketValueTimeseriesPoint,
   CIAppAggregateSort: CIAppAggregateSort,
   CIAppCIError: CIAppCIError,
   CIAppCompute: CIAppCompute,
   CIAppCreatePipelineEventRequest: CIAppCreatePipelineEventRequest,
-  CIAppCreatePipelineEventRequestAttributes: CIAppCreatePipelineEventRequestAttributes,
+  CIAppCreatePipelineEventRequestAttributes:
+    CIAppCreatePipelineEventRequestAttributes,
   CIAppCreatePipelineEventRequestData: CIAppCreatePipelineEventRequestData,
   CIAppGitInfo: CIAppGitInfo,
   CIAppGroupByHistogram: CIAppGroupByHistogram,
@@ -109,8 +134,10 @@ const typeMap: { [index: string]: any } = {
   CIAppPipelineEventsRequest: CIAppPipelineEventsRequest,
   CIAppPipelineEventsResponse: CIAppPipelineEventsResponse,
   CIAppPipelinesAggregateRequest: CIAppPipelinesAggregateRequest,
-  CIAppPipelinesAggregationBucketsResponse: CIAppPipelinesAggregationBucketsResponse,
-  CIAppPipelinesAnalyticsAggregateResponse: CIAppPipelinesAnalyticsAggregateResponse,
+  CIAppPipelinesAggregationBucketsResponse:
+    CIAppPipelinesAggregationBucketsResponse,
+  CIAppPipelinesAnalyticsAggregateResponse:
+    CIAppPipelinesAnalyticsAggregateResponse,
   CIAppPipelinesBucketResponse: CIAppPipelinesBucketResponse,
   CIAppPipelinesGroupBy: CIAppPipelinesGroupBy,
   CIAppPipelinesQueryFilter: CIAppPipelinesQueryFilter,

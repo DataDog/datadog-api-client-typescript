@@ -29,7 +29,7 @@ export class EntityV3DatadogIntegrationOpsgenie {
       baseName: "serviceURL",
       type: "string",
       required: true,
-    }
+    },
   };
 
   /**

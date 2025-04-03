@@ -34,10 +34,11 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
-      "{account_name}",
-      encodeURIComponent(String(accountName)),
-    );
+    const localVarPath =
+      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
+        "{account_name}",
+        encodeURIComponent(String(accountName)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -84,13 +85,10 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}".replace(
-      "{account_name}",
-      encodeURIComponent(String(accountName)),
-    ).replace(
-      "{channel_name}",
-      encodeURIComponent(String(channelName)),
-    );
+    const localVarPath =
+      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+        .replace("{account_name}", encodeURIComponent(String(accountName)))
+        .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
     const requestContext = _config
@@ -120,10 +118,11 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
-      "{account_name}",
-      encodeURIComponent(String(accountName)),
-    );
+    const localVarPath =
+      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
+        "{account_name}",
+        encodeURIComponent(String(accountName)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -159,13 +158,10 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}".replace(
-      "{account_name}",
-      encodeURIComponent(String(accountName)),
-    ).replace(
-      "{channel_name}",
-      encodeURIComponent(String(channelName)),
-    );
+    const localVarPath =
+      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+        .replace("{account_name}", encodeURIComponent(String(accountName)))
+        .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
     const requestContext = _config
@@ -207,13 +203,10 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}".replace(
-      "{account_name}",
-      encodeURIComponent(String(accountName)),
-    ).replace(
-      "{channel_name}",
-      encodeURIComponent(String(channelName)),
-    );
+    const localVarPath =
+      "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
+        .replace("{account_name}", encodeURIComponent(String(accountName)))
+        .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
     const requestContext = _config
@@ -287,10 +280,7 @@ export class SlackIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -353,10 +343,7 @@ export class SlackIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -419,10 +406,7 @@ export class SlackIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -481,10 +465,7 @@ export class SlackIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -542,10 +523,7 @@ export class SlackIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -657,16 +635,19 @@ export class SlackIntegrationApi {
     param: SlackIntegrationApiCreateSlackIntegrationChannelRequest,
     options?: Configuration,
   ): Promise<SlackIntegrationChannel> {
-    const requestContextPromise = this.requestFactory.createSlackIntegrationChannel(
-      param.accountName,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createSlackIntegrationChannel(
+        param.accountName,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSlackIntegrationChannel(responseContext);
+          return this.responseProcessor.createSlackIntegrationChannel(
+            responseContext,
+          );
         });
     });
   }
@@ -679,16 +660,19 @@ export class SlackIntegrationApi {
     param: SlackIntegrationApiGetSlackIntegrationChannelRequest,
     options?: Configuration,
   ): Promise<SlackIntegrationChannel> {
-    const requestContextPromise = this.requestFactory.getSlackIntegrationChannel(
-      param.accountName,
-      param.channelName,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getSlackIntegrationChannel(
+        param.accountName,
+        param.channelName,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSlackIntegrationChannel(responseContext);
+          return this.responseProcessor.getSlackIntegrationChannel(
+            responseContext,
+          );
         });
     });
   }
@@ -701,15 +685,18 @@ export class SlackIntegrationApi {
     param: SlackIntegrationApiGetSlackIntegrationChannelsRequest,
     options?: Configuration,
   ): Promise<Array<SlackIntegrationChannel>> {
-    const requestContextPromise = this.requestFactory.getSlackIntegrationChannels(
-      param.accountName,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getSlackIntegrationChannels(
+        param.accountName,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSlackIntegrationChannels(responseContext);
+          return this.responseProcessor.getSlackIntegrationChannels(
+            responseContext,
+          );
         });
     });
   }
@@ -722,16 +709,19 @@ export class SlackIntegrationApi {
     param: SlackIntegrationApiRemoveSlackIntegrationChannelRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.removeSlackIntegrationChannel(
-      param.accountName,
-      param.channelName,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.removeSlackIntegrationChannel(
+        param.accountName,
+        param.channelName,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.removeSlackIntegrationChannel(responseContext);
+          return this.responseProcessor.removeSlackIntegrationChannel(
+            responseContext,
+          );
         });
     });
   }
@@ -744,17 +734,20 @@ export class SlackIntegrationApi {
     param: SlackIntegrationApiUpdateSlackIntegrationChannelRequest,
     options?: Configuration,
   ): Promise<SlackIntegrationChannel> {
-    const requestContextPromise = this.requestFactory.updateSlackIntegrationChannel(
-      param.accountName,
-      param.channelName,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.updateSlackIntegrationChannel(
+        param.accountName,
+        param.channelName,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateSlackIntegrationChannel(responseContext);
+          return this.responseProcessor.updateSlackIntegrationChannel(
+            responseContext,
+          );
         });
     });
   }

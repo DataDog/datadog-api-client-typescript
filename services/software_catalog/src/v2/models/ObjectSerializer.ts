@@ -95,7 +95,18 @@ const enumsMap: { [key: string]: any[] } = {
   EntityV3ServiceKind: ["service"],
   EntityV3SystemKind: ["system"],
   IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
-  RelationType: ["RelationTypeOwns", "RelationTypeOwnedBy", "RelationTypeDependsOn", "RelationTypeDependencyOf", "RelationTypePartsOf", "RelationTypeHasPart", "RelationTypeOtherOwns", "RelationTypeOtherOwnedBy", "RelationTypeImplementedBy", "RelationTypeImplements"],
+  RelationType: [
+    "RelationTypeOwns",
+    "RelationTypeOwnedBy",
+    "RelationTypeDependsOn",
+    "RelationTypeDependencyOf",
+    "RelationTypePartsOf",
+    "RelationTypeHasPart",
+    "RelationTypeOtherOwns",
+    "RelationTypeOtherOwnedBy",
+    "RelationTypeImplementedBy",
+    "RelationTypeImplements",
+  ],
 };
 
 const typeMap: { [index: string]: any } = {
@@ -107,15 +118,22 @@ const typeMap: { [index: string]: any } = {
   EntityResponseIncludedIncident: EntityResponseIncludedIncident,
   EntityResponseIncludedOncall: EntityResponseIncludedOncall,
   EntityResponseIncludedRawSchema: EntityResponseIncludedRawSchema,
-  EntityResponseIncludedRawSchemaAttributes: EntityResponseIncludedRawSchemaAttributes,
+  EntityResponseIncludedRawSchemaAttributes:
+    EntityResponseIncludedRawSchemaAttributes,
   EntityResponseIncludedRelatedEntity: EntityResponseIncludedRelatedEntity,
-  EntityResponseIncludedRelatedEntityAttributes: EntityResponseIncludedRelatedEntityAttributes,
-  EntityResponseIncludedRelatedEntityMeta: EntityResponseIncludedRelatedEntityMeta,
-  EntityResponseIncludedRelatedIncidentAttributes: EntityResponseIncludedRelatedIncidentAttributes,
-  EntityResponseIncludedRelatedOncallAttributes: EntityResponseIncludedRelatedOncallAttributes,
-  EntityResponseIncludedRelatedOncallEscalationItem: EntityResponseIncludedRelatedOncallEscalationItem,
+  EntityResponseIncludedRelatedEntityAttributes:
+    EntityResponseIncludedRelatedEntityAttributes,
+  EntityResponseIncludedRelatedEntityMeta:
+    EntityResponseIncludedRelatedEntityMeta,
+  EntityResponseIncludedRelatedIncidentAttributes:
+    EntityResponseIncludedRelatedIncidentAttributes,
+  EntityResponseIncludedRelatedOncallAttributes:
+    EntityResponseIncludedRelatedOncallAttributes,
+  EntityResponseIncludedRelatedOncallEscalationItem:
+    EntityResponseIncludedRelatedOncallEscalationItem,
   EntityResponseIncludedSchema: EntityResponseIncludedSchema,
-  EntityResponseIncludedSchemaAttributes: EntityResponseIncludedSchemaAttributes,
+  EntityResponseIncludedSchemaAttributes:
+    EntityResponseIncludedSchemaAttributes,
   EntityResponseMeta: EntityResponseMeta,
   EntityToIncidents: EntityToIncidents,
   EntityToOncalls: EntityToOncalls,

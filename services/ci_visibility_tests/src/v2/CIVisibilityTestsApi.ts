@@ -192,10 +192,11 @@ export class CIVisibilityTestsApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: CIAppTestsAnalyticsAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppTestsAnalyticsAggregateResponse",
-      ) as CIAppTestsAnalyticsAggregateResponse;
+      const body: CIAppTestsAnalyticsAggregateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CIAppTestsAnalyticsAggregateResponse",
+        ) as CIAppTestsAnalyticsAggregateResponse;
       return body;
     }
     if (
@@ -220,19 +221,17 @@ export class CIVisibilityTestsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CIAppTestsAnalyticsAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppTestsAnalyticsAggregateResponse",
-        "",
-      ) as CIAppTestsAnalyticsAggregateResponse;
+      const body: CIAppTestsAnalyticsAggregateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CIAppTestsAnalyticsAggregateResponse",
+          "",
+        ) as CIAppTestsAnalyticsAggregateResponse;
       return body;
     }
 
@@ -285,10 +284,7 @@ export class CIVisibilityTestsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -350,10 +346,7 @@ export class CIVisibilityTestsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -455,7 +448,9 @@ export class CIVisibilityTestsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.aggregateCIAppTestEvents(responseContext);
+          return this.responseProcessor.aggregateCIAppTestEvents(
+            responseContext,
+          );
         });
     });
   }
@@ -463,7 +458,7 @@ export class CIVisibilityTestsApi {
   /**
    * List endpoint returns CI Visibility test events that match a [search query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
-   * 
+   *
    * Use this endpoint to see your latest test events.
    * @param param The request object
    */
@@ -493,19 +488,29 @@ export class CIVisibilityTestsApi {
    * Provide a paginated version of listCIAppTestEvents returning a generator with all the items.
    */
   public async *listCIAppTestEventsWithPagination(
-    param: CIVisibilityTestsApiListCIAppTestEventsRequest = {}, options?: Configuration,
+    param: CIVisibilityTestsApiListCIAppTestEventsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<CIAppTestEvent> {
-
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listCIAppTestEvents(param.filterQuery,param.filterFrom,param.filterTo,param.sort,param.pageCursor,param.pageLimit,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listCIAppTestEvents(
+        param.filterQuery,
+        param.filterFrom,
+        param.filterTo,
+        param.sort,
+        param.pageCursor,
+        param.pageLimit,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listCIAppTestEvents(responseContext);
+      const response =
+        await this.responseProcessor.listCIAppTestEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -537,7 +542,7 @@ export class CIVisibilityTestsApi {
   /**
    * List endpoint returns CI Visibility test events that match a [search query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
-   * 
+   *
    * Use this endpoint to build complex events filtering and search.
    * @param param The request object
    */
@@ -562,9 +567,9 @@ export class CIVisibilityTestsApi {
    * Provide a paginated version of searchCIAppTestEvents returning a generator with all the items.
    */
   public async *searchCIAppTestEventsWithPagination(
-    param: CIVisibilityTestsApiSearchCIAppTestEventsRequest = {}, options?: Configuration,
+    param: CIVisibilityTestsApiSearchCIAppTestEventsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<CIAppTestEvent> {
-
     let pageSize = 10;
     if (param.body === undefined) {
       param.body = new CIAppTestEventsRequest();
@@ -577,10 +582,15 @@ export class CIVisibilityTestsApi {
     }
     param.body.page.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.searchCIAppTestEvents(param.body,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchCIAppTestEvents(
+        param.body,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchCIAppTestEvents(responseContext);
+      const response =
+        await this.responseProcessor.searchCIAppTestEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

@@ -54,7 +54,7 @@ export class EntityV3APISpec {
     type: {
       baseName: "type",
       type: "string",
-    }
+    },
   };
 
   /**

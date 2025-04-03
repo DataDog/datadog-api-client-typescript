@@ -245,10 +245,7 @@ export class PowerpackApiResponseProcessor {
       ) as PowerpackResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -266,10 +263,7 @@ export class PowerpackApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -296,19 +290,14 @@ export class PowerpackApiResponseProcessor {
    * @params response Response returned by the server for a request to deletePowerpack
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deletePowerpack(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deletePowerpack(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -326,10 +315,7 @@ export class PowerpackApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -364,10 +350,7 @@ export class PowerpackApiResponseProcessor {
       ) as PowerpackResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -385,10 +368,7 @@ export class PowerpackApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -446,10 +426,7 @@ export class PowerpackApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -511,10 +488,7 @@ export class PowerpackApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -597,8 +571,7 @@ export class PowerpackApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new PowerpackApiRequestFactory(this.configuration);
+      requestFactory || new PowerpackApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new PowerpackApiResponseProcessor();
   }
@@ -692,19 +665,25 @@ export class PowerpackApi {
    * Provide a paginated version of listPowerpacks returning a generator with all the items.
    */
   public async *listPowerpacksWithPagination(
-    param: PowerpackApiListPowerpacksRequest = {}, options?: Configuration,
+    param: PowerpackApiListPowerpacksRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<PowerpackData> {
-
     let pageSize = 25;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listPowerpacks(param.pageLimit,param.pageOffset,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listPowerpacks(
+        param.pageLimit,
+        param.pageOffset,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listPowerpacks(responseContext);
+      const response =
+        await this.responseProcessor.listPowerpacks(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

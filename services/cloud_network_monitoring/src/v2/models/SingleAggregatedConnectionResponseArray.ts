@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
 
 /**
- * The definition of `SingleAggregatedConnectionResponseArray` object.
+ * List of aggregated connections.
  */
 export class SingleAggregatedConnectionResponseArray {
   /**
-   * The `SingleAggregatedConnectionResponseArray` `data`.
+   * Array of aggregated connection objects.
    */
   "data"?: Array<SingleAggregatedConnectionResponseData>;
   /**

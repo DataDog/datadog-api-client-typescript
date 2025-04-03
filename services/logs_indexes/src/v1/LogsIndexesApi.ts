@@ -276,9 +276,7 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to createLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createLogsIndex(
-    response: ResponseContext,
-  ): Promise<LogsIndex> {
+  public async createLogsIndex(response: ResponseContext): Promise<LogsIndex> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -312,10 +310,7 @@ export class LogsIndexesApiResponseProcessor {
         body,
       );
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -333,10 +328,7 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -363,19 +355,14 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLogsIndex(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteLogsIndex(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -393,10 +380,7 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
@@ -441,9 +425,7 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to getLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getLogsIndex(
-    response: ResponseContext,
-  ): Promise<LogsIndex> {
+  public async getLogsIndex(response: ResponseContext): Promise<LogsIndex> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -454,10 +436,7 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndex;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -475,10 +454,7 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
       const bodyText = ObjectSerializer.parse(
@@ -541,10 +517,7 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndexesOrder;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -562,10 +535,7 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -605,10 +575,7 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndexListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -626,10 +593,7 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -656,9 +620,7 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to updateLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateLogsIndex(
-    response: ResponseContext,
-  ): Promise<LogsIndex> {
+  public async updateLogsIndex(response: ResponseContext): Promise<LogsIndex> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -669,10 +631,7 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndex;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -713,10 +672,7 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -779,10 +735,7 @@ export class LogsIndexesApiResponseProcessor {
         body,
       );
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -800,10 +753,7 @@ export class LogsIndexesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -881,8 +831,7 @@ export class LogsIndexesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new LogsIndexesApiRequestFactory(this.configuration);
+      requestFactory || new LogsIndexesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsIndexesApiResponseProcessor();
   }
@@ -955,11 +904,9 @@ export class LogsIndexesApi {
    * Get the current order of your log indexes. This endpoint takes no JSON arguments.
    * @param param The request object
    */
-  public getLogsIndexOrder(options?: Configuration,
-  ): Promise<LogsIndexesOrder> {
-    const requestContextPromise = this.requestFactory.getLogsIndexOrder(
-      options,
-    );
+  public getLogsIndexOrder(options?: Configuration): Promise<LogsIndexesOrder> {
+    const requestContextPromise =
+      this.requestFactory.getLogsIndexOrder(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -974,11 +921,10 @@ export class LogsIndexesApi {
    * This endpoint returns an array of the `LogIndex` objects of your organization.
    * @param param The request object
    */
-  public listLogIndexes(options?: Configuration,
+  public listLogIndexes(
+    options?: Configuration,
   ): Promise<LogsIndexListResponse> {
-    const requestContextPromise = this.requestFactory.listLogIndexes(
-      options,
-    );
+    const requestContextPromise = this.requestFactory.listLogIndexes(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -991,7 +937,7 @@ export class LogsIndexesApi {
   /**
    * Update an index as identified by its name.
    * Returns the Index object passed in the request body when the request is successful.
-   * 
+   *
    * Using the `PUT` method updates your index’s configuration by **replacing**
    * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object

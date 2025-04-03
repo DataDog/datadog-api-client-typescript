@@ -63,7 +63,11 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MetricBulkTagConfigCreateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "MetricBulkTagConfigCreateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -113,7 +117,11 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MetricTagConfigurationCreateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "MetricTagConfigurationCreateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -154,7 +162,11 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MetricBulkTagConfigDeleteRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "MetricBulkTagConfigDeleteRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -289,10 +301,11 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/metrics/{metric_name}/active-configurations".replace(
-      "{metric_name}",
-      encodeURIComponent(String(metricName)),
-    );
+    const localVarPath =
+      "/api/v2/metrics/{metric_name}/active-configurations".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -430,7 +443,11 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterMetricType !== undefined) {
       requestContext.setQueryParam(
         "filter[metric_type]",
-        ObjectSerializer.serialize(filterMetricType, "MetricTagConfigurationMetricTypeCategory", ""),
+        ObjectSerializer.serialize(
+          filterMetricType,
+          "MetricTagConfigurationMetricTypeCategory",
+          "",
+        ),
         "",
       );
     }
@@ -669,7 +686,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Header Params
     if (contentEncoding !== undefined) {
-      requestContext.setHeaderParam("Content-Encoding", ObjectSerializer.serialize(contentEncoding, "MetricContentEncoding", ""));
+      requestContext.setHeaderParam(
+        "Content-Encoding",
+        ObjectSerializer.serialize(
+          contentEncoding,
+          "MetricContentEncoding",
+          "",
+        ),
+      );
     }
 
     // Body Params
@@ -684,9 +708,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -727,7 +749,11 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MetricTagConfigurationUpdateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "MetricTagConfigurationUpdateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -786,10 +812,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -852,10 +875,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -918,10 +938,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -979,10 +996,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1040,10 +1054,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1077,10 +1088,11 @@ export class MetricsApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: MetricSuggestedTagsAndAggregationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricSuggestedTagsAndAggregationsResponse",
-      ) as MetricSuggestedTagsAndAggregationsResponse;
+      const body: MetricSuggestedTagsAndAggregationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MetricSuggestedTagsAndAggregationsResponse",
+        ) as MetricSuggestedTagsAndAggregationsResponse;
       return body;
     }
     if (
@@ -1106,19 +1118,17 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricSuggestedTagsAndAggregationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricSuggestedTagsAndAggregationsResponse",
-        "",
-      ) as MetricSuggestedTagsAndAggregationsResponse;
+      const body: MetricSuggestedTagsAndAggregationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MetricSuggestedTagsAndAggregationsResponse",
+          "",
+        ) as MetricSuggestedTagsAndAggregationsResponse;
       return body;
     }
 
@@ -1172,10 +1182,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1237,10 +1244,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1274,10 +1278,11 @@ export class MetricsApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: MetricsAndMetricTagConfigurationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricsAndMetricTagConfigurationsResponse",
-      ) as MetricsAndMetricTagConfigurationsResponse;
+      const body: MetricsAndMetricTagConfigurationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MetricsAndMetricTagConfigurationsResponse",
+        ) as MetricsAndMetricTagConfigurationsResponse;
       return body;
     }
     if (
@@ -1302,19 +1307,17 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricsAndMetricTagConfigurationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricsAndMetricTagConfigurationsResponse",
-        "",
-      ) as MetricsAndMetricTagConfigurationsResponse;
+      const body: MetricsAndMetricTagConfigurationsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MetricsAndMetricTagConfigurationsResponse",
+          "",
+        ) as MetricsAndMetricTagConfigurationsResponse;
       return body;
     }
 
@@ -1368,10 +1371,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1434,10 +1434,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1500,10 +1497,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1566,10 +1560,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1633,10 +1624,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1699,10 +1687,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1945,8 +1930,7 @@ export class MetricsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new MetricsApiRequestFactory(this.configuration);
+      requestFactory || new MetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new MetricsApiResponseProcessor();
   }
@@ -1965,15 +1949,18 @@ export class MetricsApi {
     param: MetricsApiCreateBulkTagsMetricsConfigurationRequest,
     options?: Configuration,
   ): Promise<MetricBulkTagConfigResponse> {
-    const requestContextPromise = this.requestFactory.createBulkTagsMetricsConfiguration(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createBulkTagsMetricsConfiguration(
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createBulkTagsMetricsConfiguration(responseContext);
+          return this.responseProcessor.createBulkTagsMetricsConfiguration(
+            responseContext,
+          );
         });
     });
   }
@@ -2015,15 +2002,18 @@ export class MetricsApi {
     param: MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
     options?: Configuration,
   ): Promise<MetricBulkTagConfigResponse> {
-    const requestContextPromise = this.requestFactory.deleteBulkTagsMetricsConfiguration(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteBulkTagsMetricsConfiguration(
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteBulkTagsMetricsConfiguration(responseContext);
+          return this.responseProcessor.deleteBulkTagsMetricsConfiguration(
+            responseContext,
+          );
         });
     });
   }
@@ -2058,20 +2048,23 @@ export class MetricsApi {
     param: MetricsApiEstimateMetricsOutputSeriesRequest,
     options?: Configuration,
   ): Promise<MetricEstimateResponse> {
-    const requestContextPromise = this.requestFactory.estimateMetricsOutputSeries(
-      param.metricName,
-      param.filterGroups,
-      param.filterHoursAgo,
-      param.filterNumAggregations,
-      param.filterPct,
-      param.filterTimespanH,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.estimateMetricsOutputSeries(
+        param.metricName,
+        param.filterGroups,
+        param.filterHoursAgo,
+        param.filterNumAggregations,
+        param.filterPct,
+        param.filterTimespanH,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.estimateMetricsOutputSeries(responseContext);
+          return this.responseProcessor.estimateMetricsOutputSeries(
+            responseContext,
+          );
         });
     });
   }
@@ -2084,16 +2077,19 @@ export class MetricsApi {
     param: MetricsApiListActiveMetricConfigurationsRequest,
     options?: Configuration,
   ): Promise<MetricSuggestedTagsAndAggregationsResponse> {
-    const requestContextPromise = this.requestFactory.listActiveMetricConfigurations(
-      param.metricName,
-      param.windowSeconds,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listActiveMetricConfigurations(
+        param.metricName,
+        param.windowSeconds,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listActiveMetricConfigurations(responseContext);
+          return this.responseProcessor.listActiveMetricConfigurations(
+            responseContext,
+          );
         });
     });
   }
@@ -2127,15 +2123,15 @@ export class MetricsApi {
     param: MetricsApiListTagConfigurationByNameRequest,
     options?: Configuration,
   ): Promise<MetricTagConfigurationResponse> {
-    const requestContextPromise = this.requestFactory.listTagConfigurationByName(
-      param.metricName,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listTagConfigurationByName(param.metricName, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listTagConfigurationByName(responseContext);
+          return this.responseProcessor.listTagConfigurationByName(
+            responseContext,
+          );
         });
     });
   }
@@ -2177,19 +2173,33 @@ export class MetricsApi {
    * Provide a paginated version of listTagConfigurations returning a generator with all the items.
    */
   public async *listTagConfigurationsWithPagination(
-    param: MetricsApiListTagConfigurationsRequest = {}, options?: Configuration,
+    param: MetricsApiListTagConfigurationsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<MetricsAndMetricTagConfigurations> {
-
     let pageSize = 10000;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listTagConfigurations(param.filterConfigured,param.filterTagsConfigured,param.filterMetricType,param.filterIncludePercentiles,param.filterQueried,param.filterTags,param.filterRelatedAssets,param.windowSeconds,param.pageSize,param.pageCursor,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listTagConfigurations(
+        param.filterConfigured,
+        param.filterTagsConfigured,
+        param.filterMetricType,
+        param.filterIncludePercentiles,
+        param.filterQueried,
+        param.filterTags,
+        param.filterRelatedAssets,
+        param.windowSeconds,
+        param.pageSize,
+        param.pageCursor,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listTagConfigurations(responseContext);
+      const response =
+        await this.responseProcessor.listTagConfigurations(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -2241,7 +2251,7 @@ export class MetricsApi {
 
   /**
    * View distinct metrics volumes for the given metric name.
-   * 
+   *
    * Custom metrics generated in-app from other products will return `null` for ingested volumes.
    * @param param The request object
    */
@@ -2257,7 +2267,9 @@ export class MetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listVolumesByMetricName(responseContext);
+          return this.responseProcessor.listVolumesByMetricName(
+            responseContext,
+          );
         });
     });
   }
@@ -2310,15 +2322,15 @@ export class MetricsApi {
   /**
    * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
    * The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads must have a decompressed size of less than 5 megabytes (5242880 bytes).
-   * 
+   *
    * If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
-   * 
+   *
    * - 64 bits for the timestamp
    * - 64 bits for the value
    * - 20 bytes for the metric names
    * - 50 bytes for the timeseries
    * - The full payload is approximately 100 bytes.
-   * 
+   *
    * Host name is one of the resources in the Resources field.
    * @param param The request object
    */

@@ -9,7 +9,7 @@ export class NullableUserRelationship {
   /**
    * Relationship to user object.
    */
-  "data": NullableUserRelationshipData|null;
+  "data": NullableUserRelationshipData | null;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with

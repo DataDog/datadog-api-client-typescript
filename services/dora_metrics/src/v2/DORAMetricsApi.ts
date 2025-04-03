@@ -58,9 +58,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -103,9 +101,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -125,10 +121,7 @@ export class DORAMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
-    if (
-      response.httpStatusCode === 200 ||
-      response.httpStatusCode === 202
-    ) {
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 202) {
       const body: DORADeploymentResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DORADeploymentResponse",
@@ -158,10 +151,7 @@ export class DORAMetricsApiResponseProcessor {
         body,
       );
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -179,10 +169,7 @@ export class DORAMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -215,10 +202,7 @@ export class DORAMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
-    if (
-      response.httpStatusCode === 200 ||
-      response.httpStatusCode === 202
-    ) {
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 202) {
       const body: DORAIncidentResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DORAIncidentResponse",
@@ -248,10 +232,7 @@ export class DORAMetricsApiResponseProcessor {
         body,
       );
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -269,10 +250,7 @@ export class DORAMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -319,15 +297,14 @@ export class DORAMetricsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new DORAMetricsApiRequestFactory(this.configuration);
+      requestFactory || new DORAMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DORAMetricsApiResponseProcessor();
   }
 
   /**
    * Use this API endpoint to provide data about deployments for DORA metrics.
-   * 
+   *
    * This is necessary for:
    * - Deployment Frequency
    * - Change Lead Time
@@ -353,7 +330,7 @@ export class DORAMetricsApi {
 
   /**
    * Use this API endpoint to provide data about incidents for DORA metrics.
-   * 
+   *
    * This is necessary for:
    * - Change Failure Rate
    * - Time to Restore

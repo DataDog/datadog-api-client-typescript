@@ -321,10 +321,7 @@ export class IncidentTeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -351,9 +348,7 @@ export class IncidentTeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncidentTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncidentTeam(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteIncidentTeam(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -384,10 +379,7 @@ export class IncidentTeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -446,10 +438,7 @@ export class IncidentTeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -513,10 +502,7 @@ export class IncidentTeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -580,10 +566,7 @@ export class IncidentTeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -681,8 +664,7 @@ export class IncidentTeamsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new IncidentTeamsApiRequestFactory(this.configuration);
+      requestFactory || new IncidentTeamsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IncidentTeamsApiResponseProcessor();
   }

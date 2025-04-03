@@ -2,7 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
  * Update request of a custom variable object.
- * 
+ *
  * *All properties are optional.*
  */
 export class WebhooksIntegrationCustomVariableUpdateRequest {

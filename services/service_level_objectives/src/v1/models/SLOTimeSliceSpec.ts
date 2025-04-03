@@ -24,7 +24,7 @@ export class SLOTimeSliceSpec {
       baseName: "time_slice",
       type: "SLOTimeSliceCondition",
       required: true,
-    }
+    },
   };
 
   /**

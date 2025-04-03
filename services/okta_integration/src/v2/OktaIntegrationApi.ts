@@ -72,10 +72,11 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/okta/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/okta/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -105,10 +106,11 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/okta/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/okta/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -168,10 +170,11 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/okta/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/okta/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -245,10 +248,7 @@ export class OktaIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -275,9 +275,7 @@ export class OktaIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteOktaAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteOktaAccount(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteOktaAccount(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -307,10 +305,7 @@ export class OktaIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -368,10 +363,7 @@ export class OktaIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -434,10 +426,7 @@ export class OktaIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -500,10 +489,7 @@ export class OktaIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -644,11 +630,10 @@ export class OktaIntegrationApi {
    * List Okta accounts.
    * @param param The request object
    */
-  public listOktaAccounts(options?: Configuration,
+  public listOktaAccounts(
+    options?: Configuration,
   ): Promise<OktaAccountsResponse> {
-    const requestContextPromise = this.requestFactory.listOktaAccounts(
-      options,
-    );
+    const requestContextPromise = this.requestFactory.listOktaAccounts(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

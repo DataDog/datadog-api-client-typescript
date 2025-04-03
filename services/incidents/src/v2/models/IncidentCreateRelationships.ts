@@ -9,7 +9,7 @@ export class IncidentCreateRelationships {
   /**
    * Relationship to user.
    */
-  "commanderUser": NullableRelationshipToUser|null;
+  "commanderUser": NullableRelationshipToUser | null;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with

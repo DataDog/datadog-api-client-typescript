@@ -49,7 +49,24 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 const enumsMap: { [key: string]: any[] } = {
   CIAppAggregateSortType: ["alphabetical", "measure"],
-  CIAppAggregationFunction: ["count", "cardinality", "pc75", "pc90", "pc95", "pc98", "pc99", "sum", "min", "max", "avg", "median", "latest", "earliest", "most_frequent", "delta"],
+  CIAppAggregationFunction: [
+    "count",
+    "cardinality",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+    "median",
+    "latest",
+    "earliest",
+    "most_frequent",
+    "delta",
+  ],
   CIAppComputeType: ["timeseries", "total"],
   CIAppResponseStatus: ["done", "timeout"],
   CIAppSort: ["timestamp", "-timestamp"],
@@ -60,7 +77,8 @@ const enumsMap: { [key: string]: any[] } = {
 
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
-  CIAppAggregateBucketValueTimeseriesPoint: CIAppAggregateBucketValueTimeseriesPoint,
+  CIAppAggregateBucketValueTimeseriesPoint:
+    CIAppAggregateBucketValueTimeseriesPoint,
   CIAppAggregateSort: CIAppAggregateSort,
   CIAppCompute: CIAppCompute,
   CIAppEventAttributes: CIAppEventAttributes,

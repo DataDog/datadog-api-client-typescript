@@ -74,7 +74,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'createNewAWSExternalID'");
     if (!_config.unstableOperations["0.0.1.createNewAWSExternalID"]) {
-      throw new Error("Unstable operation 'createNewAWSExternalID' is disabled");
+      throw new Error(
+        "Unstable operation 'createNewAWSExternalID' is disabled",
+      );
     }
 
     // Path Params
@@ -113,10 +115,11 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
-      "{aws_account_config_id}",
-      encodeURIComponent(String(awsAccountConfigId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
+        "{aws_account_config_id}",
+        encodeURIComponent(String(awsAccountConfigId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -151,10 +154,11 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
-      "{aws_account_config_id}",
-      encodeURIComponent(String(awsAccountConfigId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
+        "{aws_account_config_id}",
+        encodeURIComponent(String(awsAccountConfigId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -263,10 +267,11 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
-      "{aws_account_config_id}",
-      encodeURIComponent(String(awsAccountConfigId)),
-    );
+    const localVarPath =
+      "/api/v2/integration/aws/accounts/{aws_account_config_id}".replace(
+        "{aws_account_config_id}",
+        encodeURIComponent(String(awsAccountConfigId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -340,10 +345,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -383,10 +385,7 @@ export class AWSIntegrationApiResponseProcessor {
       ) as AWSNewExternalIDResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -404,10 +403,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -434,9 +430,7 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAWSAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAWSAccount(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteAWSAccount(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -466,10 +460,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -527,10 +518,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -570,10 +558,7 @@ export class AWSIntegrationApiResponseProcessor {
       ) as AWSAccountsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -591,10 +576,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -634,10 +616,7 @@ export class AWSIntegrationApiResponseProcessor {
       ) as AWSNamespacesResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -655,10 +634,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -721,10 +697,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -803,8 +776,7 @@ export class AWSIntegrationApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new AWSIntegrationApiRequestFactory(this.configuration);
+      requestFactory || new AWSIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AWSIntegrationApiResponseProcessor();
   }
@@ -834,11 +806,11 @@ export class AWSIntegrationApi {
    * Generate a new external ID for AWS role-based authentication.
    * @param param The request object
    */
-  public createNewAWSExternalID(options?: Configuration,
+  public createNewAWSExternalID(
+    options?: Configuration,
   ): Promise<AWSNewExternalIDResponse> {
-    const requestContextPromise = this.requestFactory.createNewAWSExternalID(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createNewAWSExternalID(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -915,11 +887,11 @@ export class AWSIntegrationApi {
    * Get a list of available AWS CloudWatch namespaces that can send metrics to Datadog.
    * @param param The request object
    */
-  public listAWSNamespaces(options?: Configuration,
+  public listAWSNamespaces(
+    options?: Configuration,
   ): Promise<AWSNamespacesResponse> {
-    const requestContextPromise = this.requestFactory.listAWSNamespaces(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listAWSNamespaces(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

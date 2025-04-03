@@ -9,6 +9,10 @@ export class SlackIntegrationChannelDisplay {
    */
   "message"?: boolean;
   /**
+   * Show interactive buttons to mute the alerting monitor.
+   */
+  "muteButtons"?: boolean;
+  /**
    * Show the list of @-handles in the alert event.
    */
   "notified"?: boolean;
@@ -37,6 +41,10 @@ export class SlackIntegrationChannelDisplay {
   static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
       baseName: "message",
+      type: "boolean",
+    },
+    muteButtons: {
+      baseName: "mute_buttons",
       type: "boolean",
     },
     notified: {

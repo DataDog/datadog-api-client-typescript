@@ -37,7 +37,12 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 const enumsMap: { [key: string]: any[] } = {
   SLOReportInterval: ["daily", "weekly", "monthly"],
-  SLOReportStatus: ["in_progress", "completed", "completed_with_errors", "failed"],
+  SLOReportStatus: [
+    "in_progress",
+    "completed",
+    "completed_with_errors",
+    "failed",
+  ],
 };
 
 const typeMap: { [index: string]: any } = {

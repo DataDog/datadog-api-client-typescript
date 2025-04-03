@@ -27,7 +27,9 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'cancelDataDeletionRequest'");
     if (!_config.unstableOperations["0.0.1.cancelDataDeletionRequest"]) {
-      throw new Error("Unstable operation 'cancelDataDeletionRequest' is disabled");
+      throw new Error(
+        "Unstable operation 'cancelDataDeletionRequest' is disabled",
+      );
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -66,7 +68,9 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'createDataDeletionRequest'");
     if (!_config.unstableOperations["0.0.1.createDataDeletionRequest"]) {
-      throw new Error("Unstable operation 'createDataDeletionRequest' is disabled");
+      throw new Error(
+        "Unstable operation 'createDataDeletionRequest' is disabled",
+      );
     }
 
     // verify required parameter 'product' is not null or undefined
@@ -124,7 +128,9 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'getDataDeletionRequests'");
     if (!_config.unstableOperations["0.0.1.getDataDeletionRequests"]) {
-      throw new Error("Unstable operation 'getDataDeletionRequests' is disabled");
+      throw new Error(
+        "Unstable operation 'getDataDeletionRequests' is disabled",
+      );
     }
 
     // Path Params
@@ -229,10 +235,7 @@ export class DataDeletionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -296,10 +299,7 @@ export class DataDeletionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -362,10 +362,7 @@ export class DataDeletionApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -446,8 +443,7 @@ export class DataDeletionApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new DataDeletionApiRequestFactory(this.configuration);
+      requestFactory || new DataDeletionApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DataDeletionApiResponseProcessor();
   }
@@ -468,7 +464,9 @@ export class DataDeletionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.cancelDataDeletionRequest(responseContext);
+          return this.responseProcessor.cancelDataDeletionRequest(
+            responseContext,
+          );
         });
     });
   }
@@ -490,7 +488,9 @@ export class DataDeletionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createDataDeletionRequest(responseContext);
+          return this.responseProcessor.createDataDeletionRequest(
+            responseContext,
+          );
         });
     });
   }
@@ -515,7 +515,9 @@ export class DataDeletionApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getDataDeletionRequests(responseContext);
+          return this.responseProcessor.getDataDeletionRequests(
+            responseContext,
+          );
         });
     });
   }

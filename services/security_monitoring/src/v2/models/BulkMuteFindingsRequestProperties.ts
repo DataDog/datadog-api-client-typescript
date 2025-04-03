@@ -50,7 +50,7 @@ export class BulkMuteFindingsRequestProperties {
       baseName: "reason",
       type: "FindingMuteReason",
       required: true,
-    }
+    },
   };
 
   /**

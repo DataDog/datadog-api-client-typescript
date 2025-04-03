@@ -100,20 +100,26 @@ const typeMap: { [index: string]: any } = {
   DowntimeResponse: DowntimeResponse,
   DowntimeResponseAttributes: DowntimeResponseAttributes,
   DowntimeResponseData: DowntimeResponseData,
-  DowntimeScheduleCurrentDowntimeResponse: DowntimeScheduleCurrentDowntimeResponse,
-  DowntimeScheduleOneTimeCreateUpdateRequest: DowntimeScheduleOneTimeCreateUpdateRequest,
+  DowntimeScheduleCurrentDowntimeResponse:
+    DowntimeScheduleCurrentDowntimeResponse,
+  DowntimeScheduleOneTimeCreateUpdateRequest:
+    DowntimeScheduleOneTimeCreateUpdateRequest,
   DowntimeScheduleOneTimeResponse: DowntimeScheduleOneTimeResponse,
-  DowntimeScheduleRecurrenceCreateUpdateRequest: DowntimeScheduleRecurrenceCreateUpdateRequest,
+  DowntimeScheduleRecurrenceCreateUpdateRequest:
+    DowntimeScheduleRecurrenceCreateUpdateRequest,
   DowntimeScheduleRecurrenceResponse: DowntimeScheduleRecurrenceResponse,
-  DowntimeScheduleRecurrencesCreateRequest: DowntimeScheduleRecurrencesCreateRequest,
+  DowntimeScheduleRecurrencesCreateRequest:
+    DowntimeScheduleRecurrencesCreateRequest,
   DowntimeScheduleRecurrencesResponse: DowntimeScheduleRecurrencesResponse,
-  DowntimeScheduleRecurrencesUpdateRequest: DowntimeScheduleRecurrencesUpdateRequest,
+  DowntimeScheduleRecurrencesUpdateRequest:
+    DowntimeScheduleRecurrencesUpdateRequest,
   DowntimeUpdateRequest: DowntimeUpdateRequest,
   DowntimeUpdateRequestAttributes: DowntimeUpdateRequestAttributes,
   DowntimeUpdateRequestData: DowntimeUpdateRequestData,
   ListDowntimesResponse: ListDowntimesResponse,
   MonitorDowntimeMatchResponse: MonitorDowntimeMatchResponse,
-  MonitorDowntimeMatchResponseAttributes: MonitorDowntimeMatchResponseAttributes,
+  MonitorDowntimeMatchResponseAttributes:
+    MonitorDowntimeMatchResponseAttributes,
   MonitorDowntimeMatchResponseData: MonitorDowntimeMatchResponseData,
   RelationshipToOrganization: RelationshipToOrganization,
   RelationshipToOrganizationData: RelationshipToOrganizationData,

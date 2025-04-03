@@ -39,7 +39,9 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ApplicationSecurityApi.createApplicationSecurityWafCustomRule")
+      .getServer(
+        "0.0.1.ApplicationSecurityApi.createApplicationSecurityWafCustomRule",
+      )
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -50,7 +52,11 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApplicationSecurityWafCustomRuleCreateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "ApplicationSecurityWafCustomRuleCreateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -72,15 +78,21 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createApplicationSecurityWafExclusionFilter");
+      throw new RequiredError(
+        "body",
+        "createApplicationSecurityWafExclusionFilter",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/remote_config/products/asm/waf/exclusion_filters";
+    const localVarPath =
+      "/api/v2/remote_config/products/asm/waf/exclusion_filters";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ApplicationSecurityApi.createApplicationSecurityWafExclusionFilter")
+      .getServer(
+        "0.0.1.ApplicationSecurityApi.createApplicationSecurityWafExclusionFilter",
+      )
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -91,7 +103,11 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApplicationSecurityWafExclusionFilterCreateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "ApplicationSecurityWafExclusionFilterCreateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -113,18 +129,24 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'customRuleId' is not null or undefined
     if (customRuleId === null || customRuleId === undefined) {
-      throw new RequiredError("customRuleId", "deleteApplicationSecurityWafCustomRule");
+      throw new RequiredError(
+        "customRuleId",
+        "deleteApplicationSecurityWafCustomRule",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
-      "{custom_rule_id}",
-      encodeURIComponent(String(customRuleId)),
-    );
+    const localVarPath =
+      "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
+        "{custom_rule_id}",
+        encodeURIComponent(String(customRuleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ApplicationSecurityApi.deleteApplicationSecurityWafCustomRule")
+      .getServer(
+        "0.0.1.ApplicationSecurityApi.deleteApplicationSecurityWafCustomRule",
+      )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -146,18 +168,24 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'exclusionFilterId' is not null or undefined
     if (exclusionFilterId === null || exclusionFilterId === undefined) {
-      throw new RequiredError("exclusionFilterId", "deleteApplicationSecurityWafExclusionFilter");
+      throw new RequiredError(
+        "exclusionFilterId",
+        "deleteApplicationSecurityWafExclusionFilter",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
-      "{exclusion_filter_id}",
-      encodeURIComponent(String(exclusionFilterId)),
-    );
+    const localVarPath =
+      "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
+        "{exclusion_filter_id}",
+        encodeURIComponent(String(exclusionFilterId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ApplicationSecurityApi.deleteApplicationSecurityWafExclusionFilter")
+      .getServer(
+        "0.0.1.ApplicationSecurityApi.deleteApplicationSecurityWafExclusionFilter",
+      )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -179,18 +207,24 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'customRuleId' is not null or undefined
     if (customRuleId === null || customRuleId === undefined) {
-      throw new RequiredError("customRuleId", "getApplicationSecurityWafCustomRule");
+      throw new RequiredError(
+        "customRuleId",
+        "getApplicationSecurityWafCustomRule",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
-      "{custom_rule_id}",
-      encodeURIComponent(String(customRuleId)),
-    );
+    const localVarPath =
+      "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
+        "{custom_rule_id}",
+        encodeURIComponent(String(customRuleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ApplicationSecurityApi.getApplicationSecurityWafCustomRule")
+      .getServer(
+        "0.0.1.ApplicationSecurityApi.getApplicationSecurityWafCustomRule",
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -212,18 +246,24 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'exclusionFilterId' is not null or undefined
     if (exclusionFilterId === null || exclusionFilterId === undefined) {
-      throw new RequiredError("exclusionFilterId", "getApplicationSecurityWafExclusionFilter");
+      throw new RequiredError(
+        "exclusionFilterId",
+        "getApplicationSecurityWafExclusionFilter",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
-      "{exclusion_filter_id}",
-      encodeURIComponent(String(exclusionFilterId)),
-    );
+    const localVarPath =
+      "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
+        "{exclusion_filter_id}",
+        encodeURIComponent(String(exclusionFilterId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ApplicationSecurityApi.getApplicationSecurityWafExclusionFilter")
+      .getServer(
+        "0.0.1.ApplicationSecurityApi.getApplicationSecurityWafExclusionFilter",
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -247,7 +287,9 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ApplicationSecurityApi.listApplicationSecurityWAFCustomRules")
+      .getServer(
+        "0.0.1.ApplicationSecurityApi.listApplicationSecurityWAFCustomRules",
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -267,11 +309,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/remote_config/products/asm/waf/exclusion_filters";
+    const localVarPath =
+      "/api/v2/remote_config/products/asm/waf/exclusion_filters";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ApplicationSecurityApi.listApplicationSecurityWafExclusionFilters")
+      .getServer(
+        "0.0.1.ApplicationSecurityApi.listApplicationSecurityWafExclusionFilters",
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -294,7 +339,10 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'customRuleId' is not null or undefined
     if (customRuleId === null || customRuleId === undefined) {
-      throw new RequiredError("customRuleId", "updateApplicationSecurityWafCustomRule");
+      throw new RequiredError(
+        "customRuleId",
+        "updateApplicationSecurityWafCustomRule",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -303,14 +351,17 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
-      "{custom_rule_id}",
-      encodeURIComponent(String(customRuleId)),
-    );
+    const localVarPath =
+      "/api/v2/remote_config/products/asm/waf/custom_rules/{custom_rule_id}".replace(
+        "{custom_rule_id}",
+        encodeURIComponent(String(customRuleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ApplicationSecurityApi.updateApplicationSecurityWafCustomRule")
+      .getServer(
+        "0.0.1.ApplicationSecurityApi.updateApplicationSecurityWafCustomRule",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -321,7 +372,11 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApplicationSecurityWafCustomRuleUpdateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "ApplicationSecurityWafCustomRuleUpdateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -344,23 +399,32 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'exclusionFilterId' is not null or undefined
     if (exclusionFilterId === null || exclusionFilterId === undefined) {
-      throw new RequiredError("exclusionFilterId", "updateApplicationSecurityWafExclusionFilter");
+      throw new RequiredError(
+        "exclusionFilterId",
+        "updateApplicationSecurityWafExclusionFilter",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateApplicationSecurityWafExclusionFilter");
+      throw new RequiredError(
+        "body",
+        "updateApplicationSecurityWafExclusionFilter",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
-      "{exclusion_filter_id}",
-      encodeURIComponent(String(exclusionFilterId)),
-    );
+    const localVarPath =
+      "/api/v2/remote_config/products/asm/waf/exclusion_filters/{exclusion_filter_id}".replace(
+        "{exclusion_filter_id}",
+        encodeURIComponent(String(exclusionFilterId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ApplicationSecurityApi.updateApplicationSecurityWafExclusionFilter")
+      .getServer(
+        "0.0.1.ApplicationSecurityApi.updateApplicationSecurityWafExclusionFilter",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -371,7 +435,11 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApplicationSecurityWafExclusionFilterUpdateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "ApplicationSecurityWafExclusionFilterUpdateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -401,10 +469,11 @@ export class ApplicationSecurityApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 201) {
-      const body: ApplicationSecurityWafCustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafCustomRuleResponse",
-      ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafCustomRuleResponse",
+        ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
     if (
@@ -430,19 +499,17 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafCustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafCustomRuleResponse",
-        "",
-      ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafCustomRuleResponse",
+          "",
+        ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
 
@@ -467,10 +534,11 @@ export class ApplicationSecurityApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafExclusionFilterResponse",
-      ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafExclusionFilterResponse",
+        ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
     if (
@@ -496,19 +564,17 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafExclusionFilterResponse",
-        "",
-      ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafExclusionFilterResponse",
+          "",
+        ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
 
@@ -558,10 +624,7 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -615,10 +678,7 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -647,16 +707,14 @@ export class ApplicationSecurityApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafCustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafCustomRuleResponse",
-      ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafCustomRuleResponse",
+        ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -674,19 +732,17 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafCustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafCustomRuleResponse",
-        "",
-      ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafCustomRuleResponse",
+          "",
+        ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
 
@@ -711,10 +767,11 @@ export class ApplicationSecurityApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafExclusionFilterResponse",
-      ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafExclusionFilterResponse",
+        ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
     if (
@@ -739,19 +796,17 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafExclusionFilterResponse",
-        "",
-      ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafExclusionFilterResponse",
+          "",
+        ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
 
@@ -776,16 +831,14 @@ export class ApplicationSecurityApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafCustomRuleListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafCustomRuleListResponse",
-      ) as ApplicationSecurityWafCustomRuleListResponse;
+      const body: ApplicationSecurityWafCustomRuleListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafCustomRuleListResponse",
+        ) as ApplicationSecurityWafCustomRuleListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -803,19 +856,17 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafCustomRuleListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafCustomRuleListResponse",
-        "",
-      ) as ApplicationSecurityWafCustomRuleListResponse;
+      const body: ApplicationSecurityWafCustomRuleListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafCustomRuleListResponse",
+          "",
+        ) as ApplicationSecurityWafCustomRuleListResponse;
       return body;
     }
 
@@ -840,16 +891,14 @@ export class ApplicationSecurityApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafExclusionFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafExclusionFiltersResponse",
-      ) as ApplicationSecurityWafExclusionFiltersResponse;
+      const body: ApplicationSecurityWafExclusionFiltersResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafExclusionFiltersResponse",
+        ) as ApplicationSecurityWafExclusionFiltersResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -867,19 +916,17 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafExclusionFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafExclusionFiltersResponse",
-        "",
-      ) as ApplicationSecurityWafExclusionFiltersResponse;
+      const body: ApplicationSecurityWafExclusionFiltersResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafExclusionFiltersResponse",
+          "",
+        ) as ApplicationSecurityWafExclusionFiltersResponse;
       return body;
     }
 
@@ -904,10 +951,11 @@ export class ApplicationSecurityApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafCustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafCustomRuleResponse",
-      ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafCustomRuleResponse",
+        ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
     if (
@@ -934,19 +982,17 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafCustomRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafCustomRuleResponse",
-        "",
-      ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafCustomRuleResponse",
+          "",
+        ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
 
@@ -971,10 +1017,11 @@ export class ApplicationSecurityApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafExclusionFilterResponse",
-      ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafExclusionFilterResponse",
+        ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
     if (
@@ -1001,19 +1048,17 @@ export class ApplicationSecurityApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafExclusionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationSecurityWafExclusionFilterResponse",
-        "",
-      ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ApplicationSecurityWafExclusionFilterResponse",
+          "",
+        ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
 
@@ -1125,22 +1170,25 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiCreateApplicationSecurityWafCustomRuleRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const requestContextPromise = this.requestFactory.createApplicationSecurityWafCustomRule(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createApplicationSecurityWafCustomRule(
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createApplicationSecurityWafCustomRule(responseContext);
+          return this.responseProcessor.createApplicationSecurityWafCustomRule(
+            responseContext,
+          );
         });
     });
   }
 
   /**
    * Create a new WAF exclusion filter with the given parameters.
-   * 
+   *
    * A request matched by an exclusion filter will be ignored by the Application Security WAF product.
    * Go to https://app.datadoghq.com/security/appsec/passlist to review existing exclusion filters (also called passlist entries).
    * @param param The request object
@@ -1149,15 +1197,18 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiCreateApplicationSecurityWafExclusionFilterRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const requestContextPromise = this.requestFactory.createApplicationSecurityWafExclusionFilter(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createApplicationSecurityWafExclusionFilter(
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createApplicationSecurityWafExclusionFilter(responseContext);
+          return this.responseProcessor.createApplicationSecurityWafExclusionFilter(
+            responseContext,
+          );
         });
     });
   }
@@ -1170,15 +1221,18 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiDeleteApplicationSecurityWafCustomRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteApplicationSecurityWafCustomRule(
-      param.customRuleId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteApplicationSecurityWafCustomRule(
+        param.customRuleId,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteApplicationSecurityWafCustomRule(responseContext);
+          return this.responseProcessor.deleteApplicationSecurityWafCustomRule(
+            responseContext,
+          );
         });
     });
   }
@@ -1191,15 +1245,18 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiDeleteApplicationSecurityWafExclusionFilterRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteApplicationSecurityWafExclusionFilter(
-      param.exclusionFilterId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteApplicationSecurityWafExclusionFilter(
+        param.exclusionFilterId,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteApplicationSecurityWafExclusionFilter(responseContext);
+          return this.responseProcessor.deleteApplicationSecurityWafExclusionFilter(
+            responseContext,
+          );
         });
     });
   }
@@ -1212,15 +1269,18 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiGetApplicationSecurityWafCustomRuleRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const requestContextPromise = this.requestFactory.getApplicationSecurityWafCustomRule(
-      param.customRuleId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getApplicationSecurityWafCustomRule(
+        param.customRuleId,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getApplicationSecurityWafCustomRule(responseContext);
+          return this.responseProcessor.getApplicationSecurityWafCustomRule(
+            responseContext,
+          );
         });
     });
   }
@@ -1233,15 +1293,18 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiGetApplicationSecurityWafExclusionFilterRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const requestContextPromise = this.requestFactory.getApplicationSecurityWafExclusionFilter(
-      param.exclusionFilterId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getApplicationSecurityWafExclusionFilter(
+        param.exclusionFilterId,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getApplicationSecurityWafExclusionFilter(responseContext);
+          return this.responseProcessor.getApplicationSecurityWafExclusionFilter(
+            responseContext,
+          );
         });
     });
   }
@@ -1250,16 +1313,18 @@ export class ApplicationSecurityApi {
    * Retrieve a list of WAF custom rule.
    * @param param The request object
    */
-  public listApplicationSecurityWAFCustomRules(options?: Configuration,
+  public listApplicationSecurityWAFCustomRules(
+    options?: Configuration,
   ): Promise<ApplicationSecurityWafCustomRuleListResponse> {
-    const requestContextPromise = this.requestFactory.listApplicationSecurityWAFCustomRules(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listApplicationSecurityWAFCustomRules(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listApplicationSecurityWAFCustomRules(responseContext);
+          return this.responseProcessor.listApplicationSecurityWAFCustomRules(
+            responseContext,
+          );
         });
     });
   }
@@ -1268,16 +1333,18 @@ export class ApplicationSecurityApi {
    * Retrieve a list of WAF exclusion filters.
    * @param param The request object
    */
-  public listApplicationSecurityWafExclusionFilters(options?: Configuration,
+  public listApplicationSecurityWafExclusionFilters(
+    options?: Configuration,
   ): Promise<ApplicationSecurityWafExclusionFiltersResponse> {
-    const requestContextPromise = this.requestFactory.listApplicationSecurityWafExclusionFilters(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listApplicationSecurityWafExclusionFilters(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listApplicationSecurityWafExclusionFilters(responseContext);
+          return this.responseProcessor.listApplicationSecurityWafExclusionFilters(
+            responseContext,
+          );
         });
     });
   }
@@ -1291,16 +1358,19 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiUpdateApplicationSecurityWafCustomRuleRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const requestContextPromise = this.requestFactory.updateApplicationSecurityWafCustomRule(
-      param.customRuleId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.updateApplicationSecurityWafCustomRule(
+        param.customRuleId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateApplicationSecurityWafCustomRule(responseContext);
+          return this.responseProcessor.updateApplicationSecurityWafCustomRule(
+            responseContext,
+          );
         });
     });
   }
@@ -1314,16 +1384,19 @@ export class ApplicationSecurityApi {
     param: ApplicationSecurityApiUpdateApplicationSecurityWafExclusionFilterRequest,
     options?: Configuration,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const requestContextPromise = this.requestFactory.updateApplicationSecurityWafExclusionFilter(
-      param.exclusionFilterId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.updateApplicationSecurityWafExclusionFilter(
+        param.exclusionFilterId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateApplicationSecurityWafExclusionFilter(responseContext);
+          return this.responseProcessor.updateApplicationSecurityWafExclusionFilter(
+            responseContext,
+          );
         });
     });
   }

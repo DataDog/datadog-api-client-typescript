@@ -213,9 +213,7 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createAzureIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createAzureIntegration(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async createAzureIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -248,10 +246,7 @@ export class AzureIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -278,9 +273,7 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAzureIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAzureIntegration(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async deleteAzureIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -313,10 +306,7 @@ export class AzureIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -378,10 +368,7 @@ export class AzureIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -408,9 +395,7 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAzureHostFilters
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAzureHostFilters(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async updateAzureHostFilters(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -443,10 +428,7 @@ export class AzureIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -473,9 +455,7 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAzureIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAzureIntegration(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async updateAzureIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -508,10 +488,7 @@ export class AzureIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -584,10 +561,10 @@ export class AzureIntegrationApi {
 
   /**
    * Create a Datadog-Azure integration.
-   * 
+   *
    * Using the `POST` method updates your integration configuration by adding your new
    * configuration to the existing one in your Datadog organization.
-   * 
+   *
    * Using the `PUT` method updates your integration configuration by replacing your
    * current configuration with the new one sent to your Datadog organization.
    * @param param The request object
@@ -634,11 +611,11 @@ export class AzureIntegrationApi {
    * List all Datadog-Azure integrations configured in your Datadog account.
    * @param param The request object
    */
-  public listAzureIntegration(options?: Configuration,
+  public listAzureIntegration(
+    options?: Configuration,
   ): Promise<Array<AzureAccount>> {
-    const requestContextPromise = this.requestFactory.listAzureIntegration(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listAzureIntegration(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
