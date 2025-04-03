@@ -8,3 +8,10 @@ repos:
         stages: [manual]
         pass_filenames: false
         language_version: "21.7.3"
+      - id: format
+        name: Format code
+        language: node
+        entry: yarn run format
+        stages: [manual]
+        pass_filenames: false
+        language_version: "21.7.3"
