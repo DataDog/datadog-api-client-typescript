@@ -47,7 +47,7 @@ export class EntityV3MetadataLinksItems {
       baseName: "url",
       type: "string",
       required: true,
-    }
+    },
   };
 
   /**

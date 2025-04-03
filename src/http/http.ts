@@ -1,5 +1,3 @@
-
-
 // TODO: evaluate if we can easily get rid of this library
 import FormData from "form-data";
 import { isBrowser } from "../util";
@@ -21,7 +19,7 @@ export interface AbortSignal {
           capture?: boolean;
           once?: boolean;
           passive?: boolean;
-        }
+        },
   ) => void;
 
   removeEventListener: (
@@ -31,7 +29,7 @@ export interface AbortSignal {
       | boolean
       | {
           capture?: boolean;
-        }
+        },
   ) => void;
 
   dispatchEvent: (event: any) => boolean;
@@ -98,9 +96,12 @@ export class RequestContext {
    * @param url url of the requested resource
    * @param httpMethod http method
    */
-  public constructor(url: string, private httpMethod: HttpMethod) {
+  public constructor(
+    url: string,
+    private httpMethod: HttpMethod,
+  ) {
     this.url = new URL(url);
-    }
+  }
 
   /*
    * Returns the url set in the constructor including the query string
@@ -149,8 +150,12 @@ export class RequestContext {
    * @param name the name of the query parameter
    * @param value the value of the query parameter
    * @param collectionFormat the format of the query parameter See https://spec.openapis.org/oas/v3.0.2#style-values
-  */
-  public setQueryParam(name: string, value: string | string[], collectionFormat: string): void {
+   */
+  public setQueryParam(
+    name: string,
+    value: string | string[],
+    collectionFormat: string,
+  ): void {
     if (collectionFormat === "multi") {
       for (const val of value) {
         this.url.searchParams.append(name, val);
@@ -159,7 +164,8 @@ export class RequestContext {
     }
 
     if (Array.isArray(value)) {
-      const delimiter = COLLECTION_FORMATS[collectionFormat as keyof typeof COLLECTION_FORMATS];
+      const delimiter =
+        COLLECTION_FORMATS[collectionFormat as keyof typeof COLLECTION_FORMATS];
       value = value.join(delimiter);
     }
 
@@ -215,7 +221,7 @@ export class ResponseContext {
   public constructor(
     public httpStatusCode: number,
     public headers: { [key: string]: string },
-    public body: ResponseBody
+    public body: ResponseBody,
   ) {}
 
   /**

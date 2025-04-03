@@ -36,9 +36,12 @@ const enumsMap: { [key: string]: any[] } = {
 
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
-  SingleAggregatedConnectionResponseArray: SingleAggregatedConnectionResponseArray,
-  SingleAggregatedConnectionResponseData: SingleAggregatedConnectionResponseData,
-  SingleAggregatedConnectionResponseDataAttributes: SingleAggregatedConnectionResponseDataAttributes,
+  SingleAggregatedConnectionResponseArray:
+    SingleAggregatedConnectionResponseArray,
+  SingleAggregatedConnectionResponseData:
+    SingleAggregatedConnectionResponseData,
+  SingleAggregatedConnectionResponseDataAttributes:
+    SingleAggregatedConnectionResponseDataAttributes,
 };
 
 const oneOfMap: { [index: string]: string[] } = {};

@@ -44,7 +44,7 @@ export class EntityV3DatastoreSpec {
     type: {
       baseName: "type",
       type: "string",
-    }
+    },
   };
 
   /**

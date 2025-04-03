@@ -21,11 +21,17 @@ export const CREATED_AT_ASCENDING = "created_at";
 export const CREATED_AT_DESCENDING = "-created_at";
 export const ROLE_ID_ASCENDING = "role_id";
 export const ROLE_ID_DESCENDING = "-role_id";
-export const SAML_ASSERTION_ATTRIBUTE_ID_ASCENDING = "saml_assertion_attribute_id";
-export const SAML_ASSERTION_ATTRIBUTE_ID_DESCENDING = "-saml_assertion_attribute_id";
+export const SAML_ASSERTION_ATTRIBUTE_ID_ASCENDING =
+  "saml_assertion_attribute_id";
+export const SAML_ASSERTION_ATTRIBUTE_ID_DESCENDING =
+  "-saml_assertion_attribute_id";
 export const ROLE_NAME_ASCENDING = "role.name";
 export const ROLE_NAME_DESCENDING = "-role.name";
-export const SAML_ASSERTION_ATTRIBUTE_KEY_ASCENDING = "saml_assertion_attribute.attribute_key";
-export const SAML_ASSERTION_ATTRIBUTE_KEY_DESCENDING = "-saml_assertion_attribute.attribute_key";
-export const SAML_ASSERTION_ATTRIBUTE_VALUE_ASCENDING = "saml_assertion_attribute.attribute_value";
-export const SAML_ASSERTION_ATTRIBUTE_VALUE_DESCENDING = "-saml_assertion_attribute.attribute_value";
+export const SAML_ASSERTION_ATTRIBUTE_KEY_ASCENDING =
+  "saml_assertion_attribute.attribute_key";
+export const SAML_ASSERTION_ATTRIBUTE_KEY_DESCENDING =
+  "-saml_assertion_attribute.attribute_key";
+export const SAML_ASSERTION_ATTRIBUTE_VALUE_ASCENDING =
+  "saml_assertion_attribute.attribute_value";
+export const SAML_ASSERTION_ATTRIBUTE_VALUE_DESCENDING =
+  "-saml_assertion_attribute.attribute_value";

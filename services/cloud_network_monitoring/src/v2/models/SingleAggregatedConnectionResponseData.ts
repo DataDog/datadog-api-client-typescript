@@ -4,20 +4,19 @@ import { SingleAggregatedConnectionResponseDataAttributes } from "./SingleAggreg
 import { SingleAggregatedConnectionResponseDataType } from "./SingleAggregatedConnectionResponseDataType";
 
 /**
- * The definition of `SingleAggregatedConnectionResponseData` object.
+ * Object describing an aggregated connection.
  */
 export class SingleAggregatedConnectionResponseData {
   /**
-   * The definition of `SingleAggregatedConnectionResponseDataAttributes` object.
+   * Attributes for an aggregated connection.
    */
   "attributes"?: SingleAggregatedConnectionResponseDataAttributes;
   /**
-   * The `SingleAggregatedConnectionResponseData` `id`.
+   * A unique identifier for the aggregated connection based on the group by values.
    */
   "id"?: string;
   /**
-   * Aggregated connection resource type. Allowed enum values: `aggregated_connection`.
-   * default: `aggregated_connection`
+   * Aggregated connection resource type.
    */
   "type"?: SingleAggregatedConnectionResponseDataType;
   /**

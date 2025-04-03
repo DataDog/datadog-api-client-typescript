@@ -1,10 +1,22 @@
 repos:
   - repo: local
     hooks:
+      - id: generate
+        name: Generate
+        language: node
+        entry: bash -c "./generate.sh"
+        pass_filenames: false
       - id: lint
         name: Lint
         language: node
         entry: yarn run lint:fix
+        stages: [manual]
+        pass_filenames: false
+        language_version: "21.7.3"
+      - id: format
+        name: Format code
+        language: node
+        entry: yarn run format
         stages: [manual]
         pass_filenames: false
         language_version: "21.7.3"

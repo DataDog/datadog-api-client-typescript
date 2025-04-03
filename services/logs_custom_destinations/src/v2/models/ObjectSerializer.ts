@@ -49,42 +49,64 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
-  CustomDestinationAttributeTagsRestrictionListType: ["ALLOW_LIST", "BLOCK_LIST"],
+  CustomDestinationAttributeTagsRestrictionListType: [
+    "ALLOW_LIST",
+    "BLOCK_LIST",
+  ],
   CustomDestinationForwardDestinationElasticsearchType: ["elasticsearch"],
   CustomDestinationForwardDestinationHttpType: ["http"],
   CustomDestinationForwardDestinationSplunkType: ["splunk_hec"],
   CustomDestinationHttpDestinationAuthBasicType: ["basic"],
   CustomDestinationHttpDestinationAuthCustomHeaderType: ["custom_header"],
-  CustomDestinationResponseForwardDestinationElasticsearchType: ["elasticsearch"],
+  CustomDestinationResponseForwardDestinationElasticsearchType: [
+    "elasticsearch",
+  ],
   CustomDestinationResponseForwardDestinationHttpType: ["http"],
   CustomDestinationResponseForwardDestinationSplunkType: ["splunk_hec"],
   CustomDestinationResponseHttpDestinationAuthBasicType: ["basic"],
-  CustomDestinationResponseHttpDestinationAuthCustomHeaderType: ["custom_header"],
+  CustomDestinationResponseHttpDestinationAuthCustomHeaderType: [
+    "custom_header",
+  ],
   CustomDestinationType: ["custom_destination"],
 };
 
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
   CustomDestinationCreateRequest: CustomDestinationCreateRequest,
-  CustomDestinationCreateRequestAttributes: CustomDestinationCreateRequestAttributes,
-  CustomDestinationCreateRequestDefinition: CustomDestinationCreateRequestDefinition,
-  CustomDestinationElasticsearchDestinationAuth: CustomDestinationElasticsearchDestinationAuth,
-  CustomDestinationForwardDestinationElasticsearch: CustomDestinationForwardDestinationElasticsearch,
-  CustomDestinationForwardDestinationHttp: CustomDestinationForwardDestinationHttp,
-  CustomDestinationForwardDestinationSplunk: CustomDestinationForwardDestinationSplunk,
-  CustomDestinationHttpDestinationAuthBasic: CustomDestinationHttpDestinationAuthBasic,
-  CustomDestinationHttpDestinationAuthCustomHeader: CustomDestinationHttpDestinationAuthCustomHeader,
+  CustomDestinationCreateRequestAttributes:
+    CustomDestinationCreateRequestAttributes,
+  CustomDestinationCreateRequestDefinition:
+    CustomDestinationCreateRequestDefinition,
+  CustomDestinationElasticsearchDestinationAuth:
+    CustomDestinationElasticsearchDestinationAuth,
+  CustomDestinationForwardDestinationElasticsearch:
+    CustomDestinationForwardDestinationElasticsearch,
+  CustomDestinationForwardDestinationHttp:
+    CustomDestinationForwardDestinationHttp,
+  CustomDestinationForwardDestinationSplunk:
+    CustomDestinationForwardDestinationSplunk,
+  CustomDestinationHttpDestinationAuthBasic:
+    CustomDestinationHttpDestinationAuthBasic,
+  CustomDestinationHttpDestinationAuthCustomHeader:
+    CustomDestinationHttpDestinationAuthCustomHeader,
   CustomDestinationResponse: CustomDestinationResponse,
   CustomDestinationResponseAttributes: CustomDestinationResponseAttributes,
   CustomDestinationResponseDefinition: CustomDestinationResponseDefinition,
-  CustomDestinationResponseForwardDestinationElasticsearch: CustomDestinationResponseForwardDestinationElasticsearch,
-  CustomDestinationResponseForwardDestinationHttp: CustomDestinationResponseForwardDestinationHttp,
-  CustomDestinationResponseForwardDestinationSplunk: CustomDestinationResponseForwardDestinationSplunk,
-  CustomDestinationResponseHttpDestinationAuthBasic: CustomDestinationResponseHttpDestinationAuthBasic,
-  CustomDestinationResponseHttpDestinationAuthCustomHeader: CustomDestinationResponseHttpDestinationAuthCustomHeader,
+  CustomDestinationResponseForwardDestinationElasticsearch:
+    CustomDestinationResponseForwardDestinationElasticsearch,
+  CustomDestinationResponseForwardDestinationHttp:
+    CustomDestinationResponseForwardDestinationHttp,
+  CustomDestinationResponseForwardDestinationSplunk:
+    CustomDestinationResponseForwardDestinationSplunk,
+  CustomDestinationResponseHttpDestinationAuthBasic:
+    CustomDestinationResponseHttpDestinationAuthBasic,
+  CustomDestinationResponseHttpDestinationAuthCustomHeader:
+    CustomDestinationResponseHttpDestinationAuthCustomHeader,
   CustomDestinationUpdateRequest: CustomDestinationUpdateRequest,
-  CustomDestinationUpdateRequestAttributes: CustomDestinationUpdateRequestAttributes,
-  CustomDestinationUpdateRequestDefinition: CustomDestinationUpdateRequestDefinition,
+  CustomDestinationUpdateRequestAttributes:
+    CustomDestinationUpdateRequestAttributes,
+  CustomDestinationUpdateRequestDefinition:
+    CustomDestinationUpdateRequestDefinition,
   CustomDestinationsResponse: CustomDestinationsResponse,
 };
 

@@ -18,5 +18,6 @@ export type SensitiveDataScannerTextReplacementType =
 export const NONE = "none";
 export const HASH = "hash";
 export const REPLACEMENT_STRING = "replacement_string";
-export const PARTIAL_REPLACEMENT_FROM_BEGINNING = "partial_replacement_from_beginning";
+export const PARTIAL_REPLACEMENT_FROM_BEGINNING =
+  "partial_replacement_from_beginning";
 export const PARTIAL_REPLACEMENT_FROM_END = "partial_replacement_from_end";

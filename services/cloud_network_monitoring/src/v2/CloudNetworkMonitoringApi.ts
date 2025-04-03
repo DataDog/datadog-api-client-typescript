@@ -28,7 +28,9 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
 
     logger.warn("Using unstable operation 'getAggregatedConnections'");
     if (!_config.unstableOperations["0.0.1.getAggregatedConnections"]) {
-      throw new Error("Unstable operation 'getAggregatedConnections' is disabled");
+      throw new Error(
+        "Unstable operation 'getAggregatedConnections' is disabled",
+      );
     }
 
     // Path Params
@@ -103,16 +105,14 @@ export class CloudNetworkMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SingleAggregatedConnectionResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SingleAggregatedConnectionResponseArray",
-      ) as SingleAggregatedConnectionResponseArray;
+      const body: SingleAggregatedConnectionResponseArray =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SingleAggregatedConnectionResponseArray",
+        ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -130,19 +130,17 @@ export class CloudNetworkMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SingleAggregatedConnectionResponseArray = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SingleAggregatedConnectionResponseArray",
-        "",
-      ) as SingleAggregatedConnectionResponseArray;
+      const body: SingleAggregatedConnectionResponseArray =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SingleAggregatedConnectionResponseArray",
+          "",
+        ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
 
@@ -156,12 +154,12 @@ export class CloudNetworkMonitoringApiResponseProcessor {
 
 export interface CloudNetworkMonitoringApiGetAggregatedConnectionsRequest {
   /**
-   * Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the "to" timestamp. If neither "from" nor "to" are provided, the query window is [now - 15m, now].
+   * Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
    * @type number
    */
   from?: number;
   /**
-   * Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither "from" nor "to" are provided, the query window is [now - 15m, now].
+   * Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
    * @type number
    */
   to?: number;
@@ -201,7 +199,7 @@ export class CloudNetworkMonitoringApi {
   }
 
   /**
-   * Get aggregated connections
+   * Get all aggregated connections.
    * @param param The request object
    */
   public getAggregatedConnections(
@@ -220,7 +218,9 @@ export class CloudNetworkMonitoringApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAggregatedConnections(responseContext);
+          return this.responseProcessor.getAggregatedConnections(
+            responseContext,
+          );
         });
     });
   }

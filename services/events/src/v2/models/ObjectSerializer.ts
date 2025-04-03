@@ -58,12 +58,24 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 const enumsMap: { [key: string]: any[] } = {
   ChangeEventCustomAttributesAuthorType: ["user", "system"],
-  ChangeEventCustomAttributesChangedResourceType: ["feature_flag", "configuration"],
+  ChangeEventCustomAttributesChangedResourceType: [
+    "feature_flag",
+    "configuration",
+  ],
   ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
   EventCategory: ["change"],
   EventCreateRequestType: ["event"],
   EventPriority: ["normal", "low"],
-  EventStatusType: ["failure", "error", "warning", "info", "success", "user_update", "recommendation", "snapshot"],
+  EventStatusType: [
+    "failure",
+    "error",
+    "warning",
+    "info",
+    "success",
+    "user_update",
+    "recommendation",
+    "snapshot",
+  ],
   EventType: ["event"],
   EventsSort: ["timestamp", "-timestamp"],
 };
@@ -72,16 +84,20 @@ const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
   ChangeEventCustomAttributes: ChangeEventCustomAttributes,
   ChangeEventCustomAttributesAuthor: ChangeEventCustomAttributesAuthor,
-  ChangeEventCustomAttributesChangedResource: ChangeEventCustomAttributesChangedResource,
-  ChangeEventCustomAttributesImpactedResourcesItems: ChangeEventCustomAttributesImpactedResourcesItems,
+  ChangeEventCustomAttributesChangedResource:
+    ChangeEventCustomAttributesChangedResource,
+  ChangeEventCustomAttributesImpactedResourcesItems:
+    ChangeEventCustomAttributesImpactedResourcesItems,
   Event: Event,
   EventAttributes: EventAttributes,
   EventCreateRequest: EventCreateRequest,
   EventCreateRequestPayload: EventCreateRequestPayload,
   EventCreateResponse: EventCreateResponse,
   EventCreateResponseAttributes: EventCreateResponseAttributes,
-  EventCreateResponseAttributesAttributes: EventCreateResponseAttributesAttributes,
-  EventCreateResponseAttributesAttributesEvt: EventCreateResponseAttributesAttributesEvt,
+  EventCreateResponseAttributesAttributes:
+    EventCreateResponseAttributesAttributes,
+  EventCreateResponseAttributesAttributesEvt:
+    EventCreateResponseAttributesAttributesEvt,
   EventCreateResponsePayload: EventCreateResponsePayload,
   EventPayload: EventPayload,
   EventResponse: EventResponse,

@@ -99,9 +99,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -234,10 +232,11 @@ export class CIVisibilityPipelinesApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: CIAppPipelinesAnalyticsAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppPipelinesAnalyticsAggregateResponse",
-      ) as CIAppPipelinesAnalyticsAggregateResponse;
+      const body: CIAppPipelinesAnalyticsAggregateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CIAppPipelinesAnalyticsAggregateResponse",
+        ) as CIAppPipelinesAnalyticsAggregateResponse;
       return body;
     }
     if (
@@ -262,19 +261,17 @@ export class CIVisibilityPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CIAppPipelinesAnalyticsAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppPipelinesAnalyticsAggregateResponse",
-        "",
-      ) as CIAppPipelinesAnalyticsAggregateResponse;
+      const body: CIAppPipelinesAnalyticsAggregateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "CIAppPipelinesAnalyticsAggregateResponse",
+          "",
+        ) as CIAppPipelinesAnalyticsAggregateResponse;
       return body;
     }
 
@@ -332,10 +329,7 @@ export class CIVisibilityPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<HTTPCIAppErrors>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -397,10 +391,7 @@ export class CIVisibilityPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -462,10 +453,7 @@ export class CIVisibilityPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -566,22 +554,22 @@ export class CIVisibilityPipelinesApi {
     param: CIVisibilityPipelinesApiAggregateCIAppPipelineEventsRequest,
     options?: Configuration,
   ): Promise<CIAppPipelinesAnalyticsAggregateResponse> {
-    const requestContextPromise = this.requestFactory.aggregateCIAppPipelineEvents(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.aggregateCIAppPipelineEvents(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.aggregateCIAppPipelineEvents(responseContext);
+          return this.responseProcessor.aggregateCIAppPipelineEvents(
+            responseContext,
+          );
         });
     });
   }
 
   /**
    * Send your pipeline event to your Datadog platform over HTTP. For details about how pipeline executions are modeled and what execution types we support, see [Pipeline Data Model And Execution Types](https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/).
-   * 
+   *
    * Pipeline events can be submitted with a timestamp that is up to 18 hours in the past.
    * @param param The request object
    */
@@ -597,7 +585,9 @@ export class CIVisibilityPipelinesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCIAppPipelineEvent(responseContext);
+          return this.responseProcessor.createCIAppPipelineEvent(
+            responseContext,
+          );
         });
     });
   }
@@ -605,7 +595,7 @@ export class CIVisibilityPipelinesApi {
   /**
    * List endpoint returns CI Visibility pipeline events that match a [search query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
-   * 
+   *
    * Use this endpoint to see your latest pipeline events.
    * @param param The request object
    */
@@ -626,7 +616,9 @@ export class CIVisibilityPipelinesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listCIAppPipelineEvents(responseContext);
+          return this.responseProcessor.listCIAppPipelineEvents(
+            responseContext,
+          );
         });
     });
   }
@@ -635,19 +627,29 @@ export class CIVisibilityPipelinesApi {
    * Provide a paginated version of listCIAppPipelineEvents returning a generator with all the items.
    */
   public async *listCIAppPipelineEventsWithPagination(
-    param: CIVisibilityPipelinesApiListCIAppPipelineEventsRequest = {}, options?: Configuration,
+    param: CIVisibilityPipelinesApiListCIAppPipelineEventsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<CIAppPipelineEvent> {
-
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listCIAppPipelineEvents(param.filterQuery,param.filterFrom,param.filterTo,param.sort,param.pageCursor,param.pageLimit,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listCIAppPipelineEvents(
+        param.filterQuery,
+        param.filterFrom,
+        param.filterTo,
+        param.sort,
+        param.pageCursor,
+        param.pageLimit,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listCIAppPipelineEvents(responseContext);
+      const response =
+        await this.responseProcessor.listCIAppPipelineEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -679,7 +681,7 @@ export class CIVisibilityPipelinesApi {
   /**
    * List endpoint returns CI Visibility pipeline events that match a [search query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
-   * 
+   *
    * Use this endpoint to build complex events filtering and search.
    * @param param The request object
    */
@@ -695,7 +697,9 @@ export class CIVisibilityPipelinesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.searchCIAppPipelineEvents(responseContext);
+          return this.responseProcessor.searchCIAppPipelineEvents(
+            responseContext,
+          );
         });
     });
   }
@@ -704,9 +708,9 @@ export class CIVisibilityPipelinesApi {
    * Provide a paginated version of searchCIAppPipelineEvents returning a generator with all the items.
    */
   public async *searchCIAppPipelineEventsWithPagination(
-    param: CIVisibilityPipelinesApiSearchCIAppPipelineEventsRequest = {}, options?: Configuration,
+    param: CIVisibilityPipelinesApiSearchCIAppPipelineEventsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<CIAppPipelineEvent> {
-
     let pageSize = 10;
     if (param.body === undefined) {
       param.body = new CIAppPipelineEventsRequest();
@@ -719,10 +723,16 @@ export class CIVisibilityPipelinesApi {
     }
     param.body.page.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.searchCIAppPipelineEvents(param.body,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext =
+        await this.requestFactory.searchCIAppPipelineEvents(
+          param.body,
+          options,
+        );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchCIAppPipelineEvents(responseContext);
+      const response =
+        await this.responseProcessor.searchCIAppPipelineEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

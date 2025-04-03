@@ -24,3 +24,4 @@ pre_commit_wrapper () {
 }
 
 # pre_commit_wrapper lint
+pre_commit_wrapper format

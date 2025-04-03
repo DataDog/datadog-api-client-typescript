@@ -34,7 +34,9 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.PagerDutyIntegrationApi.createPagerDutyIntegrationService")
+      .getServer(
+        "0.0.1.PagerDutyIntegrationApi.createPagerDutyIntegrationService",
+      )
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -67,18 +69,24 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
 
     // verify required parameter 'serviceName' is not null or undefined
     if (serviceName === null || serviceName === undefined) {
-      throw new RequiredError("serviceName", "deletePagerDutyIntegrationService");
+      throw new RequiredError(
+        "serviceName",
+        "deletePagerDutyIntegrationService",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
-      "{service_name}",
-      encodeURIComponent(String(serviceName)),
-    );
+    const localVarPath =
+      "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
+        "{service_name}",
+        encodeURIComponent(String(serviceName)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.PagerDutyIntegrationApi.deletePagerDutyIntegrationService")
+      .getServer(
+        "0.0.1.PagerDutyIntegrationApi.deletePagerDutyIntegrationService",
+      )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -104,10 +112,11 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
-      "{service_name}",
-      encodeURIComponent(String(serviceName)),
-    );
+    const localVarPath =
+      "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
+        "{service_name}",
+        encodeURIComponent(String(serviceName)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -134,7 +143,10 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
 
     // verify required parameter 'serviceName' is not null or undefined
     if (serviceName === null || serviceName === undefined) {
-      throw new RequiredError("serviceName", "updatePagerDutyIntegrationService");
+      throw new RequiredError(
+        "serviceName",
+        "updatePagerDutyIntegrationService",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -143,14 +155,17 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
-      "{service_name}",
-      encodeURIComponent(String(serviceName)),
-    );
+    const localVarPath =
+      "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
+        "{service_name}",
+        encodeURIComponent(String(serviceName)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.PagerDutyIntegrationApi.updatePagerDutyIntegrationService")
+      .getServer(
+        "0.0.1.PagerDutyIntegrationApi.updatePagerDutyIntegrationService",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -219,10 +234,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -280,10 +292,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -340,10 +349,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -402,10 +408,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -484,15 +487,18 @@ export class PagerDutyIntegrationApi {
     param: PagerDutyIntegrationApiCreatePagerDutyIntegrationServiceRequest,
     options?: Configuration,
   ): Promise<PagerDutyServiceName> {
-    const requestContextPromise = this.requestFactory.createPagerDutyIntegrationService(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createPagerDutyIntegrationService(
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createPagerDutyIntegrationService(responseContext);
+          return this.responseProcessor.createPagerDutyIntegrationService(
+            responseContext,
+          );
         });
     });
   }
@@ -505,15 +511,18 @@ export class PagerDutyIntegrationApi {
     param: PagerDutyIntegrationApiDeletePagerDutyIntegrationServiceRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deletePagerDutyIntegrationService(
-      param.serviceName,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deletePagerDutyIntegrationService(
+        param.serviceName,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deletePagerDutyIntegrationService(responseContext);
+          return this.responseProcessor.deletePagerDutyIntegrationService(
+            responseContext,
+          );
         });
     });
   }
@@ -526,15 +535,18 @@ export class PagerDutyIntegrationApi {
     param: PagerDutyIntegrationApiGetPagerDutyIntegrationServiceRequest,
     options?: Configuration,
   ): Promise<PagerDutyServiceName> {
-    const requestContextPromise = this.requestFactory.getPagerDutyIntegrationService(
-      param.serviceName,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getPagerDutyIntegrationService(
+        param.serviceName,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getPagerDutyIntegrationService(responseContext);
+          return this.responseProcessor.getPagerDutyIntegrationService(
+            responseContext,
+          );
         });
     });
   }
@@ -547,16 +559,19 @@ export class PagerDutyIntegrationApi {
     param: PagerDutyIntegrationApiUpdatePagerDutyIntegrationServiceRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.updatePagerDutyIntegrationService(
-      param.serviceName,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.updatePagerDutyIntegrationService(
+        param.serviceName,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updatePagerDutyIntegrationService(responseContext);
+          return this.responseProcessor.updatePagerDutyIntegrationService(
+            responseContext,
+          );
         });
     });
   }

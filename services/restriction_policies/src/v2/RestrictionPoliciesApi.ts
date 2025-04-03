@@ -186,10 +186,7 @@ export class RestrictionPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -246,10 +243,7 @@ export class RestrictionPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -311,10 +305,7 @@ export class RestrictionPoliciesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -403,7 +394,9 @@ export class RestrictionPoliciesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteRestrictionPolicy(responseContext);
+          return this.responseProcessor.deleteRestrictionPolicy(
+            responseContext,
+          );
         });
     });
   }
@@ -431,7 +424,7 @@ export class RestrictionPoliciesApi {
 
   /**
    * Updates the restriction policy associated with a resource.
-   * 
+   *
    * #### Supported resources
    * Restriction policies can be applied to the following resources:
    * - Dashboards: `dashboard`
@@ -448,7 +441,7 @@ export class RestrictionPoliciesApi {
    * - App Builder Apps: `app-builder-app`
    * - Connections: `connection`
    * - Connection Groups: `connection-group`
-   * 
+   *
    * #### Supported relations for resources
    * Resource Type               | Supported Relations
    * ----------------------------|--------------------------
@@ -482,7 +475,9 @@ export class RestrictionPoliciesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateRestrictionPolicy(responseContext);
+          return this.responseProcessor.updateRestrictionPolicy(
+            responseContext,
+          );
         });
     });
   }

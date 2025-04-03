@@ -122,10 +122,11 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cost/aws_cur_config/{cloud_account_id}".replace(
-      "{cloud_account_id}",
-      encodeURIComponent(String(cloudAccountId)),
-    );
+    const localVarPath =
+      "/api/v2/cost/aws_cur_config/{cloud_account_id}".replace(
+        "{cloud_account_id}",
+        encodeURIComponent(String(cloudAccountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -156,10 +157,11 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cost/azure_uc_config/{cloud_account_id}".replace(
-      "{cloud_account_id}",
-      encodeURIComponent(String(cloudAccountId)),
-    );
+    const localVarPath =
+      "/api/v2/cost/azure_uc_config/{cloud_account_id}".replace(
+        "{cloud_account_id}",
+        encodeURIComponent(String(cloudAccountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -339,10 +341,11 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cost/aws_cur_config/{cloud_account_id}".replace(
-      "{cloud_account_id}",
-      encodeURIComponent(String(cloudAccountId)),
-    );
+    const localVarPath =
+      "/api/v2/cost/aws_cur_config/{cloud_account_id}".replace(
+        "{cloud_account_id}",
+        encodeURIComponent(String(cloudAccountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -390,10 +393,11 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     }
 
     // Path Params
-    const localVarPath = "/api/v2/cost/azure_uc_config/{cloud_account_id}".replace(
-      "{cloud_account_id}",
-      encodeURIComponent(String(cloudAccountId)),
-    );
+    const localVarPath =
+      "/api/v2/cost/azure_uc_config/{cloud_account_id}".replace(
+        "{cloud_account_id}",
+        encodeURIComponent(String(cloudAccountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -509,10 +513,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -574,10 +575,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -635,10 +633,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -691,10 +686,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -716,19 +708,14 @@ export class CloudCostManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCustomCostsFile
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCustomCostsFile(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteCustomCostsFile(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -746,10 +733,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -784,10 +768,7 @@ export class CloudCostManagementApiResponseProcessor {
       ) as CustomCostsFileGetResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -805,10 +786,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -848,10 +826,7 @@ export class CloudCostManagementApiResponseProcessor {
       ) as AwsCURConfigsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -869,10 +844,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -912,10 +884,7 @@ export class CloudCostManagementApiResponseProcessor {
       ) as AzureUCConfigsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -933,10 +902,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -976,10 +942,7 @@ export class CloudCostManagementApiResponseProcessor {
       ) as CustomCostsFileListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -997,10 +960,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1040,10 +1000,7 @@ export class CloudCostManagementApiResponseProcessor {
       ) as AwsCURConfigsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -1061,10 +1018,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1126,10 +1080,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1169,10 +1120,7 @@ export class CloudCostManagementApiResponseProcessor {
       ) as CustomCostsFileUploadResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -1190,10 +1138,7 @@ export class CloudCostManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1346,7 +1291,9 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCostAzureUCConfigs(responseContext);
+          return this.responseProcessor.createCostAzureUCConfigs(
+            responseContext,
+          );
         });
     });
   }
@@ -1388,7 +1335,9 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCostAzureUCConfig(responseContext);
+          return this.responseProcessor.deleteCostAzureUCConfig(
+            responseContext,
+          );
         });
     });
   }
@@ -1439,11 +1388,11 @@ export class CloudCostManagementApi {
    * List the AWS CUR configs.
    * @param param The request object
    */
-  public listCostAWSCURConfigs(options?: Configuration,
+  public listCostAWSCURConfigs(
+    options?: Configuration,
   ): Promise<AwsCURConfigsResponse> {
-    const requestContextPromise = this.requestFactory.listCostAWSCURConfigs(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listCostAWSCURConfigs(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1457,11 +1406,11 @@ export class CloudCostManagementApi {
    * List the Azure configs.
    * @param param The request object
    */
-  public listCostAzureUCConfigs(options?: Configuration,
+  public listCostAzureUCConfigs(
+    options?: Configuration,
   ): Promise<AzureUCConfigsResponse> {
-    const requestContextPromise = this.requestFactory.listCostAzureUCConfigs(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listCostAzureUCConfigs(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1475,11 +1424,11 @@ export class CloudCostManagementApi {
    * List the Custom Costs files.
    * @param param The request object
    */
-  public listCustomCostsFiles(options?: Configuration,
+  public listCustomCostsFiles(
+    options?: Configuration,
   ): Promise<CustomCostsFileListResponse> {
-    const requestContextPromise = this.requestFactory.listCustomCostsFiles(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listCustomCostsFiles(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1528,7 +1477,9 @@ export class CloudCostManagementApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCostAzureUCConfigs(responseContext);
+          return this.responseProcessor.updateCostAzureUCConfigs(
+            responseContext,
+          );
         });
     });
   }

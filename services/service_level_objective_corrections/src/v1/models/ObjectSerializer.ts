@@ -42,7 +42,12 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
-  SLOCorrectionCategory: ["Scheduled Maintenance", "Outside Business Hours", "Deployment", "Other"],
+  SLOCorrectionCategory: [
+    "Scheduled Maintenance",
+    "Outside Business Hours",
+    "Deployment",
+    "Other",
+  ],
   SLOCorrectionType: ["correction"],
 };
 
@@ -58,7 +63,8 @@ const typeMap: { [index: string]: any } = {
   SLOCorrectionListResponse: SLOCorrectionListResponse,
   SLOCorrectionResponse: SLOCorrectionResponse,
   SLOCorrectionResponseAttributes: SLOCorrectionResponseAttributes,
-  SLOCorrectionResponseAttributesModifier: SLOCorrectionResponseAttributesModifier,
+  SLOCorrectionResponseAttributesModifier:
+    SLOCorrectionResponseAttributesModifier,
   SLOCorrectionUpdateData: SLOCorrectionUpdateData,
   SLOCorrectionUpdateRequest: SLOCorrectionUpdateRequest,
   SLOCorrectionUpdateRequestAttributes: SLOCorrectionUpdateRequestAttributes,

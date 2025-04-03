@@ -28,7 +28,7 @@ export class EntityV3DatadogEventItem {
     query: {
       baseName: "query",
       type: "string",
-    }
+    },
   };
 
   /**

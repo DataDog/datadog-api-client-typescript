@@ -40,7 +40,7 @@ export class EntityV3DatastoreDatadog {
     performanceData: {
       baseName: "performanceData",
       type: "EntityV3DatadogPerformance",
-    }
+    },
   };
 
   /**

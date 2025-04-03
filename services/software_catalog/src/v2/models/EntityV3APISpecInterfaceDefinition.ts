@@ -20,7 +20,7 @@ export class EntityV3APISpecInterfaceDefinition {
     definition: {
       baseName: "definition",
       type: "any",
-    }
+    },
   };
 
   /**

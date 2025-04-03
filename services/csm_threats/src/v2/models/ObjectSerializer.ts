@@ -48,19 +48,30 @@ const enumsMap: { [key: string]: any[] } = {
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
   CloudWorkloadSecurityAgentRuleAction: CloudWorkloadSecurityAgentRuleAction,
-  CloudWorkloadSecurityAgentRuleAttributes: CloudWorkloadSecurityAgentRuleAttributes,
-  CloudWorkloadSecurityAgentRuleCreateAttributes: CloudWorkloadSecurityAgentRuleCreateAttributes,
-  CloudWorkloadSecurityAgentRuleCreateData: CloudWorkloadSecurityAgentRuleCreateData,
-  CloudWorkloadSecurityAgentRuleCreateRequest: CloudWorkloadSecurityAgentRuleCreateRequest,
-  CloudWorkloadSecurityAgentRuleCreatorAttributes: CloudWorkloadSecurityAgentRuleCreatorAttributes,
+  CloudWorkloadSecurityAgentRuleAttributes:
+    CloudWorkloadSecurityAgentRuleAttributes,
+  CloudWorkloadSecurityAgentRuleCreateAttributes:
+    CloudWorkloadSecurityAgentRuleCreateAttributes,
+  CloudWorkloadSecurityAgentRuleCreateData:
+    CloudWorkloadSecurityAgentRuleCreateData,
+  CloudWorkloadSecurityAgentRuleCreateRequest:
+    CloudWorkloadSecurityAgentRuleCreateRequest,
+  CloudWorkloadSecurityAgentRuleCreatorAttributes:
+    CloudWorkloadSecurityAgentRuleCreatorAttributes,
   CloudWorkloadSecurityAgentRuleData: CloudWorkloadSecurityAgentRuleData,
   CloudWorkloadSecurityAgentRuleKill: CloudWorkloadSecurityAgentRuleKill,
-  CloudWorkloadSecurityAgentRuleResponse: CloudWorkloadSecurityAgentRuleResponse,
-  CloudWorkloadSecurityAgentRuleUpdateAttributes: CloudWorkloadSecurityAgentRuleUpdateAttributes,
-  CloudWorkloadSecurityAgentRuleUpdateData: CloudWorkloadSecurityAgentRuleUpdateData,
-  CloudWorkloadSecurityAgentRuleUpdateRequest: CloudWorkloadSecurityAgentRuleUpdateRequest,
-  CloudWorkloadSecurityAgentRuleUpdaterAttributes: CloudWorkloadSecurityAgentRuleUpdaterAttributes,
-  CloudWorkloadSecurityAgentRulesListResponse: CloudWorkloadSecurityAgentRulesListResponse,
+  CloudWorkloadSecurityAgentRuleResponse:
+    CloudWorkloadSecurityAgentRuleResponse,
+  CloudWorkloadSecurityAgentRuleUpdateAttributes:
+    CloudWorkloadSecurityAgentRuleUpdateAttributes,
+  CloudWorkloadSecurityAgentRuleUpdateData:
+    CloudWorkloadSecurityAgentRuleUpdateData,
+  CloudWorkloadSecurityAgentRuleUpdateRequest:
+    CloudWorkloadSecurityAgentRuleUpdateRequest,
+  CloudWorkloadSecurityAgentRuleUpdaterAttributes:
+    CloudWorkloadSecurityAgentRuleUpdaterAttributes,
+  CloudWorkloadSecurityAgentRulesListResponse:
+    CloudWorkloadSecurityAgentRulesListResponse,
 };
 
 const oneOfMap: { [index: string]: string[] } = {};

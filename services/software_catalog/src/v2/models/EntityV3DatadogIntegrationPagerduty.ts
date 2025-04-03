@@ -21,7 +21,7 @@ export class EntityV3DatadogIntegrationPagerduty {
       baseName: "serviceURL",
       type: "string",
       required: true,
-    }
+    },
   };
 
   /**

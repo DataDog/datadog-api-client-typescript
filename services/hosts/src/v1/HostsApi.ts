@@ -237,9 +237,7 @@ export class HostsApiResponseProcessor {
    * @params response Response returned by the server for a request to getHostTotals
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getHostTotals(
-    response: ResponseContext,
-  ): Promise<HostTotals> {
+  public async getHostTotals(response: ResponseContext): Promise<HostTotals> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -272,10 +270,7 @@ export class HostsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -302,9 +297,7 @@ export class HostsApiResponseProcessor {
    * @params response Response returned by the server for a request to listHosts
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listHosts(
-    response: ResponseContext,
-  ): Promise<HostListResponse> {
+  public async listHosts(response: ResponseContext): Promise<HostListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -337,10 +330,7 @@ export class HostsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -367,9 +357,7 @@ export class HostsApiResponseProcessor {
    * @params response Response returned by the server for a request to muteHost
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async muteHost(
-    response: ResponseContext,
-  ): Promise<HostMuteResponse> {
+  public async muteHost(response: ResponseContext): Promise<HostMuteResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -402,10 +390,7 @@ export class HostsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -467,10 +452,7 @@ export class HostsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -575,8 +557,7 @@ export class HostsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new HostsApiRequestFactory(this.configuration);
+      requestFactory || new HostsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new HostsApiResponseProcessor();
   }

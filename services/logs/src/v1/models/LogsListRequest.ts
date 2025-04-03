@@ -27,7 +27,7 @@ export class LogsListRequest {
   /**
    * Hash identifier of the first log to return in the list, available in a log `id` attribute.
    * This parameter is used for the pagination feature.
-   * 
+   *
    * **Note**: This parameter is ignored if the corresponding log
    * is out of the scope of the specified time window.
    */

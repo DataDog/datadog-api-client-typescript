@@ -85,10 +85,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/siem-historical-detections/jobs/{job_id}/cancel".replace(
-      "{job_id}",
-      encodeURIComponent(String(jobId)),
-    );
+    const localVarPath =
+      "/api/v2/siem-historical-detections/jobs/{job_id}/cancel".replace(
+        "{job_id}",
+        encodeURIComponent(String(jobId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -115,18 +116,24 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError("ruleId", "convertExistingSecurityMonitoringRule");
+      throw new RequiredError(
+        "ruleId",
+        "convertExistingSecurityMonitoringRule",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/rules/{rule_id}/convert".replace(
-      "{rule_id}",
-      encodeURIComponent(String(ruleId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/rules/{rule_id}/convert".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.convertExistingSecurityMonitoringRule")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.convertExistingSecurityMonitoringRule",
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -149,7 +156,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'convertJobResultToSignal'");
     if (!_config.unstableOperations["0.0.1.convertJobResultToSignal"]) {
-      throw new Error("Unstable operation 'convertJobResultToSignal' is disabled");
+      throw new Error(
+        "Unstable operation 'convertJobResultToSignal' is disabled",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -158,7 +167,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/siem-historical-detections/jobs/signal_convert";
+    const localVarPath =
+      "/api/v2/siem-historical-detections/jobs/signal_convert";
 
     // Make Request Context
     const requestContext = _config
@@ -173,7 +183,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ConvertJobResultsToSignalsRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "ConvertJobResultsToSignalsRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -195,7 +209,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "convertSecurityMonitoringRuleFromJSONToTerraform");
+      throw new RequiredError(
+        "body",
+        "convertSecurityMonitoringRuleFromJSONToTerraform",
+      );
     }
 
     // Path Params
@@ -203,7 +220,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.convertSecurityMonitoringRuleFromJSONToTerraform")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.convertSecurityMonitoringRuleFromJSONToTerraform",
+      )
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -214,7 +233,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringRuleConvertPayload", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringRuleConvertPayload",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -241,7 +264,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/security_filters";
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/security_filters";
 
     // Make Request Context
     const requestContext = _config
@@ -298,7 +322,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringRuleCreatePayload", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringRuleCreatePayload",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -325,11 +353,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/suppressions";
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/suppressions";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.createSecurityMonitoringSuppression")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.createSecurityMonitoringSuppression",
+      )
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -340,7 +371,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringSuppressionCreateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringSuppressionCreateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -382,7 +417,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CreateNotificationRuleParameters", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "CreateNotificationRuleParameters",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -413,7 +452,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.createVulnerabilityNotificationRule")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.createVulnerabilityNotificationRule",
+      )
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -424,7 +465,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CreateNotificationRuleParameters", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "CreateNotificationRuleParameters",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -456,10 +501,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/siem-historical-detections/jobs/{job_id}".replace(
-      "{job_id}",
-      encodeURIComponent(String(jobId)),
-    );
+    const localVarPath =
+      "/api/v2/siem-historical-detections/jobs/{job_id}".replace(
+        "{job_id}",
+        encodeURIComponent(String(jobId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -490,10 +536,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-      "{security_filter_id}",
-      encodeURIComponent(String(securityFilterId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
+        "{security_filter_id}",
+        encodeURIComponent(String(securityFilterId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -554,18 +601,24 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'suppressionId' is not null or undefined
     if (suppressionId === null || suppressionId === undefined) {
-      throw new RequiredError("suppressionId", "deleteSecurityMonitoringSuppression");
+      throw new RequiredError(
+        "suppressionId",
+        "deleteSecurityMonitoringSuppression",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}".replace(
-      "{suppression_id}",
-      encodeURIComponent(String(suppressionId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}".replace(
+        "{suppression_id}",
+        encodeURIComponent(String(suppressionId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.deleteSecurityMonitoringSuppression")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.deleteSecurityMonitoringSuppression",
+      )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -592,10 +645,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security/signals/notification_rules/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id)),
-    );
+    const localVarPath =
+      "/api/v2/security/signals/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -626,14 +680,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security/vulnerabilities/notification_rules/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id)),
-    );
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.deleteVulnerabilityNotificationRule")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.deleteVulnerabilityNotificationRule",
+      )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -657,7 +714,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
-      throw new RequiredError("signalId", "editSecurityMonitoringSignalAssignee");
+      throw new RequiredError(
+        "signalId",
+        "editSecurityMonitoringSignalAssignee",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -666,14 +726,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/signals/{signal_id}/assignee".replace(
-      "{signal_id}",
-      encodeURIComponent(String(signalId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/signals/{signal_id}/assignee".replace(
+        "{signal_id}",
+        encodeURIComponent(String(signalId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -684,7 +747,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringSignalAssigneeUpdateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringSignalAssigneeUpdateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -707,7 +774,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
-      throw new RequiredError("signalId", "editSecurityMonitoringSignalIncidents");
+      throw new RequiredError(
+        "signalId",
+        "editSecurityMonitoringSignalIncidents",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -716,14 +786,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/signals/{signal_id}/incidents".replace(
-      "{signal_id}",
-      encodeURIComponent(String(signalId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/signals/{signal_id}/incidents".replace(
+        "{signal_id}",
+        encodeURIComponent(String(signalId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalIncidents")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalIncidents",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -734,7 +807,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringSignalIncidentsUpdateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringSignalIncidentsUpdateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -766,14 +843,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/signals/{signal_id}/state".replace(
-      "{signal_id}",
-      encodeURIComponent(String(signalId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/signals/{signal_id}/state".replace(
+        "{signal_id}",
+        encodeURIComponent(String(signalId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalState")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalState",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -784,7 +864,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringSignalStateUpdateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringSignalStateUpdateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -816,10 +900,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/posture_management/findings/{finding_id}".replace(
-      "{finding_id}",
-      encodeURIComponent(String(findingId)),
-    );
+    const localVarPath =
+      "/api/v2/posture_management/findings/{finding_id}".replace(
+        "{finding_id}",
+        encodeURIComponent(String(findingId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -864,10 +949,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/siem-historical-detections/jobs/{job_id}".replace(
-      "{job_id}",
-      encodeURIComponent(String(jobId)),
-    );
+    const localVarPath =
+      "/api/v2/siem-historical-detections/jobs/{job_id}".replace(
+        "{job_id}",
+        encodeURIComponent(String(jobId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -905,10 +991,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/rules/{rule_id}/version_history".replace(
-      "{rule_id}",
-      encodeURIComponent(String(ruleId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/rules/{rule_id}/version_history".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -1017,10 +1104,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-      "{security_filter_id}",
-      encodeURIComponent(String(securityFilterId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
+        "{security_filter_id}",
+        encodeURIComponent(String(securityFilterId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -1085,10 +1173,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/signals/{signal_id}".replace(
-      "{signal_id}",
-      encodeURIComponent(String(signalId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/signals/{signal_id}".replace(
+        "{signal_id}",
+        encodeURIComponent(String(signalId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -1115,14 +1204,18 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'suppressionId' is not null or undefined
     if (suppressionId === null || suppressionId === undefined) {
-      throw new RequiredError("suppressionId", "getSecurityMonitoringSuppression");
+      throw new RequiredError(
+        "suppressionId",
+        "getSecurityMonitoringSuppression",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}".replace(
-      "{suppression_id}",
-      encodeURIComponent(String(suppressionId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}".replace(
+        "{suppression_id}",
+        encodeURIComponent(String(suppressionId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -1153,10 +1246,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security/signals/notification_rules/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id)),
-    );
+    const localVarPath =
+      "/api/v2/security/signals/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -1212,10 +1306,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security/vulnerabilities/notification_rules/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id)),
-    );
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -1244,7 +1339,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.getVulnerabilityNotificationRules")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.getVulnerabilityNotificationRules",
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1380,7 +1477,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterVulnerabilityType !== undefined) {
       requestContext.setQueryParam(
         "filter[vulnerability_type]",
-        ObjectSerializer.serialize(filterVulnerabilityType, "Array<FindingVulnerabilityType>", ""),
+        ObjectSerializer.serialize(
+          filterVulnerabilityType,
+          "Array<FindingVulnerabilityType>",
+          "",
+        ),
         "multi",
       );
     }
@@ -1465,7 +1566,8 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/security_filters";
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/security_filters";
 
     // Make Request Context
     const requestContext = _config
@@ -1608,11 +1710,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/suppressions";
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/suppressions";
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.listSecurityMonitoringSuppressions")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.listSecurityMonitoringSuppressions",
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1719,7 +1824,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterCvssBaseSeverity !== undefined) {
       requestContext.setQueryParam(
         "filter[cvss.base.severity]",
-        ObjectSerializer.serialize(filterCvssBaseSeverity, "VulnerabilitySeverity", ""),
+        ObjectSerializer.serialize(
+          filterCvssBaseSeverity,
+          "VulnerabilitySeverity",
+          "",
+        ),
         "",
       );
     }
@@ -1733,14 +1842,22 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterCvssDatadogScoreOp !== undefined) {
       requestContext.setQueryParam(
         "filter[cvss.datadog.score][`$op`]",
-        ObjectSerializer.serialize(filterCvssDatadogScoreOp, "number", "double"),
+        ObjectSerializer.serialize(
+          filterCvssDatadogScoreOp,
+          "number",
+          "double",
+        ),
         "",
       );
     }
     if (filterCvssDatadogSeverity !== undefined) {
       requestContext.setQueryParam(
         "filter[cvss.datadog.severity]",
-        ObjectSerializer.serialize(filterCvssDatadogSeverity, "VulnerabilitySeverity", ""),
+        ObjectSerializer.serialize(
+          filterCvssDatadogSeverity,
+          "VulnerabilitySeverity",
+          "",
+        ),
         "",
       );
     }
@@ -1789,14 +1906,22 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterRisksExploitationProbability !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.exploitation_probability]",
-        ObjectSerializer.serialize(filterRisksExploitationProbability, "boolean", ""),
+        ObjectSerializer.serialize(
+          filterRisksExploitationProbability,
+          "boolean",
+          "",
+        ),
         "",
       );
     }
     if (filterRisksPocExploitAvailable !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.poc_exploit_available]",
-        ObjectSerializer.serialize(filterRisksPocExploitAvailable, "boolean", ""),
+        ObjectSerializer.serialize(
+          filterRisksPocExploitAvailable,
+          "boolean",
+          "",
+        ),
         "",
       );
     }
@@ -1817,7 +1942,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterRisksEpssSeverity !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.epss.severity]",
-        ObjectSerializer.serialize(filterRisksEpssSeverity, "VulnerabilitySeverity", ""),
+        ObjectSerializer.serialize(
+          filterRisksEpssSeverity,
+          "VulnerabilitySeverity",
+          "",
+        ),
         "",
       );
     }
@@ -1831,7 +1960,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterEcosystem !== undefined) {
       requestContext.setQueryParam(
         "filter[ecosystem]",
-        ObjectSerializer.serialize(filterEcosystem, "VulnerabilityEcosystem", ""),
+        ObjectSerializer.serialize(
+          filterEcosystem,
+          "VulnerabilityEcosystem",
+          "",
+        ),
         "",
       );
     }
@@ -1922,21 +2055,33 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterAssetRisksIsPubliclyAccessible !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.risks.is_publicly_accessible]",
-        ObjectSerializer.serialize(filterAssetRisksIsPubliclyAccessible, "boolean", ""),
+        ObjectSerializer.serialize(
+          filterAssetRisksIsPubliclyAccessible,
+          "boolean",
+          "",
+        ),
         "",
       );
     }
     if (filterAssetRisksHasPrivilegedAccess !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.risks.has_privileged_access]",
-        ObjectSerializer.serialize(filterAssetRisksHasPrivilegedAccess, "boolean", ""),
+        ObjectSerializer.serialize(
+          filterAssetRisksHasPrivilegedAccess,
+          "boolean",
+          "",
+        ),
         "",
       );
     }
     if (filterAssetRisksHasAccessToSensitiveData !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.risks.has_access_to_sensitive_data]",
-        ObjectSerializer.serialize(filterAssetRisksHasAccessToSensitiveData, "boolean", ""),
+        ObjectSerializer.serialize(
+          filterAssetRisksHasAccessToSensitiveData,
+          "boolean",
+          "",
+        ),
         "",
       );
     }
@@ -1957,14 +2102,22 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterAssetOperatingSystemName !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.operating_system.name]",
-        ObjectSerializer.serialize(filterAssetOperatingSystemName, "string", ""),
+        ObjectSerializer.serialize(
+          filterAssetOperatingSystemName,
+          "string",
+          "",
+        ),
         "",
       );
     }
     if (filterAssetOperatingSystemVersion !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.operating_system.version]",
-        ObjectSerializer.serialize(filterAssetOperatingSystemVersion, "string", ""),
+        ObjectSerializer.serialize(
+          filterAssetOperatingSystemVersion,
+          "string",
+          "",
+        ),
         "",
       );
     }
@@ -2082,21 +2235,33 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterRisksIsPubliclyAccessible !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.is_publicly_accessible]",
-        ObjectSerializer.serialize(filterRisksIsPubliclyAccessible, "boolean", ""),
+        ObjectSerializer.serialize(
+          filterRisksIsPubliclyAccessible,
+          "boolean",
+          "",
+        ),
         "",
       );
     }
     if (filterRisksHasPrivilegedAccess !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.has_privileged_access]",
-        ObjectSerializer.serialize(filterRisksHasPrivilegedAccess, "boolean", ""),
+        ObjectSerializer.serialize(
+          filterRisksHasPrivilegedAccess,
+          "boolean",
+          "",
+        ),
         "",
       );
     }
     if (filterRisksHasAccessToSensitiveData !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.has_access_to_sensitive_data]",
-        ObjectSerializer.serialize(filterRisksHasAccessToSensitiveData, "boolean", ""),
+        ObjectSerializer.serialize(
+          filterRisksHasAccessToSensitiveData,
+          "boolean",
+          "",
+        ),
         "",
       );
     }
@@ -2203,10 +2368,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security/signals/notification_rules/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id)),
-    );
+    const localVarPath =
+      "/api/v2/security/signals/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -2254,14 +2420,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security/vulnerabilities/notification_rules/{id}".replace(
-      "{id}",
-      encodeURIComponent(String(id)),
-    );
+    const localVarPath =
+      "/api/v2/security/vulnerabilities/notification_rules/{id}".replace(
+        "{id}",
+        encodeURIComponent(String(id)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.patchVulnerabilityNotificationRule")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.patchVulnerabilityNotificationRule",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -2356,7 +2525,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringSignalListRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringSignalListRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2389,14 +2562,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/rules/{rule_id}/test".replace(
-      "{rule_id}",
-      encodeURIComponent(String(ruleId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/rules/{rule_id}/test".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.testExistingSecurityMonitoringRule")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.testExistingSecurityMonitoringRule",
+      )
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -2407,7 +2583,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringRuleTestRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringRuleTestRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2449,7 +2629,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringRuleTestRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringRuleTestRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2482,10 +2666,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-      "{security_filter_id}",
-      encodeURIComponent(String(securityFilterId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
+        "{security_filter_id}",
+        encodeURIComponent(String(securityFilterId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -2551,7 +2736,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringRuleUpdatePayload", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringRuleUpdatePayload",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2575,7 +2764,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'suppressionId' is not null or undefined
     if (suppressionId === null || suppressionId === undefined) {
-      throw new RequiredError("suppressionId", "updateSecurityMonitoringSuppression");
+      throw new RequiredError(
+        "suppressionId",
+        "updateSecurityMonitoringSuppression",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -2584,14 +2776,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}".replace(
-      "{suppression_id}",
-      encodeURIComponent(String(suppressionId)),
-    );
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}".replace(
+        "{suppression_id}",
+        encodeURIComponent(String(suppressionId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.updateSecurityMonitoringSuppression")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.updateSecurityMonitoringSuppression",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -2602,7 +2797,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringSuppressionUpdateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringSuppressionUpdateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2644,7 +2843,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SecurityMonitoringRuleValidatePayload", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "SecurityMonitoringRuleValidatePayload",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2668,9 +2871,7 @@ export class SecurityMonitoringApiResponseProcessor {
    * @params response Response returned by the server for a request to cancelHistoricalJob
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async cancelHistoricalJob(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async cancelHistoricalJob(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -2702,10 +2903,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2734,10 +2932,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringRuleConvertResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringRuleConvertResponse",
-      ) as SecurityMonitoringRuleConvertResponse;
+      const body: SecurityMonitoringRuleConvertResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleConvertResponse",
+        ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
     if (
@@ -2763,19 +2962,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleConvertResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringRuleConvertResponse",
-        "",
-      ) as SecurityMonitoringRuleConvertResponse;
+      const body: SecurityMonitoringRuleConvertResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleConvertResponse",
+          "",
+        ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
 
@@ -2826,10 +3023,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2858,10 +3052,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringRuleConvertResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringRuleConvertResponse",
-      ) as SecurityMonitoringRuleConvertResponse;
+      const body: SecurityMonitoringRuleConvertResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleConvertResponse",
+        ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
     if (
@@ -2888,19 +3083,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleConvertResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringRuleConvertResponse",
-        "",
-      ) as SecurityMonitoringRuleConvertResponse;
+      const body: SecurityMonitoringRuleConvertResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleConvertResponse",
+          "",
+        ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
 
@@ -2954,10 +3147,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3019,10 +3209,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3056,10 +3243,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSuppressionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSuppressionResponse",
-      ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionResponse",
+        ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
     if (
@@ -3085,19 +3273,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSuppressionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSuppressionResponse",
-        "",
-      ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionResponse",
+          "",
+        ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
 
@@ -3150,10 +3336,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3215,10 +3398,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3245,9 +3425,7 @@ export class SecurityMonitoringApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteHistoricalJob
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteHistoricalJob(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteHistoricalJob(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -3279,10 +3457,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3304,9 +3479,7 @@ export class SecurityMonitoringApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteSecurityFilter(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteSecurityFilter(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -3335,10 +3508,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3391,10 +3561,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3447,10 +3614,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3503,10 +3667,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3559,10 +3720,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3591,10 +3749,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalTriageUpdateResponse",
-      ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
     if (
@@ -3620,19 +3779,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalTriageUpdateResponse",
-        "",
-      ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+          "",
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
 
@@ -3657,10 +3814,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalTriageUpdateResponse",
-      ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
     if (
@@ -3686,19 +3844,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalTriageUpdateResponse",
-        "",
-      ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+          "",
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
 
@@ -3723,10 +3879,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalTriageUpdateResponse",
-      ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
     if (
@@ -3752,19 +3909,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalTriageUpdateResponse",
-        "",
-      ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+          "",
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
 
@@ -3884,10 +4039,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3950,10 +4102,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3980,9 +4129,7 @@ export class SecurityMonitoringApiResponseProcessor {
    * @params response Response returned by the server for a request to getSBOM
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSBOM(
-    response: ResponseContext,
-  ): Promise<GetSBOMResponse> {
+  public async getSBOM(response: ResponseContext): Promise<GetSBOMResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -4038,10 +4185,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4103,10 +4247,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4146,10 +4287,7 @@ export class SecurityMonitoringApiResponseProcessor {
       ) as SecurityMonitoringRuleResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -4167,10 +4305,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4204,16 +4339,14 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalResponse",
-      ) as SecurityMonitoringSignalResponse;
+      const body: SecurityMonitoringSignalResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalResponse",
+        ) as SecurityMonitoringSignalResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -4231,19 +4364,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalResponse",
-        "",
-      ) as SecurityMonitoringSignalResponse;
+      const body: SecurityMonitoringSignalResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalResponse",
+          "",
+        ) as SecurityMonitoringSignalResponse;
       return body;
     }
 
@@ -4268,10 +4399,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSuppressionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSuppressionResponse",
-      ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionResponse",
+        ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
     if (
@@ -4296,19 +4428,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSuppressionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSuppressionResponse",
-        "",
-      ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionResponse",
+          "",
+        ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
 
@@ -4362,10 +4492,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4405,10 +4532,7 @@ export class SecurityMonitoringApiResponseProcessor {
       ) as None;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -4426,10 +4550,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4492,10 +4613,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4535,10 +4653,7 @@ export class SecurityMonitoringApiResponseProcessor {
       ) as None;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -4556,10 +4671,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4687,10 +4799,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4730,10 +4839,7 @@ export class SecurityMonitoringApiResponseProcessor {
       ) as SecurityFiltersResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -4751,10 +4857,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -4788,16 +4891,14 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringListRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringListRulesResponse",
-      ) as SecurityMonitoringListRulesResponse;
+      const body: SecurityMonitoringListRulesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringListRulesResponse",
+        ) as SecurityMonitoringListRulesResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -4815,19 +4916,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringListRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringListRulesResponse",
-        "",
-      ) as SecurityMonitoringListRulesResponse;
+      const body: SecurityMonitoringListRulesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringListRulesResponse",
+          "",
+        ) as SecurityMonitoringListRulesResponse;
       return body;
     }
 
@@ -4852,10 +4951,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalsListResponse",
-      ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse",
+        ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
     if (
@@ -4880,19 +4980,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalsListResponse",
-        "",
-      ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse",
+          "",
+        ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
 
@@ -4917,16 +5015,14 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSuppressionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSuppressionsResponse",
-      ) as SecurityMonitoringSuppressionsResponse;
+      const body: SecurityMonitoringSuppressionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionsResponse",
+        ) as SecurityMonitoringSuppressionsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -4944,19 +5040,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSuppressionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSuppressionsResponse",
-        "",
-      ) as SecurityMonitoringSuppressionsResponse;
+      const body: SecurityMonitoringSuppressionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionsResponse",
+          "",
+        ) as SecurityMonitoringSuppressionsResponse;
       return body;
     }
 
@@ -5032,10 +5126,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5120,10 +5211,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5253,10 +5341,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
@@ -5342,10 +5427,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
@@ -5432,10 +5514,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5469,10 +5548,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalsListResponse",
-      ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse",
+        ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
     if (
@@ -5497,19 +5577,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignalsListResponse",
-        "",
-      ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalsListResponse",
+          "",
+        ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
 
@@ -5534,10 +5612,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringRuleTestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringRuleTestResponse",
-      ) as SecurityMonitoringRuleTestResponse;
+      const body: SecurityMonitoringRuleTestResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleTestResponse",
+        ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
     if (
@@ -5564,19 +5643,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleTestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringRuleTestResponse",
-        "",
-      ) as SecurityMonitoringRuleTestResponse;
+      const body: SecurityMonitoringRuleTestResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleTestResponse",
+          "",
+        ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
 
@@ -5601,10 +5678,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringRuleTestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringRuleTestResponse",
-      ) as SecurityMonitoringRuleTestResponse;
+      const body: SecurityMonitoringRuleTestResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleTestResponse",
+        ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
     if (
@@ -5631,19 +5709,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleTestResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringRuleTestResponse",
-        "",
-      ) as SecurityMonitoringRuleTestResponse;
+      const body: SecurityMonitoringRuleTestResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleTestResponse",
+          "",
+        ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
 
@@ -5698,10 +5774,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5765,10 +5838,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -5802,10 +5872,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSuppressionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSuppressionResponse",
-      ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionResponse",
+        ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
     if (
@@ -5832,19 +5903,17 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSuppressionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSuppressionResponse",
-        "",
-      ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSuppressionResponse",
+          "",
+        ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
 
@@ -5893,10 +5962,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -6601,14 +6667,14 @@ export interface SecurityMonitoringApiListVulnerableAssetsRequest {
 export interface SecurityMonitoringApiMuteFindingsRequest {
   /**
    * ### Attributes
-   * 
+   *
    * All findings are updated with the same attributes. The request body must include at least two attributes: `muted` and `reason`.
    * The allowed reasons depend on whether the finding is being muted or unmuted:
    *   - To mute a finding: `PENDING_FIX`, `FALSE_POSITIVE`, `ACCEPTED_RISK`, `OTHER`.
    *   - To unmute a finding : `NO_PENDING_FIX`, `HUMAN_ERROR`, `NO_LONGER_ACCEPTED_RISK`, `OTHER`.
-   * 
+   *
    * ### Meta
-   * 
+   *
    * The request body must include a list of the finding IDs to be updated.
    * @type BulkMuteFindingsRequest
    */
@@ -6765,15 +6831,18 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringRuleConvertResponse> {
-    const requestContextPromise = this.requestFactory.convertExistingSecurityMonitoringRule(
-      param.ruleId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.convertExistingSecurityMonitoringRule(
+        param.ruleId,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.convertExistingSecurityMonitoringRule(responseContext);
+          return this.responseProcessor.convertExistingSecurityMonitoringRule(
+            responseContext,
+          );
         });
     });
   }
@@ -6794,7 +6863,9 @@ export class SecurityMonitoringApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.convertJobResultToSignal(responseContext);
+          return this.responseProcessor.convertJobResultToSignal(
+            responseContext,
+          );
         });
     });
   }
@@ -6808,22 +6879,25 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringRuleConvertResponse> {
-    const requestContextPromise = this.requestFactory.convertSecurityMonitoringRuleFromJSONToTerraform(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.convertSecurityMonitoringRuleFromJSONToTerraform(
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.convertSecurityMonitoringRuleFromJSONToTerraform(responseContext);
+          return this.responseProcessor.convertSecurityMonitoringRuleFromJSONToTerraform(
+            responseContext,
+          );
         });
     });
   }
 
   /**
    * Create a security filter.
-   * 
+   *
    * See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
    * for more examples.
    * @param param The request object
@@ -6853,15 +6927,15 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringRuleResponse> {
-    const requestContextPromise = this.requestFactory.createSecurityMonitoringRule(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createSecurityMonitoringRule(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSecurityMonitoringRule(responseContext);
+          return this.responseProcessor.createSecurityMonitoringRule(
+            responseContext,
+          );
         });
     });
   }
@@ -6874,15 +6948,18 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringSuppressionResponse> {
-    const requestContextPromise = this.requestFactory.createSecurityMonitoringSuppression(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createSecurityMonitoringSuppression(
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSecurityMonitoringSuppression(responseContext);
+          return this.responseProcessor.createSecurityMonitoringSuppression(
+            responseContext,
+          );
         });
     });
   }
@@ -6895,15 +6972,15 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiCreateSignalNotificationRuleRequest,
     options?: Configuration,
   ): Promise<NotificationRuleResponse> {
-    const requestContextPromise = this.requestFactory.createSignalNotificationRule(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createSignalNotificationRule(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createSignalNotificationRule(responseContext);
+          return this.responseProcessor.createSignalNotificationRule(
+            responseContext,
+          );
         });
     });
   }
@@ -6916,15 +6993,18 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
     options?: Configuration,
   ): Promise<NotificationRuleResponse> {
-    const requestContextPromise = this.requestFactory.createVulnerabilityNotificationRule(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createVulnerabilityNotificationRule(
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createVulnerabilityNotificationRule(responseContext);
+          return this.responseProcessor.createVulnerabilityNotificationRule(
+            responseContext,
+          );
         });
     });
   }
@@ -6979,15 +7059,15 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteSecurityMonitoringRule(
-      param.ruleId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityMonitoringRule(param.ruleId, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteSecurityMonitoringRule(responseContext);
+          return this.responseProcessor.deleteSecurityMonitoringRule(
+            responseContext,
+          );
         });
     });
   }
@@ -7000,15 +7080,18 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteSecurityMonitoringSuppression(
-      param.suppressionId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityMonitoringSuppression(
+        param.suppressionId,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteSecurityMonitoringSuppression(responseContext);
+          return this.responseProcessor.deleteSecurityMonitoringSuppression(
+            responseContext,
+          );
         });
     });
   }
@@ -7021,15 +7104,15 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiDeleteSignalNotificationRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteSignalNotificationRule(
-      param.id,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteSignalNotificationRule(param.id, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteSignalNotificationRule(responseContext);
+          return this.responseProcessor.deleteSignalNotificationRule(
+            responseContext,
+          );
         });
     });
   }
@@ -7042,15 +7125,18 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiDeleteVulnerabilityNotificationRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteVulnerabilityNotificationRule(
-      param.id,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteVulnerabilityNotificationRule(
+        param.id,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteVulnerabilityNotificationRule(responseContext);
+          return this.responseProcessor.deleteVulnerabilityNotificationRule(
+            responseContext,
+          );
         });
     });
   }
@@ -7063,16 +7149,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
-    const requestContextPromise = this.requestFactory.editSecurityMonitoringSignalAssignee(
-      param.signalId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.editSecurityMonitoringSignalAssignee(
+        param.signalId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.editSecurityMonitoringSignalAssignee(responseContext);
+          return this.responseProcessor.editSecurityMonitoringSignalAssignee(
+            responseContext,
+          );
         });
     });
   }
@@ -7085,16 +7174,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
-    const requestContextPromise = this.requestFactory.editSecurityMonitoringSignalIncidents(
-      param.signalId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.editSecurityMonitoringSignalIncidents(
+        param.signalId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.editSecurityMonitoringSignalIncidents(responseContext);
+          return this.responseProcessor.editSecurityMonitoringSignalIncidents(
+            responseContext,
+          );
         });
     });
   }
@@ -7107,16 +7199,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
-    const requestContextPromise = this.requestFactory.editSecurityMonitoringSignalState(
-      param.signalId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.editSecurityMonitoringSignalState(
+        param.signalId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.editSecurityMonitoringSignalState(responseContext);
+          return this.responseProcessor.editSecurityMonitoringSignalState(
+            responseContext,
+          );
         });
     });
   }
@@ -7212,7 +7307,7 @@ export class SecurityMonitoringApi {
 
   /**
    * Get the details of a specific security filter.
-   * 
+   *
    * See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
    * for more examples.
    * @param param The request object
@@ -7250,7 +7345,9 @@ export class SecurityMonitoringApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSecurityMonitoringRule(responseContext);
+          return this.responseProcessor.getSecurityMonitoringRule(
+            responseContext,
+          );
         });
     });
   }
@@ -7263,15 +7360,15 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringSignalResponse> {
-    const requestContextPromise = this.requestFactory.getSecurityMonitoringSignal(
-      param.signalId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringSignal(param.signalId, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSecurityMonitoringSignal(responseContext);
+          return this.responseProcessor.getSecurityMonitoringSignal(
+            responseContext,
+          );
         });
     });
   }
@@ -7284,15 +7381,18 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringSuppressionResponse> {
-    const requestContextPromise = this.requestFactory.getSecurityMonitoringSuppression(
-      param.suppressionId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringSuppression(
+        param.suppressionId,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSecurityMonitoringSuppression(responseContext);
+          return this.responseProcessor.getSecurityMonitoringSuppression(
+            responseContext,
+          );
         });
     });
   }
@@ -7313,7 +7413,9 @@ export class SecurityMonitoringApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSignalNotificationRule(responseContext);
+          return this.responseProcessor.getSignalNotificationRule(
+            responseContext,
+          );
         });
     });
   }
@@ -7322,16 +7424,16 @@ export class SecurityMonitoringApi {
    * Returns the list of notification rules for security signals.
    * @param param The request object
    */
-  public getSignalNotificationRules(options?: Configuration,
-  ): Promise<None> {
-    const requestContextPromise = this.requestFactory.getSignalNotificationRules(
-      options,
-    );
+  public getSignalNotificationRules(options?: Configuration): Promise<None> {
+    const requestContextPromise =
+      this.requestFactory.getSignalNotificationRules(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getSignalNotificationRules(responseContext);
+          return this.responseProcessor.getSignalNotificationRules(
+            responseContext,
+          );
         });
     });
   }
@@ -7344,15 +7446,15 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
     options?: Configuration,
   ): Promise<NotificationRuleResponse> {
-    const requestContextPromise = this.requestFactory.getVulnerabilityNotificationRule(
-      param.id,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getVulnerabilityNotificationRule(param.id, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getVulnerabilityNotificationRule(responseContext);
+          return this.responseProcessor.getVulnerabilityNotificationRule(
+            responseContext,
+          );
         });
     });
   }
@@ -7361,49 +7463,51 @@ export class SecurityMonitoringApi {
    * Returns the list of notification rules for security vulnerabilities.
    * @param param The request object
    */
-  public getVulnerabilityNotificationRules(options?: Configuration,
+  public getVulnerabilityNotificationRules(
+    options?: Configuration,
   ): Promise<None> {
-    const requestContextPromise = this.requestFactory.getVulnerabilityNotificationRules(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getVulnerabilityNotificationRules(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getVulnerabilityNotificationRules(responseContext);
+          return this.responseProcessor.getVulnerabilityNotificationRules(
+            responseContext,
+          );
         });
     });
   }
 
   /**
    * Get a list of findings. These include both misconfigurations and identity risks.
-   * 
+   *
    * **Note**: To filter and return only identity risks, add the following query parameter: `?filter[tags]=dd_rule_type:ciem`
-   * 
+   *
    * ### Filtering
-   * 
+   *
    * Filters can be applied by appending query parameters to the URL.
-   * 
+   *
    *   - Using a single filter: `?filter[attribute_key]=attribute_value`
    *   - Chaining filters: `?filter[attribute_key]=attribute_value&filter[attribute_key]=attribute_value...`
    *   - Filtering on tags: `?filter[tags]=tag_key:tag_value&filter[tags]=tag_key_2:tag_value_2`
-   * 
+   *
    * Here, `attribute_key` can be any of the filter keys described further below.
-   * 
+   *
    * Query parameters of type `integer` support comparison operators (`>`, `>=`, `<`, `<=`). This is particularly useful when filtering by `evaluation_changed_at` or `resource_discovery_timestamp`. For example: `?filter[evaluation_changed_at]=>20123123121`.
-   * 
+   *
    * You can also use the negation operator on strings. For example, use `filter[resource_type]=-aws*` to filter for any non-AWS resources.
-   * 
+   *
    * The operator must come after the equal sign. For example, to filter with the `>=` operator, add the operator after the equal sign: `filter[evaluation_changed_at]=>=1678809373257`.
-   * 
+   *
    * Query parameters must be only among the documented ones and with values of correct types. Duplicated query parameters (e.g. `filter[status]=low&filter[status]=info`) are not allowed.
-   * 
+   *
    * ### Response
-   * 
+   *
    * The response includes an array of finding objects, pagination metadata, and a count of items that match the query.
-   * 
+   *
    * Each finding object contains the following:
-   * 
+   *
    * - The finding ID that can be used in a `GetFinding` request to retrieve the full finding details.
    * - Core attributes, including status, evaluation, high-level resource details, muted state, and rule details.
    * - `evaluation_changed_at` and `resource_discovery_date` time stamps.
@@ -7443,19 +7547,36 @@ export class SecurityMonitoringApi {
    * Provide a paginated version of listFindings returning a generator with all the items.
    */
   public async *listFindingsWithPagination(
-    param: SecurityMonitoringApiListFindingsRequest = {}, options?: Configuration,
+    param: SecurityMonitoringApiListFindingsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<Finding> {
-
     let pageSize = 100;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listFindings(param.pageLimit,param.snapshotTimestamp,param.pageCursor,param.filterTags,param.filterEvaluationChangedAt,param.filterMuted,param.filterRuleId,param.filterRuleName,param.filterResourceType,param.filterDiscoveryTimestamp,param.filterEvaluation,param.filterStatus,param.filterVulnerabilityType,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listFindings(
+        param.pageLimit,
+        param.snapshotTimestamp,
+        param.pageCursor,
+        param.filterTags,
+        param.filterEvaluationChangedAt,
+        param.filterMuted,
+        param.filterRuleId,
+        param.filterRuleName,
+        param.filterResourceType,
+        param.filterDiscoveryTimestamp,
+        param.filterEvaluation,
+        param.filterStatus,
+        param.filterVulnerabilityType,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listFindings(responseContext);
+      const response =
+        await this.responseProcessor.listFindings(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -7512,11 +7633,11 @@ export class SecurityMonitoringApi {
    * Get the list of configured security filters with their definitions.
    * @param param The request object
    */
-  public listSecurityFilters(options?: Configuration,
+  public listSecurityFilters(
+    options?: Configuration,
   ): Promise<SecurityFiltersResponse> {
-    const requestContextPromise = this.requestFactory.listSecurityFilters(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listSecurityFilters(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -7534,16 +7655,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiListSecurityMonitoringRulesRequest = {},
     options?: Configuration,
   ): Promise<SecurityMonitoringListRulesResponse> {
-    const requestContextPromise = this.requestFactory.listSecurityMonitoringRules(
-      param.pageSize,
-      param.pageNumber,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringRules(
+        param.pageSize,
+        param.pageNumber,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listSecurityMonitoringRules(responseContext);
+          return this.responseProcessor.listSecurityMonitoringRules(
+            responseContext,
+          );
         });
     });
   }
@@ -7558,20 +7682,23 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {},
     options?: Configuration,
   ): Promise<SecurityMonitoringSignalsListResponse> {
-    const requestContextPromise = this.requestFactory.listSecurityMonitoringSignals(
-      param.filterQuery,
-      param.filterFrom,
-      param.filterTo,
-      param.sort,
-      param.pageCursor,
-      param.pageLimit,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringSignals(
+        param.filterQuery,
+        param.filterFrom,
+        param.filterTo,
+        param.sort,
+        param.pageCursor,
+        param.pageLimit,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listSecurityMonitoringSignals(responseContext);
+          return this.responseProcessor.listSecurityMonitoringSignals(
+            responseContext,
+          );
         });
     });
   }
@@ -7580,19 +7707,32 @@ export class SecurityMonitoringApi {
    * Provide a paginated version of listSecurityMonitoringSignals returning a generator with all the items.
    */
   public async *listSecurityMonitoringSignalsWithPagination(
-    param: SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {}, options?: Configuration,
+    param: SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<SecurityMonitoringSignal> {
-
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listSecurityMonitoringSignals(param.filterQuery,param.filterFrom,param.filterTo,param.sort,param.pageCursor,param.pageLimit,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext =
+        await this.requestFactory.listSecurityMonitoringSignals(
+          param.filterQuery,
+          param.filterFrom,
+          param.filterTo,
+          param.sort,
+          param.pageCursor,
+          param.pageLimit,
+          options,
+        );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listSecurityMonitoringSignals(responseContext);
+      const response =
+        await this.responseProcessor.listSecurityMonitoringSignals(
+          responseContext,
+        );
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -7625,29 +7765,31 @@ export class SecurityMonitoringApi {
    * Get the list of all suppression rules.
    * @param param The request object
    */
-  public listSecurityMonitoringSuppressions(options?: Configuration,
+  public listSecurityMonitoringSuppressions(
+    options?: Configuration,
   ): Promise<SecurityMonitoringSuppressionsResponse> {
-    const requestContextPromise = this.requestFactory.listSecurityMonitoringSuppressions(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringSuppressions(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listSecurityMonitoringSuppressions(responseContext);
+          return this.responseProcessor.listSecurityMonitoringSuppressions(
+            responseContext,
+          );
         });
     });
   }
 
   /**
    * Get a list of vulnerabilities.
-   * 
+   *
    * ### Pagination
-   * 
+   *
    * Pagination is enabled by default in both `vulnerabilities` and `assets`. The size of the page varies depending on the endpoint and cannot be modified. To automate the request of the next page, you can use the links section in the response.
-   * 
+   *
    * This endpoint will return paginated responses. The pages are stored in the links section of the response:
-   * 
+   *
    * ```JSON
    * {
    *   "data": [...],
@@ -7660,55 +7802,55 @@ export class SecurityMonitoringApi {
    *   }
    * }
    * ```
-   * 
-   * 
+   *
+   *
    * - `links.previous` is empty if the first page is requested.
    * - `links.next` is empty if the last page is requested.
-   * 
+   *
    * #### Token
-   * 
+   *
    * Vulnerabilities can be created, updated or deleted at any point in time.
-   * 
+   *
    * Upon the first request, a token is created to ensure consistency across subsequent paginated requests.
-   * 
+   *
    * A token is valid only for 24 hours.
-   * 
+   *
    * #### First request
-   * 
+   *
    * We consider a request to be the first request when there is no `page[token]` parameter.
-   * 
+   *
    * The response of this first request contains the newly created token in the `links` section.
-   * 
+   *
    * This token can then be used in the subsequent paginated requests.
-   * 
+   *
    * #### Subsequent requests
-   * 
+   *
    * Any request containing valid `page[token]` and `page[number]` parameters will be considered a subsequent request.
-   * 
+   *
    * If the `token` is invalid, a `404` response will be returned.
-   * 
+   *
    * If the page `number` is invalid, a `400` response will be returned.
-   * 
+   *
    * ### Filtering
-   * 
+   *
    * The request can include some filter parameters to filter the data to be retrieved. The format of the filter parameters follows the [JSON:API format](https://jsonapi.org/format/#fetching-filtering): `filter[$prop_name]`, where `prop_name` is the property name in the entity being filtered by.
-   * 
+   *
    * All filters can include multiple values, where data will be filtered with an OR clause: `filter[title]=Title1,Title2` will filter all vulnerabilities where title is equal to `Title1` OR `Title2`.
-   * 
+   *
    * String filters are case sensitive.
-   * 
+   *
    * Boolean filters accept `true` or `false` as values.
-   * 
+   *
    * Number filters must include an operator as a second filter input: `filter[$prop_name][$operator]`. For example, for the vulnerabilities endpoint: `filter[cvss.base.score][lte]=8`.
-   * 
+   *
    * Available operators are: `eq` (==), `lt` (<), `lte` (<=), `gt` (>) and `gte` (>=).
-   * 
+   *
    * ### Metadata
-   * 
+   *
    * Following [JSON:API format](https://jsonapi.org/format/#document-meta), object including non-standard meta-information.
-   * 
+   *
    * This endpoint includes the meta member in the response. For more details on each of the properties included in this section, check the endpoints response tables.
-   * 
+   *
    * ```JSON
    * {
    *   "data": [...],
@@ -7780,17 +7922,17 @@ export class SecurityMonitoringApi {
 
   /**
    * Get a list of vulnerable assets.
-   * 
+   *
    * ### Pagination
-   * 
+   *
    * Please review the [Pagination section for the "List Vulnerabilities"](#pagination) endpoint.
-   * 
+   *
    * ### Filtering
-   * 
+   *
    * Please review the [Filtering section for the "List Vulnerabilities"](#filtering) endpoint.
-   * 
+   *
    * ### Metadata
-   * 
+   *
    * Please review the [Metadata section for the "List Vulnerabilities"](#metadata) endpoint.
    * @param param The request object
    */
@@ -7855,16 +7997,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiPatchSignalNotificationRuleRequest,
     options?: Configuration,
   ): Promise<NotificationRuleResponse> {
-    const requestContextPromise = this.requestFactory.patchSignalNotificationRule(
-      param.id,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.patchSignalNotificationRule(
+        param.id,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.patchSignalNotificationRule(responseContext);
+          return this.responseProcessor.patchSignalNotificationRule(
+            responseContext,
+          );
         });
     });
   }
@@ -7877,16 +8022,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
     options?: Configuration,
   ): Promise<NotificationRuleResponse> {
-    const requestContextPromise = this.requestFactory.patchVulnerabilityNotificationRule(
-      param.id,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.patchVulnerabilityNotificationRule(
+        param.id,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.patchVulnerabilityNotificationRule(responseContext);
+          return this.responseProcessor.patchVulnerabilityNotificationRule(
+            responseContext,
+          );
         });
     });
   }
@@ -7922,15 +8070,15 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {},
     options?: Configuration,
   ): Promise<SecurityMonitoringSignalsListResponse> {
-    const requestContextPromise = this.requestFactory.searchSecurityMonitoringSignals(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.searchSecurityMonitoringSignals(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.searchSecurityMonitoringSignals(responseContext);
+          return this.responseProcessor.searchSecurityMonitoringSignals(
+            responseContext,
+          );
         });
     });
   }
@@ -7939,9 +8087,9 @@ export class SecurityMonitoringApi {
    * Provide a paginated version of searchSecurityMonitoringSignals returning a generator with all the items.
    */
   public async *searchSecurityMonitoringSignalsWithPagination(
-    param: SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {}, options?: Configuration,
+    param: SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<SecurityMonitoringSignal> {
-
     let pageSize = 10;
     if (param.body === undefined) {
       param.body = new SecurityMonitoringSignalListRequest();
@@ -7954,10 +8102,18 @@ export class SecurityMonitoringApi {
     }
     param.body.page.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.searchSecurityMonitoringSignals(param.body,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext =
+        await this.requestFactory.searchSecurityMonitoringSignals(
+          param.body,
+          options,
+        );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchSecurityMonitoringSignals(responseContext);
+      const response =
+        await this.responseProcessor.searchSecurityMonitoringSignals(
+          responseContext,
+        );
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -7994,16 +8150,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringRuleTestResponse> {
-    const requestContextPromise = this.requestFactory.testExistingSecurityMonitoringRule(
-      param.ruleId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.testExistingSecurityMonitoringRule(
+        param.ruleId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.testExistingSecurityMonitoringRule(responseContext);
+          return this.responseProcessor.testExistingSecurityMonitoringRule(
+            responseContext,
+          );
         });
     });
   }
@@ -8016,15 +8175,15 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringRuleTestResponse> {
-    const requestContextPromise = this.requestFactory.testSecurityMonitoringRule(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.testSecurityMonitoringRule(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.testSecurityMonitoringRule(responseContext);
+          return this.responseProcessor.testSecurityMonitoringRule(
+            responseContext,
+          );
         });
     });
   }
@@ -8063,16 +8222,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringRuleResponse> {
-    const requestContextPromise = this.requestFactory.updateSecurityMonitoringRule(
-      param.ruleId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.updateSecurityMonitoringRule(
+        param.ruleId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateSecurityMonitoringRule(responseContext);
+          return this.responseProcessor.updateSecurityMonitoringRule(
+            responseContext,
+          );
         });
     });
   }
@@ -8085,16 +8247,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
     options?: Configuration,
   ): Promise<SecurityMonitoringSuppressionResponse> {
-    const requestContextPromise = this.requestFactory.updateSecurityMonitoringSuppression(
-      param.suppressionId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.updateSecurityMonitoringSuppression(
+        param.suppressionId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateSecurityMonitoringSuppression(responseContext);
+          return this.responseProcessor.updateSecurityMonitoringSuppression(
+            responseContext,
+          );
         });
     });
   }
@@ -8107,15 +8272,15 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiValidateSecurityMonitoringRuleRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.validateSecurityMonitoringRule(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.validateSecurityMonitoringRule(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.validateSecurityMonitoringRule(responseContext);
+          return this.responseProcessor.validateSecurityMonitoringRule(
+            responseContext,
+          );
         });
     });
   }

@@ -563,10 +563,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -628,10 +625,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -658,9 +652,7 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createAWSTagFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createAWSTagFilter(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async createAWSTagFilter(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -693,10 +685,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -758,10 +747,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -788,9 +774,7 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAWSAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAWSAccount(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async deleteAWSAccount(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -824,10 +808,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -889,10 +870,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -919,9 +897,7 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAWSTagFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAWSTagFilter(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async deleteAWSTagFilter(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -954,10 +930,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -997,10 +970,7 @@ export class AWSIntegrationApiResponseProcessor {
       ) as Array<string>;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -1018,10 +988,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1083,10 +1050,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1148,10 +1112,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1213,10 +1174,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1243,9 +1201,7 @@ export class AWSIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAWSAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateAWSAccount(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async updateAWSAccount(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1279,10 +1235,7 @@ export class AWSIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1425,8 +1378,7 @@ export class AWSIntegrationApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new AWSIntegrationApiRequestFactory(this.configuration);
+      requestFactory || new AWSIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AWSIntegrationApiResponseProcessor();
   }
@@ -1463,15 +1415,15 @@ export class AWSIntegrationApi {
     param: AWSIntegrationApiCreateAWSEventBridgeSourceRequest,
     options?: Configuration,
   ): Promise<AWSEventBridgeCreateResponse> {
-    const requestContextPromise = this.requestFactory.createAWSEventBridgeSource(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createAWSEventBridgeSource(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createAWSEventBridgeSource(responseContext);
+          return this.responseProcessor.createAWSEventBridgeSource(
+            responseContext,
+          );
         });
     });
   }
@@ -1547,15 +1499,15 @@ export class AWSIntegrationApi {
     param: AWSIntegrationApiDeleteAWSEventBridgeSourceRequest,
     options?: Configuration,
   ): Promise<AWSEventBridgeDeleteResponse> {
-    const requestContextPromise = this.requestFactory.deleteAWSEventBridgeSource(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteAWSEventBridgeSource(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteAWSEventBridgeSource(responseContext);
+          return this.responseProcessor.deleteAWSEventBridgeSource(
+            responseContext,
+          );
         });
     });
   }
@@ -1585,16 +1537,18 @@ export class AWSIntegrationApi {
    * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
    * @param param The request object
    */
-  public listAvailableAWSNamespaces(options?: Configuration,
+  public listAvailableAWSNamespaces(
+    options?: Configuration,
   ): Promise<Array<string>> {
-    const requestContextPromise = this.requestFactory.listAvailableAWSNamespaces(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listAvailableAWSNamespaces(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAvailableAWSNamespaces(responseContext);
+          return this.responseProcessor.listAvailableAWSNamespaces(
+            responseContext,
+          );
         });
     });
   }
@@ -1626,16 +1580,18 @@ export class AWSIntegrationApi {
    * Get all Amazon EventBridge sources.
    * @param param The request object
    */
-  public listAWSEventBridgeSources(options?: Configuration,
+  public listAWSEventBridgeSources(
+    options?: Configuration,
   ): Promise<AWSEventBridgeListResponse> {
-    const requestContextPromise = this.requestFactory.listAWSEventBridgeSources(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listAWSEventBridgeSources(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAWSEventBridgeSources(responseContext);
+          return this.responseProcessor.listAWSEventBridgeSources(
+            responseContext,
+          );
         });
     });
   }

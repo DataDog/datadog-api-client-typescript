@@ -46,8 +46,10 @@ const enumsMap: { [key: string]: any[] } = {
 
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
-  MonitorConfigPolicyAttributeCreateRequest: MonitorConfigPolicyAttributeCreateRequest,
-  MonitorConfigPolicyAttributeEditRequest: MonitorConfigPolicyAttributeEditRequest,
+  MonitorConfigPolicyAttributeCreateRequest:
+    MonitorConfigPolicyAttributeCreateRequest,
+  MonitorConfigPolicyAttributeEditRequest:
+    MonitorConfigPolicyAttributeEditRequest,
   MonitorConfigPolicyAttributeResponse: MonitorConfigPolicyAttributeResponse,
   MonitorConfigPolicyCreateData: MonitorConfigPolicyCreateData,
   MonitorConfigPolicyCreateRequest: MonitorConfigPolicyCreateRequest,
@@ -57,7 +59,8 @@ const typeMap: { [index: string]: any } = {
   MonitorConfigPolicyResponse: MonitorConfigPolicyResponse,
   MonitorConfigPolicyResponseData: MonitorConfigPolicyResponseData,
   MonitorConfigPolicyTagPolicy: MonitorConfigPolicyTagPolicy,
-  MonitorConfigPolicyTagPolicyCreateRequest: MonitorConfigPolicyTagPolicyCreateRequest,
+  MonitorConfigPolicyTagPolicyCreateRequest:
+    MonitorConfigPolicyTagPolicyCreateRequest,
 };
 
 const oneOfMap: { [index: string]: string[] } = {

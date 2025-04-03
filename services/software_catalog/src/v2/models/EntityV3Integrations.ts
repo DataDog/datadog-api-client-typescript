@@ -31,7 +31,7 @@ export class EntityV3Integrations {
     pagerduty: {
       baseName: "pagerduty",
       type: "EntityV3DatadogIntegrationPagerduty",
-    }
+    },
   };
 
   /**

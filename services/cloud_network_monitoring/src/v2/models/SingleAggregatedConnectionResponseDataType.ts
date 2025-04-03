@@ -1,8 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Aggregated connection resource type. Allowed enum values: `aggregated_connection`.
- * default: `aggregated_connection`
+ * Aggregated connection resource type.
  */
 export type SingleAggregatedConnectionResponseDataType =
   | typeof AGGREGATED_CONNECTION

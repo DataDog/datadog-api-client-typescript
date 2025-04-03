@@ -197,10 +197,7 @@ export class EventsApiResponseProcessor {
       ) as EventCreateResponsePayload;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -241,10 +238,7 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -306,10 +300,7 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -371,10 +362,7 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -455,17 +443,16 @@ export class EventsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new EventsApiRequestFactory(this.configuration);
+      requestFactory || new EventsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new EventsApiResponseProcessor();
   }
 
   /**
    * This endpoint allows you to post events.
-   * 
+   *
    * ✅ **Only events with the `change` category** are in General Availability. See [Change Tracking](https://docs.datadoghq.com/change_tracking) for more details.
-   * 
+   *
    * ❌ For use cases involving other event categories, please use the V1 endpoint.
    * @param param The request object
    */
@@ -489,7 +476,7 @@ export class EventsApi {
   /**
    * List endpoint returns events that match an events search query.
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
-   * 
+   *
    * Use this endpoint to see your latest events.
    * @param param The request object
    */
@@ -519,17 +506,26 @@ export class EventsApi {
    * Provide a paginated version of listEvents returning a generator with all the items.
    */
   public async *listEventsWithPagination(
-    param: EventsApiListEventsRequest = {}, options?: Configuration,
+    param: EventsApiListEventsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<EventResponse> {
-
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listEvents(param.filterQuery,param.filterFrom,param.filterTo,param.sort,param.pageCursor,param.pageLimit,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listEvents(
+        param.filterQuery,
+        param.filterFrom,
+        param.filterTo,
+        param.sort,
+        param.pageCursor,
+        param.pageLimit,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listEvents(responseContext);
       const responseData = response.data;
@@ -563,7 +559,7 @@ export class EventsApi {
   /**
    * List endpoint returns events that match an events search query.
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
-   * 
+   *
    * Use this endpoint to build complex events filtering and search.
    * @param param The request object
    */
@@ -588,9 +584,9 @@ export class EventsApi {
    * Provide a paginated version of searchEvents returning a generator with all the items.
    */
   public async *searchEventsWithPagination(
-    param: EventsApiSearchEventsRequest = {}, options?: Configuration,
+    param: EventsApiSearchEventsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<EventResponse> {
-
     let pageSize = 10;
     if (param.body === undefined) {
       param.body = new EventsListRequest();
@@ -603,10 +599,15 @@ export class EventsApi {
     }
     param.body.page.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.searchEvents(param.body,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchEvents(
+        param.body,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchEvents(responseContext);
+      const response =
+        await this.responseProcessor.searchEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

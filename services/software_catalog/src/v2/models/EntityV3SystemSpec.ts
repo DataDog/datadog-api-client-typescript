@@ -36,7 +36,7 @@ export class EntityV3SystemSpec {
     tier: {
       baseName: "tier",
       type: "string",
-    }
+    },
   };
 
   /**

@@ -236,13 +236,18 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Header Params
     if (contentEncoding !== undefined) {
-      requestContext.setHeaderParam("Content-Encoding", ObjectSerializer.serialize(contentEncoding, "DistributionPointsContentEncoding", ""));
+      requestContext.setHeaderParam(
+        "Content-Encoding",
+        ObjectSerializer.serialize(
+          contentEncoding,
+          "DistributionPointsContentEncoding",
+          "",
+        ),
+      );
     }
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "text/json",
-    ]);
+    const contentType = ObjectSerializer.getPreferredMediaType(["text/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize("body", "DistributionPointsPayload", ""),
@@ -251,9 +256,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -276,13 +279,18 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Header Params
     if (contentEncoding !== undefined) {
-      requestContext.setHeaderParam("Content-Encoding", ObjectSerializer.serialize(contentEncoding, "MetricContentEncoding", ""));
+      requestContext.setHeaderParam(
+        "Content-Encoding",
+        ObjectSerializer.serialize(
+          contentEncoding,
+          "MetricContentEncoding",
+          "",
+        ),
+      );
     }
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "text/json",
-    ]);
+    const contentType = ObjectSerializer.getPreferredMediaType(["text/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize("body", "MetricsPayload", ""),
@@ -291,9 +299,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -392,10 +398,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -457,10 +460,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -522,10 +522,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -587,10 +584,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -654,10 +648,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -721,10 +712,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -787,10 +775,7 @@ export class MetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -906,8 +891,7 @@ export class MetricsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new MetricsApiRequestFactory(this.configuration);
+      requestFactory || new MetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new MetricsApiResponseProcessor();
   }
@@ -1016,7 +1000,9 @@ export class MetricsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.submitDistributionPoints(responseContext);
+          return this.responseProcessor.submitDistributionPoints(
+            responseContext,
+          );
         });
     });
   }
@@ -1024,9 +1010,9 @@ export class MetricsApi {
   /**
    * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
    * The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).
-   * 
+   *
    * If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
-   * 
+   *
    * - 64 bits for the timestamp
    * - 64 bits for the value
    * - 40 bytes for the metric names

@@ -84,7 +84,8 @@ const typeMap: { [index: string]: any } = {
   OutcomesResponse: OutcomesResponse,
   OutcomesResponseDataItem: OutcomesResponseDataItem,
   OutcomesResponseIncludedItem: OutcomesResponseIncludedItem,
-  OutcomesResponseIncludedRuleAttributes: OutcomesResponseIncludedRuleAttributes,
+  OutcomesResponseIncludedRuleAttributes:
+    OutcomesResponseIncludedRuleAttributes,
   OutcomesResponseLinks: OutcomesResponseLinks,
   RelationshipToOutcome: RelationshipToOutcome,
   RelationshipToOutcomeData: RelationshipToOutcomeData,
