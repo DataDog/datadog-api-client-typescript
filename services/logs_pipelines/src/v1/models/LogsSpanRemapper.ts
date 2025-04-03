@@ -4,10 +4,10 @@ import { LogsSpanRemapperType } from "./LogsSpanRemapperType";
 
 /**
  * There are two ways to define correlation between application spans and logs:
- * 
+ *
  *   1. Follow the documentation on [how to inject a span ID in the application logs](https://docs.datadoghq.com/tracing/connect_logs_and_traces).
  *   Log integrations automatically handle all remaining setup steps by default.
- * 
+ *
  *   2. Use the span remapper processor to define a log attribute as its associated span ID.
  */
 export class LogsSpanRemapper {

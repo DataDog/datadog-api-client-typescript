@@ -28,7 +28,7 @@ export class FindingRule {
     name: {
       baseName: "name",
       type: "string",
-    }
+    },
   };
 
   /**

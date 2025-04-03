@@ -126,9 +126,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listUsers(
-    _options?: Configuration,
-  ): Promise<RequestContext> {
+  public async listUsers(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
@@ -210,9 +208,7 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to createUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createUser(
-    response: ResponseContext,
-  ): Promise<UserResponse> {
+  public async createUser(response: ResponseContext): Promise<UserResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -246,10 +242,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -312,10 +305,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -342,9 +332,7 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to getUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUser(
-    response: ResponseContext,
-  ): Promise<UserResponse> {
+  public async getUser(response: ResponseContext): Promise<UserResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -377,10 +365,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -407,9 +392,7 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to listUsers
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listUsers(
-    response: ResponseContext,
-  ): Promise<UserListResponse> {
+  public async listUsers(response: ResponseContext): Promise<UserListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -420,10 +403,7 @@ export class UsersApiResponseProcessor {
       ) as UserListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -441,10 +421,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -471,9 +448,7 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to updateUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateUser(
-    response: ResponseContext,
-  ): Promise<UserResponse> {
+  public async updateUser(response: ResponseContext): Promise<UserResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -507,10 +482,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -580,15 +552,14 @@ export class UsersApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new UsersApiRequestFactory(this.configuration);
+      requestFactory || new UsersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new UsersApiResponseProcessor();
   }
 
   /**
    * Create a user for your organization.
-   * 
+   *
    * **Note**: Users can only be created with the admin access role
    * if application keys belong to administrators.
    * @param param The request object
@@ -612,7 +583,7 @@ export class UsersApi {
 
   /**
    * Delete a user from an organization.
-   * 
+   *
    * **Note**: This endpoint can only be used with application keys belonging to
    * administrators.
    * @param param The request object
@@ -659,11 +630,8 @@ export class UsersApi {
    * List all users for your organization.
    * @param param The request object
    */
-  public listUsers(options?: Configuration,
-  ): Promise<UserListResponse> {
-    const requestContextPromise = this.requestFactory.listUsers(
-      options,
-    );
+  public listUsers(options?: Configuration): Promise<UserListResponse> {
+    const requestContextPromise = this.requestFactory.listUsers(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -675,7 +643,7 @@ export class UsersApi {
 
   /**
    * Update a user information.
-   * 
+   *
    * **Note**: It can only be used with application keys belonging to administrators.
    * @param param The request object
    */

@@ -410,10 +410,7 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -453,10 +450,7 @@ export class RUMApiResponseProcessor {
       ) as RUMApplicationResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -474,10 +468,7 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -504,19 +495,14 @@ export class RUMApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRUMApplication
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRUMApplication(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteRUMApplication(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -534,10 +520,7 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -572,10 +555,7 @@ export class RUMApiResponseProcessor {
       ) as RUMApplicationResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -593,10 +573,7 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -636,10 +613,7 @@ export class RUMApiResponseProcessor {
       ) as RUMApplicationsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -657,10 +631,7 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -722,10 +693,7 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -787,10 +755,7 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -853,10 +818,7 @@ export class RUMApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -971,10 +933,8 @@ export class RUMApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new RUMApiRequestFactory(this.configuration);
-    this.responseProcessor =
-      responseProcessor || new RUMApiResponseProcessor();
+      requestFactory || new RUMApiRequestFactory(this.configuration);
+    this.responseProcessor = responseProcessor || new RUMApiResponseProcessor();
   }
 
   /**
@@ -1065,11 +1025,11 @@ export class RUMApi {
    * List all the RUM applications in your organization.
    * @param param The request object
    */
-  public getRUMApplications(options?: Configuration,
+  public getRUMApplications(
+    options?: Configuration,
   ): Promise<RUMApplicationsResponse> {
-    const requestContextPromise = this.requestFactory.getRUMApplications(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getRUMApplications(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1082,9 +1042,9 @@ export class RUMApi {
   /**
    * List endpoint returns events that match a RUM search query.
    * [Results are paginated][1].
-   * 
+   *
    * Use this endpoint to see your latest RUM events.
-   * 
+   *
    * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
@@ -1114,19 +1074,29 @@ export class RUMApi {
    * Provide a paginated version of listRUMEvents returning a generator with all the items.
    */
   public async *listRUMEventsWithPagination(
-    param: RUMApiListRUMEventsRequest = {}, options?: Configuration,
+    param: RUMApiListRUMEventsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<RUMEvent> {
-
     let pageSize = 10;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listRUMEvents(param.filterQuery,param.filterFrom,param.filterTo,param.sort,param.pageCursor,param.pageLimit,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listRUMEvents(
+        param.filterQuery,
+        param.filterFrom,
+        param.filterTo,
+        param.sort,
+        param.pageCursor,
+        param.pageLimit,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listRUMEvents(responseContext);
+      const response =
+        await this.responseProcessor.listRUMEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1158,9 +1128,9 @@ export class RUMApi {
   /**
    * List endpoint returns RUM events that match a RUM search query.
    * [Results are paginated][1].
-   * 
+   *
    * Use this endpoint to build complex RUM events filtering and search.
-   * 
+   *
    * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
@@ -1185,11 +1155,11 @@ export class RUMApi {
    * Provide a paginated version of searchRUMEvents returning a generator with all the items.
    */
   public async *searchRUMEventsWithPagination(
-    param: RUMApiSearchRUMEventsRequest, options?: Configuration,
+    param: RUMApiSearchRUMEventsRequest,
+    options?: Configuration,
   ): AsyncGenerator<RUMEvent> {
-
     let pageSize = 10;
-    if (param.body.page === undefined ) {
+    if (param.body.page === undefined) {
       param.body.page = new RUMQueryPageOptions();
     }
     if (param.body.page.limit === undefined) {
@@ -1198,10 +1168,15 @@ export class RUMApi {
       pageSize = param.body.page.limit;
     }
     while (true) {
-      const requestContext = await this.requestFactory.searchRUMEvents(param.body,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchRUMEvents(
+        param.body,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchRUMEvents(responseContext);
+      const response =
+        await this.responseProcessor.searchRUMEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

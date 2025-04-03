@@ -245,10 +245,7 @@ export class SpansMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -275,9 +272,7 @@ export class SpansMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteSpansMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteSpansMetric(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteSpansMetric(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -306,10 +301,7 @@ export class SpansMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -366,10 +358,7 @@ export class SpansMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -409,10 +398,7 @@ export class SpansMetricsApiResponseProcessor {
       ) as SpansMetricsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -430,10 +416,7 @@ export class SpansMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -496,10 +479,7 @@ export class SpansMetricsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -569,8 +549,7 @@ export class SpansMetricsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new SpansMetricsApiRequestFactory(this.configuration);
+      requestFactory || new SpansMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SpansMetricsApiResponseProcessor();
   }
@@ -643,11 +622,10 @@ export class SpansMetricsApi {
    * Get the list of configured span-based metrics with their definitions.
    * @param param The request object
    */
-  public listSpansMetrics(options?: Configuration,
+  public listSpansMetrics(
+    options?: Configuration,
   ): Promise<SpansMetricsResponse> {
-    const requestContextPromise = this.requestFactory.listSpansMetrics(
-      options,
-    );
+    const requestContextPromise = this.requestFactory.listSpansMetrics(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

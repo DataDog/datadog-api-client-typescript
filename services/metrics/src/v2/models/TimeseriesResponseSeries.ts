@@ -2,7 +2,6 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { Unit } from "./Unit";
 
-
 export class TimeseriesResponseSeries {
   /**
    * List of tags that apply to a single response value.

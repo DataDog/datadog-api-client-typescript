@@ -229,13 +229,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}".replace(
-      "{team_id}",
-      encodeURIComponent(String(teamId)),
-    ).replace(
-      "{link_id}",
-      encodeURIComponent(String(linkId)),
-    );
+    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}"
+      .replace("{team_id}", encodeURIComponent(String(teamId)))
+      .replace("{link_id}", encodeURIComponent(String(linkId)));
 
     // Make Request Context
     const requestContext = _config
@@ -272,13 +268,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/memberships/{user_id}".replace(
-      "{team_id}",
-      encodeURIComponent(String(teamId)),
-    ).replace(
-      "{user_id}",
-      encodeURIComponent(String(userId)),
-    );
+    const localVarPath = "/api/v2/team/{team_id}/memberships/{user_id}"
+      .replace("{team_id}", encodeURIComponent(String(teamId)))
+      .replace("{user_id}", encodeURIComponent(String(userId)));
 
     // Make Request Context
     const requestContext = _config
@@ -349,13 +341,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}".replace(
-      "{team_id}",
-      encodeURIComponent(String(teamId)),
-    ).replace(
-      "{link_id}",
-      encodeURIComponent(String(linkId)),
-    );
+    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}"
+      .replace("{team_id}", encodeURIComponent(String(teamId)))
+      .replace("{link_id}", encodeURIComponent(String(linkId)));
 
     // Make Request Context
     const requestContext = _config
@@ -702,13 +690,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}".replace(
-      "{team_id}",
-      encodeURIComponent(String(teamId)),
-    ).replace(
-      "{link_id}",
-      encodeURIComponent(String(linkId)),
-    );
+    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}"
+      .replace("{team_id}", encodeURIComponent(String(teamId)))
+      .replace("{link_id}", encodeURIComponent(String(linkId)));
 
     // Make Request Context
     const requestContext = _config
@@ -762,13 +746,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/memberships/{user_id}".replace(
-      "{team_id}",
-      encodeURIComponent(String(teamId)),
-    ).replace(
-      "{user_id}",
-      encodeURIComponent(String(userId)),
-    );
+    const localVarPath = "/api/v2/team/{team_id}/memberships/{user_id}"
+      .replace("{team_id}", encodeURIComponent(String(teamId)))
+      .replace("{user_id}", encodeURIComponent(String(userId)));
 
     // Make Request Context
     const requestContext = _config
@@ -822,13 +802,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/permission-settings/{action}".replace(
-      "{team_id}",
-      encodeURIComponent(String(teamId)),
-    ).replace(
-      "{action}",
-      encodeURIComponent(String(action)),
-    );
+    const localVarPath = "/api/v2/team/{team_id}/permission-settings/{action}"
+      .replace("{team_id}", encodeURIComponent(String(teamId)))
+      .replace("{action}", encodeURIComponent(String(action)));
 
     // Make Request Context
     const requestContext = _config
@@ -843,7 +819,11 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "TeamPermissionSettingUpdateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "TeamPermissionSettingUpdateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -867,9 +847,7 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to createTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createTeam(
-    response: ResponseContext,
-  ): Promise<TeamResponse> {
+  public async createTeam(response: ResponseContext): Promise<TeamResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -902,10 +880,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -968,10 +943,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1034,10 +1006,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1064,9 +1033,7 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTeam(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteTeam(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1095,10 +1062,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1120,9 +1084,7 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTeamLink
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTeamLink(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteTeamLink(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1151,10 +1113,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1176,9 +1135,7 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteTeamMembership
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteTeamMembership(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteTeamMembership(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1207,10 +1164,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1232,9 +1186,7 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to getTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getTeam(
-    response: ResponseContext,
-  ): Promise<TeamResponse> {
+  public async getTeam(response: ResponseContext): Promise<TeamResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1267,10 +1219,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1332,10 +1281,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1397,10 +1343,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1462,10 +1405,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1527,10 +1467,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1570,10 +1507,7 @@ export class TeamsApiResponseProcessor {
       ) as UserTeamsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -1591,10 +1525,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1621,9 +1552,7 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to listTeams
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listTeams(
-    response: ResponseContext,
-  ): Promise<TeamsResponse> {
+  public async listTeams(response: ResponseContext): Promise<TeamsResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1634,10 +1563,7 @@ export class TeamsApiResponseProcessor {
       ) as TeamsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -1655,10 +1581,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1685,9 +1608,7 @@ export class TeamsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateTeam(
-    response: ResponseContext,
-  ): Promise<TeamResponse> {
+  public async updateTeam(response: ResponseContext): Promise<TeamResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1722,10 +1643,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1787,10 +1705,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1852,10 +1767,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1917,10 +1829,7 @@ export class TeamsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2192,8 +2101,7 @@ export class TeamsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new TeamsApiRequestFactory(this.configuration);
+      requestFactory || new TeamsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new TeamsApiResponseProcessor();
   }
@@ -2422,9 +2330,9 @@ export class TeamsApi {
    * Provide a paginated version of getTeamMemberships returning a generator with all the items.
    */
   public async *getTeamMembershipsWithPagination(
-    param: TeamsApiGetTeamMembershipsRequest, options?: Configuration,
+    param: TeamsApiGetTeamMembershipsRequest,
+    options?: Configuration,
   ): AsyncGenerator<UserTeam> {
-
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -2432,10 +2340,19 @@ export class TeamsApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.getTeamMemberships(param.teamId,param.pageSize,param.pageNumber,param.sort,param.filterKeyword,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.getTeamMemberships(
+        param.teamId,
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.filterKeyword,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.getTeamMemberships(responseContext);
+      const response =
+        await this.responseProcessor.getTeamMemberships(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -2467,7 +2384,9 @@ export class TeamsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getTeamPermissionSettings(responseContext);
+          return this.responseProcessor.getTeamPermissionSettings(
+            responseContext,
+          );
         });
     });
   }
@@ -2525,9 +2444,9 @@ export class TeamsApi {
    * Provide a paginated version of listTeams returning a generator with all the items.
    */
   public async *listTeamsWithPagination(
-    param: TeamsApiListTeamsRequest = {}, options?: Configuration,
+    param: TeamsApiListTeamsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<Team> {
-
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -2535,8 +2454,18 @@ export class TeamsApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listTeams(param.pageNumber,param.pageSize,param.sort,param.include,param.filterKeyword,param.filterMe,param.fieldsTeam,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listTeams(
+        param.pageNumber,
+        param.pageSize,
+        param.sort,
+        param.include,
+        param.filterKeyword,
+        param.filterMe,
+        param.fieldsTeam,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listTeams(responseContext);
       const responseData = response.data;
@@ -2631,17 +2560,20 @@ export class TeamsApi {
     param: TeamsApiUpdateTeamPermissionSettingRequest,
     options?: Configuration,
   ): Promise<TeamPermissionSettingResponse> {
-    const requestContextPromise = this.requestFactory.updateTeamPermissionSetting(
-      param.teamId,
-      param.action,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.updateTeamPermissionSetting(
+        param.teamId,
+        param.action,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateTeamPermissionSetting(responseContext);
+          return this.responseProcessor.updateTeamPermissionSetting(
+            responseContext,
+          );
         });
     });
   }

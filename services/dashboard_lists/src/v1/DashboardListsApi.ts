@@ -248,10 +248,7 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -313,10 +310,7 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -378,10 +372,7 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -421,10 +412,7 @@ export class DashboardListsApiResponseProcessor {
       ) as DashboardListListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -442,10 +430,7 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -508,10 +493,7 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -581,8 +563,7 @@ export class DashboardListsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new DashboardListsApiRequestFactory(this.configuration);
+      requestFactory || new DashboardListsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DashboardListsApiResponseProcessor();
   }
@@ -654,11 +635,11 @@ export class DashboardListsApi {
    * Fetch all of your existing dashboard list definitions.
    * @param param The request object
    */
-  public listDashboardLists(options?: Configuration,
+  public listDashboardLists(
+    options?: Configuration,
   ): Promise<DashboardListListResponse> {
-    const requestContextPromise = this.requestFactory.listDashboardLists(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listDashboardLists(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

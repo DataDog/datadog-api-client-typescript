@@ -78,7 +78,7 @@ export class EntityV3API {
     spec: {
       baseName: "spec",
       type: "EntityV3APISpec",
-    }
+    },
   };
 
   /**

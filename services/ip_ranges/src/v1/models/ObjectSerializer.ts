@@ -39,8 +39,7 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/octet-stream": 0,
 };
 
-const enumsMap: { [key: string]: any[] } = {
-};
+const enumsMap: { [key: string]: any[] } = {};
 
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,

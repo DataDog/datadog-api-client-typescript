@@ -204,10 +204,7 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -270,10 +267,7 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -337,10 +331,7 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -367,9 +358,7 @@ export class OrganizationsApiResponseProcessor {
    * @params response Response returned by the server for a request to uploadIdPMetadata
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async uploadIdPMetadata(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async uploadIdPMetadata(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -398,10 +387,7 @@ export class OrganizationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -457,8 +443,7 @@ export class OrganizationsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new OrganizationsApiRequestFactory(this.configuration);
+      requestFactory || new OrganizationsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OrganizationsApiResponseProcessor();
   }
@@ -488,11 +473,10 @@ export class OrganizationsApi {
    * Returns all Org Configs (name, description, and value).
    * @param param The request object
    */
-  public listOrgConfigs(options?: Configuration,
+  public listOrgConfigs(
+    options?: Configuration,
   ): Promise<OrgConfigListResponse> {
-    const requestContextPromise = this.requestFactory.listOrgConfigs(
-      options,
-    );
+    const requestContextPromise = this.requestFactory.listOrgConfigs(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -526,7 +510,7 @@ export class OrganizationsApi {
 
   /**
    * Endpoint for uploading IdP metadata for SAML setup.
-   * 
+   *
    * Use this endpoint to upload or replace IdP metadata for SAML login configuration.
    * @param param The request object
    */

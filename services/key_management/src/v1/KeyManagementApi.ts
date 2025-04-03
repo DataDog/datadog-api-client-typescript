@@ -235,9 +235,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listAPIKeys(
-    _options?: Configuration,
-  ): Promise<RequestContext> {
+  public async listAPIKeys(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
@@ -427,10 +425,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -493,10 +488,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -559,10 +551,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -624,10 +613,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -654,9 +640,7 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getAPIKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getAPIKey(
-    response: ResponseContext,
-  ): Promise<ApiKeyResponse> {
+  public async getAPIKey(response: ResponseContext): Promise<ApiKeyResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -689,10 +673,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -754,10 +735,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -797,10 +775,7 @@ export class KeyManagementApiResponseProcessor {
       ) as ApiKeyListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -818,10 +793,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -861,10 +833,7 @@ export class KeyManagementApiResponseProcessor {
       ) as ApplicationKeyListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -882,10 +851,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -948,10 +914,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1015,10 +978,7 @@ export class KeyManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1121,8 +1081,7 @@ export class KeyManagementApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new KeyManagementApiRequestFactory(this.configuration);
+      requestFactory || new KeyManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new KeyManagementApiResponseProcessor();
   }
@@ -1257,11 +1216,8 @@ export class KeyManagementApi {
    * Get all API keys available for your account.
    * @param param The request object
    */
-  public listAPIKeys(options?: Configuration,
-  ): Promise<ApiKeyListResponse> {
-    const requestContextPromise = this.requestFactory.listAPIKeys(
-      options,
-    );
+  public listAPIKeys(options?: Configuration): Promise<ApiKeyListResponse> {
+    const requestContextPromise = this.requestFactory.listAPIKeys(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1275,11 +1231,11 @@ export class KeyManagementApi {
    * Get all application keys available for your Datadog account.
    * @param param The request object
    */
-  public listApplicationKeys(options?: Configuration,
+  public listApplicationKeys(
+    options?: Configuration,
   ): Promise<ApplicationKeyListResponse> {
-    const requestContextPromise = this.requestFactory.listApplicationKeys(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listApplicationKeys(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

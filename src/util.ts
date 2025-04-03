@@ -40,8 +40,8 @@ export function dateFromRFC3339String(date: string): DDate {
 }
 
 export function dateToRFC3339String(date: Date | DDate): string {
-   if (date instanceof DDate && date.originalDate) {
-     return date.originalDate;
-   }
-   return date.toISOString().split('.')[0] + "Z";
+  if (date instanceof DDate && date.originalDate) {
+    return date.originalDate;
+  }
+  return date.toISOString().split(".")[0] + "Z";
 }

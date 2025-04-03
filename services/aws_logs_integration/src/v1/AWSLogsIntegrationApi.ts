@@ -315,10 +315,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -380,10 +377,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -410,9 +404,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createAWSLambdaARN
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createAWSLambdaARN(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async createAWSLambdaARN(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -445,10 +437,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -475,9 +464,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAWSLambdaARN
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteAWSLambdaARN(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async deleteAWSLambdaARN(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -510,10 +497,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -540,9 +524,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to enableAWSLogServices
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async enableAWSLogServices(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async enableAWSLogServices(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -575,10 +557,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -640,10 +619,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -677,16 +653,14 @@ export class AWSLogsIntegrationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: Array<AWSLogsListServicesResponse> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<AWSLogsListServicesResponse>",
-      ) as Array<AWSLogsListServicesResponse>;
+      const body: Array<AWSLogsListServicesResponse> =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "Array<AWSLogsListServicesResponse>",
+        ) as Array<AWSLogsListServicesResponse>;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -704,19 +678,17 @@ export class AWSLogsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: Array<AWSLogsListServicesResponse> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<AWSLogsListServicesResponse>",
-        "",
-      ) as Array<AWSLogsListServicesResponse>;
+      const body: Array<AWSLogsListServicesResponse> =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "Array<AWSLogsListServicesResponse>",
+          "",
+        ) as Array<AWSLogsListServicesResponse>;
       return body;
     }
 
@@ -790,7 +762,7 @@ export class AWSLogsIntegrationApi {
    * Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
    * is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
    * endpoint can be polled intermittently instead of blocking.
-   * 
+   *
    * - Returns a status of 'created' when it's checking if the Lambda exists in the account.
    * - Returns a status of 'waiting' while checking.
    * - Returns a status of 'checked and ok' if the Lambda exists.
@@ -809,7 +781,9 @@ export class AWSLogsIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.checkAWSLogsLambdaAsync(responseContext);
+          return this.responseProcessor.checkAWSLogsLambdaAsync(
+            responseContext,
+          );
         });
     });
   }
@@ -819,7 +793,7 @@ export class AWSLogsIntegrationApi {
    * given services and AWS account. Input is the same as for `EnableAWSLogServices`.
    * Done async, so can be repeatedly polled in a non-blocking fashion until
    * the async request completes.
-   * 
+   *
    * - Returns a status of `created` when it's checking if the permissions exists
    *   in the AWS account.
    * - Returns a status of `waiting` while checking.
@@ -839,7 +813,9 @@ export class AWSLogsIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.checkAWSLogsServicesAsync(responseContext);
+          return this.responseProcessor.checkAWSLogsServicesAsync(
+            responseContext,
+          );
         });
     });
   }
@@ -911,16 +887,18 @@ export class AWSLogsIntegrationApi {
    * List all Datadog-AWS Logs integrations configured in your Datadog account.
    * @param param The request object
    */
-  public listAWSLogsIntegrations(options?: Configuration,
+  public listAWSLogsIntegrations(
+    options?: Configuration,
   ): Promise<Array<AWSLogsListResponse>> {
-    const requestContextPromise = this.requestFactory.listAWSLogsIntegrations(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listAWSLogsIntegrations(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listAWSLogsIntegrations(responseContext);
+          return this.responseProcessor.listAWSLogsIntegrations(
+            responseContext,
+          );
         });
     });
   }
@@ -929,11 +907,11 @@ export class AWSLogsIntegrationApi {
    * Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.
    * @param param The request object
    */
-  public listAWSLogsServices(options?: Configuration,
+  public listAWSLogsServices(
+    options?: Configuration,
   ): Promise<Array<AWSLogsListServicesResponse>> {
-    const requestContextPromise = this.requestFactory.listAWSLogsServices(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listAWSLogsServices(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

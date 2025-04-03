@@ -53,9 +53,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -217,10 +215,7 @@ export class EventsApiResponseProcessor {
       ) as EventCreateResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -238,10 +233,7 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -268,9 +260,7 @@ export class EventsApiResponseProcessor {
    * @params response Response returned by the server for a request to getEvent
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getEvent(
-    response: ResponseContext,
-  ): Promise<EventResponse> {
+  public async getEvent(response: ResponseContext): Promise<EventResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -303,10 +293,7 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -368,10 +355,7 @@ export class EventsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -467,8 +451,7 @@ export class EventsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new EventsApiRequestFactory(this.configuration);
+      requestFactory || new EventsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new EventsApiResponseProcessor();
   }
@@ -497,7 +480,7 @@ export class EventsApi {
 
   /**
    * This endpoint allows you to query for event details.
-   * 
+   *
    * **Note**: If the event you’re querying contains markdown formatting of any kind,
    * you may see characters such as `%`,`\`,`n` in your output.
    * @param param The request object
@@ -521,11 +504,11 @@ export class EventsApi {
 
   /**
    * The event stream can be queried and filtered by time, priority, sources and tags.
-   * 
+   *
    * **Notes**:
    * - If the event you’re querying contains markdown formatting of any kind,
    * you may see characters such as `%`,`\`,`n` in your output.
-   * 
+   *
    * - This endpoint returns a maximum of `1000` most recent results. To return additional results,
    * identify the last timestamp of the last result and set that as the `end` query time to
    * paginate the results. You can also use the page parameter to specify which set of `1000` results to return.

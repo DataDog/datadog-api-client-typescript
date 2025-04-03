@@ -61,7 +61,13 @@ const enumsMap: { [key: string]: any[] } = {
   LogsArchiveEncryptionS3Type: ["NO_OVERRIDE", "SSE_S3", "SSE_KMS"],
   LogsArchiveOrderDefinitionType: ["archive_order"],
   LogsArchiveState: ["UNKNOWN", "WORKING", "FAILING", "WORKING_AUTH_LEGACY"],
-  LogsArchiveStorageClassS3Type: ["STANDARD", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "GLACIER_IR"],
+  LogsArchiveStorageClassS3Type: [
+    "STANDARD",
+    "STANDARD_IA",
+    "ONEZONE_IA",
+    "INTELLIGENT_TIERING",
+    "GLACIER_IR",
+  ],
   PermissionsType: ["permissions"],
   RolesType: ["roles"],
 };

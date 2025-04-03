@@ -136,10 +136,7 @@ export class ProcessesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -210,8 +207,7 @@ export class ProcessesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new ProcessesApiRequestFactory(this.configuration);
+      requestFactory || new ProcessesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ProcessesApiResponseProcessor();
   }
@@ -246,19 +242,29 @@ export class ProcessesApi {
    * Provide a paginated version of listProcesses returning a generator with all the items.
    */
   public async *listProcessesWithPagination(
-    param: ProcessesApiListProcessesRequest = {}, options?: Configuration,
+    param: ProcessesApiListProcessesRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<ProcessSummary> {
-
     let pageSize = 1000;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listProcesses(param.search,param.tags,param.from,param.to,param.pageLimit,param.pageCursor,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listProcesses(
+        param.search,
+        param.tags,
+        param.from,
+        param.to,
+        param.pageLimit,
+        param.pageCursor,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listProcesses(responseContext);
+      const response =
+        await this.responseProcessor.listProcesses(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

@@ -267,9 +267,7 @@ export class TagsApiResponseProcessor {
    * @params response Response returned by the server for a request to createHostTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createHostTags(
-    response: ResponseContext,
-  ): Promise<HostTags> {
+  public async createHostTags(response: ResponseContext): Promise<HostTags> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -302,10 +300,7 @@ export class TagsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -332,9 +327,7 @@ export class TagsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteHostTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteHostTags(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteHostTags(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -363,10 +356,7 @@ export class TagsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -388,9 +378,7 @@ export class TagsApiResponseProcessor {
    * @params response Response returned by the server for a request to getHostTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getHostTags(
-    response: ResponseContext,
-  ): Promise<HostTags> {
+  public async getHostTags(response: ResponseContext): Promise<HostTags> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -423,10 +411,7 @@ export class TagsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -453,9 +438,7 @@ export class TagsApiResponseProcessor {
    * @params response Response returned by the server for a request to listHostTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listHostTags(
-    response: ResponseContext,
-  ): Promise<TagToHosts> {
+  public async listHostTags(response: ResponseContext): Promise<TagToHosts> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -488,10 +471,7 @@ export class TagsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -518,9 +498,7 @@ export class TagsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateHostTags
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateHostTags(
-    response: ResponseContext,
-  ): Promise<HostTags> {
+  public async updateHostTags(response: ResponseContext): Promise<HostTags> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -553,10 +531,7 @@ export class TagsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -662,8 +637,7 @@ export class TagsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new TagsApiRequestFactory(this.configuration);
+      requestFactory || new TagsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new TagsApiResponseProcessor();
   }

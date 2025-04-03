@@ -48,7 +48,15 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 const enumsMap: { [key: string]: any[] } = {
   RumMetricComputeAggregationType: ["count", "distribution"],
-  RumMetricEventType: ["session", "view", "action", "error", "resource", "long_task", "vital"],
+  RumMetricEventType: [
+    "session",
+    "view",
+    "action",
+    "error",
+    "resource",
+    "long_task",
+    "vital",
+  ],
   RumMetricType: ["rum_metrics"],
   RumMetricUniquenessWhen: ["match", "end"],
 };

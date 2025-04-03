@@ -95,7 +95,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'createIncidentIntegration'");
     if (!_config.unstableOperations["0.0.1.createIncidentIntegration"]) {
-      throw new Error("Unstable operation 'createIncidentIntegration' is disabled");
+      throw new Error(
+        "Unstable operation 'createIncidentIntegration' is disabled",
+      );
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -109,10 +111,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/integrations".replace(
-      "{incident_id}",
-      encodeURIComponent(String(incidentId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/relationships/integrations".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -127,7 +130,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IncidentIntegrationMetadataCreateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "IncidentIntegrationMetadataCreateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -165,10 +172,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/todos".replace(
-      "{incident_id}",
-      encodeURIComponent(String(incidentId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/relationships/todos".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -293,7 +301,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'deleteIncidentIntegration'");
     if (!_config.unstableOperations["0.0.1.deleteIncidentIntegration"]) {
-      throw new Error("Unstable operation 'deleteIncidentIntegration' is disabled");
+      throw new Error(
+        "Unstable operation 'deleteIncidentIntegration' is disabled",
+      );
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -303,17 +313,20 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'integrationMetadataId' is not null or undefined
     if (integrationMetadataId === null || integrationMetadataId === undefined) {
-      throw new RequiredError("integrationMetadataId", "deleteIncidentIntegration");
+      throw new RequiredError(
+        "integrationMetadataId",
+        "deleteIncidentIntegration",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}".replace(
-      "{incident_id}",
-      encodeURIComponent(String(incidentId)),
-    ).replace(
-      "{integration_metadata_id}",
-      encodeURIComponent(String(integrationMetadataId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace(
+          "{integration_metadata_id}",
+          encodeURIComponent(String(integrationMetadataId)),
+        );
 
     // Make Request Context
     const requestContext = _config
@@ -355,13 +368,10 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}".replace(
-      "{incident_id}",
-      encodeURIComponent(String(incidentId)),
-    ).replace(
-      "{todo_id}",
-      encodeURIComponent(String(todoId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace("{todo_id}", encodeURIComponent(String(todoId)));
 
     // Make Request Context
     const requestContext = _config
@@ -397,10 +407,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/config/types/{incident_type_id}".replace(
-      "{incident_type_id}",
-      encodeURIComponent(String(incidentTypeId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/config/types/{incident_type_id}".replace(
+        "{incident_type_id}",
+        encodeURIComponent(String(incidentTypeId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -477,7 +488,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'getIncidentIntegration'");
     if (!_config.unstableOperations["0.0.1.getIncidentIntegration"]) {
-      throw new Error("Unstable operation 'getIncidentIntegration' is disabled");
+      throw new Error(
+        "Unstable operation 'getIncidentIntegration' is disabled",
+      );
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -487,17 +500,20 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'integrationMetadataId' is not null or undefined
     if (integrationMetadataId === null || integrationMetadataId === undefined) {
-      throw new RequiredError("integrationMetadataId", "getIncidentIntegration");
+      throw new RequiredError(
+        "integrationMetadataId",
+        "getIncidentIntegration",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}".replace(
-      "{incident_id}",
-      encodeURIComponent(String(incidentId)),
-    ).replace(
-      "{integration_metadata_id}",
-      encodeURIComponent(String(integrationMetadataId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace(
+          "{integration_metadata_id}",
+          encodeURIComponent(String(integrationMetadataId)),
+        );
 
     // Make Request Context
     const requestContext = _config
@@ -539,13 +555,10 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}".replace(
-      "{incident_id}",
-      encodeURIComponent(String(incidentId)),
-    ).replace(
-      "{todo_id}",
-      encodeURIComponent(String(todoId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace("{todo_id}", encodeURIComponent(String(todoId)));
 
     // Make Request Context
     const requestContext = _config
@@ -581,10 +594,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/config/types/{incident_type_id}".replace(
-      "{incident_type_id}",
-      encodeURIComponent(String(incidentTypeId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/config/types/{incident_type_id}".replace(
+        "{incident_type_id}",
+        encodeURIComponent(String(incidentTypeId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -613,7 +627,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'listIncidentAttachments'");
     if (!_config.unstableOperations["0.0.1.listIncidentAttachments"]) {
-      throw new Error("Unstable operation 'listIncidentAttachments' is disabled");
+      throw new Error(
+        "Unstable operation 'listIncidentAttachments' is disabled",
+      );
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -638,14 +654,22 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "Array<IncidentAttachmentRelatedObject>", ""),
+        ObjectSerializer.serialize(
+          include,
+          "Array<IncidentAttachmentRelatedObject>",
+          "",
+        ),
         "csv",
       );
     }
     if (filterAttachmentType !== undefined) {
       requestContext.setQueryParam(
         "filter[attachment_type]",
-        ObjectSerializer.serialize(filterAttachmentType, "Array<IncidentAttachmentAttachmentType>", ""),
+        ObjectSerializer.serialize(
+          filterAttachmentType,
+          "Array<IncidentAttachmentAttachmentType>",
+          "",
+        ),
         "csv",
       );
     }
@@ -667,7 +691,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'listIncidentIntegrations'");
     if (!_config.unstableOperations["0.0.1.listIncidentIntegrations"]) {
-      throw new Error("Unstable operation 'listIncidentIntegrations' is disabled");
+      throw new Error(
+        "Unstable operation 'listIncidentIntegrations' is disabled",
+      );
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -676,10 +702,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/integrations".replace(
-      "{incident_id}",
-      encodeURIComponent(String(incidentId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/relationships/integrations".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -771,10 +798,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/todos".replace(
-      "{incident_id}",
-      encodeURIComponent(String(incidentId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/relationships/todos".replace(
+        "{incident_id}",
+        encodeURIComponent(String(incidentId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -986,7 +1014,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'updateIncidentAttachments'");
     if (!_config.unstableOperations["0.0.1.updateIncidentAttachments"]) {
-      throw new Error("Unstable operation 'updateIncidentAttachments' is disabled");
+      throw new Error(
+        "Unstable operation 'updateIncidentAttachments' is disabled",
+      );
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -1016,7 +1046,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "Array<IncidentAttachmentRelatedObject>", ""),
+        ObjectSerializer.serialize(
+          include,
+          "Array<IncidentAttachmentRelatedObject>",
+          "",
+        ),
         "csv",
       );
     }
@@ -1051,7 +1085,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     logger.warn("Using unstable operation 'updateIncidentIntegration'");
     if (!_config.unstableOperations["0.0.1.updateIncidentIntegration"]) {
-      throw new Error("Unstable operation 'updateIncidentIntegration' is disabled");
+      throw new Error(
+        "Unstable operation 'updateIncidentIntegration' is disabled",
+      );
     }
 
     // verify required parameter 'incidentId' is not null or undefined
@@ -1061,7 +1097,10 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'integrationMetadataId' is not null or undefined
     if (integrationMetadataId === null || integrationMetadataId === undefined) {
-      throw new RequiredError("integrationMetadataId", "updateIncidentIntegration");
+      throw new RequiredError(
+        "integrationMetadataId",
+        "updateIncidentIntegration",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -1070,13 +1109,13 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}".replace(
-      "{incident_id}",
-      encodeURIComponent(String(incidentId)),
-    ).replace(
-      "{integration_metadata_id}",
-      encodeURIComponent(String(integrationMetadataId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/relationships/integrations/{integration_metadata_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace(
+          "{integration_metadata_id}",
+          encodeURIComponent(String(integrationMetadataId)),
+        );
 
     // Make Request Context
     const requestContext = _config
@@ -1091,7 +1130,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IncidentIntegrationMetadataPatchRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "IncidentIntegrationMetadataPatchRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1135,13 +1178,10 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}".replace(
-      "{incident_id}",
-      encodeURIComponent(String(incidentId)),
-    ).replace(
-      "{todo_id}",
-      encodeURIComponent(String(todoId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/{incident_id}/relationships/todos/{todo_id}"
+        .replace("{incident_id}", encodeURIComponent(String(incidentId)))
+        .replace("{todo_id}", encodeURIComponent(String(todoId)));
 
     // Make Request Context
     const requestContext = _config
@@ -1194,10 +1234,11 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/incidents/config/types/{incident_type_id}".replace(
-      "{incident_type_id}",
-      encodeURIComponent(String(incidentTypeId)),
-    );
+    const localVarPath =
+      "/api/v2/incidents/config/types/{incident_type_id}".replace(
+        "{incident_type_id}",
+        encodeURIComponent(String(incidentTypeId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -1273,10 +1314,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1310,10 +1348,11 @@ export class IncidentsApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 201) {
-      const body: IncidentIntegrationMetadataResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentIntegrationMetadataResponse",
-      ) as IncidentIntegrationMetadataResponse;
+      const body: IncidentIntegrationMetadataResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentIntegrationMetadataResponse",
+        ) as IncidentIntegrationMetadataResponse;
       return body;
     }
     if (
@@ -1340,19 +1379,17 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentIntegrationMetadataResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentIntegrationMetadataResponse",
-        "",
-      ) as IncidentIntegrationMetadataResponse;
+      const body: IncidentIntegrationMetadataResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentIntegrationMetadataResponse",
+          "",
+        ) as IncidentIntegrationMetadataResponse;
       return body;
     }
 
@@ -1407,10 +1444,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1474,10 +1508,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1504,9 +1535,7 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncident(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteIncident(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1537,10 +1566,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1595,10 +1621,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1620,9 +1643,7 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncidentTodo
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncidentTodo(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteIncidentTodo(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1653,10 +1674,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1678,9 +1696,7 @@ export class IncidentsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteIncidentType
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteIncidentType(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteIncidentType(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1711,10 +1727,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1773,10 +1786,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1810,10 +1820,11 @@ export class IncidentsApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: IncidentIntegrationMetadataResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentIntegrationMetadataResponse",
-      ) as IncidentIntegrationMetadataResponse;
+      const body: IncidentIntegrationMetadataResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentIntegrationMetadataResponse",
+        ) as IncidentIntegrationMetadataResponse;
       return body;
     }
     if (
@@ -1840,19 +1851,17 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentIntegrationMetadataResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentIntegrationMetadataResponse",
-        "",
-      ) as IncidentIntegrationMetadataResponse;
+      const body: IncidentIntegrationMetadataResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentIntegrationMetadataResponse",
+          "",
+        ) as IncidentIntegrationMetadataResponse;
       return body;
     }
 
@@ -1907,10 +1916,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1974,10 +1980,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2041,10 +2044,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2078,10 +2078,11 @@ export class IncidentsApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: IncidentIntegrationMetadataListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentIntegrationMetadataListResponse",
-      ) as IncidentIntegrationMetadataListResponse;
+      const body: IncidentIntegrationMetadataListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentIntegrationMetadataListResponse",
+        ) as IncidentIntegrationMetadataListResponse;
       return body;
     }
     if (
@@ -2108,19 +2109,17 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentIntegrationMetadataListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentIntegrationMetadataListResponse",
-        "",
-      ) as IncidentIntegrationMetadataListResponse;
+      const body: IncidentIntegrationMetadataListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentIntegrationMetadataListResponse",
+          "",
+        ) as IncidentIntegrationMetadataListResponse;
       return body;
     }
 
@@ -2175,10 +2174,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2242,10 +2238,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2308,10 +2301,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2375,10 +2365,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2442,10 +2429,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2479,10 +2463,11 @@ export class IncidentsApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: IncidentAttachmentUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentAttachmentUpdateResponse",
-      ) as IncidentAttachmentUpdateResponse;
+      const body: IncidentAttachmentUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentAttachmentUpdateResponse",
+        ) as IncidentAttachmentUpdateResponse;
       return body;
     }
     if (
@@ -2509,19 +2494,17 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentAttachmentUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentAttachmentUpdateResponse",
-        "",
-      ) as IncidentAttachmentUpdateResponse;
+      const body: IncidentAttachmentUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentAttachmentUpdateResponse",
+          "",
+        ) as IncidentAttachmentUpdateResponse;
       return body;
     }
 
@@ -2546,10 +2529,11 @@ export class IncidentsApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: IncidentIntegrationMetadataResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentIntegrationMetadataResponse",
-      ) as IncidentIntegrationMetadataResponse;
+      const body: IncidentIntegrationMetadataResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentIntegrationMetadataResponse",
+        ) as IncidentIntegrationMetadataResponse;
       return body;
     }
     if (
@@ -2576,19 +2560,17 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentIntegrationMetadataResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentIntegrationMetadataResponse",
-        "",
-      ) as IncidentIntegrationMetadataResponse;
+      const body: IncidentIntegrationMetadataResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentIntegrationMetadataResponse",
+          "",
+        ) as IncidentIntegrationMetadataResponse;
       return body;
     }
 
@@ -2643,10 +2625,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2710,10 +2689,7 @@ export class IncidentsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -3052,8 +3028,7 @@ export class IncidentsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new IncidentsApiRequestFactory(this.configuration);
+      requestFactory || new IncidentsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IncidentsApiResponseProcessor();
   }
@@ -3096,7 +3071,9 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createIncidentIntegration(responseContext);
+          return this.responseProcessor.createIncidentIntegration(
+            responseContext,
+          );
         });
     });
   }
@@ -3182,7 +3159,9 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteIncidentIntegration(responseContext);
+          return this.responseProcessor.deleteIncidentIntegration(
+            responseContext,
+          );
         });
     });
   }
@@ -3335,7 +3314,9 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentAttachments(responseContext);
+          return this.responseProcessor.listIncidentAttachments(
+            responseContext,
+          );
         });
     });
   }
@@ -3356,7 +3337,9 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listIncidentIntegrations(responseContext);
+          return this.responseProcessor.listIncidentIntegrations(
+            responseContext,
+          );
         });
     });
   }
@@ -3388,19 +3371,26 @@ export class IncidentsApi {
    * Provide a paginated version of listIncidents returning a generator with all the items.
    */
   public async *listIncidentsWithPagination(
-    param: IncidentsApiListIncidentsRequest = {}, options?: Configuration,
+    param: IncidentsApiListIncidentsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<IncidentResponseData> {
-
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listIncidents(param.include,param.pageSize,param.pageOffset,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listIncidents(
+        param.include,
+        param.pageSize,
+        param.pageOffset,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listIncidents(responseContext);
+      const response =
+        await this.responseProcessor.listIncidents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -3491,19 +3481,28 @@ export class IncidentsApi {
    * Provide a paginated version of searchIncidents returning a generator with all the items.
    */
   public async *searchIncidentsWithPagination(
-    param: IncidentsApiSearchIncidentsRequest, options?: Configuration,
+    param: IncidentsApiSearchIncidentsRequest,
+    options?: Configuration,
   ): AsyncGenerator<IncidentSearchResponseIncidentsData> {
-
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.searchIncidents(param.query,param.include,param.sort,param.pageSize,param.pageOffset,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchIncidents(
+        param.query,
+        param.include,
+        param.sort,
+        param.pageSize,
+        param.pageOffset,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchIncidents(responseContext);
+      const response =
+        await this.responseProcessor.searchIncidents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -3572,7 +3571,9 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentAttachments(responseContext);
+          return this.responseProcessor.updateIncidentAttachments(
+            responseContext,
+          );
         });
     });
   }
@@ -3595,7 +3596,9 @@ export class IncidentsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateIncidentIntegration(responseContext);
+          return this.responseProcessor.updateIncidentIntegration(
+            responseContext,
+          );
         });
     });
   }

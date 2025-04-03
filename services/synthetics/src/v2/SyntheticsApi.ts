@@ -23,7 +23,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/synthetics/settings/on_demand_concurrency_cap";
+    const localVarPath =
+      "/api/v2/synthetics/settings/on_demand_concurrency_cap";
 
     // Make Request Context
     const requestContext = _config
@@ -53,7 +54,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/synthetics/settings/on_demand_concurrency_cap";
+    const localVarPath =
+      "/api/v2/synthetics/settings/on_demand_concurrency_cap";
 
     // Make Request Context
     const requestContext = _config
@@ -68,7 +70,11 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "OnDemandConcurrencyCapAttributes", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "OnDemandConcurrencyCapAttributes",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -122,10 +128,7 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -183,10 +186,7 @@ export class SyntheticsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -227,8 +227,7 @@ export class SyntheticsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new SyntheticsApiRequestFactory(this.configuration);
+      requestFactory || new SyntheticsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SyntheticsApiResponseProcessor();
   }
@@ -237,16 +236,18 @@ export class SyntheticsApi {
    * Get the on-demand concurrency cap.
    * @param param The request object
    */
-  public getOnDemandConcurrencyCap(options?: Configuration,
+  public getOnDemandConcurrencyCap(
+    options?: Configuration,
   ): Promise<OnDemandConcurrencyCapResponse> {
-    const requestContextPromise = this.requestFactory.getOnDemandConcurrencyCap(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getOnDemandConcurrencyCap(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getOnDemandConcurrencyCap(responseContext);
+          return this.responseProcessor.getOnDemandConcurrencyCap(
+            responseContext,
+          );
         });
     });
   }
@@ -267,7 +268,9 @@ export class SyntheticsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.setOnDemandConcurrencyCap(responseContext);
+          return this.responseProcessor.setOnDemandConcurrencyCap(
+            responseContext,
+          );
         });
     });
   }

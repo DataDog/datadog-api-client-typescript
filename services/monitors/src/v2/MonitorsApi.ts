@@ -46,7 +46,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MonitorConfigPolicyCreateRequest", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "MonitorConfigPolicyCreateRequest",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -246,10 +250,7 @@ export class MonitorsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -308,10 +309,7 @@ export class MonitorsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -368,10 +366,7 @@ export class MonitorsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -405,16 +400,14 @@ export class MonitorsApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: MonitorConfigPolicyListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MonitorConfigPolicyListResponse",
-      ) as MonitorConfigPolicyListResponse;
+      const body: MonitorConfigPolicyListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonitorConfigPolicyListResponse",
+        ) as MonitorConfigPolicyListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -432,19 +425,17 @@ export class MonitorsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MonitorConfigPolicyListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MonitorConfigPolicyListResponse",
-        "",
-      ) as MonitorConfigPolicyListResponse;
+      const body: MonitorConfigPolicyListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonitorConfigPolicyListResponse",
+          "",
+        ) as MonitorConfigPolicyListResponse;
       return body;
     }
 
@@ -498,10 +489,7 @@ export class MonitorsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -571,8 +559,7 @@ export class MonitorsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new MonitorsApiRequestFactory(this.configuration);
+      requestFactory || new MonitorsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new MonitorsApiResponseProcessor();
   }
@@ -593,7 +580,9 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createMonitorConfigPolicy(responseContext);
+          return this.responseProcessor.createMonitorConfigPolicy(
+            responseContext,
+          );
         });
     });
   }
@@ -614,7 +603,9 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteMonitorConfigPolicy(responseContext);
+          return this.responseProcessor.deleteMonitorConfigPolicy(
+            responseContext,
+          );
         });
     });
   }
@@ -644,16 +635,18 @@ export class MonitorsApi {
    * Get all monitor configuration policies.
    * @param param The request object
    */
-  public listMonitorConfigPolicies(options?: Configuration,
+  public listMonitorConfigPolicies(
+    options?: Configuration,
   ): Promise<MonitorConfigPolicyListResponse> {
-    const requestContextPromise = this.requestFactory.listMonitorConfigPolicies(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listMonitorConfigPolicies(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listMonitorConfigPolicies(responseContext);
+          return this.responseProcessor.listMonitorConfigPolicies(
+            responseContext,
+          );
         });
     });
   }
@@ -675,7 +668,9 @@ export class MonitorsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateMonitorConfigPolicy(responseContext);
+          return this.responseProcessor.updateMonitorConfigPolicy(
+            responseContext,
+          );
         });
     });
   }

@@ -49,7 +49,7 @@ export class EntityV3SystemDatadog {
     pipelines: {
       baseName: "pipelines",
       type: "EntityV3DatadogPipelines",
-    }
+    },
   };
 
   /**

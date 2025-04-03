@@ -40,10 +40,11 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-      "{dashboard_list_id}",
-      encodeURIComponent(String(dashboardListId)),
-    );
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{dashboard_list_id}",
+        encodeURIComponent(String(dashboardListId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -90,10 +91,11 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-      "{dashboard_list_id}",
-      encodeURIComponent(String(dashboardListId)),
-    );
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{dashboard_list_id}",
+        encodeURIComponent(String(dashboardListId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -134,10 +136,11 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-      "{dashboard_list_id}",
-      encodeURIComponent(String(dashboardListId)),
-    );
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{dashboard_list_id}",
+        encodeURIComponent(String(dashboardListId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -174,10 +177,11 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-      "{dashboard_list_id}",
-      encodeURIComponent(String(dashboardListId)),
-    );
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{dashboard_list_id}",
+        encodeURIComponent(String(dashboardListId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -251,10 +255,7 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -288,10 +289,11 @@ export class DashboardListsApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: DashboardListDeleteItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListDeleteItemsResponse",
-      ) as DashboardListDeleteItemsResponse;
+      const body: DashboardListDeleteItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListDeleteItemsResponse",
+        ) as DashboardListDeleteItemsResponse;
       return body;
     }
     if (
@@ -317,19 +319,17 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DashboardListDeleteItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListDeleteItemsResponse",
-        "",
-      ) as DashboardListDeleteItemsResponse;
+      const body: DashboardListDeleteItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListDeleteItemsResponse",
+          "",
+        ) as DashboardListDeleteItemsResponse;
       return body;
     }
 
@@ -382,10 +382,7 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -419,10 +416,11 @@ export class DashboardListsApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: DashboardListUpdateItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListUpdateItemsResponse",
-      ) as DashboardListUpdateItemsResponse;
+      const body: DashboardListUpdateItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListUpdateItemsResponse",
+        ) as DashboardListUpdateItemsResponse;
       return body;
     }
     if (
@@ -448,19 +446,17 @@ export class DashboardListsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DashboardListUpdateItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListUpdateItemsResponse",
-        "",
-      ) as DashboardListUpdateItemsResponse;
+      const body: DashboardListUpdateItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListUpdateItemsResponse",
+          "",
+        ) as DashboardListUpdateItemsResponse;
       return body;
     }
 
@@ -531,8 +527,7 @@ export class DashboardListsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new DashboardListsApiRequestFactory(this.configuration);
+      requestFactory || new DashboardListsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DashboardListsApiResponseProcessor();
   }
@@ -554,7 +549,9 @@ export class DashboardListsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createDashboardListItems(responseContext);
+          return this.responseProcessor.createDashboardListItems(
+            responseContext,
+          );
         });
     });
   }
@@ -576,7 +573,9 @@ export class DashboardListsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteDashboardListItems(responseContext);
+          return this.responseProcessor.deleteDashboardListItems(
+            responseContext,
+          );
         });
     });
   }
@@ -619,7 +618,9 @@ export class DashboardListsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateDashboardListItems(responseContext);
+          return this.responseProcessor.updateDashboardListItems(
+            responseContext,
+          );
         });
     });
   }

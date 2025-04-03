@@ -103,10 +103,41 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
-  CompletionConditionOperator: ["OPERATOR_EQUAL", "OPERATOR_NOT_EQUAL", "OPERATOR_GREATER_THAN", "OPERATOR_LESS_THAN", "OPERATOR_GREATER_THAN_OR_EQUAL_TO", "OPERATOR_LESS_THAN_OR_EQUAL_TO", "OPERATOR_CONTAINS", "OPERATOR_DOES_NOT_CONTAIN", "OPERATOR_IS_NULL", "OPERATOR_IS_NOT_NULL", "OPERATOR_IS_EMPTY", "OPERATOR_IS_NOT_EMPTY"],
+  CompletionConditionOperator: [
+    "OPERATOR_EQUAL",
+    "OPERATOR_NOT_EQUAL",
+    "OPERATOR_GREATER_THAN",
+    "OPERATOR_LESS_THAN",
+    "OPERATOR_GREATER_THAN_OR_EQUAL_TO",
+    "OPERATOR_LESS_THAN_OR_EQUAL_TO",
+    "OPERATOR_CONTAINS",
+    "OPERATOR_DOES_NOT_CONTAIN",
+    "OPERATOR_IS_NULL",
+    "OPERATOR_IS_NOT_NULL",
+    "OPERATOR_IS_EMPTY",
+    "OPERATOR_IS_NOT_EMPTY",
+  ],
   ConnectionEnvEnv: ["default"],
-  InputSchemaParametersType: ["STRING", "NUMBER", "BOOLEAN", "OBJECT", "ARRAY_STRING", "ARRAY_NUMBER", "ARRAY_BOOLEAN", "ARRAY_OBJECT"],
-  OutputSchemaParametersType: ["STRING", "NUMBER", "BOOLEAN", "OBJECT", "ARRAY_STRING", "ARRAY_NUMBER", "ARRAY_BOOLEAN", "ARRAY_OBJECT"],
+  InputSchemaParametersType: [
+    "STRING",
+    "NUMBER",
+    "BOOLEAN",
+    "OBJECT",
+    "ARRAY_STRING",
+    "ARRAY_NUMBER",
+    "ARRAY_BOOLEAN",
+    "ARRAY_OBJECT",
+  ],
+  OutputSchemaParametersType: [
+    "STRING",
+    "NUMBER",
+    "BOOLEAN",
+    "OBJECT",
+    "ARRAY_STRING",
+    "ARRAY_NUMBER",
+    "ARRAY_BOOLEAN",
+    "ARRAY_OBJECT",
+  ],
   ReadinessGateThresholdType: ["ANY", "ALL"],
   RetryStrategyKind: ["RETRY_STRATEGY_LINEAR"],
   WorkflowDataType: ["workflows"],
@@ -189,7 +220,8 @@ const typeMap: { [index: string]: any } = {
   WorklflowCancelInstanceResponseData: WorklflowCancelInstanceResponseData,
   WorklflowGetInstanceResponse: WorklflowGetInstanceResponse,
   WorklflowGetInstanceResponseData: WorklflowGetInstanceResponseData,
-  WorklflowGetInstanceResponseDataAttributes: WorklflowGetInstanceResponseDataAttributes,
+  WorklflowGetInstanceResponseDataAttributes:
+    WorklflowGetInstanceResponseDataAttributes,
 };
 
 const oneOfMap: { [index: string]: string[] } = {

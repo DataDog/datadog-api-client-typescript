@@ -23,7 +23,7 @@ export class BulkMuteFindingsRequestAttributes {
       baseName: "mute",
       type: "BulkMuteFindingsRequestProperties",
       required: true,
-    }
+    },
   };
 
   /**

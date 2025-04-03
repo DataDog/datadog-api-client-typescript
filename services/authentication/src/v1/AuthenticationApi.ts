@@ -16,9 +16,7 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { AuthenticationValidationResponse } from "./models/AuthenticationValidationResponse";
 
 export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
-  public async validate(
-    _options?: Configuration,
-  ): Promise<RequestContext> {
+  public async validate(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
@@ -32,9 +30,7 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -55,16 +51,14 @@ export class AuthenticationApiResponseProcessor {
       response.headers["content-type"],
     );
     if (response.httpStatusCode === 200) {
-      const body: AuthenticationValidationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AuthenticationValidationResponse",
-      ) as AuthenticationValidationResponse;
+      const body: AuthenticationValidationResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AuthenticationValidationResponse",
+        ) as AuthenticationValidationResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -82,19 +76,17 @@ export class AuthenticationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AuthenticationValidationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "AuthenticationValidationResponse",
-        "",
-      ) as AuthenticationValidationResponse;
+      const body: AuthenticationValidationResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "AuthenticationValidationResponse",
+          "",
+        ) as AuthenticationValidationResponse;
       return body;
     }
 
@@ -118,8 +110,7 @@ export class AuthenticationApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new AuthenticationApiRequestFactory(this.configuration);
+      requestFactory || new AuthenticationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuthenticationApiResponseProcessor();
   }
@@ -128,11 +119,10 @@ export class AuthenticationApi {
    * Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
    * @param param The request object
    */
-  public validate(options?: Configuration,
+  public validate(
+    options?: Configuration,
   ): Promise<AuthenticationValidationResponse> {
-    const requestContextPromise = this.requestFactory.validate(
-      options,
-    );
+    const requestContextPromise = this.requestFactory.validate(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

@@ -1,4 +1,9 @@
-import { HttpLibrary, RequestContext, ResponseContext, ZstdCompressorCallback } from "./http";
+import {
+  HttpLibrary,
+  RequestContext,
+  ResponseContext,
+  ZstdCompressorCallback,
+} from "./http";
 import { fetch as crossFetch } from "cross-fetch";
 import pako from "pako";
 import bufferFrom from "buffer-from";
@@ -9,8 +14,8 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public debug = false;
   public zstdCompressorCallback: ZstdCompressorCallback | undefined;
   public enableRetry!: boolean;
-  public maxRetries!: number ;
-  public backoffBase!: number ;
+  public maxRetries!: number;
+  public backoffBase!: number;
   public backoffMultiplier!: number;
   public fetch: any;
 
@@ -37,7 +42,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         if (this.zstdCompressorCallback) {
           body = this.zstdCompressorCallback(body);
         } else {
-          throw new Error("zstdCompressorCallback method missing")
+          throw new Error("zstdCompressorCallback method missing");
         }
       }
     }
@@ -52,7 +57,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         }
       }
     }
-    
+
     return this.executeRequest(request, body, 0, headers);
   }
 
@@ -60,27 +65,28 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     request: RequestContext,
     body: any,
     currentAttempt: number,
-    headers: {[key: string]: string}
+    headers: { [key: string]: string },
   ): Promise<ResponseContext> {
     const fetchOptions = {
       method: request.getHttpMethod().toString(),
       body: body,
       headers: headers,
       signal: request.getHttpConfig().signal,
-    }
+    };
     try {
-      const fetchFunction = this.fetch ||
+      const fetchFunction =
+        this.fetch ||
         // On non-node environments, use native fetch if available.
         // `cross-fetch` incorrectly assumes all browsers have XHR available.
         // See https://github.com/lquixada/cross-fetch/issues/78
         // TODO: Remove once once above issue is resolved.
-        ((!isNode && typeof fetch === "function") ? fetch : crossFetch);
+        (!isNode && typeof fetch === "function" ? fetch : crossFetch);
 
-      const resp  = await fetchFunction(request.getUrl(),fetchOptions);
+      const resp = await fetchFunction(request.getUrl(), fetchOptions);
       const responseHeaders: { [name: string]: string } = {};
-        resp.headers.forEach((value: string, name: string) => {
-          responseHeaders[name] = value;
-        });
+      resp.headers.forEach((value: string, name: string) => {
+        responseHeaders[name] = value;
+      });
 
       const responseBody = {
         text: () => resp.text(),
@@ -93,7 +99,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       const response = new ResponseContext(
         resp.status,
         responseHeaders,
-        responseBody
+        responseBody,
       );
 
       if (this.debug) {
@@ -105,14 +111,14 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
           this.enableRetry,
           currentAttempt,
           this.maxRetries,
-          response.httpStatusCode
-      )
-     ) {
+          response.httpStatusCode,
+        )
+      ) {
         const delay = this.calculateRetryInterval(
           currentAttempt,
           this.backoffBase,
           this.backoffMultiplier,
-          responseHeaders
+          responseHeaders,
         );
         currentAttempt++;
         await this.sleep(delay * 1000);
@@ -131,17 +137,31 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     });
   }
 
-  private shouldRetry(enableRetry:boolean, currentAttempt:number, maxRetries:number, responseCode:number):boolean{
-    return (responseCode === 429 || responseCode >= 500 ) && maxRetries > currentAttempt && enableRetry
+  private shouldRetry(
+    enableRetry: boolean,
+    currentAttempt: number,
+    maxRetries: number,
+    responseCode: number,
+  ): boolean {
+    return (
+      (responseCode === 429 || responseCode >= 500) &&
+      maxRetries > currentAttempt &&
+      enableRetry
+    );
   }
 
-  private calculateRetryInterval(currentAttempt:number, backoffBase:number, backoffMultiplier:number, headers: {[name: string]: string}) : number{
+  private calculateRetryInterval(
+    currentAttempt: number,
+    backoffBase: number,
+    backoffMultiplier: number,
+    headers: { [name: string]: string },
+  ): number {
     if ("x-ratelimit-reset" in headers) {
-      const rateLimitHeaderString = headers["x-ratelimit-reset"]
-      const retryIntervalFromHeader = parseInt(rateLimitHeaderString,10);
-      return retryIntervalFromHeader
+      const rateLimitHeaderString = headers["x-ratelimit-reset"];
+      const retryIntervalFromHeader = parseInt(rateLimitHeaderString, 10);
+      return retryIntervalFromHeader;
     } else {
-      return (backoffMultiplier ** currentAttempt) * backoffBase
+      return backoffMultiplier ** currentAttempt * backoffBase;
     }
   }
 
@@ -157,7 +177,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     if (headers["DD-APPLICATION-KEY"]) {
       headers["DD-APPLICATION-KEY"] = headers["DD-APPLICATION-KEY"].replace(
         /./g,
-        "x"
+        "x",
       );
     }
 
@@ -175,7 +195,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       `\tmethod: ${method}\n`,
       `\theaders: ${headersJSON}\n`,
       `\tcompress: ${compress}\n`,
-      `\tbody: ${body}\n}\n`
+      `\tbody: ${body}\n}\n`,
     );
   }
 
@@ -183,12 +203,12 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     const httpStatusCode = response.httpStatusCode;
     const headers = JSON.stringify(response.headers, null, 2).replace(
       /\n/g,
-      "\n\t"
+      "\n\t",
     );
     logger.debug(
       "response: {\n",
       `\tstatus: ${httpStatusCode}\n`,
-      `\theaders: ${headers}\n`
+      `\theaders: ${headers}\n`,
     );
   }
 }

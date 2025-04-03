@@ -682,10 +682,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -748,10 +745,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -778,9 +772,7 @@ export class RolesApiResponseProcessor {
    * @params response Response returned by the server for a request to cloneRole
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async cloneRole(
-    response: ResponseContext,
-  ): Promise<RoleResponse> {
+  public async cloneRole(response: ResponseContext): Promise<RoleResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -815,10 +807,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -880,10 +869,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -910,9 +896,7 @@ export class RolesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRole
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRole(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteRole(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -941,10 +925,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -966,9 +947,7 @@ export class RolesApiResponseProcessor {
    * @params response Response returned by the server for a request to getRole
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getRole(
-    response: ResponseContext,
-  ): Promise<RoleResponse> {
+  public async getRole(response: ResponseContext): Promise<RoleResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1001,10 +980,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1066,10 +1042,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1131,10 +1104,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1161,9 +1131,7 @@ export class RolesApiResponseProcessor {
    * @params response Response returned by the server for a request to listRoles
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listRoles(
-    response: ResponseContext,
-  ): Promise<RolesResponse> {
+  public async listRoles(response: ResponseContext): Promise<RolesResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1174,10 +1142,7 @@ export class RolesApiResponseProcessor {
       ) as RolesResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -1195,10 +1160,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1260,10 +1222,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1326,10 +1285,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1392,10 +1348,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1459,10 +1412,7 @@ export class RolesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1658,8 +1608,7 @@ export class RolesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new RolesApiRequestFactory(this.configuration);
+      requestFactory || new RolesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RolesApiResponseProcessor();
   }
@@ -1797,11 +1746,10 @@ export class RolesApi {
    * Returns a list of all permissions, including name, description, and ID.
    * @param param The request object
    */
-  public listPermissions(options?: Configuration,
+  public listPermissions(
+    options?: Configuration,
   ): Promise<PermissionsResponse> {
-    const requestContextPromise = this.requestFactory.listPermissions(
-      options,
-    );
+    const requestContextPromise = this.requestFactory.listPermissions(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1899,7 +1847,9 @@ export class RolesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.removePermissionFromRole(responseContext);
+          return this.responseProcessor.removePermissionFromRole(
+            responseContext,
+          );
         });
     });
   }

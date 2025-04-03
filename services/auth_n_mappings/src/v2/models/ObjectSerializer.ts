@@ -59,7 +59,20 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 const enumsMap: { [key: string]: any[] } = {
   AuthNMappingResourceType: ["role", "team"],
-  AuthNMappingsSort: ["created_at", "-created_at", "role_id", "-role_id", "saml_assertion_attribute_id", "-saml_assertion_attribute_id", "role.name", "-role.name", "saml_assertion_attribute.attribute_key", "-saml_assertion_attribute.attribute_key", "saml_assertion_attribute.attribute_value", "-saml_assertion_attribute.attribute_value"],
+  AuthNMappingsSort: [
+    "created_at",
+    "-created_at",
+    "role_id",
+    "-role_id",
+    "saml_assertion_attribute_id",
+    "-saml_assertion_attribute_id",
+    "role.name",
+    "-role.name",
+    "saml_assertion_attribute.attribute_key",
+    "-saml_assertion_attribute.attribute_key",
+    "saml_assertion_attribute.attribute_value",
+    "-saml_assertion_attribute.attribute_value",
+  ],
   AuthNMappingsType: ["authn_mappings"],
   PermissionsType: ["permissions"],
   RolesType: ["roles"],
@@ -90,7 +103,8 @@ const typeMap: { [index: string]: any } = {
   RelationshipToRole: RelationshipToRole,
   RelationshipToRoleData: RelationshipToRoleData,
   RelationshipToSAMLAssertionAttribute: RelationshipToSAMLAssertionAttribute,
-  RelationshipToSAMLAssertionAttributeData: RelationshipToSAMLAssertionAttributeData,
+  RelationshipToSAMLAssertionAttributeData:
+    RelationshipToSAMLAssertionAttributeData,
   RelationshipToTeam: RelationshipToTeam,
   RelationshipToTeamData: RelationshipToTeamData,
   ResponseMetaAttributes: ResponseMetaAttributes,

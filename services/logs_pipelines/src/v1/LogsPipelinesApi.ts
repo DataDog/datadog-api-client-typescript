@@ -309,10 +309,7 @@ export class LogsPipelinesApiResponseProcessor {
         body,
       );
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -330,10 +327,7 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -360,9 +354,7 @@ export class LogsPipelinesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLogsPipeline
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLogsPipeline(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteLogsPipeline(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -392,10 +384,7 @@ export class LogsPipelinesApiResponseProcessor {
         body,
       );
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -413,10 +402,7 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -474,10 +460,7 @@ export class LogsPipelinesApiResponseProcessor {
         body,
       );
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -495,10 +478,7 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -538,10 +518,7 @@ export class LogsPipelinesApiResponseProcessor {
       ) as LogsPipelinesOrder;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -559,10 +536,7 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -602,10 +576,7 @@ export class LogsPipelinesApiResponseProcessor {
       ) as Array<LogsPipeline>;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -623,10 +594,7 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -689,10 +657,7 @@ export class LogsPipelinesApiResponseProcessor {
         body,
       );
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -710,10 +675,7 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -753,10 +715,7 @@ export class LogsPipelinesApiResponseProcessor {
       ) as LogsPipelinesOrder;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 422
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 422) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -779,10 +738,7 @@ export class LogsPipelinesApiResponseProcessor {
         body,
       );
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -800,10 +756,7 @@ export class LogsPipelinesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -881,8 +834,7 @@ export class LogsPipelinesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new LogsPipelinesApiRequestFactory(this.configuration);
+      requestFactory || new LogsPipelinesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsPipelinesApiResponseProcessor();
   }
@@ -957,11 +909,11 @@ export class LogsPipelinesApi {
    * This endpoint takes no JSON arguments.
    * @param param The request object
    */
-  public getLogsPipelineOrder(options?: Configuration,
+  public getLogsPipelineOrder(
+    options?: Configuration,
   ): Promise<LogsPipelinesOrder> {
-    const requestContextPromise = this.requestFactory.getLogsPipelineOrder(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getLogsPipelineOrder(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -976,11 +928,11 @@ export class LogsPipelinesApi {
    * This endpoint takes no JSON arguments.
    * @param param The request object
    */
-  public listLogsPipelines(options?: Configuration,
+  public listLogsPipelines(
+    options?: Configuration,
   ): Promise<Array<LogsPipeline>> {
-    const requestContextPromise = this.requestFactory.listLogsPipelines(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listLogsPipelines(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -992,7 +944,7 @@ export class LogsPipelinesApi {
 
   /**
    * Update a given pipeline configuration to change it’s processors or their order.
-   * 
+   *
    * **Note**: Using this method updates your pipeline configuration by **replacing**
    * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object
@@ -1018,7 +970,7 @@ export class LogsPipelinesApi {
   /**
    * Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change
    * the structure and content of the data processed by other pipelines and their processors.
-   * 
+   *
    * **Note**: Using the `PUT` method updates your pipeline order by replacing your current order
    * with the new one sent to your Datadog organization.
    * @param param The request object
@@ -1035,7 +987,9 @@ export class LogsPipelinesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLogsPipelineOrder(responseContext);
+          return this.responseProcessor.updateLogsPipelineOrder(
+            responseContext,
+          );
         });
     });
   }

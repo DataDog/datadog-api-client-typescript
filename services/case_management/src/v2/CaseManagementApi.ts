@@ -315,9 +315,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getProjects(
-    _options?: Configuration,
-  ): Promise<RequestContext> {
+  public async getProjects(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
@@ -620,9 +618,7 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to archiveCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async archiveCase(
-    response: ResponseContext,
-  ): Promise<CaseResponse> {
+  public async archiveCase(response: ResponseContext): Promise<CaseResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -657,10 +653,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -687,9 +680,7 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to assignCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async assignCase(
-    response: ResponseContext,
-  ): Promise<CaseResponse> {
+  public async assignCase(response: ResponseContext): Promise<CaseResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -724,10 +715,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -754,9 +742,7 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createCase(
-    response: ResponseContext,
-  ): Promise<CaseResponse> {
+  public async createCase(response: ResponseContext): Promise<CaseResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -791,10 +777,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -858,10 +841,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -888,9 +868,7 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteProject(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteProject(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -919,10 +897,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -944,9 +919,7 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getCase(
-    response: ResponseContext,
-  ): Promise<CaseResponse> {
+  public async getCase(response: ResponseContext): Promise<CaseResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -981,10 +954,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1011,9 +981,7 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getProject
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getProject(
-    response: ResponseContext,
-  ): Promise<ProjectResponse> {
+  public async getProject(response: ResponseContext): Promise<ProjectResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1048,10 +1016,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1115,10 +1080,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1145,9 +1107,7 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to searchCases
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async searchCases(
-    response: ResponseContext,
-  ): Promise<CasesResponse> {
+  public async searchCases(response: ResponseContext): Promise<CasesResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1182,10 +1142,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1212,9 +1169,7 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unarchiveCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unarchiveCase(
-    response: ResponseContext,
-  ): Promise<CaseResponse> {
+  public async unarchiveCase(response: ResponseContext): Promise<CaseResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1249,10 +1204,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1279,9 +1231,7 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to unassignCase
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async unassignCase(
-    response: ResponseContext,
-  ): Promise<CaseResponse> {
+  public async unassignCase(response: ResponseContext): Promise<CaseResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1316,10 +1266,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1383,10 +1330,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1413,9 +1357,7 @@ export class CaseManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateStatus
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateStatus(
-    response: ResponseContext,
-  ): Promise<CaseResponse> {
+  public async updateStatus(response: ResponseContext): Promise<CaseResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1450,10 +1392,7 @@ export class CaseManagementApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1632,8 +1571,7 @@ export class CaseManagementApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new CaseManagementApiRequestFactory(this.configuration);
+      requestFactory || new CaseManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CaseManagementApiResponseProcessor();
   }
@@ -1791,11 +1729,8 @@ export class CaseManagementApi {
    * Get all projects.
    * @param param The request object
    */
-  public getProjects(options?: Configuration,
-  ): Promise<ProjectsResponse> {
-    const requestContextPromise = this.requestFactory.getProjects(
-      options,
-    );
+  public getProjects(options?: Configuration): Promise<ProjectsResponse> {
+    const requestContextPromise = this.requestFactory.getProjects(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1834,9 +1769,9 @@ export class CaseManagementApi {
    * Provide a paginated version of searchCases returning a generator with all the items.
    */
   public async *searchCasesWithPagination(
-    param: CaseManagementApiSearchCasesRequest = {}, options?: Configuration,
+    param: CaseManagementApiSearchCasesRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<Case> {
-
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -1844,10 +1779,19 @@ export class CaseManagementApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.searchCases(param.pageSize,param.pageNumber,param.sortField,param.filter,param.sortAsc,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.searchCases(
+        param.pageSize,
+        param.pageNumber,
+        param.sortField,
+        param.filter,
+        param.sortAsc,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchCases(responseContext);
+      const response =
+        await this.responseProcessor.searchCases(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

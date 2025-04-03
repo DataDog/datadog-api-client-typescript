@@ -161,10 +161,7 @@ export class SnapshotsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -242,8 +239,7 @@ export class SnapshotsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new SnapshotsApiRequestFactory(this.configuration);
+      requestFactory || new SnapshotsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SnapshotsApiResponseProcessor();
   }

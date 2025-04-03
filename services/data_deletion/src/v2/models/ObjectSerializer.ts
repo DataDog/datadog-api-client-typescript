@@ -44,7 +44,8 @@ const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
   CancelDataDeletionResponseBody: CancelDataDeletionResponseBody,
   CreateDataDeletionRequestBody: CreateDataDeletionRequestBody,
-  CreateDataDeletionRequestBodyAttributes: CreateDataDeletionRequestBodyAttributes,
+  CreateDataDeletionRequestBodyAttributes:
+    CreateDataDeletionRequestBodyAttributes,
   CreateDataDeletionRequestBodyData: CreateDataDeletionRequestBodyData,
   CreateDataDeletionResponseBody: CreateDataDeletionResponseBody,
   DataDeletionResponseItem: DataDeletionResponseItem,

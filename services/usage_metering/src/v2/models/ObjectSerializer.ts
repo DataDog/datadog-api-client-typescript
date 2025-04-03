@@ -61,10 +61,17 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 const enumsMap: { [key: string]: any[] } = {
   ActiveBillingDimensionsType: ["billing_dimensions"],
-  BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus: ["OK", "NOT_FOUND"],
+  BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus: [
+    "OK",
+    "NOT_FOUND",
+  ],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
-  HourlyUsageType: ["app_sec_host_count", "observability_pipelines_bytes_processed", "lambda_traced_invocations_count"],
+  HourlyUsageType: [
+    "app_sec_host_count",
+    "observability_pipelines_bytes_processed",
+    "lambda_traced_invocations_count",
+  ],
   ProjectedCostType: ["projected_cost"],
   SortDirection: ["desc", "asc"],
   UsageTimeSeriesType: ["usage_timeseries"],
@@ -76,8 +83,10 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   BillingDimensionsMappingBodyItem: BillingDimensionsMappingBodyItem,
-  BillingDimensionsMappingBodyItemAttributes: BillingDimensionsMappingBodyItemAttributes,
-  BillingDimensionsMappingBodyItemAttributesEndpointsItems: BillingDimensionsMappingBodyItemAttributesEndpointsItems,
+  BillingDimensionsMappingBodyItemAttributes:
+    BillingDimensionsMappingBodyItemAttributes,
+  BillingDimensionsMappingBodyItemAttributesEndpointsItems:
+    BillingDimensionsMappingBodyItemAttributesEndpointsItems,
   BillingDimensionsMappingResponse: BillingDimensionsMappingResponse,
   ChargebackBreakdown: ChargebackBreakdown,
   CostAttributionAggregatesBody: CostAttributionAggregatesBody,
@@ -98,7 +107,8 @@ const typeMap: { [index: string]: any } = {
   ProjectedCost: ProjectedCost,
   ProjectedCostAttributes: ProjectedCostAttributes,
   ProjectedCostResponse: ProjectedCostResponse,
-  UsageApplicationSecurityMonitoringResponse: UsageApplicationSecurityMonitoringResponse,
+  UsageApplicationSecurityMonitoringResponse:
+    UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,
   UsageDataObject: UsageDataObject,
   UsageLambdaTracedInvocationsResponse: UsageLambdaTracedInvocationsResponse,

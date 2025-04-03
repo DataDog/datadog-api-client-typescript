@@ -106,7 +106,8 @@ const typeMap: { [index: string]: any } = {
   CustomCostsFileMetadata: CustomCostsFileMetadata,
   CustomCostsFileMetadataHighLevel: CustomCostsFileMetadataHighLevel,
   CustomCostsFileMetadataWithContent: CustomCostsFileMetadataWithContent,
-  CustomCostsFileMetadataWithContentHighLevel: CustomCostsFileMetadataWithContentHighLevel,
+  CustomCostsFileMetadataWithContentHighLevel:
+    CustomCostsFileMetadataWithContentHighLevel,
   CustomCostsFileUploadResponse: CustomCostsFileUploadResponse,
   CustomCostsFileUsageChargePeriod: CustomCostsFileUsageChargePeriod,
   CustomCostsUser: CustomCostsUser,

@@ -37,19 +37,24 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/octet-stream": 0,
 };
 
-const enumsMap: { [key: string]: any[] } = {
-};
+const enumsMap: { [key: string]: any[] } = {};
 
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
-  CsmCloudAccountsCoverageAnalysisAttributes: CsmCloudAccountsCoverageAnalysisAttributes,
+  CsmCloudAccountsCoverageAnalysisAttributes:
+    CsmCloudAccountsCoverageAnalysisAttributes,
   CsmCloudAccountsCoverageAnalysisData: CsmCloudAccountsCoverageAnalysisData,
-  CsmCloudAccountsCoverageAnalysisResponse: CsmCloudAccountsCoverageAnalysisResponse,
+  CsmCloudAccountsCoverageAnalysisResponse:
+    CsmCloudAccountsCoverageAnalysisResponse,
   CsmCoverageAnalysis: CsmCoverageAnalysis,
-  CsmHostsAndContainersCoverageAnalysisAttributes: CsmHostsAndContainersCoverageAnalysisAttributes,
-  CsmHostsAndContainersCoverageAnalysisData: CsmHostsAndContainersCoverageAnalysisData,
-  CsmHostsAndContainersCoverageAnalysisResponse: CsmHostsAndContainersCoverageAnalysisResponse,
-  CsmServerlessCoverageAnalysisAttributes: CsmServerlessCoverageAnalysisAttributes,
+  CsmHostsAndContainersCoverageAnalysisAttributes:
+    CsmHostsAndContainersCoverageAnalysisAttributes,
+  CsmHostsAndContainersCoverageAnalysisData:
+    CsmHostsAndContainersCoverageAnalysisData,
+  CsmHostsAndContainersCoverageAnalysisResponse:
+    CsmHostsAndContainersCoverageAnalysisResponse,
+  CsmServerlessCoverageAnalysisAttributes:
+    CsmServerlessCoverageAnalysisAttributes,
   CsmServerlessCoverageAnalysisData: CsmServerlessCoverageAnalysisData,
   CsmServerlessCoverageAnalysisResponse: CsmServerlessCoverageAnalysisResponse,
 };

@@ -28,7 +28,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
-      throw new RequiredError("signalId", "addSecurityMonitoringSignalToIncident");
+      throw new RequiredError(
+        "signalId",
+        "addSecurityMonitoringSignalToIncident",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -37,14 +40,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/security_analytics/signals/{signal_id}/add_to_incident".replace(
-      "{signal_id}",
-      encodeURIComponent(String(signalId)),
-    );
+    const localVarPath =
+      "/api/v1/security_analytics/signals/{signal_id}/add_to_incident".replace(
+        "{signal_id}",
+        encodeURIComponent(String(signalId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.addSecurityMonitoringSignalToIncident")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.addSecurityMonitoringSignalToIncident",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -78,7 +84,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
-      throw new RequiredError("signalId", "editSecurityMonitoringSignalAssignee");
+      throw new RequiredError(
+        "signalId",
+        "editSecurityMonitoringSignalAssignee",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -87,14 +96,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/security_analytics/signals/{signal_id}/assignee".replace(
-      "{signal_id}",
-      encodeURIComponent(String(signalId)),
-    );
+    const localVarPath =
+      "/api/v1/security_analytics/signals/{signal_id}/assignee".replace(
+        "{signal_id}",
+        encodeURIComponent(String(signalId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -137,14 +149,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v1/security_analytics/signals/{signal_id}/state".replace(
-      "{signal_id}",
-      encodeURIComponent(String(signalId)),
-    );
+    const localVarPath =
+      "/api/v1/security_analytics/signals/{signal_id}/state".replace(
+        "{signal_id}",
+        encodeURIComponent(String(signalId)),
+      );
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalState")
+      .getServer(
+        "0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalState",
+      )
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -214,10 +229,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -280,10 +292,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -346,10 +355,7 @@ export class SecurityMonitoringApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -435,16 +441,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiAddSecurityMonitoringSignalToIncidentRequest,
     options?: Configuration,
   ): Promise<SuccessfulSignalUpdateResponse> {
-    const requestContextPromise = this.requestFactory.addSecurityMonitoringSignalToIncident(
-      param.signalId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.addSecurityMonitoringSignalToIncident(
+        param.signalId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.addSecurityMonitoringSignalToIncident(responseContext);
+          return this.responseProcessor.addSecurityMonitoringSignalToIncident(
+            responseContext,
+          );
         });
     });
   }
@@ -457,16 +466,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
     options?: Configuration,
   ): Promise<SuccessfulSignalUpdateResponse> {
-    const requestContextPromise = this.requestFactory.editSecurityMonitoringSignalAssignee(
-      param.signalId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.editSecurityMonitoringSignalAssignee(
+        param.signalId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.editSecurityMonitoringSignalAssignee(responseContext);
+          return this.responseProcessor.editSecurityMonitoringSignalAssignee(
+            responseContext,
+          );
         });
     });
   }
@@ -479,16 +491,19 @@ export class SecurityMonitoringApi {
     param: SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
     options?: Configuration,
   ): Promise<SuccessfulSignalUpdateResponse> {
-    const requestContextPromise = this.requestFactory.editSecurityMonitoringSignalState(
-      param.signalId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.editSecurityMonitoringSignalState(
+        param.signalId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.editSecurityMonitoringSignalState(responseContext);
+          return this.responseProcessor.editSecurityMonitoringSignalState(
+            responseContext,
+          );
         });
     });
   }

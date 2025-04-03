@@ -58,7 +58,7 @@ export class EntityV3ServiceDatadog {
     pipelines: {
       baseName: "pipelines",
       type: "EntityV3DatadogPipelines",
-    }
+    },
   };
 
   /**

@@ -34,7 +34,7 @@ export class NotebookCellCreateRequest {
       baseName: "type",
       type: "NotebookCellResourceType",
       required: true,
-    }
+    },
   };
 
   /**
