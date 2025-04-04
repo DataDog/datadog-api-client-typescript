@@ -4884,6 +4884,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IntakePayloadAccepted",
     },
+    "v2.GetMonitorNotificationRules": {
+        "operationResponseType": "MonitorNotificationRuleListResponse",
+    },
+    "v2.CreateMonitorNotificationRule": {
+        "body": {
+            "type": "MonitorNotificationRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MonitorNotificationRuleResponse",
+    },
+    "v2.DeleteMonitorNotificationRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetMonitorNotificationRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MonitorNotificationRuleResponse",
+    },
+    "v2.UpdateMonitorNotificationRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "MonitorNotificationRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MonitorNotificationRuleResponse",
+    },
     "v2.ListMonitorConfigPolicies": {
         "operationResponseType": "MonitorConfigPolicyListResponse",
     },
