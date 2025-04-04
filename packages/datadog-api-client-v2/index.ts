@@ -403,6 +403,14 @@ export {
 } from "./apis/NetworkDeviceMonitoringApi";
 
 export {
+  ObservabilityPipelinesApiCreatePipelineRequest,
+  ObservabilityPipelinesApiDeletePipelineRequest,
+  ObservabilityPipelinesApiGetPipelineRequest,
+  ObservabilityPipelinesApiUpdatePipelineRequest,
+  ObservabilityPipelinesApi,
+} from "./apis/ObservabilityPipelinesApi";
+
+export {
   OktaIntegrationApiCreateOktaAccountRequest,
   OktaIntegrationApiDeleteOktaAccountRequest,
   OktaIntegrationApiGetOktaAccountRequest,
@@ -2043,6 +2051,7 @@ export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
 export { Pagination } from "./models/Pagination";
 export { Parameter } from "./models/Parameter";
+export { ParseJSONProcessor } from "./models/ParseJSONProcessor";
 export { PartialAPIKey } from "./models/PartialAPIKey";
 export { PartialAPIKeyAttributes } from "./models/PartialAPIKeyAttributes";
 export { PartialApplicationKey } from "./models/PartialApplicationKey";
@@ -2055,6 +2064,41 @@ export { Permission } from "./models/Permission";
 export { PermissionAttributes } from "./models/PermissionAttributes";
 export { PermissionsResponse } from "./models/PermissionsResponse";
 export { PermissionsType } from "./models/PermissionsType";
+export { Pipeline } from "./models/Pipeline";
+export { PipelineAddFieldsProcessor } from "./models/PipelineAddFieldsProcessor";
+export { PipelineAddFieldsProcessorType } from "./models/PipelineAddFieldsProcessorType";
+export { PipelineConfig } from "./models/PipelineConfig";
+export { PipelineConfigDestination } from "./models/PipelineConfigDestination";
+export { PipelineConfigProcessor } from "./models/PipelineConfigProcessor";
+export { PipelineConfigSource } from "./models/PipelineConfigSource";
+export { PipelineCreateRequest } from "./models/PipelineCreateRequest";
+export { PipelineCreateRequestData } from "./models/PipelineCreateRequestData";
+export { PipelineData } from "./models/PipelineData";
+export { PipelineDataAttributes } from "./models/PipelineDataAttributes";
+export { PipelineDatadogAgentSource } from "./models/PipelineDatadogAgentSource";
+export { PipelineDatadogAgentSourceType } from "./models/PipelineDatadogAgentSourceType";
+export { PipelineDatadogLogsDestination } from "./models/PipelineDatadogLogsDestination";
+export { PipelineDatadogLogsDestinationType } from "./models/PipelineDatadogLogsDestinationType";
+export { PipelineFieldValue } from "./models/PipelineFieldValue";
+export { PipelineFilterProcessor } from "./models/PipelineFilterProcessor";
+export { PipelineFilterProcessorType } from "./models/PipelineFilterProcessorType";
+export { PipelineKafkaSource } from "./models/PipelineKafkaSource";
+export { PipelineKafkaSourceLibrdkafkaOption } from "./models/PipelineKafkaSourceLibrdkafkaOption";
+export { PipelineKafkaSourceSasl } from "./models/PipelineKafkaSourceSasl";
+export { PipelineKafkaSourceType } from "./models/PipelineKafkaSourceType";
+export { PipelineParseJSONProcessorType } from "./models/PipelineParseJSONProcessorType";
+export { PipelinePipelineKafkaSourceSaslMechanism } from "./models/PipelinePipelineKafkaSourceSaslMechanism";
+export { PipelineQuotaProcessor } from "./models/PipelineQuotaProcessor";
+export { PipelineQuotaProcessorLimit } from "./models/PipelineQuotaProcessorLimit";
+export { PipelineQuotaProcessorLimitEnforceType } from "./models/PipelineQuotaProcessorLimitEnforceType";
+export { PipelineQuotaProcessorOverride } from "./models/PipelineQuotaProcessorOverride";
+export { PipelineQuotaProcessorType } from "./models/PipelineQuotaProcessorType";
+export { PipelineRemoveFieldsProcessor } from "./models/PipelineRemoveFieldsProcessor";
+export { PipelineRemoveFieldsProcessorType } from "./models/PipelineRemoveFieldsProcessorType";
+export { PipelineRenameFieldsProcessor } from "./models/PipelineRenameFieldsProcessor";
+export { PipelineRenameFieldsProcessorField } from "./models/PipelineRenameFieldsProcessorField";
+export { PipelineRenameFieldsProcessorType } from "./models/PipelineRenameFieldsProcessorType";
+export { PipelineTls } from "./models/PipelineTls";
 export { Powerpack } from "./models/Powerpack";
 export { PowerpackAttributes } from "./models/PowerpackAttributes";
 export { PowerpackData } from "./models/PowerpackData";

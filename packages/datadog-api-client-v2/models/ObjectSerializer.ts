@@ -1058,6 +1058,7 @@ import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
 import { Pagination } from "./Pagination";
 import { Parameter } from "./Parameter";
+import { ParseJSONProcessor } from "./ParseJSONProcessor";
 import { PartialAPIKey } from "./PartialAPIKey";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 import { PartialApplicationKey } from "./PartialApplicationKey";
@@ -1069,6 +1070,27 @@ import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificati
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
+import { Pipeline } from "./Pipeline";
+import { PipelineAddFieldsProcessor } from "./PipelineAddFieldsProcessor";
+import { PipelineConfig } from "./PipelineConfig";
+import { PipelineCreateRequest } from "./PipelineCreateRequest";
+import { PipelineCreateRequestData } from "./PipelineCreateRequestData";
+import { PipelineData } from "./PipelineData";
+import { PipelineDataAttributes } from "./PipelineDataAttributes";
+import { PipelineDatadogAgentSource } from "./PipelineDatadogAgentSource";
+import { PipelineDatadogLogsDestination } from "./PipelineDatadogLogsDestination";
+import { PipelineFieldValue } from "./PipelineFieldValue";
+import { PipelineFilterProcessor } from "./PipelineFilterProcessor";
+import { PipelineKafkaSource } from "./PipelineKafkaSource";
+import { PipelineKafkaSourceLibrdkafkaOption } from "./PipelineKafkaSourceLibrdkafkaOption";
+import { PipelineKafkaSourceSasl } from "./PipelineKafkaSourceSasl";
+import { PipelineQuotaProcessor } from "./PipelineQuotaProcessor";
+import { PipelineQuotaProcessorLimit } from "./PipelineQuotaProcessorLimit";
+import { PipelineQuotaProcessorOverride } from "./PipelineQuotaProcessorOverride";
+import { PipelineRemoveFieldsProcessor } from "./PipelineRemoveFieldsProcessor";
+import { PipelineRenameFieldsProcessor } from "./PipelineRenameFieldsProcessor";
+import { PipelineRenameFieldsProcessorField } from "./PipelineRenameFieldsProcessorField";
+import { PipelineTls } from "./PipelineTls";
 import { Powerpack } from "./Powerpack";
 import { PowerpackAttributes } from "./PowerpackAttributes";
 import { PowerpackData } from "./PowerpackData";
@@ -2194,6 +2216,21 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_OBJECT",
   ],
   PermissionsType: ["permissions"],
+  PipelineAddFieldsProcessorType: ["add_fields"],
+  PipelineDatadogAgentSourceType: ["datadog_agent"],
+  PipelineDatadogLogsDestinationType: ["datadog_logs"],
+  PipelineFilterProcessorType: ["filter"],
+  PipelineKafkaSourceType: ["kafka"],
+  PipelineParseJSONProcessorType: ["parse_json"],
+  PipelinePipelineKafkaSourceSaslMechanism: [
+    "PLAIN",
+    "SCRAM-SHA-256",
+    "SCRAM-SHA-512",
+  ],
+  PipelineQuotaProcessorLimitEnforceType: ["bytes", "events"],
+  PipelineQuotaProcessorType: ["quota"],
+  PipelineRemoveFieldsProcessorType: ["remove_fields"],
+  PipelineRenameFieldsProcessorType: ["rename_fields"],
   ProcessSummaryType: ["process"],
   ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
@@ -3823,6 +3860,7 @@ const typeMap: { [index: string]: any } = {
   OutputSchemaParameters: OutputSchemaParameters,
   Pagination: Pagination,
   Parameter: Parameter,
+  ParseJSONProcessor: ParseJSONProcessor,
   PartialAPIKey: PartialAPIKey,
   PartialAPIKeyAttributes: PartialAPIKeyAttributes,
   PartialApplicationKey: PartialApplicationKey,
@@ -3835,6 +3873,27 @@ const typeMap: { [index: string]: any } = {
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
+  Pipeline: Pipeline,
+  PipelineAddFieldsProcessor: PipelineAddFieldsProcessor,
+  PipelineConfig: PipelineConfig,
+  PipelineCreateRequest: PipelineCreateRequest,
+  PipelineCreateRequestData: PipelineCreateRequestData,
+  PipelineData: PipelineData,
+  PipelineDataAttributes: PipelineDataAttributes,
+  PipelineDatadogAgentSource: PipelineDatadogAgentSource,
+  PipelineDatadogLogsDestination: PipelineDatadogLogsDestination,
+  PipelineFieldValue: PipelineFieldValue,
+  PipelineFilterProcessor: PipelineFilterProcessor,
+  PipelineKafkaSource: PipelineKafkaSource,
+  PipelineKafkaSourceLibrdkafkaOption: PipelineKafkaSourceLibrdkafkaOption,
+  PipelineKafkaSourceSasl: PipelineKafkaSourceSasl,
+  PipelineQuotaProcessor: PipelineQuotaProcessor,
+  PipelineQuotaProcessorLimit: PipelineQuotaProcessorLimit,
+  PipelineQuotaProcessorOverride: PipelineQuotaProcessorOverride,
+  PipelineRemoveFieldsProcessor: PipelineRemoveFieldsProcessor,
+  PipelineRenameFieldsProcessor: PipelineRenameFieldsProcessor,
+  PipelineRenameFieldsProcessorField: PipelineRenameFieldsProcessorField,
+  PipelineTls: PipelineTls,
   Powerpack: Powerpack,
   PowerpackAttributes: PowerpackAttributes,
   PowerpackData: PowerpackData,
@@ -4643,6 +4702,16 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorConfigPolicyPolicyCreateRequest: [
     "MonitorConfigPolicyTagPolicyCreateRequest",
   ],
+  PipelineConfigDestination: ["PipelineDatadogLogsDestination"],
+  PipelineConfigProcessor: [
+    "PipelineFilterProcessor",
+    "ParseJSONProcessor",
+    "PipelineQuotaProcessor",
+    "PipelineAddFieldsProcessor",
+    "PipelineRemoveFieldsProcessor",
+    "PipelineRenameFieldsProcessor",
+  ],
+  PipelineConfigSource: ["PipelineKafkaSource", "PipelineDatadogAgentSource"],
   Query: ["ActionQuery", "DataTransform", "StateVariable"],
   RUMAggregateBucketValue: [
     "string",
