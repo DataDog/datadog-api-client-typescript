@@ -155,12 +155,12 @@ export class CloudNetworkMonitoringApiResponseProcessor {
 
 export interface CloudNetworkMonitoringApiGetAggregatedConnectionsRequest {
   /**
-   * Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the "to" timestamp. If neither "from" nor "to" are provided, the query window is [now - 15m, now].
+   * Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
    * @type number
    */
   from?: number;
   /**
-   * Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither "from" nor "to" are provided, the query window is [now - 15m, now].
+   * Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
    * @type number
    */
   to?: number;
@@ -200,7 +200,7 @@ export class CloudNetworkMonitoringApi {
   }
 
   /**
-   * Get aggregated connections
+   * Get all aggregated connections.
    * @param param The request object
    */
   public getAggregatedConnections(

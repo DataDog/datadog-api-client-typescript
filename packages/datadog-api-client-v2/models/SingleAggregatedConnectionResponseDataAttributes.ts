@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `SingleAggregatedConnectionResponseDataAttributes` object.
+ * Attributes for an aggregated connection.
  */
 export class SingleAggregatedConnectionResponseDataAttributes {
   /**
@@ -19,7 +19,7 @@ export class SingleAggregatedConnectionResponseDataAttributes {
    */
   "bytesSentByServer"?: number;
   /**
-   * The `attributes` `group_bys`.
+   * The key, value pairs for each group by.
    */
   "groupBys"?: { [key: string]: Array<string> };
   /**
