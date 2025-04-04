@@ -35,7 +35,7 @@ for (const apiVersion of Versions) {
   const givenSteps = JSON.parse(content) as IGivenStep[];
   for (const operation of givenSteps) {
     Given(operation.step, async function (this: World) {
-      const apiName: string = operation.tag.replace(/\s/g, "");
+      const apiName: string = operation.tag.replace(/[\s-]/g, "");
       const operationName: string = operation.operationId.toOperationName();
 
       // make sure we have a fresh instance of API client and configuration
@@ -46,7 +46,7 @@ for (const apiVersion of Versions) {
           appKeyAuth: process.env.DD_TEST_CLIENT_APP_KEY,
         },
         httpConfig: { compress: false },
-        zstdCompressorCallback: (body: string) => compressSync({input: Buffer.from(body, "utf8")}),
+        zstdCompressorCallback: (body: string) => compressSync({ input: Buffer.from(body, "utf8") }),
         enableRetry: true,
       };
 
@@ -99,9 +99,9 @@ for (const apiVersion of Versions) {
               p.source
             );
           }
-          if (p.origin === "request"){
-            for (const key in opts[p.name]){
-              if (opts[p.name].hasOwnProperty(key)){
+          if (p.origin === "request") {
+            for (const key in opts[p.name]) {
+              if (opts[p.name].hasOwnProperty(key)) {
                 this.fixtures[key] = opts[p.name][key];
               }
             }
@@ -153,7 +153,7 @@ for (const apiVersion of Versions) {
       if (operation["key"] !== undefined) {
         this.fixtures[operation["key"]] = result;
       }
-      
+
       await this.sleepAfterRequest();
     });
   }
