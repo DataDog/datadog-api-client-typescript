@@ -797,6 +797,13 @@ import { JobCreateResponse } from "./JobCreateResponse";
 import { JobCreateResponseData } from "./JobCreateResponseData";
 import { JobDefinition } from "./JobDefinition";
 import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
+import { Layer } from "./Layer";
+import { LayerAttributes } from "./LayerAttributes";
+import { LayerAttributesInterval } from "./LayerAttributesInterval";
+import { LayerAttributesRestrictionsItems } from "./LayerAttributesRestrictionsItems";
+import { LayerRelationships } from "./LayerRelationships";
+import { LayerRelationshipsMembers } from "./LayerRelationshipsMembers";
+import { LayerRelationshipsMembersDataItems } from "./LayerRelationshipsMembersDataItems";
 import { LeakedKey } from "./LeakedKey";
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { Library } from "./Library";
@@ -1281,8 +1288,44 @@ import { ScalarFormulaRequestAttributes } from "./ScalarFormulaRequestAttributes
 import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
 import { ScalarMeta } from "./ScalarMeta";
 import { ScalarResponse } from "./ScalarResponse";
+import { Schedule } from "./Schedule";
+import { ScheduleCreateRequest } from "./ScheduleCreateRequest";
+import { ScheduleCreateRequestData } from "./ScheduleCreateRequestData";
+import { ScheduleCreateRequestDataAttributes } from "./ScheduleCreateRequestDataAttributes";
+import { ScheduleCreateRequestDataAttributesLayersItems } from "./ScheduleCreateRequestDataAttributesLayersItems";
+import { ScheduleCreateRequestDataAttributesLayersItemsInterval } from "./ScheduleCreateRequestDataAttributesLayersItemsInterval";
+import { ScheduleCreateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleCreateRequestDataAttributesLayersItemsMembersItems";
+import { ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser } from "./ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser";
+import { ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems } from "./ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems";
+import { ScheduleCreateRequestDataRelationships } from "./ScheduleCreateRequestDataRelationships";
+import { ScheduleCreateRequestDataRelationshipsTeams } from "./ScheduleCreateRequestDataRelationshipsTeams";
+import { ScheduleCreateRequestDataRelationshipsTeamsDataItems } from "./ScheduleCreateRequestDataRelationshipsTeamsDataItems";
+import { ScheduleData } from "./ScheduleData";
+import { ScheduleDataAttributes } from "./ScheduleDataAttributes";
+import { ScheduleDataRelationships } from "./ScheduleDataRelationships";
+import { ScheduleDataRelationshipsLayers } from "./ScheduleDataRelationshipsLayers";
+import { ScheduleDataRelationshipsLayersDataItems } from "./ScheduleDataRelationshipsLayersDataItems";
+import { ScheduleDataRelationshipsTeams } from "./ScheduleDataRelationshipsTeams";
+import { ScheduleDataRelationshipsTeamsDataItems } from "./ScheduleDataRelationshipsTeamsDataItems";
+import { ScheduleMember } from "./ScheduleMember";
+import { ScheduleMemberRelationships } from "./ScheduleMemberRelationships";
+import { ScheduleMemberRelationshipsUser } from "./ScheduleMemberRelationshipsUser";
+import { ScheduleMemberRelationshipsUserData } from "./ScheduleMemberRelationshipsUserData";
 import { ScheduleTrigger } from "./ScheduleTrigger";
 import { ScheduleTriggerWrapper } from "./ScheduleTriggerWrapper";
+import { ScheduleUpdateRequest } from "./ScheduleUpdateRequest";
+import { ScheduleUpdateRequestData } from "./ScheduleUpdateRequestData";
+import { ScheduleUpdateRequestDataAttributes } from "./ScheduleUpdateRequestDataAttributes";
+import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdateRequestDataAttributesLayersItems";
+import { ScheduleUpdateRequestDataAttributesLayersItemsInterval } from "./ScheduleUpdateRequestDataAttributesLayersItemsInterval";
+import { ScheduleUpdateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleUpdateRequestDataAttributesLayersItemsMembersItems";
+import { ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser } from "./ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser";
+import { ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems } from "./ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems";
+import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestDataRelationships";
+import { ScheduleUpdateRequestDataRelationshipsTeams } from "./ScheduleUpdateRequestDataRelationshipsTeams";
+import { ScheduleUpdateRequestDataRelationshipsTeamsDataItems } from "./ScheduleUpdateRequestDataRelationshipsTeamsDataItems";
+import { ScheduleUser } from "./ScheduleUser";
+import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -1532,6 +1575,11 @@ import { TeamPermissionSettingUpdate } from "./TeamPermissionSettingUpdate";
 import { TeamPermissionSettingUpdateAttributes } from "./TeamPermissionSettingUpdateAttributes";
 import { TeamPermissionSettingUpdateRequest } from "./TeamPermissionSettingUpdateRequest";
 import { TeamPermissionSettingsResponse } from "./TeamPermissionSettingsResponse";
+import { TeamReference } from "./TeamReference";
+import { TeamReferenceAttributes } from "./TeamReferenceAttributes";
+import { TeamReferenceRelationships } from "./TeamReferenceRelationships";
+import { TeamReferenceRelationshipsOncallUsers } from "./TeamReferenceRelationshipsOncallUsers";
+import { TeamReferenceRelationshipsOncallUsersDataItems } from "./TeamReferenceRelationshipsOncallUsersDataItems";
 import { TeamRelationships } from "./TeamRelationships";
 import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 import { TeamResponse } from "./TeamResponse";
@@ -2090,6 +2138,26 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_OBJECT",
   ],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
+  LayerAttributesRestrictionsItemsEndDay: [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ],
+  LayerAttributesRestrictionsItemsStartDay: [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ],
+  LayerRelationshipsMembersDataItemsType: ["members"],
+  LayerType: ["layers"],
   LeakedKeyType: ["leaked_keys"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
@@ -2320,6 +2388,52 @@ const enumsMap: { [key: string]: any[] } = {
   ScalarColumnTypeNumber: ["number"],
   ScalarFormulaRequestType: ["scalar_request"],
   ScalarFormulaResponseType: ["scalar_response"],
+  ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItemsEndDay: [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ],
+  ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItemsStartDay: [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ],
+  ScheduleCreateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
+  ScheduleCreateRequestDataType: ["schedules"],
+  ScheduleDataRelationshipsLayersDataItemsType: ["layers"],
+  ScheduleDataRelationshipsTeamsDataItemsType: ["teams"],
+  ScheduleDataType: ["schedules"],
+  ScheduleMemberRelationshipsUserDataType: ["users"],
+  ScheduleMemberType: ["members"],
+  ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItemsEndDay: [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ],
+  ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItemsStartDay: [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ],
+  ScheduleUpdateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
+  ScheduleUpdateRequestDataType: ["schedules"],
+  ScheduleUserType: ["users"],
   ScorecardType: ["scorecard"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
@@ -2495,6 +2609,8 @@ const enumsMap: { [key: string]: any[] } = {
     "user_access_manage",
     "teams_manage",
   ],
+  TeamReferenceRelationshipsOncallUsersDataItemsType: ["users"],
+  TeamReferenceType: ["teams"],
   TeamType: ["team"],
   TeamsField: [
     "id",
@@ -3528,6 +3644,13 @@ const typeMap: { [index: string]: any } = {
   JobCreateResponseData: JobCreateResponseData,
   JobDefinition: JobDefinition,
   JobDefinitionFromRule: JobDefinitionFromRule,
+  Layer: Layer,
+  LayerAttributes: LayerAttributes,
+  LayerAttributesInterval: LayerAttributesInterval,
+  LayerAttributesRestrictionsItems: LayerAttributesRestrictionsItems,
+  LayerRelationships: LayerRelationships,
+  LayerRelationshipsMembers: LayerRelationshipsMembers,
+  LayerRelationshipsMembersDataItems: LayerRelationshipsMembersDataItems,
   LeakedKey: LeakedKey,
   LeakedKeyAttributes: LeakedKeyAttributes,
   Library: Library,
@@ -4053,8 +4176,62 @@ const typeMap: { [index: string]: any } = {
   ScalarFormulaResponseAtrributes: ScalarFormulaResponseAtrributes,
   ScalarMeta: ScalarMeta,
   ScalarResponse: ScalarResponse,
+  Schedule: Schedule,
+  ScheduleCreateRequest: ScheduleCreateRequest,
+  ScheduleCreateRequestData: ScheduleCreateRequestData,
+  ScheduleCreateRequestDataAttributes: ScheduleCreateRequestDataAttributes,
+  ScheduleCreateRequestDataAttributesLayersItems:
+    ScheduleCreateRequestDataAttributesLayersItems,
+  ScheduleCreateRequestDataAttributesLayersItemsInterval:
+    ScheduleCreateRequestDataAttributesLayersItemsInterval,
+  ScheduleCreateRequestDataAttributesLayersItemsMembersItems:
+    ScheduleCreateRequestDataAttributesLayersItemsMembersItems,
+  ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser:
+    ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser,
+  ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems:
+    ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems,
+  ScheduleCreateRequestDataRelationships:
+    ScheduleCreateRequestDataRelationships,
+  ScheduleCreateRequestDataRelationshipsTeams:
+    ScheduleCreateRequestDataRelationshipsTeams,
+  ScheduleCreateRequestDataRelationshipsTeamsDataItems:
+    ScheduleCreateRequestDataRelationshipsTeamsDataItems,
+  ScheduleData: ScheduleData,
+  ScheduleDataAttributes: ScheduleDataAttributes,
+  ScheduleDataRelationships: ScheduleDataRelationships,
+  ScheduleDataRelationshipsLayers: ScheduleDataRelationshipsLayers,
+  ScheduleDataRelationshipsLayersDataItems:
+    ScheduleDataRelationshipsLayersDataItems,
+  ScheduleDataRelationshipsTeams: ScheduleDataRelationshipsTeams,
+  ScheduleDataRelationshipsTeamsDataItems:
+    ScheduleDataRelationshipsTeamsDataItems,
+  ScheduleMember: ScheduleMember,
+  ScheduleMemberRelationships: ScheduleMemberRelationships,
+  ScheduleMemberRelationshipsUser: ScheduleMemberRelationshipsUser,
+  ScheduleMemberRelationshipsUserData: ScheduleMemberRelationshipsUserData,
   ScheduleTrigger: ScheduleTrigger,
   ScheduleTriggerWrapper: ScheduleTriggerWrapper,
+  ScheduleUpdateRequest: ScheduleUpdateRequest,
+  ScheduleUpdateRequestData: ScheduleUpdateRequestData,
+  ScheduleUpdateRequestDataAttributes: ScheduleUpdateRequestDataAttributes,
+  ScheduleUpdateRequestDataAttributesLayersItems:
+    ScheduleUpdateRequestDataAttributesLayersItems,
+  ScheduleUpdateRequestDataAttributesLayersItemsInterval:
+    ScheduleUpdateRequestDataAttributesLayersItemsInterval,
+  ScheduleUpdateRequestDataAttributesLayersItemsMembersItems:
+    ScheduleUpdateRequestDataAttributesLayersItemsMembersItems,
+  ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser:
+    ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser,
+  ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems:
+    ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems,
+  ScheduleUpdateRequestDataRelationships:
+    ScheduleUpdateRequestDataRelationships,
+  ScheduleUpdateRequestDataRelationshipsTeams:
+    ScheduleUpdateRequestDataRelationshipsTeams,
+  ScheduleUpdateRequestDataRelationshipsTeamsDataItems:
+    ScheduleUpdateRequestDataRelationshipsTeamsDataItems,
+  ScheduleUser: ScheduleUser,
+  ScheduleUserAttributes: ScheduleUserAttributes,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
   SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
@@ -4361,6 +4538,12 @@ const typeMap: { [index: string]: any } = {
   TeamPermissionSettingUpdateAttributes: TeamPermissionSettingUpdateAttributes,
   TeamPermissionSettingUpdateRequest: TeamPermissionSettingUpdateRequest,
   TeamPermissionSettingsResponse: TeamPermissionSettingsResponse,
+  TeamReference: TeamReference,
+  TeamReferenceAttributes: TeamReferenceAttributes,
+  TeamReferenceRelationships: TeamReferenceRelationships,
+  TeamReferenceRelationshipsOncallUsers: TeamReferenceRelationshipsOncallUsers,
+  TeamReferenceRelationshipsOncallUsersDataItems:
+    TeamReferenceRelationshipsOncallUsersDataItems,
   TeamRelationships: TeamRelationships,
   TeamRelationshipsLinks: TeamRelationshipsLinks,
   TeamResponse: TeamResponse,
@@ -4653,6 +4836,12 @@ const oneOfMap: { [index: string]: string[] } = {
   RUMGroupByTotal: ["boolean", "string", "number"],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: ["MetricsScalarQuery", "EventsScalarQuery"],
+  ScheduleDataIncludedItem: [
+    "TeamReference",
+    "Layer",
+    "ScheduleMember",
+    "ScheduleUser",
+  ],
   SecurityMonitoringRuleConvertPayload: [
     "SecurityMonitoringStandardRulePayload",
     "SecurityMonitoringSignalRulePayload",
