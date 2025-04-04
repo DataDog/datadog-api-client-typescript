@@ -17,7 +17,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { {{ model }} } from "../models/{{ model }}";
 {%- endfor %}
 
-{%- set className = name.replace(" ", "") + "Api" %}
+{%- set className = name.replace(" ", "").replace("-", "") + "Api" %}
 
 export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
   {%- for path, method, operation in operations|sort(attribute="2.operationId") %}

@@ -27,7 +27,7 @@ Given('a valid "appKeyAuth" key in the system', function (this: World) {
 
 Given("an instance of {string} API", function (this: World, apiName: string) {
   // TODO add support for DEBUG=true when supported in configuration
-  this.apiName = apiName;
+  this.apiName = apiName.replace("-", "");
 });
 
 Given(

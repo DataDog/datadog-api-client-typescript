@@ -47,9 +47,9 @@ function buildUndoFor(
   request: any
 ): { (): void } {
   return async function () {
-    let apiName = operationUndo.tag.replace(/\s/g, "");
+    let apiName = operationUndo.tag.replace(/[\s-]/g, "");
     if (operationUndo.undo.tag != null) {
-      apiName = operationUndo.undo.tag.replace(/\s/g, "");
+      apiName = operationUndo.undo.tag.replace(/[\s-]/g, "");
     }
     const operationName = operationUndo.undo.operationId.toOperationName();
 
@@ -89,9 +89,9 @@ function buildUndoFor(
     for (const p of operationUndo.undo.parameters) {
       let dataSource: { [key: string]: any; };
       if (p.origin === undefined) {
-         dataSource = response;
+        dataSource = response;
       } else if (p.origin === "request") {
-         dataSource = request.body;
+        dataSource = request.body;
       } else {
         dataSource = response;
       }
