@@ -79,11 +79,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'cancelHistoricalJob'");
-    if (!_config.unstableOperations["v2.cancelHistoricalJob"]) {
-      throw new Error("Unstable operation 'cancelHistoricalJob' is disabled");
-    }
-
     // verify required parameter 'jobId' is not null or undefined
     if (jobId === null || jobId === undefined) {
       throw new RequiredError("jobId", "cancelHistoricalJob");
@@ -158,13 +153,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'convertJobResultToSignal'");
-    if (!_config.unstableOperations["v2.convertJobResultToSignal"]) {
-      throw new Error(
-        "Unstable operation 'convertJobResultToSignal' is disabled"
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -478,11 +466,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'deleteHistoricalJob'");
-    if (!_config.unstableOperations["v2.deleteHistoricalJob"]) {
-      throw new Error("Unstable operation 'deleteHistoricalJob' is disabled");
-    }
 
     // verify required parameter 'jobId' is not null or undefined
     if (jobId === null || jobId === undefined) {
@@ -920,11 +903,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getHistoricalJob'");
-    if (!_config.unstableOperations["v2.getHistoricalJob"]) {
-      throw new Error("Unstable operation 'getHistoricalJob' is disabled");
-    }
 
     // verify required parameter 'jobId' is not null or undefined
     if (jobId === null || jobId === undefined) {
@@ -1485,11 +1463,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'listHistoricalJobs'");
-    if (!_config.unstableOperations["v2.listHistoricalJobs"]) {
-      throw new Error("Unstable operation 'listHistoricalJobs' is disabled");
-    }
 
     // Path Params
     const localVarPath = "/api/v2/siem-historical-detections/jobs";
@@ -2438,11 +2411,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'runHistoricalJob'");
-    if (!_config.unstableOperations["v2.runHistoricalJob"]) {
-      throw new Error("Unstable operation 'runHistoricalJob' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
