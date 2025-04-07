@@ -1,7 +1,4 @@
-export {
-  ProcessesApiListProcessesRequest,
-  ProcessesApi,
-} from "./ProcessesApi";
+export { ProcessesApiListProcessesRequest, ProcessesApi } from "./ProcessesApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { ProcessSummariesMeta } from "./models/ProcessSummariesMeta";

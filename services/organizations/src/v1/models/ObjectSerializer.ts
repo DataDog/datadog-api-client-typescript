@@ -62,8 +62,10 @@ const typeMap: { [index: string]: any } = {
   OrganizationResponse: OrganizationResponse,
   OrganizationSettings: OrganizationSettings,
   OrganizationSettingsSaml: OrganizationSettingsSaml,
-  OrganizationSettingsSamlAutocreateUsersDomains: OrganizationSettingsSamlAutocreateUsersDomains,
-  OrganizationSettingsSamlIdpInitiatedLogin: OrganizationSettingsSamlIdpInitiatedLogin,
+  OrganizationSettingsSamlAutocreateUsersDomains:
+    OrganizationSettingsSamlAutocreateUsersDomains,
+  OrganizationSettingsSamlIdpInitiatedLogin:
+    OrganizationSettingsSamlIdpInitiatedLogin,
   OrganizationSettingsSamlStrictMode: OrganizationSettingsSamlStrictMode,
   OrganizationSubscription: OrganizationSubscription,
   User: User,

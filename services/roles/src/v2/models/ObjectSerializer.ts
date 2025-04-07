@@ -71,7 +71,14 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 const enumsMap: { [key: string]: any[] } = {
   OrganizationsType: ["orgs"],
   PermissionsType: ["permissions"],
-  RolesSort: ["name", "-name", "modified_at", "-modified_at", "user_count", "-user_count"],
+  RolesSort: [
+    "name",
+    "-name",
+    "modified_at",
+    "-modified_at",
+    "user_count",
+    "-user_count",
+  ],
   RolesType: ["roles"],
   UsersType: ["users"],
 };

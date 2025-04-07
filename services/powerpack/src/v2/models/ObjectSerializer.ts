@@ -57,7 +57,23 @@ const enumsMap: { [key: string]: any[] } = {
   OrganizationsType: ["orgs"],
   RolesType: ["roles"],
   UsersType: ["users"],
-  WidgetLiveSpan: ["1m", "5m", "10m", "15m", "30m", "1h", "4h", "1d", "2d", "1w", "1mo", "3mo", "6mo", "1y", "alert"],
+  WidgetLiveSpan: [
+    "1m",
+    "5m",
+    "10m",
+    "15m",
+    "30m",
+    "1h",
+    "4h",
+    "1d",
+    "2d",
+    "1w",
+    "1mo",
+    "3mo",
+    "6mo",
+    "1y",
+    "alert",
+  ],
 };
 
 const typeMap: { [index: string]: any } = {

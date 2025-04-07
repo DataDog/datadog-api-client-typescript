@@ -549,10 +549,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
-    if (
-      response.httpStatusCode === 200 ||
-      response.httpStatusCode === 409
-    ) {
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 409) {
       const body: CheckCanDeleteSLOResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CheckCanDeleteSLOResponse",
@@ -581,10 +578,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -611,9 +605,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @params response Response returned by the server for a request to createSLO
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createSLO(
-    response: ResponseContext,
-  ): Promise<SLOListResponse> {
+  public async createSLO(response: ResponseContext): Promise<SLOListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -646,10 +638,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -682,10 +671,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
-    if (
-      response.httpStatusCode === 200 ||
-      response.httpStatusCode === 409
-    ) {
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 409) {
       const body: SLODeleteResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLODeleteResponse",
@@ -714,10 +700,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -779,10 +762,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -809,9 +789,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @params response Response returned by the server for a request to getSLO
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSLO(
-    response: ResponseContext,
-  ): Promise<SLOResponse> {
+  public async getSLO(response: ResponseContext): Promise<SLOResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -844,10 +822,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -910,10 +885,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -976,10 +948,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1006,9 +975,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @params response Response returned by the server for a request to listSLOs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listSLOs(
-    response: ResponseContext,
-  ): Promise<SLOListResponse> {
+  public async listSLOs(response: ResponseContext): Promise<SLOListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1042,10 +1009,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1107,10 +1071,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1137,9 +1098,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @params response Response returned by the server for a request to updateSLO
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateSLO(
-    response: ResponseContext,
-  ): Promise<SLOListResponse> {
+  public async updateSLO(response: ResponseContext): Promise<SLOListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1173,10 +1132,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1418,7 +1374,7 @@ export class ServiceLevelObjectivesApi {
 
   /**
    * Permanently delete the specified service level objective object.
-   * 
+   *
    * If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns
    * a 409 conflict error because the SLO is referenced in a dashboard.
    * @param param The request object
@@ -1443,7 +1399,7 @@ export class ServiceLevelObjectivesApi {
 
   /**
    * Delete (or partially delete) multiple service level objective objects.
-   * 
+   *
    * This endpoint facilitates deletion of one or more thresholds for one or more
    * service level objective objects. If all thresholds are deleted, the service level
    * objective object is deleted as well.
@@ -1461,7 +1417,9 @@ export class ServiceLevelObjectivesApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteSLOTimeframeInBulk(responseContext);
+          return this.responseProcessor.deleteSLOTimeframeInBulk(
+            responseContext,
+          );
         });
     });
   }
@@ -1511,11 +1469,11 @@ export class ServiceLevelObjectivesApi {
 
   /**
    * Get a specific SLO’s history, regardless of its SLO type.
-   * 
+   *
    * The detailed history data is structured according to the source data type.
    * For example, metric data is included for event SLOs that use
    * the metric source, and monitor SLO types include the monitor transition history.
-   * 
+   *
    * **Note:** There are different response formats for event based and time based SLOs.
    * Examples of both are shown.
    * @param param The request object
@@ -1571,17 +1529,26 @@ export class ServiceLevelObjectivesApi {
    * Provide a paginated version of listSLOs returning a generator with all the items.
    */
   public async *listSLOsWithPagination(
-    param: ServiceLevelObjectivesApiListSLOsRequest = {}, options?: Configuration,
+    param: ServiceLevelObjectivesApiListSLOsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<ServiceLevelObjective> {
-
     let pageSize = 1000;
     if (param.limit !== undefined) {
       pageSize = param.limit;
     }
     param.limit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listSLOs(param.ids,param.query,param.tagsQuery,param.metricsQuery,param.limit,param.offset,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listSLOs(
+        param.ids,
+        param.query,
+        param.tagsQuery,
+        param.metricsQuery,
+        param.limit,
+        param.offset,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listSLOs(responseContext);
       const responseData = response.data;

@@ -4,7 +4,7 @@ import { WebhooksIntegrationEncoding } from "./WebhooksIntegrationEncoding";
 
 /**
  * Update request of a Webhooks integration object.
- * 
+ *
  * *All properties are optional.*
  */
 export class WebhooksIntegrationUpdateRequest {

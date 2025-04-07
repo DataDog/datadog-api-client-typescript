@@ -128,10 +128,7 @@ export class ContainerImagesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -228,19 +225,28 @@ export class ContainerImagesApi {
    * Provide a paginated version of listContainerImages returning a generator with all the items.
    */
   public async *listContainerImagesWithPagination(
-    param: ContainerImagesApiListContainerImagesRequest = {}, options?: Configuration,
+    param: ContainerImagesApiListContainerImagesRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<ContainerImageItem> {
-
     let pageSize = 1000;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listContainerImages(param.filterTags,param.groupBy,param.sort,param.pageSize,param.pageCursor,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listContainerImages(
+        param.filterTags,
+        param.groupBy,
+        param.sort,
+        param.pageSize,
+        param.pageCursor,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listContainerImages(responseContext);
+      const response =
+        await this.responseProcessor.listContainerImages(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

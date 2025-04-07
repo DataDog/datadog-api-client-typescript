@@ -45,7 +45,16 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 const enumsMap: { [key: string]: any[] } = {
   AWSEventBridgeCreateStatus: ["created"],
   AWSEventBridgeDeleteStatus: ["empty"],
-  AWSNamespace: ["elb", "application_elb", "sqs", "rds", "custom", "network_elb", "lambda", "step_functions"],
+  AWSNamespace: [
+    "elb",
+    "application_elb",
+    "sqs",
+    "rds",
+    "custom",
+    "network_elb",
+    "lambda",
+    "step_functions",
+  ],
 };
 
 const typeMap: { [index: string]: any } = {

@@ -53,7 +53,8 @@ const typeMap: { [index: string]: any } = {
   ContainerImageFlavor: ContainerImageFlavor,
   ContainerImageGroup: ContainerImageGroup,
   ContainerImageGroupAttributes: ContainerImageGroupAttributes,
-  ContainerImageGroupImagesRelationshipsLink: ContainerImageGroupImagesRelationshipsLink,
+  ContainerImageGroupImagesRelationshipsLink:
+    ContainerImageGroupImagesRelationshipsLink,
   ContainerImageGroupRelationships: ContainerImageGroupRelationships,
   ContainerImageGroupRelationshipsLinks: ContainerImageGroupRelationshipsLinks,
   ContainerImageMeta: ContainerImageMeta,

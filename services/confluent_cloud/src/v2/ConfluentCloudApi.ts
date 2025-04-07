@@ -81,10 +81,11 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -125,10 +126,11 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -164,13 +166,10 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    ).replace(
-      "{resource_id}",
-      encodeURIComponent(String(resourceId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}"
+        .replace("{account_id}", encodeURIComponent(String(accountId)))
+        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
 
     // Make Request Context
     const requestContext = _config
@@ -200,10 +199,11 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -239,13 +239,10 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    ).replace(
-      "{resource_id}",
-      encodeURIComponent(String(resourceId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}"
+        .replace("{account_id}", encodeURIComponent(String(accountId)))
+        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
 
     // Make Request Context
     const requestContext = _config
@@ -299,10 +296,11 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -338,10 +336,11 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -394,13 +393,10 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    ).replace(
-      "{resource_id}",
-      encodeURIComponent(String(resourceId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}"
+        .replace("{account_id}", encodeURIComponent(String(accountId)))
+        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
 
     // Make Request Context
     const requestContext = _config
@@ -474,10 +470,7 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -540,10 +533,7 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -602,10 +592,7 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -659,10 +646,7 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -720,10 +704,7 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -786,10 +767,7 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -852,10 +830,7 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -918,10 +893,7 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -984,10 +956,7 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1050,10 +1019,7 @@ export class ConfluentCloudApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1188,8 +1154,7 @@ export class ConfluentCloudApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new ConfluentCloudApiRequestFactory(this.configuration);
+      requestFactory || new ConfluentCloudApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ConfluentCloudApiResponseProcessor();
   }
@@ -1232,7 +1197,9 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createConfluentResource(responseContext);
+          return this.responseProcessor.createConfluentResource(
+            responseContext,
+          );
         });
     });
   }
@@ -1275,7 +1242,9 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteConfluentResource(responseContext);
+          return this.responseProcessor.deleteConfluentResource(
+            responseContext,
+          );
         });
     });
   }
@@ -1327,11 +1296,11 @@ export class ConfluentCloudApi {
    * List Confluent accounts.
    * @param param The request object
    */
-  public listConfluentAccount(options?: Configuration,
+  public listConfluentAccount(
+    options?: Configuration,
   ): Promise<ConfluentAccountsResponse> {
-    const requestContextPromise = this.requestFactory.listConfluentAccount(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listConfluentAccount(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -1402,7 +1371,9 @@ export class ConfluentCloudApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateConfluentResource(responseContext);
+          return this.responseProcessor.updateConfluentResource(
+            responseContext,
+          );
         });
     });
   }

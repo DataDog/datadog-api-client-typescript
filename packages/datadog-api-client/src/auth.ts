@@ -82,28 +82,30 @@ export class AppKeyAuthAuthentication implements SecurityAuthentication {
 }
 
 export type AuthMethods = {
-  "AuthZ"?: SecurityAuthentication,
-  "apiKeyAuth"?: SecurityAuthentication,
-  "appKeyAuth"?: SecurityAuthentication
-}
+  AuthZ?: SecurityAuthentication;
+  apiKeyAuth?: SecurityAuthentication;
+  appKeyAuth?: SecurityAuthentication;
+};
 
 export type ApiKeyConfiguration = string;
-export type HttpBasicConfiguration = { "username": string, "password": string };
+export type HttpBasicConfiguration = { username: string; password: string };
 export type HttpBearerConfiguration = { tokenProvider: TokenProvider };
 export type OAuth2Configuration = { accessToken: string };
 
 export type AuthMethodsConfiguration = {
-  "AuthZ"?: OAuth2Configuration,
-  "apiKeyAuth"?: ApiKeyConfiguration,
-  "appKeyAuth"?: ApiKeyConfiguration
-}
+  AuthZ?: OAuth2Configuration;
+  apiKeyAuth?: ApiKeyConfiguration;
+  appKeyAuth?: ApiKeyConfiguration;
+};
 
 /**
  * Creates the authentication methods from a swagger description.
  *
  */
-export function configureAuthMethods(config: AuthMethodsConfiguration | undefined): AuthMethods {
-  let authMethods: AuthMethods = {}
+export function configureAuthMethods(
+  config: AuthMethodsConfiguration | undefined,
+): AuthMethods {
+  let authMethods: AuthMethods = {};
 
   if (!config) {
     return authMethods;
@@ -111,19 +113,19 @@ export function configureAuthMethods(config: AuthMethodsConfiguration | undefine
 
   if (config["AuthZ"]) {
     authMethods["AuthZ"] = new AuthZAuthentication(
-      config["AuthZ"]["accessToken"]
+      config["AuthZ"]["accessToken"],
     );
   }
 
   if (config["apiKeyAuth"]) {
     authMethods["apiKeyAuth"] = new ApiKeyAuthAuthentication(
-      config["apiKeyAuth"]
+      config["apiKeyAuth"],
     );
   }
 
   if (config["appKeyAuth"]) {
     authMethods["appKeyAuth"] = new AppKeyAuthAuthentication(
-      config["appKeyAuth"]
+      config["appKeyAuth"],
     );
   }
 

@@ -4,7 +4,7 @@ import { SLOHistoryMetricsSeries } from "./SLOHistoryMetricsSeries";
 
 /**
  * A `metric` based SLO history response.
- * 
+ *
  * This is not included in responses for `monitor` based SLOs.
  */
 export class SLOHistoryMetrics {

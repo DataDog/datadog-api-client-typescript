@@ -4,9 +4,9 @@ import { LogsStatusRemapperType } from "./LogsStatusRemapperType";
 
 /**
  * Use this Processor if you want to assign some attributes as the official status.
- * 
+ *
  * Each incoming status value is mapped as follows.
- * 
+ *
  *   - Integers from 0 to 7 map to the Syslog severity standards
  *   - Strings beginning with `emerg` or f (case-insensitive) map to `emerg` (0)
  *   - Strings beginning with `a` (case-insensitive) map to `alert` (1)
@@ -18,7 +18,7 @@ import { LogsStatusRemapperType } from "./LogsStatusRemapperType";
  *   - Strings beginning with `d`, `trace` or `verbose` (case-insensitive) map to `debug` (7)
  *   - Strings beginning with `o` or matching `OK` or `Success` (case-insensitive) map to OK
  *   - All others map to `info` (6)
- * 
+ *
  *   **Note:** If multiple log status remapper processors can be applied to a given log,
  *   only the first one (according to the pipelines order) is taken into account.
  */

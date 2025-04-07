@@ -19,7 +19,7 @@ export class SearchServiceLevelObjectiveAttributes {
   "allTags"?: Array<string>;
   /**
    * Creation timestamp (UNIX time in seconds)
-   * 
+   *
    * Always included in service level objective responses.
    */
   "createdAt"?: number;
@@ -29,7 +29,7 @@ export class SearchServiceLevelObjectiveAttributes {
   "creator"?: SLOCreator;
   /**
    * A user-defined description of the service level objective.
-   * 
+   *
    * Always included in service level objective responses (but may be `null`).
    * Optional in create/update requests.
    */
@@ -45,7 +45,7 @@ export class SearchServiceLevelObjectiveAttributes {
   "groups"?: Array<string>;
   /**
    * Modification timestamp (UNIX time in seconds)
-   * 
+   *
    * Always included in service level objective responses.
    */
   "modifiedAt"?: number;

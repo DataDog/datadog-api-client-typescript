@@ -16,9 +16,7 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { IPRanges } from "./models/IPRanges";
 
 export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
-  public async getIPRanges(
-    _options?: Configuration,
-  ): Promise<RequestContext> {
+  public async getIPRanges(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
@@ -49,9 +47,7 @@ export class IPRangesApiResponseProcessor {
    * @params response Response returned by the server for a request to getIPRanges
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getIPRanges(
-    response: ResponseContext,
-  ): Promise<IPRanges> {
+  public async getIPRanges(response: ResponseContext): Promise<IPRanges> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -80,10 +76,7 @@ export class IPRangesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -116,8 +109,7 @@ export class IPRangesApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new IPRangesApiRequestFactory(this.configuration);
+      requestFactory || new IPRangesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IPRangesApiResponseProcessor();
   }
@@ -126,11 +118,8 @@ export class IPRangesApi {
    * Get information about Datadog IP ranges.
    * @param param The request object
    */
-  public getIPRanges(options?: Configuration,
-  ): Promise<IPRanges> {
-    const requestContextPromise = this.requestFactory.getIPRanges(
-      options,
-    );
+  public getIPRanges(options?: Configuration): Promise<IPRanges> {
+    const requestContextPromise = this.requestFactory.getIPRanges(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

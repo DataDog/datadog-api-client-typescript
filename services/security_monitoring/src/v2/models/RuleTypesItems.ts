@@ -29,7 +29,8 @@ export const SIGNAL_CORRELATION = "signal_correlation";
 export const CLOUD_CONFIGURATION = "cloud_configuration";
 export const INFRASTRUCTURE_CONFIGURATION = "infrastructure_configuration";
 export const APPLICATION_CODE_VULNERABILITY = "application_code_vulnerability";
-export const APPLICATION_LIBRARY_VULNERABILITY = "application_library_vulnerability";
+export const APPLICATION_LIBRARY_VULNERABILITY =
+  "application_library_vulnerability";
 export const ATTACK_PATH = "attack_path";
 export const CONTAINER_IMAGE_VULNERABILITY = "container_image_vulnerability";
 export const IDENTITY_RISK = "identity_risk";

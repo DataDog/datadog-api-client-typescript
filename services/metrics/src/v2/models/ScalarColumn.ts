@@ -6,4 +6,7 @@ import { GroupScalarColumn } from "./GroupScalarColumn";
 /**
  * A single column in a scalar query response.
  */
-export type ScalarColumn = GroupScalarColumn | DataScalarColumn | UnparsedObject;
+export type ScalarColumn =
+  | GroupScalarColumn
+  | DataScalarColumn
+  | UnparsedObject;

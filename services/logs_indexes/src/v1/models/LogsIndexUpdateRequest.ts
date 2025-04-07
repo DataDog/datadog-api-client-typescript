@@ -41,14 +41,14 @@ export class LogsIndexUpdateRequest {
    * If Standard Tier is enabled on this index, logs are first retained in Standard Tier for the number of days specified through `num_retention_days`,
    * and then stored in Flex Tier until the number of days specified in `num_flex_logs_retention_days` is reached.
    * The available values depend on retention plans specified in your organization's contract/subscriptions.
-   * 
+   *
    * **Note**: Changing this value affects all logs already in this index. It may also affect billing.
    */
   "numFlexLogsRetentionDays"?: number;
   /**
    * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being deleted from the index.
    * The available values depend on retention plans specified in your organization's contract/subscriptions.
-   * 
+   *
    * **Note**: Changing this value affects all logs already in this index. It may also affect billing.
    */
   "numRetentionDays"?: number;

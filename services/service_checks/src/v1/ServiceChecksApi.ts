@@ -49,9 +49,7 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -102,10 +100,7 @@ export class ServiceChecksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -146,15 +141,14 @@ export class ServiceChecksApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new ServiceChecksApiRequestFactory(this.configuration);
+      requestFactory || new ServiceChecksApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceChecksApiResponseProcessor();
   }
 
   /**
    * Submit a list of Service Checks.
-   * 
+   *
    * **Notes**:
    * - A valid API key is required.
    * - Service checks can be submitted up to 10 minutes in the past.

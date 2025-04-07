@@ -32,7 +32,7 @@ export class DowntimeScheduleOneTimeCreateUpdateRequest {
       baseName: "start",
       type: "Date",
       format: "date-time",
-    }
+    },
   };
 
   /**

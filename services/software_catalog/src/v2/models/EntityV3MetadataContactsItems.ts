@@ -38,7 +38,7 @@ export class EntityV3MetadataContactsItems {
       baseName: "type",
       type: "string",
       required: true,
-    }
+    },
   };
 
   /**

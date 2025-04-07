@@ -187,10 +187,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -217,9 +214,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @params response Response returned by the server for a request to getSLOReport
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSLOReport(
-    response: ResponseContext,
-  ): Promise<string> {
+  public async getSLOReport(response: ResponseContext): Promise<string> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -253,10 +248,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -319,10 +311,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -387,7 +376,7 @@ export class ServiceLevelObjectivesApi {
 
   /**
    * Create a job to generate an SLO report. The report job is processed asynchronously and eventually results in a CSV report being available for download.
-   * 
+   *
    * Check the status of the job and download the CSV report using the returned `report_id`.
    * @param param The request object
    */
@@ -410,7 +399,7 @@ export class ServiceLevelObjectivesApi {
 
   /**
    * Download an SLO report. This can only be performed after the report job has completed.
-   * 
+   *
    * Reports are not guaranteed to exist indefinitely. Datadog recommends that you download the report as soon as it is available.
    * @param param The request object
    */

@@ -67,10 +67,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
       ) as AWSLogsServicesResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -88,10 +85,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -134,11 +128,11 @@ export class AWSLogsIntegrationApi {
    * Get a list of AWS services that can send logs to Datadog.
    * @param param The request object
    */
-  public listAWSLogsServices(options?: Configuration,
+  public listAWSLogsServices(
+    options?: Configuration,
   ): Promise<AWSLogsServicesResponse> {
-    const requestContextPromise = this.requestFactory.listAWSLogsServices(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listAWSLogsServices(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

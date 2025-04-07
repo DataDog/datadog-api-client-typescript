@@ -78,7 +78,7 @@ export class EntityV3Queue {
     spec: {
       baseName: "spec",
       type: "EntityV3QueueSpec",
-    }
+    },
   };
 
   /**

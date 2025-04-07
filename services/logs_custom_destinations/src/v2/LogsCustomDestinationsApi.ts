@@ -68,14 +68,18 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'customDestinationId' is not null or undefined
     if (customDestinationId === null || customDestinationId === undefined) {
-      throw new RequiredError("customDestinationId", "deleteLogsCustomDestination");
+      throw new RequiredError(
+        "customDestinationId",
+        "deleteLogsCustomDestination",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
-      "{custom_destination_id}",
-      encodeURIComponent(String(customDestinationId)),
-    );
+    const localVarPath =
+      "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
+        "{custom_destination_id}",
+        encodeURIComponent(String(customDestinationId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -101,14 +105,18 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'customDestinationId' is not null or undefined
     if (customDestinationId === null || customDestinationId === undefined) {
-      throw new RequiredError("customDestinationId", "getLogsCustomDestination");
+      throw new RequiredError(
+        "customDestinationId",
+        "getLogsCustomDestination",
+      );
     }
 
     // Path Params
-    const localVarPath = "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
-      "{custom_destination_id}",
-      encodeURIComponent(String(customDestinationId)),
-    );
+    const localVarPath =
+      "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
+        "{custom_destination_id}",
+        encodeURIComponent(String(customDestinationId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -159,7 +167,10 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'customDestinationId' is not null or undefined
     if (customDestinationId === null || customDestinationId === undefined) {
-      throw new RequiredError("customDestinationId", "updateLogsCustomDestination");
+      throw new RequiredError(
+        "customDestinationId",
+        "updateLogsCustomDestination",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -168,10 +179,11 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     }
 
     // Path Params
-    const localVarPath = "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
-      "{custom_destination_id}",
-      encodeURIComponent(String(customDestinationId)),
-    );
+    const localVarPath =
+      "/api/v2/logs/config/custom-destinations/{custom_destination_id}".replace(
+        "{custom_destination_id}",
+        encodeURIComponent(String(customDestinationId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -245,10 +257,7 @@ export class LogsCustomDestinationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -307,10 +316,7 @@ export class LogsCustomDestinationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -368,10 +374,7 @@ export class LogsCustomDestinationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -411,10 +414,7 @@ export class LogsCustomDestinationsApiResponseProcessor {
       ) as CustomDestinationsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -432,10 +432,7 @@ export class LogsCustomDestinationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -499,10 +496,7 @@ export class LogsCustomDestinationsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -586,15 +580,15 @@ export class LogsCustomDestinationsApi {
     param: LogsCustomDestinationsApiCreateLogsCustomDestinationRequest,
     options?: Configuration,
   ): Promise<CustomDestinationResponse> {
-    const requestContextPromise = this.requestFactory.createLogsCustomDestination(
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.createLogsCustomDestination(param.body, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createLogsCustomDestination(responseContext);
+          return this.responseProcessor.createLogsCustomDestination(
+            responseContext,
+          );
         });
     });
   }
@@ -607,15 +601,18 @@ export class LogsCustomDestinationsApi {
     param: LogsCustomDestinationsApiDeleteLogsCustomDestinationRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteLogsCustomDestination(
-      param.customDestinationId,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deleteLogsCustomDestination(
+        param.customDestinationId,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteLogsCustomDestination(responseContext);
+          return this.responseProcessor.deleteLogsCustomDestination(
+            responseContext,
+          );
         });
     });
   }
@@ -636,7 +633,9 @@ export class LogsCustomDestinationsApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getLogsCustomDestination(responseContext);
+          return this.responseProcessor.getLogsCustomDestination(
+            responseContext,
+          );
         });
     });
   }
@@ -645,16 +644,18 @@ export class LogsCustomDestinationsApi {
    * Get the list of configured custom destinations in your organization with their definitions.
    * @param param The request object
    */
-  public listLogsCustomDestinations(options?: Configuration,
+  public listLogsCustomDestinations(
+    options?: Configuration,
   ): Promise<CustomDestinationsResponse> {
-    const requestContextPromise = this.requestFactory.listLogsCustomDestinations(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listLogsCustomDestinations(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listLogsCustomDestinations(responseContext);
+          return this.responseProcessor.listLogsCustomDestinations(
+            responseContext,
+          );
         });
     });
   }
@@ -667,16 +668,19 @@ export class LogsCustomDestinationsApi {
     param: LogsCustomDestinationsApiUpdateLogsCustomDestinationRequest,
     options?: Configuration,
   ): Promise<CustomDestinationResponse> {
-    const requestContextPromise = this.requestFactory.updateLogsCustomDestination(
-      param.customDestinationId,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.updateLogsCustomDestination(
+        param.customDestinationId,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateLogsCustomDestination(responseContext);
+          return this.responseProcessor.updateLogsCustomDestination(
+            responseContext,
+          );
         });
     });
   }

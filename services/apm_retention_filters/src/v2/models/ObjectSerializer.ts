@@ -46,7 +46,11 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 const enumsMap: { [key: string]: any[] } = {
   ApmRetentionFilterType: ["apm_retention_filter"],
-  RetentionFilterAllType: ["spans-sampling-processor", "spans-errors-sampling-processor", "spans-appsec-sampling-processor"],
+  RetentionFilterAllType: [
+    "spans-sampling-processor",
+    "spans-errors-sampling-processor",
+    "spans-appsec-sampling-processor",
+  ],
   RetentionFilterType: ["spans-sampling-processor"],
 };
 

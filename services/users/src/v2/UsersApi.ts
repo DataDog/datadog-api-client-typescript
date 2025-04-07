@@ -113,10 +113,11 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/user_invitations/{user_invitation_uuid}".replace(
-      "{user_invitation_uuid}",
-      encodeURIComponent(String(userInvitationUuid)),
-    );
+    const localVarPath =
+      "/api/v2/user_invitations/{user_invitation_uuid}".replace(
+        "{user_invitation_uuid}",
+        encodeURIComponent(String(userInvitationUuid)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -414,9 +415,7 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to createUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createUser(
-    response: ResponseContext,
-  ): Promise<UserResponse> {
+  public async createUser(response: ResponseContext): Promise<UserResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -449,10 +448,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -479,9 +475,7 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to disableUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async disableUser(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async disableUser(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -510,10 +504,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -570,10 +561,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -600,9 +588,7 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to getUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUser(
-    response: ResponseContext,
-  ): Promise<UserResponse> {
+  public async getUser(response: ResponseContext): Promise<UserResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -635,10 +621,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -700,10 +683,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -765,10 +745,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -795,9 +772,7 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to listUsers
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listUsers(
-    response: ResponseContext,
-  ): Promise<UsersResponse> {
+  public async listUsers(response: ResponseContext): Promise<UsersResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -830,10 +805,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -895,10 +867,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -925,9 +894,7 @@ export class UsersApiResponseProcessor {
    * @params response Response returned by the server for a request to updateUser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateUser(
-    response: ResponseContext,
-  ): Promise<UserResponse> {
+  public async updateUser(response: ResponseContext): Promise<UserResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -962,10 +929,7 @@ export class UsersApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1102,8 +1066,7 @@ export class UsersApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new UsersApiRequestFactory(this.configuration);
+      requestFactory || new UsersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new UsersApiResponseProcessor();
   }
@@ -1268,9 +1231,9 @@ export class UsersApi {
    * Provide a paginated version of listUsers returning a generator with all the items.
    */
   public async *listUsersWithPagination(
-    param: UsersApiListUsersRequest = {}, options?: Configuration,
+    param: UsersApiListUsersRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<User> {
-
     let pageSize = 10;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
@@ -1278,8 +1241,17 @@ export class UsersApi {
     param.pageSize = pageSize;
     param.pageNumber = 0;
     while (true) {
-      const requestContext = await this.requestFactory.listUsers(param.pageSize,param.pageNumber,param.sort,param.sortDir,param.filter,param.filterStatus,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listUsers(
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.sortDir,
+        param.filter,
+        param.filterStatus,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listUsers(responseContext);
       const responseData = response.data;

@@ -95,7 +95,10 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Header Params
     if (contentEncoding !== undefined) {
-      requestContext.setHeaderParam("Content-Encoding", ObjectSerializer.serialize(contentEncoding, "ContentEncoding", ""));
+      requestContext.setHeaderParam(
+        "Content-Encoding",
+        ObjectSerializer.serialize(contentEncoding, "ContentEncoding", ""),
+      );
     }
 
     // Body Params
@@ -113,9 +116,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -129,9 +130,7 @@ export class LogsApiResponseProcessor {
    * @params response Response returned by the server for a request to listLogs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listLogs(
-    response: ResponseContext,
-  ): Promise<LogsListResponse> {
+  public async listLogs(response: ResponseContext): Promise<LogsListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -165,10 +164,7 @@ export class LogsApiResponseProcessor {
         body,
       );
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -186,10 +182,7 @@ export class LogsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -216,9 +209,7 @@ export class LogsApiResponseProcessor {
    * @params response Response returned by the server for a request to submitLog
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async submitLog(
-    response: ResponseContext,
-  ): Promise<any> {
+  public async submitLog(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -242,15 +233,9 @@ export class LogsApiResponseProcessor {
         ) as HTTPLogError;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPLogError>(
-          response.httpStatusCode,
-          bodyText,
-        );
+        throw new ApiException<HTTPLogError>(response.httpStatusCode, bodyText);
       }
-      throw new ApiException<HTTPLogError>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<HTTPLogError>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
@@ -270,10 +255,7 @@ export class LogsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -332,8 +314,7 @@ export class LogsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new LogsApiRequestFactory(this.configuration);
+      requestFactory || new LogsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsApiResponseProcessor();
   }
@@ -341,11 +322,11 @@ export class LogsApi {
   /**
    * List endpoint returns logs that match a log search query.
    * [Results are paginated][1].
-   * 
+   *
    * **If you are considering archiving logs for your organization,
    * consider use of the Datadog archive capabilities instead of the log list API.
    * See [Datadog Logs Archive documentation][2].**
-   * 
+   *
    * [1]: /logs/guide/collect-multiple-logs-with-pagination
    * [2]: https://docs.datadoghq.com/logs/archives
    * @param param The request object
@@ -369,18 +350,18 @@ export class LogsApi {
 
   /**
    * Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:
-   * 
+   *
    * - Maximum content size per payload (uncompressed): 5MB
    * - Maximum size for a single log: 1MB
    * - Maximum array size if sending multiple logs in an array: 1000 entries
-   * 
+   *
    * Any log exceeding 1MB is accepted and truncated by Datadog:
    * - For a single log request, the API truncates the log at 1MB and returns a 2xx.
    * - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.
-   * 
+   *
    * Datadog recommends sending your logs compressed.
    * Add the `Content-Encoding: gzip` header to the request when sending compressed logs.
-   * 
+   *
    * The status codes answered by the HTTP API are:
    * - 200: OK
    * - 400: Bad request (likely an issue in the payload formatting)

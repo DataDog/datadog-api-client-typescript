@@ -33,7 +33,15 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
-  EventAlertType: ["error", "warning", "info", "success", "user_update", "recommendation", "snapshot"],
+  EventAlertType: [
+    "error",
+    "warning",
+    "info",
+    "success",
+    "user_update",
+    "recommendation",
+    "snapshot",
+  ],
   EventPriority: ["normal", "low"],
 };
 

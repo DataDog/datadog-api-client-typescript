@@ -653,9 +653,7 @@ export class DashboardsApiResponseProcessor {
    * @params response Response returned by the server for a request to createDashboard
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createDashboard(
-    response: ResponseContext,
-  ): Promise<Dashboard> {
+  public async createDashboard(response: ResponseContext): Promise<Dashboard> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -688,10 +686,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -754,10 +749,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -819,10 +811,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -849,9 +838,7 @@ export class DashboardsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteDashboards
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteDashboards(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteDashboards(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -881,10 +868,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -941,10 +925,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1002,10 +983,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1027,9 +1005,7 @@ export class DashboardsApiResponseProcessor {
    * @params response Response returned by the server for a request to getDashboard
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getDashboard(
-    response: ResponseContext,
-  ): Promise<Dashboard> {
+  public async getDashboard(response: ResponseContext): Promise<Dashboard> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1062,10 +1038,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1127,10 +1100,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1192,10 +1162,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1235,10 +1202,7 @@ export class DashboardsApiResponseProcessor {
       ) as DashboardSummary;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -1256,10 +1220,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1286,9 +1247,7 @@ export class DashboardsApiResponseProcessor {
    * @params response Response returned by the server for a request to restoreDashboards
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async restoreDashboards(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async restoreDashboards(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1318,10 +1277,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1379,10 +1335,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1409,9 +1362,7 @@ export class DashboardsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateDashboard
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateDashboard(
-    response: ResponseContext,
-  ): Promise<Dashboard> {
+  public async updateDashboard(response: ResponseContext): Promise<Dashboard> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -1445,10 +1396,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1511,10 +1459,7 @@ export class DashboardsApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1706,8 +1651,7 @@ export class DashboardsApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new DashboardsApiRequestFactory(this.configuration);
+      requestFactory || new DashboardsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DashboardsApiResponseProcessor();
   }
@@ -1826,16 +1770,19 @@ export class DashboardsApi {
     param: DashboardsApiDeletePublicDashboardInvitationRequest,
     options?: Configuration,
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deletePublicDashboardInvitation(
-      param.token,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.deletePublicDashboardInvitation(
+        param.token,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deletePublicDashboardInvitation(responseContext);
+          return this.responseProcessor.deletePublicDashboardInvitation(
+            responseContext,
+          );
         });
     });
   }
@@ -1890,24 +1837,27 @@ export class DashboardsApi {
     param: DashboardsApiGetPublicDashboardInvitationsRequest,
     options?: Configuration,
   ): Promise<SharedDashboardInvites> {
-    const requestContextPromise = this.requestFactory.getPublicDashboardInvitations(
-      param.token,
-      param.pageSize,
-      param.pageNumber,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.getPublicDashboardInvitations(
+        param.token,
+        param.pageSize,
+        param.pageNumber,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getPublicDashboardInvitations(responseContext);
+          return this.responseProcessor.getPublicDashboardInvitations(
+            responseContext,
+          );
         });
     });
   }
 
   /**
    * Get all dashboards.
-   * 
+   *
    * **Note**: This query will only return custom created or cloned dashboards.
    * This query will not return preset dashboards.
    * @param param The request object
@@ -1936,19 +1886,27 @@ export class DashboardsApi {
    * Provide a paginated version of listDashboards returning a generator with all the items.
    */
   public async *listDashboardsWithPagination(
-    param: DashboardsApiListDashboardsRequest = {}, options?: Configuration,
+    param: DashboardsApiListDashboardsRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<DashboardSummaryDefinition> {
-
     let pageSize = 100;
     if (param.count !== undefined) {
       pageSize = param.count;
     }
     param.count = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listDashboards(param.filterShared,param.filterDeleted,param.count,param.start,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listDashboards(
+        param.filterShared,
+        param.filterDeleted,
+        param.count,
+        param.start,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listDashboards(responseContext);
+      const response =
+        await this.responseProcessor.listDashboards(responseContext);
       const responseDashboards = response.dashboards;
       if (responseDashboards === undefined) {
         break;
@@ -1997,16 +1955,19 @@ export class DashboardsApi {
     param: DashboardsApiSendPublicDashboardInvitationRequest,
     options?: Configuration,
   ): Promise<SharedDashboardInvites> {
-    const requestContextPromise = this.requestFactory.sendPublicDashboardInvitation(
-      param.token,
-      param.body,
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.sendPublicDashboardInvitation(
+        param.token,
+        param.body,
+        options,
+      );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.sendPublicDashboardInvitation(responseContext);
+          return this.responseProcessor.sendPublicDashboardInvitation(
+            responseContext,
+          );
         });
     });
   }

@@ -26,7 +26,16 @@
   "scripts": {
     "build": "yarn workspaces run build",
     "test": "yarn workspaces run test",
-    "lint": "yarn workspaces run lint"
+    "lint": "yarn install --ignore-scripts; eslint --ext .ts src",
+    "lint:fix": "yarn install --ignore-scripts;  yarn lint --fix",
+    "format": "yarn install --ignore-scripts; prettier --write --ignore-unknown '**.{js,ts}'"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "eslint": "^9.23.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.29.0"
   },
   "engines": {
     "node": ">=18.0.0"

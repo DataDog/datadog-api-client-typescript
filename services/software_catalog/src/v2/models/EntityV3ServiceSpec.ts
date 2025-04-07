@@ -60,7 +60,7 @@ export class EntityV3ServiceSpec {
     type: {
       baseName: "type",
       type: "string",
-    }
+    },
   };
 
   /**

@@ -128,10 +128,7 @@ export class IPAllowlistApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -194,10 +191,7 @@ export class IPAllowlistApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -237,8 +231,7 @@ export class IPAllowlistApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new IPAllowlistApiRequestFactory(this.configuration);
+      requestFactory || new IPAllowlistApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IPAllowlistApiResponseProcessor();
   }
@@ -247,11 +240,8 @@ export class IPAllowlistApi {
    * Returns the IP allowlist and its enabled or disabled state.
    * @param param The request object
    */
-  public getIPAllowlist(options?: Configuration,
-  ): Promise<IPAllowlistResponse> {
-    const requestContextPromise = this.requestFactory.getIPAllowlist(
-      options,
-    );
+  public getIPAllowlist(options?: Configuration): Promise<IPAllowlistResponse> {
+    const requestContextPromise = this.requestFactory.getIPAllowlist(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

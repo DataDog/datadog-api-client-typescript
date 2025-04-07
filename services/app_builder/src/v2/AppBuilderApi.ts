@@ -437,10 +437,7 @@ export class AppBuilderApiResponseProcessor {
       ) as CreateAppResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -481,10 +478,7 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -570,10 +564,7 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -658,10 +649,7 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -688,9 +676,7 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to getApp
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getApp(
-    response: ResponseContext,
-  ): Promise<GetAppResponse> {
+  public async getApp(response: ResponseContext): Promise<GetAppResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -747,10 +733,7 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -777,9 +760,7 @@ export class AppBuilderApiResponseProcessor {
    * @params response Response returned by the server for a request to listApps
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listApps(
-    response: ResponseContext,
-  ): Promise<ListAppsResponse> {
+  public async listApps(response: ResponseContext): Promise<ListAppsResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -790,10 +771,7 @@ export class AppBuilderApiResponseProcessor {
       ) as ListAppsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -834,10 +812,7 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -922,10 +897,7 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1010,10 +982,7 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1053,10 +1022,7 @@ export class AppBuilderApiResponseProcessor {
       ) as UpdateAppResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403
-    ) {
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -1097,10 +1063,7 @@ export class AppBuilderApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1254,8 +1217,7 @@ export class AppBuilderApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new AppBuilderApiRequestFactory(this.configuration);
+      requestFactory || new AppBuilderApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AppBuilderApiResponseProcessor();
   }

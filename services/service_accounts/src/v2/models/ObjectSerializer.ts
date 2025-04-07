@@ -71,7 +71,14 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
-  ApplicationKeysSort: ["created_at", "-created_at", "last4", "-last4", "name", "-name"],
+  ApplicationKeysSort: [
+    "created_at",
+    "-created_at",
+    "last4",
+    "-last4",
+    "name",
+    "-name",
+  ],
   ApplicationKeysType: ["application_keys"],
   LeakedKeyType: ["leaked_keys"],
   OrganizationsType: ["orgs"],

@@ -14,7 +14,7 @@ import { SLOType } from "./SLOType";
 export class ServiceLevelObjective {
   /**
    * Creation timestamp (UNIX time in seconds)
-   * 
+   *
    * Always included in service level objective responses.
    */
   "createdAt"?: number;
@@ -24,14 +24,14 @@ export class ServiceLevelObjective {
   "creator"?: Creator;
   /**
    * A user-defined description of the service level objective.
-   * 
+   *
    * Always included in service level objective responses (but may be `null`).
    * Optional in create/update requests.
    */
   "description"?: string;
   /**
    * A list of (up to 100) monitor groups that narrow the scope of a monitor service level objective.
-   * 
+   *
    * Included in service level objective responses if it is not empty. Optional in
    * create/update requests for monitor service level objectives, but may only be
    * used when then length of the `monitor_ids` field is one.
@@ -39,13 +39,13 @@ export class ServiceLevelObjective {
   "groups"?: Array<string>;
   /**
    * A unique identifier for the service level objective object.
-   * 
+   *
    * Always included in service level objective responses.
    */
   "id"?: string;
   /**
    * Modification timestamp (UNIX time in seconds)
-   * 
+   *
    * Always included in service level objective responses.
    */
   "modifiedAt"?: number;

@@ -327,10 +327,7 @@ export class NotebooksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -357,9 +354,7 @@ export class NotebooksApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteNotebook
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteNotebook(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteNotebook(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -389,10 +384,7 @@ export class NotebooksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -450,10 +442,7 @@ export class NotebooksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -515,10 +504,7 @@ export class NotebooksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -582,10 +568,7 @@ export class NotebooksApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -708,8 +691,7 @@ export class NotebooksApi {
   ) {
     this.configuration = configuration || createConfiguration();
     this.requestFactory =
-      requestFactory ||
-      new NotebooksApiRequestFactory(this.configuration);
+      requestFactory || new NotebooksApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new NotebooksApiResponseProcessor();
   }
@@ -812,19 +794,33 @@ export class NotebooksApi {
    * Provide a paginated version of listNotebooks returning a generator with all the items.
    */
   public async *listNotebooksWithPagination(
-    param: NotebooksApiListNotebooksRequest = {}, options?: Configuration,
+    param: NotebooksApiListNotebooksRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<NotebooksResponseData> {
-
     let pageSize = 100;
     if (param.count !== undefined) {
       pageSize = param.count;
     }
     param.count = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listNotebooks(param.authorHandle,param.excludeAuthorHandle,param.start,param.count,param.sortField,param.sortDir,param.query,param.includeCells,param.isTemplate,param.type,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listNotebooks(
+        param.authorHandle,
+        param.excludeAuthorHandle,
+        param.start,
+        param.count,
+        param.sortField,
+        param.sortDir,
+        param.query,
+        param.includeCells,
+        param.isTemplate,
+        param.type,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listNotebooks(responseContext);
+      const response =
+        await this.responseProcessor.listNotebooks(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

@@ -72,10 +72,11 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -105,10 +106,11 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -168,10 +170,11 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     }
 
     // Path Params
-    const localVarPath = "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
-      "{account_id}",
-      encodeURIComponent(String(accountId)),
-    );
+    const localVarPath =
+      "/api/v2/integrations/cloudflare/accounts/{account_id}".replace(
+        "{account_id}",
+        encodeURIComponent(String(accountId)),
+      );
 
     // Make Request Context
     const requestContext = _config
@@ -245,10 +248,7 @@ export class CloudflareIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -307,10 +307,7 @@ export class CloudflareIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -368,10 +365,7 @@ export class CloudflareIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -434,10 +428,7 @@ export class CloudflareIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -500,10 +491,7 @@ export class CloudflareIntegrationApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -593,7 +581,9 @@ export class CloudflareIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createCloudflareAccount(responseContext);
+          return this.responseProcessor.createCloudflareAccount(
+            responseContext,
+          );
         });
     });
   }
@@ -614,7 +604,9 @@ export class CloudflareIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteCloudflareAccount(responseContext);
+          return this.responseProcessor.deleteCloudflareAccount(
+            responseContext,
+          );
         });
     });
   }
@@ -644,11 +636,11 @@ export class CloudflareIntegrationApi {
    * List Cloudflare accounts.
    * @param param The request object
    */
-  public listCloudflareAccounts(options?: Configuration,
+  public listCloudflareAccounts(
+    options?: Configuration,
   ): Promise<CloudflareAccountsResponse> {
-    const requestContextPromise = this.requestFactory.listCloudflareAccounts(
-      options,
-    );
+    const requestContextPromise =
+      this.requestFactory.listCloudflareAccounts(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -675,7 +667,9 @@ export class CloudflareIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateCloudflareAccount(responseContext);
+          return this.responseProcessor.updateCloudflareAccount(
+            responseContext,
+          );
         });
     });
   }

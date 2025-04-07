@@ -39,7 +39,13 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
-  DashboardType: ["custom_timeboard", "custom_screenboard", "integration_screenboard", "integration_timeboard", "host_timeboard"],
+  DashboardType: [
+    "custom_timeboard",
+    "custom_screenboard",
+    "integration_screenboard",
+    "integration_timeboard",
+    "host_timeboard",
+  ],
 };
 
 const typeMap: { [index: string]: any } = {

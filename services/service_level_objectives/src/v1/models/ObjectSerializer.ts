@@ -83,9 +83,23 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
-  FormulaAndFunctionMetricAggregation: ["avg", "min", "max", "sum", "last", "area", "l2norm", "percentile"],
+  FormulaAndFunctionMetricAggregation: [
+    "avg",
+    "min",
+    "max",
+    "sum",
+    "last",
+    "area",
+    "l2norm",
+    "percentile",
+  ],
   FormulaAndFunctionMetricDataSource: ["metrics"],
-  SLOCorrectionCategory: ["Scheduled Maintenance", "Outside Business Hours", "Deployment", "Other"],
+  SLOCorrectionCategory: [
+    "Scheduled Maintenance",
+    "Outside Business Hours",
+    "Deployment",
+    "Other",
+  ],
   SLOCorrectionType: ["correction"],
   SLOErrorTimeframe: ["7d", "30d", "90d", "all"],
   SLOState: ["breached", "warning", "ok", "no_data"],
@@ -102,7 +116,8 @@ const typeMap: { [index: string]: any } = {
   CheckCanDeleteSLOResponse: CheckCanDeleteSLOResponse,
   CheckCanDeleteSLOResponseData: CheckCanDeleteSLOResponseData,
   Creator: Creator,
-  FormulaAndFunctionMetricQueryDefinition: FormulaAndFunctionMetricQueryDefinition,
+  FormulaAndFunctionMetricQueryDefinition:
+    FormulaAndFunctionMetricQueryDefinition,
   Pagination: Pagination,
   ResponseMetaAttributes: ResponseMetaAttributes,
   SLOBulkDeleteError: SLOBulkDeleteError,
@@ -111,7 +126,8 @@ const typeMap: { [index: string]: any } = {
   SLOCorrection: SLOCorrection,
   SLOCorrectionListResponse: SLOCorrectionListResponse,
   SLOCorrectionResponseAttributes: SLOCorrectionResponseAttributes,
-  SLOCorrectionResponseAttributesModifier: SLOCorrectionResponseAttributesModifier,
+  SLOCorrectionResponseAttributesModifier:
+    SLOCorrectionResponseAttributesModifier,
   SLOCreator: SLOCreator,
   SLODeleteResponse: SLODeleteResponse,
   SLOFormula: SLOFormula,
@@ -142,8 +158,10 @@ const typeMap: { [index: string]: any } = {
   SearchSLOResponseData: SearchSLOResponseData,
   SearchSLOResponseDataAttributes: SearchSLOResponseDataAttributes,
   SearchSLOResponseDataAttributesFacets: SearchSLOResponseDataAttributesFacets,
-  SearchSLOResponseDataAttributesFacetsObjectInt: SearchSLOResponseDataAttributesFacetsObjectInt,
-  SearchSLOResponseDataAttributesFacetsObjectString: SearchSLOResponseDataAttributesFacetsObjectString,
+  SearchSLOResponseDataAttributesFacetsObjectInt:
+    SearchSLOResponseDataAttributesFacetsObjectInt,
+  SearchSLOResponseDataAttributesFacetsObjectString:
+    SearchSLOResponseDataAttributesFacetsObjectString,
   SearchSLOResponseLinks: SearchSLOResponseLinks,
   SearchSLOResponseMeta: SearchSLOResponseMeta,
   SearchSLOResponseMetaPage: SearchSLOResponseMetaPage,

@@ -213,9 +213,7 @@ export class SoftwareCatalogApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteCatalogEntity
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteCatalogEntity(
-    response: ResponseContext,
-  ): Promise<void> {
+  public async deleteCatalogEntity(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"],
     );
@@ -245,10 +243,7 @@ export class SoftwareCatalogApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -283,10 +278,7 @@ export class SoftwareCatalogApiResponseProcessor {
       ) as ListEntityCatalogResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType,
@@ -304,10 +296,7 @@ export class SoftwareCatalogApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -369,10 +358,7 @@ export class SoftwareCatalogApiResponseProcessor {
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(
-        response.httpStatusCode,
-        body,
-      );
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -535,19 +521,33 @@ export class SoftwareCatalogApi {
    * Provide a paginated version of listCatalogEntity returning a generator with all the items.
    */
   public async *listCatalogEntityWithPagination(
-    param: SoftwareCatalogApiListCatalogEntityRequest = {}, options?: Configuration,
+    param: SoftwareCatalogApiListCatalogEntityRequest = {},
+    options?: Configuration,
   ): AsyncGenerator<EntityData> {
-
     let pageSize = 100;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listCatalogEntity(param.pageOffset,param.pageLimit,param.filterId,param.filterRef,param.filterName,param.filterKind,param.filterOwner,param.filterRelationType,param.filterExcludeSnapshot,param.include,options);
-      const responseContext = await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listCatalogEntity(
+        param.pageOffset,
+        param.pageLimit,
+        param.filterId,
+        param.filterRef,
+        param.filterName,
+        param.filterKind,
+        param.filterOwner,
+        param.filterRelationType,
+        param.filterExcludeSnapshot,
+        param.include,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listCatalogEntity(responseContext);
+      const response =
+        await this.responseProcessor.listCatalogEntity(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

@@ -31,7 +31,7 @@ export class ListFindingsMeta {
       baseName: "snapshot_timestamp",
       type: "number",
       format: "int64",
-    }
+    },
   };
 
   /**

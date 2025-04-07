@@ -61,7 +61,20 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 
 const enumsMap: { [key: string]: any[] } = {
   RUMAggregateSortType: ["alphabetical", "measure"],
-  RUMAggregationFunction: ["count", "cardinality", "pc75", "pc90", "pc95", "pc98", "pc99", "sum", "min", "max", "avg", "median"],
+  RUMAggregationFunction: [
+    "count",
+    "cardinality",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+    "median",
+  ],
   RUMApplicationCreateType: ["rum_application_create"],
   RUMApplicationListType: ["rum_application"],
   RUMApplicationType: ["rum_application"],
@@ -75,7 +88,8 @@ const enumsMap: { [key: string]: any[] } = {
 
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
-  RUMAggregateBucketValueTimeseriesPoint: RUMAggregateBucketValueTimeseriesPoint,
+  RUMAggregateBucketValueTimeseriesPoint:
+    RUMAggregateBucketValueTimeseriesPoint,
   RUMAggregateRequest: RUMAggregateRequest,
   RUMAggregateSort: RUMAggregateSort,
   RUMAggregationBucketsResponse: RUMAggregationBucketsResponse,
