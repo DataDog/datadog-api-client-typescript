@@ -1,0 +1,84 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultShortResult";
+import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
+
+/**
+ * Object with the results of a single Synthetic API test.
+ */
+export class SyntheticsAPITestResultShort {
+  /**
+   * Last time the API test was performed.
+   */
+  "checkTime"?: number;
+  /**
+   * Location from which the API test was performed.
+   */
+  "probeDc"?: string;
+  /**
+   * Result of the last API test run.
+   */
+  "result"?: SyntheticsAPITestResultShortResult;
+  /**
+   * ID of the API test result.
+   */
+  "resultId"?: string;
+  /**
+   * The status of your Synthetic monitor.
+   * * `O` for not triggered
+   * * `1` for triggered
+   * * `2` for no data
+   */
+  "status"?: SyntheticsTestMonitorStatus;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    checkTime: {
+      baseName: "check_time",
+      type: "number",
+      format: "double",
+    },
+    probeDc: {
+      baseName: "probe_dc",
+      type: "string",
+    },
+    result: {
+      baseName: "result",
+      type: "SyntheticsAPITestResultShortResult",
+    },
+    resultId: {
+      baseName: "result_id",
+      type: "string",
+    },
+    status: {
+      baseName: "status",
+      type: "SyntheticsTestMonitorStatus",
+      format: "int64",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return SyntheticsAPITestResultShort.attributeTypeMap;
+  }
+
+  public constructor() {}
+}

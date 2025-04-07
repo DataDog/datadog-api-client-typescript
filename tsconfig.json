@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    /* Basic Options */
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": true,
+
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    "noImplicitAny": true,
+    "noImplicitThis": true
+    }
+}
