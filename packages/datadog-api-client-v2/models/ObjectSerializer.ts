@@ -1008,6 +1008,28 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
+import { ObservabilityPipeline } from "./ObservabilityPipeline";
+import { ObservabilityPipelineAddFieldsProcessor } from "./ObservabilityPipelineAddFieldsProcessor";
+import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
+import { ObservabilityPipelineCreateRequest } from "./ObservabilityPipelineCreateRequest";
+import { ObservabilityPipelineCreateRequestData } from "./ObservabilityPipelineCreateRequestData";
+import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
+import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
+import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
+import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineFieldValue } from "./ObservabilityPipelineFieldValue";
+import { ObservabilityPipelineFilterProcessor } from "./ObservabilityPipelineFilterProcessor";
+import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
+import { ObservabilityPipelineKafkaSourceLibrdkafkaOption } from "./ObservabilityPipelineKafkaSourceLibrdkafkaOption";
+import { ObservabilityPipelineKafkaSourceSasl } from "./ObservabilityPipelineKafkaSourceSasl";
+import { ObservabilityPipelineParseJSONProcessor } from "./ObservabilityPipelineParseJSONProcessor";
+import { ObservabilityPipelineQuotaProcessor } from "./ObservabilityPipelineQuotaProcessor";
+import { ObservabilityPipelineQuotaProcessorLimit } from "./ObservabilityPipelineQuotaProcessorLimit";
+import { ObservabilityPipelineQuotaProcessorOverride } from "./ObservabilityPipelineQuotaProcessorOverride";
+import { ObservabilityPipelineRemoveFieldsProcessor } from "./ObservabilityPipelineRemoveFieldsProcessor";
+import { ObservabilityPipelineRenameFieldsProcessor } from "./ObservabilityPipelineRenameFieldsProcessor";
+import { ObservabilityPipelineRenameFieldsProcessorField } from "./ObservabilityPipelineRenameFieldsProcessorField";
+import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 import { OktaAccount } from "./OktaAccount";
 import { OktaAccountAttributes } from "./OktaAccountAttributes";
 import { OktaAccountRequest } from "./OktaAccountRequest";
@@ -2174,6 +2196,21 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
   NotificationRulesType: ["notification_rules"],
+  ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
+  ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
+  ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
+  ObservabilityPipelineFilterProcessorType: ["filter"],
+  ObservabilityPipelineKafkaSourceType: ["kafka"],
+  ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
+  ObservabilityPipelinePipelineKafkaSourceSaslMechanism: [
+    "PLAIN",
+    "SCRAM-SHA-256",
+    "SCRAM-SHA-512",
+  ],
+  ObservabilityPipelineQuotaProcessorLimitEnforceType: ["bytes", "events"],
+  ObservabilityPipelineQuotaProcessorType: ["quota"],
+  ObservabilityPipelineRemoveFieldsProcessorType: ["remove_fields"],
+  ObservabilityPipelineRenameFieldsProcessorType: ["rename_fields"],
   OktaAccountType: ["okta-accounts"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
@@ -3772,6 +3809,39 @@ const typeMap: { [index: string]: any } = {
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   NullableUserRelationship: NullableUserRelationship,
   NullableUserRelationshipData: NullableUserRelationshipData,
+  ObservabilityPipeline: ObservabilityPipeline,
+  ObservabilityPipelineAddFieldsProcessor:
+    ObservabilityPipelineAddFieldsProcessor,
+  ObservabilityPipelineConfig: ObservabilityPipelineConfig,
+  ObservabilityPipelineCreateRequest: ObservabilityPipelineCreateRequest,
+  ObservabilityPipelineCreateRequestData:
+    ObservabilityPipelineCreateRequestData,
+  ObservabilityPipelineData: ObservabilityPipelineData,
+  ObservabilityPipelineDataAttributes: ObservabilityPipelineDataAttributes,
+  ObservabilityPipelineDatadogAgentSource:
+    ObservabilityPipelineDatadogAgentSource,
+  ObservabilityPipelineDatadogLogsDestination:
+    ObservabilityPipelineDatadogLogsDestination,
+  ObservabilityPipelineFieldValue: ObservabilityPipelineFieldValue,
+  ObservabilityPipelineFilterProcessor: ObservabilityPipelineFilterProcessor,
+  ObservabilityPipelineKafkaSource: ObservabilityPipelineKafkaSource,
+  ObservabilityPipelineKafkaSourceLibrdkafkaOption:
+    ObservabilityPipelineKafkaSourceLibrdkafkaOption,
+  ObservabilityPipelineKafkaSourceSasl: ObservabilityPipelineKafkaSourceSasl,
+  ObservabilityPipelineParseJSONProcessor:
+    ObservabilityPipelineParseJSONProcessor,
+  ObservabilityPipelineQuotaProcessor: ObservabilityPipelineQuotaProcessor,
+  ObservabilityPipelineQuotaProcessorLimit:
+    ObservabilityPipelineQuotaProcessorLimit,
+  ObservabilityPipelineQuotaProcessorOverride:
+    ObservabilityPipelineQuotaProcessorOverride,
+  ObservabilityPipelineRemoveFieldsProcessor:
+    ObservabilityPipelineRemoveFieldsProcessor,
+  ObservabilityPipelineRenameFieldsProcessor:
+    ObservabilityPipelineRenameFieldsProcessor,
+  ObservabilityPipelineRenameFieldsProcessorField:
+    ObservabilityPipelineRenameFieldsProcessorField,
+  ObservabilityPipelineTls: ObservabilityPipelineTls,
   OktaAccount: OktaAccount,
   OktaAccountAttributes: OktaAccountAttributes,
   OktaAccountRequest: OktaAccountRequest,
@@ -4642,6 +4712,21 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorConfigPolicyPolicy: ["MonitorConfigPolicyTagPolicy"],
   MonitorConfigPolicyPolicyCreateRequest: [
     "MonitorConfigPolicyTagPolicyCreateRequest",
+  ],
+  ObservabilityPipelineConfigDestinationItem: [
+    "ObservabilityPipelineDatadogLogsDestination",
+  ],
+  ObservabilityPipelineConfigProcessorItem: [
+    "ObservabilityPipelineFilterProcessor",
+    "ObservabilityPipelineParseJSONProcessor",
+    "ObservabilityPipelineQuotaProcessor",
+    "ObservabilityPipelineAddFieldsProcessor",
+    "ObservabilityPipelineRemoveFieldsProcessor",
+    "ObservabilityPipelineRenameFieldsProcessor",
+  ],
+  ObservabilityPipelineConfigSourceItem: [
+    "ObservabilityPipelineKafkaSource",
+    "ObservabilityPipelineDatadogAgentSource",
   ],
   Query: ["ActionQuery", "DataTransform", "StateVariable"],
   RUMAggregateBucketValue: [
