@@ -1,5 +1,5 @@
 {
-  "name": "datadog-api-client-typescript",
+  "name": "@datadog/datadog-api-client",
   "description": "",
   "author": "",
   "keywords": [
@@ -18,24 +18,27 @@
     "type": "git",
     "url": "https://github.com/DataDog/datadog-api-client-typescript.git"
   },
-  "private": true,
-  "workspaces": [
-    "services/*",
-    "packages/*"
+  "files": [
+    "dist/**/*"
   ],
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
-    "build": "yarn workspaces run build",
-    "test": "yarn workspaces run test",
-    "lint": "yarn install --ignore-scripts; eslint --ext .ts src",
-    "lint:fix": "yarn install --ignore-scripts;  yarn lint --fix",
-    "format": "yarn install --ignore-scripts; prettier --write --ignore-unknown '**.{js,ts}'"
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@types/buffer-from": "^1.1.0",
+    "@types/node": "*",
+    "@types/pako": "^1.0.3",
+    "buffer-from": "^1.1.2",
+    "cross-fetch": "^3.1.5",
+    "es6-promise": "^4.2.8",
+    "form-data": "^4.0.0",
+    "loglevel": "^1.8.1",
+    "pako": "^2.0.4"
   },
   "devDependencies": {
-    "@eslint/js": "^9.23.0",
-    "eslint": "^9.23.0",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.29.0"
+    "typescript": "4.8.4"
   },
   "engines": {
     "node": ">=18.0.0"

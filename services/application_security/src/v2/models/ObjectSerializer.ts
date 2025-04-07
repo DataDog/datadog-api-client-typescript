@@ -104,7 +104,7 @@ const enumsMap: { [key: string]: any[] } = {
   ApplicationSecurityWafCustomRuleTagsCategory: [
     "attack_attempt",
     "business_logic",
-    "security_responses",
+    "security_response",
   ],
   ApplicationSecurityWafCustomRuleType: ["custom_rule"],
   ApplicationSecurityWafExclusionFilterOnMatch: ["monitor"],

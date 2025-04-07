@@ -11,18 +11,6 @@
     "resolveJsonModule": true,
 
     "noImplicitAny": true,
-    "noImplicitThis": true,
-
-    /* Additional Checks */
-    "noUnusedLocals": false /* Report errors on unused locals. */, // TODO: reenable (unused imports!)
-    "noUnusedParameters": false /* Report errors on unused parameters. */, // TODO: set to true again
-    "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
-    "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
-
-    "sourceMap": true,
-    "outDir": "./dist",
-    "lib": ["es6", "es7"]
-  },
-  "exclude": ["dist", "node_modules", "tests"],
-  "include": ["src"]
+    "noImplicitThis": true
+    }
 }

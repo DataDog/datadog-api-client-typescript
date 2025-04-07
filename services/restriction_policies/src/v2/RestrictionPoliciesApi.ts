@@ -328,7 +328,7 @@ export class RestrictionPoliciesApiResponseProcessor {
 
 export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
    * @type string
    */
   resourceId: string;
@@ -336,7 +336,7 @@ export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
    * @type string
    */
   resourceId: string;
@@ -344,7 +344,7 @@ export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiUpdateRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
    * @type string
    */
   resourceId: string;
@@ -428,6 +428,8 @@ export class RestrictionPoliciesApi {
    * #### Supported resources
    * Restriction policies can be applied to the following resources:
    * - Dashboards: `dashboard`
+   * - Integration Accounts: `integration-account`
+   * - Integration Webhooks: `integration-webhook`
    * - Notebooks: `notebook`
    * - Powerpacks: `powerpack`
    * - Reference Tables: `reference-table`
@@ -446,6 +448,8 @@ export class RestrictionPoliciesApi {
    * Resource Type               | Supported Relations
    * ----------------------------|--------------------------
    * Dashboards                  | `viewer`, `editor`
+   * Integration Accounts        | `viewer`, `editor`
+   * Integration Webhooks        | `viewer`, `editor`
    * Notebooks                   | `viewer`, `editor`
    * Powerpacks                  | `viewer`, `editor`
    * Security Rules              | `viewer`, `editor`

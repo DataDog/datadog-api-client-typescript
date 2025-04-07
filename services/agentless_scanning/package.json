@@ -7,9 +7,6 @@
     "fetch",
     "typescript"
   ],
-  "files": [
-    "dist/**/*"
-  ],
   "license": "Apache-2.0",
   "licenses": [
     {
@@ -21,6 +18,9 @@
     "type": "git",
     "url": "https://github.com/DataDog/datadog-api-client-typescript.git"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
