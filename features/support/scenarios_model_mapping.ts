@@ -6063,6 +6063,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
+    "v2.CreatePipeline": {
+        "body": {
+            "type": "ObservabilityPipelineCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ObservabilityPipeline",
+    },
+    "v2.DeletePipeline": {
+        "pipelineId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetPipeline": {
+        "pipelineId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ObservabilityPipeline",
+    },
+    "v2.UpdatePipeline": {
+        "pipelineId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ObservabilityPipeline",
+            "format": "",
+            },
+        "operationResponseType": "ObservabilityPipeline",
+    },
     "v2.DeleteRestrictionPolicy": {
         "resourceId": {
             "type": "string",
