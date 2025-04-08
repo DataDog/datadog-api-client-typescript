@@ -24,6 +24,10 @@ export class InterfaceAttributes {
    */
   "index"?: number;
   /**
+   * The interface IP addresses
+   */
+  "ipAddresses"?: Array<string>;
+  /**
    * The interface MAC address
    */
   "macAddress"?: string;
@@ -64,6 +68,10 @@ export class InterfaceAttributes {
       baseName: "index",
       type: "number",
       format: "int64",
+    },
+    ipAddresses: {
+      baseName: "ip_addresses",
+      type: "Array<string>",
     },
     macAddress: {
       baseName: "mac_address",
