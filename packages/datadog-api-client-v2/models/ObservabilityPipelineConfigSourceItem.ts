@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
+import { ObservabilityPipelineFluentSource } from "./ObservabilityPipelineFluentSource";
+import { ObservabilityPipelineHttpServerSource } from "./ObservabilityPipelineHttpServerSource";
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
@@ -15,4 +17,6 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type ObservabilityPipelineConfigSourceItem =
   | ObservabilityPipelineKafkaSource
   | ObservabilityPipelineDatadogAgentSource
+  | ObservabilityPipelineFluentSource
+  | ObservabilityPipelineHttpServerSource
   | UnparsedObject;
