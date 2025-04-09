@@ -38,7 +38,7 @@ export class ObservabilityPipelineQuotaProcessor {
    */
   "limit": ObservabilityPipelineQuotaProcessorLimit;
   /**
-   * Name for identifying the processor.
+   * Name of the quota.
    */
   "name": string;
   /**
