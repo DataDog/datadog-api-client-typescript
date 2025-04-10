@@ -9,6 +9,7 @@ const apiInstance = new v2.NetworkDeviceMonitoringApi(configuration);
 
 const params: v2.NetworkDeviceMonitoringApiGetInterfacesRequest = {
   deviceId: "default:1.2.3.4",
+  getIpAddresses: true,
 };
 
 apiInstance
