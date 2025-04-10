@@ -2361,7 +2361,11 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
-  SecurityMonitoringRuleCaseActionType: ["block_ip", "block_user"],
+  SecurityMonitoringRuleCaseActionType: [
+    "block_ip",
+    "block_user",
+    "user_behavior",
+  ],
   SecurityMonitoringRuleDetectionMethod: [
     "threshold",
     "new_value",

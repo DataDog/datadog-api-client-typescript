@@ -33,6 +33,12 @@ const params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
               duration: 900,
             },
           },
+          {
+            type: "user_behavior",
+            options: {
+              userBehaviorName: "behavior",
+            },
+          },
         ],
       },
     ],
