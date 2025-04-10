@@ -20,6 +20,7 @@ export type SyntheticsStepType =
   | typeof ASSERT_FROM_JAVASCRIPT
   | typeof ASSERT_PAGE_CONTAINS
   | typeof ASSERT_PAGE_LACKS
+  | typeof ASSERT_REQUESTS
   | typeof CLICK
   | typeof EXTRACT_FROM_JAVASCRIPT
   | typeof EXTRACT_VARIABLE
@@ -46,6 +47,7 @@ export const ASSERT_FILE_DOWNLOAD = "assertFileDownload";
 export const ASSERT_FROM_JAVASCRIPT = "assertFromJavascript";
 export const ASSERT_PAGE_CONTAINS = "assertPageContains";
 export const ASSERT_PAGE_LACKS = "assertPageLacks";
+export const ASSERT_REQUESTS = "assertRequests";
 export const CLICK = "click";
 export const EXTRACT_FROM_JAVASCRIPT = "extractFromJavascript";
 export const EXTRACT_VARIABLE = "extractVariable";
