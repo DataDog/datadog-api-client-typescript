@@ -15,6 +15,8 @@ import { ObjectSerializer } from "./models/ObjectSerializer";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { AWSAccountAndLambdaRequest } from "./models/AWSAccountAndLambdaRequest";
 import { AWSLogsAsyncResponse } from "./models/AWSLogsAsyncResponse";
+import { AWSLogsListResponse } from "./models/AWSLogsListResponse";
+import { AWSLogsListServicesResponse } from "./models/AWSLogsListServicesResponse";
 import { AWSLogsServicesRequest } from "./models/AWSLogsServicesRequest";
 
 export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {

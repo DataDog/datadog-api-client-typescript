@@ -13,6 +13,8 @@ import {
 
 import { ObjectSerializer } from "./models/ObjectSerializer";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { IncidentAttachmentAttachmentType } from "./models/IncidentAttachmentAttachmentType";
+import { IncidentAttachmentRelatedObject } from "./models/IncidentAttachmentRelatedObject";
 import { IncidentAttachmentsResponse } from "./models/IncidentAttachmentsResponse";
 import { IncidentAttachmentUpdateRequest } from "./models/IncidentAttachmentUpdateRequest";
 import { IncidentAttachmentUpdateResponse } from "./models/IncidentAttachmentUpdateResponse";

@@ -1,7 +1,5 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { LogsAPIError } from "./LogsAPIError";
-
 /**
  * Error returned by the Logs API
  */

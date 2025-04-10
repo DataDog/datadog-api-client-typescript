@@ -1,21 +1,9 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-/**
- * Error returned by the Logs API
- */
-export class LogsAPIError {
-  /**
-   * Code identifying the error
-   */
-  "code"?: string;
-  /**
-   * Additional error details
-   */
-  "details"?: Array<LogsAPIError>;
-  /**
-   * Error message
-   */
-  "message"?: string;
+import { NotificationRule } from "./NotificationRule";
+
+export class NotificationRulesList {
+  "data"?: Array<NotificationRule>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -31,17 +19,9 @@ export class LogsAPIError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "string",
-    },
-    details: {
-      baseName: "details",
-      type: "Array<LogsAPIError>",
-    },
-    message: {
-      baseName: "message",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "Array<NotificationRule>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +33,7 @@ export class LogsAPIError {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAPIError.attributeTypeMap;
+    return NotificationRulesList.attributeTypeMap;
   }
 
   public constructor() {}

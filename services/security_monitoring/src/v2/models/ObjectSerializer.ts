@@ -73,6 +73,7 @@ import { Metadata } from "./Metadata";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
+import { NotificationRulesList } from "./NotificationRulesList";
 import { Pagination } from "./Pagination";
 import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParameters";
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
@@ -263,7 +264,11 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
-  SecurityMonitoringRuleCaseActionType: ["block_ip", "block_user"],
+  SecurityMonitoringRuleCaseActionType: [
+    "block_ip",
+    "block_user",
+    "user_behavior",
+  ],
   SecurityMonitoringRuleDetectionMethod: [
     "threshold",
     "new_value",
@@ -485,6 +490,7 @@ const typeMap: { [index: string]: any } = {
   NotificationRule: NotificationRule,
   NotificationRuleAttributes: NotificationRuleAttributes,
   NotificationRuleResponse: NotificationRuleResponse,
+  NotificationRulesList: NotificationRulesList,
   Pagination: Pagination,
   PatchNotificationRuleParameters: PatchNotificationRuleParameters,
   PatchNotificationRuleParametersData: PatchNotificationRuleParametersData,

@@ -14,6 +14,7 @@ import {
 import { ObjectSerializer } from "./models/ObjectSerializer";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
+import { ListTeamsInclude } from "./models/ListTeamsInclude";
 import { ListTeamsSort } from "./models/ListTeamsSort";
 import { Team } from "./models/Team";
 import { TeamCreateRequest } from "./models/TeamCreateRequest";
@@ -24,6 +25,7 @@ import { TeamPermissionSettingResponse } from "./models/TeamPermissionSettingRes
 import { TeamPermissionSettingsResponse } from "./models/TeamPermissionSettingsResponse";
 import { TeamPermissionSettingUpdateRequest } from "./models/TeamPermissionSettingUpdateRequest";
 import { TeamResponse } from "./models/TeamResponse";
+import { TeamsField } from "./models/TeamsField";
 import { TeamsResponse } from "./models/TeamsResponse";
 import { TeamUpdateRequest } from "./models/TeamUpdateRequest";
 import { UserTeam } from "./models/UserTeam";

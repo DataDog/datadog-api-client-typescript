@@ -5,7 +5,6 @@ import { SyntheticsBrowserTestResultFailure } from "./SyntheticsBrowserTestResul
 import { SyntheticsCheckType } from "./SyntheticsCheckType";
 import { SyntheticsCoreWebVitals } from "./SyntheticsCoreWebVitals";
 import { SyntheticsPlayingTab } from "./SyntheticsPlayingTab";
-import { SyntheticsStepDetail } from "./SyntheticsStepDetail";
 import { SyntheticsStepDetailWarning } from "./SyntheticsStepDetailWarning";
 import { SyntheticsStepType } from "./SyntheticsStepType";
 

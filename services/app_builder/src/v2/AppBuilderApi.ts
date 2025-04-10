@@ -13,6 +13,7 @@ import {
 
 import { ObjectSerializer } from "./models/ObjectSerializer";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { AppsSortField } from "./models/AppsSortField";
 import { CreateAppRequest } from "./models/CreateAppRequest";
 import { CreateAppResponse } from "./models/CreateAppResponse";
 import { DeleteAppResponse } from "./models/DeleteAppResponse";

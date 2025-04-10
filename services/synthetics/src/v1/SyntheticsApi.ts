@@ -34,6 +34,7 @@ import { SyntheticsPatchTestBody } from "./models/SyntheticsPatchTestBody";
 import { SyntheticsPrivateLocation } from "./models/SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponse } from "./models/SyntheticsPrivateLocationCreationResponse";
 import { SyntheticsTestDetails } from "./models/SyntheticsTestDetails";
+import { SyntheticsTestUptime } from "./models/SyntheticsTestUptime";
 import { SyntheticsTriggerBody } from "./models/SyntheticsTriggerBody";
 import { SyntheticsTriggerCITestsResponse } from "./models/SyntheticsTriggerCITestsResponse";
 import { SyntheticsUpdateTestPauseStatusPayload } from "./models/SyntheticsUpdateTestPauseStatusPayload";
