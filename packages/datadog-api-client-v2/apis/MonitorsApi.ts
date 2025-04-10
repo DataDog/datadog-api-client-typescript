@@ -21,6 +21,10 @@ import { MonitorConfigPolicyCreateRequest } from "../models/MonitorConfigPolicyC
 import { MonitorConfigPolicyEditRequest } from "../models/MonitorConfigPolicyEditRequest";
 import { MonitorConfigPolicyListResponse } from "../models/MonitorConfigPolicyListResponse";
 import { MonitorConfigPolicyResponse } from "../models/MonitorConfigPolicyResponse";
+import { MonitorNotificationRuleCreateRequest } from "../models/MonitorNotificationRuleCreateRequest";
+import { MonitorNotificationRuleListResponse } from "../models/MonitorNotificationRuleListResponse";
+import { MonitorNotificationRuleResponse } from "../models/MonitorNotificationRuleResponse";
+import { MonitorNotificationRuleUpdateRequest } from "../models/MonitorNotificationRuleUpdateRequest";
 
 export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
   public async createMonitorConfigPolicy(
@@ -64,6 +68,59 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createMonitorNotificationRule(
+    body: MonitorNotificationRuleCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'createMonitorNotificationRule'");
+    if (!_config.unstableOperations["v2.createMonitorNotificationRule"]) {
+      throw new Error(
+        "Unstable operation 'createMonitorNotificationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createMonitorNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/monitor/notification_rule";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MonitorsApi.createMonitorNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "MonitorNotificationRuleCreateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteMonitorConfigPolicy(
     policyId: string,
     _options?: Configuration
@@ -97,6 +154,47 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteMonitorNotificationRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'deleteMonitorNotificationRule'");
+    if (!_config.unstableOperations["v2.deleteMonitorNotificationRule"]) {
+      throw new Error(
+        "Unstable operation 'deleteMonitorNotificationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "deleteMonitorNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/monitor/notification_rule/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MonitorsApi.deleteMonitorNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getMonitorConfigPolicy(
     policyId: string,
     _options?: Configuration
@@ -120,6 +218,99 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getMonitorNotificationRule(
+    ruleId: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getMonitorNotificationRule'");
+    if (!_config.unstableOperations["v2.getMonitorNotificationRule"]) {
+      throw new Error(
+        "Unstable operation 'getMonitorNotificationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "getMonitorNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/monitor/notification_rule/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MonitorsApi.getMonitorNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getMonitorNotificationRules(
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getMonitorNotificationRules'");
+    if (!_config.unstableOperations["v2.getMonitorNotificationRules"]) {
+      throw new Error(
+        "Unstable operation 'getMonitorNotificationRules' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/monitor/notification_rule";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MonitorsApi.getMonitorNotificationRules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -205,6 +396,68 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updateMonitorNotificationRule(
+    ruleId: string,
+    body: MonitorNotificationRuleUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateMonitorNotificationRule'");
+    if (!_config.unstableOperations["v2.updateMonitorNotificationRule"]) {
+      throw new Error(
+        "Unstable operation 'updateMonitorNotificationRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError("ruleId", "updateMonitorNotificationRule");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateMonitorNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/monitor/notification_rule/{rule_id}".replace(
+      "{rule_id}",
+      encodeURIComponent(String(ruleId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MonitorsApi.updateMonitorNotificationRule")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "MonitorNotificationRuleUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class MonitorsApiResponseProcessor {
@@ -274,6 +527,70 @@ export class MonitorsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createMonitorNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createMonitorNotificationRule(
+    response: ResponseContext
+  ): Promise<MonitorNotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MonitorNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonitorNotificationRuleResponse"
+        ) as MonitorNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonitorNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonitorNotificationRuleResponse",
+          ""
+        ) as MonitorNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteMonitorConfigPolicy
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -288,6 +605,64 @@ export class MonitorsApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteMonitorNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteMonitorNotificationRule(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -381,6 +756,130 @@ export class MonitorsApiResponseProcessor {
         "MonitorConfigPolicyResponse",
         ""
       ) as MonitorConfigPolicyResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getMonitorNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getMonitorNotificationRule(
+    response: ResponseContext
+  ): Promise<MonitorNotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MonitorNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonitorNotificationRuleResponse"
+        ) as MonitorNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonitorNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonitorNotificationRuleResponse",
+          ""
+        ) as MonitorNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getMonitorNotificationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getMonitorNotificationRules(
+    response: ResponseContext
+  ): Promise<MonitorNotificationRuleListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MonitorNotificationRuleListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonitorNotificationRuleListResponse"
+        ) as MonitorNotificationRuleListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonitorNotificationRuleListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonitorNotificationRuleListResponse",
+          ""
+        ) as MonitorNotificationRuleListResponse;
       return body;
     }
 
@@ -513,6 +1012,71 @@ export class MonitorsApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateMonitorNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateMonitorNotificationRule(
+    response: ResponseContext
+  ): Promise<MonitorNotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MonitorNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonitorNotificationRuleResponse"
+        ) as MonitorNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonitorNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MonitorNotificationRuleResponse",
+          ""
+        ) as MonitorNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface MonitorsApiCreateMonitorConfigPolicyRequest {
@@ -523,6 +1087,14 @@ export interface MonitorsApiCreateMonitorConfigPolicyRequest {
   body: MonitorConfigPolicyCreateRequest;
 }
 
+export interface MonitorsApiCreateMonitorNotificationRuleRequest {
+  /**
+   * Request body to create a monitor notification rule.
+   * @type MonitorNotificationRuleCreateRequest
+   */
+  body: MonitorNotificationRuleCreateRequest;
+}
+
 export interface MonitorsApiDeleteMonitorConfigPolicyRequest {
   /**
    * ID of the monitor configuration policy.
@@ -531,12 +1103,43 @@ export interface MonitorsApiDeleteMonitorConfigPolicyRequest {
   policyId: string;
 }
 
+export interface MonitorsApiDeleteMonitorNotificationRuleRequest {
+  /**
+   * ID of the monitor notification rule to delete.
+   * @type string
+   */
+  ruleId: string;
+}
+
 export interface MonitorsApiGetMonitorConfigPolicyRequest {
   /**
    * ID of the monitor configuration policy.
    * @type string
    */
   policyId: string;
+}
+
+export interface MonitorsApiGetMonitorNotificationRuleRequest {
+  /**
+   * ID of the monitor notification rule to fetch.
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * Comma-separated list of resource paths for related resources to include in the response. Supported resource
+   * path is `created_by`.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface MonitorsApiGetMonitorNotificationRulesRequest {
+  /**
+   * Comma-separated list of resource paths for related resources to include in the response. Supported resource
+   * path is `created_by`.
+   * @type string
+   */
+  include?: string;
 }
 
 export interface MonitorsApiUpdateMonitorConfigPolicyRequest {
@@ -550,6 +1153,19 @@ export interface MonitorsApiUpdateMonitorConfigPolicyRequest {
    * @type MonitorConfigPolicyEditRequest
    */
   body: MonitorConfigPolicyEditRequest;
+}
+
+export interface MonitorsApiUpdateMonitorNotificationRuleRequest {
+  /**
+   * ID of the monitor notification rule to update.
+   * @type string
+   */
+  ruleId: string;
+  /**
+   * Request body to update the monitor notification rule.
+   * @type MonitorNotificationRuleUpdateRequest
+   */
+  body: MonitorNotificationRuleUpdateRequest;
 }
 
 export class MonitorsApi {
@@ -593,6 +1209,27 @@ export class MonitorsApi {
   }
 
   /**
+   * Creates a monitor notification rule.
+   * @param param The request object
+   */
+  public createMonitorNotificationRule(
+    param: MonitorsApiCreateMonitorNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<MonitorNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createMonitorNotificationRule(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createMonitorNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete a monitor configuration policy.
    * @param param The request object
    */
@@ -616,6 +1253,27 @@ export class MonitorsApi {
   }
 
   /**
+   * Deletes a monitor notification rule by `rule_id`.
+   * @param param The request object
+   */
+  public deleteMonitorNotificationRule(
+    param: MonitorsApiDeleteMonitorNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteMonitorNotificationRule(param.ruleId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteMonitorNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get a monitor configuration policy by `policy_id`.
    * @param param The request object
    */
@@ -632,6 +1290,52 @@ export class MonitorsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getMonitorConfigPolicy(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns a monitor notification rule by `rule_id`.
+   * @param param The request object
+   */
+  public getMonitorNotificationRule(
+    param: MonitorsApiGetMonitorNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<MonitorNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getMonitorNotificationRule(
+        param.ruleId,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMonitorNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Returns a list of all monitor notification rules.
+   * @param param The request object
+   */
+  public getMonitorNotificationRules(
+    param: MonitorsApiGetMonitorNotificationRulesRequest = {},
+    options?: Configuration
+  ): Promise<MonitorNotificationRuleListResponse> {
+    const requestContextPromise =
+      this.requestFactory.getMonitorNotificationRules(param.include, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMonitorNotificationRules(
+            responseContext
+          );
         });
     });
   }
@@ -674,6 +1378,31 @@ export class MonitorsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateMonitorConfigPolicy(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Updates a monitor notification rule by `rule_id`.
+   * @param param The request object
+   */
+  public updateMonitorNotificationRule(
+    param: MonitorsApiUpdateMonitorNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<MonitorNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateMonitorNotificationRule(
+        param.ruleId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateMonitorNotificationRule(
             responseContext
           );
         });
