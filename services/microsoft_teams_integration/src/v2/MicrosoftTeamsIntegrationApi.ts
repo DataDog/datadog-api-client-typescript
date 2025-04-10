@@ -41,7 +41,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MicrosoftTeamsIntegrationApi.createTenantBasedHandle")
+      .getServer("v2.MicrosoftTeamsIntegrationApi.createTenantBasedHandle")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -87,9 +87,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.MicrosoftTeamsIntegrationApi.createWorkflowsWebhookHandle",
-      )
+      .getServer("v2.MicrosoftTeamsIntegrationApi.createWorkflowsWebhookHandle")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -138,7 +136,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MicrosoftTeamsIntegrationApi.deleteTenantBasedHandle")
+      .getServer("v2.MicrosoftTeamsIntegrationApi.deleteTenantBasedHandle")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -172,9 +170,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.MicrosoftTeamsIntegrationApi.deleteWorkflowsWebhookHandle",
-      )
+      .getServer("v2.MicrosoftTeamsIntegrationApi.deleteWorkflowsWebhookHandle")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -220,7 +216,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MicrosoftTeamsIntegrationApi.getChannelByName")
+      .getServer("v2.MicrosoftTeamsIntegrationApi.getChannelByName")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -254,7 +250,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MicrosoftTeamsIntegrationApi.getTenantBasedHandle")
+      .getServer("v2.MicrosoftTeamsIntegrationApi.getTenantBasedHandle")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -288,7 +284,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MicrosoftTeamsIntegrationApi.getWorkflowsWebhookHandle")
+      .getServer("v2.MicrosoftTeamsIntegrationApi.getWorkflowsWebhookHandle")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -315,7 +311,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MicrosoftTeamsIntegrationApi.listTenantBasedHandles")
+      .getServer("v2.MicrosoftTeamsIntegrationApi.listTenantBasedHandles")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -357,9 +353,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.MicrosoftTeamsIntegrationApi.listWorkflowsWebhookHandles",
-      )
+      .getServer("v2.MicrosoftTeamsIntegrationApi.listWorkflowsWebhookHandles")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -408,7 +402,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MicrosoftTeamsIntegrationApi.updateTenantBasedHandle")
+      .getServer("v2.MicrosoftTeamsIntegrationApi.updateTenantBasedHandle")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -463,9 +457,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.MicrosoftTeamsIntegrationApi.updateWorkflowsWebhookHandle",
-      )
+      .getServer("v2.MicrosoftTeamsIntegrationApi.updateWorkflowsWebhookHandle")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

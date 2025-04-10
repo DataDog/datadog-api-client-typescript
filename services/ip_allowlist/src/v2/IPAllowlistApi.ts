@@ -27,7 +27,7 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.IPAllowlistApi.getIPAllowlist")
+      .getServer("v2.IPAllowlistApi.getIPAllowlist")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -58,7 +58,7 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.IPAllowlistApi.updateIPAllowlist")
+      .getServer("v2.IPAllowlistApi.updateIPAllowlist")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

@@ -3,6 +3,7 @@ import {
   Configuration,
   applySecurityAuthentication,
   RequestContext,
+  HttpFile,
   HttpMethod,
   ResponseContext,
   logger,
@@ -38,7 +39,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.OrganizationsApi.createChildOrg")
+      .getServer("v1.OrganizationsApi.createChildOrg")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -82,7 +83,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.OrganizationsApi.downgradeOrg")
+      .getServer("v1.OrganizationsApi.downgradeOrg")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -115,7 +116,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.OrganizationsApi.getOrg")
+      .getServer("v1.OrganizationsApi.getOrg")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -137,7 +138,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.OrganizationsApi.listOrgs")
+      .getServer("v1.OrganizationsApi.listOrgs")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -176,7 +177,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.OrganizationsApi.updateOrg")
+      .getServer("v1.OrganizationsApi.updateOrg")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -226,7 +227,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.OrganizationsApi.uploadIdPForOrg")
+      .getServer("v1.OrganizationsApi.uploadIdPForOrg")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

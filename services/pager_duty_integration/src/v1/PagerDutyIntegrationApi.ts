@@ -34,9 +34,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.PagerDutyIntegrationApi.createPagerDutyIntegrationService",
-      )
+      .getServer("v1.PagerDutyIntegrationApi.createPagerDutyIntegrationService")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -84,9 +82,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.PagerDutyIntegrationApi.deletePagerDutyIntegrationService",
-      )
+      .getServer("v1.PagerDutyIntegrationApi.deletePagerDutyIntegrationService")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -120,7 +116,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.PagerDutyIntegrationApi.getPagerDutyIntegrationService")
+      .getServer("v1.PagerDutyIntegrationApi.getPagerDutyIntegrationService")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -163,9 +159,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.PagerDutyIntegrationApi.updatePagerDutyIntegrationService",
-      )
+      .getServer("v1.PagerDutyIntegrationApi.updatePagerDutyIntegrationService")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);

@@ -34,7 +34,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsPipelinesApi.createLogsPipeline")
+      .getServer("v1.LogsPipelinesApi.createLogsPipeline")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -78,7 +78,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsPipelinesApi.deleteLogsPipeline")
+      .getServer("v1.LogsPipelinesApi.deleteLogsPipeline")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -111,7 +111,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsPipelinesApi.getLogsPipeline")
+      .getServer("v1.LogsPipelinesApi.getLogsPipeline")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -135,7 +135,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsPipelinesApi.getLogsPipelineOrder")
+      .getServer("v1.LogsPipelinesApi.getLogsPipelineOrder")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -159,7 +159,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsPipelinesApi.listLogsPipelines")
+      .getServer("v1.LogsPipelinesApi.listLogsPipelines")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -198,7 +198,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsPipelinesApi.updateLogsPipeline")
+      .getServer("v1.LogsPipelinesApi.updateLogsPipeline")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -239,7 +239,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsPipelinesApi.updateLogsPipelineOrder")
+      .getServer("v1.LogsPipelinesApi.updateLogsPipelineOrder")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

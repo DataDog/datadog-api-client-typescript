@@ -48,7 +48,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardListsApi.createDashboardListItems")
+      .getServer("v2.DashboardListsApi.createDashboardListItems")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -99,7 +99,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardListsApi.deleteDashboardListItems")
+      .getServer("v2.DashboardListsApi.deleteDashboardListItems")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -144,7 +144,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardListsApi.getDashboardListItems")
+      .getServer("v2.DashboardListsApi.getDashboardListItems")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -185,7 +185,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardListsApi.updateDashboardListItems")
+      .getServer("v2.DashboardListsApi.updateDashboardListItems")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

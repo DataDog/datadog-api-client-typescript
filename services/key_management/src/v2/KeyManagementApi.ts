@@ -41,7 +41,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.createAPIKey")
+      .getServer("v2.KeyManagementApi.createAPIKey")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -82,7 +82,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.createCurrentUserApplicationKey")
+      .getServer("v2.KeyManagementApi.createCurrentUserApplicationKey")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -126,7 +126,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.deleteAPIKey")
+      .getServer("v2.KeyManagementApi.deleteAPIKey")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -159,7 +159,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.deleteApplicationKey")
+      .getServer("v2.KeyManagementApi.deleteApplicationKey")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -193,7 +193,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.deleteCurrentUserApplicationKey")
+      .getServer("v2.KeyManagementApi.deleteCurrentUserApplicationKey")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -227,7 +227,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.getAPIKey")
+      .getServer("v2.KeyManagementApi.getAPIKey")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -270,7 +270,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.getApplicationKey")
+      .getServer("v2.KeyManagementApi.getApplicationKey")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -313,7 +313,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.getCurrentUserApplicationKey")
+      .getServer("v2.KeyManagementApi.getCurrentUserApplicationKey")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -348,7 +348,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.listAPIKeys")
+      .getServer("v2.KeyManagementApi.listAPIKeys")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -462,7 +462,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.listApplicationKeys")
+      .getServer("v2.KeyManagementApi.listApplicationKeys")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -544,7 +544,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.listCurrentUserApplicationKeys")
+      .getServer("v2.KeyManagementApi.listCurrentUserApplicationKeys")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -634,7 +634,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.updateAPIKey")
+      .getServer("v2.KeyManagementApi.updateAPIKey")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -684,7 +684,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.updateApplicationKey")
+      .getServer("v2.KeyManagementApi.updateApplicationKey")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -735,7 +735,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.KeyManagementApi.updateCurrentUserApplicationKey")
+      .getServer("v2.KeyManagementApi.updateCurrentUserApplicationKey")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

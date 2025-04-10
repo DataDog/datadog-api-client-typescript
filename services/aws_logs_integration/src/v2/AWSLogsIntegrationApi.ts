@@ -22,7 +22,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listAWSLogsServices'");
-    if (!_config.unstableOperations["0.0.1.listAWSLogsServices"]) {
+    if (!_config.unstableOperations["v2.listAWSLogsServices"]) {
       throw new Error("Unstable operation 'listAWSLogsServices' is disabled");
     }
 
@@ -31,7 +31,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSLogsIntegrationApi.listAWSLogsServices")
+      .getServer("v2.AWSLogsIntegrationApi.listAWSLogsServices")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

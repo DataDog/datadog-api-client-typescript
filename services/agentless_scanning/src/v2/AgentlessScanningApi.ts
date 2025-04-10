@@ -38,7 +38,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AgentlessScanningApi.createAwsOnDemandTask")
+      .getServer("v2.AgentlessScanningApi.createAwsOnDemandTask")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -79,7 +79,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AgentlessScanningApi.createAwsScanOptions")
+      .getServer("v2.AgentlessScanningApi.createAwsScanOptions")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -124,7 +124,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AgentlessScanningApi.deleteAwsScanOptions")
+      .getServer("v2.AgentlessScanningApi.deleteAwsScanOptions")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -158,7 +158,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AgentlessScanningApi.getAwsOnDemandTask")
+      .getServer("v2.AgentlessScanningApi.getAwsOnDemandTask")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -182,7 +182,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AgentlessScanningApi.listAwsOnDemandTasks")
+      .getServer("v2.AgentlessScanningApi.listAwsOnDemandTasks")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -206,7 +206,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AgentlessScanningApi.listAwsScanOptions")
+      .getServer("v2.AgentlessScanningApi.listAwsScanOptions")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -246,7 +246,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AgentlessScanningApi.updateAwsScanOptions")
+      .getServer("v2.AgentlessScanningApi.updateAwsScanOptions")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);

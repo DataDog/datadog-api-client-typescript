@@ -36,7 +36,7 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ActionConnectionApi.createActionConnection")
+      .getServer("v2.ActionConnectionApi.createActionConnection")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -80,7 +80,7 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ActionConnectionApi.deleteActionConnection")
+      .getServer("v2.ActionConnectionApi.deleteActionConnection")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -113,7 +113,7 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ActionConnectionApi.getActionConnection")
+      .getServer("v2.ActionConnectionApi.getActionConnection")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -152,7 +152,7 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ActionConnectionApi.updateActionConnection")
+      .getServer("v2.ActionConnectionApi.updateActionConnection")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

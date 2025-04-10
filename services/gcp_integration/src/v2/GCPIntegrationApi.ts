@@ -36,7 +36,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.GCPIntegrationApi.createGCPSTSAccount")
+      .getServer("v2.GCPIntegrationApi.createGCPSTSAccount")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -85,7 +85,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.GCPIntegrationApi.deleteGCPSTSAccount")
+      .getServer("v2.GCPIntegrationApi.deleteGCPSTSAccount")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -109,7 +109,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.GCPIntegrationApi.getGCPSTSDelegate")
+      .getServer("v2.GCPIntegrationApi.getGCPSTSDelegate")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -133,7 +133,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.GCPIntegrationApi.listGCPSTSAccounts")
+      .getServer("v2.GCPIntegrationApi.listGCPSTSAccounts")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -158,7 +158,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.GCPIntegrationApi.makeGCPSTSDelegate")
+      .getServer("v2.GCPIntegrationApi.makeGCPSTSDelegate")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -209,7 +209,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.GCPIntegrationApi.updateGCPSTSAccount")
+      .getServer("v2.GCPIntegrationApi.updateGCPSTSAccount")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

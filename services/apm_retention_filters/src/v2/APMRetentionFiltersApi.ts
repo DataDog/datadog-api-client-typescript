@@ -37,7 +37,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.APMRetentionFiltersApi.createApmRetentionFilter")
+      .getServer("v2.APMRetentionFiltersApi.createApmRetentionFilter")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -82,7 +82,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.APMRetentionFiltersApi.deleteApmRetentionFilter")
+      .getServer("v2.APMRetentionFiltersApi.deleteApmRetentionFilter")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -116,7 +116,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.APMRetentionFiltersApi.getApmRetentionFilter")
+      .getServer("v2.APMRetentionFiltersApi.getApmRetentionFilter")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -140,7 +140,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.APMRetentionFiltersApi.listApmRetentionFilters")
+      .getServer("v2.APMRetentionFiltersApi.listApmRetentionFilters")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -170,7 +170,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.APMRetentionFiltersApi.reorderApmRetentionFilters")
+      .getServer("v2.APMRetentionFiltersApi.reorderApmRetentionFilters")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -221,7 +221,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.APMRetentionFiltersApi.updateApmRetentionFilter")
+      .getServer("v2.APMRetentionFiltersApi.updateApmRetentionFilter")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

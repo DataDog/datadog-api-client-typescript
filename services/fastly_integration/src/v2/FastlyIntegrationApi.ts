@@ -38,7 +38,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.FastlyIntegrationApi.createFastlyAccount")
+      .getServer("v2.FastlyIntegrationApi.createFastlyAccount")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -89,7 +89,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.FastlyIntegrationApi.createFastlyService")
+      .getServer("v2.FastlyIntegrationApi.createFastlyService")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -134,7 +134,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.FastlyIntegrationApi.deleteFastlyAccount")
+      .getServer("v2.FastlyIntegrationApi.deleteFastlyAccount")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -173,7 +173,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.FastlyIntegrationApi.deleteFastlyService")
+      .getServer("v2.FastlyIntegrationApi.deleteFastlyService")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -207,7 +207,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.FastlyIntegrationApi.getFastlyAccount")
+      .getServer("v2.FastlyIntegrationApi.getFastlyAccount")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -246,7 +246,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.FastlyIntegrationApi.getFastlyService")
+      .getServer("v2.FastlyIntegrationApi.getFastlyService")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -270,7 +270,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.FastlyIntegrationApi.listFastlyAccounts")
+      .getServer("v2.FastlyIntegrationApi.listFastlyAccounts")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -304,7 +304,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.FastlyIntegrationApi.listFastlyServices")
+      .getServer("v2.FastlyIntegrationApi.listFastlyServices")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -344,7 +344,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.FastlyIntegrationApi.updateFastlyAccount")
+      .getServer("v2.FastlyIntegrationApi.updateFastlyAccount")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -400,7 +400,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.FastlyIntegrationApi.updateFastlyService")
+      .getServer("v2.FastlyIntegrationApi.updateFastlyService")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

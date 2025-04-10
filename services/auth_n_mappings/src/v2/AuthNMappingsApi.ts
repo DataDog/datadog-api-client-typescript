@@ -37,7 +37,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AuthNMappingsApi.createAuthNMapping")
+      .getServer("v2.AuthNMappingsApi.createAuthNMapping")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -81,7 +81,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AuthNMappingsApi.deleteAuthNMapping")
+      .getServer("v2.AuthNMappingsApi.deleteAuthNMapping")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -114,7 +114,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AuthNMappingsApi.getAuthNMapping")
+      .getServer("v2.AuthNMappingsApi.getAuthNMapping")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -143,7 +143,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AuthNMappingsApi.listAuthNMappings")
+      .getServer("v2.AuthNMappingsApi.listAuthNMappings")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -223,7 +223,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AuthNMappingsApi.updateAuthNMapping")
+      .getServer("v2.AuthNMappingsApi.updateAuthNMapping")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

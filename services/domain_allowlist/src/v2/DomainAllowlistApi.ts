@@ -27,7 +27,7 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DomainAllowlistApi.getDomainAllowlist")
+      .getServer("v2.DomainAllowlistApi.getDomainAllowlist")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -58,7 +58,7 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DomainAllowlistApi.patchDomainAllowlist")
+      .getServer("v2.DomainAllowlistApi.patchDomainAllowlist")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

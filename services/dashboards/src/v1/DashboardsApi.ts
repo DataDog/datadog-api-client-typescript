@@ -41,7 +41,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.createDashboard")
+      .getServer("v1.DashboardsApi.createDashboard")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -83,7 +83,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.createPublicDashboard")
+      .getServer("v1.DashboardsApi.createPublicDashboard")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -128,7 +128,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.deleteDashboard")
+      .getServer("v1.DashboardsApi.deleteDashboard")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -159,7 +159,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.deleteDashboards")
+      .getServer("v1.DashboardsApi.deleteDashboards")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -204,7 +204,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.deletePublicDashboard")
+      .getServer("v1.DashboardsApi.deletePublicDashboard")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -244,7 +244,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.deletePublicDashboardInvitation")
+      .getServer("v1.DashboardsApi.deletePublicDashboardInvitation")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -289,7 +289,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.getDashboard")
+      .getServer("v1.DashboardsApi.getDashboard")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -323,7 +323,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.getPublicDashboard")
+      .getServer("v1.DashboardsApi.getPublicDashboard")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -359,7 +359,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.getPublicDashboardInvitations")
+      .getServer("v1.DashboardsApi.getPublicDashboardInvitations")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -404,7 +404,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.listDashboards")
+      .getServer("v1.DashboardsApi.listDashboards")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -465,7 +465,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.restoreDashboards")
+      .getServer("v1.DashboardsApi.restoreDashboards")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -516,7 +516,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.sendPublicDashboardInvitation")
+      .getServer("v1.DashboardsApi.sendPublicDashboardInvitation")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -567,7 +567,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.updateDashboard")
+      .getServer("v1.DashboardsApi.updateDashboard")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -618,7 +618,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DashboardsApi.updatePublicDashboard")
+      .getServer("v1.DashboardsApi.updatePublicDashboard")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

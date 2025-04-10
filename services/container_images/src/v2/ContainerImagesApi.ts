@@ -32,7 +32,7 @@ export class ContainerImagesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ContainerImagesApi.listContainerImages")
+      .getServer("v2.ContainerImagesApi.listContainerImages")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

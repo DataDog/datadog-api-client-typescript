@@ -284,7 +284,7 @@ const enumsMap: { [key: string]: any[] } = {
     "burn_rate",
     "error_budget_burndown",
   ],
-  FormulaAndFunctionSLOQueryType: ["metric", "time_slice"],
+  FormulaAndFunctionSLOQueryType: ["metric", "monitor", "time_slice"],
   FormulaType: ["formula"],
   FreeTextWidgetDefinitionType: ["free_text"],
   FunnelRequestType: ["funnel"],

@@ -37,7 +37,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DowntimesApi.cancelDowntime")
+      .getServer("v1.DowntimesApi.cancelDowntime")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -68,7 +68,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DowntimesApi.cancelDowntimesByScope")
+      .getServer("v1.DowntimesApi.cancelDowntimesByScope")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -110,7 +110,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DowntimesApi.createDowntime")
+      .getServer("v1.DowntimesApi.createDowntime")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -155,7 +155,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DowntimesApi.getDowntime")
+      .getServer("v1.DowntimesApi.getDowntime")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -182,7 +182,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DowntimesApi.listDowntimes")
+      .getServer("v1.DowntimesApi.listDowntimes")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -232,7 +232,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DowntimesApi.listMonitorDowntimes")
+      .getServer("v1.DowntimesApi.listMonitorDowntimes")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -272,7 +272,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DowntimesApi.updateDowntime")
+      .getServer("v1.DowntimesApi.updateDowntime")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

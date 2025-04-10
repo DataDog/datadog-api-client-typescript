@@ -35,7 +35,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.createMonitorConfigPolicy")
+      .getServer("v2.MonitorsApi.createMonitorConfigPolicy")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -83,7 +83,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.deleteMonitorConfigPolicy")
+      .getServer("v2.MonitorsApi.deleteMonitorConfigPolicy")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -116,7 +116,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.getMonitorConfigPolicy")
+      .getServer("v2.MonitorsApi.getMonitorConfigPolicy")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -141,7 +141,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.listMonitorConfigPolicies")
+      .getServer("v2.MonitorsApi.listMonitorConfigPolicies")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -181,7 +181,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.updateMonitorConfigPolicy")
+      .getServer("v2.MonitorsApi.updateMonitorConfigPolicy")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

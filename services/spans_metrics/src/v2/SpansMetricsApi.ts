@@ -35,7 +35,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SpansMetricsApi.createSpansMetric")
+      .getServer("v2.SpansMetricsApi.createSpansMetric")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -79,7 +79,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SpansMetricsApi.deleteSpansMetric")
+      .getServer("v2.SpansMetricsApi.deleteSpansMetric")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -112,7 +112,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SpansMetricsApi.getSpansMetric")
+      .getServer("v2.SpansMetricsApi.getSpansMetric")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -136,7 +136,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SpansMetricsApi.listSpansMetrics")
+      .getServer("v2.SpansMetricsApi.listSpansMetrics")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -175,7 +175,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SpansMetricsApi.updateSpansMetric")
+      .getServer("v2.SpansMetricsApi.updateSpansMetric")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

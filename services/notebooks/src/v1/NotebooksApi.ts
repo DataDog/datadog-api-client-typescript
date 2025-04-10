@@ -36,7 +36,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.NotebooksApi.createNotebook")
+      .getServer("v1.NotebooksApi.createNotebook")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -80,7 +80,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.NotebooksApi.deleteNotebook")
+      .getServer("v1.NotebooksApi.deleteNotebook")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -113,7 +113,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.NotebooksApi.getNotebook")
+      .getServer("v1.NotebooksApi.getNotebook")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -147,7 +147,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.NotebooksApi.listNotebooks")
+      .getServer("v1.NotebooksApi.listNotebooks")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -258,7 +258,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.NotebooksApi.updateNotebook")
+      .getServer("v1.NotebooksApi.updateNotebook")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

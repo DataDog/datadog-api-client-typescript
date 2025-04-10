@@ -24,7 +24,7 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.IPRangesApi.getIPRanges")
+      .getServer("v1.IPRangesApi.getIPRanges")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

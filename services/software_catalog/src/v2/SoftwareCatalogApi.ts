@@ -40,7 +40,7 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SoftwareCatalogApi.deleteCatalogEntity")
+      .getServer("v2.SoftwareCatalogApi.deleteCatalogEntity")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -75,7 +75,7 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SoftwareCatalogApi.listCatalogEntity")
+      .getServer("v2.SoftwareCatalogApi.listCatalogEntity")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -178,7 +178,7 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SoftwareCatalogApi.upsertCatalogEntity")
+      .getServer("v2.SoftwareCatalogApi.upsertCatalogEntity")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

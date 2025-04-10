@@ -29,6 +29,11 @@ export class RetentionFilterUpdateAttributes {
    */
   "rate": number;
   /**
+   * Sample rate to apply to traces containing spans going through this retention filter.
+   * A value of 1.0 keeps all traces with spans matching the query.
+   */
+  "traceRate"?: number;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -67,6 +72,11 @@ export class RetentionFilterUpdateAttributes {
       baseName: "rate",
       type: "number",
       required: true,
+      format: "double",
+    },
+    traceRate: {
+      baseName: "trace_rate",
+      type: "number",
       format: "double",
     },
     additionalProperties: {

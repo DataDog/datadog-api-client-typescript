@@ -37,7 +37,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceDefinitionApi.createOrUpdateServiceDefinitions")
+      .getServer("v2.ServiceDefinitionApi.createOrUpdateServiceDefinitions")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -82,7 +82,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceDefinitionApi.deleteServiceDefinition")
+      .getServer("v2.ServiceDefinitionApi.deleteServiceDefinition")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -117,7 +117,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceDefinitionApi.getServiceDefinition")
+      .getServer("v2.ServiceDefinitionApi.getServiceDefinition")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -158,7 +158,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceDefinitionApi.listServiceDefinitions")
+      .getServer("v2.ServiceDefinitionApi.listServiceDefinitions")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

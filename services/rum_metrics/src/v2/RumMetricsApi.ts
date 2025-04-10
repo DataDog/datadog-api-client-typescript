@@ -35,7 +35,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RumMetricsApi.createRumMetric")
+      .getServer("v2.RumMetricsApi.createRumMetric")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -79,7 +79,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RumMetricsApi.deleteRumMetric")
+      .getServer("v2.RumMetricsApi.deleteRumMetric")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -112,7 +112,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RumMetricsApi.getRumMetric")
+      .getServer("v2.RumMetricsApi.getRumMetric")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -136,7 +136,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RumMetricsApi.listRumMetrics")
+      .getServer("v2.RumMetricsApi.listRumMetrics")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -175,7 +175,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RumMetricsApi.updateRumMetric")
+      .getServer("v2.RumMetricsApi.updateRumMetric")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

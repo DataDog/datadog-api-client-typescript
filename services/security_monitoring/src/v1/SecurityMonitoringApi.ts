@@ -49,7 +49,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.SecurityMonitoringApi.addSecurityMonitoringSignalToIncident",
+        "v1.SecurityMonitoringApi.addSecurityMonitoringSignalToIncident",
       )
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -105,7 +105,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee",
+        "v1.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee",
       )
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -157,9 +157,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.SecurityMonitoringApi.editSecurityMonitoringSignalState",
-      )
+      .getServer("v1.SecurityMonitoringApi.editSecurityMonitoringSignalState")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

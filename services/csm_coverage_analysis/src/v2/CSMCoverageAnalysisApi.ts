@@ -30,7 +30,7 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.CSMCoverageAnalysisApi.getCSMCloudAccountsCoverageAnalysis",
+        "v2.CSMCoverageAnalysisApi.getCSMCloudAccountsCoverageAnalysis",
       )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -57,7 +57,7 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.CSMCoverageAnalysisApi.getCSMHostsAndContainersCoverageAnalysis",
+        "v2.CSMCoverageAnalysisApi.getCSMHostsAndContainersCoverageAnalysis",
       )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -82,9 +82,7 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.CSMCoverageAnalysisApi.getCSMServerlessCoverageAnalysis",
-      )
+      .getServer("v2.CSMCoverageAnalysisApi.getCSMServerlessCoverageAnalysis")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
