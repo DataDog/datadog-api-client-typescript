@@ -25,8 +25,7 @@
   ],
   "scripts": {
     "build": "yarn workspaces run build",
-    "test": "yarn workspaces run test",
-    "lint": "yarn install --ignore-scripts; eslint --ext .ts src",
+    "lint": "yarn install --ignore-scripts; eslint --ext .ts packages/* services/*",
     "lint:fix": "yarn install --ignore-scripts;  yarn lint --fix",
     "format": "yarn install --ignore-scripts; prettier --write --ignore-unknown '**.{js,ts}'"
   },
