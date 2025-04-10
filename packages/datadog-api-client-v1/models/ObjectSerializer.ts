@@ -1437,6 +1437,7 @@ const enumsMap: { [key: string]: any[] } = {
     "assertFromJavascript",
     "assertPageContains",
     "assertPageLacks",
+    "assertRequests",
     "click",
     "extractFromJavascript",
     "extractVariable",
