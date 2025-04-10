@@ -22,6 +22,7 @@ import { AzureUCConfigPatchRequest } from "./models/AzureUCConfigPatchRequest";
 import { AzureUCConfigPostRequest } from "./models/AzureUCConfigPostRequest";
 import { AzureUCConfigsResponse } from "./models/AzureUCConfigsResponse";
 import { CustomCostsFileGetResponse } from "./models/CustomCostsFileGetResponse";
+import { CustomCostsFileLineItem } from "./models/CustomCostsFileLineItem";
 import { CustomCostsFileListResponse } from "./models/CustomCostsFileListResponse";
 import { CustomCostsFileUploadResponse } from "./models/CustomCostsFileUploadResponse";
 

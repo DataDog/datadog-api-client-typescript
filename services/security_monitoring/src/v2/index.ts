@@ -127,6 +127,7 @@ export { Metadata } from "./models/Metadata";
 export { NotificationRule } from "./models/NotificationRule";
 export { NotificationRuleAttributes } from "./models/NotificationRuleAttributes";
 export { NotificationRuleResponse } from "./models/NotificationRuleResponse";
+export { NotificationRulesList } from "./models/NotificationRulesList";
 export { NotificationRulesType } from "./models/NotificationRulesType";
 export { Pagination } from "./models/Pagination";
 export { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleParameters";

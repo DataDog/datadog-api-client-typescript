@@ -3,13 +3,13 @@ import {
   Configuration,
   applySecurityAuthentication,
   RequestContext,
-  HttpFile,
   HttpMethod,
   ResponseContext,
   logger,
   RequiredError,
   ApiException,
   createConfiguration,
+  HttpFile,
 } from "@datadog/datadog-api-client";
 
 import { ObjectSerializer } from "./models/ObjectSerializer";

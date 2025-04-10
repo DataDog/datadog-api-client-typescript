@@ -14,6 +14,7 @@ import {
 import { ObjectSerializer } from "./models/ObjectSerializer";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
+import { ServiceCheck } from "./models/ServiceCheck";
 
 export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
   public async submitServiceCheck(

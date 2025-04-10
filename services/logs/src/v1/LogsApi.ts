@@ -15,6 +15,7 @@ import { ObjectSerializer } from "./models/ObjectSerializer";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { ContentEncoding } from "./models/ContentEncoding";
 import { HTTPLogError } from "./models/HTTPLogError";
+import { HTTPLogItem } from "./models/HTTPLogItem";
 import { LogsAPIErrorResponse } from "./models/LogsAPIErrorResponse";
 import { LogsListRequest } from "./models/LogsListRequest";
 import { LogsListResponse } from "./models/LogsListResponse";

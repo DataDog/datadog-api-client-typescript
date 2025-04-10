@@ -3,14 +3,16 @@ import {
   Configuration,
   applySecurityAuthentication,
   RequestContext,
-  HttpFile,
   HttpMethod,
   ResponseContext,
   logger,
   RequiredError,
   ApiException,
   createConfiguration,
+  HttpFile,
 } from "@datadog/datadog-api-client";
+
+import FormData from "form-data";
 
 import { ObjectSerializer } from "./models/ObjectSerializer";
 import { APIErrorResponse } from "./models/APIErrorResponse";
