@@ -36,7 +36,7 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RestrictionPoliciesApi.deleteRestrictionPolicy")
+      .getServer("v2.RestrictionPoliciesApi.deleteRestrictionPolicy")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -70,7 +70,7 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RestrictionPoliciesApi.getRestrictionPolicy")
+      .getServer("v2.RestrictionPoliciesApi.getRestrictionPolicy")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -111,7 +111,7 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RestrictionPoliciesApi.updateRestrictionPolicy")
+      .getServer("v2.RestrictionPoliciesApi.updateRestrictionPolicy")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

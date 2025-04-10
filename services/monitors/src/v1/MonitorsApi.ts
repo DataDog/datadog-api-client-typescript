@@ -37,7 +37,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.checkCanDeleteMonitor")
+      .getServer("v1.MonitorsApi.checkCanDeleteMonitor")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -77,7 +77,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.createMonitor")
+      .getServer("v1.MonitorsApi.createMonitor")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -123,7 +123,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.deleteMonitor")
+      .getServer("v1.MonitorsApi.deleteMonitor")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -168,7 +168,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.getMonitor")
+      .getServer("v1.MonitorsApi.getMonitor")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -217,7 +217,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.listMonitors")
+      .getServer("v1.MonitorsApi.listMonitors")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -304,7 +304,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.searchMonitorGroups")
+      .getServer("v1.MonitorsApi.searchMonitorGroups")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -363,7 +363,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.searchMonitors")
+      .getServer("v1.MonitorsApi.searchMonitors")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -433,7 +433,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.updateMonitor")
+      .getServer("v1.MonitorsApi.updateMonitor")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -484,7 +484,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.validateExistingMonitor")
+      .getServer("v1.MonitorsApi.validateExistingMonitor")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -526,7 +526,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.MonitorsApi.validateMonitor")
+      .getServer("v1.MonitorsApi.validateMonitor")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

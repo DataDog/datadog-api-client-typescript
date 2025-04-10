@@ -28,7 +28,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createAWSAccount'");
-    if (!_config.unstableOperations["0.0.1.createAWSAccount"]) {
+    if (!_config.unstableOperations["v2.createAWSAccount"]) {
       throw new Error("Unstable operation 'createAWSAccount' is disabled");
     }
 
@@ -42,7 +42,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.createAWSAccount")
+      .getServer("v2.AWSIntegrationApi.createAWSAccount")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -73,7 +73,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createNewAWSExternalID'");
-    if (!_config.unstableOperations["0.0.1.createNewAWSExternalID"]) {
+    if (!_config.unstableOperations["v2.createNewAWSExternalID"]) {
       throw new Error(
         "Unstable operation 'createNewAWSExternalID' is disabled",
       );
@@ -84,7 +84,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.createNewAWSExternalID")
+      .getServer("v2.AWSIntegrationApi.createNewAWSExternalID")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -105,7 +105,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'deleteAWSAccount'");
-    if (!_config.unstableOperations["0.0.1.deleteAWSAccount"]) {
+    if (!_config.unstableOperations["v2.deleteAWSAccount"]) {
       throw new Error("Unstable operation 'deleteAWSAccount' is disabled");
     }
 
@@ -123,7 +123,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.deleteAWSAccount")
+      .getServer("v2.AWSIntegrationApi.deleteAWSAccount")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -144,7 +144,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getAWSAccount'");
-    if (!_config.unstableOperations["0.0.1.getAWSAccount"]) {
+    if (!_config.unstableOperations["v2.getAWSAccount"]) {
       throw new Error("Unstable operation 'getAWSAccount' is disabled");
     }
 
@@ -162,7 +162,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.getAWSAccount")
+      .getServer("v2.AWSIntegrationApi.getAWSAccount")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -183,7 +183,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listAWSAccounts'");
-    if (!_config.unstableOperations["0.0.1.listAWSAccounts"]) {
+    if (!_config.unstableOperations["v2.listAWSAccounts"]) {
       throw new Error("Unstable operation 'listAWSAccounts' is disabled");
     }
 
@@ -192,7 +192,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.listAWSAccounts")
+      .getServer("v2.AWSIntegrationApi.listAWSAccounts")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -221,7 +221,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listAWSNamespaces'");
-    if (!_config.unstableOperations["0.0.1.listAWSNamespaces"]) {
+    if (!_config.unstableOperations["v2.listAWSNamespaces"]) {
       throw new Error("Unstable operation 'listAWSNamespaces' is disabled");
     }
 
@@ -230,7 +230,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.listAWSNamespaces")
+      .getServer("v2.AWSIntegrationApi.listAWSNamespaces")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -252,7 +252,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'updateAWSAccount'");
-    if (!_config.unstableOperations["0.0.1.updateAWSAccount"]) {
+    if (!_config.unstableOperations["v2.updateAWSAccount"]) {
       throw new Error("Unstable operation 'updateAWSAccount' is disabled");
     }
 
@@ -275,7 +275,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.updateAWSAccount")
+      .getServer("v2.AWSIntegrationApi.updateAWSAccount")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

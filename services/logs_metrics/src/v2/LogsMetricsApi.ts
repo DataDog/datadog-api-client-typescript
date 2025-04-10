@@ -35,7 +35,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsMetricsApi.createLogsMetric")
+      .getServer("v2.LogsMetricsApi.createLogsMetric")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -79,7 +79,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsMetricsApi.deleteLogsMetric")
+      .getServer("v2.LogsMetricsApi.deleteLogsMetric")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -112,7 +112,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsMetricsApi.getLogsMetric")
+      .getServer("v2.LogsMetricsApi.getLogsMetric")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -136,7 +136,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsMetricsApi.listLogsMetrics")
+      .getServer("v2.LogsMetricsApi.listLogsMetrics")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -175,7 +175,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsMetricsApi.updateLogsMetric")
+      .getServer("v2.LogsMetricsApi.updateLogsMetric")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

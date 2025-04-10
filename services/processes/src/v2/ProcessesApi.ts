@@ -33,7 +33,7 @@ export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ProcessesApi.listProcesses")
+      .getServer("v2.ProcessesApi.listProcesses")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

@@ -27,7 +27,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createDORADeployment'");
-    if (!_config.unstableOperations["0.0.1.createDORADeployment"]) {
+    if (!_config.unstableOperations["v2.createDORADeployment"]) {
       throw new Error("Unstable operation 'createDORADeployment' is disabled");
     }
 
@@ -41,7 +41,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DORAMetricsApi.createDORADeployment")
+      .getServer("v2.DORAMetricsApi.createDORADeployment")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -70,7 +70,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createDORAIncident'");
-    if (!_config.unstableOperations["0.0.1.createDORAIncident"]) {
+    if (!_config.unstableOperations["v2.createDORAIncident"]) {
       throw new Error("Unstable operation 'createDORAIncident' is disabled");
     }
 
@@ -84,7 +84,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DORAMetricsApi.createDORAIncident")
+      .getServer("v2.DORAMetricsApi.createDORAIncident")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

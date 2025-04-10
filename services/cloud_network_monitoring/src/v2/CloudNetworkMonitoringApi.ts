@@ -27,7 +27,7 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getAggregatedConnections'");
-    if (!_config.unstableOperations["0.0.1.getAggregatedConnections"]) {
+    if (!_config.unstableOperations["v2.getAggregatedConnections"]) {
       throw new Error(
         "Unstable operation 'getAggregatedConnections' is disabled",
       );
@@ -38,7 +38,7 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CloudNetworkMonitoringApi.getAggregatedConnections")
+      .getServer("v2.CloudNetworkMonitoringApi.getAggregatedConnections")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

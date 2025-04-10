@@ -35,7 +35,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsCustomDestinationsApi.createLogsCustomDestination")
+      .getServer("v2.LogsCustomDestinationsApi.createLogsCustomDestination")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -83,7 +83,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsCustomDestinationsApi.deleteLogsCustomDestination")
+      .getServer("v2.LogsCustomDestinationsApi.deleteLogsCustomDestination")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -120,7 +120,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsCustomDestinationsApi.getLogsCustomDestination")
+      .getServer("v2.LogsCustomDestinationsApi.getLogsCustomDestination")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -144,7 +144,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsCustomDestinationsApi.listLogsCustomDestinations")
+      .getServer("v2.LogsCustomDestinationsApi.listLogsCustomDestinations")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -187,7 +187,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.LogsCustomDestinationsApi.updateLogsCustomDestination")
+      .getServer("v2.LogsCustomDestinationsApi.updateLogsCustomDestination")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

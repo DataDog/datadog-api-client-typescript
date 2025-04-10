@@ -40,7 +40,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.ApplicationSecurityApi.createApplicationSecurityWafCustomRule",
+        "v2.ApplicationSecurityApi.createApplicationSecurityWafCustomRule",
       )
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -91,7 +91,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.ApplicationSecurityApi.createApplicationSecurityWafExclusionFilter",
+        "v2.ApplicationSecurityApi.createApplicationSecurityWafExclusionFilter",
       )
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -145,7 +145,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.ApplicationSecurityApi.deleteApplicationSecurityWafCustomRule",
+        "v2.ApplicationSecurityApi.deleteApplicationSecurityWafCustomRule",
       )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
@@ -184,7 +184,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.ApplicationSecurityApi.deleteApplicationSecurityWafExclusionFilter",
+        "v2.ApplicationSecurityApi.deleteApplicationSecurityWafExclusionFilter",
       )
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
@@ -223,7 +223,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.ApplicationSecurityApi.getApplicationSecurityWafCustomRule",
+        "v2.ApplicationSecurityApi.getApplicationSecurityWafCustomRule",
       )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -262,7 +262,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.ApplicationSecurityApi.getApplicationSecurityWafExclusionFilter",
+        "v2.ApplicationSecurityApi.getApplicationSecurityWafExclusionFilter",
       )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -288,7 +288,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.ApplicationSecurityApi.listApplicationSecurityWAFCustomRules",
+        "v2.ApplicationSecurityApi.listApplicationSecurityWAFCustomRules",
       )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -315,7 +315,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.ApplicationSecurityApi.listApplicationSecurityWafExclusionFilters",
+        "v2.ApplicationSecurityApi.listApplicationSecurityWafExclusionFilters",
       )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -360,7 +360,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.ApplicationSecurityApi.updateApplicationSecurityWafCustomRule",
+        "v2.ApplicationSecurityApi.updateApplicationSecurityWafCustomRule",
       )
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
@@ -423,7 +423,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer(
-        "0.0.1.ApplicationSecurityApi.updateApplicationSecurityWafExclusionFilter",
+        "v2.ApplicationSecurityApi.updateApplicationSecurityWafExclusionFilter",
       )
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");

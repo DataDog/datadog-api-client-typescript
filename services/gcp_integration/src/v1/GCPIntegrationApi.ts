@@ -32,7 +32,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.GCPIntegrationApi.createGCPIntegration")
+      .getServer("v1.GCPIntegrationApi.createGCPIntegration")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -73,7 +73,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.GCPIntegrationApi.deleteGCPIntegration")
+      .getServer("v1.GCPIntegrationApi.deleteGCPIntegration")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -108,7 +108,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.GCPIntegrationApi.listGCPIntegration")
+      .getServer("v1.GCPIntegrationApi.listGCPIntegration")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -138,7 +138,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.GCPIntegrationApi.updateGCPIntegration")
+      .getServer("v1.GCPIntegrationApi.updateGCPIntegration")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

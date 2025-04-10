@@ -35,7 +35,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CloudflareIntegrationApi.createCloudflareAccount")
+      .getServer("v2.CloudflareIntegrationApi.createCloudflareAccount")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -80,7 +80,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CloudflareIntegrationApi.deleteCloudflareAccount")
+      .getServer("v2.CloudflareIntegrationApi.deleteCloudflareAccount")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -114,7 +114,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CloudflareIntegrationApi.getCloudflareAccount")
+      .getServer("v2.CloudflareIntegrationApi.getCloudflareAccount")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -138,7 +138,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CloudflareIntegrationApi.listCloudflareAccounts")
+      .getServer("v2.CloudflareIntegrationApi.listCloudflareAccounts")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -178,7 +178,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CloudflareIntegrationApi.updateCloudflareAccount")
+      .getServer("v2.CloudflareIntegrationApi.updateCloudflareAccount")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

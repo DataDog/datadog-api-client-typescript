@@ -27,7 +27,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createIncidentService'");
-    if (!_config.unstableOperations["0.0.1.createIncidentService"]) {
+    if (!_config.unstableOperations["v2.createIncidentService"]) {
       throw new Error("Unstable operation 'createIncidentService' is disabled");
     }
 
@@ -41,7 +41,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.IncidentServicesApi.createIncidentService")
+      .getServer("v2.IncidentServicesApi.createIncidentService")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -74,7 +74,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'deleteIncidentService'");
-    if (!_config.unstableOperations["0.0.1.deleteIncidentService"]) {
+    if (!_config.unstableOperations["v2.deleteIncidentService"]) {
       throw new Error("Unstable operation 'deleteIncidentService' is disabled");
     }
 
@@ -91,7 +91,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.IncidentServicesApi.deleteIncidentService")
+      .getServer("v2.IncidentServicesApi.deleteIncidentService")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -114,7 +114,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getIncidentService'");
-    if (!_config.unstableOperations["0.0.1.getIncidentService"]) {
+    if (!_config.unstableOperations["v2.getIncidentService"]) {
       throw new Error("Unstable operation 'getIncidentService' is disabled");
     }
 
@@ -131,7 +131,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.IncidentServicesApi.getIncidentService")
+      .getServer("v2.IncidentServicesApi.getIncidentService")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -165,7 +165,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listIncidentServices'");
-    if (!_config.unstableOperations["0.0.1.listIncidentServices"]) {
+    if (!_config.unstableOperations["v2.listIncidentServices"]) {
       throw new Error("Unstable operation 'listIncidentServices' is disabled");
     }
 
@@ -174,7 +174,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.IncidentServicesApi.listIncidentServices")
+      .getServer("v2.IncidentServicesApi.listIncidentServices")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -227,7 +227,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'updateIncidentService'");
-    if (!_config.unstableOperations["0.0.1.updateIncidentService"]) {
+    if (!_config.unstableOperations["v2.updateIncidentService"]) {
       throw new Error("Unstable operation 'updateIncidentService' is disabled");
     }
 
@@ -249,7 +249,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.IncidentServicesApi.updateIncidentService")
+      .getServer("v2.IncidentServicesApi.updateIncidentService")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

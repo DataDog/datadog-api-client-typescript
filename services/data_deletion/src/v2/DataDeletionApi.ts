@@ -26,7 +26,7 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'cancelDataDeletionRequest'");
-    if (!_config.unstableOperations["0.0.1.cancelDataDeletionRequest"]) {
+    if (!_config.unstableOperations["v2.cancelDataDeletionRequest"]) {
       throw new Error(
         "Unstable operation 'cancelDataDeletionRequest' is disabled",
       );
@@ -45,7 +45,7 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DataDeletionApi.cancelDataDeletionRequest")
+      .getServer("v2.DataDeletionApi.cancelDataDeletionRequest")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -67,7 +67,7 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createDataDeletionRequest'");
-    if (!_config.unstableOperations["0.0.1.createDataDeletionRequest"]) {
+    if (!_config.unstableOperations["v2.createDataDeletionRequest"]) {
       throw new Error(
         "Unstable operation 'createDataDeletionRequest' is disabled",
       );
@@ -91,7 +91,7 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DataDeletionApi.createDataDeletionRequest")
+      .getServer("v2.DataDeletionApi.createDataDeletionRequest")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -127,7 +127,7 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getDataDeletionRequests'");
-    if (!_config.unstableOperations["0.0.1.getDataDeletionRequests"]) {
+    if (!_config.unstableOperations["v2.getDataDeletionRequests"]) {
       throw new Error(
         "Unstable operation 'getDataDeletionRequests' is disabled",
       );
@@ -138,7 +138,7 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.DataDeletionApi.getDataDeletionRequests")
+      .getServer("v2.DataDeletionApi.getDataDeletionRequests")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

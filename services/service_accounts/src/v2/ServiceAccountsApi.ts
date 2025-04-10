@@ -39,7 +39,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceAccountsApi.createServiceAccount")
+      .getServer("v2.ServiceAccountsApi.createServiceAccount")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -93,7 +93,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceAccountsApi.createServiceAccountApplicationKey")
+      .getServer("v2.ServiceAccountsApi.createServiceAccountApplicationKey")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -149,7 +149,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceAccountsApi.deleteServiceAccountApplicationKey")
+      .getServer("v2.ServiceAccountsApi.deleteServiceAccountApplicationKey")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -194,7 +194,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceAccountsApi.getServiceAccountApplicationKey")
+      .getServer("v2.ServiceAccountsApi.getServiceAccountApplicationKey")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -237,7 +237,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceAccountsApi.listServiceAccountApplicationKeys")
+      .getServer("v2.ServiceAccountsApi.listServiceAccountApplicationKeys")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -332,7 +332,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceAccountsApi.updateServiceAccountApplicationKey")
+      .getServer("v2.ServiceAccountsApi.updateServiceAccountApplicationKey")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

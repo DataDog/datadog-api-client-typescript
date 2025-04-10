@@ -43,7 +43,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.createAWSAccount")
+      .getServer("v1.AWSIntegrationApi.createAWSAccount")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -84,7 +84,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.createAWSEventBridgeSource")
+      .getServer("v1.AWSIntegrationApi.createAWSEventBridgeSource")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -125,7 +125,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.createAWSTagFilter")
+      .getServer("v1.AWSIntegrationApi.createAWSTagFilter")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -166,7 +166,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.createNewAWSExternalID")
+      .getServer("v1.AWSIntegrationApi.createNewAWSExternalID")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -207,7 +207,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.deleteAWSAccount")
+      .getServer("v1.AWSIntegrationApi.deleteAWSAccount")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -248,7 +248,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.deleteAWSEventBridgeSource")
+      .getServer("v1.AWSIntegrationApi.deleteAWSEventBridgeSource")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -289,7 +289,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.deleteAWSTagFilter")
+      .getServer("v1.AWSIntegrationApi.deleteAWSTagFilter")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -324,7 +324,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.listAvailableAWSNamespaces")
+      .getServer("v1.AWSIntegrationApi.listAvailableAWSNamespaces")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -351,7 +351,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.listAWSAccounts")
+      .getServer("v1.AWSIntegrationApi.listAWSAccounts")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -398,7 +398,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.listAWSEventBridgeSources")
+      .getServer("v1.AWSIntegrationApi.listAWSEventBridgeSources")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -428,7 +428,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.listAWSTagFilters")
+      .getServer("v1.AWSIntegrationApi.listAWSTagFilters")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -470,7 +470,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AWSIntegrationApi.updateAWSAccount")
+      .getServer("v1.AWSIntegrationApi.updateAWSAccount")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

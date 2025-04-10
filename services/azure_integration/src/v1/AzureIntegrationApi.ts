@@ -32,7 +32,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AzureIntegrationApi.createAzureIntegration")
+      .getServer("v1.AzureIntegrationApi.createAzureIntegration")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -73,7 +73,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AzureIntegrationApi.deleteAzureIntegration")
+      .getServer("v1.AzureIntegrationApi.deleteAzureIntegration")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -108,7 +108,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AzureIntegrationApi.listAzureIntegration")
+      .getServer("v1.AzureIntegrationApi.listAzureIntegration")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -138,7 +138,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AzureIntegrationApi.updateAzureHostFilters")
+      .getServer("v1.AzureIntegrationApi.updateAzureHostFilters")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -179,7 +179,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.AzureIntegrationApi.updateAzureIntegration")
+      .getServer("v1.AzureIntegrationApi.updateAzureIntegration")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

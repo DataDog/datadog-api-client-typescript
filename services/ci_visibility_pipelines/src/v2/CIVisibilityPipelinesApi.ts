@@ -40,7 +40,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CIVisibilityPipelinesApi.aggregateCIAppPipelineEvents")
+      .getServer("v2.CIVisibilityPipelinesApi.aggregateCIAppPipelineEvents")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -82,7 +82,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CIVisibilityPipelinesApi.createCIAppPipelineEvent")
+      .getServer("v2.CIVisibilityPipelinesApi.createCIAppPipelineEvent")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -120,7 +120,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CIVisibilityPipelinesApi.listCIAppPipelineEvents")
+      .getServer("v2.CIVisibilityPipelinesApi.listCIAppPipelineEvents")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -190,7 +190,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CIVisibilityPipelinesApi.searchCIAppPipelineEvents")
+      .getServer("v2.CIVisibilityPipelinesApi.searchCIAppPipelineEvents")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

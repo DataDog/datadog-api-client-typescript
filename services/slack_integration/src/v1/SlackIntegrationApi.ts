@@ -42,7 +42,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SlackIntegrationApi.createSlackIntegrationChannel")
+      .getServer("v1.SlackIntegrationApi.createSlackIntegrationChannel")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -92,7 +92,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SlackIntegrationApi.getSlackIntegrationChannel")
+      .getServer("v1.SlackIntegrationApi.getSlackIntegrationChannel")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -126,7 +126,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SlackIntegrationApi.getSlackIntegrationChannels")
+      .getServer("v1.SlackIntegrationApi.getSlackIntegrationChannels")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -165,7 +165,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SlackIntegrationApi.removeSlackIntegrationChannel")
+      .getServer("v1.SlackIntegrationApi.removeSlackIntegrationChannel")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -210,7 +210,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SlackIntegrationApi.updateSlackIntegrationChannel")
+      .getServer("v1.SlackIntegrationApi.updateSlackIntegrationChannel")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

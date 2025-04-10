@@ -36,9 +36,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.ServiceLevelObjectiveCorrectionsApi.createSLOCorrection",
-      )
+      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.createSLOCorrection")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -83,9 +81,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.ServiceLevelObjectiveCorrectionsApi.deleteSLOCorrection",
-      )
+      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.deleteSLOCorrection")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -118,7 +114,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceLevelObjectiveCorrectionsApi.getSLOCorrection")
+      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.getSLOCorrection")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -144,7 +140,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceLevelObjectiveCorrectionsApi.listSLOCorrection")
+      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.listSLOCorrection")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -200,9 +196,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Make Request Context
     const requestContext = _config
-      .getServer(
-        "0.0.1.ServiceLevelObjectiveCorrectionsApi.updateSLOCorrection",
-      )
+      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.updateSLOCorrection")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

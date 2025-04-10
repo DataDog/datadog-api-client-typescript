@@ -38,7 +38,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.NetworkDeviceMonitoringApi.getDevice")
+      .getServer("v2.NetworkDeviceMonitoringApi.getDevice")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -68,7 +68,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.NetworkDeviceMonitoringApi.getInterfaces")
+      .getServer("v2.NetworkDeviceMonitoringApi.getInterfaces")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -105,7 +105,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.NetworkDeviceMonitoringApi.listDevices")
+      .getServer("v2.NetworkDeviceMonitoringApi.listDevices")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -168,7 +168,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.NetworkDeviceMonitoringApi.listDeviceUserTags")
+      .getServer("v2.NetworkDeviceMonitoringApi.listDeviceUserTags")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -207,7 +207,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.NetworkDeviceMonitoringApi.updateDeviceUserTags")
+      .getServer("v2.NetworkDeviceMonitoringApi.updateDeviceUserTags")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

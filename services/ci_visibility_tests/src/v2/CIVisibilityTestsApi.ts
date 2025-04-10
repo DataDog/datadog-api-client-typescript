@@ -38,7 +38,7 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CIVisibilityTestsApi.aggregateCIAppTestEvents")
+      .getServer("v2.CIVisibilityTestsApi.aggregateCIAppTestEvents")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -80,7 +80,7 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CIVisibilityTestsApi.listCIAppTestEvents")
+      .getServer("v2.CIVisibilityTestsApi.listCIAppTestEvents")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -150,7 +150,7 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CIVisibilityTestsApi.searchCIAppTestEvents")
+      .getServer("v2.CIVisibilityTestsApi.searchCIAppTestEvents")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

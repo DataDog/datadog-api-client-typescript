@@ -35,7 +35,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.OpsgenieIntegrationApi.createOpsgenieService")
+      .getServer("v2.OpsgenieIntegrationApi.createOpsgenieService")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -80,7 +80,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.OpsgenieIntegrationApi.deleteOpsgenieService")
+      .getServer("v2.OpsgenieIntegrationApi.deleteOpsgenieService")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -114,7 +114,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.OpsgenieIntegrationApi.getOpsgenieService")
+      .getServer("v2.OpsgenieIntegrationApi.getOpsgenieService")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -138,7 +138,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.OpsgenieIntegrationApi.listOpsgenieServices")
+      .getServer("v2.OpsgenieIntegrationApi.listOpsgenieServices")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -178,7 +178,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.OpsgenieIntegrationApi.updateOpsgenieService")
+      .getServer("v2.OpsgenieIntegrationApi.updateOpsgenieService")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

@@ -44,7 +44,7 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.SnapshotsApi.getGraphSnapshot")
+      .getServer("v1.SnapshotsApi.getGraphSnapshot")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

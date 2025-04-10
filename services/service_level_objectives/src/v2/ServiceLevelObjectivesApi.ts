@@ -25,7 +25,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createSLOReportJob'");
-    if (!_config.unstableOperations["0.0.1.createSLOReportJob"]) {
+    if (!_config.unstableOperations["v2.createSLOReportJob"]) {
       throw new Error("Unstable operation 'createSLOReportJob' is disabled");
     }
 
@@ -39,7 +39,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceLevelObjectivesApi.createSLOReportJob")
+      .getServer("v2.ServiceLevelObjectivesApi.createSLOReportJob")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -72,7 +72,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getSLOReport'");
-    if (!_config.unstableOperations["0.0.1.getSLOReport"]) {
+    if (!_config.unstableOperations["v2.getSLOReport"]) {
       throw new Error("Unstable operation 'getSLOReport' is disabled");
     }
 
@@ -89,7 +89,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceLevelObjectivesApi.getSLOReport")
+      .getServer("v2.ServiceLevelObjectivesApi.getSLOReport")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "text/csv, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -111,7 +111,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getSLOReportJobStatus'");
-    if (!_config.unstableOperations["0.0.1.getSLOReportJobStatus"]) {
+    if (!_config.unstableOperations["v2.getSLOReportJobStatus"]) {
       throw new Error("Unstable operation 'getSLOReportJobStatus' is disabled");
     }
 
@@ -128,7 +128,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.ServiceLevelObjectivesApi.getSLOReportJobStatus")
+      .getServer("v2.ServiceLevelObjectivesApi.getSLOReportJobStatus")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

@@ -47,7 +47,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RumRetentionFiltersApi.createRetentionFilter")
+      .getServer("v2.RumRetentionFiltersApi.createRetentionFilter")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -97,7 +97,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RumRetentionFiltersApi.deleteRetentionFilter")
+      .getServer("v2.RumRetentionFiltersApi.deleteRetentionFilter")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -136,7 +136,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RumRetentionFiltersApi.getRetentionFilter")
+      .getServer("v2.RumRetentionFiltersApi.getRetentionFilter")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -170,7 +170,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RumRetentionFiltersApi.listRetentionFilters")
+      .getServer("v2.RumRetentionFiltersApi.listRetentionFilters")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -210,7 +210,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RumRetentionFiltersApi.orderRetentionFilters")
+      .getServer("v2.RumRetentionFiltersApi.orderRetentionFilters")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -266,7 +266,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.RumRetentionFiltersApi.updateRetentionFilter")
+      .getServer("v2.RumRetentionFiltersApi.updateRetentionFilter")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

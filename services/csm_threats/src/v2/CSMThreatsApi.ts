@@ -3,6 +3,7 @@ import {
   Configuration,
   applySecurityAuthentication,
   RequestContext,
+  HttpFile,
   HttpMethod,
   ResponseContext,
   logger,
@@ -36,7 +37,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.createCloudWorkloadSecurityAgentRule")
+      .getServer("v2.CSMThreatsApi.createCloudWorkloadSecurityAgentRule")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -81,7 +82,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.createCSMThreatsAgentRule")
+      .getServer("v2.CSMThreatsApi.createCSMThreatsAgentRule")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -133,7 +134,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.deleteCloudWorkloadSecurityAgentRule")
+      .getServer("v2.CSMThreatsApi.deleteCloudWorkloadSecurityAgentRule")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -167,7 +168,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.deleteCSMThreatsAgentRule")
+      .getServer("v2.CSMThreatsApi.deleteCSMThreatsAgentRule")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -191,7 +192,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.downloadCloudWorkloadPolicyFile")
+      .getServer("v2.CSMThreatsApi.downloadCloudWorkloadPolicyFile")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -218,7 +219,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.downloadCSMThreatsPolicy")
+      .getServer("v2.CSMThreatsApi.downloadCSMThreatsPolicy")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -258,7 +259,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.getCloudWorkloadSecurityAgentRule")
+      .getServer("v2.CSMThreatsApi.getCloudWorkloadSecurityAgentRule")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -292,7 +293,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.getCSMThreatsAgentRule")
+      .getServer("v2.CSMThreatsApi.getCSMThreatsAgentRule")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -317,7 +318,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.listCloudWorkloadSecurityAgentRules")
+      .getServer("v2.CSMThreatsApi.listCloudWorkloadSecurityAgentRules")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -341,7 +342,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.listCSMThreatsAgentRules")
+      .getServer("v2.CSMThreatsApi.listCSMThreatsAgentRules")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -384,7 +385,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.updateCloudWorkloadSecurityAgentRule")
+      .getServer("v2.CSMThreatsApi.updateCloudWorkloadSecurityAgentRule")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -439,7 +440,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("0.0.1.CSMThreatsApi.updateCSMThreatsAgentRule")
+      .getServer("v2.CSMThreatsApi.updateCSMThreatsAgentRule")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
