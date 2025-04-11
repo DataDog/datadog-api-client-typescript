@@ -7,7 +7,7 @@ export class TagToHosts {
   /**
    * A list of tags to apply to the host.
    */
-  "tags"?: any;
+  "tags"?: { [key: string]: Array<string> };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,11 +25,11 @@ export class TagToHosts {
   static readonly attributeTypeMap: AttributeTypeMap = {
     tags: {
       baseName: "tags",
-      type: "any",
+      type: "{ [key: string]: Array<string>; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

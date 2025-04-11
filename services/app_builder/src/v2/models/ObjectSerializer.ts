@@ -217,7 +217,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ActionQueryRequiresConfirmation: ["boolean", "string"],
   ActionQueryShowToastOnError: ["boolean", "string"],
   ActionQuerySpec: ["string", "ActionQuerySpecObject"],
-  ActionQuerySpecInputs: ["string", "any"],
+  ActionQuerySpecInputs: ["string", "{ [key: string]: any; }"],
   ComponentGridPropertiesIsVisible: ["string", "boolean"],
   ComponentPropertiesIsVisible: ["boolean", "string"],
   Query: ["ActionQuery", "DataTransform", "StateVariable"],

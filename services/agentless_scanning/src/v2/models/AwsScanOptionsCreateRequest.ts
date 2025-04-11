@@ -32,7 +32,7 @@ export class AwsScanOptionsCreateRequest {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

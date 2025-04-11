@@ -69,7 +69,7 @@ export class SyntheticsAPITestResultShort {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

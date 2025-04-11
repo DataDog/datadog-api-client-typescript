@@ -10,7 +10,7 @@ export class SLOHistorySLIData {
   /**
    * A mapping of threshold `timeframe` to the remaining error budget.
    */
-  "errorBudgetRemaining"?: any;
+  "errorBudgetRemaining"?: { [key: string]: number };
   /**
    * An array of error objects returned while querying the history data for the service level objective.
    */
@@ -45,7 +45,7 @@ export class SLOHistorySLIData {
   /**
    * A mapping of threshold `timeframe` to number of accurate decimals, regardless of the from && to timestamp.
    */
-  "precision"?: any;
+  "precision"?: { [key: string]: number };
   /**
    * For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime
    * calculation.
@@ -80,7 +80,7 @@ export class SLOHistorySLIData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     errorBudgetRemaining: {
       baseName: "error_budget_remaining",
-      type: "any",
+      type: "{ [key: string]: number; }",
     },
     errors: {
       baseName: "errors",
@@ -109,7 +109,7 @@ export class SLOHistorySLIData {
     },
     precision: {
       baseName: "precision",
-      type: "any",
+      type: "{ [key: string]: number; }",
     },
     preview: {
       baseName: "preview",
@@ -132,7 +132,7 @@ export class SLOHistorySLIData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

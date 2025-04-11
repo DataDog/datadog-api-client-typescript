@@ -39,7 +39,7 @@ export class IncidentSearchResponseNumericFacetDataAggregates {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

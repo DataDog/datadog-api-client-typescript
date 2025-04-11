@@ -32,7 +32,7 @@ export class SecurityMonitoringSignalTriageUpdateResponse {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

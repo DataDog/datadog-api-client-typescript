@@ -28,7 +28,7 @@ export class SyntheticsAPITestResultData {
   /**
    * Request header object used for the API test.
    */
-  "requestHeaders"?: any;
+  "requestHeaders"?: { [key: string]: any };
   /**
    * Response body returned for the API test.
    */
@@ -36,7 +36,7 @@ export class SyntheticsAPITestResultData {
   /**
    * Response headers returned for the API test.
    */
-  "responseHeaders"?: any;
+  "responseHeaders"?: { [key: string]: any };
   /**
    * Global size in byte of the API test response.
    */
@@ -80,7 +80,7 @@ export class SyntheticsAPITestResultData {
     },
     requestHeaders: {
       baseName: "requestHeaders",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     responseBody: {
       baseName: "responseBody",
@@ -88,7 +88,7 @@ export class SyntheticsAPITestResultData {
     },
     responseHeaders: {
       baseName: "responseHeaders",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     responseSize: {
       baseName: "responseSize",
@@ -101,7 +101,7 @@ export class SyntheticsAPITestResultData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -7,7 +7,7 @@ export class WorkflowInstanceCreateMeta {
   /**
    * The input parameters to the workflow.
    */
-  "payload"?: any;
+  "payload"?: { [key: string]: any };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -25,11 +25,11 @@ export class WorkflowInstanceCreateMeta {
   static readonly attributeTypeMap: AttributeTypeMap = {
     payload: {
       baseName: "payload",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

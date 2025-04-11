@@ -31,7 +31,7 @@ export class CustomCostsFileLineItem {
   /**
    * Additional tags for the line item.
    */
-  "tags"?: any;
+  "tags"?: { [key: string]: string };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -74,11 +74,11 @@ export class CustomCostsFileLineItem {
     },
     tags: {
       baseName: "Tags",
-      type: "any",
+      type: "{ [key: string]: string; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

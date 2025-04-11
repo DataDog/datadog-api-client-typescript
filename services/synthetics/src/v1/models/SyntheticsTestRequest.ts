@@ -68,7 +68,7 @@ export class SyntheticsTestRequest {
   /**
    * Headers to include when performing the test.
    */
-  "headers"?: any;
+  "headers"?: { [key: string]: string };
   /**
    * Host name to perform the test with.
    */
@@ -84,7 +84,7 @@ export class SyntheticsTestRequest {
   /**
    * Metadata to include when performing the gRPC test.
    */
-  "metadata"?: any;
+  "metadata"?: { [key: string]: string };
   /**
    * Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
    */
@@ -204,7 +204,7 @@ export class SyntheticsTestRequest {
     },
     headers: {
       baseName: "headers",
-      type: "any",
+      type: "{ [key: string]: string; }",
     },
     host: {
       baseName: "host",
@@ -220,7 +220,7 @@ export class SyntheticsTestRequest {
     },
     metadata: {
       baseName: "metadata",
-      type: "any",
+      type: "{ [key: string]: string; }",
     },
     method: {
       baseName: "method",
@@ -274,7 +274,7 @@ export class SyntheticsTestRequest {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

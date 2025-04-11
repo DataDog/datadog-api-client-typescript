@@ -40,7 +40,7 @@ export class ServiceDefinitionV2Dot1Opsgenie {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

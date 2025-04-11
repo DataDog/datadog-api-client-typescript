@@ -50,7 +50,7 @@ export class CIAppPipelineEventStage {
   /**
    * A map of key-value parameters or environment variables that were defined for the pipeline.
    */
-  "parameters"?: any;
+  "parameters"?: { [key: string]: string };
   /**
    * The parent pipeline name.
    */
@@ -133,7 +133,7 @@ export class CIAppPipelineEventStage {
     },
     parameters: {
       baseName: "parameters",
-      type: "any",
+      type: "{ [key: string]: string; }",
     },
     pipelineName: {
       baseName: "pipeline_name",
@@ -167,7 +167,7 @@ export class CIAppPipelineEventStage {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

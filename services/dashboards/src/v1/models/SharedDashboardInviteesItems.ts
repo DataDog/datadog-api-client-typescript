@@ -48,7 +48,7 @@ export class SharedDashboardInviteesItems {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

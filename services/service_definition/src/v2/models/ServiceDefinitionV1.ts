@@ -18,7 +18,7 @@ export class ServiceDefinitionV1 {
   /**
    * Extensions to V1 schema.
    */
-  "extensions"?: any;
+  "extensions"?: { [key: string]: any };
   /**
    * A list of external links related to the services.
    */
@@ -64,7 +64,7 @@ export class ServiceDefinitionV1 {
     },
     extensions: {
       baseName: "extensions",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     externalResources: {
       baseName: "external-resources",
@@ -94,7 +94,7 @@ export class ServiceDefinitionV1 {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -41,7 +41,7 @@ export class ChangeEventCustomAttributesAuthor {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { RuleVersions } from "./RuleVersions";
+
 /**
  * Response object containing the version history of a rule.
  */
@@ -11,7 +13,7 @@ export class RuleVersionHistory {
   /**
    * The `RuleVersionHistory` `data`.
    */
-  "data"?: any;
+  "data"?: { [key: string]: RuleVersions };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -34,11 +36,11 @@ export class RuleVersionHistory {
     },
     data: {
       baseName: "data",
-      type: "any",
+      type: "{ [key: string]: RuleVersions; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

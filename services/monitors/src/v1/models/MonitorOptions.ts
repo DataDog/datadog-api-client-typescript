@@ -156,7 +156,7 @@ export class MonitorOptions {
   /**
    * Information about the downtime applied to the monitor. Only shows v1 downtimes.
    */
-  "silenced"?: any;
+  "silenced"?: { [key: string]: number };
   /**
    * ID of the corresponding Synthetic check.
    */
@@ -302,7 +302,7 @@ export class MonitorOptions {
     },
     silenced: {
       baseName: "silenced",
-      type: "any",
+      type: "{ [key: string]: number; }",
     },
     syntheticsCheckId: {
       baseName: "synthetics_check_id",
@@ -327,7 +327,7 @@ export class MonitorOptions {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

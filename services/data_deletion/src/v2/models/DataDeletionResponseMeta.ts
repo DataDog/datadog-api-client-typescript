@@ -7,11 +7,11 @@ export class DataDeletionResponseMeta {
   /**
    * The total deletion requests created by product.
    */
-  "countProduct"?: any;
+  "countProduct"?: { [key: string]: number };
   /**
    * The total deletion requests created by status.
    */
-  "countStatus"?: any;
+  "countStatus"?: { [key: string]: number };
   /**
    * The next page when searching deletion requests created in the current organization.
    */
@@ -41,11 +41,11 @@ export class DataDeletionResponseMeta {
   static readonly attributeTypeMap: AttributeTypeMap = {
     countProduct: {
       baseName: "count_product",
-      type: "any",
+      type: "{ [key: string]: number; }",
     },
     countStatus: {
       baseName: "count_status",
-      type: "any",
+      type: "{ [key: string]: number; }",
     },
     nextPage: {
       baseName: "next_page",
@@ -61,7 +61,7 @@ export class DataDeletionResponseMeta {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

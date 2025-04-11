@@ -13,7 +13,7 @@ export class CheckCanDeleteSLOResponse {
   /**
    * A mapping of SLO id to it's current usages.
    */
-  "errors"?: any;
+  "errors"?: { [key: string]: string };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -35,11 +35,11 @@ export class CheckCanDeleteSLOResponse {
     },
     errors: {
       baseName: "errors",
-      type: "any",
+      type: "{ [key: string]: string; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

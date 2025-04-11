@@ -45,7 +45,7 @@ export class CIAppTestsQueryFilter {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

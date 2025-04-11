@@ -32,7 +32,7 @@ export class AzureUCConfigPostRequest {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

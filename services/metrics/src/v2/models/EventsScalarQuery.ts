@@ -76,7 +76,7 @@ export class EventsScalarQuery {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -50,7 +50,7 @@ export class CIAppPipelineEventJob {
   /**
    * A map of key-value parameters or environment variables that were defined for the pipeline.
    */
-  "parameters"?: any;
+  "parameters"?: { [key: string]: string };
   /**
    * The parent pipeline name.
    */
@@ -145,7 +145,7 @@ export class CIAppPipelineEventJob {
     },
     parameters: {
       baseName: "parameters",
-      type: "any",
+      type: "{ [key: string]: string; }",
     },
     pipelineName: {
       baseName: "pipeline_name",
@@ -192,7 +192,7 @@ export class CIAppPipelineEventJob {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

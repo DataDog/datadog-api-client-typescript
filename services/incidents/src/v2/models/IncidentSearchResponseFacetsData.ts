@@ -114,7 +114,7 @@ export class IncidentSearchResponseFacetsData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

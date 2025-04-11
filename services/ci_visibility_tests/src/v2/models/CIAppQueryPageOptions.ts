@@ -38,7 +38,7 @@ export class CIAppQueryPageOptions {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

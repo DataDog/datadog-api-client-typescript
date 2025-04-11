@@ -7,7 +7,7 @@ export class LogAttributes {
   /**
    * JSON object of attributes from your log.
    */
-  "attributes"?: any;
+  "attributes"?: { [key: string]: any };
   /**
    * Name of the machine from where the logs are being sent.
    */
@@ -53,7 +53,7 @@ export class LogAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     host: {
       baseName: "host",
@@ -82,7 +82,7 @@ export class LogAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

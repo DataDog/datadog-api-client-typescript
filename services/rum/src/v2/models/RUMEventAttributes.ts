@@ -7,7 +7,7 @@ export class RUMEventAttributes {
   /**
    * JSON object of attributes from RUM events.
    */
-  "attributes"?: any;
+  "attributes"?: { [key: string]: any };
   /**
    * The name of the application or service generating RUM events.
    * It is used to switch from RUM to APM, so make sure you define the same
@@ -39,7 +39,7 @@ export class RUMEventAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     service: {
       baseName: "service",
@@ -56,7 +56,7 @@ export class RUMEventAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

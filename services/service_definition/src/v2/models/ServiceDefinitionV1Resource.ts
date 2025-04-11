@@ -50,7 +50,7 @@ export class ServiceDefinitionV1Resource {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

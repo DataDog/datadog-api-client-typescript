@@ -61,7 +61,7 @@ export class ContainersResponseLinks {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

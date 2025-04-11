@@ -41,7 +41,7 @@ export class IncidentAttachmentsResponse {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

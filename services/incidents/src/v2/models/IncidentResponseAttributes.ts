@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNonDatadogCreator } from "./IncidentNonDatadogCreator";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentSeverity } from "./IncidentSeverity";
@@ -48,7 +49,7 @@ export class IncidentResponseAttributes {
   /**
    * A condensed view of the user-defined fields attached to incidents.
    */
-  "fields"?: any;
+  "fields"?: { [key: string]: IncidentFieldAttributes };
   /**
    * A unique identifier that represents an incident type.
    */
@@ -166,7 +167,7 @@ export class IncidentResponseAttributes {
     },
     fields: {
       baseName: "fields",
-      type: "any",
+      type: "{ [key: string]: IncidentFieldAttributes; }",
     },
     incidentTypeUuid: {
       baseName: "incident_type_uuid",
@@ -234,7 +235,7 @@ export class IncidentResponseAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

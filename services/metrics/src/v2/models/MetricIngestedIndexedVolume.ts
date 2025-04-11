@@ -48,7 +48,7 @@ export class MetricIngestedIndexedVolume {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

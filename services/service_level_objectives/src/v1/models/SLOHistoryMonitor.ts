@@ -10,7 +10,7 @@ export class SLOHistoryMonitor {
   /**
    * A mapping of threshold `timeframe` to the remaining error budget.
    */
-  "errorBudgetRemaining"?: any;
+  "errorBudgetRemaining"?: { [key: string]: number };
   /**
    * An array of error objects returned while querying the history data for the service level objective.
    */
@@ -79,7 +79,7 @@ export class SLOHistoryMonitor {
   static readonly attributeTypeMap: AttributeTypeMap = {
     errorBudgetRemaining: {
       baseName: "error_budget_remaining",
-      type: "any",
+      type: "{ [key: string]: number; }",
     },
     errors: {
       baseName: "errors",
@@ -132,7 +132,7 @@ export class SLOHistoryMonitor {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

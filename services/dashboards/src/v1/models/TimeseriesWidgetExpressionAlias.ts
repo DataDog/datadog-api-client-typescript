@@ -38,7 +38,7 @@ export class TimeseriesWidgetExpressionAlias {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

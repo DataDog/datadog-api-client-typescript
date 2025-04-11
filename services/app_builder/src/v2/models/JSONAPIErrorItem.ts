@@ -13,7 +13,7 @@ export class JSONAPIErrorItem {
   /**
    * Non-standard meta-information about the error
    */
-  "meta"?: any;
+  "meta"?: { [key: string]: any };
   /**
    * References to the source of the error.
    */
@@ -47,7 +47,7 @@ export class JSONAPIErrorItem {
     },
     meta: {
       baseName: "meta",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     source: {
       baseName: "source",
@@ -63,7 +63,7 @@ export class JSONAPIErrorItem {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

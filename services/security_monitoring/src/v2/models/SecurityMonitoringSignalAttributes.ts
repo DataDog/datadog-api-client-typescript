@@ -8,7 +8,7 @@ export class SecurityMonitoringSignalAttributes {
   /**
    * A JSON object of attributes in the security signal.
    */
-  "custom"?: any;
+  "custom"?: { [key: string]: any };
   /**
    * The message in the security signal defined by the rule that generated the signal.
    */
@@ -26,7 +26,7 @@ export class SecurityMonitoringSignalAttributes {
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  "additionalProperties"?: { [key: string]: { [key: string]: any } };
+  "additionalProperties"?: { [key: string]: any };
   /**
    * @ignore
    */
@@ -38,7 +38,7 @@ export class SecurityMonitoringSignalAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     custom: {
       baseName: "custom",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     message: {
       baseName: "message",

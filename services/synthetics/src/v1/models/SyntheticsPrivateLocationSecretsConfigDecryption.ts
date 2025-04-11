@@ -29,7 +29,7 @@ export class SyntheticsPrivateLocationSecretsConfigDecryption {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

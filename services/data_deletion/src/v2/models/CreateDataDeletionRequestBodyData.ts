@@ -42,7 +42,7 @@ export class CreateDataDeletionRequestBodyData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

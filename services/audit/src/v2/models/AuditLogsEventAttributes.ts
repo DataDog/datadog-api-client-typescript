@@ -7,7 +7,7 @@ export class AuditLogsEventAttributes {
   /**
    * JSON object of attributes from Audit Logs events.
    */
-  "attributes"?: any;
+  "attributes"?: { [key: string]: any };
   /**
    * Message of the event.
    */
@@ -43,7 +43,7 @@ export class AuditLogsEventAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     message: {
       baseName: "message",
@@ -64,7 +64,7 @@ export class AuditLogsEventAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

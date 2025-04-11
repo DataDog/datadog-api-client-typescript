@@ -7,11 +7,11 @@ export class SpansAttributes {
   /**
    * JSON object of attributes from your span.
    */
-  "attributes"?: any;
+  "attributes"?: { [key: string]: any };
   /**
    * JSON object of custom spans data.
    */
-  "custom"?: any;
+  "custom"?: { [key: string]: any };
   /**
    * End timestamp of your span.
    */
@@ -91,11 +91,11 @@ export class SpansAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     custom: {
       baseName: "custom",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     endTimestamp: {
       baseName: "end_timestamp",
@@ -161,7 +161,7 @@ export class SpansAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

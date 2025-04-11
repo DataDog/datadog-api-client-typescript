@@ -15,7 +15,7 @@ export class CreateDataDeletionRequestBodyAttributes {
   /**
    * Query for creating a data deletion request.
    */
-  "query": any;
+  "query": { [key: string]: string };
   /**
    * End of requested time window, milliseconds since Unix epoch.
    */
@@ -47,7 +47,7 @@ export class CreateDataDeletionRequestBodyAttributes {
     },
     query: {
       baseName: "query",
-      type: "any",
+      type: "{ [key: string]: string; }",
       required: true,
     },
     to: {
@@ -58,7 +58,7 @@ export class CreateDataDeletionRequestBodyAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

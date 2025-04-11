@@ -9,7 +9,7 @@ export class PowerpackInnerWidgets {
   /**
    * Information about widget.
    */
-  "definition": any;
+  "definition": { [key: string]: any };
   /**
    * Powerpack inner widget layout.
    */
@@ -31,7 +31,7 @@ export class PowerpackInnerWidgets {
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
       baseName: "definition",
-      type: "any",
+      type: "{ [key: string]: any; }",
       required: true,
     },
     layout: {
@@ -40,7 +40,7 @@ export class PowerpackInnerWidgets {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

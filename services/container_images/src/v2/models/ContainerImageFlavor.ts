@@ -62,7 +62,7 @@ export class ContainerImageFlavor {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

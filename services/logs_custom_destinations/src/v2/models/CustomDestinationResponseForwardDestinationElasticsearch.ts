@@ -9,7 +9,7 @@ export class CustomDestinationResponseForwardDestinationElasticsearch {
   /**
    * Basic access authentication.
    */
-  "auth": any;
+  "auth": { [key: string]: any };
   /**
    * The destination for which logs will be forwarded to.
    * Must have HTTPS scheme and forwarding back to Datadog is not allowed.
@@ -53,7 +53,7 @@ export class CustomDestinationResponseForwardDestinationElasticsearch {
   static readonly attributeTypeMap: AttributeTypeMap = {
     auth: {
       baseName: "auth",
-      type: "any",
+      type: "{ [key: string]: any; }",
       required: true,
     },
     endpoint: {
@@ -77,7 +77,7 @@ export class CustomDestinationResponseForwardDestinationElasticsearch {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

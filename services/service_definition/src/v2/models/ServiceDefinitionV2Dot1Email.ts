@@ -49,7 +49,7 @@ export class ServiceDefinitionV2Dot1Email {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

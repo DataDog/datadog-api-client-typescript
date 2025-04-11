@@ -40,7 +40,7 @@ export class APIKeysResponseMeta {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

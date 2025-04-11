@@ -33,7 +33,7 @@ export class MonthlyUsageAttributionBody {
    * configured for usage attribution](https://docs.datadoghq.com/account_management/billing/usage_attribution/#getting-started).
    * In this scenario the API returns the total usage, not broken down by tags.
    */
-  "tags"?: any;
+  "tags"?: { [key: string]: Array<string> };
   /**
    * Datetime of the most recent update to the usage values.
    */
@@ -80,7 +80,7 @@ export class MonthlyUsageAttributionBody {
     },
     tags: {
       baseName: "tags",
-      type: "any",
+      type: "{ [key: string]: Array<string>; }",
     },
     updatedAt: {
       baseName: "updated_at",
@@ -93,7 +93,7 @@ export class MonthlyUsageAttributionBody {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

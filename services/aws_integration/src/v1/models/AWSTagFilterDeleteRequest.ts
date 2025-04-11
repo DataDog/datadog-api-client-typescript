@@ -39,7 +39,7 @@ export class AWSTagFilterDeleteRequest {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

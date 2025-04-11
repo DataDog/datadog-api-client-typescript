@@ -47,7 +47,7 @@ export class CustomCostsFileMetadataHighLevel {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

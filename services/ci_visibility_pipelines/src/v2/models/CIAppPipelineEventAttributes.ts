@@ -9,7 +9,7 @@ export class CIAppPipelineEventAttributes {
   /**
    * JSON object of attributes from CI Visibility pipeline events.
    */
-  "attributes"?: any;
+  "attributes"?: { [key: string]: any };
   /**
    * Pipeline execution level.
    */
@@ -35,7 +35,7 @@ export class CIAppPipelineEventAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     ciLevel: {
       baseName: "ci_level",
@@ -47,7 +47,7 @@ export class CIAppPipelineEventAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

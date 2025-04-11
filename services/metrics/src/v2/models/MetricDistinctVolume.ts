@@ -48,7 +48,7 @@ export class MetricDistinctVolume {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

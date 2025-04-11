@@ -101,7 +101,7 @@ export class ListStreamQuery {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

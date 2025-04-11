@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentTimelineCellCreateAttributes } from "./IncidentTimelineCellCreateAttributes";
 
@@ -18,7 +19,7 @@ export class IncidentCreateAttributes {
   /**
    * A condensed view of the user-defined fields for which to create initial selections.
    */
-  "fields"?: any;
+  "fields"?: { [key: string]: IncidentFieldAttributes };
   /**
    * A unique identifier that represents an incident type. The default incident type will be used if this property is not provided.
    */
@@ -61,7 +62,7 @@ export class IncidentCreateAttributes {
     },
     fields: {
       baseName: "fields",
-      type: "any",
+      type: "{ [key: string]: IncidentFieldAttributes; }",
     },
     incidentTypeUuid: {
       baseName: "incident_type_uuid",
@@ -82,7 +83,7 @@ export class IncidentCreateAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 
