@@ -15,7 +15,7 @@ const params: v2.IncidentsApiCreateIncidentTypeRequest = {
         description:
           "Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.",
         isDefault: false,
-        name: "Security Incident",
+        name: "8d4bbb66dccf2456",
       },
       type: "incident_types",
     },
