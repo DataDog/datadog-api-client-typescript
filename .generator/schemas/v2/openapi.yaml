@@ -11211,7 +11211,6 @@ components:
           description: Whether the email domain allowlist is enabled for the org.
           type: boolean
       type: object
-      x-ignore-duplicate-object: true
     DomainAllowlistRequest:
       description: Request containing the desired email domain allowlist configuration.
       properties:
@@ -11252,7 +11251,6 @@ components:
           description: Whether the email domain allowlist is enabled for the org.
           type: boolean
       type: object
-      x-ignore-duplicate-object: true
     DomainAllowlistType:
       default: domain_allowlist
       description: Email domain allowlist allowlist type.
@@ -12190,7 +12188,6 @@ components:
           description: Custom extensions. This is the free-formed field to send client-side
             metadata. No Datadog features are affected by this field.
           type: object
-          x-ignore-duplicate-object: true
         integrations:
           $ref: '#/components/schemas/EntityV3Integrations'
         kind:
@@ -12398,7 +12395,6 @@ components:
           description: Custom extensions. This is the free-formed field to send client
             side metadata. No Datadog features are affected by this field.
           type: object
-          x-ignore-duplicate-object: true
         integrations:
           $ref: '#/components/schemas/EntityV3Integrations'
         kind:
@@ -12423,7 +12419,6 @@ components:
         performanceData:
           $ref: '#/components/schemas/EntityV3DatadogPerformance'
       type: object
-      x-ignore-duplicate-object: true
     EntityV3DatastoreKind:
       description: The definition of Entity V3 Datastore Kind object.
       enum:
@@ -12436,6 +12431,11 @@ components:
       additionalProperties: false
       description: The definition of Entity V3 Datastore Spec object.
       properties:
+        componentOf:
+          description: A list of components the datastore is a part of
+          items:
+            type: string
+          type: array
         lifecycle:
           description: The lifecycle state of the datastore.
           minLength: 1
@@ -12598,7 +12598,6 @@ components:
           description: Custom extensions. This is the free-formed field to send client-side
             metadata. No Datadog features are affected by this field.
           type: object
-          x-ignore-duplicate-object: true
         integrations:
           $ref: '#/components/schemas/EntityV3Integrations'
         kind:
@@ -12623,7 +12622,6 @@ components:
         performanceData:
           $ref: '#/components/schemas/EntityV3DatadogPerformance'
       type: object
-      x-ignore-duplicate-object: true
     EntityV3QueueKind:
       description: The definition of Entity V3 Queue Kind object.
       enum:
@@ -12636,6 +12634,11 @@ components:
       additionalProperties: false
       description: The definition of Entity V3 Queue Spec object.
       properties:
+        componentOf:
+          description: A list of components the queue is a part of
+          items:
+            type: string
+          type: array
         lifecycle:
           description: The lifecycle state of the queue.
           minLength: 1
@@ -12661,7 +12664,6 @@ components:
           description: Custom extensions. This is the free-formed field to send client-side
             metadata. No Datadog features are affected by this field.
           type: object
-          x-ignore-duplicate-object: true
         integrations:
           $ref: '#/components/schemas/EntityV3Integrations'
         kind:
@@ -12702,6 +12704,11 @@ components:
       additionalProperties: false
       description: The definition of Entity V3 Service Spec object.
       properties:
+        componentOf:
+          description: A list of components the service is a part of
+          items:
+            type: string
+          type: array
         dependsOn:
           description: A list of components the service depends on.
           items:
@@ -12737,7 +12744,6 @@ components:
           description: Custom extensions. This is the free-formed field to send client-side
             metadata. No Datadog features are affected by this field.
           type: object
-          x-ignore-duplicate-object: true
         integrations:
           $ref: '#/components/schemas/EntityV3Integrations'
         kind:
@@ -27135,6 +27141,8 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/ScheduleCreateRequestData'
+      required:
+      - data
       type: object
     ScheduleCreateRequestData:
       description: The core data wrapper for creating a schedule, encompassing attributes,
@@ -27146,6 +27154,9 @@ components:
           $ref: '#/components/schemas/ScheduleCreateRequestDataRelationships'
         type:
           $ref: '#/components/schemas/ScheduleCreateRequestDataType'
+      required:
+      - attributes
+      - type
       type: object
     ScheduleCreateRequestDataAttributes:
       description: Describes the main attributes for creating a new schedule, including
@@ -27247,7 +27258,7 @@ components:
         with an `id`.
       properties:
         id:
-          description: The user's UUID.
+          description: The user's ID.
           type: string
       type: object
     ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems:
@@ -27347,6 +27358,7 @@ components:
       description: Schedules resource type.
       enum:
       - schedules
+      example: schedules
       type: string
       x-enum-varnames:
       - SCHEDULES
@@ -27357,7 +27369,8 @@ components:
         attributes:
           $ref: '#/components/schemas/ScheduleDataAttributes'
         id:
-          description: The schedule's unique identifier (UUID).
+          description: The schedule's unique identifier.
+          example: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
           type: string
         relationships:
           $ref: '#/components/schemas/ScheduleDataRelationships'
@@ -27414,6 +27427,7 @@ components:
       properties:
         id:
           description: The unique identifier of the layer in this relationship.
+          example: 67963b57-d67c-dfa7-b180-62ee9301d2f5
           type: string
         type:
           $ref: '#/components/schemas/ScheduleDataRelationshipsLayersDataItemsType'
@@ -27423,6 +27437,7 @@ components:
       description: Layers resource type.
       enum:
       - layers
+      example: layers
       type: string
       x-enum-varnames:
       - LAYERS
@@ -27441,6 +27456,7 @@ components:
       properties:
         id:
           description: The unique identifier of the team in this relationship.
+          example: 00000000-da3a-0000-0000-000000000000
           type: string
         type:
           $ref: '#/components/schemas/ScheduleDataRelationshipsTeamsDataItemsType'
@@ -27450,6 +27466,7 @@ components:
       description: Teams resource type.
       enum:
       - teams
+      example: teams
       type: string
       x-enum-varnames:
       - TEAMS
@@ -27488,7 +27505,7 @@ components:
       type: object
     ScheduleMemberRelationshipsUserData:
       description: Points to the user data associated with this schedule member, including
-        a UUID and type.
+        an ID and type.
       properties:
         id:
           description: The user's unique identifier.
@@ -27569,6 +27586,8 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/ScheduleUpdateRequestData'
+      required:
+      - data
       type: object
     ScheduleUpdateRequestData:
       description: Contains all data needed to update an existing schedule, including
@@ -27577,12 +27596,17 @@ components:
         attributes:
           $ref: '#/components/schemas/ScheduleUpdateRequestDataAttributes'
         id:
-          description: The UUID of the schedule to be updated.
+          description: The ID of the schedule to be updated.
+          example: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
           type: string
         relationships:
           $ref: '#/components/schemas/ScheduleUpdateRequestDataRelationships'
         type:
           $ref: '#/components/schemas/ScheduleUpdateRequestDataType'
+      required:
+      - attributes
+      - type
+      - id
       type: object
     ScheduleUpdateRequestDataAttributes:
       description: Defines the updatable attributes for a schedule, such as name,
@@ -27682,7 +27706,7 @@ components:
         `id` is required.
       properties:
         id:
-          description: The user's UUID.
+          description: The user's ID.
           type: string
       type: object
     ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems:
@@ -27779,6 +27803,7 @@ components:
       description: Schedules resource type.
       enum:
       - schedules
+      example: schedules
       type: string
       x-enum-varnames:
       - SCHEDULES
@@ -29345,11 +29370,19 @@ components:
       enum:
       - logs
       - audit
+      - app_sec_spans
+      - spans
+      - security_runtime
+      - network
       example: logs
       type: string
       x-enum-varnames:
       - LOGS
       - AUDIT
+      - APP_SEC_SPANS
+      - SPANS
+      - SECURITY_RUNTIME
+      - NETWORK
     SecurityMonitoringStandardRuleCreatePayload:
       description: Create a new rule.
       properties:
@@ -31401,7 +31434,6 @@ components:
           example: https://my-org.pagerduty.com/service-directory/PMyService
           type: string
       type: object
-      x-ignore-duplicate-object: true
     ServiceDefinitionV2Dot1Slack:
       description: Service owner's Slack channel.
       properties:
@@ -31607,7 +31639,6 @@ components:
           example: https://my-org.pagerduty.com/service-directory/PMyService
           type: string
       type: object
-      x-ignore-duplicate-object: true
     ServiceDefinitionV2Dot2Type:
       description: The type of service.
       example: web
@@ -31907,7 +31938,7 @@ components:
           format: int64
           type: integer
         rtt_micro_seconds:
-          description: Measured as TCP smoothed roundtrip time in microseconds (the
+          description: Measured as TCP smoothed round trip time in microseconds (the
             time between a TCP frame being sent and acknowledged).
           format: int64
           type: integer
@@ -46177,9 +46208,7 @@ paths:
       - Cloud Network Monitoring
       x-unstable: '**Note**: This endpoint is in Preview. If you have any feedback,
 
-        contact [Datadog support](https://docs.datadoghq.com/help/).
-
-        type: safe'
+        contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v2/on-call/schedules:
     post:
       description: Create a new on-call schedule
@@ -46219,18 +46248,18 @@ paths:
       summary: Create on-call schedule
       tags:
       - On-Call
-  /api/v2/on-call/schedules/{schedule_uuid}:
+  /api/v2/on-call/schedules/{schedule_id}:
     delete:
       description: Delete an on-call schedule
       operationId: DeleteOnCallSchedule
       parameters:
-      - description: The UUID of the schedule
+      - description: The ID of the schedule
         in: path
-        name: schedule_uuid
+        name: schedule_id
         required: true
         schema:
           example: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
-          format: uuid
+          type: string
       responses:
         '204':
           description: No Content
@@ -46259,13 +46288,13 @@ paths:
         name: include
         schema:
           type: string
-      - description: The UUID of the schedule
+      - description: The ID of the schedule
         in: path
-        name: schedule_uuid
+        name: schedule_id
         required: true
         schema:
           example: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
-          format: uuid
+          type: string
       responses:
         '200':
           content:
@@ -46298,13 +46327,13 @@ paths:
         name: include
         schema:
           type: string
-      - description: The UUID of the schedule
+      - description: The ID of the schedule
         in: path
-        name: schedule_uuid
+        name: schedule_id
         required: true
         schema:
           example: 3653d3c6-0c75-11ea-ad28-fb5701eabc7d
-          format: uuid
+          type: string
       requestBody:
         content:
           application/json:
