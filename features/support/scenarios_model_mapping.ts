@@ -4993,6 +4993,50 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SingleAggregatedConnectionResponseArray",
     },
+    "v2.CreateOnCallSchedule": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ScheduleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "Schedule",
+    },
+    "v2.DeleteOnCallSchedule": {
+        "scheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetOnCallSchedule": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "scheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Schedule",
+    },
+    "v2.UpdateOnCallSchedule": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "scheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ScheduleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "Schedule",
+    },
     "v2.ListOrgConfigs": {
         "operationResponseType": "OrgConfigListResponse",
     },
