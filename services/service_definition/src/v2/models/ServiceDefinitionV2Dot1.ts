@@ -28,7 +28,7 @@ export class ServiceDefinitionV2Dot1 {
   /**
    * Extensions to v2.1 schema.
    */
-  "extensions"?: any;
+  "extensions"?: { [key: string]: any };
   /**
    * Third party integrations that Datadog supports.
    */
@@ -91,7 +91,7 @@ export class ServiceDefinitionV2Dot1 {
     },
     extensions: {
       baseName: "extensions",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     integrations: {
       baseName: "integrations",
@@ -124,7 +124,7 @@ export class ServiceDefinitionV2Dot1 {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

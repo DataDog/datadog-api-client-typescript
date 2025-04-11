@@ -55,7 +55,7 @@ export class UsageIncidentManagementHour {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

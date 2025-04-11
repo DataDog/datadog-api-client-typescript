@@ -29,7 +29,7 @@ export class IncidentTimelineCellMarkdownCreateAttributesContent {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

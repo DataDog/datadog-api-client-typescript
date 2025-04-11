@@ -61,7 +61,7 @@ export class IncidentAttachmentData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

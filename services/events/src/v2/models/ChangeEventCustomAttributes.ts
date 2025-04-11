@@ -15,7 +15,7 @@ export class ChangeEventCustomAttributes {
   /**
    * Free form object with information related to the `change` event. Can be arbitrarily nested and contain any valid JSON.
    */
-  "changeMetadata"?: any;
+  "changeMetadata"?: { [key: string]: any };
   /**
    * Object representing a uniquely identified resource.
    */
@@ -28,11 +28,11 @@ export class ChangeEventCustomAttributes {
   /**
    * Free form object to track new value of the changed resource.
    */
-  "newValue"?: any;
+  "newValue"?: { [key: string]: any };
   /**
    * Free form object to track previous value of the changed resource.
    */
-  "prevValue"?: any;
+  "prevValue"?: { [key: string]: any };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -54,7 +54,7 @@ export class ChangeEventCustomAttributes {
     },
     changeMetadata: {
       baseName: "change_metadata",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     changedResource: {
       baseName: "changed_resource",
@@ -67,15 +67,15 @@ export class ChangeEventCustomAttributes {
     },
     newValue: {
       baseName: "new_value",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     prevValue: {
       baseName: "prev_value",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

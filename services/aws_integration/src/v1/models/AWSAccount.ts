@@ -17,7 +17,7 @@ export class AWSAccount {
    * that enables or disables metric collection for specific AWS namespaces for this
    * AWS account only.
    */
-  "accountSpecificNamespaceRules"?: any;
+  "accountSpecificNamespaceRules"?: { [key: string]: boolean };
   /**
    * Whether Datadog collects cloud security posture management resources from your AWS account. This includes additional resources not covered under the general `resource_collection`.
    */
@@ -86,7 +86,7 @@ export class AWSAccount {
     },
     accountSpecificNamespaceRules: {
       baseName: "account_specific_namespace_rules",
-      type: "any",
+      type: "{ [key: string]: boolean; }",
     },
     cspmResourceCollectionEnabled: {
       baseName: "cspm_resource_collection_enabled",
@@ -126,7 +126,7 @@ export class AWSAccount {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -109,7 +109,7 @@ export class SensitiveDataScannerRuleAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

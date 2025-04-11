@@ -39,7 +39,7 @@ export class IncidentFieldAttributesSingleValue {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

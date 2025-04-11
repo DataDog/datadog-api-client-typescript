@@ -29,7 +29,7 @@ export class SyntheticsGlobalVariableAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

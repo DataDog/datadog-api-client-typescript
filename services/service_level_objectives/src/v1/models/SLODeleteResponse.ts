@@ -11,7 +11,7 @@ export class SLODeleteResponse {
   /**
    * An dictionary containing the ID of the SLO as key and a deletion error as value.
    */
-  "errors"?: any;
+  "errors"?: { [key: string]: string };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,11 +33,11 @@ export class SLODeleteResponse {
     },
     errors: {
       baseName: "errors",
-      type: "any",
+      type: "{ [key: string]: string; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

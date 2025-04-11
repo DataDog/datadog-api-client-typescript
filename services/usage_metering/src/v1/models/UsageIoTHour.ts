@@ -55,7 +55,7 @@ export class UsageIoTHour {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

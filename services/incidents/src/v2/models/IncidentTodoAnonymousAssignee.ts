@@ -59,7 +59,7 @@ export class IncidentTodoAnonymousAssignee {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

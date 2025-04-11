@@ -41,7 +41,7 @@ export class NotebookMarkdownCellDefinition {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -9,7 +9,7 @@ export class CIAppEventAttributes {
   /**
    * JSON object of attributes from CI Visibility test events.
    */
-  "attributes"?: any;
+  "attributes"?: { [key: string]: any };
   /**
    * Array of tags associated with your event.
    */
@@ -35,7 +35,7 @@ export class CIAppEventAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     tags: {
       baseName: "tags",
@@ -47,7 +47,7 @@ export class CIAppEventAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

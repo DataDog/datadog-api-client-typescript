@@ -49,7 +49,7 @@ export class DowntimeMonitorIncludedItem {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

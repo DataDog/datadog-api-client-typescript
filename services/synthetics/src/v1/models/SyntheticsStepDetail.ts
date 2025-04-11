@@ -186,7 +186,7 @@ export class SyntheticsStepDetail {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -58,7 +58,7 @@ export class MetricAssetResponseRelationships {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

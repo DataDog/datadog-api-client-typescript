@@ -39,7 +39,7 @@ export class CustomDestinationElasticsearchDestinationAuth {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

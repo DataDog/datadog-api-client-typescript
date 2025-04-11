@@ -10,7 +10,7 @@ export class SensitiveDataScannerGetConfigResponseData {
   /**
    * Attributes of the Sensitive Data configuration.
    */
-  "attributes"?: any;
+  "attributes"?: { [key: string]: any };
   /**
    * ID of the configuration.
    */
@@ -40,7 +40,7 @@ export class SensitiveDataScannerGetConfigResponseData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     id: {
       baseName: "id",
@@ -56,7 +56,7 @@ export class SensitiveDataScannerGetConfigResponseData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

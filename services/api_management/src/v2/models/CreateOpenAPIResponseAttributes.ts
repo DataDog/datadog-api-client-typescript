@@ -31,7 +31,7 @@ export class CreateOpenAPIResponseAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

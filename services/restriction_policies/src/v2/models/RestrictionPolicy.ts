@@ -51,7 +51,7 @@ export class RestrictionPolicy {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

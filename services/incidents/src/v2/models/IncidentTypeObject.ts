@@ -50,7 +50,7 @@ export class IncidentTypeObject {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

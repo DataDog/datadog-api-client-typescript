@@ -26,7 +26,7 @@ export class MonthlyCostAttributionAttributes {
    * configured for usage attribution](https://docs.datadoghq.com/account_management/billing/usage_attribution/#getting-started).
    * In this scenario the API returns the total cost, not broken down by tags.
    */
-  "tags"?: any;
+  "tags"?: { [key: string]: Array<string> };
   /**
    * Shows the most recent hour in the current months for all organizations for which all costs were calculated.
    */
@@ -69,7 +69,7 @@ export class MonthlyCostAttributionAttributes {
     },
     tags: {
       baseName: "tags",
-      type: "any",
+      type: "{ [key: string]: Array<string>; }",
     },
     updatedAt: {
       baseName: "updated_at",
@@ -81,7 +81,7 @@ export class MonthlyCostAttributionAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

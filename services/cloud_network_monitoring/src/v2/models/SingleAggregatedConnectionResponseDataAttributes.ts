@@ -15,7 +15,7 @@ export class SingleAggregatedConnectionResponseDataAttributes {
   /**
    * The key, value pairs for each group by.
    */
-  "groupBys"?: any;
+  "groupBys"?: { [key: string]: Array<string> };
   /**
    * The total number of packets sent by the client over the given period.
    */
@@ -79,7 +79,7 @@ export class SingleAggregatedConnectionResponseDataAttributes {
     },
     groupBys: {
       baseName: "group_bys",
-      type: "any",
+      type: "{ [key: string]: Array<string>; }",
     },
     packetsSentByClient: {
       baseName: "packets_sent_by_client",
@@ -128,7 +128,7 @@ export class SingleAggregatedConnectionResponseDataAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

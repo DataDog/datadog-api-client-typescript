@@ -32,7 +32,7 @@ export class LogsMetricUpdateRequest {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

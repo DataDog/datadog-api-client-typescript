@@ -48,7 +48,7 @@ export class CIAppPipelineEventInProgressPipeline {
   /**
    * A map of key-value parameters or environment variables that were defined for the pipeline.
    */
-  "parameters"?: any;
+  "parameters"?: { [key: string]: string };
   /**
    * If the pipeline is triggered as child of another pipeline, this should contain the details of the parent pipeline.
    */
@@ -142,7 +142,7 @@ export class CIAppPipelineEventInProgressPipeline {
     },
     parameters: {
       baseName: "parameters",
-      type: "any",
+      type: "{ [key: string]: string; }",
     },
     parentPipeline: {
       baseName: "parent_pipeline",
@@ -193,7 +193,7 @@ export class CIAppPipelineEventInProgressPipeline {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

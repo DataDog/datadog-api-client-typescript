@@ -33,7 +33,7 @@ export class HourlyUsageAttributionBody {
    * configured for usage attribution](https://docs.datadoghq.com/account_management/billing/usage_attribution/#getting-started).
    * In this scenario the API returns the total usage, not broken down by tags.
    */
-  "tags"?: any;
+  "tags"?: { [key: string]: Array<string> };
   /**
    * Total product usage for the given tags within the hour.
    */
@@ -84,7 +84,7 @@ export class HourlyUsageAttributionBody {
     },
     tags: {
       baseName: "tags",
-      type: "any",
+      type: "{ [key: string]: Array<string>; }",
     },
     totalUsageSum: {
       baseName: "total_usage_sum",
@@ -101,7 +101,7 @@ export class HourlyUsageAttributionBody {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

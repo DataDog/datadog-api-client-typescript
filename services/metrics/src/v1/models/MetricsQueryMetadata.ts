@@ -135,7 +135,7 @@ export class MetricsQueryMetadata {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

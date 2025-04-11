@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { SpansAggregateBucketValue } from "./SpansAggregateBucketValue";
+
 /**
  * A bucket values.
  */
@@ -7,7 +9,7 @@ export class SpansAggregateBucketAttributes {
   /**
    * The key, value pairs for each group by.
    */
-  "by"?: any;
+  "by"?: { [key: string]: any };
   /**
    * The compute data.
    */
@@ -15,7 +17,7 @@ export class SpansAggregateBucketAttributes {
   /**
    * A map of the metric name -> value for regular compute or list of values for a timeseries.
    */
-  "computes"?: any;
+  "computes"?: { [key: string]: SpansAggregateBucketValue };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,7 +35,7 @@ export class SpansAggregateBucketAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     by: {
       baseName: "by",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     compute: {
       baseName: "compute",
@@ -41,11 +43,11 @@ export class SpansAggregateBucketAttributes {
     },
     computes: {
       baseName: "computes",
-      type: "any",
+      type: "{ [key: string]: SpansAggregateBucketValue; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

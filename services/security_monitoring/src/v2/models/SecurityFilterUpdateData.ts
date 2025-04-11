@@ -42,7 +42,7 @@ export class SecurityFilterUpdateData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

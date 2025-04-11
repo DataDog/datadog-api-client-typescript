@@ -50,7 +50,7 @@ export class SyntheticsBasicAuthDigest {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

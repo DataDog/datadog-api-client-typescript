@@ -32,7 +32,7 @@ export class MicrosoftTeamsCreateWorkflowsWebhookHandleRequest {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

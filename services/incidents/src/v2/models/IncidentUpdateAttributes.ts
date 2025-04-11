@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 
 /**
@@ -29,7 +30,7 @@ export class IncidentUpdateAttributes {
   /**
    * A condensed view of the user-defined fields for which to update selections.
    */
-  "fields"?: any;
+  "fields"?: { [key: string]: IncidentFieldAttributes };
   /**
    * Notification handles that will be notified of the incident during update.
    */
@@ -78,7 +79,7 @@ export class IncidentUpdateAttributes {
     },
     fields: {
       baseName: "fields",
-      type: "any",
+      type: "{ [key: string]: IncidentFieldAttributes; }",
     },
     notificationHandles: {
       baseName: "notification_handles",
@@ -90,7 +91,7 @@ export class IncidentUpdateAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

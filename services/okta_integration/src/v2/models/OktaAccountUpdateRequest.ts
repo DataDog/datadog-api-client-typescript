@@ -32,7 +32,7 @@ export class OktaAccountUpdateRequest {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

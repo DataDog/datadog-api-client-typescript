@@ -23,6 +23,7 @@ import { SLODeleteResponse } from "./models/SLODeleteResponse";
 import { SLOHistoryResponse } from "./models/SLOHistoryResponse";
 import { SLOListResponse } from "./models/SLOListResponse";
 import { SLOResponse } from "./models/SLOResponse";
+import { SLOTimeframe } from "./models/SLOTimeframe";
 
 export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFactory {
   public async checkCanDeleteSLO(
@@ -152,7 +153,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   }
 
   public async deleteSLOTimeframeInBulk(
-    body: any,
+    body: { [key: string]: Array<SLOTimeframe> },
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -178,7 +179,11 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "any", ""),
+      ObjectSerializer.serialize(
+        "body",
+        "{ [key: string]: Array<SLOTimeframe>; }",
+        "",
+      ),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1185,9 +1190,9 @@ export interface ServiceLevelObjectivesApiDeleteSLORequest {
 export interface ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest {
   /**
    * Delete multiple service level objective objects request body.
-   * @type any
+   * @type { [key: string]: Array<SLOTimeframe>; }
    */
-  body: any;
+  body: { [key: string]: Array<SLOTimeframe> };
 }
 
 export interface ServiceLevelObjectivesApiGetSLORequest {

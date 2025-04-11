@@ -40,7 +40,7 @@ export class SyntheticsPrivateLocationSecrets {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

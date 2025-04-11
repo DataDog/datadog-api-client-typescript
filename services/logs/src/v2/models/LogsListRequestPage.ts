@@ -38,7 +38,7 @@ export class LogsListRequestPage {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

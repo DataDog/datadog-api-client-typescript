@@ -11,7 +11,7 @@ export class IPPrefixesSynthetics {
   /**
    * List of IPv4 prefixes by location.
    */
-  "prefixesIpv4ByLocation"?: any;
+  "prefixesIpv4ByLocation"?: { [key: string]: Array<string> };
   /**
    * List of IPv6 prefixes.
    */
@@ -19,7 +19,7 @@ export class IPPrefixesSynthetics {
   /**
    * List of IPv6 prefixes by location.
    */
-  "prefixesIpv6ByLocation"?: any;
+  "prefixesIpv6ByLocation"?: { [key: string]: Array<string> };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -41,7 +41,7 @@ export class IPPrefixesSynthetics {
     },
     prefixesIpv4ByLocation: {
       baseName: "prefixes_ipv4_by_location",
-      type: "any",
+      type: "{ [key: string]: Array<string>; }",
     },
     prefixesIpv6: {
       baseName: "prefixes_ipv6",
@@ -49,11 +49,11 @@ export class IPPrefixesSynthetics {
     },
     prefixesIpv6ByLocation: {
       baseName: "prefixes_ipv6_by_location",
-      type: "any",
+      type: "{ [key: string]: Array<string>; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

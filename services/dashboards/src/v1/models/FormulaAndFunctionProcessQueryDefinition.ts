@@ -109,7 +109,7 @@ export class FormulaAndFunctionProcessQueryDefinition {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

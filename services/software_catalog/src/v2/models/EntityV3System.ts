@@ -22,7 +22,7 @@ export class EntityV3System {
   /**
    * Custom extensions. This is the free-formed field to send client-side metadata. No Datadog features are affected by this field.
    */
-  "extensions"?: any;
+  "extensions"?: { [key: string]: any };
   /**
    * A base schema for defining third-party integrations.
    */
@@ -59,7 +59,7 @@ export class EntityV3System {
     },
     extensions: {
       baseName: "extensions",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
     integrations: {
       baseName: "integrations",

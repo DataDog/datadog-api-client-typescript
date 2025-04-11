@@ -32,7 +32,7 @@ export class RetentionFilterUpdateRequest {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

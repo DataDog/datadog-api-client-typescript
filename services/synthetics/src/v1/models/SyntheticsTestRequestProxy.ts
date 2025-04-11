@@ -7,7 +7,7 @@ export class SyntheticsTestRequestProxy {
   /**
    * Headers to include when performing the test.
    */
-  "headers"?: any;
+  "headers"?: { [key: string]: string };
   /**
    * URL of the proxy to perform the test.
    */
@@ -29,7 +29,7 @@ export class SyntheticsTestRequestProxy {
   static readonly attributeTypeMap: AttributeTypeMap = {
     headers: {
       baseName: "headers",
-      type: "any",
+      type: "{ [key: string]: string; }",
     },
     url: {
       baseName: "url",
@@ -38,7 +38,7 @@ export class SyntheticsTestRequestProxy {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

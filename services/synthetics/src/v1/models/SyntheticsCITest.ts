@@ -39,7 +39,7 @@ export class SyntheticsCITest {
   /**
    * Headers to include when performing the test.
    */
-  "headers"?: any;
+  "headers"?: { [key: string]: string };
   /**
    * Array of locations used to run the test.
    */
@@ -63,7 +63,7 @@ export class SyntheticsCITest {
   /**
    * Variables to replace in the test.
    */
-  "variables"?: any;
+  "variables"?: { [key: string]: string };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -109,7 +109,7 @@ export class SyntheticsCITest {
     },
     headers: {
       baseName: "headers",
-      type: "any",
+      type: "{ [key: string]: string; }",
     },
     locations: {
       baseName: "locations",
@@ -134,11 +134,11 @@ export class SyntheticsCITest {
     },
     variables: {
       baseName: "variables",
-      type: "any",
+      type: "{ [key: string]: string; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

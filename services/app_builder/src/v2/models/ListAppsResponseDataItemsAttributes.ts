@@ -61,7 +61,7 @@ export class ListAppsResponseDataItemsAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

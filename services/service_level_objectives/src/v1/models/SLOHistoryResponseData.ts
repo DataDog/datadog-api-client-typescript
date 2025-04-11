@@ -3,6 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { SLOHistoryMetrics } from "./SLOHistoryMetrics";
 import { SLOHistoryMonitor } from "./SLOHistoryMonitor";
 import { SLOHistorySLIData } from "./SLOHistorySLIData";
+import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { SLOTypeNumeric } from "./SLOTypeNumeric";
 
@@ -46,7 +47,7 @@ export class SLOHistoryResponseData {
   /**
    * mapping of string timeframe to the SLO threshold.
    */
-  "thresholds"?: any;
+  "thresholds"?: { [key: string]: SLOThreshold };
   /**
    * The `to` timestamp in epoch seconds.
    */
@@ -103,7 +104,7 @@ export class SLOHistoryResponseData {
     },
     thresholds: {
       baseName: "thresholds",
-      type: "any",
+      type: "{ [key: string]: SLOThreshold; }",
     },
     toTs: {
       baseName: "to_ts",
@@ -121,7 +122,7 @@ export class SLOHistoryResponseData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

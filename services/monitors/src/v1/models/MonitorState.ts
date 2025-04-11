@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { MonitorStateGroup } from "./MonitorStateGroup";
+
 /**
  * Wrapper object with the different monitor states.
  */
@@ -8,7 +10,7 @@ export class MonitorState {
    * Dictionary where the keys are groups (comma separated lists of tags) and the values are
    * the list of groups your monitor is broken down on.
    */
-  "groups"?: any;
+  "groups"?: { [key: string]: MonitorStateGroup };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -26,11 +28,11 @@ export class MonitorState {
   static readonly attributeTypeMap: AttributeTypeMap = {
     groups: {
       baseName: "groups",
-      type: "any",
+      type: "{ [key: string]: MonitorStateGroup; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

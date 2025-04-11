@@ -58,7 +58,7 @@ export class Host {
   /**
    * List of tags for each source (AWS, Datadog Agent, Chef..).
    */
-  "tagsBySource"?: any;
+  "tagsBySource"?: { [key: string]: Array<string> };
   /**
    * Displays UP when the expected metrics are received and displays `???` if no metrics are received.
    */
@@ -131,7 +131,7 @@ export class Host {
     },
     tagsBySource: {
       baseName: "tags_by_source",
-      type: "any",
+      type: "{ [key: string]: Array<string>; }",
     },
     up: {
       baseName: "up",
@@ -139,7 +139,7 @@ export class Host {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

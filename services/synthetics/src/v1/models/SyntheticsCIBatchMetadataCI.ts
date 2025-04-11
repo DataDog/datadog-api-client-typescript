@@ -40,7 +40,7 @@ export class SyntheticsCIBatchMetadataCI {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

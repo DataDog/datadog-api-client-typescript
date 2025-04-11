@@ -74,7 +74,7 @@ export class ApplicationSecurityWafCustomRuleConditionParameters {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

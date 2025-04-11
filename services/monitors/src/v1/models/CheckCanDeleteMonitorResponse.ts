@@ -13,7 +13,7 @@ export class CheckCanDeleteMonitorResponse {
   /**
    * A mapping of Monitor ID to strings denoting where it's used.
    */
-  "errors"?: any;
+  "errors"?: { [key: string]: Array<string> };
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -36,11 +36,11 @@ export class CheckCanDeleteMonitorResponse {
     },
     errors: {
       baseName: "errors",
-      type: "any",
+      type: "{ [key: string]: Array<string>; }",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

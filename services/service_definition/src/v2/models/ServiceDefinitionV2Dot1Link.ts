@@ -58,7 +58,7 @@ export class ServiceDefinitionV2Dot1Link {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

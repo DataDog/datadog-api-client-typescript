@@ -30,7 +30,7 @@ export class EventsListResponseLinks {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 
