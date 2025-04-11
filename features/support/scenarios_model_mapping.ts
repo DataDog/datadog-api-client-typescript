@@ -3826,12 +3826,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "IncidentTypeResponse",
     },
     "v2.SearchIncidents": {
-        "include": {
-            "type": "IncidentRelatedObject",
-            "format": "",
-            },
         "query": {
             "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "IncidentRelatedObject",
             "format": "",
             },
         "sort": {
