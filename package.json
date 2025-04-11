@@ -21,7 +21,8 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "services/*"
+    "services/*",
+    "private/*"
   ],
   "scripts": {
     "build": "yarn workspaces run build",
