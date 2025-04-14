@@ -18,6 +18,12 @@ program
     "--cassettes-dir <path>",
     "Fully qualified path to cassettes directory",
   )
+  .option("--services-dir <path>", "Fully qualified path to services directory")
+  .option(
+    "--package-prefix <prefix>",
+    "Prefix to add to the package name",
+    "@datadog/datadog-api-client",
+  )
   .argument("<feature>", "Fully qualified path to feature files")
   .parse(process.argv);
 
@@ -34,6 +40,9 @@ if (options.workingDir) {
 let worldParameters = {};
 worldParameters["cassettesDir"] =
   options.cassettesDir || path.resolve(cwd, "cassettes");
+worldParameters["packagePrefix"] = options.packagePrefix;
+worldParameters["servicesDir"] =
+  options.servicesDir || path.resolve(cwd, "services");
 
 let args = program.args;
 args.unshift("--world-parameters", JSON.stringify(worldParameters));

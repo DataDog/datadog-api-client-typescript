@@ -2970,3 +2970,8 @@ yup@1.2.0:
     tiny-case "^1.0.3"
     toposort "^2.0.2"
     type-fest "^2.19.0"
+
+zstd.ts@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/zstd.ts/-/zstd.ts-1.1.3.tgz#3ddbc625ef499429aa69d423a0fb5892e5af99f5"
+  integrity sha512-1xlKTD4O/4H2MEQ/McteFAdujc4cHxNZYDRzjxtWfLAimYbPzV7mIa+ZzzJqpN830AuNklVDA6RgHwcop6IZKw==

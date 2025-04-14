@@ -24,9 +24,12 @@ export class World {
   public opts: { [key: string]: any } = {};
 
   public cassettesDir: string;
-
+  public packagePrefix: string;
+  public servicesDir: string;
   constructor(options: any) {
-    this.cassettesDir = options?.parameters?.cassettesDir || "./cassettes";
+    this.cassettesDir = options?.parameters?.cassettesDir;
+    this.packagePrefix = options?.parameters?.packagePrefix;
+    this.servicesDir = options?.parameters?.servicesDir;
   }
 
   async cleanup() {

@@ -69,6 +69,7 @@ declare global {
     templated(data: { [key: string]: any }): string;
     toOperationName(): string;
     toAttributeName(): string;
+    toServicePackageDirName(): string;
   }
 }
 
@@ -202,6 +203,13 @@ String.prototype.toAttributeName = function (): string {
     .replace(/[^A-Za-z0-9]+/g, "");
 
   return val.charAt(0).toLowerCase() + val.slice(1);
+};
+
+String.prototype.toServicePackageDirName = function (): string {
+  return this.replace(/[^A-Za-z0-9]+/g, "_")
+    .replace(/([a-z])([A-Z])/g, "$1_$2")
+    .toLowerCase()
+    .replace(/^_+|_+$/g, "");
 };
 
 function getProperty<T, K extends keyof T>(obj: T, name: string): T[K] {
