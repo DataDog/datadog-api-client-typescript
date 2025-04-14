@@ -1,0 +1,45 @@
+{
+  "name": "bdd-runner",
+  "repository": {
+    "type": "git",
+    "directory": "private/bdd-runner",
+    "url": "https://github.com/DataDog/datadog-api-client-typescript.git"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "bin": {
+    "bdd-runner": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^9.2.0",
+    "@cucumber/messages": "^22.0.0",
+    "@datadog/datadog-api-client": "^2.0.0-beta.0",
+    "@pollyjs/adapter-node-http": "^6.0.5",
+    "@pollyjs/core": "^6.0.5",
+    "@pollyjs/persister-fs": "^6.0.5",
+    "@types/chai": "^4.3.4",
+    "@types/jest": "^29.5.2",
+    "chai": "^4.3.7",
+    "chai-quantifiers": "^1.0.17",
+    "commander": "^13.1.0",
+    "dd-trace": "^4.3.0",
+    "@types/node": "*",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "typescript": "4.8.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
