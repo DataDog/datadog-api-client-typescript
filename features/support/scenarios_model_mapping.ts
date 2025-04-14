@@ -4802,10 +4802,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "number",
             "format": "int32",
             },
-        "filterNumAggregations": {
-            "type": "number",
-            "format": "int32",
-            },
         "filterPct": {
             "type": "boolean",
             "format": "",

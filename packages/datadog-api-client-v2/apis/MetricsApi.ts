@@ -213,7 +213,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     metricName: string,
     filterGroups?: string,
     filterHoursAgo?: number,
-    filterNumAggregations?: number,
     filterPct?: boolean,
     filterTimespanH?: number,
     _options?: Configuration
@@ -250,13 +249,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[hours_ago]",
         ObjectSerializer.serialize(filterHoursAgo, "number", "int32"),
-        ""
-      );
-    }
-    if (filterNumAggregations !== undefined) {
-      requestContext.setQueryParam(
-        "filter[num_aggregations]",
-        ObjectSerializer.serialize(filterNumAggregations, "number", "int32"),
         ""
       );
     }
@@ -1756,11 +1748,6 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   filterHoursAgo?: number;
   /**
-   * The number of aggregations that a `count`, `rate`, or `gauge` metric is configured to use. Max number of aggregation combos is 9.
-   * @type number
-   */
-  filterNumAggregations?: number;
-  /**
    * A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
    * @type boolean
    */
@@ -1964,10 +1951,9 @@ export class MetricsApi {
 
   /**
    * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
-   * Optionally, include percentile aggregations on any distribution metric or configure custom aggregations
-   * on any count, rate, or gauge metric. By setting `exclude_tags_mode` to true the behavior is changed
-   * from an allow-list to a deny-list, and tags in the defined list will not be queryable.
-   * Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * Optionally, include percentile aggregations on any distribution metric. By setting `exclude_tags_mode`
+   * to true the behavior is changed from an allow-list to a deny-list, and tags in the defined list will not
+   * be queryable. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
    * @param param The request object
    */
   public createTagConfiguration(
@@ -2038,7 +2024,7 @@ export class MetricsApi {
   }
 
   /**
-   * Returns the estimated cardinality for a metric with a given tag, percentile and number of aggregations configuration using Metrics without Limits&trade;.
+   * Returns the estimated cardinality for a metric with a given tag and percentile configuration using Metrics without Limits&trade;.
    * @param param The request object
    */
   public estimateMetricsOutputSeries(
@@ -2050,7 +2036,6 @@ export class MetricsApi {
         param.metricName,
         param.filterGroups,
         param.filterHoursAgo,
-        param.filterNumAggregations,
         param.filterPct,
         param.filterTimespanH,
         options
@@ -2067,7 +2052,7 @@ export class MetricsApi {
   }
 
   /**
-   * List tags and aggregations that are actively queried on dashboards, notebooks, monitors, the Metrics Explorer, and using the API for a given metric name.
+   * List tags that are actively queried on dashboards, notebooks, monitors, the Metrics Explorer, and using the API for a given metric name.
    * @param param The request object
    */
   public listActiveMetricConfigurations(
@@ -2352,9 +2337,8 @@ export class MetricsApi {
   }
 
   /**
-   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations
-   * of a count, rate, or gauge metric. By setting `exclude_tags_mode` to true the behavior is changed
-   * from an allow-list to a deny-list, and tags in the defined list will not be queryable.
+   * Update the tag configuration of a metric or percentile aggregations of a distribution metric. By setting `exclude_tags_mode`
+   * to true the behavior is changed from an allow-list to a deny-list, and tags in the defined list will not be queryable.
    * Can only be used with application keys from users with the `Manage Tags for Metrics` permission. This endpoint requires
    * a tag configuration to be created first.
    * @param param The request object
