@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { MetricCustomAggregation } from "./MetricCustomAggregation";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,25 +10,6 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Object containing the definition of a metric tag configuration to be updated.
  */
 export class MetricTagConfigurationUpdateAttributes {
-  /**
-   * A list of queryable aggregation combinations for a count, rate, or gauge metric.
-   * By default, count and rate metrics require the (time: sum, space: sum) aggregation and
-   * Gauge metrics require the (time: avg, space: avg) aggregation.
-   * Additional time & space combinations are also available:
-   *
-   * - time: avg, space: avg
-   * - time: avg, space: max
-   * - time: avg, space: min
-   * - time: avg, space: sum
-   * - time: count, space: sum
-   * - time: max, space: max
-   * - time: min, space: min
-   * - time: sum, space: avg
-   * - time: sum, space: sum
-   *
-   * Can only be applied to non_distribution metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
-   */
-  "aggregations"?: Array<MetricCustomAggregation>;
   /**
    * When set to true, the configuration will exclude the configured tags and include any other submitted tags.
    * When set to false, the configuration will include the configured tags and exclude any other submitted tags.
@@ -62,10 +42,6 @@ export class MetricTagConfigurationUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregations: {
-      baseName: "aggregations",
-      type: "Array<MetricCustomAggregation>",
-    },
     excludeTagsMode: {
       baseName: "exclude_tags_mode",
       type: "boolean",
