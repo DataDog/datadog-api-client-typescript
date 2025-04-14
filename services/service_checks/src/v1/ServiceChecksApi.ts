@@ -44,7 +44,7 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Array<ServiceCheck>", ""),
+      ObjectSerializer.serialize(body, "Array<ServiceCheck>", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

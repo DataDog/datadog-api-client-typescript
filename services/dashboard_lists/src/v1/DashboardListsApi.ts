@@ -45,7 +45,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DashboardList", ""),
+      ObjectSerializer.serialize(body, "DashboardList", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -189,7 +189,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DashboardList", ""),
+      ObjectSerializer.serialize(body, "DashboardList", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

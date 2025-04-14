@@ -52,7 +52,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "APIKeyCreateRequest", ""),
+      ObjectSerializer.serialize(body, "APIKeyCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -93,7 +93,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApplicationKeyCreateRequest", ""),
+      ObjectSerializer.serialize(body, "ApplicationKeyCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -645,7 +645,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "APIKeyUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "APIKeyUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -695,7 +695,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApplicationKeyUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "ApplicationKeyUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -746,7 +746,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApplicationKeyUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "ApplicationKeyUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

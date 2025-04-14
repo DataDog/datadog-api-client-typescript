@@ -250,7 +250,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = ObjectSerializer.getPreferredMediaType(["text/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DistributionPointsPayload", ""),
+      ObjectSerializer.serialize(body, "DistributionPointsPayload", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -293,7 +293,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = ObjectSerializer.getPreferredMediaType(["text/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MetricsPayload", ""),
+      ObjectSerializer.serialize(body, "MetricsPayload", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -340,7 +340,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MetricMetadata", ""),
+      ObjectSerializer.serialize(body, "MetricMetadata", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

@@ -45,7 +45,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "PagerDutyService", ""),
+      ObjectSerializer.serialize(body, "PagerDutyService", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -170,7 +170,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "PagerDutyServiceKey", ""),
+      ObjectSerializer.serialize(body, "PagerDutyServiceKey", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

@@ -62,7 +62,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "TeamCreateRequest", ""),
+      ObjectSerializer.serialize(body, "TeamCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -113,7 +113,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "TeamLinkCreateRequest", ""),
+      ObjectSerializer.serialize(body, "TeamLinkCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -164,7 +164,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "UserTeamRequest", ""),
+      ObjectSerializer.serialize(body, "UserTeamRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -653,7 +653,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "TeamUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "TeamUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -709,7 +709,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "TeamLinkCreateRequest", ""),
+      ObjectSerializer.serialize(body, "TeamLinkCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -765,7 +765,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "UserTeamUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "UserTeamUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -822,7 +822,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "TeamPermissionSettingUpdateRequest",
         "",
       ),

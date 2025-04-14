@@ -47,7 +47,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SLOCorrectionCreateRequest", ""),
+      ObjectSerializer.serialize(body, "SLOCorrectionCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -207,7 +207,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SLOCorrectionUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "SLOCorrectionUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

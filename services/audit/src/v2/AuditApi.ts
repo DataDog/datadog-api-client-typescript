@@ -116,7 +116,7 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AuditLogsSearchEventsRequest", ""),
+      ObjectSerializer.serialize(body, "AuditLogsSearchEventsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

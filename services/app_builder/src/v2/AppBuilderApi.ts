@@ -55,7 +55,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CreateAppRequest", ""),
+      ObjectSerializer.serialize(body, "CreateAppRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -129,7 +129,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DeleteAppsRequest", ""),
+      ObjectSerializer.serialize(body, "DeleteAppsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -402,7 +402,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "UpdateAppRequest", ""),
+      ObjectSerializer.serialize(body, "UpdateAppRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

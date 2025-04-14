@@ -69,7 +69,7 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DomainAllowlistRequest", ""),
+      ObjectSerializer.serialize(body, "DomainAllowlistRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

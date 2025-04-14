@@ -63,7 +63,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CaseEmptyRequest", ""),
+      ObjectSerializer.serialize(body, "CaseEmptyRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -114,7 +114,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CaseAssignRequest", ""),
+      ObjectSerializer.serialize(body, "CaseAssignRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -156,7 +156,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CaseCreateRequest", ""),
+      ObjectSerializer.serialize(body, "CaseCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -198,7 +198,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ProjectCreateRequest", ""),
+      ObjectSerializer.serialize(body, "ProjectCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -441,7 +441,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CaseEmptyRequest", ""),
+      ObjectSerializer.serialize(body, "CaseEmptyRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -492,7 +492,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CaseEmptyRequest", ""),
+      ObjectSerializer.serialize(body, "CaseEmptyRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -543,7 +543,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CaseUpdatePriorityRequest", ""),
+      ObjectSerializer.serialize(body, "CaseUpdatePriorityRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -594,7 +594,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CaseUpdateStatusRequest", ""),
+      ObjectSerializer.serialize(body, "CaseUpdateStatusRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

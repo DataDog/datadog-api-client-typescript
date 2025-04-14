@@ -189,7 +189,7 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "UpsertCatalogEntityRequest", ""),
+      ObjectSerializer.serialize(body, "UpsertCatalogEntityRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

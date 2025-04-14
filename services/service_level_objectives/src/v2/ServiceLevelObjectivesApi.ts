@@ -50,7 +50,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SloReportCreateRequest", ""),
+      ObjectSerializer.serialize(body, "SloReportCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

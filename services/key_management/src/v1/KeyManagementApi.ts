@@ -48,7 +48,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApiKey", ""),
+      ObjectSerializer.serialize(body, "ApiKey", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -89,7 +89,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApplicationKey", ""),
+      ObjectSerializer.serialize(body, "ApplicationKey", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -317,7 +317,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApiKey", ""),
+      ObjectSerializer.serialize(body, "ApiKey", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -367,7 +367,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApplicationKey", ""),
+      ObjectSerializer.serialize(body, "ApplicationKey", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

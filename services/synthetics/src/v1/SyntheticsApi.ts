@@ -67,7 +67,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsGlobalVariableRequest", ""),
+      ObjectSerializer.serialize(body, "SyntheticsGlobalVariableRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -109,7 +109,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsPrivateLocation", ""),
+      ObjectSerializer.serialize(body, "SyntheticsPrivateLocation", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -151,7 +151,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsAPITest", ""),
+      ObjectSerializer.serialize(body, "SyntheticsAPITest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -193,7 +193,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsBrowserTest", ""),
+      ObjectSerializer.serialize(body, "SyntheticsBrowserTest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -235,7 +235,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsMobileTest", ""),
+      ObjectSerializer.serialize(body, "SyntheticsMobileTest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -346,7 +346,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsDeleteTestsPayload", ""),
+      ObjectSerializer.serialize(body, "SyntheticsDeleteTestsPayload", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -397,7 +397,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsGlobalVariableRequest", ""),
+      ObjectSerializer.serialize(body, "SyntheticsGlobalVariableRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -439,7 +439,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsFetchUptimesPayload", ""),
+      ObjectSerializer.serialize(body, "SyntheticsFetchUptimesPayload", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1047,7 +1047,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsPatchTestBody", ""),
+      ObjectSerializer.serialize(body, "SyntheticsPatchTestBody", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1089,7 +1089,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsCITestBody", ""),
+      ObjectSerializer.serialize(body, "SyntheticsCITestBody", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1131,7 +1131,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsTriggerBody", ""),
+      ObjectSerializer.serialize(body, "SyntheticsTriggerBody", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1182,7 +1182,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsAPITest", ""),
+      ObjectSerializer.serialize(body, "SyntheticsAPITest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1233,7 +1233,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsBrowserTest", ""),
+      ObjectSerializer.serialize(body, "SyntheticsBrowserTest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1284,7 +1284,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsMobileTest", ""),
+      ObjectSerializer.serialize(body, "SyntheticsMobileTest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1336,7 +1336,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SyntheticsPrivateLocation", ""),
+      ObjectSerializer.serialize(body, "SyntheticsPrivateLocation", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1388,7 +1388,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "SyntheticsUpdateTestPauseStatusPayload",
         "",
       ),

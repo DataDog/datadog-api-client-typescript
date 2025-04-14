@@ -45,7 +45,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "LogsPipeline", ""),
+      ObjectSerializer.serialize(body, "LogsPipeline", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -209,7 +209,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "LogsPipeline", ""),
+      ObjectSerializer.serialize(body, "LogsPipeline", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -250,7 +250,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "LogsPipelinesOrder", ""),
+      ObjectSerializer.serialize(body, "LogsPipelinesOrder", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

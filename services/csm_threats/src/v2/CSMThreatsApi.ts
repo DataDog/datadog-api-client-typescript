@@ -49,7 +49,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "CloudWorkloadSecurityAgentRuleCreateRequest",
         "",
       ),
@@ -94,7 +94,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "CloudWorkloadSecurityAgentRuleCreateRequest",
         "",
       ),
@@ -397,7 +397,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "CloudWorkloadSecurityAgentRuleUpdateRequest",
         "",
       ),
@@ -452,7 +452,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "CloudWorkloadSecurityAgentRuleUpdateRequest",
         "",
       ),

@@ -46,7 +46,7 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "OktaAccountRequest", ""),
+      ObjectSerializer.serialize(body, "OktaAccountRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -189,7 +189,7 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "OktaAccountUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "OktaAccountUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

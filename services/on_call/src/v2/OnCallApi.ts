@@ -55,7 +55,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ScheduleCreateRequest", ""),
+      ObjectSerializer.serialize(body, "ScheduleCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -194,7 +194,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ScheduleUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "ScheduleUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

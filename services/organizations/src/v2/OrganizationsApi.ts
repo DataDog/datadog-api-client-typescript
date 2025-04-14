@@ -114,7 +114,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "OrgConfigWriteRequest", ""),
+      ObjectSerializer.serialize(body, "OrgConfigWriteRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

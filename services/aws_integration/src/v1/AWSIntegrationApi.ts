@@ -54,7 +54,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSAccount", ""),
+      ObjectSerializer.serialize(body, "AWSAccount", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -95,7 +95,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSEventBridgeCreateRequest", ""),
+      ObjectSerializer.serialize(body, "AWSEventBridgeCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -136,7 +136,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSTagFilterCreateRequest", ""),
+      ObjectSerializer.serialize(body, "AWSTagFilterCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -177,7 +177,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSAccount", ""),
+      ObjectSerializer.serialize(body, "AWSAccount", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -218,7 +218,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSAccountDeleteRequest", ""),
+      ObjectSerializer.serialize(body, "AWSAccountDeleteRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -259,7 +259,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSEventBridgeDeleteRequest", ""),
+      ObjectSerializer.serialize(body, "AWSEventBridgeDeleteRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -300,7 +300,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSTagFilterDeleteRequest", ""),
+      ObjectSerializer.serialize(body, "AWSTagFilterDeleteRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -504,7 +504,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSAccount", ""),
+      ObjectSerializer.serialize(body, "AWSAccount", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

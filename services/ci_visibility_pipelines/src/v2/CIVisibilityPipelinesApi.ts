@@ -51,7 +51,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CIAppPipelinesAggregateRequest", ""),
+      ObjectSerializer.serialize(body, "CIAppPipelinesAggregateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -93,7 +93,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CIAppCreatePipelineEventRequest", ""),
+      ObjectSerializer.serialize(body, "CIAppCreatePipelineEventRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -201,7 +201,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CIAppPipelineEventsRequest", ""),
+      ObjectSerializer.serialize(body, "CIAppPipelineEventsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

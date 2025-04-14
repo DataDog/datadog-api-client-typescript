@@ -46,7 +46,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RumMetricCreateRequest", ""),
+      ObjectSerializer.serialize(body, "RumMetricCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -186,7 +186,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RumMetricUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "RumMetricUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

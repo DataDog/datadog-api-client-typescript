@@ -61,7 +61,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AddSignalToIncidentRequest", ""),
+      ObjectSerializer.serialize(body, "AddSignalToIncidentRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -117,7 +117,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SignalAssigneeUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "SignalAssigneeUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -168,7 +168,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SignalStateUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "SignalStateUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

@@ -83,7 +83,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DowntimeCreateRequest", ""),
+      ObjectSerializer.serialize(body, "DowntimeCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -290,7 +290,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DowntimeUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "DowntimeUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

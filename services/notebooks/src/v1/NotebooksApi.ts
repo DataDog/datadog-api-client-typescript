@@ -47,7 +47,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "NotebookCreateRequest", ""),
+      ObjectSerializer.serialize(body, "NotebookCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -269,7 +269,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "NotebookUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "NotebookUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

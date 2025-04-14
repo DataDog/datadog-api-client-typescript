@@ -69,7 +69,7 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IPAllowlistUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "IPAllowlistUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

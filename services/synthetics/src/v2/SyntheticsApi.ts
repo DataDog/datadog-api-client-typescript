@@ -70,11 +70,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        "body",
-        "OnDemandConcurrencyCapAttributes",
-        "",
-      ),
+      ObjectSerializer.serialize(body, "OnDemandConcurrencyCapAttributes", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

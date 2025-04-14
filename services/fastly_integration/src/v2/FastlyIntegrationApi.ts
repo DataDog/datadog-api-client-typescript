@@ -49,7 +49,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "FastlyAccountCreateRequest", ""),
+      ObjectSerializer.serialize(body, "FastlyAccountCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -100,7 +100,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "FastlyServiceRequest", ""),
+      ObjectSerializer.serialize(body, "FastlyServiceRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -355,7 +355,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "FastlyAccountUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "FastlyAccountUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -411,7 +411,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "FastlyServiceRequest", ""),
+      ObjectSerializer.serialize(body, "FastlyServiceRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

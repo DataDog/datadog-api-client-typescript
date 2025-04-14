@@ -93,7 +93,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ServiceLevelObjectiveRequest", ""),
+      ObjectSerializer.serialize(body, "ServiceLevelObjectiveRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -180,7 +180,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "{ [key: string]: Array<SLOTimeframe>; }",
         "",
       ),
@@ -524,7 +524,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ServiceLevelObjective", ""),
+      ObjectSerializer.serialize(body, "ServiceLevelObjective", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

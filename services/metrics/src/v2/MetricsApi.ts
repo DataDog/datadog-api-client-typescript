@@ -63,11 +63,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        "body",
-        "MetricBulkTagConfigCreateRequest",
-        "",
-      ),
+      ObjectSerializer.serialize(body, "MetricBulkTagConfigCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -118,7 +114,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "MetricTagConfigurationCreateRequest",
         "",
       ),
@@ -162,11 +158,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        "body",
-        "MetricBulkTagConfigDeleteRequest",
-        "",
-      ),
+      ObjectSerializer.serialize(body, "MetricBulkTagConfigDeleteRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -605,7 +597,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ScalarFormulaQueryRequest", ""),
+      ObjectSerializer.serialize(body, "ScalarFormulaQueryRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -647,7 +639,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "TimeseriesFormulaQueryRequest", ""),
+      ObjectSerializer.serialize(body, "TimeseriesFormulaQueryRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -702,7 +694,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MetricPayload", ""),
+      ObjectSerializer.serialize(body, "MetricPayload", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -750,7 +742,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "MetricTagConfigurationUpdateRequest",
         "",
       ),

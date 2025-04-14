@@ -53,7 +53,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSAccountCreateRequest", ""),
+      ObjectSerializer.serialize(body, "AWSAccountCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -286,7 +286,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSAccountUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "AWSAccountUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

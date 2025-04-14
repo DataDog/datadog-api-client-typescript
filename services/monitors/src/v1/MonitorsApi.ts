@@ -88,7 +88,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Monitor", ""),
+      ObjectSerializer.serialize(body, "Monitor", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -444,7 +444,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MonitorUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "MonitorUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -495,7 +495,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Monitor", ""),
+      ObjectSerializer.serialize(body, "Monitor", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -537,7 +537,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Monitor", ""),
+      ObjectSerializer.serialize(body, "Monitor", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

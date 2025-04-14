@@ -52,7 +52,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "OrganizationCreateBody", ""),
+      ObjectSerializer.serialize(body, "OrganizationCreateBody", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -190,7 +190,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Organization", ""),
+      ObjectSerializer.serialize(body, "Organization", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

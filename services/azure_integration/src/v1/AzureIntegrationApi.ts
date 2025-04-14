@@ -43,7 +43,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AzureAccount", ""),
+      ObjectSerializer.serialize(body, "AzureAccount", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -84,7 +84,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AzureAccount", ""),
+      ObjectSerializer.serialize(body, "AzureAccount", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -149,7 +149,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AzureAccount", ""),
+      ObjectSerializer.serialize(body, "AzureAccount", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -190,7 +190,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AzureAccount", ""),
+      ObjectSerializer.serialize(body, "AzureAccount", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

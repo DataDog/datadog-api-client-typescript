@@ -48,7 +48,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AuthNMappingCreateRequest", ""),
+      ObjectSerializer.serialize(body, "AuthNMappingCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -234,7 +234,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AuthNMappingUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "AuthNMappingUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

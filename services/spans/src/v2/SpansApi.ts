@@ -52,7 +52,7 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SpansAggregateRequest", ""),
+      ObjectSerializer.serialize(body, "SpansAggregateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -94,7 +94,7 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SpansListRequest", ""),
+      ObjectSerializer.serialize(body, "SpansListRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

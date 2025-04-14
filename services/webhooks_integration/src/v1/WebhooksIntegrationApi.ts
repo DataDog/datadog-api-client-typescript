@@ -47,7 +47,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "WebhooksIntegration", ""),
+      ObjectSerializer.serialize(body, "WebhooksIntegration", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -95,11 +95,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        "body",
-        "WebhooksIntegrationCustomVariable",
-        "",
-      ),
+      ObjectSerializer.serialize(body, "WebhooksIntegrationCustomVariable", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -296,11 +292,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        "body",
-        "WebhooksIntegrationUpdateRequest",
-        "",
-      ),
+      ObjectSerializer.serialize(body, "WebhooksIntegrationUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -360,7 +352,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "WebhooksIntegrationCustomVariableUpdateRequest",
         "",
       ),

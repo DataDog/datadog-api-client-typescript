@@ -46,7 +46,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SpansMetricCreateRequest", ""),
+      ObjectSerializer.serialize(body, "SpansMetricCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -186,7 +186,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SpansMetricUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "SpansMetricUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

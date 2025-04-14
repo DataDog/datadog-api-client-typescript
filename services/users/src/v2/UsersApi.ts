@@ -52,7 +52,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "UserCreateRequest", ""),
+      ObjectSerializer.serialize(body, "UserCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -340,7 +340,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "UserInvitationsRequest", ""),
+      ObjectSerializer.serialize(body, "UserInvitationsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -391,7 +391,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "UserUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "UserUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

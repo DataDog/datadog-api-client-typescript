@@ -48,7 +48,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "LogsListRequest", ""),
+      ObjectSerializer.serialize(body, "LogsListRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -111,7 +111,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Array<HTTPLogItem>", ""),
+      ObjectSerializer.serialize(body, "Array<HTTPLogItem>", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

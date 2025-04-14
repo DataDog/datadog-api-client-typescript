@@ -79,7 +79,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CancelDowntimesByScopeRequest", ""),
+      ObjectSerializer.serialize(body, "CancelDowntimesByScopeRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -121,7 +121,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Downtime", ""),
+      ObjectSerializer.serialize(body, "Downtime", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -283,7 +283,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Downtime", ""),
+      ObjectSerializer.serialize(body, "Downtime", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

@@ -49,7 +49,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ConfluentAccountCreateRequest", ""),
+      ObjectSerializer.serialize(body, "ConfluentAccountCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -100,7 +100,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ConfluentResourceRequest", ""),
+      ObjectSerializer.serialize(body, "ConfluentResourceRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -355,7 +355,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ConfluentAccountUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "ConfluentAccountUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -411,7 +411,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ConfluentResourceRequest", ""),
+      ObjectSerializer.serialize(body, "ConfluentResourceRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

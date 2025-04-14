@@ -59,7 +59,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DashboardListAddItemsRequest", ""),
+      ObjectSerializer.serialize(body, "DashboardListAddItemsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -110,7 +110,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DashboardListDeleteItemsRequest", ""),
+      ObjectSerializer.serialize(body, "DashboardListDeleteItemsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -196,7 +196,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DashboardListUpdateItemsRequest", ""),
+      ObjectSerializer.serialize(body, "DashboardListUpdateItemsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
