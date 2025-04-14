@@ -47,7 +47,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSAccountAndLambdaRequest", ""),
+      ObjectSerializer.serialize(body, "AWSAccountAndLambdaRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -88,7 +88,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSLogsServicesRequest", ""),
+      ObjectSerializer.serialize(body, "AWSLogsServicesRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -129,7 +129,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSAccountAndLambdaRequest", ""),
+      ObjectSerializer.serialize(body, "AWSAccountAndLambdaRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -170,7 +170,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSAccountAndLambdaRequest", ""),
+      ObjectSerializer.serialize(body, "AWSAccountAndLambdaRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -211,7 +211,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AWSLogsServicesRequest", ""),
+      ObjectSerializer.serialize(body, "AWSLogsServicesRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

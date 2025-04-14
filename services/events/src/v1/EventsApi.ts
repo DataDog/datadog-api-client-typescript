@@ -47,7 +47,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "EventCreateRequest", ""),
+      ObjectSerializer.serialize(body, "EventCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

@@ -51,7 +51,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "ObservabilityPipelineCreateRequest",
         "",
       ),
@@ -188,7 +188,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ObservabilityPipeline", ""),
+      ObjectSerializer.serialize(body, "ObservabilityPipeline", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

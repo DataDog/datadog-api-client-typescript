@@ -46,7 +46,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "OpsgenieServiceCreateRequest", ""),
+      ObjectSerializer.serialize(body, "OpsgenieServiceCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -189,7 +189,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "OpsgenieServiceUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "OpsgenieServiceUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

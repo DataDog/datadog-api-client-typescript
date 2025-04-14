@@ -102,7 +102,7 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CreateDataDeletionRequestBody", ""),
+      ObjectSerializer.serialize(body, "CreateDataDeletionRequestBody", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

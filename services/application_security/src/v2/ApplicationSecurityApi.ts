@@ -53,7 +53,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "ApplicationSecurityWafCustomRuleCreateRequest",
         "",
       ),
@@ -104,7 +104,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "ApplicationSecurityWafExclusionFilterCreateRequest",
         "",
       ),
@@ -373,7 +373,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "ApplicationSecurityWafCustomRuleUpdateRequest",
         "",
       ),
@@ -436,7 +436,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "ApplicationSecurityWafExclusionFilterUpdateRequest",
         "",
       ),

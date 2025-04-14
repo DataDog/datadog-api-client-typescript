@@ -49,7 +49,7 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CIAppTestsAggregateRequest", ""),
+      ObjectSerializer.serialize(body, "CIAppTestsAggregateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -161,7 +161,7 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CIAppTestEventsRequest", ""),
+      ObjectSerializer.serialize(body, "CIAppTestEventsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

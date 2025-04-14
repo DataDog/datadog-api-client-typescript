@@ -49,7 +49,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AwsOnDemandCreateRequest", ""),
+      ObjectSerializer.serialize(body, "AwsOnDemandCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -90,7 +90,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AwsScanOptionsCreateRequest", ""),
+      ObjectSerializer.serialize(body, "AwsScanOptionsCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -257,7 +257,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AwsScanOptionsUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "AwsScanOptionsUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

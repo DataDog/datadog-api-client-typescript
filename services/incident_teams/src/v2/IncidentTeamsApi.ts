@@ -52,7 +52,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IncidentTeamCreateRequest", ""),
+      ObjectSerializer.serialize(body, "IncidentTeamCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -260,7 +260,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IncidentTeamUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "IncidentTeamUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

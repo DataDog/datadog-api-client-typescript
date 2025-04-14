@@ -54,6 +54,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
 
   public async getInterfaces(
     deviceId: string,
+    getIpAddresses?: boolean,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -78,6 +79,13 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
       requestContext.setQueryParam(
         "device_id",
         ObjectSerializer.serialize(deviceId, "string", ""),
+        "",
+      );
+    }
+    if (getIpAddresses !== undefined) {
+      requestContext.setQueryParam(
+        "get_ip_addresses",
+        ObjectSerializer.serialize(getIpAddresses, "boolean", ""),
         "",
       );
     }
@@ -218,7 +226,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ListTagsResponse", ""),
+      ObjectSerializer.serialize(body, "ListTagsResponse", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -555,6 +563,11 @@ export interface NetworkDeviceMonitoringApiGetInterfacesRequest {
    * @type string
    */
   deviceId: string;
+  /**
+   * Whether to get the IP addresses of the interfaces.
+   * @type boolean
+   */
+  getIpAddresses?: boolean;
 }
 
 export interface NetworkDeviceMonitoringApiListDevicesRequest {
@@ -649,6 +662,7 @@ export class NetworkDeviceMonitoringApi {
   ): Promise<GetInterfacesResponse> {
     const requestContextPromise = this.requestFactory.getInterfaces(
       param.deviceId,
+      param.getIpAddresses,
       options,
     );
     return requestContextPromise.then((requestContext) => {

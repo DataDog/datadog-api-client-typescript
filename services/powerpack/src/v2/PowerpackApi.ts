@@ -46,7 +46,7 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Powerpack", ""),
+      ObjectSerializer.serialize(body, "Powerpack", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -208,7 +208,7 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Powerpack", ""),
+      ObjectSerializer.serialize(body, "Powerpack", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

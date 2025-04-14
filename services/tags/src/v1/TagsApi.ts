@@ -63,7 +63,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "HostTags", ""),
+      ObjectSerializer.serialize(body, "HostTags", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -244,7 +244,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "HostTags", ""),
+      ObjectSerializer.serialize(body, "HostTags", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

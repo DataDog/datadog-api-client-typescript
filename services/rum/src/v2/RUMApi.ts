@@ -53,7 +53,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RUMAggregateRequest", ""),
+      ObjectSerializer.serialize(body, "RUMAggregateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -95,7 +95,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RUMApplicationCreateRequest", ""),
+      ObjectSerializer.serialize(body, "RUMApplicationCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -301,7 +301,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RUMSearchEventsRequest", ""),
+      ObjectSerializer.serialize(body, "RUMSearchEventsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -352,7 +352,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RUMApplicationUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "RUMApplicationUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

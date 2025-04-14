@@ -58,7 +58,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RumRetentionFilterCreateRequest", ""),
+      ObjectSerializer.serialize(body, "RumRetentionFilterCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -221,7 +221,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RumRetentionFiltersOrderRequest", ""),
+      ObjectSerializer.serialize(body, "RumRetentionFiltersOrderRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -277,7 +277,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RumRetentionFilterUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "RumRetentionFilterUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

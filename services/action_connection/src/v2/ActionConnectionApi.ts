@@ -47,7 +47,7 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CreateActionConnectionRequest", ""),
+      ObjectSerializer.serialize(body, "CreateActionConnectionRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -163,7 +163,7 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "UpdateActionConnectionRequest", ""),
+      ObjectSerializer.serialize(body, "UpdateActionConnectionRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

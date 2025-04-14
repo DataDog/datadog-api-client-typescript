@@ -46,7 +46,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CloudflareAccountCreateRequest", ""),
+      ObjectSerializer.serialize(body, "CloudflareAccountCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -189,7 +189,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CloudflareAccountUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "CloudflareAccountUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

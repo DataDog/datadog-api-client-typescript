@@ -181,7 +181,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "HostMuteSettings", ""),
+      ObjectSerializer.serialize(body, "HostMuteSettings", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

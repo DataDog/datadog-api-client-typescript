@@ -47,11 +47,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        "body",
-        "GCPSTSServiceAccountCreateRequest",
-        "",
-      ),
+      ObjectSerializer.serialize(body, "GCPSTSServiceAccountCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -169,7 +165,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "any", ""),
+      ObjectSerializer.serialize(body, "any", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -220,11 +216,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        "body",
-        "GCPSTSServiceAccountUpdateRequest",
-        "",
-      ),
+      ObjectSerializer.serialize(body, "GCPSTSServiceAccountUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

@@ -53,7 +53,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SlackIntegrationChannel", ""),
+      ObjectSerializer.serialize(body, "SlackIntegrationChannel", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -221,7 +221,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SlackIntegrationChannel", ""),
+      ObjectSerializer.serialize(body, "SlackIntegrationChannel", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

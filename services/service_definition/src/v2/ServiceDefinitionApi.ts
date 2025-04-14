@@ -48,7 +48,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ServiceDefinitionsCreateRequest", ""),
+      ObjectSerializer.serialize(body, "ServiceDefinitionsCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

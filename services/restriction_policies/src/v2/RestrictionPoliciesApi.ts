@@ -131,7 +131,7 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RestrictionPolicyUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "RestrictionPolicyUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

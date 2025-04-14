@@ -58,7 +58,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RelationshipToRole", ""),
+      ObjectSerializer.serialize(body, "RelationshipToRole", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -99,7 +99,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "LogsArchiveCreateRequest", ""),
+      ObjectSerializer.serialize(body, "LogsArchiveCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -298,7 +298,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RelationshipToRole", ""),
+      ObjectSerializer.serialize(body, "RelationshipToRole", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -348,7 +348,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "LogsArchiveCreateRequest", ""),
+      ObjectSerializer.serialize(body, "LogsArchiveCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -389,7 +389,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "LogsArchiveOrder", ""),
+      ObjectSerializer.serialize(body, "LogsArchiveOrder", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

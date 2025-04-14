@@ -52,7 +52,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DORADeploymentRequest", ""),
+      ObjectSerializer.serialize(body, "DORADeploymentRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -95,7 +95,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DORAIncidentRequest", ""),
+      ObjectSerializer.serialize(body, "DORAIncidentRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

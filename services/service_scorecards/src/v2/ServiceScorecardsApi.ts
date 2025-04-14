@@ -59,7 +59,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "OutcomesBatchRequest", ""),
+      ObjectSerializer.serialize(body, "OutcomesBatchRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -106,7 +106,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CreateRuleRequest", ""),
+      ObjectSerializer.serialize(body, "CreateRuleRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -425,7 +425,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "UpdateRuleRequest", ""),
+      ObjectSerializer.serialize(body, "UpdateRuleRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

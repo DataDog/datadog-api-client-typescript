@@ -48,7 +48,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RetentionFilterCreateRequest", ""),
+      ObjectSerializer.serialize(body, "RetentionFilterCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -181,7 +181,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ReorderRetentionFiltersRequest", ""),
+      ObjectSerializer.serialize(body, "ReorderRetentionFiltersRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -232,7 +232,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RetentionFilterUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "RetentionFilterUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

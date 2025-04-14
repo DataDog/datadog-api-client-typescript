@@ -46,7 +46,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CustomDestinationCreateRequest", ""),
+      ObjectSerializer.serialize(body, "CustomDestinationCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -198,7 +198,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CustomDestinationUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "CustomDestinationUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

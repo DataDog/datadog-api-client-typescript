@@ -46,11 +46,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        "body",
-        "MonitorConfigPolicyCreateRequest",
-        "",
-      ),
+      ObjectSerializer.serialize(body, "MonitorConfigPolicyCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -192,7 +188,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "MonitorConfigPolicyEditRequest", ""),
+      ObjectSerializer.serialize(body, "MonitorConfigPolicyEditRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

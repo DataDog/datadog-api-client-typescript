@@ -54,7 +54,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AwsCURConfigPostRequest", ""),
+      ObjectSerializer.serialize(body, "AwsCURConfigPostRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -96,7 +96,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AzureUCConfigPostRequest", ""),
+      ObjectSerializer.serialize(body, "AzureUCConfigPostRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -361,7 +361,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AwsCURConfigPatchRequest", ""),
+      ObjectSerializer.serialize(body, "AwsCURConfigPatchRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -413,7 +413,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "AzureUCConfigPatchRequest", ""),
+      ObjectSerializer.serialize(body, "AzureUCConfigPatchRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -455,7 +455,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Array<CustomCostsFileLineItem>", ""),
+      ObjectSerializer.serialize(body, "Array<CustomCostsFileLineItem>", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

@@ -50,7 +50,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ServiceAccountCreateRequest", ""),
+      ObjectSerializer.serialize(body, "ServiceAccountCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -104,7 +104,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApplicationKeyCreateRequest", ""),
+      ObjectSerializer.serialize(body, "ApplicationKeyCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -343,7 +343,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "ApplicationKeyUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "ApplicationKeyUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

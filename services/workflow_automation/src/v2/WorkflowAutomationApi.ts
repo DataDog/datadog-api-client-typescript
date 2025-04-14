@@ -92,7 +92,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "CreateWorkflowRequest", ""),
+      ObjectSerializer.serialize(body, "CreateWorkflowRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -142,7 +142,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "WorkflowInstanceCreateRequest", ""),
+      ObjectSerializer.serialize(body, "WorkflowInstanceCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -351,7 +351,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "UpdateWorkflowRequest", ""),
+      ObjectSerializer.serialize(body, "UpdateWorkflowRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

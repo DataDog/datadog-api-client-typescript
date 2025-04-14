@@ -52,7 +52,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Dashboard", ""),
+      ObjectSerializer.serialize(body, "Dashboard", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -94,7 +94,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SharedDashboard", ""),
+      ObjectSerializer.serialize(body, "SharedDashboard", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -170,7 +170,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DashboardBulkDeleteRequest", ""),
+      ObjectSerializer.serialize(body, "DashboardBulkDeleteRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -255,7 +255,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SharedDashboardInvites", ""),
+      ObjectSerializer.serialize(body, "SharedDashboardInvites", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -476,7 +476,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "DashboardRestoreRequest", ""),
+      ObjectSerializer.serialize(body, "DashboardRestoreRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -527,7 +527,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SharedDashboardInvites", ""),
+      ObjectSerializer.serialize(body, "SharedDashboardInvites", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -578,7 +578,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "Dashboard", ""),
+      ObjectSerializer.serialize(body, "Dashboard", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -629,7 +629,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "SharedDashboardUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "SharedDashboardUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

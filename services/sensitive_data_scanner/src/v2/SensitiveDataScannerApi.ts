@@ -59,7 +59,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "SensitiveDataScannerGroupCreateRequest",
         "",
       ),
@@ -104,7 +104,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "SensitiveDataScannerRuleCreateRequest",
         "",
       ),
@@ -159,7 +159,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "SensitiveDataScannerGroupDeleteRequest",
         "",
       ),
@@ -214,7 +214,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "SensitiveDataScannerRuleDeleteRequest",
         "",
       ),
@@ -307,11 +307,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        "body",
-        "SensitiveDataScannerConfigRequest",
-        "",
-      ),
+      ObjectSerializer.serialize(body, "SensitiveDataScannerConfigRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -363,7 +359,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "SensitiveDataScannerGroupUpdateRequest",
         "",
       ),
@@ -418,7 +414,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "SensitiveDataScannerRuleUpdateRequest",
         "",
       ),

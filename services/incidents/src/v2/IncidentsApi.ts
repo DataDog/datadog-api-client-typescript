@@ -73,7 +73,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IncidentCreateRequest", ""),
+      ObjectSerializer.serialize(body, "IncidentCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -133,7 +133,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "IncidentIntegrationMetadataCreateRequest",
         "",
       ),
@@ -193,7 +193,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IncidentTodoCreateRequest", ""),
+      ObjectSerializer.serialize(body, "IncidentTodoCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -240,7 +240,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IncidentTypeCreateRequest", ""),
+      ObjectSerializer.serialize(body, "IncidentTypeCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -991,7 +991,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IncidentUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "IncidentUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1063,7 +1063,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IncidentAttachmentUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "IncidentAttachmentUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1133,7 +1133,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "IncidentIntegrationMetadataPatchRequest",
         "",
       ),
@@ -1198,7 +1198,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IncidentTodoPatchRequest", ""),
+      ObjectSerializer.serialize(body, "IncidentTodoPatchRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -1255,7 +1255,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "IncidentTypePatchRequest", ""),
+      ObjectSerializer.serialize(body, "IncidentTypePatchRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

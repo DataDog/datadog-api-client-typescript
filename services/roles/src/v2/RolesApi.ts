@@ -63,7 +63,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RelationshipToPermission", ""),
+      ObjectSerializer.serialize(body, "RelationshipToPermission", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -114,7 +114,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RelationshipToUser", ""),
+      ObjectSerializer.serialize(body, "RelationshipToUser", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -165,7 +165,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RoleCloneRequest", ""),
+      ObjectSerializer.serialize(body, "RoleCloneRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -207,7 +207,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RoleCreateRequest", ""),
+      ObjectSerializer.serialize(body, "RoleCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -520,7 +520,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RelationshipToPermission", ""),
+      ObjectSerializer.serialize(body, "RelationshipToPermission", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -571,7 +571,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RelationshipToUser", ""),
+      ObjectSerializer.serialize(body, "RelationshipToUser", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -622,7 +622,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize("body", "RoleUpdateRequest", ""),
+      ObjectSerializer.serialize(body, "RoleUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);

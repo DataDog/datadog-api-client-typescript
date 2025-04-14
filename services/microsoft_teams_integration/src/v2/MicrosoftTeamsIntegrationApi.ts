@@ -53,7 +53,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "MicrosoftTeamsCreateTenantBasedHandleRequest",
         "",
       ),
@@ -99,7 +99,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "MicrosoftTeamsCreateWorkflowsWebhookHandleRequest",
         "",
       ),
@@ -414,7 +414,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "MicrosoftTeamsUpdateTenantBasedHandleRequest",
         "",
       ),
@@ -469,7 +469,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
-        "body",
+        body,
         "MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest",
         "",
       ),
