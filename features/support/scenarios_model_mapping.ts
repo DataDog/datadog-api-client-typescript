@@ -4950,6 +4950,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "getIpAddresses": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "GetInterfacesResponse",
     },
     "v2.ListDeviceUserTags": {
