@@ -49,8 +49,7 @@ Before(function (
   this: World,
   { gherkinDocument, pickle }: ITestCaseHookParameter,
 ) {
-  const cassettesDir = this.cucumberParameters.cassettesDir || "./cassettes";
-  const recordingsDir = `${cassettesDir}/${this.apiVersion}`;
+  const recordingsDir = `${this.cassettesDir}/${this.apiVersion}`;
   const recordingName = `${gherkinDocument.feature?.name as string}/${pickle.name}`;
   this.polly = new Polly(recordingName, {
     adapters: ["node-http"],
@@ -178,8 +177,6 @@ AfterAll(function () {
   if (recordMode !== "false" || process.env.CLEANUP_CASSETTES !== "true") {
     return;
   }
-  const cassettesDir = this.cucumberParameters.cassettesDir || "./cassettes";
-
   const getAllDirs = function (dirPath: string): string[] {
     let files = fs.readdirSync(dirPath).map((file) => path.join(dirPath, file));
     let arrayOfFiles: any = [];
@@ -202,7 +199,7 @@ AfterAll(function () {
     return arrayOfFiles;
   };
 
-  const existingCassettes = getAllDirs(cassettesDir);
+  const existingCassettes = getAllDirs(this.cassettesDir);
   const usedCassettes = new Set(cassettes);
 
   existingCassettes

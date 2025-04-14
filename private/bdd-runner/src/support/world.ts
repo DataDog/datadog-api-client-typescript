@@ -23,11 +23,10 @@ export class World {
   public fixtures: { [key: string]: any } = {};
   public opts: { [key: string]: any } = {};
 
-  public cucumberParameters: any;
+  public cassettesDir: string;
 
-  constructor(options: any, parameters: any) {
-    console.log("World", options, parameters);
-    this.cucumberParameters = options.parameters;
+  constructor(options: any) {
+    this.cassettesDir = options?.parameters?.cassettesDir || "./cassettes";
   }
 
   async cleanup() {
