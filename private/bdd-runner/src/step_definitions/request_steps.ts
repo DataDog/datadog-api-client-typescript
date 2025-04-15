@@ -8,17 +8,17 @@ import {
   getProperty,
   pathLookup,
   getTypeForValue,
+  tagToApiClassName,
+  apiClassNameToServicePackageDirName,
 } from "../support/templating";
 import { Store } from "../support/store";
 import { buildUndoFor, UndoActions } from "../support/undo";
-import * as datadogApiClient from "@datadog/datadog-api-client";
+import * as datadogCommon from "@datadog/datadog-api-client";
 import fs from "fs";
 import path from "path";
 
 import { compressSync } from "zstd.ts";
 import log from "loglevel";
-import { ScenariosModelMappings } from "../support/scenarios_model_mapping";
-import { exit } from "process";
 const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
@@ -32,7 +32,7 @@ Given('a valid "appKeyAuth" key in the system', function (this: World) {
 
 Given("an instance of {string} API", function (this: World, apiName: string) {
   // TODO add support for DEBUG=true when supported in configuration
-  this.apiName = apiName.replace("-", "");
+  this.apiName = tagToApiClassName(apiName);
 });
 
 Given(
@@ -78,11 +78,12 @@ Given("new {string} request", function (this: World, operationId: string) {
 
 When("the request is sent", async function (this: World) {
   // build request from scenario
-  const apiNameWithVersion = `${this.apiName}Api${this.apiVersion.toUpperCase()}`;
+  const apiNameWithVersion = `${this.apiName}${this.apiVersion.toUpperCase()}`;
 
-  // TODO(sherz): evaluate if building the package and requiring it is the better approach
+  // TODO(sherz): evaluate if building the package and requiring it is the better approach.
+  // we are importing the package from the services directory directly.
   const api = require(
-    `${this.servicesDir}/${this.apiName?.toServicePackageDirName()}/src`,
+    `${this.servicesDir}/${apiClassNameToServicePackageDirName(this.apiName)}/src`,
   )[apiNameWithVersion];
 
   const configurationOpts = {
@@ -94,22 +95,22 @@ When("the request is sent", async function (this: World) {
   };
 
   if (process.env.DD_TEST_SITE) {
-    const serverConf = datadogApiClient.servers[2].getConfiguration();
-    datadogApiClient.servers[2].setVariables({
+    const serverConf = datadogCommon.servers[2].getConfiguration();
+    datadogCommon.servers[2].setVariables({
       site: process.env.DD_TEST_SITE,
     } as typeof serverConf);
     (configurationOpts as any)["serverIndex"] = 2;
   }
   if (process.env.DD_TEST_SITE_URL) {
-    const serverConf = datadogApiClient.servers[1].getConfiguration();
-    datadogApiClient.servers[1].setVariables({
+    const serverConf = datadogCommon.servers[1].getConfiguration();
+    datadogCommon.servers[1].setVariables({
       name: process.env.DD_TEST_SITE_URL,
       protocol: "http",
     } as typeof serverConf);
     (configurationOpts as any)["serverIndex"] = 1;
   }
 
-  const configuration = datadogApiClient.createConfiguration(configurationOpts);
+  const configuration = datadogCommon.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
     if (
       `${this.apiVersion}.${operationId}` in configuration.unstableOperations
@@ -171,7 +172,7 @@ When("the request is sent", async function (this: World) {
     //   );
     // }
   } catch (error) {
-    if (error instanceof datadogApiClient.ApiException) {
+    if (error instanceof datadogCommon.ApiException) {
       this.response = error.body;
     } else {
       throw error;
@@ -200,21 +201,21 @@ When("the request with pagination is sent", async function (this: World) {
   //   enableRetry: true,
   // };
   // if (process.env.DD_TEST_SITE) {
-  //   const serverConf = datadogApiClient.client.servers[2].getConfiguration();
-  //   datadogApiClient.client.servers[2].setVariables({
+  //   const serverConf = datadogCommon.client.servers[2].getConfiguration();
+  //   datadogCommon.client.servers[2].setVariables({
   //     site: process.env.DD_TEST_SITE,
   //   } as typeof serverConf);
   //   (configurationOpts as any)["serverIndex"] = 2;
   // }
   // if (process.env.DD_TEST_SITE_URL) {
-  //   const serverConf = datadogApiClient.client.servers[1].getConfiguration();
-  //   datadogApiClient.client.servers[1].setVariables({
+  //   const serverConf = datadogCommon.client.servers[1].getConfiguration();
+  //   datadogCommon.client.servers[1].setVariables({
   //     name: process.env.DD_TEST_SITE_URL,
   //     protocol: "http",
   //   } as typeof serverConf);
   //   (configurationOpts as any)["serverIndex"] = 1;
   // }
-  // const configuration = datadogApiClient.client.createConfiguration(configurationOpts);
+  // const configuration = datadogCommon.client.createConfiguration(configurationOpts);
   // for (const operationId in this.unstableOperations) {
   //   if (`${this.apiVersion}.${operationId}` in configuration.unstableOperations) {
   //     configuration.unstableOperations[`${this.apiVersion}.${operationId}`] = this.unstableOperations[operationId];
@@ -250,7 +251,7 @@ When("the request with pagination is sent", async function (this: World) {
   //   }
   //   this.response = response;
   // } catch (error) {
-  //   if (error instanceof datadogApiClient.client.ApiException) {
+  //   if (error instanceof datadogCommon.client.ApiException) {
   //     this.response = error.body;
   //   } else {
   //     throw error;

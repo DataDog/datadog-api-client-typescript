@@ -2,6 +2,7 @@
 
 import { Command } from "commander";
 import Cli from "@cucumber/cucumber/lib/cli/index";
+
 import path from "path";
 
 let cwd = process.cwd();
@@ -23,6 +24,10 @@ program
     "--package-prefix <prefix>",
     "Prefix to add to the package name",
     "@datadog/datadog-api-client",
+  )
+  .option(
+    "--additional-givens <additionalGivens>",
+    "Additional given files to be added to cucumber. The value is mapping of version to the given file.",
   )
   .argument("<feature>", "Fully qualified path to feature files")
   .parse(process.argv);
@@ -52,6 +57,20 @@ args.unshift(
   process.env.CI || !process.stdout.isTTY ? "progress" : "progress-bar",
 );
 args.unshift("--format", "rerun:@rerun.txt");
+
+// Handle additional givens
+// Additional givens are special and need to be loaded in seperately outside of the
+// World constructor so we cannot rely on the worldParameters.
+const additionalGivens =
+  options.additionalGivens ||
+  JSON.stringify({
+    v1: path.resolve(cwd, "features/v1/given.json"),
+    v2: path.resolve(cwd, "features/v2/given.json"),
+  });
+
+if (additionalGivens.length > 0) {
+  process.env.ADDITIONAL_GIVENS = additionalGivens;
+}
 
 // Run Cucumber
 const cli = new Cli({

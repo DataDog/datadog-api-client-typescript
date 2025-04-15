@@ -69,7 +69,6 @@ declare global {
     templated(data: { [key: string]: any }): string;
     toOperationName(): string;
     toAttributeName(): string;
-    toServicePackageDirName(): string;
   }
 }
 
@@ -205,16 +204,35 @@ String.prototype.toAttributeName = function (): string {
   return val.charAt(0).toLowerCase() + val.slice(1);
 };
 
-String.prototype.toServicePackageDirName = function (): string {
-  return this.replace(/[^A-Za-z0-9]+/g, "_")
+function apiClassNameToServicePackageDirName(name: string): string {
+  return name
+    .split("Api")
+    .join("")
+    .replace(/[^A-Za-z0-9]+/g, "_")
     .replace(/([a-z])([A-Z])/g, "$1_$2")
     .toLowerCase()
     .replace(/^_+|_+$/g, "");
-};
+}
+
+function tagToApiClassName(tag: string): string {
+  return (
+    tag
+      .replace(/[^A-Za-z0-9]+/g, " ")
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join("") + "Api"
+  );
+}
 
 function getProperty<T, K extends keyof T>(obj: T, name: string): T[K] {
   const key = name as K;
   return obj[key];
 }
 
-export { pathLookup, getProperty, getTypeForValue };
+export {
+  pathLookup,
+  getProperty,
+  getTypeForValue,
+  apiClassNameToServicePackageDirName,
+  tagToApiClassName,
+};

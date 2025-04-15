@@ -11,7 +11,7 @@ export class World {
   public authMethods: any = {};
   public unstableOperations: { [key: string]: boolean } = {};
 
-  public apiName?: string;
+  public apiName: string = "";
   public apiInstance?: any;
   public operationId = "";
   public requestContext?: any;
@@ -26,6 +26,7 @@ export class World {
   public cassettesDir: string;
   public packagePrefix: string;
   public servicesDir: string;
+
   constructor(options: any) {
     this.cassettesDir = options?.parameters?.cassettesDir;
     this.packagePrefix = options?.parameters?.packagePrefix;
