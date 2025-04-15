@@ -2,7 +2,7 @@
   "name": "bdd-runner",
   "repository": {
     "type": "git",
-    "directory": "private/bdd-runner",
+    "directory": "private/bdd_runner",
     "url": "https://github.com/DataDog/datadog-api-client-typescript.git"
   },
   "files": [
