@@ -999,6 +999,19 @@ import { MonitorConfigPolicyTagPolicyCreateRequest } from "./MonitorConfigPolicy
 import { MonitorDowntimeMatchResponse } from "./MonitorDowntimeMatchResponse";
 import { MonitorDowntimeMatchResponseAttributes } from "./MonitorDowntimeMatchResponseAttributes";
 import { MonitorDowntimeMatchResponseData } from "./MonitorDowntimeMatchResponseData";
+import { MonitorNotificationRuleAttributes } from "./MonitorNotificationRuleAttributes";
+import { MonitorNotificationRuleCreateRequest } from "./MonitorNotificationRuleCreateRequest";
+import { MonitorNotificationRuleCreateRequestData } from "./MonitorNotificationRuleCreateRequestData";
+import { MonitorNotificationRuleData } from "./MonitorNotificationRuleData";
+import { MonitorNotificationRuleFilterTags } from "./MonitorNotificationRuleFilterTags";
+import { MonitorNotificationRuleListResponse } from "./MonitorNotificationRuleListResponse";
+import { MonitorNotificationRuleRelationships } from "./MonitorNotificationRuleRelationships";
+import { MonitorNotificationRuleRelationshipsCreatedBy } from "./MonitorNotificationRuleRelationshipsCreatedBy";
+import { MonitorNotificationRuleRelationshipsCreatedByData } from "./MonitorNotificationRuleRelationshipsCreatedByData";
+import { MonitorNotificationRuleResponse } from "./MonitorNotificationRuleResponse";
+import { MonitorNotificationRuleResponseAttributes } from "./MonitorNotificationRuleResponseAttributes";
+import { MonitorNotificationRuleUpdateRequest } from "./MonitorNotificationRuleUpdateRequest";
+import { MonitorNotificationRuleUpdateRequestData } from "./MonitorNotificationRuleUpdateRequestData";
 import { MonitorTrigger } from "./MonitorTrigger";
 import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
 import { MonitorType } from "./MonitorType";
@@ -2263,6 +2276,7 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
+  MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
   NotificationRulesType: ["notification_rules"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
   ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
@@ -3920,6 +3934,24 @@ const typeMap: { [index: string]: any } = {
   MonitorDowntimeMatchResponseAttributes:
     MonitorDowntimeMatchResponseAttributes,
   MonitorDowntimeMatchResponseData: MonitorDowntimeMatchResponseData,
+  MonitorNotificationRuleAttributes: MonitorNotificationRuleAttributes,
+  MonitorNotificationRuleCreateRequest: MonitorNotificationRuleCreateRequest,
+  MonitorNotificationRuleCreateRequestData:
+    MonitorNotificationRuleCreateRequestData,
+  MonitorNotificationRuleData: MonitorNotificationRuleData,
+  MonitorNotificationRuleFilterTags: MonitorNotificationRuleFilterTags,
+  MonitorNotificationRuleListResponse: MonitorNotificationRuleListResponse,
+  MonitorNotificationRuleRelationships: MonitorNotificationRuleRelationships,
+  MonitorNotificationRuleRelationshipsCreatedBy:
+    MonitorNotificationRuleRelationshipsCreatedBy,
+  MonitorNotificationRuleRelationshipsCreatedByData:
+    MonitorNotificationRuleRelationshipsCreatedByData,
+  MonitorNotificationRuleResponse: MonitorNotificationRuleResponse,
+  MonitorNotificationRuleResponseAttributes:
+    MonitorNotificationRuleResponseAttributes,
+  MonitorNotificationRuleUpdateRequest: MonitorNotificationRuleUpdateRequest,
+  MonitorNotificationRuleUpdateRequestData:
+    MonitorNotificationRuleUpdateRequestData,
   MonitorTrigger: MonitorTrigger,
   MonitorTriggerWrapper: MonitorTriggerWrapper,
   MonitorType: MonitorType,
@@ -4900,6 +4932,8 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorConfigPolicyPolicyCreateRequest: [
     "MonitorConfigPolicyTagPolicyCreateRequest",
   ],
+  MonitorNotificationRuleFilter: ["MonitorNotificationRuleFilterTags"],
+  MonitorNotificationRuleResponseIncludedItem: ["User"],
   ObservabilityPipelineConfigDestinationItem: [
     "ObservabilityPipelineDatadogLogsDestination",
   ],

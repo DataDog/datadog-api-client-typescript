@@ -387,9 +387,14 @@ export {
 
 export {
   MonitorsApiCreateMonitorConfigPolicyRequest,
+  MonitorsApiCreateMonitorNotificationRuleRequest,
   MonitorsApiDeleteMonitorConfigPolicyRequest,
+  MonitorsApiDeleteMonitorNotificationRuleRequest,
   MonitorsApiGetMonitorConfigPolicyRequest,
+  MonitorsApiGetMonitorNotificationRuleRequest,
+  MonitorsApiGetMonitorNotificationRulesRequest,
   MonitorsApiUpdateMonitorConfigPolicyRequest,
+  MonitorsApiUpdateMonitorNotificationRuleRequest,
   MonitorsApi,
 } from "./apis/MonitorsApi";
 
@@ -1991,6 +1996,22 @@ export { MonitorDowntimeMatchResourceType } from "./models/MonitorDowntimeMatchR
 export { MonitorDowntimeMatchResponse } from "./models/MonitorDowntimeMatchResponse";
 export { MonitorDowntimeMatchResponseAttributes } from "./models/MonitorDowntimeMatchResponseAttributes";
 export { MonitorDowntimeMatchResponseData } from "./models/MonitorDowntimeMatchResponseData";
+export { MonitorNotificationRuleAttributes } from "./models/MonitorNotificationRuleAttributes";
+export { MonitorNotificationRuleCreateRequest } from "./models/MonitorNotificationRuleCreateRequest";
+export { MonitorNotificationRuleCreateRequestData } from "./models/MonitorNotificationRuleCreateRequestData";
+export { MonitorNotificationRuleData } from "./models/MonitorNotificationRuleData";
+export { MonitorNotificationRuleFilter } from "./models/MonitorNotificationRuleFilter";
+export { MonitorNotificationRuleFilterTags } from "./models/MonitorNotificationRuleFilterTags";
+export { MonitorNotificationRuleListResponse } from "./models/MonitorNotificationRuleListResponse";
+export { MonitorNotificationRuleRelationships } from "./models/MonitorNotificationRuleRelationships";
+export { MonitorNotificationRuleRelationshipsCreatedBy } from "./models/MonitorNotificationRuleRelationshipsCreatedBy";
+export { MonitorNotificationRuleRelationshipsCreatedByData } from "./models/MonitorNotificationRuleRelationshipsCreatedByData";
+export { MonitorNotificationRuleResourceType } from "./models/MonitorNotificationRuleResourceType";
+export { MonitorNotificationRuleResponse } from "./models/MonitorNotificationRuleResponse";
+export { MonitorNotificationRuleResponseAttributes } from "./models/MonitorNotificationRuleResponseAttributes";
+export { MonitorNotificationRuleResponseIncludedItem } from "./models/MonitorNotificationRuleResponseIncludedItem";
+export { MonitorNotificationRuleUpdateRequest } from "./models/MonitorNotificationRuleUpdateRequest";
+export { MonitorNotificationRuleUpdateRequestData } from "./models/MonitorNotificationRuleUpdateRequestData";
 export { MonitorTrigger } from "./models/MonitorTrigger";
 export { MonitorTriggerWrapper } from "./models/MonitorTriggerWrapper";
 export { MonitorType } from "./models/MonitorType";
