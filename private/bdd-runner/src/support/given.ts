@@ -2,7 +2,6 @@ import { Given } from "@cucumber/cucumber";
 import { compressSync } from "zstd.ts";
 
 import fs from "fs";
-import path from "path";
 
 import { World } from "../support/world";
 import {
@@ -31,7 +30,7 @@ interface IGivenStep {
 }
 
 for (const [apiVersion, givenFile] of Object.entries(
-  JSON.parse(process.env.ADDITIONAL_GIVENS || "{}"),
+  JSON.parse(process.env.BDD_RUNNER_ADDITIONAL_GIVENS || "{}"),
 )) {
   const content = fs.readFileSync(givenFile as string).toString();
   const givenSteps = JSON.parse(content) as IGivenStep[];
@@ -80,15 +79,15 @@ for (const [apiVersion, givenFile] of Object.entries(
       }
       const apiInstance = new api(configuration);
       // find undo method
-      //     const undoAction = UndoActions[apiVersion][operation.operationId];
-      //     if (undoAction === undefined) {
-      //       throw new Error(
-      //         `missing undo for ${operation.operationId} in ${apiVersion}`
-      //       );
-      //     }
-      //     // enable unstable operation
-      //     // TODO given_configuration.unstable_operations[operation_name.to_sym] = true
-      //     // perform operation
+      const undoAction = UndoActions[apiVersion][operation.operationId];
+      if (undoAction === undefined) {
+        throw new Error(
+          `missing undo for ${operation.operationId} in ${apiVersion}`,
+        );
+      }
+      // enable unstable operation
+      // TODO given_configuration.unstable_operations[operation_name.to_sym] = true
+      // perform operation
       const opts: { [key: string]: any } = {};
       if (operation.parameters !== undefined) {
         for (const p of operation.parameters) {
@@ -136,12 +135,19 @@ for (const [apiVersion, givenFile] of Object.entries(
       } else {
         result = await apiInstance[operationName]();
       }
-      //     // register undo method
-      //     if (undoAction.undo.type == "unsafe") {
-      //       this.undo.push(
-      //         buildUndoFor(apiVersion, undoAction, operationName, result, opts)
-      //       );
-      //     }
+      // register undo method
+      if (undoAction.undo.type == "unsafe") {
+        this.undo.push(
+          buildUndoFor(
+            apiVersion,
+            undoAction,
+            operationName,
+            result,
+            opts,
+            this.servicesDir,
+          ),
+        );
+      }
       // optional re-shaping
       if (operation["source"] !== undefined) {
         result = pathLookup(result, operation["source"]);

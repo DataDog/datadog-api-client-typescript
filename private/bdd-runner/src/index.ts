@@ -58,9 +58,9 @@ args.unshift(
 );
 args.unshift("--format", "rerun:@rerun.txt");
 
-// Handle additional givens
-// Additional givens are special and need to be loaded in seperately outside of the
-// World constructor so we cannot rely on the worldParameters.
+// Handle additional givens and undo actions
+// These are special and need to be loaded in seperately outside of the
+// World constructor so we cannot rely on passing them in the worldParameters.
 const additionalGivens =
   options.additionalGivens ||
   JSON.stringify({
@@ -68,8 +68,17 @@ const additionalGivens =
     v2: path.resolve(cwd, "features/v2/given.json"),
   });
 
+const undoActions = JSON.stringify({
+  v1: path.resolve(cwd, "features/v1/undo.json"),
+  v2: path.resolve(cwd, "features/v2/undo.json"),
+});
+
 if (additionalGivens.length > 0) {
-  process.env.ADDITIONAL_GIVENS = additionalGivens;
+  process.env.BDD_RUNNER_ADDITIONAL_GIVENS = additionalGivens;
+}
+
+if (undoActions.length > 0) {
+  process.env.BDD_RUNNER_UNDO_ACTIONS = undoActions;
 }
 
 // Run Cucumber

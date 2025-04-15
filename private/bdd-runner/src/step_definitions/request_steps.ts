@@ -123,13 +123,13 @@ When("the request is sent", async function (this: World) {
     }
   }
   const apiInstance = new api(configuration);
-  // const undoAction = UndoActions[this.apiVersion][this.operationId];
-  // if (undoAction === undefined) {
-  //   throw new Error(
-  //     `missing undo for ${this.operationId} in ${this.apiVersion}`
-  //   );
-  // }
-  // // Deserialize obejcts into correct model types
+  const undoAction = UndoActions[this.apiVersion][this.operationId];
+  if (undoAction === undefined) {
+    throw new Error(
+      `missing undo for ${this.operationId} in ${this.apiVersion}`,
+    );
+  }
+  // Deserialize obejcts into correct model types
   // const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
   // Object.keys(this.opts).forEach(key => {
   //   const type = ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].type
@@ -151,7 +151,6 @@ When("the request is sent", async function (this: World) {
   Store((...args) => {
     this.requestContext = args[0];
   })(apiInstance.responseProcessor);
-  // example: await v1.IPRangesApi(v1.createConfiguration({authMethod: {...}})).getIPRanges({});
   try {
     if (Object.keys(this.opts).length) {
       this.response = await apiInstance[this.operationId.toOperationName()](
@@ -160,17 +159,18 @@ When("the request is sent", async function (this: World) {
     } else {
       this.response = await apiInstance[this.operationId.toOperationName()]();
     }
-    // if (undoAction.undo.type == "unsafe") {
-    //   this.undo.push(
-    //     buildUndoFor(
-    //       this.apiVersion,
-    //       undoAction,
-    //       this.operationId,
-    //       this.response,
-    //       this.opts,
-    //     )
-    //   );
-    // }
+    if (undoAction.undo.type == "unsafe") {
+      this.undo.push(
+        buildUndoFor(
+          this.apiVersion,
+          undoAction,
+          this.operationId,
+          this.response,
+          this.opts,
+          this.servicesDir,
+        ),
+      );
+    }
   } catch (error) {
     if (error instanceof datadogCommon.ApiException) {
       this.response = error.body;
