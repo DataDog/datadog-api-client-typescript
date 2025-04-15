@@ -186,6 +186,11 @@ import { BillingDimensionsMappingBodyItem } from "./BillingDimensionsMappingBody
 import { BillingDimensionsMappingBodyItemAttributes } from "./BillingDimensionsMappingBodyItemAttributes";
 import { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./BillingDimensionsMappingBodyItemAttributesEndpointsItems";
 import { BillingDimensionsMappingResponse } from "./BillingDimensionsMappingResponse";
+import { Budget } from "./Budget";
+import { BudgetArray } from "./BudgetArray";
+import { BudgetEntry } from "./BudgetEntry";
+import { BudgetWithEntries } from "./BudgetWithEntries";
+import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
 import { BulkMuteFindingsRequest } from "./BulkMuteFindingsRequest";
 import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
 import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
@@ -2999,6 +3004,11 @@ const typeMap: { [index: string]: any } = {
   BillingDimensionsMappingBodyItemAttributesEndpointsItems:
     BillingDimensionsMappingBodyItemAttributesEndpointsItems,
   BillingDimensionsMappingResponse: BillingDimensionsMappingResponse,
+  Budget: Budget,
+  BudgetArray: BudgetArray,
+  BudgetEntry: BudgetEntry,
+  BudgetWithEntries: BudgetWithEntries,
+  BudgetWithEntriesData: BudgetWithEntriesData,
   BulkMuteFindingsRequest: BulkMuteFindingsRequest,
   BulkMuteFindingsRequestAttributes: BulkMuteFindingsRequestAttributes,
   BulkMuteFindingsRequestData: BulkMuteFindingsRequestData,
