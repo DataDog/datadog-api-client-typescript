@@ -512,11 +512,13 @@ export {
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
+  SecurityMonitoringApiCreateCustomFrameworkRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiCreateSignalNotificationRuleRequest,
   SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiDeleteCustomFrameworkRequest,
   SecurityMonitoringApiDeleteHistoricalJobRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
@@ -545,10 +547,12 @@ export {
   SecurityMonitoringApiMuteFindingsRequest,
   SecurityMonitoringApiPatchSignalNotificationRuleRequest,
   SecurityMonitoringApiPatchVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiRetrieveCustomFrameworkRequest,
   SecurityMonitoringApiRunHistoricalJobRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiUpdateCustomFrameworkRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
@@ -1182,6 +1186,8 @@ export { CreateAppRequestData } from "./models/CreateAppRequestData";
 export { CreateAppRequestDataAttributes } from "./models/CreateAppRequestDataAttributes";
 export { CreateAppResponse } from "./models/CreateAppResponse";
 export { CreateAppResponseData } from "./models/CreateAppResponseData";
+export { CreateCustomFrameworkRequest } from "./models/CreateCustomFrameworkRequest";
+export { CreateCustomFrameworkResponse } from "./models/CreateCustomFrameworkResponse";
 export { CreateDataDeletionRequestBody } from "./models/CreateDataDeletionRequestBody";
 export { CreateDataDeletionRequestBodyAttributes } from "./models/CreateDataDeletionRequestBodyAttributes";
 export { CreateDataDeletionRequestBodyData } from "./models/CreateDataDeletionRequestBodyData";
@@ -1269,6 +1275,12 @@ export { CustomDestinationType } from "./models/CustomDestinationType";
 export { CustomDestinationUpdateRequest } from "./models/CustomDestinationUpdateRequest";
 export { CustomDestinationUpdateRequestAttributes } from "./models/CustomDestinationUpdateRequestAttributes";
 export { CustomDestinationUpdateRequestDefinition } from "./models/CustomDestinationUpdateRequestDefinition";
+export { CustomFrameworkControl } from "./models/CustomFrameworkControl";
+export { CustomFrameworkData } from "./models/CustomFrameworkData";
+export { CustomFrameworkDataAttributes } from "./models/CustomFrameworkDataAttributes";
+export { CustomFrameworkDataHandleAndVersion } from "./models/CustomFrameworkDataHandleAndVersion";
+export { CustomFrameworkRequirement } from "./models/CustomFrameworkRequirement";
+export { CustomFrameworkType } from "./models/CustomFrameworkType";
 export { CVSS } from "./models/CVSS";
 export { DashboardListAddItemsRequest } from "./models/DashboardListAddItemsRequest";
 export { DashboardListAddItemsResponse } from "./models/DashboardListAddItemsResponse";
@@ -1501,6 +1513,8 @@ export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
+export { FullCustomFrameworkData } from "./models/FullCustomFrameworkData";
+export { FullCustomFrameworkDataAttributes } from "./models/FullCustomFrameworkDataAttributes";
 export { GCPMetricNamespaceConfig } from "./models/GCPMetricNamespaceConfig";
 export { GCPServiceAccountMeta } from "./models/GCPServiceAccountMeta";
 export { GCPServiceAccountType } from "./models/GCPServiceAccountType";
@@ -2111,6 +2125,7 @@ export { PartialAPIKeyAttributes } from "./models/PartialAPIKeyAttributes";
 export { PartialApplicationKey } from "./models/PartialApplicationKey";
 export { PartialApplicationKeyAttributes } from "./models/PartialApplicationKeyAttributes";
 export { PartialApplicationKeyResponse } from "./models/PartialApplicationKeyResponse";
+export { PartialCustomFrameworkData } from "./models/PartialCustomFrameworkData";
 export { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleParameters";
 export { PatchNotificationRuleParametersData } from "./models/PatchNotificationRuleParametersData";
 export { PatchNotificationRuleParametersDataAttributes } from "./models/PatchNotificationRuleParametersDataAttributes";
@@ -2227,6 +2242,7 @@ export { RetentionFilterUpdateAttributes } from "./models/RetentionFilterUpdateA
 export { RetentionFilterUpdateData } from "./models/RetentionFilterUpdateData";
 export { RetentionFilterUpdateRequest } from "./models/RetentionFilterUpdateRequest";
 export { RetentionFilterWithoutAttributes } from "./models/RetentionFilterWithoutAttributes";
+export { RetrieveCustomFrameworkResponse } from "./models/RetrieveCustomFrameworkResponse";
 export { RetryStrategy } from "./models/RetryStrategy";
 export { RetryStrategyKind } from "./models/RetryStrategyKind";
 export { RetryStrategyLinear } from "./models/RetryStrategyLinear";
@@ -2811,6 +2827,7 @@ export { UpdateAppRequestDataAttributes } from "./models/UpdateAppRequestDataAtt
 export { UpdateAppResponse } from "./models/UpdateAppResponse";
 export { UpdateAppResponseData } from "./models/UpdateAppResponseData";
 export { UpdateAppResponseDataAttributes } from "./models/UpdateAppResponseDataAttributes";
+export { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
 export { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";
 export { UpdateOpenAPIResponseAttributes } from "./models/UpdateOpenAPIResponseAttributes";
 export { UpdateOpenAPIResponseData } from "./models/UpdateOpenAPIResponseData";
