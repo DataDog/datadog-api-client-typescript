@@ -137,13 +137,16 @@ export {
 export {
   CloudCostManagementApiCreateCostAWSCURConfigRequest,
   CloudCostManagementApiCreateCostAzureUCConfigsRequest,
+  CloudCostManagementApiDeleteBudgetRequest,
   CloudCostManagementApiDeleteCostAWSCURConfigRequest,
   CloudCostManagementApiDeleteCostAzureUCConfigRequest,
   CloudCostManagementApiDeleteCustomCostsFileRequest,
+  CloudCostManagementApiGetBudgetRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
   CloudCostManagementApiUpdateCostAWSCURConfigRequest,
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApiUploadCustomCostsFileRequest,
+  CloudCostManagementApiUpsertBudgetRequest,
   CloudCostManagementApi,
 } from "./apis/CloudCostManagementApi";
 
@@ -943,6 +946,11 @@ export { BillingDimensionsMappingBodyItemAttributes } from "./models/BillingDime
 export { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./models/BillingDimensionsMappingBodyItemAttributesEndpointsItems";
 export { BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus } from "./models/BillingDimensionsMappingBodyItemAttributesEndpointsItemsStatus";
 export { BillingDimensionsMappingResponse } from "./models/BillingDimensionsMappingResponse";
+export { Budget } from "./models/Budget";
+export { BudgetArray } from "./models/BudgetArray";
+export { BudgetEntry } from "./models/BudgetEntry";
+export { BudgetWithEntries } from "./models/BudgetWithEntries";
+export { BudgetWithEntriesData } from "./models/BudgetWithEntriesData";
 export { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
 export { BulkMuteFindingsRequestAttributes } from "./models/BulkMuteFindingsRequestAttributes";
 export { BulkMuteFindingsRequestData } from "./models/BulkMuteFindingsRequestData";
