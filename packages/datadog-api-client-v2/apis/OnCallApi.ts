@@ -17,11 +17,66 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { EscalationPolicy } from "../models/EscalationPolicy";
+import { EscalationPolicyCreateRequest } from "../models/EscalationPolicyCreateRequest";
+import { EscalationPolicyUpdateRequest } from "../models/EscalationPolicyUpdateRequest";
 import { Schedule } from "../models/Schedule";
 import { ScheduleCreateRequest } from "../models/ScheduleCreateRequest";
 import { ScheduleUpdateRequest } from "../models/ScheduleUpdateRequest";
 
 export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
+  public async createOnCallEscalationPolicy(
+    body: EscalationPolicyCreateRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createOnCallEscalationPolicy");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/on-call/escalation-policies";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.createOnCallEscalationPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "EscalationPolicyCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createOnCallSchedule(
     body: ScheduleCreateRequest,
     include?: string,
@@ -74,6 +129,41 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteOnCallEscalationPolicy(
+    policyId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'policyId' is not null or undefined
+    if (policyId === null || policyId === undefined) {
+      throw new RequiredError("policyId", "deleteOnCallEscalationPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/escalation-policies/{policy_id}".replace(
+        "{policy_id}",
+        encodeURIComponent(String(policyId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.deleteOnCallEscalationPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteOnCallSchedule(
     scheduleId: string,
     _options?: Configuration
@@ -97,6 +187,51 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getOnCallEscalationPolicy(
+    policyId: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'policyId' is not null or undefined
+    if (policyId === null || policyId === undefined) {
+      throw new RequiredError("policyId", "getOnCallEscalationPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/escalation-policies/{policy_id}".replace(
+        "{policy_id}",
+        encodeURIComponent(String(policyId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.getOnCallEscalationPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -141,6 +276,68 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateOnCallEscalationPolicy(
+    policyId: string,
+    body: EscalationPolicyUpdateRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'policyId' is not null or undefined
+    if (policyId === null || policyId === undefined) {
+      throw new RequiredError("policyId", "updateOnCallEscalationPolicy");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateOnCallEscalationPolicy");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/escalation-policies/{policy_id}".replace(
+        "{policy_id}",
+        encodeURIComponent(String(policyId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.updateOnCallEscalationPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "EscalationPolicyUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -219,6 +416,69 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createOnCallEscalationPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createOnCallEscalationPolicy(
+    response: ResponseContext
+  ): Promise<EscalationPolicy> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 201) {
+      const body: EscalationPolicy = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EscalationPolicy"
+      ) as EscalationPolicy;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: EscalationPolicy = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EscalationPolicy",
+        ""
+      ) as EscalationPolicy;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createOnCallSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -282,6 +542,65 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteOnCallEscalationPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteOnCallEscalationPolicy(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteOnCallSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -325,6 +644,70 @@ export class OnCallApiResponseProcessor {
         "void",
         ""
       ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getOnCallEscalationPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOnCallEscalationPolicy(
+    response: ResponseContext
+  ): Promise<EscalationPolicy> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: EscalationPolicy = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EscalationPolicy"
+      ) as EscalationPolicy;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: EscalationPolicy = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EscalationPolicy",
+        ""
+      ) as EscalationPolicy;
       return body;
     }
 
@@ -400,6 +783,70 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateOnCallEscalationPolicy
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateOnCallEscalationPolicy(
+    response: ResponseContext
+  ): Promise<EscalationPolicy> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: EscalationPolicy = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EscalationPolicy"
+      ) as EscalationPolicy;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: EscalationPolicy = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "EscalationPolicy",
+        ""
+      ) as EscalationPolicy;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateOnCallSchedule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -461,6 +908,18 @@ export class OnCallApiResponseProcessor {
   }
 }
 
+export interface OnCallApiCreateOnCallEscalationPolicyRequest {
+  /**
+   * @type EscalationPolicyCreateRequest
+   */
+  body: EscalationPolicyCreateRequest;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `teams`, `steps`, `steps.targets`.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface OnCallApiCreateOnCallScheduleRequest {
   /**
    * @type ScheduleCreateRequest
@@ -473,12 +932,33 @@ export interface OnCallApiCreateOnCallScheduleRequest {
   include?: string;
 }
 
+export interface OnCallApiDeleteOnCallEscalationPolicyRequest {
+  /**
+   * The ID of the escalation policy
+   * @type string
+   */
+  policyId: string;
+}
+
 export interface OnCallApiDeleteOnCallScheduleRequest {
   /**
    * The ID of the schedule
    * @type string
    */
   scheduleId: string;
+}
+
+export interface OnCallApiGetOnCallEscalationPolicyRequest {
+  /**
+   * The ID of the escalation policy
+   * @type string
+   */
+  policyId: string;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `teams`, `steps`, `steps.targets`.
+   * @type string
+   */
+  include?: string;
 }
 
 export interface OnCallApiGetOnCallScheduleRequest {
@@ -489,6 +969,23 @@ export interface OnCallApiGetOnCallScheduleRequest {
   scheduleId: string;
   /**
    * Comma-separated list of included relationships to be returned. Allowed values: `teams`, `layers`, `layers.members`, `layers.members.user`.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface OnCallApiUpdateOnCallEscalationPolicyRequest {
+  /**
+   * The ID of the escalation policy
+   * @type string
+   */
+  policyId: string;
+  /**
+   * @type EscalationPolicyUpdateRequest
+   */
+  body: EscalationPolicyUpdateRequest;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `teams`, `steps`, `steps.targets`.
    * @type string
    */
   include?: string;
@@ -529,6 +1026,31 @@ export class OnCallApi {
   }
 
   /**
+   * Create a new on-call escalation policy
+   * @param param The request object
+   */
+  public createOnCallEscalationPolicy(
+    param: OnCallApiCreateOnCallEscalationPolicyRequest,
+    options?: Configuration
+  ): Promise<EscalationPolicy> {
+    const requestContextPromise =
+      this.requestFactory.createOnCallEscalationPolicy(
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createOnCallEscalationPolicy(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create a new on-call schedule
    * @param param The request object
    */
@@ -546,6 +1068,27 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createOnCallSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an on-call escalation policy
+   * @param param The request object
+   */
+  public deleteOnCallEscalationPolicy(
+    param: OnCallApiDeleteOnCallEscalationPolicyRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteOnCallEscalationPolicy(param.policyId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteOnCallEscalationPolicy(
+            responseContext
+          );
         });
     });
   }
@@ -572,6 +1115,30 @@ export class OnCallApi {
   }
 
   /**
+   * Get an on-call escalation policy
+   * @param param The request object
+   */
+  public getOnCallEscalationPolicy(
+    param: OnCallApiGetOnCallEscalationPolicyRequest,
+    options?: Configuration
+  ): Promise<EscalationPolicy> {
+    const requestContextPromise = this.requestFactory.getOnCallEscalationPolicy(
+      param.policyId,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOnCallEscalationPolicy(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get an on-call schedule
    * @param param The request object
    */
@@ -589,6 +1156,32 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOnCallSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update an on-call escalation policy
+   * @param param The request object
+   */
+  public updateOnCallEscalationPolicy(
+    param: OnCallApiUpdateOnCallEscalationPolicyRequest,
+    options?: Configuration
+  ): Promise<EscalationPolicy> {
+    const requestContextPromise =
+      this.requestFactory.updateOnCallEscalationPolicy(
+        param.policyId,
+        param.body,
+        param.include,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateOnCallEscalationPolicy(
+            responseContext
+          );
         });
     });
   }

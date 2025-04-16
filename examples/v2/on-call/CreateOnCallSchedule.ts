@@ -10,8 +10,8 @@ const apiInstance = new v2.OnCallApi(configuration);
 // there is a valid "user" in the system
 const USER_DATA_ID = process.env.USER_DATA_ID as string;
 
-// there is a valid "team" in the system
-const TEAM_DATA_ID = process.env.TEAM_DATA_ID as string;
+// there is a valid "dd_team" in the system
+const DD_TEAM_DATA_ID = process.env.DD_TEAM_DATA_ID as string;
 
 const params: v2.OnCallApiCreateOnCallScheduleRequest = {
   body: {
@@ -51,7 +51,7 @@ const params: v2.OnCallApiCreateOnCallScheduleRequest = {
         teams: {
           data: [
             {
-              id: TEAM_DATA_ID,
+              id: DD_TEAM_DATA_ID,
               type: "teams",
             },
           ],
