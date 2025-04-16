@@ -12,6 +12,7 @@ import {
 } from "./templating";
 import { UndoActions, buildUndoFor } from "./undo";
 import * as datadogCommon from "@datadog/datadog-api-client";
+import { deserializeOpts } from "./deserialize_opts";
 
 interface IOperationParameter {
   name: string;
@@ -88,7 +89,7 @@ for (const [apiVersion, givenFile] of Object.entries(
       // enable unstable operation
       // TODO given_configuration.unstable_operations[operation_name.to_sym] = true
       // perform operation
-      const opts: { [key: string]: any } = {};
+      let opts: { [key: string]: any } = {};
       if (operation.parameters !== undefined) {
         for (const p of operation.parameters) {
           if (p.value !== undefined) {
@@ -111,24 +112,15 @@ for (const [apiVersion, givenFile] of Object.entries(
           }
         }
       }
-      //     // Deserialize obejcts into correct model types
-      //     const objectSerializer = getProperty(datadogApiClient, apiVersion).ObjectSerializer;
-      //     Object.keys(opts).forEach(key => {
-      //       const type = ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key].type
-      //       const format = ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key].format
-      //       if (type === "HttpFile" && format === "binary") {
-      //         opts[key] = {
-      //           data: Buffer.from(fs.readFileSync(path.join(__dirname, `../${apiVersion}`, opts[key]))),
-      //           name: opts[key],
-      //         };
-      //       } else {
-      //         opts[key] = objectSerializer.deserialize(
-      //           opts[key],
-      //           type,
-      //           format
-      //         )
-      //       }
-      //     });
+      // Deserialize obejcts into correct model types
+      opts = deserializeOpts(
+        opts,
+        this.servicesDir,
+        apiVersion,
+        apiName,
+        operation.operationId,
+      );
+
       let result: any = {};
       if (Object.keys(opts).length) {
         result = await apiInstance[operationName](opts);

@@ -19,6 +19,8 @@ import path from "path";
 
 import { compressSync } from "zstd.ts";
 import log from "loglevel";
+import { ScenariosModelMappings } from "../support/scenarios_model_mapping";
+import { deserializeOpts } from "../support/deserialize_opts";
 const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
@@ -130,23 +132,14 @@ When("the request is sent", async function (this: World) {
     );
   }
   // Deserialize obejcts into correct model types
-  // const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
-  // Object.keys(this.opts).forEach(key => {
-  //   const type = ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].type
-  //   const format = ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].format
-  //   if (type === "HttpFile" && format === "binary") {
-  //     this.opts[key] = {
-  //       data: Buffer.from(fs.readFileSync(path.join(__dirname, `../${this.apiVersion}`, this.opts[key]))),
-  //       name: this.opts[key],
-  //     };
-  //   } else {
-  //     this.opts[key] = objectSerializer.deserialize(
-  //       this.opts[key],
-  //       type,
-  //       format
-  //       )
-  //   }
-  // });
+  this.opts = deserializeOpts(
+    this.opts,
+    this.servicesDir,
+    this.apiVersion,
+    this.apiName,
+    this.operationId,
+  );
+
   // store request context from response processor
   Store((...args) => {
     this.requestContext = args[0];
@@ -270,67 +263,77 @@ When("the request with pagination is sent", async function (this: World) {
 Then(
   /^the response status is (\d+) (.*)/,
   function (this: World, status: number, msg: string) {
-    // expect(this.requestContext.httpStatusCode).to.equal(status);
+    expect(this.requestContext.httpStatusCode).to.equal(status);
   },
 );
 
 Then(
   "the response {string} has the same value as {string}",
   function (this: World, responsePath: string, fixturePath: string) {
-    // expect(pathLookup(this.response, responsePath)).to.equal(
-    //   pathLookup(this.fixtures, fixturePath)
-    // );
+    expect(pathLookup(this.response, responsePath)).to.equal(
+      pathLookup(this.fixtures, fixturePath),
+    );
   },
 );
 
 Then(
   /the response "([^"]+)" is equal to (.*)/,
   function (this: World, responsePath: string, value: string) {
-    //   const pathResult = pathLookup(this.response, responsePath)
-    //   const _type = getTypeForValue(pathResult)
-    //   let templatedFixtureValue = JSON.parse(value.templated(this.fixtures))
-    //   if (_type) {
-    //     const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
-    //     templatedFixtureValue = objectSerializer.deserialize(templatedFixtureValue, _type, "")
-    //   }
-    //   expect(pathResult).to.deep.equal(templatedFixtureValue);
+    const pathResult = pathLookup(this.response, responsePath);
+    const _type = getTypeForValue(pathResult);
+    let templatedFixtureValue = JSON.parse(value.templated(this.fixtures));
+    if (_type) {
+      const objectSerializer = require(
+        `${this.servicesDir}/${apiClassNameToServicePackageDirName(this.apiName)}/src/${this.apiVersion}/models/ObjectSerializer`,
+      )["ObjectSerializer"];
+      templatedFixtureValue = objectSerializer.deserialize(
+        templatedFixtureValue,
+        _type,
+        "",
+      );
+    }
+    expect(pathResult).to.deep.equal(templatedFixtureValue);
   },
 );
 
 Then(
   "the response {string} is false",
   function (this: World, responsePath: string) {
-    // expect(pathLookup(this.response, responsePath)).to.equal(false);
+    expect(pathLookup(this.response, responsePath)).to.equal(false);
   },
 );
 
 Then(
   "the response {string} has field {string}",
   function (this: World, responsePath: string, field: string) {
-    // expect(pathLookup(this.response, responsePath)).to.have.property(field.toAttributeName());
+    expect(pathLookup(this.response, responsePath)).to.have.property(
+      field.toAttributeName(),
+    );
   },
 );
 
 Then(
   "the response {string} does not have field {string}",
   function (this: World, responsePath: string, field: string) {
-    // expect(pathLookup(this.response, responsePath)).to.not.have.property(field.toAttributeName());
+    expect(pathLookup(this.response, responsePath)).to.not.have.property(
+      field.toAttributeName(),
+    );
   },
 );
 
 Then(
   "the response {string} has length {int}",
   function (this: World, responsePath: string, fixtureLength: number) {
-    // expect(pathLookup(this.response, responsePath).length).to.equal(
-    //   fixtureLength
-    // );
+    expect(pathLookup(this.response, responsePath).length).to.equal(
+      fixtureLength,
+    );
   },
 );
 
 Then(
   "the response has {int} items",
   function (this: World, fixtureLength: number) {
-    // expect(this.response.length).to.equal(fixtureLength);
+    expect(this.response.length).to.equal(fixtureLength);
   },
 );
 
@@ -339,9 +342,9 @@ Then(
   function (this: World, responsePath: string, keyPath: string, value: string) {
     expect(pathLookup(this.response, responsePath)).to.containOne((item) => {
       try {
-        // expect(pathLookup(item, keyPath)).to.deep.equal(
-        //   JSON.parse(value.templated(this.fixtures))
-        // );
+        expect(pathLookup(item, keyPath)).to.deep.equal(
+          JSON.parse(value.templated(this.fixtures)),
+        );
         return true;
       } catch (error) {
         return false;
@@ -353,7 +356,9 @@ Then(
 Then(
   /the response "([^"]+)" array contains value (.*)/,
   function (this: World, responsePath: string, value: string) {
-    // expect(pathLookup(this.response, responsePath)).to.contain(JSON.parse(value.templated(this.fixtures)));
+    expect(pathLookup(this.response, responsePath)).to.contain(
+      JSON.parse(value.templated(this.fixtures)),
+    );
   },
 );
 
