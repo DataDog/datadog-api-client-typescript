@@ -569,6 +569,33 @@ import { EntityV3System } from "./EntityV3System";
 import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
 import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
 import { ErrorHandler } from "./ErrorHandler";
+import { EscalationPolicy } from "./EscalationPolicy";
+import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
+import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateRequestData";
+import { EscalationPolicyCreateRequestDataAttributes } from "./EscalationPolicyCreateRequestDataAttributes";
+import { EscalationPolicyCreateRequestDataAttributesStepsItems } from "./EscalationPolicyCreateRequestDataAttributesStepsItems";
+import { EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems } from "./EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems";
+import { EscalationPolicyCreateRequestDataRelationships } from "./EscalationPolicyCreateRequestDataRelationships";
+import { EscalationPolicyCreateRequestDataRelationshipsTeams } from "./EscalationPolicyCreateRequestDataRelationshipsTeams";
+import { EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems } from "./EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems";
+import { EscalationPolicyData } from "./EscalationPolicyData";
+import { EscalationPolicyDataAttributes } from "./EscalationPolicyDataAttributes";
+import { EscalationPolicyDataRelationships } from "./EscalationPolicyDataRelationships";
+import { EscalationPolicyDataRelationshipsSteps } from "./EscalationPolicyDataRelationshipsSteps";
+import { EscalationPolicyDataRelationshipsStepsDataItems } from "./EscalationPolicyDataRelationshipsStepsDataItems";
+import { EscalationPolicyDataRelationshipsTeams } from "./EscalationPolicyDataRelationshipsTeams";
+import { EscalationPolicyDataRelationshipsTeamsDataItems } from "./EscalationPolicyDataRelationshipsTeamsDataItems";
+import { EscalationPolicyStep } from "./EscalationPolicyStep";
+import { EscalationPolicyStepAttributes } from "./EscalationPolicyStepAttributes";
+import { EscalationPolicyStepRelationships } from "./EscalationPolicyStepRelationships";
+import { EscalationPolicyUpdateRequest } from "./EscalationPolicyUpdateRequest";
+import { EscalationPolicyUpdateRequestData } from "./EscalationPolicyUpdateRequestData";
+import { EscalationPolicyUpdateRequestDataAttributes } from "./EscalationPolicyUpdateRequestDataAttributes";
+import { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./EscalationPolicyUpdateRequestDataAttributesStepsItems";
+import { EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems } from "./EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems";
+import { EscalationPolicyUpdateRequestDataRelationships } from "./EscalationPolicyUpdateRequestDataRelationships";
+import { EscalationPolicyUpdateRequestDataRelationshipsTeams } from "./EscalationPolicyUpdateRequestDataRelationshipsTeams";
+import { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems } from "./EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventCreateRequest } from "./EventCreateRequest";
@@ -1346,6 +1373,7 @@ import { ScheduleMember } from "./ScheduleMember";
 import { ScheduleMemberRelationships } from "./ScheduleMemberRelationships";
 import { ScheduleMemberRelationshipsUser } from "./ScheduleMemberRelationshipsUser";
 import { ScheduleMemberRelationshipsUserData } from "./ScheduleMemberRelationshipsUserData";
+import { ScheduleTarget } from "./ScheduleTarget";
 import { ScheduleTrigger } from "./ScheduleTrigger";
 import { ScheduleTriggerWrapper } from "./ScheduleTriggerWrapper";
 import { ScheduleUpdateRequest } from "./ScheduleUpdateRequest";
@@ -1618,6 +1646,7 @@ import { TeamReferenceRelationshipsOncallUsersDataItems } from "./TeamReferenceR
 import { TeamRelationships } from "./TeamRelationships";
 import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 import { TeamResponse } from "./TeamResponse";
+import { TeamTarget } from "./TeamTarget";
 import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
@@ -1678,6 +1707,7 @@ import { UserRelationshipData } from "./UserRelationshipData";
 import { UserRelationships } from "./UserRelationships";
 import { UserResponse } from "./UserResponse";
 import { UserResponseRelationships } from "./UserResponseRelationships";
+import { UserTarget } from "./UserTarget";
 import { UserTeam } from "./UserTeam";
 import { UserTeamAttributes } from "./UserTeamAttributes";
 import { UserTeamCreate } from "./UserTeamCreate";
@@ -2060,6 +2090,33 @@ const enumsMap: { [key: string]: any[] } = {
   EntityV3QueueKind: ["queue"],
   EntityV3ServiceKind: ["service"],
   EntityV3SystemKind: ["system"],
+  EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment: [
+    "default",
+    "round-robin",
+  ],
+  EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType: [
+    "users",
+    "schedules",
+    "teams",
+  ],
+  EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
+  EscalationPolicyCreateRequestDataType: ["policies"],
+  EscalationPolicyDataRelationshipsStepsDataItemsType: ["steps"],
+  EscalationPolicyDataRelationshipsTeamsDataItemsType: ["teams"],
+  EscalationPolicyDataType: ["policies"],
+  EscalationPolicyStepAttributesAssignment: ["default", "round-robin"],
+  EscalationPolicyStepType: ["steps"],
+  EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment: [
+    "default",
+    "round-robin",
+  ],
+  EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType: [
+    "users",
+    "schedules",
+    "teams",
+  ],
+  EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
+  EscalationPolicyUpdateRequestDataType: ["policies"],
   EventCategory: ["change"],
   EventCreateRequestType: ["event"],
   EventPriority: ["normal", "low"],
@@ -2464,6 +2521,7 @@ const enumsMap: { [key: string]: any[] } = {
   ScheduleDataType: ["schedules"],
   ScheduleMemberRelationshipsUserDataType: ["users"],
   ScheduleMemberType: ["members"],
+  ScheduleTargetType: ["schedules"],
   ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItemsEndDay: [
     "monday",
     "tuesday",
@@ -2666,6 +2724,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   TeamReferenceRelationshipsOncallUsersDataItemsType: ["users"],
   TeamReferenceType: ["teams"],
+  TeamTargetType: ["teams"],
   TeamType: ["team"],
   TeamsField: [
     "id",
@@ -2691,6 +2750,7 @@ const enumsMap: { [key: string]: any[] } = {
   UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
   UserResourceType: ["user"],
+  UserTargetType: ["users"],
   UserTeamPermissionType: ["user_team_permissions"],
   UserTeamRole: ["admin"],
   UserTeamTeamType: ["team"],
@@ -3457,6 +3517,49 @@ const typeMap: { [index: string]: any } = {
   EntityV3SystemDatadog: EntityV3SystemDatadog,
   EntityV3SystemSpec: EntityV3SystemSpec,
   ErrorHandler: ErrorHandler,
+  EscalationPolicy: EscalationPolicy,
+  EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,
+  EscalationPolicyCreateRequestData: EscalationPolicyCreateRequestData,
+  EscalationPolicyCreateRequestDataAttributes:
+    EscalationPolicyCreateRequestDataAttributes,
+  EscalationPolicyCreateRequestDataAttributesStepsItems:
+    EscalationPolicyCreateRequestDataAttributesStepsItems,
+  EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems:
+    EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems,
+  EscalationPolicyCreateRequestDataRelationships:
+    EscalationPolicyCreateRequestDataRelationships,
+  EscalationPolicyCreateRequestDataRelationshipsTeams:
+    EscalationPolicyCreateRequestDataRelationshipsTeams,
+  EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems:
+    EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems,
+  EscalationPolicyData: EscalationPolicyData,
+  EscalationPolicyDataAttributes: EscalationPolicyDataAttributes,
+  EscalationPolicyDataRelationships: EscalationPolicyDataRelationships,
+  EscalationPolicyDataRelationshipsSteps:
+    EscalationPolicyDataRelationshipsSteps,
+  EscalationPolicyDataRelationshipsStepsDataItems:
+    EscalationPolicyDataRelationshipsStepsDataItems,
+  EscalationPolicyDataRelationshipsTeams:
+    EscalationPolicyDataRelationshipsTeams,
+  EscalationPolicyDataRelationshipsTeamsDataItems:
+    EscalationPolicyDataRelationshipsTeamsDataItems,
+  EscalationPolicyStep: EscalationPolicyStep,
+  EscalationPolicyStepAttributes: EscalationPolicyStepAttributes,
+  EscalationPolicyStepRelationships: EscalationPolicyStepRelationships,
+  EscalationPolicyUpdateRequest: EscalationPolicyUpdateRequest,
+  EscalationPolicyUpdateRequestData: EscalationPolicyUpdateRequestData,
+  EscalationPolicyUpdateRequestDataAttributes:
+    EscalationPolicyUpdateRequestDataAttributes,
+  EscalationPolicyUpdateRequestDataAttributesStepsItems:
+    EscalationPolicyUpdateRequestDataAttributesStepsItems,
+  EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems:
+    EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems,
+  EscalationPolicyUpdateRequestDataRelationships:
+    EscalationPolicyUpdateRequestDataRelationships,
+  EscalationPolicyUpdateRequestDataRelationshipsTeams:
+    EscalationPolicyUpdateRequestDataRelationshipsTeams,
+  EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems:
+    EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems,
   Event: Event,
   EventAttributes: EventAttributes,
   EventCreateRequest: EventCreateRequest,
@@ -4315,6 +4418,7 @@ const typeMap: { [index: string]: any } = {
   ScheduleMemberRelationships: ScheduleMemberRelationships,
   ScheduleMemberRelationshipsUser: ScheduleMemberRelationshipsUser,
   ScheduleMemberRelationshipsUserData: ScheduleMemberRelationshipsUserData,
+  ScheduleTarget: ScheduleTarget,
   ScheduleTrigger: ScheduleTrigger,
   ScheduleTriggerWrapper: ScheduleTriggerWrapper,
   ScheduleUpdateRequest: ScheduleUpdateRequest,
@@ -4653,6 +4757,7 @@ const typeMap: { [index: string]: any } = {
   TeamRelationships: TeamRelationships,
   TeamRelationshipsLinks: TeamRelationshipsLinks,
   TeamResponse: TeamResponse,
+  TeamTarget: TeamTarget,
   TeamUpdate: TeamUpdate,
   TeamUpdateAttributes: TeamUpdateAttributes,
   TeamUpdateRelationships: TeamUpdateRelationships,
@@ -4714,6 +4819,7 @@ const typeMap: { [index: string]: any } = {
   UserRelationships: UserRelationships,
   UserResponse: UserResponse,
   UserResponseRelationships: UserResponseRelationships,
+  UserTarget: UserTarget,
   UserTeam: UserTeam,
   UserTeamAttributes: UserTeamAttributes,
   UserTeamCreate: UserTeamCreate,
@@ -4866,6 +4972,14 @@ const oneOfMap: { [index: string]: string[] } = {
     "EntityV3APISpecInterfaceFileRef",
     "EntityV3APISpecInterfaceDefinition",
   ],
+  EscalationPolicyIncluded: [
+    "TeamReference",
+    "EscalationPolicyStep",
+    "UserTarget",
+    "ScheduleTarget",
+    "TeamTarget",
+  ],
+  EscalationTarget: ["TeamTarget", "UserTarget", "ScheduleTarget"],
   EventPayloadAttributes: ["ChangeEventCustomAttributes"],
   HTTPCredentials: ["HTTPTokenAuth"],
   HTTPCredentialsUpdate: ["HTTPTokenAuthUpdate"],

@@ -5040,6 +5040,50 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SingleAggregatedConnectionResponseArray",
     },
+    "v2.CreateOnCallEscalationPolicy": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "EscalationPolicyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "EscalationPolicy",
+    },
+    "v2.DeleteOnCallEscalationPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetOnCallEscalationPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "EscalationPolicy",
+    },
+    "v2.UpdateOnCallEscalationPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "EscalationPolicyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "EscalationPolicy",
+    },
     "v2.CreateOnCallSchedule": {
         "include": {
             "type": "string",

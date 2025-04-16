@@ -35,7 +35,7 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
    */
   "members"?: Array<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems>;
   /**
-   * The name for this layer (for example, “Secondary Coverage”).
+   * The name for this layer (for example, "Secondary Coverage").
    */
   "name"?: string;
   /**

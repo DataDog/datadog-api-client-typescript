@@ -424,9 +424,13 @@ export {
 } from "./apis/OktaIntegrationApi";
 
 export {
+  OnCallApiCreateOnCallEscalationPolicyRequest,
   OnCallApiCreateOnCallScheduleRequest,
+  OnCallApiDeleteOnCallEscalationPolicyRequest,
   OnCallApiDeleteOnCallScheduleRequest,
+  OnCallApiGetOnCallEscalationPolicyRequest,
   OnCallApiGetOnCallScheduleRequest,
+  OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
   OnCallApi,
 } from "./apis/OnCallApi";
@@ -1437,6 +1441,48 @@ export { EntityV3SystemKind } from "./models/EntityV3SystemKind";
 export { EntityV3SystemSpec } from "./models/EntityV3SystemSpec";
 export { EPSS } from "./models/EPSS";
 export { ErrorHandler } from "./models/ErrorHandler";
+export { EscalationPolicy } from "./models/EscalationPolicy";
+export { EscalationPolicyCreateRequest } from "./models/EscalationPolicyCreateRequest";
+export { EscalationPolicyCreateRequestData } from "./models/EscalationPolicyCreateRequestData";
+export { EscalationPolicyCreateRequestDataAttributes } from "./models/EscalationPolicyCreateRequestDataAttributes";
+export { EscalationPolicyCreateRequestDataAttributesStepsItems } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItems";
+export { EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment";
+export { EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems";
+export { EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType";
+export { EscalationPolicyCreateRequestDataRelationships } from "./models/EscalationPolicyCreateRequestDataRelationships";
+export { EscalationPolicyCreateRequestDataRelationshipsTeams } from "./models/EscalationPolicyCreateRequestDataRelationshipsTeams";
+export { EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems } from "./models/EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems";
+export { EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType } from "./models/EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType";
+export { EscalationPolicyCreateRequestDataType } from "./models/EscalationPolicyCreateRequestDataType";
+export { EscalationPolicyData } from "./models/EscalationPolicyData";
+export { EscalationPolicyDataAttributes } from "./models/EscalationPolicyDataAttributes";
+export { EscalationPolicyDataRelationships } from "./models/EscalationPolicyDataRelationships";
+export { EscalationPolicyDataRelationshipsSteps } from "./models/EscalationPolicyDataRelationshipsSteps";
+export { EscalationPolicyDataRelationshipsStepsDataItems } from "./models/EscalationPolicyDataRelationshipsStepsDataItems";
+export { EscalationPolicyDataRelationshipsStepsDataItemsType } from "./models/EscalationPolicyDataRelationshipsStepsDataItemsType";
+export { EscalationPolicyDataRelationshipsTeams } from "./models/EscalationPolicyDataRelationshipsTeams";
+export { EscalationPolicyDataRelationshipsTeamsDataItems } from "./models/EscalationPolicyDataRelationshipsTeamsDataItems";
+export { EscalationPolicyDataRelationshipsTeamsDataItemsType } from "./models/EscalationPolicyDataRelationshipsTeamsDataItemsType";
+export { EscalationPolicyDataType } from "./models/EscalationPolicyDataType";
+export { EscalationPolicyIncluded } from "./models/EscalationPolicyIncluded";
+export { EscalationPolicyStep } from "./models/EscalationPolicyStep";
+export { EscalationPolicyStepAttributes } from "./models/EscalationPolicyStepAttributes";
+export { EscalationPolicyStepAttributesAssignment } from "./models/EscalationPolicyStepAttributesAssignment";
+export { EscalationPolicyStepRelationships } from "./models/EscalationPolicyStepRelationships";
+export { EscalationPolicyStepType } from "./models/EscalationPolicyStepType";
+export { EscalationPolicyUpdateRequest } from "./models/EscalationPolicyUpdateRequest";
+export { EscalationPolicyUpdateRequestData } from "./models/EscalationPolicyUpdateRequestData";
+export { EscalationPolicyUpdateRequestDataAttributes } from "./models/EscalationPolicyUpdateRequestDataAttributes";
+export { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItems";
+export { EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment";
+export { EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems";
+export { EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType";
+export { EscalationPolicyUpdateRequestDataRelationships } from "./models/EscalationPolicyUpdateRequestDataRelationships";
+export { EscalationPolicyUpdateRequestDataRelationshipsTeams } from "./models/EscalationPolicyUpdateRequestDataRelationshipsTeams";
+export { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems } from "./models/EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems";
+export { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType } from "./models/EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType";
+export { EscalationPolicyUpdateRequestDataType } from "./models/EscalationPolicyUpdateRequestDataType";
+export { EscalationTarget } from "./models/EscalationTarget";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
 export { EventCategory } from "./models/EventCategory";
@@ -2426,6 +2472,8 @@ export { ScheduleMemberRelationshipsUser } from "./models/ScheduleMemberRelation
 export { ScheduleMemberRelationshipsUserData } from "./models/ScheduleMemberRelationshipsUserData";
 export { ScheduleMemberRelationshipsUserDataType } from "./models/ScheduleMemberRelationshipsUserDataType";
 export { ScheduleMemberType } from "./models/ScheduleMemberType";
+export { ScheduleTarget } from "./models/ScheduleTarget";
+export { ScheduleTargetType } from "./models/ScheduleTargetType";
 export { ScheduleTrigger } from "./models/ScheduleTrigger";
 export { ScheduleTriggerWrapper } from "./models/ScheduleTriggerWrapper";
 export { ScheduleUpdateRequest } from "./models/ScheduleUpdateRequest";
@@ -2803,6 +2851,8 @@ export { TeamsResponse } from "./models/TeamsResponse";
 export { TeamsResponseLinks } from "./models/TeamsResponseLinks";
 export { TeamsResponseMeta } from "./models/TeamsResponseMeta";
 export { TeamsResponseMetaPagination } from "./models/TeamsResponseMetaPagination";
+export { TeamTarget } from "./models/TeamTarget";
+export { TeamTargetType } from "./models/TeamTargetType";
 export { TeamType } from "./models/TeamType";
 export { TeamUpdate } from "./models/TeamUpdate";
 export { TeamUpdateAttributes } from "./models/TeamUpdateAttributes";
@@ -2875,6 +2925,8 @@ export { UserResponseRelationships } from "./models/UserResponseRelationships";
 export { UsersRelationship } from "./models/UsersRelationship";
 export { UsersResponse } from "./models/UsersResponse";
 export { UsersType } from "./models/UsersType";
+export { UserTarget } from "./models/UserTarget";
+export { UserTargetType } from "./models/UserTargetType";
 export { UserTeam } from "./models/UserTeam";
 export { UserTeamAttributes } from "./models/UserTeamAttributes";
 export { UserTeamCreate } from "./models/UserTeamCreate";
