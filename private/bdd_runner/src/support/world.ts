@@ -26,11 +26,13 @@ export class World {
   public cassettesDir: string;
   public packagePrefix: string;
   public servicesDir: string;
+  public workingDir: string;
 
   constructor(options: any) {
     this.cassettesDir = options?.parameters?.cassettesDir;
     this.packagePrefix = options?.parameters?.packagePrefix;
     this.servicesDir = options?.parameters?.servicesDir;
+    this.workingDir = options?.parameters?.workingDir;
   }
 
   async cleanup() {

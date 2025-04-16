@@ -5,7 +5,6 @@ use(chaiQuantifiers);
 import { World } from "../support/world";
 
 import {
-  getProperty,
   pathLookup,
   getTypeForValue,
   tagToApiClassName,
@@ -50,7 +49,9 @@ Given(/body with value (.*)/, function (this: World, body: string) {
 
 Given(/body from file "(.*)"/, function (this: World, filename: string) {
   const content = fs
-    .readFileSync(path.join(__dirname, `../${this.apiVersion}`, filename))
+    .readFileSync(
+      path.join(this.workingDir, "features", this.apiVersion, filename),
+    )
     .toString();
   this.opts["body"] = JSON.parse(content.templated(this.fixtures));
 });
@@ -187,77 +188,92 @@ When("the request is sent", async function (this: World) {
 });
 
 When("the request with pagination is sent", async function (this: World) {
-  // const api = (datadogApiClient as any)[this.apiVersion];
-  // const configurationOpts = {
-  //   authMethods: this.authMethods,
-  //   httpConfig: { compress: false },
-  //   enableRetry: true,
-  // };
-  // if (process.env.DD_TEST_SITE) {
-  //   const serverConf = datadogCommon.client.servers[2].getConfiguration();
-  //   datadogCommon.client.servers[2].setVariables({
-  //     site: process.env.DD_TEST_SITE,
-  //   } as typeof serverConf);
-  //   (configurationOpts as any)["serverIndex"] = 2;
-  // }
-  // if (process.env.DD_TEST_SITE_URL) {
-  //   const serverConf = datadogCommon.client.servers[1].getConfiguration();
-  //   datadogCommon.client.servers[1].setVariables({
-  //     name: process.env.DD_TEST_SITE_URL,
-  //     protocol: "http",
-  //   } as typeof serverConf);
-  //   (configurationOpts as any)["serverIndex"] = 1;
-  // }
-  // const configuration = datadogCommon.client.createConfiguration(configurationOpts);
-  // for (const operationId in this.unstableOperations) {
-  //   if (`${this.apiVersion}.${operationId}` in configuration.unstableOperations) {
-  //     configuration.unstableOperations[`${this.apiVersion}.${operationId}`] = this.unstableOperations[operationId];
-  //   } else {
-  //     // FIXME throw new Error(`Operation ${operationId} is not unstable`);
-  //     logger.warn(`Operation ${operationId} is not unstable`);
-  //   }
-  // }
-  // const apiInstance = new api[`${this.apiName}Api`](configuration);
-  // // Deserialize obejcts into correct model types
-  // const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
-  // Object.keys(this.opts).forEach(key => {
-  //   this.opts[key] = objectSerializer.deserialize(
-  //     this.opts[key],
-  //     ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].type,
-  //     ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].format
-  //     )
-  // });
-  // // store request context from response processor
-  // Store((...args) => {
-  //   this.requestContext = args[0];
-  // })(apiInstance.responseProcessor);
-  // try {
-  //   let response: any = [];
-  //   if (Object.keys(this.opts).length) {
-  //     for await (const item of apiInstance[this.operationId.toOperationName() + "WithPagination"](this.opts)) {
-  //       response.push(item);
-  //     }
-  //   } else {
-  //     for await (const item of apiInstance[this.operationId.toOperationName() + "WithPagination"]()) {
-  //       response.push(item);
-  //     }
-  //   }
-  //   this.response = response;
-  // } catch (error) {
-  //   if (error instanceof datadogCommon.client.ApiException) {
-  //     this.response = error.body;
-  //   } else {
-  //     throw error;
-  //   }
-  //   logger.debug(error);
-  //   if (this.requestContext === undefined) {
-  //     throw error;
-  //   }
-  //   if (this.requestContext !== undefined && this.requestContext.headers["content-type"] == "application/problem+json" && this.requestContext.httpStatusCode == 500) {
-  //     logger.debug(this.requestContext.body.text);
-  //     throw error;
-  //   }
-  // }
+  const apiNameWithVersion = `${this.apiName}${this.apiVersion.toUpperCase()}`;
+  const api = require(
+    `${this.servicesDir}/${apiClassNameToServicePackageDirName(this.apiName)}/src`,
+  )[apiNameWithVersion];
+  const configurationOpts = {
+    authMethods: this.authMethods,
+    httpConfig: { compress: false },
+    enableRetry: true,
+  };
+  if (process.env.DD_TEST_SITE) {
+    const serverConf = datadogCommon.servers[2].getConfiguration();
+    datadogCommon.servers[2].setVariables({
+      site: process.env.DD_TEST_SITE,
+    } as typeof serverConf);
+    (configurationOpts as any)["serverIndex"] = 2;
+  }
+  if (process.env.DD_TEST_SITE_URL) {
+    const serverConf = datadogCommon.servers[1].getConfiguration();
+    datadogCommon.servers[1].setVariables({
+      name: process.env.DD_TEST_SITE_URL,
+      protocol: "http",
+    } as typeof serverConf);
+    (configurationOpts as any)["serverIndex"] = 1;
+  }
+  const configuration = datadogCommon.createConfiguration(configurationOpts);
+  for (const operationId in this.unstableOperations) {
+    if (
+      `${this.apiVersion}.${operationId}` in configuration.unstableOperations
+    ) {
+      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] =
+        this.unstableOperations[operationId];
+    } else {
+      // FIXME throw new Error(`Operation ${operationId} is not unstable`);
+      logger.warn(`Operation ${operationId} is not unstable`);
+    }
+  }
+  const apiInstance = new api(configuration);
+  // Deserialize obejcts into correct model types
+  this.opts = deserializeOpts(
+    this.opts,
+    this.servicesDir,
+    this.apiVersion,
+    this.apiName,
+    this.operationId,
+  );
+
+  // store request context from response processor
+  Store((...args) => {
+    this.requestContext = args[0];
+  })(apiInstance.responseProcessor);
+  try {
+    let response: any = [];
+    if (Object.keys(this.opts).length) {
+      for await (const item of apiInstance[
+        this.operationId.toOperationName() + "WithPagination"
+      ](this.opts)) {
+        response.push(item);
+      }
+    } else {
+      for await (const item of apiInstance[
+        this.operationId.toOperationName() + "WithPagination"
+      ]()) {
+        response.push(item);
+      }
+    }
+    this.response = response;
+  } catch (error) {
+    if (error instanceof datadogCommon.ApiException) {
+      this.response = error.body;
+    } else {
+      throw error;
+    }
+    logger.debug(error);
+    if (this.requestContext === undefined) {
+      throw error;
+    }
+    if (
+      this.requestContext !== undefined &&
+      this.requestContext.headers["content-type"] ==
+        "application/problem+json" &&
+      this.requestContext.httpStatusCode == 500
+    ) {
+      logger.debug(this.requestContext.body.text);
+      throw error;
+    }
+  }
 });
 
 Then(

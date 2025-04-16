@@ -43,6 +43,7 @@ if (options.workingDir) {
   cwd = options.workingDir;
 }
 let worldParameters = {};
+worldParameters["workingDir"] = cwd;
 worldParameters["cassettesDir"] =
   options.cassettesDir || path.resolve(cwd, "cassettes");
 worldParameters["packagePrefix"] = options.packagePrefix;

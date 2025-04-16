@@ -40,10 +40,11 @@ for (const [apiVersion, givenFile] of Object.entries(
       const apiName: string = tagToApiClassName(operation.tag);
       const operationName: string = operation.operationId.toOperationName();
       // make sure we have a fresh instance of API client and configuration
-      const apiNameWithVersion = `${this.apiName}${this.apiVersion.toUpperCase()}`;
+      const apiNameWithVersion = `${apiName}${apiVersion.toUpperCase()}`;
       const api = require(
         `${this.servicesDir}/${apiClassNameToServicePackageDirName(apiName)}/src`,
       )[apiNameWithVersion];
+
       const configurationOpts = {
         authMethods: {
           apiKeyAuth: process.env.DD_TEST_CLIENT_API_KEY,
@@ -78,6 +79,7 @@ for (const [apiVersion, givenFile] of Object.entries(
         configuration.unstableOperations[`${apiVersion}.${operationName}`] =
           true;
       }
+
       const apiInstance = new api(configuration);
       // find undo method
       const undoAction = UndoActions[apiVersion][operation.operationId];
