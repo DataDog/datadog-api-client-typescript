@@ -14,11 +14,11 @@ export class ScheduleDataRelationshipsLayersDataItems {
   /**
    * The unique identifier of the layer in this relationship.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Layers resource type.
    */
-  "type"?: ScheduleDataRelationshipsLayersDataItemsType;
+  "type": ScheduleDataRelationshipsLayersDataItemsType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,10 +39,12 @@ export class ScheduleDataRelationshipsLayersDataItems {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "ScheduleDataRelationshipsLayersDataItemsType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

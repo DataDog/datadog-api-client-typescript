@@ -28,7 +28,7 @@ export class TeamReference {
   /**
    * Teams resource type.
    */
-  "type"?: TeamReferenceType;
+  "type": TeamReferenceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -61,6 +61,7 @@ export class TeamReference {
     type: {
       baseName: "type",
       type: "TeamReferenceType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

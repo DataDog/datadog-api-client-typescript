@@ -14,11 +14,11 @@ export class ScheduleUpdateRequestDataRelationshipsTeamsDataItems {
   /**
    * The unique team identifier.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Teams resource type.
    */
-  "type"?: ScheduleUpdateRequestDataRelationshipsTeamsDataItemsType;
+  "type": ScheduleUpdateRequestDataRelationshipsTeamsDataItemsType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,10 +39,12 @@ export class ScheduleUpdateRequestDataRelationshipsTeamsDataItems {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "ScheduleUpdateRequestDataRelationshipsTeamsDataItemsType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -14,11 +14,11 @@ export class ScheduleMemberRelationshipsUserData {
   /**
    * The user's unique identifier.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Users resource type.
    */
-  "type"?: ScheduleMemberRelationshipsUserDataType;
+  "type": ScheduleMemberRelationshipsUserDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,10 +39,12 @@ export class ScheduleMemberRelationshipsUserData {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "ScheduleMemberRelationshipsUserDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
