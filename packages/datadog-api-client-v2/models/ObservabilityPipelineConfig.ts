@@ -20,7 +20,7 @@ export class ObservabilityPipelineConfig {
   /**
    * A list of processors that transform or enrich log data.
    */
-  "processors": Array<ObservabilityPipelineConfigProcessorItem>;
+  "processors"?: Array<ObservabilityPipelineConfigProcessorItem>;
   /**
    * A list of configured data sources for the pipeline.
    */
@@ -50,7 +50,6 @@ export class ObservabilityPipelineConfig {
     processors: {
       baseName: "processors",
       type: "Array<ObservabilityPipelineConfigProcessorItem>",
-      required: true,
     },
     sources: {
       baseName: "sources",
