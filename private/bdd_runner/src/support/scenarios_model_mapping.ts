@@ -746,6 +746,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "DistributionPointsContentEncoding",
       format: "",
     },
+    body: {
+      type: "DistributionPointsPayload",
+      format: "",
+    },
     operationResponseType: "IntakePayloadAccepted",
   },
   "MetricsApi.V1.ListActiveMetrics": {
@@ -806,6 +810,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "MetricsApi.V1.SubmitMetrics": {
     contentEncoding: {
       type: "MetricContentEncoding",
+      format: "",
+    },
+    body: {
+      type: "MetricsPayload",
       format: "",
     },
     operationResponseType: "IntakePayloadAccepted",
@@ -4886,6 +4894,49 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "IntakePayloadAccepted",
   },
+  "MonitorsApi.V2.GetMonitorNotificationRules": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "MonitorNotificationRuleListResponse",
+  },
+  "MonitorsApi.V2.CreateMonitorNotificationRule": {
+    body: {
+      type: "MonitorNotificationRuleCreateRequest",
+      format: "",
+    },
+    operationResponseType: "MonitorNotificationRuleResponse",
+  },
+  "MonitorsApi.V2.GetMonitorNotificationRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "MonitorNotificationRuleResponse",
+  },
+  "MonitorsApi.V2.DeleteMonitorNotificationRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "MonitorsApi.V2.UpdateMonitorNotificationRule": {
+    ruleId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "MonitorNotificationRuleUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "MonitorNotificationRuleResponse",
+  },
   "MonitorsApi.V2.ListMonitorConfigPolicies": {
     operationResponseType: "MonitorConfigPolicyListResponse",
   },
@@ -4998,6 +5049,50 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "int32",
     },
     operationResponseType: "SingleAggregatedConnectionResponseArray",
+  },
+  "OnCallApi.V2.CreateOnCallEscalationPolicy": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "EscalationPolicyCreateRequest",
+      format: "",
+    },
+    operationResponseType: "EscalationPolicy",
+  },
+  "OnCallApi.V2.GetOnCallEscalationPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "EscalationPolicy",
+  },
+  "OnCallApi.V2.UpdateOnCallEscalationPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "EscalationPolicyUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "EscalationPolicy",
+  },
+  "OnCallApi.V2.DeleteOnCallEscalationPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "OnCallApi.V2.CreateOnCallSchedule": {
     include: {

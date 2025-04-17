@@ -9,11 +9,11 @@ export class ScheduleDataRelationshipsTeamsDataItems {
   /**
    * The unique identifier of the team in this relationship.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Teams resource type.
    */
-  "type"?: ScheduleDataRelationshipsTeamsDataItemsType;
+  "type": ScheduleDataRelationshipsTeamsDataItemsType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,10 +32,12 @@ export class ScheduleDataRelationshipsTeamsDataItems {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "ScheduleDataRelationshipsTeamsDataItemsType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
