@@ -23,7 +23,7 @@ export class ScheduleMember {
   /**
    * Schedule Members resource type.
    */
-  "type"?: ScheduleMemberType;
+  "type": ScheduleMemberType;
 
   /**
    * A container for additional, undeclared properties.
@@ -52,6 +52,7 @@ export class ScheduleMember {
     type: {
       baseName: "type",
       type: "ScheduleMemberType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

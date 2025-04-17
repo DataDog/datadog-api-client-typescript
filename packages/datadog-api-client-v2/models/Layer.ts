@@ -28,7 +28,7 @@ export class Layer {
   /**
    * Layers resource type.
    */
-  "type"?: LayerType;
+  "type": LayerType;
 
   /**
    * A container for additional, undeclared properties.
@@ -61,6 +61,7 @@ export class Layer {
     type: {
       baseName: "type",
       type: "LayerType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

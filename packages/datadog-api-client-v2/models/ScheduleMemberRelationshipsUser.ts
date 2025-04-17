@@ -14,7 +14,7 @@ export class ScheduleMemberRelationshipsUser {
   /**
    * Points to the user data associated with this schedule member, including an ID and type.
    */
-  "data"?: ScheduleMemberRelationshipsUserData;
+  "data": ScheduleMemberRelationshipsUserData;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +35,7 @@ export class ScheduleMemberRelationshipsUser {
     data: {
       baseName: "data",
       type: "ScheduleMemberRelationshipsUserData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

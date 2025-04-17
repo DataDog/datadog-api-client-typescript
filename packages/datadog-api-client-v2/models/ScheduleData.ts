@@ -28,7 +28,7 @@ export class ScheduleData {
   /**
    * Schedules resource type.
    */
-  "type"?: ScheduleDataType;
+  "type": ScheduleDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -61,6 +61,7 @@ export class ScheduleData {
     type: {
       baseName: "type",
       type: "ScheduleDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

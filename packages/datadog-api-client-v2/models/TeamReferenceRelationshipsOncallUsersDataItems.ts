@@ -14,11 +14,11 @@ export class TeamReferenceRelationshipsOncallUsersDataItems {
   /**
    * The unique identifier of the user.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Users resource type.
    */
-  "type"?: TeamReferenceRelationshipsOncallUsersDataItemsType;
+  "type": TeamReferenceRelationshipsOncallUsersDataItemsType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,10 +39,12 @@ export class TeamReferenceRelationshipsOncallUsersDataItems {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "TeamReferenceRelationshipsOncallUsersDataItemsType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
