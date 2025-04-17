@@ -206,12 +206,11 @@ String.prototype.toAttributeName = function (): string {
 
 function apiClassNameToServicePackageDirName(name: string): string {
   return name
-    .split("Api")
-    .join("")
-    .replace(/[^A-Za-z0-9]+/g, "_")
+    .replace(/Api$/, "")
     .replace(/([a-z])([A-Z])/g, "$1_$2")
-    .toLowerCase()
-    .replace(/^_+|_+$/g, "");
+    .replace(/([A-Z])([A-Z][a-z])/g, "$1_$2")
+    .replace(/[^a-zA-Z0-9]/g, "_")
+    .toLowerCase();
 }
 
 function tagToApiClassName(tag: string): string {
