@@ -6,6 +6,33 @@ import {
 } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { EscalationPolicy } from "./EscalationPolicy";
+import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
+import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateRequestData";
+import { EscalationPolicyCreateRequestDataAttributes } from "./EscalationPolicyCreateRequestDataAttributes";
+import { EscalationPolicyCreateRequestDataAttributesStepsItems } from "./EscalationPolicyCreateRequestDataAttributesStepsItems";
+import { EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems } from "./EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems";
+import { EscalationPolicyCreateRequestDataRelationships } from "./EscalationPolicyCreateRequestDataRelationships";
+import { EscalationPolicyCreateRequestDataRelationshipsTeams } from "./EscalationPolicyCreateRequestDataRelationshipsTeams";
+import { EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems } from "./EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems";
+import { EscalationPolicyData } from "./EscalationPolicyData";
+import { EscalationPolicyDataAttributes } from "./EscalationPolicyDataAttributes";
+import { EscalationPolicyDataRelationships } from "./EscalationPolicyDataRelationships";
+import { EscalationPolicyDataRelationshipsSteps } from "./EscalationPolicyDataRelationshipsSteps";
+import { EscalationPolicyDataRelationshipsStepsDataItems } from "./EscalationPolicyDataRelationshipsStepsDataItems";
+import { EscalationPolicyDataRelationshipsTeams } from "./EscalationPolicyDataRelationshipsTeams";
+import { EscalationPolicyDataRelationshipsTeamsDataItems } from "./EscalationPolicyDataRelationshipsTeamsDataItems";
+import { EscalationPolicyStep } from "./EscalationPolicyStep";
+import { EscalationPolicyStepAttributes } from "./EscalationPolicyStepAttributes";
+import { EscalationPolicyStepRelationships } from "./EscalationPolicyStepRelationships";
+import { EscalationPolicyUpdateRequest } from "./EscalationPolicyUpdateRequest";
+import { EscalationPolicyUpdateRequestData } from "./EscalationPolicyUpdateRequestData";
+import { EscalationPolicyUpdateRequestDataAttributes } from "./EscalationPolicyUpdateRequestDataAttributes";
+import { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./EscalationPolicyUpdateRequestDataAttributesStepsItems";
+import { EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems } from "./EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems";
+import { EscalationPolicyUpdateRequestDataRelationships } from "./EscalationPolicyUpdateRequestDataRelationships";
+import { EscalationPolicyUpdateRequestDataRelationshipsTeams } from "./EscalationPolicyUpdateRequestDataRelationshipsTeams";
+import { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems } from "./EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems";
 import { Layer } from "./Layer";
 import { LayerAttributes } from "./LayerAttributes";
 import { LayerAttributesInterval } from "./LayerAttributesInterval";
@@ -36,6 +63,7 @@ import { ScheduleMember } from "./ScheduleMember";
 import { ScheduleMemberRelationships } from "./ScheduleMemberRelationships";
 import { ScheduleMemberRelationshipsUser } from "./ScheduleMemberRelationshipsUser";
 import { ScheduleMemberRelationshipsUserData } from "./ScheduleMemberRelationshipsUserData";
+import { ScheduleTarget } from "./ScheduleTarget";
 import { ScheduleUpdateRequest } from "./ScheduleUpdateRequest";
 import { ScheduleUpdateRequestData } from "./ScheduleUpdateRequestData";
 import { ScheduleUpdateRequestDataAttributes } from "./ScheduleUpdateRequestDataAttributes";
@@ -54,6 +82,8 @@ import { TeamReferenceAttributes } from "./TeamReferenceAttributes";
 import { TeamReferenceRelationships } from "./TeamReferenceRelationships";
 import { TeamReferenceRelationshipsOncallUsers } from "./TeamReferenceRelationshipsOncallUsers";
 import { TeamReferenceRelationshipsOncallUsersDataItems } from "./TeamReferenceRelationshipsOncallUsersDataItems";
+import { TeamTarget } from "./TeamTarget";
+import { UserTarget } from "./UserTarget";
 
 const primitives = [
   "string",
@@ -76,6 +106,33 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
+  EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment: [
+    "default",
+    "round-robin",
+  ],
+  EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType: [
+    "users",
+    "schedules",
+    "teams",
+  ],
+  EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
+  EscalationPolicyCreateRequestDataType: ["policies"],
+  EscalationPolicyDataRelationshipsStepsDataItemsType: ["steps"],
+  EscalationPolicyDataRelationshipsTeamsDataItemsType: ["teams"],
+  EscalationPolicyDataType: ["policies"],
+  EscalationPolicyStepAttributesAssignment: ["default", "round-robin"],
+  EscalationPolicyStepType: ["steps"],
+  EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment: [
+    "default",
+    "round-robin",
+  ],
+  EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType: [
+    "users",
+    "schedules",
+    "teams",
+  ],
+  EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
+  EscalationPolicyUpdateRequestDataType: ["policies"],
   LayerAttributesRestrictionsItemsEndDay: [
     "monday",
     "tuesday",
@@ -121,6 +178,7 @@ const enumsMap: { [key: string]: any[] } = {
   ScheduleDataType: ["schedules"],
   ScheduleMemberRelationshipsUserDataType: ["users"],
   ScheduleMemberType: ["members"],
+  ScheduleTargetType: ["schedules"],
   ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItemsEndDay: [
     "monday",
     "tuesday",
@@ -144,10 +202,55 @@ const enumsMap: { [key: string]: any[] } = {
   ScheduleUserType: ["users"],
   TeamReferenceRelationshipsOncallUsersDataItemsType: ["users"],
   TeamReferenceType: ["teams"],
+  TeamTargetType: ["teams"],
+  UserTargetType: ["users"],
 };
 
 const typeMap: { [index: string]: any } = {
   APIErrorResponse: APIErrorResponse,
+  EscalationPolicy: EscalationPolicy,
+  EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,
+  EscalationPolicyCreateRequestData: EscalationPolicyCreateRequestData,
+  EscalationPolicyCreateRequestDataAttributes:
+    EscalationPolicyCreateRequestDataAttributes,
+  EscalationPolicyCreateRequestDataAttributesStepsItems:
+    EscalationPolicyCreateRequestDataAttributesStepsItems,
+  EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems:
+    EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems,
+  EscalationPolicyCreateRequestDataRelationships:
+    EscalationPolicyCreateRequestDataRelationships,
+  EscalationPolicyCreateRequestDataRelationshipsTeams:
+    EscalationPolicyCreateRequestDataRelationshipsTeams,
+  EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems:
+    EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems,
+  EscalationPolicyData: EscalationPolicyData,
+  EscalationPolicyDataAttributes: EscalationPolicyDataAttributes,
+  EscalationPolicyDataRelationships: EscalationPolicyDataRelationships,
+  EscalationPolicyDataRelationshipsSteps:
+    EscalationPolicyDataRelationshipsSteps,
+  EscalationPolicyDataRelationshipsStepsDataItems:
+    EscalationPolicyDataRelationshipsStepsDataItems,
+  EscalationPolicyDataRelationshipsTeams:
+    EscalationPolicyDataRelationshipsTeams,
+  EscalationPolicyDataRelationshipsTeamsDataItems:
+    EscalationPolicyDataRelationshipsTeamsDataItems,
+  EscalationPolicyStep: EscalationPolicyStep,
+  EscalationPolicyStepAttributes: EscalationPolicyStepAttributes,
+  EscalationPolicyStepRelationships: EscalationPolicyStepRelationships,
+  EscalationPolicyUpdateRequest: EscalationPolicyUpdateRequest,
+  EscalationPolicyUpdateRequestData: EscalationPolicyUpdateRequestData,
+  EscalationPolicyUpdateRequestDataAttributes:
+    EscalationPolicyUpdateRequestDataAttributes,
+  EscalationPolicyUpdateRequestDataAttributesStepsItems:
+    EscalationPolicyUpdateRequestDataAttributesStepsItems,
+  EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems:
+    EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems,
+  EscalationPolicyUpdateRequestDataRelationships:
+    EscalationPolicyUpdateRequestDataRelationships,
+  EscalationPolicyUpdateRequestDataRelationshipsTeams:
+    EscalationPolicyUpdateRequestDataRelationshipsTeams,
+  EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems:
+    EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems,
   Layer: Layer,
   LayerAttributes: LayerAttributes,
   LayerAttributesInterval: LayerAttributesInterval,
@@ -188,6 +291,7 @@ const typeMap: { [index: string]: any } = {
   ScheduleMemberRelationships: ScheduleMemberRelationships,
   ScheduleMemberRelationshipsUser: ScheduleMemberRelationshipsUser,
   ScheduleMemberRelationshipsUserData: ScheduleMemberRelationshipsUserData,
+  ScheduleTarget: ScheduleTarget,
   ScheduleUpdateRequest: ScheduleUpdateRequest,
   ScheduleUpdateRequestData: ScheduleUpdateRequestData,
   ScheduleUpdateRequestDataAttributes: ScheduleUpdateRequestDataAttributes,
@@ -215,9 +319,19 @@ const typeMap: { [index: string]: any } = {
   TeamReferenceRelationshipsOncallUsers: TeamReferenceRelationshipsOncallUsers,
   TeamReferenceRelationshipsOncallUsersDataItems:
     TeamReferenceRelationshipsOncallUsersDataItems,
+  TeamTarget: TeamTarget,
+  UserTarget: UserTarget,
 };
 
 const oneOfMap: { [index: string]: string[] } = {
+  EscalationPolicyIncluded: [
+    "TeamReference",
+    "EscalationPolicyStep",
+    "UserTarget",
+    "ScheduleTarget",
+    "TeamTarget",
+  ],
+  EscalationTarget: ["TeamTarget", "UserTarget", "ScheduleTarget"],
   ScheduleDataIncludedItem: [
     "TeamReference",
     "Layer",

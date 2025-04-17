@@ -10,11 +10,11 @@ export class LayerRelationshipsMembersDataItems {
   /**
    * The unique user ID of the layer member.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Members resource type.
    */
-  "type"?: LayerRelationshipsMembersDataItemsType;
+  "type": LayerRelationshipsMembersDataItemsType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,10 +33,12 @@ export class LayerRelationshipsMembersDataItems {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "LayerRelationshipsMembersDataItemsType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

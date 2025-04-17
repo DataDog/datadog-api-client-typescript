@@ -12,7 +12,7 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
   /**
    * When this updated layer takes effect (ISO 8601 format).
    */
-  "effectiveDate"?: Date;
+  "effectiveDate": Date;
   /**
    * When this updated layer should stop being active (ISO 8601 format).
    */
@@ -24,15 +24,15 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
   /**
    * Specifies how the rotation repeats: number of days, plus optional seconds, up to the given maximums.
    */
-  "interval"?: ScheduleUpdateRequestDataAttributesLayersItemsInterval;
+  "interval": ScheduleUpdateRequestDataAttributesLayersItemsInterval;
   /**
    * The members assigned to this layer.
    */
-  "members"?: Array<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems>;
+  "members": Array<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems>;
   /**
-   * The name for this layer (for example, “Secondary Coverage”).
+   * The name for this layer (for example, "Secondary Coverage").
    */
-  "name"?: string;
+  "name": string;
   /**
    * Any time restrictions that define when this layer is active.
    */
@@ -40,7 +40,7 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
   /**
    * The date/time at which the rotation begins (ISO 8601 format).
    */
-  "rotationStart"?: Date;
+  "rotationStart": Date;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -59,6 +59,7 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
     effectiveDate: {
       baseName: "effective_date",
       type: "Date",
+      required: true,
       format: "date-time",
     },
     endDate: {
@@ -73,14 +74,17 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
     interval: {
       baseName: "interval",
       type: "ScheduleUpdateRequestDataAttributesLayersItemsInterval",
+      required: true,
     },
     members: {
       baseName: "members",
       type: "Array<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems>",
+      required: true,
     },
     name: {
       baseName: "name",
       type: "string",
+      required: true,
     },
     restrictions: {
       baseName: "restrictions",
@@ -89,6 +93,7 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
     rotationStart: {
       baseName: "rotation_start",
       type: "Date",
+      required: true,
       format: "date-time",
     },
     additionalProperties: {

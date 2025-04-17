@@ -18,6 +18,29 @@ import { MonitorConfigPolicyResponse } from "./MonitorConfigPolicyResponse";
 import { MonitorConfigPolicyResponseData } from "./MonitorConfigPolicyResponseData";
 import { MonitorConfigPolicyTagPolicy } from "./MonitorConfigPolicyTagPolicy";
 import { MonitorConfigPolicyTagPolicyCreateRequest } from "./MonitorConfigPolicyTagPolicyCreateRequest";
+import { MonitorNotificationRuleAttributes } from "./MonitorNotificationRuleAttributes";
+import { MonitorNotificationRuleCreateRequest } from "./MonitorNotificationRuleCreateRequest";
+import { MonitorNotificationRuleCreateRequestData } from "./MonitorNotificationRuleCreateRequestData";
+import { MonitorNotificationRuleData } from "./MonitorNotificationRuleData";
+import { MonitorNotificationRuleFilterTags } from "./MonitorNotificationRuleFilterTags";
+import { MonitorNotificationRuleListResponse } from "./MonitorNotificationRuleListResponse";
+import { MonitorNotificationRuleRelationships } from "./MonitorNotificationRuleRelationships";
+import { MonitorNotificationRuleRelationshipsCreatedBy } from "./MonitorNotificationRuleRelationshipsCreatedBy";
+import { MonitorNotificationRuleRelationshipsCreatedByData } from "./MonitorNotificationRuleRelationshipsCreatedByData";
+import { MonitorNotificationRuleResponse } from "./MonitorNotificationRuleResponse";
+import { MonitorNotificationRuleResponseAttributes } from "./MonitorNotificationRuleResponseAttributes";
+import { MonitorNotificationRuleUpdateRequest } from "./MonitorNotificationRuleUpdateRequest";
+import { MonitorNotificationRuleUpdateRequestData } from "./MonitorNotificationRuleUpdateRequestData";
+import { RelationshipToOrganization } from "./RelationshipToOrganization";
+import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
+import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
+import { RelationshipToRoleData } from "./RelationshipToRoleData";
+import { RelationshipToRoles } from "./RelationshipToRoles";
+import { RelationshipToUserData } from "./RelationshipToUserData";
+import { RelationshipToUsers } from "./RelationshipToUsers";
+import { User } from "./User";
+import { UserAttributes } from "./UserAttributes";
+import { UserResponseRelationships } from "./UserResponseRelationships";
 
 const primitives = [
   "string",
@@ -42,6 +65,10 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 const enumsMap: { [key: string]: any[] } = {
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
+  MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
+  OrganizationsType: ["orgs"],
+  RolesType: ["roles"],
+  UsersType: ["users"],
 };
 
 const typeMap: { [index: string]: any } = {
@@ -61,6 +88,34 @@ const typeMap: { [index: string]: any } = {
   MonitorConfigPolicyTagPolicy: MonitorConfigPolicyTagPolicy,
   MonitorConfigPolicyTagPolicyCreateRequest:
     MonitorConfigPolicyTagPolicyCreateRequest,
+  MonitorNotificationRuleAttributes: MonitorNotificationRuleAttributes,
+  MonitorNotificationRuleCreateRequest: MonitorNotificationRuleCreateRequest,
+  MonitorNotificationRuleCreateRequestData:
+    MonitorNotificationRuleCreateRequestData,
+  MonitorNotificationRuleData: MonitorNotificationRuleData,
+  MonitorNotificationRuleFilterTags: MonitorNotificationRuleFilterTags,
+  MonitorNotificationRuleListResponse: MonitorNotificationRuleListResponse,
+  MonitorNotificationRuleRelationships: MonitorNotificationRuleRelationships,
+  MonitorNotificationRuleRelationshipsCreatedBy:
+    MonitorNotificationRuleRelationshipsCreatedBy,
+  MonitorNotificationRuleRelationshipsCreatedByData:
+    MonitorNotificationRuleRelationshipsCreatedByData,
+  MonitorNotificationRuleResponse: MonitorNotificationRuleResponse,
+  MonitorNotificationRuleResponseAttributes:
+    MonitorNotificationRuleResponseAttributes,
+  MonitorNotificationRuleUpdateRequest: MonitorNotificationRuleUpdateRequest,
+  MonitorNotificationRuleUpdateRequestData:
+    MonitorNotificationRuleUpdateRequestData,
+  RelationshipToOrganization: RelationshipToOrganization,
+  RelationshipToOrganizationData: RelationshipToOrganizationData,
+  RelationshipToOrganizations: RelationshipToOrganizations,
+  RelationshipToRoleData: RelationshipToRoleData,
+  RelationshipToRoles: RelationshipToRoles,
+  RelationshipToUserData: RelationshipToUserData,
+  RelationshipToUsers: RelationshipToUsers,
+  User: User,
+  UserAttributes: UserAttributes,
+  UserResponseRelationships: UserResponseRelationships,
 };
 
 const oneOfMap: { [index: string]: string[] } = {
@@ -68,6 +123,8 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorConfigPolicyPolicyCreateRequest: [
     "MonitorConfigPolicyTagPolicyCreateRequest",
   ],
+  MonitorNotificationRuleFilter: ["MonitorNotificationRuleFilterTags"],
+  MonitorNotificationRuleResponseIncludedItem: ["User"],
 };
 
 export class ObjectSerializer {

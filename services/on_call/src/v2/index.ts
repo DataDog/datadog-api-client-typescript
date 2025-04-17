@@ -1,12 +1,58 @@
 export {
+  OnCallApiCreateOnCallEscalationPolicyRequest,
   OnCallApiCreateOnCallScheduleRequest,
+  OnCallApiDeleteOnCallEscalationPolicyRequest,
   OnCallApiDeleteOnCallScheduleRequest,
+  OnCallApiGetOnCallEscalationPolicyRequest,
   OnCallApiGetOnCallScheduleRequest,
+  OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
   OnCallApi,
 } from "./OnCallApi";
 
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { EscalationPolicy } from "./models/EscalationPolicy";
+export { EscalationPolicyCreateRequest } from "./models/EscalationPolicyCreateRequest";
+export { EscalationPolicyCreateRequestData } from "./models/EscalationPolicyCreateRequestData";
+export { EscalationPolicyCreateRequestDataAttributes } from "./models/EscalationPolicyCreateRequestDataAttributes";
+export { EscalationPolicyCreateRequestDataAttributesStepsItems } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItems";
+export { EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment";
+export { EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems";
+export { EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType";
+export { EscalationPolicyCreateRequestDataRelationships } from "./models/EscalationPolicyCreateRequestDataRelationships";
+export { EscalationPolicyCreateRequestDataRelationshipsTeams } from "./models/EscalationPolicyCreateRequestDataRelationshipsTeams";
+export { EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems } from "./models/EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems";
+export { EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType } from "./models/EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType";
+export { EscalationPolicyCreateRequestDataType } from "./models/EscalationPolicyCreateRequestDataType";
+export { EscalationPolicyData } from "./models/EscalationPolicyData";
+export { EscalationPolicyDataAttributes } from "./models/EscalationPolicyDataAttributes";
+export { EscalationPolicyDataRelationships } from "./models/EscalationPolicyDataRelationships";
+export { EscalationPolicyDataRelationshipsSteps } from "./models/EscalationPolicyDataRelationshipsSteps";
+export { EscalationPolicyDataRelationshipsStepsDataItems } from "./models/EscalationPolicyDataRelationshipsStepsDataItems";
+export { EscalationPolicyDataRelationshipsStepsDataItemsType } from "./models/EscalationPolicyDataRelationshipsStepsDataItemsType";
+export { EscalationPolicyDataRelationshipsTeams } from "./models/EscalationPolicyDataRelationshipsTeams";
+export { EscalationPolicyDataRelationshipsTeamsDataItems } from "./models/EscalationPolicyDataRelationshipsTeamsDataItems";
+export { EscalationPolicyDataRelationshipsTeamsDataItemsType } from "./models/EscalationPolicyDataRelationshipsTeamsDataItemsType";
+export { EscalationPolicyDataType } from "./models/EscalationPolicyDataType";
+export { EscalationPolicyIncluded } from "./models/EscalationPolicyIncluded";
+export { EscalationPolicyStep } from "./models/EscalationPolicyStep";
+export { EscalationPolicyStepAttributes } from "./models/EscalationPolicyStepAttributes";
+export { EscalationPolicyStepAttributesAssignment } from "./models/EscalationPolicyStepAttributesAssignment";
+export { EscalationPolicyStepRelationships } from "./models/EscalationPolicyStepRelationships";
+export { EscalationPolicyStepType } from "./models/EscalationPolicyStepType";
+export { EscalationPolicyUpdateRequest } from "./models/EscalationPolicyUpdateRequest";
+export { EscalationPolicyUpdateRequestData } from "./models/EscalationPolicyUpdateRequestData";
+export { EscalationPolicyUpdateRequestDataAttributes } from "./models/EscalationPolicyUpdateRequestDataAttributes";
+export { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItems";
+export { EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment";
+export { EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems";
+export { EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType";
+export { EscalationPolicyUpdateRequestDataRelationships } from "./models/EscalationPolicyUpdateRequestDataRelationships";
+export { EscalationPolicyUpdateRequestDataRelationshipsTeams } from "./models/EscalationPolicyUpdateRequestDataRelationshipsTeams";
+export { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems } from "./models/EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems";
+export { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType } from "./models/EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType";
+export { EscalationPolicyUpdateRequestDataType } from "./models/EscalationPolicyUpdateRequestDataType";
+export { EscalationTarget } from "./models/EscalationTarget";
 export { Layer } from "./models/Layer";
 export { LayerAttributes } from "./models/LayerAttributes";
 export { LayerAttributesInterval } from "./models/LayerAttributesInterval";
@@ -51,6 +97,8 @@ export { ScheduleMemberRelationshipsUser } from "./models/ScheduleMemberRelation
 export { ScheduleMemberRelationshipsUserData } from "./models/ScheduleMemberRelationshipsUserData";
 export { ScheduleMemberRelationshipsUserDataType } from "./models/ScheduleMemberRelationshipsUserDataType";
 export { ScheduleMemberType } from "./models/ScheduleMemberType";
+export { ScheduleTarget } from "./models/ScheduleTarget";
+export { ScheduleTargetType } from "./models/ScheduleTargetType";
 export { ScheduleUpdateRequest } from "./models/ScheduleUpdateRequest";
 export { ScheduleUpdateRequestData } from "./models/ScheduleUpdateRequestData";
 export { ScheduleUpdateRequestDataAttributes } from "./models/ScheduleUpdateRequestDataAttributes";
@@ -76,3 +124,7 @@ export { TeamReferenceRelationshipsOncallUsers } from "./models/TeamReferenceRel
 export { TeamReferenceRelationshipsOncallUsersDataItems } from "./models/TeamReferenceRelationshipsOncallUsersDataItems";
 export { TeamReferenceRelationshipsOncallUsersDataItemsType } from "./models/TeamReferenceRelationshipsOncallUsersDataItemsType";
 export { TeamReferenceType } from "./models/TeamReferenceType";
+export { TeamTarget } from "./models/TeamTarget";
+export { TeamTargetType } from "./models/TeamTargetType";
+export { UserTarget } from "./models/UserTarget";
+export { UserTargetType } from "./models/UserTargetType";

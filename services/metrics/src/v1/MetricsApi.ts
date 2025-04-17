@@ -14,11 +14,13 @@ import {
 import { ObjectSerializer } from "./models/ObjectSerializer";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { DistributionPointsContentEncoding } from "./models/DistributionPointsContentEncoding";
+import { DistributionPointsPayload } from "./models/DistributionPointsPayload";
 import { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
 import { MetricContentEncoding } from "./models/MetricContentEncoding";
 import { MetricMetadata } from "./models/MetricMetadata";
 import { MetricSearchResponse } from "./models/MetricSearchResponse";
 import { MetricsListResponse } from "./models/MetricsListResponse";
+import { MetricsPayload } from "./models/MetricsPayload";
 import { MetricsQueryResponse } from "./models/MetricsQueryResponse";
 
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
@@ -219,10 +221,16 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async submitDistributionPoints(
+    body: DistributionPointsPayload,
     contentEncoding?: DistributionPointsContentEncoding,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "submitDistributionPoints");
+    }
 
     // Path Params
     const localVarPath = "/api/v1/distribution_points";
@@ -262,10 +270,16 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async submitMetrics(
+    body: MetricsPayload,
     contentEncoding?: MetricContentEncoding,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "submitMetrics");
+    }
 
     // Path Params
     const localVarPath = "/api/v1/series";
@@ -852,6 +866,10 @@ export interface MetricsApiQueryMetricsRequest {
 
 export interface MetricsApiSubmitDistributionPointsRequest {
   /**
+   * @type DistributionPointsPayload
+   */
+  body: DistributionPointsPayload;
+  /**
    * HTTP header used to compress the media-type.
    * @type DistributionPointsContentEncoding
    */
@@ -859,6 +877,10 @@ export interface MetricsApiSubmitDistributionPointsRequest {
 }
 
 export interface MetricsApiSubmitMetricsRequest {
+  /**
+   * @type MetricsPayload
+   */
+  body: MetricsPayload;
   /**
    * HTTP header used to compress the media-type.
    * @type MetricContentEncoding
@@ -989,10 +1011,11 @@ export class MetricsApi {
    * @param param The request object
    */
   public submitDistributionPoints(
-    param: MetricsApiSubmitDistributionPointsRequest = {},
+    param: MetricsApiSubmitDistributionPointsRequest,
     options?: Configuration,
   ): Promise<IntakePayloadAccepted> {
     const requestContextPromise = this.requestFactory.submitDistributionPoints(
+      param.body,
       param.contentEncoding,
       options,
     );
@@ -1022,10 +1045,11 @@ export class MetricsApi {
    * @param param The request object
    */
   public submitMetrics(
-    param: MetricsApiSubmitMetricsRequest = {},
+    param: MetricsApiSubmitMetricsRequest,
     options?: Configuration,
   ): Promise<IntakePayloadAccepted> {
     const requestContextPromise = this.requestFactory.submitMetrics(
+      param.body,
       param.contentEncoding,
       options,
     );

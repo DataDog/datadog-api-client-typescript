@@ -11,7 +11,7 @@ export class ScheduleCreateRequestData {
   /**
    * Describes the main attributes for creating a new schedule, including name, layers, time zone, and tags.
    */
-  "attributes": ScheduleCreateRequestDataAttributes;
+  "attributes"?: ScheduleCreateRequestDataAttributes;
   /**
    * Gathers relationship objects for the schedule creation request, including the teams to associate.
    */
@@ -38,7 +38,6 @@ export class ScheduleCreateRequestData {
     attributes: {
       baseName: "attributes",
       type: "ScheduleCreateRequestDataAttributes",
-      required: true,
     },
     relationships: {
       baseName: "relationships",

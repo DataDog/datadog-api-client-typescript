@@ -18,7 +18,7 @@ export class ScheduleUser {
   /**
    * Users resource type.
    */
-  "type"?: ScheduleUserType;
+  "type": ScheduleUserType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -45,6 +45,7 @@ export class ScheduleUser {
     type: {
       baseName: "type",
       type: "ScheduleUserType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
