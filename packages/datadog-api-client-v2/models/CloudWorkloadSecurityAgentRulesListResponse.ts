@@ -8,11 +8,11 @@ import { CloudWorkloadSecurityAgentRuleData } from "./CloudWorkloadSecurityAgent
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response object that includes a list of Agent rule.
+ * Response object that includes a list of Agent rule
  */
 export class CloudWorkloadSecurityAgentRulesListResponse {
   /**
-   * A list of Agent rules objects.
+   * A list of Agent rules objects
    */
   "data"?: Array<CloudWorkloadSecurityAgentRuleData>;
 
