@@ -5,6 +5,7 @@
  */
 import { ObservabilityPipelineAddFieldsProcessor } from "./ObservabilityPipelineAddFieldsProcessor";
 import { ObservabilityPipelineFilterProcessor } from "./ObservabilityPipelineFilterProcessor";
+import { ObservabilityPipelineGenerateMetricsProcessor } from "./ObservabilityPipelineGenerateMetricsProcessor";
 import { ObservabilityPipelineParseJSONProcessor } from "./ObservabilityPipelineParseJSONProcessor";
 import { ObservabilityPipelineQuotaProcessor } from "./ObservabilityPipelineQuotaProcessor";
 import { ObservabilityPipelineRemoveFieldsProcessor } from "./ObservabilityPipelineRemoveFieldsProcessor";
@@ -23,4 +24,5 @@ export type ObservabilityPipelineConfigProcessorItem =
   | ObservabilityPipelineAddFieldsProcessor
   | ObservabilityPipelineRemoveFieldsProcessor
   | ObservabilityPipelineRenameFieldsProcessor
+  | ObservabilityPipelineGenerateMetricsProcessor
   | UnparsedObject;

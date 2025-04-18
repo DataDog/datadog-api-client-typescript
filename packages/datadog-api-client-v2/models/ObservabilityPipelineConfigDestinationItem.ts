@@ -3,7 +3,10 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelineAmazonS3Destination";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
+import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -13,4 +16,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineDatadogLogsDestination
+  | ObservabilityPipelineAmazonS3Destination
+  | ObservabilityPipelineGoogleCloudStorageDestination
+  | ObservabilityPipelineSplunkHecDestination
   | UnparsedObject;
