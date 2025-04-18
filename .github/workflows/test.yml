@@ -15,7 +15,7 @@ on:
     - cron: "0 5 * * *"
 
 concurrency:
-  group: unit-${{ github.head_ref }}
+  group: unit-split-package-${{ github.head_ref }}
   cancel-in-progress: true
 
 jobs:
@@ -56,7 +56,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ~/.cache/pre-commit
-          key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
+          key: pre-commit|split-package|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
       - id: pre_commit
         name: Run generate to fix lint and format
         if: github.event.action != 'closed' && github.event.pull_request.merged != true
@@ -77,3 +77,58 @@ jobs:
         if: github.event_name == 'schedule'
         run: |
           pre-commit run --all-files --show-diff-on-failure --color=always
+
+  test:
+    strategy:
+      matrix:
+        node-version: ["16", "18"]
+        platform: [ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+    if: (github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) || github.event_name == 'schedule'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - name: Test
+        run: ./run-tests.sh
+        shell: bash
+
+  # examples:
+  #   runs-on: ubuntu-latest
+  #   if: (github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) || github.event_name == 'schedule'
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Set up Node 16
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
+  #         cache: 'yarn'
+  #     - name: Check examples
+  #       run: ./check-examples.sh
+  #       shell: bash
+
+    report:
+      runs-on: ubuntu-latest
+      if: always() && github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')
+      needs:
+        - test
+        # - examples
+      steps:
+        - name: Get GitHub App token
+          if: github.event_name == 'pull_request'
+          id: get_token
+          uses: actions/create-github-app-token@v1
+          with:
+            app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
+            private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
+            repositories: datadog-api-spec
+        - name: Post status check
+          uses: DataDog/github-actions/post-status-check@v2
+          with:
+            github-token: ${{ steps.get_token.outputs.token }}
+            repo: datadog-api-spec
+            status: ${{ (needs.test.result == 'cancelled' || needs.examples.result == 'cancelled') && 'pending' || needs.test.result == 'success' && needs.examples.result == 'success' && 'success' || 'failure' }}
+            context: unit
