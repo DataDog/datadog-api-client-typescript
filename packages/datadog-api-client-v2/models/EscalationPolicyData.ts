@@ -28,7 +28,7 @@ export class EscalationPolicyData {
   /**
    * Indicates that the resource is of type `policies`.
    */
-  "type": EscalationPolicyDataType;
+  "type"?: EscalationPolicyDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -61,7 +61,6 @@ export class EscalationPolicyData {
     type: {
       baseName: "type",
       type: "EscalationPolicyDataType",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
