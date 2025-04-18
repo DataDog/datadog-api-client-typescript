@@ -10,75 +10,79 @@ import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkload
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A Cloud Workload Security Agent rule returned by the API.
+ * A Cloud Workload Security Agent rule returned by the API
  */
 export class CloudWorkloadSecurityAgentRuleAttributes {
   /**
-   * The array of actions the rule can perform if triggered.
+   * The array of actions the rule can perform if triggered
    */
   "actions"?: Array<CloudWorkloadSecurityAgentRuleAction>;
   /**
-   * The version of the agent.
+   * The version of the Agent
    */
   "agentConstraint"?: string;
   /**
-   * The category of the Agent rule.
+   * The category of the Agent rule
    */
   "category"?: string;
   /**
-   * The ID of the user who created the rule.
+   * The ID of the user who created the rule
    */
   "creationAuthorUuId"?: string;
   /**
-   * When the Agent rule was created, timestamp in milliseconds.
+   * When the Agent rule was created, timestamp in milliseconds
    */
   "creationDate"?: number;
   /**
-   * The attributes of the user who created the Agent rule.
+   * The attributes of the user who created the Agent rule
    */
   "creator"?: CloudWorkloadSecurityAgentRuleCreatorAttributes;
   /**
-   * Whether the rule is included by default.
+   * Whether the rule is included by default
    */
   "defaultRule"?: boolean;
   /**
-   * The description of the Agent rule.
+   * The description of the Agent rule
    */
   "description"?: string;
   /**
-   * Whether the Agent rule is enabled.
+   * Whether the Agent rule is enabled
    */
   "enabled"?: boolean;
   /**
-   * The SECL expression of the Agent rule.
+   * The SECL expression of the Agent rule
    */
   "expression"?: string;
   /**
-   * The platforms the Agent rule is supported on.
+   * The platforms the Agent rule is supported on
    */
   "filters"?: Array<string>;
   /**
-   * The name of the Agent rule.
+   * The name of the Agent rule
    */
   "name"?: string;
   /**
-   * The ID of the user who updated the rule.
+   * The list of product tags associated with the rule
+   */
+  "productTags"?: Array<string>;
+  /**
+   * The ID of the user who updated the rule
    */
   "updateAuthorUuId"?: string;
   /**
-   * Timestamp in milliseconds when the Agent rule was last updated.
+   * Timestamp in milliseconds when the Agent rule was last updated
    */
   "updateDate"?: number;
   /**
-   * When the Agent rule was last updated, timestamp in milliseconds.
+   * When the Agent rule was last updated, timestamp in milliseconds
    */
   "updatedAt"?: number;
   /**
-   * The attributes of the user who last updated the Agent rule.
+   * The attributes of the user who last updated the Agent rule
    */
   "updater"?: CloudWorkloadSecurityAgentRuleUpdaterAttributes;
   /**
-   * The version of the Agent rule.
+   * The version of the Agent rule
    */
   "version"?: number;
 
@@ -146,6 +150,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    productTags: {
+      baseName: "product_tags",
+      type: "Array<string>",
     },
     updateAuthorUuId: {
       baseName: "updateAuthorUuId",
