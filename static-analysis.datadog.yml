@@ -6,3 +6,4 @@ rulesets:
 
 ignore-paths:
   - examples/
+  - private/bdd_runner/
