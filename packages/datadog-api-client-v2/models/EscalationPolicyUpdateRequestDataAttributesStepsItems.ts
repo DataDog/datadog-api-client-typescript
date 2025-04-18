@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EscalationPolicyUpdateRequestDataAttributesStepsItems {
   /**
-   * Specifies how this escalation step will assign targets (example `default` or `round-robin`).
+   * Specifies how this escalation step will assign targets (example `default`).
    */
   "assignment"?: EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment;
   /**

@@ -2090,10 +2090,7 @@ const enumsMap: { [key: string]: any[] } = {
   EntityV3QueueKind: ["queue"],
   EntityV3ServiceKind: ["service"],
   EntityV3SystemKind: ["system"],
-  EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment: [
-    "default",
-    "round-robin",
-  ],
+  EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment: ["default"],
   EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType: [
     "users",
     "schedules",
@@ -2104,12 +2101,9 @@ const enumsMap: { [key: string]: any[] } = {
   EscalationPolicyDataRelationshipsStepsDataItemsType: ["steps"],
   EscalationPolicyDataRelationshipsTeamsDataItemsType: ["teams"],
   EscalationPolicyDataType: ["policies"],
-  EscalationPolicyStepAttributesAssignment: ["default", "round-robin"],
+  EscalationPolicyStepAttributesAssignment: ["default"],
   EscalationPolicyStepType: ["steps"],
-  EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment: [
-    "default",
-    "round-robin",
-  ],
+  EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment: ["default"],
   EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType: [
     "users",
     "schedules",

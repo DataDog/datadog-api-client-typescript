@@ -1,5 +1,5 @@
 /**
- * Create on call escalation policy returns "Created" response
+ * Create on-call escalation policy returns "Created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -37,16 +37,6 @@ const params: v2.OnCallApiCreateOnCallEscalationPolicyRequest = {
                 id: SCHEDULE_DATA_ID,
                 type: "schedules",
               },
-              {
-                id: DD_TEAM_DATA_ID,
-                type: "teams",
-              },
-            ],
-          },
-          {
-            assignment: "round-robin",
-            escalateAfterSeconds: 3600,
-            targets: [
               {
                 id: DD_TEAM_DATA_ID,
                 type: "teams",

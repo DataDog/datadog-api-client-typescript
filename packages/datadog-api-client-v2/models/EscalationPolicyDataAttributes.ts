@@ -17,7 +17,7 @@ export class EscalationPolicyDataAttributes {
   /**
    * Specifies the name of the escalation policy.
    */
-  "name": string;
+  "name"?: string;
   /**
    * Indicates whether the page is automatically resolved when the policy ends.
    */
@@ -50,7 +50,6 @@ export class EscalationPolicyDataAttributes {
     name: {
       baseName: "name",
       type: "string",
-      required: true,
     },
     resolvePageOnPolicyEnd: {
       baseName: "resolve_page_on_policy_end",

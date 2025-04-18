@@ -1,5 +1,5 @@
 /**
- * Delete on call escalation policy returns "No Content" response
+ * Delete on-call escalation policy returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

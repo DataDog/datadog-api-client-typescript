@@ -7,12 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Specifies how this escalation step will assign targets (example `default` or `round-robin`).
+ * Specifies how this escalation step will assign targets (example `default`).
  */
 
 export type EscalationPolicyStepAttributesAssignment =
   | typeof DEFAULT
-  | typeof ROUND_ROBIN
   | UnparsedObject;
 export const DEFAULT = "default";
-export const ROUND_ROBIN = "round-robin";
