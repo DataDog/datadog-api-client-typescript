@@ -81,7 +81,7 @@ jobs:
   test:
     strategy:
       matrix:
-        node-version: ["16", "18"]
+        node-version: ["18", "20"]
         platform: [ubuntu-latest]
     runs-on: ${{ matrix.platform }}
     if: (github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) || github.event_name == 'schedule'
@@ -110,25 +110,26 @@ jobs:
   #       run: ./check-examples.sh
   #       shell: bash
 
-    report:
-      runs-on: ubuntu-latest
-      if: always() && github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')
-      needs:
-        - test
-        # - examples
-      steps:
-        - name: Get GitHub App token
-          if: github.event_name == 'pull_request'
-          id: get_token
-          uses: actions/create-github-app-token@v1
-          with:
-            app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
-            private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
-            repositories: datadog-api-spec
-        - name: Post status check
-          uses: DataDog/github-actions/post-status-check@v2
-          with:
-            github-token: ${{ steps.get_token.outputs.token }}
-            repo: datadog-api-spec
-            status: ${{ (needs.test.result == 'cancelled' || needs.examples.result == 'cancelled') && 'pending' || needs.test.result == 'success' && needs.examples.result == 'success' && 'success' || 'failure' }}
-            context: unit
+  report:
+    runs-on: ubuntu-latest
+    if: always() && github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'datadog-api-spec/generated/')
+    needs:
+      - test
+      # - examples
+    steps:
+      - name: Get GitHub App token
+        if: github.event_name == 'pull_request'
+        id: get_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
+          private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
+          repositories: datadog-api-spec
+      - name: Post status check
+        uses: DataDog/github-actions/post-status-check@v2
+        with:
+          github-token: ${{ steps.get_token.outputs.token }}
+          repo: datadog-api-spec
+          # status: ${{ (needs.test.result == 'cancelled' || needs.examples.result == 'cancelled') && 'pending' || needs.test.result == 'success' && needs.examples.result == 'success' && 'success' || 'failure' }}
+          status: ${{ needs.test.result == 'cancelled' && 'pending' || needs.test.result == 'success' && 'success' || 'failure' }}
+          context: unit
