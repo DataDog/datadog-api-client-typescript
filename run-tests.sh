@@ -9,8 +9,8 @@ yarn install --ignore-scripts
 yarn workspace @datadog/datadog-api-client build
 yarn workspace bdd-runner run build
 
-# # Check licenses
-# yarn run check-licenses || exit 1
+# Check licenses
+yarn run check-licenses || exit 1
 
 
 # # Run unit tests

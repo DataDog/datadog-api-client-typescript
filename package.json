@@ -25,6 +25,7 @@
     "private/*"
   ],
   "scripts": {
+    "check-licenses": "node bin/check-licenses.js",
     "build": "yarn workspaces run build",
     "lint": "yarn install --ignore-scripts; eslint --ext .ts packages/* services/*",
     "lint:fix": "yarn install --ignore-scripts;  yarn lint --fix",
@@ -32,7 +33,6 @@
     "bdd-test": "yarn workspace bdd-runner run start --working-dir \"$(pwd)\" \"features/v*/*.feature\""
   },
   "devDependencies": {
-    "@eslint/js": "^9.23.0",
     "eslint": "^9.23.0",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2",
