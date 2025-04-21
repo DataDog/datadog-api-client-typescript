@@ -7,21 +7,17 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Configuration for enabling TLS encryption between the pipeline component and external services.
+ * The Grok helper rule referenced in the parsing rules.
  */
-export class ObservabilityPipelineTls {
+export class ObservabilityPipelineParseGrokProcessorRuleSupportRule {
   /**
-   * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+   * The name of the Grok helper rule.
    */
-  "caFile"?: string;
+  "name": string;
   /**
-   * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+   * The definition of the Grok helper rule.
    */
-  "crtFile": string;
-  /**
-   * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-   */
-  "keyFile"?: string;
+  "rule": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,18 +35,15 @@ export class ObservabilityPipelineTls {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    caFile: {
-      baseName: "ca_file",
-      type: "string",
-    },
-    crtFile: {
-      baseName: "crt_file",
+    name: {
+      baseName: "name",
       type: "string",
       required: true,
     },
-    keyFile: {
-      baseName: "key_file",
+    rule: {
+      baseName: "rule",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,7 +55,7 @@ export class ObservabilityPipelineTls {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineTls.attributeTypeMap;
+    return ObservabilityPipelineParseGrokProcessorRuleSupportRule.attributeTypeMap;
   }
 
   public constructor() {}

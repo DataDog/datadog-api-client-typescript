@@ -3,25 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineFluentSourceType } from "./ObservabilityPipelineFluentSourceType";
+import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Configuration for enabling TLS encryption between the pipeline component and external services.
+ * The `fluent` source ingests logs from a Fluentd-compatible service.
  */
-export class ObservabilityPipelineTls {
+export class ObservabilityPipelineFluentSource {
   /**
-   * Path to the Certificate Authority (CA) file used to validate the server’s TLS certificate.
+   * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
-  "caFile"?: string;
+  "id": string;
   /**
-   * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
-  "crtFile": string;
+  "tls"?: ObservabilityPipelineTls;
   /**
-   * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+   * The source type. The value should always be `fluent`.
    */
-  "keyFile"?: string;
+  "type": ObservabilityPipelineFluentSourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,18 +41,19 @@ export class ObservabilityPipelineTls {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    caFile: {
-      baseName: "ca_file",
-      type: "string",
-    },
-    crtFile: {
-      baseName: "crt_file",
+    id: {
+      baseName: "id",
       type: "string",
       required: true,
     },
-    keyFile: {
-      baseName: "key_file",
-      type: "string",
+    tls: {
+      baseName: "tls",
+      type: "ObservabilityPipelineTls",
+    },
+    type: {
+      baseName: "type",
+      type: "ObservabilityPipelineFluentSourceType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,7 +65,7 @@ export class ObservabilityPipelineTls {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineTls.attributeTypeMap;
+    return ObservabilityPipelineFluentSource.attributeTypeMap;
   }
 
   public constructor() {}

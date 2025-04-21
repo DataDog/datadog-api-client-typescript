@@ -3,17 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineDatadogAgentSourceType } from "./ObservabilityPipelineDatadogAgentSourceType";
+import { ObservabilityPipelineDecoding } from "./ObservabilityPipelineDecoding";
+import { ObservabilityPipelineHttpServerSourceAuthStrategy } from "./ObservabilityPipelineHttpServerSourceAuthStrategy";
+import { ObservabilityPipelineHttpServerSourceType } from "./ObservabilityPipelineHttpServerSourceType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The `datadog_agent` source collects logs from the Datadog Agent.
+ * The `http_server` source collects logs over HTTP POST from external services.
  */
-export class ObservabilityPipelineDatadogAgentSource {
+export class ObservabilityPipelineHttpServerSource {
   /**
-   * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
+   * HTTP authentication method.
+   */
+  "authStrategy": ObservabilityPipelineHttpServerSourceAuthStrategy;
+  /**
+   * The decoding format used to interpret incoming logs.
+   */
+  "decoding": ObservabilityPipelineDecoding;
+  /**
+   * Unique ID for the HTTP server source.
    */
   "id": string;
   /**
@@ -21,9 +31,9 @@ export class ObservabilityPipelineDatadogAgentSource {
    */
   "tls"?: ObservabilityPipelineTls;
   /**
-   * The source type. The value should always be `datadog_agent`.
+   * The source type. The value should always be `http_server`.
    */
-  "type": ObservabilityPipelineDatadogAgentSourceType;
+  "type": ObservabilityPipelineHttpServerSourceType;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,6 +51,16 @@ export class ObservabilityPipelineDatadogAgentSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    authStrategy: {
+      baseName: "auth_strategy",
+      type: "ObservabilityPipelineHttpServerSourceAuthStrategy",
+      required: true,
+    },
+    decoding: {
+      baseName: "decoding",
+      type: "ObservabilityPipelineDecoding",
+      required: true,
+    },
     id: {
       baseName: "id",
       type: "string",
@@ -52,7 +72,7 @@ export class ObservabilityPipelineDatadogAgentSource {
     },
     type: {
       baseName: "type",
-      type: "ObservabilityPipelineDatadogAgentSourceType",
+      type: "ObservabilityPipelineHttpServerSourceType",
       required: true,
     },
     additionalProperties: {
@@ -65,7 +85,7 @@ export class ObservabilityPipelineDatadogAgentSource {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineDatadogAgentSource.attributeTypeMap;
+    return ObservabilityPipelineHttpServerSource.attributeTypeMap;
   }
 
   public constructor() {}
