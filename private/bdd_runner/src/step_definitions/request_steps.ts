@@ -299,11 +299,12 @@ Then(
     const _type = getTypeForValue(pathResult);
     let templatedFixtureValue = JSON.parse(value.templated(this.fixtures));
     if (_type) {
-      const objectSerializer = require(
-        `${this.servicesDir}/${apiClassNameToServicePackageDirName(this.apiName)}/src/${this.apiVersion}/models/ObjectSerializer`,
-      )["ObjectSerializer"];
-      templatedFixtureValue = objectSerializer.deserialize(
+      const typingInfo = require(
+        `${this.servicesDir}/${apiClassNameToServicePackageDirName(this.apiName)}/src/${this.apiVersion}/models/TypingInfo`,
+      )["TypingInfo"];
+      templatedFixtureValue = datadogCommon.deserialize(
         templatedFixtureValue,
+        typingInfo,
         _type,
         "",
       );
