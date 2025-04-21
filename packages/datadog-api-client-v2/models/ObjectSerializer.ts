@@ -1057,6 +1057,9 @@ import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
 import { ObservabilityPipeline } from "./ObservabilityPipeline";
 import { ObservabilityPipelineAddFieldsProcessor } from "./ObservabilityPipelineAddFieldsProcessor";
+import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelineAmazonS3Destination";
+import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
+import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
 import { ObservabilityPipelineCreateRequest } from "./ObservabilityPipelineCreateRequest";
 import { ObservabilityPipelineCreateRequestData } from "./ObservabilityPipelineCreateRequestData";
@@ -1066,9 +1069,16 @@ import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipeline
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
 import { ObservabilityPipelineFieldValue } from "./ObservabilityPipelineFieldValue";
 import { ObservabilityPipelineFilterProcessor } from "./ObservabilityPipelineFilterProcessor";
+import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
+import { ObservabilityPipelineGenerateMetricsProcessor } from "./ObservabilityPipelineGenerateMetricsProcessor";
+import { ObservabilityPipelineGeneratedMetric } from "./ObservabilityPipelineGeneratedMetric";
+import { ObservabilityPipelineGeneratedMetricIncrementByField } from "./ObservabilityPipelineGeneratedMetricIncrementByField";
+import { ObservabilityPipelineGeneratedMetricIncrementByOne } from "./ObservabilityPipelineGeneratedMetricIncrementByOne";
+import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
 import { ObservabilityPipelineKafkaSourceLibrdkafkaOption } from "./ObservabilityPipelineKafkaSourceLibrdkafkaOption";
 import { ObservabilityPipelineKafkaSourceSasl } from "./ObservabilityPipelineKafkaSourceSasl";
+import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
 import { ObservabilityPipelineParseJSONProcessor } from "./ObservabilityPipelineParseJSONProcessor";
 import { ObservabilityPipelineQuotaProcessor } from "./ObservabilityPipelineQuotaProcessor";
 import { ObservabilityPipelineQuotaProcessorLimit } from "./ObservabilityPipelineQuotaProcessorLimit";
@@ -1076,6 +1086,9 @@ import { ObservabilityPipelineQuotaProcessorOverride } from "./ObservabilityPipe
 import { ObservabilityPipelineRemoveFieldsProcessor } from "./ObservabilityPipelineRemoveFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessor } from "./ObservabilityPipelineRenameFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessorField } from "./ObservabilityPipelineRenameFieldsProcessorField";
+import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
+import { ObservabilityPipelineSplunkHecSource } from "./ObservabilityPipelineSplunkHecSource";
+import { ObservabilityPipelineSplunkTcpSource } from "./ObservabilityPipelineSplunkTcpSource";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 import { OktaAccount } from "./OktaAccount";
 import { OktaAccountAttributes } from "./OktaAccountAttributes";
@@ -2336,9 +2349,53 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
   NotificationRulesType: ["notification_rules"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
+  ObservabilityPipelineAmazonS3DestinationStorageClass: [
+    "STANDARD",
+    "REDUCED_REDUNDANCY",
+    "INTELLIGENT_TIERING",
+    "STANDARD_IA",
+    "EXPRESS_ONEZONE",
+    "ONEZONE_IA",
+    "GLACIER",
+    "GLACIER_IR",
+    "DEEP_ARCHIVE",
+  ],
+  ObservabilityPipelineAmazonS3DestinationType: ["amazon_s3"],
+  ObservabilityPipelineAmazonS3SourceType: ["amazon_s3"],
   ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
   ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
   ObservabilityPipelineFilterProcessorType: ["filter"],
+  ObservabilityPipelineGenerateMetricsProcessorType: [
+    "generate_datadog_metrics",
+  ],
+  ObservabilityPipelineGeneratedMetricIncrementByFieldStrategy: [
+    "increment_by_field",
+  ],
+  ObservabilityPipelineGeneratedMetricIncrementByOneStrategy: [
+    "increment_by_one",
+  ],
+  ObservabilityPipelineGeneratedMetricMetricType: [
+    "count",
+    "gauge",
+    "distribution",
+  ],
+  ObservabilityPipelineGoogleCloudStorageDestinationAcl: [
+    "private",
+    "project-private",
+    "public-read",
+    "authenticated-read",
+    "bucket-owner-read",
+    "bucket-owner-full-control",
+  ],
+  ObservabilityPipelineGoogleCloudStorageDestinationStorageClass: [
+    "STANDARD",
+    "NEARLINE",
+    "COLDLINE",
+    "ARCHIVE",
+  ],
+  ObservabilityPipelineGoogleCloudStorageDestinationType: [
+    "google_cloud_storage",
+  ],
   ObservabilityPipelineKafkaSourceType: ["kafka"],
   ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
   ObservabilityPipelinePipelineKafkaSourceSaslMechanism: [
@@ -2350,6 +2407,10 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineQuotaProcessorType: ["quota"],
   ObservabilityPipelineRemoveFieldsProcessorType: ["remove_fields"],
   ObservabilityPipelineRenameFieldsProcessorType: ["rename_fields"],
+  ObservabilityPipelineSplunkHecDestinationEncoding: ["json", "raw_message"],
+  ObservabilityPipelineSplunkHecDestinationType: ["splunk_hec"],
+  ObservabilityPipelineSplunkHecSourceType: ["splunk_hec"],
+  ObservabilityPipelineSplunkTcpSourceType: ["splunk_tcp"],
   OktaAccountType: ["okta-accounts"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
@@ -4074,6 +4135,10 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipeline: ObservabilityPipeline,
   ObservabilityPipelineAddFieldsProcessor:
     ObservabilityPipelineAddFieldsProcessor,
+  ObservabilityPipelineAmazonS3Destination:
+    ObservabilityPipelineAmazonS3Destination,
+  ObservabilityPipelineAmazonS3Source: ObservabilityPipelineAmazonS3Source,
+  ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
   ObservabilityPipelineConfig: ObservabilityPipelineConfig,
   ObservabilityPipelineCreateRequest: ObservabilityPipelineCreateRequest,
   ObservabilityPipelineCreateRequestData:
@@ -4086,10 +4151,21 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineDatadogLogsDestination,
   ObservabilityPipelineFieldValue: ObservabilityPipelineFieldValue,
   ObservabilityPipelineFilterProcessor: ObservabilityPipelineFilterProcessor,
+  ObservabilityPipelineGcpAuth: ObservabilityPipelineGcpAuth,
+  ObservabilityPipelineGenerateMetricsProcessor:
+    ObservabilityPipelineGenerateMetricsProcessor,
+  ObservabilityPipelineGeneratedMetric: ObservabilityPipelineGeneratedMetric,
+  ObservabilityPipelineGeneratedMetricIncrementByField:
+    ObservabilityPipelineGeneratedMetricIncrementByField,
+  ObservabilityPipelineGeneratedMetricIncrementByOne:
+    ObservabilityPipelineGeneratedMetricIncrementByOne,
+  ObservabilityPipelineGoogleCloudStorageDestination:
+    ObservabilityPipelineGoogleCloudStorageDestination,
   ObservabilityPipelineKafkaSource: ObservabilityPipelineKafkaSource,
   ObservabilityPipelineKafkaSourceLibrdkafkaOption:
     ObservabilityPipelineKafkaSourceLibrdkafkaOption,
   ObservabilityPipelineKafkaSourceSasl: ObservabilityPipelineKafkaSourceSasl,
+  ObservabilityPipelineMetadataEntry: ObservabilityPipelineMetadataEntry,
   ObservabilityPipelineParseJSONProcessor:
     ObservabilityPipelineParseJSONProcessor,
   ObservabilityPipelineQuotaProcessor: ObservabilityPipelineQuotaProcessor,
@@ -4103,6 +4179,10 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineRenameFieldsProcessor,
   ObservabilityPipelineRenameFieldsProcessorField:
     ObservabilityPipelineRenameFieldsProcessorField,
+  ObservabilityPipelineSplunkHecDestination:
+    ObservabilityPipelineSplunkHecDestination,
+  ObservabilityPipelineSplunkHecSource: ObservabilityPipelineSplunkHecSource,
+  ObservabilityPipelineSplunkTcpSource: ObservabilityPipelineSplunkTcpSource,
   ObservabilityPipelineTls: ObservabilityPipelineTls,
   OktaAccount: OktaAccount,
   OktaAccountAttributes: OktaAccountAttributes,
@@ -5050,6 +5130,9 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorNotificationRuleResponseIncludedItem: ["User"],
   ObservabilityPipelineConfigDestinationItem: [
     "ObservabilityPipelineDatadogLogsDestination",
+    "ObservabilityPipelineAmazonS3Destination",
+    "ObservabilityPipelineGoogleCloudStorageDestination",
+    "ObservabilityPipelineSplunkHecDestination",
   ],
   ObservabilityPipelineConfigProcessorItem: [
     "ObservabilityPipelineFilterProcessor",
@@ -5058,10 +5141,18 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineAddFieldsProcessor",
     "ObservabilityPipelineRemoveFieldsProcessor",
     "ObservabilityPipelineRenameFieldsProcessor",
+    "ObservabilityPipelineGenerateMetricsProcessor",
   ],
   ObservabilityPipelineConfigSourceItem: [
     "ObservabilityPipelineKafkaSource",
     "ObservabilityPipelineDatadogAgentSource",
+    "ObservabilityPipelineSplunkTcpSource",
+    "ObservabilityPipelineSplunkHecSource",
+    "ObservabilityPipelineAmazonS3Source",
+  ],
+  ObservabilityPipelineMetricValue: [
+    "ObservabilityPipelineGeneratedMetricIncrementByOne",
+    "ObservabilityPipelineGeneratedMetricIncrementByField",
   ],
   Query: ["ActionQuery", "DataTransform", "StateVariable"],
   RUMAggregateBucketValue: [
