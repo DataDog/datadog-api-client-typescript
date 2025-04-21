@@ -411,7 +411,9 @@ export {
   ObservabilityPipelinesApiCreatePipelineRequest,
   ObservabilityPipelinesApiDeletePipelineRequest,
   ObservabilityPipelinesApiGetPipelineRequest,
+  ObservabilityPipelinesApiListPipelinesRequest,
   ObservabilityPipelinesApiUpdatePipelineRequest,
+  ObservabilityPipelinesApiValidatePipelineRequest,
   ObservabilityPipelinesApi,
 } from "./apis/ObservabilityPipelinesApi";
 
@@ -1817,6 +1819,8 @@ export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
 export { ListHistoricalJobsResponse } from "./models/ListHistoricalJobsResponse";
+export { ListPipelinesResponse } from "./models/ListPipelinesResponse";
+export { ListPipelinesResponseMeta } from "./models/ListPipelinesResponseMeta";
 export { ListPowerpacksResponse } from "./models/ListPowerpacksResponse";
 export { ListRulesResponse } from "./models/ListRulesResponse";
 export { ListRulesResponseDataItem } from "./models/ListRulesResponseDataItem";
@@ -2947,6 +2951,9 @@ export { UserTeamUserType } from "./models/UserTeamUserType";
 export { UserUpdateAttributes } from "./models/UserUpdateAttributes";
 export { UserUpdateData } from "./models/UserUpdateData";
 export { UserUpdateRequest } from "./models/UserUpdateRequest";
+export { ValidationError } from "./models/ValidationError";
+export { ValidationErrorMeta } from "./models/ValidationErrorMeta";
+export { ValidationErrorResponse } from "./models/ValidationErrorResponse";
 export { VulnerabilitiesType } from "./models/VulnerabilitiesType";
 export { Vulnerability } from "./models/Vulnerability";
 export { VulnerabilityAttributes } from "./models/VulnerabilityAttributes";

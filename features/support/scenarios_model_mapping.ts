@@ -6198,12 +6198,30 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
+    "v2.ListPipelines": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ListPipelinesResponse",
+    },
     "v2.CreatePipeline": {
         "body": {
             "type": "ObservabilityPipelineCreateRequest",
             "format": "",
             },
         "operationResponseType": "ObservabilityPipeline",
+    },
+    "v2.ValidatePipeline": {
+        "body": {
+            "type": "ObservabilityPipelineCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ValidationErrorResponse",
     },
     "v2.DeletePipeline": {
         "pipelineId": {

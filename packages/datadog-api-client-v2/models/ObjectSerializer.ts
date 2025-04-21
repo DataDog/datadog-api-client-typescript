@@ -857,6 +857,8 @@ import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
 import { ListHistoricalJobsResponse } from "./ListHistoricalJobsResponse";
+import { ListPipelinesResponse } from "./ListPipelinesResponse";
+import { ListPipelinesResponseMeta } from "./ListPipelinesResponseMeta";
 import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
 import { ListRulesResponse } from "./ListRulesResponse";
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
@@ -1724,6 +1726,9 @@ import { UserUpdateData } from "./UserUpdateData";
 import { UserUpdateRequest } from "./UserUpdateRequest";
 import { UsersRelationship } from "./UsersRelationship";
 import { UsersResponse } from "./UsersResponse";
+import { ValidationError } from "./ValidationError";
+import { ValidationErrorMeta } from "./ValidationErrorMeta";
+import { ValidationErrorResponse } from "./ValidationErrorResponse";
 import { Vulnerability } from "./Vulnerability";
 import { VulnerabilityAttributes } from "./VulnerabilityAttributes";
 import { VulnerabilityCvss } from "./VulnerabilityCvss";
@@ -3836,6 +3841,8 @@ const typeMap: { [index: string]: any } = {
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
   ListHistoricalJobsResponse: ListHistoricalJobsResponse,
+  ListPipelinesResponse: ListPipelinesResponse,
+  ListPipelinesResponseMeta: ListPipelinesResponseMeta,
   ListPowerpacksResponse: ListPowerpacksResponse,
   ListRulesResponse: ListRulesResponse,
   ListRulesResponseDataItem: ListRulesResponseDataItem,
@@ -4836,6 +4843,9 @@ const typeMap: { [index: string]: any } = {
   UserUpdateRequest: UserUpdateRequest,
   UsersRelationship: UsersRelationship,
   UsersResponse: UsersResponse,
+  ValidationError: ValidationError,
+  ValidationErrorMeta: ValidationErrorMeta,
+  ValidationErrorResponse: ValidationErrorResponse,
   Vulnerability: Vulnerability,
   VulnerabilityAttributes: VulnerabilityAttributes,
   VulnerabilityCvss: VulnerabilityCvss,
