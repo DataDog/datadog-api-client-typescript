@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { SensitiveDataScannerConfigRequest } from "./models/SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerCreateGroupResponse } from "./models/SensitiveDataScannerCreateGroupResponse";
@@ -53,16 +59,10 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "SensitiveDataScannerGroupCreateRequest",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SensitiveDataScannerGroupCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -98,16 +98,10 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "SensitiveDataScannerRuleCreateRequest",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SensitiveDataScannerRuleCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -153,16 +147,10 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "SensitiveDataScannerGroupDeleteRequest",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SensitiveDataScannerGroupDeleteRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -208,16 +196,10 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "SensitiveDataScannerRuleDeleteRequest",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SensitiveDataScannerRuleDeleteRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -302,12 +284,10 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SensitiveDataScannerConfigRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SensitiveDataScannerConfigRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -353,16 +333,10 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "SensitiveDataScannerGroupUpdateRequest",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SensitiveDataScannerGroupUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -408,16 +382,10 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "SensitiveDataScannerRuleUpdateRequest",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SensitiveDataScannerRuleUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -443,15 +411,13 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async createScanningGroup(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerCreateGroupResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SensitiveDataScannerCreateGroupResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerCreateGroupResponse",
-        ) as SensitiveDataScannerCreateGroupResponse;
+      const body: SensitiveDataScannerCreateGroupResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerCreateGroupResponse",
+      ) as SensitiveDataScannerCreateGroupResponse;
       return body;
     }
     if (
@@ -459,14 +425,12 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -481,12 +445,12 @@ export class SensitiveDataScannerApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerCreateGroupResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerCreateGroupResponse",
-          "",
-        ) as SensitiveDataScannerCreateGroupResponse;
+      const body: SensitiveDataScannerCreateGroupResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerCreateGroupResponse",
+        "",
+      ) as SensitiveDataScannerCreateGroupResponse;
       return body;
     }
 
@@ -507,15 +471,13 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async createScanningRule(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerCreateRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SensitiveDataScannerCreateRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerCreateRuleResponse",
-        ) as SensitiveDataScannerCreateRuleResponse;
+      const body: SensitiveDataScannerCreateRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerCreateRuleResponse",
+      ) as SensitiveDataScannerCreateRuleResponse;
       return body;
     }
     if (
@@ -523,14 +485,12 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -545,12 +505,12 @@ export class SensitiveDataScannerApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerCreateRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerCreateRuleResponse",
-          "",
-        ) as SensitiveDataScannerCreateRuleResponse;
+      const body: SensitiveDataScannerCreateRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerCreateRuleResponse",
+        "",
+      ) as SensitiveDataScannerCreateRuleResponse;
       return body;
     }
 
@@ -571,15 +531,13 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async deleteScanningGroup(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerGroupDeleteResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SensitiveDataScannerGroupDeleteResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGroupDeleteResponse",
-        ) as SensitiveDataScannerGroupDeleteResponse;
+      const body: SensitiveDataScannerGroupDeleteResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerGroupDeleteResponse",
+      ) as SensitiveDataScannerGroupDeleteResponse;
       return body;
     }
     if (
@@ -588,14 +546,12 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -610,12 +566,12 @@ export class SensitiveDataScannerApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerGroupDeleteResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGroupDeleteResponse",
-          "",
-        ) as SensitiveDataScannerGroupDeleteResponse;
+      const body: SensitiveDataScannerGroupDeleteResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerGroupDeleteResponse",
+        "",
+      ) as SensitiveDataScannerGroupDeleteResponse;
       return body;
     }
 
@@ -636,15 +592,13 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async deleteScanningRule(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerRuleDeleteResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SensitiveDataScannerRuleDeleteResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerRuleDeleteResponse",
-        ) as SensitiveDataScannerRuleDeleteResponse;
+      const body: SensitiveDataScannerRuleDeleteResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerRuleDeleteResponse",
+      ) as SensitiveDataScannerRuleDeleteResponse;
       return body;
     }
     if (
@@ -653,14 +607,12 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -675,12 +627,12 @@ export class SensitiveDataScannerApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerRuleDeleteResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerRuleDeleteResponse",
-          "",
-        ) as SensitiveDataScannerRuleDeleteResponse;
+      const body: SensitiveDataScannerRuleDeleteResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerRuleDeleteResponse",
+        "",
+      ) as SensitiveDataScannerRuleDeleteResponse;
       return body;
     }
 
@@ -701,15 +653,13 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async listScanningGroups(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerGetConfigResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SensitiveDataScannerGetConfigResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGetConfigResponse",
-        ) as SensitiveDataScannerGetConfigResponse;
+      const body: SensitiveDataScannerGetConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerGetConfigResponse",
+      ) as SensitiveDataScannerGetConfigResponse;
       return body;
     }
     if (
@@ -717,14 +667,12 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -739,12 +687,12 @@ export class SensitiveDataScannerApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerGetConfigResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGetConfigResponse",
-          "",
-        ) as SensitiveDataScannerGetConfigResponse;
+      const body: SensitiveDataScannerGetConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerGetConfigResponse",
+        "",
+      ) as SensitiveDataScannerGetConfigResponse;
       return body;
     }
 
@@ -765,13 +713,12 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async listStandardPatterns(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerStandardPatternsResponseData> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: SensitiveDataScannerStandardPatternsResponseData =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+        deserialize(
+          parse(await response.body.text(), contentType),
+          TypingInfo,
           "SensitiveDataScannerStandardPatternsResponseData",
         ) as SensitiveDataScannerStandardPatternsResponseData;
       return body;
@@ -781,14 +728,12 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -804,8 +749,9 @@ export class SensitiveDataScannerApiResponseProcessor {
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerStandardPatternsResponseData =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
+        deserialize(
+          parse(await response.body.text(), contentType),
+          TypingInfo,
           "SensitiveDataScannerStandardPatternsResponseData",
           "",
         ) as SensitiveDataScannerStandardPatternsResponseData;
@@ -829,15 +775,13 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async reorderScanningGroups(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerReorderGroupsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SensitiveDataScannerReorderGroupsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerReorderGroupsResponse",
-        ) as SensitiveDataScannerReorderGroupsResponse;
+      const body: SensitiveDataScannerReorderGroupsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerReorderGroupsResponse",
+      ) as SensitiveDataScannerReorderGroupsResponse;
       return body;
     }
     if (
@@ -845,14 +789,12 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -867,12 +809,12 @@ export class SensitiveDataScannerApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerReorderGroupsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerReorderGroupsResponse",
-          "",
-        ) as SensitiveDataScannerReorderGroupsResponse;
+      const body: SensitiveDataScannerReorderGroupsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerReorderGroupsResponse",
+        "",
+      ) as SensitiveDataScannerReorderGroupsResponse;
       return body;
     }
 
@@ -893,15 +835,13 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async updateScanningGroup(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerGroupUpdateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SensitiveDataScannerGroupUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGroupUpdateResponse",
-        ) as SensitiveDataScannerGroupUpdateResponse;
+      const body: SensitiveDataScannerGroupUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerGroupUpdateResponse",
+      ) as SensitiveDataScannerGroupUpdateResponse;
       return body;
     }
     if (
@@ -910,14 +850,12 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -932,12 +870,12 @@ export class SensitiveDataScannerApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerGroupUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGroupUpdateResponse",
-          "",
-        ) as SensitiveDataScannerGroupUpdateResponse;
+      const body: SensitiveDataScannerGroupUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerGroupUpdateResponse",
+        "",
+      ) as SensitiveDataScannerGroupUpdateResponse;
       return body;
     }
 
@@ -958,15 +896,13 @@ export class SensitiveDataScannerApiResponseProcessor {
   public async updateScanningRule(
     response: ResponseContext,
   ): Promise<SensitiveDataScannerRuleUpdateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SensitiveDataScannerRuleUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerRuleUpdateResponse",
-        ) as SensitiveDataScannerRuleUpdateResponse;
+      const body: SensitiveDataScannerRuleUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerRuleUpdateResponse",
+      ) as SensitiveDataScannerRuleUpdateResponse;
       return body;
     }
     if (
@@ -975,14 +911,12 @@ export class SensitiveDataScannerApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -997,12 +931,12 @@ export class SensitiveDataScannerApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerRuleUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerRuleUpdateResponse",
-          "",
-        ) as SensitiveDataScannerRuleUpdateResponse;
+      const body: SensitiveDataScannerRuleUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SensitiveDataScannerRuleUpdateResponse",
+        "",
+      ) as SensitiveDataScannerRuleUpdateResponse;
       return body;
     }
 

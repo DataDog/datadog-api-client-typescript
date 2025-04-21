@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CsmAgentsResponse } from "./models/CsmAgentsResponse";
 import { OrderDirection } from "./models/OrderDirection";
@@ -40,28 +46,28 @@ export class CSMAgentsApiRequestFactory extends BaseAPIRequestFactory {
     if (page !== undefined) {
       requestContext.setQueryParam(
         "page",
-        ObjectSerializer.serialize(page, "number", "int32"),
+        serialize(page, TypingInfo, "number", "int32"),
         "",
       );
     }
     if (size !== undefined) {
       requestContext.setQueryParam(
         "size",
-        ObjectSerializer.serialize(size, "number", "int32"),
+        serialize(size, TypingInfo, "number", "int32"),
         "",
       );
     }
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
-        ObjectSerializer.serialize(query, "string", ""),
+        serialize(query, TypingInfo, "string", ""),
         "",
       );
     }
     if (orderDirection !== undefined) {
       requestContext.setQueryParam(
         "order_direction",
-        ObjectSerializer.serialize(orderDirection, "OrderDirection", ""),
+        serialize(orderDirection, TypingInfo, "OrderDirection", ""),
         "",
       );
     }
@@ -98,28 +104,28 @@ export class CSMAgentsApiRequestFactory extends BaseAPIRequestFactory {
     if (page !== undefined) {
       requestContext.setQueryParam(
         "page",
-        ObjectSerializer.serialize(page, "number", "int32"),
+        serialize(page, TypingInfo, "number", "int32"),
         "",
       );
     }
     if (size !== undefined) {
       requestContext.setQueryParam(
         "size",
-        ObjectSerializer.serialize(size, "number", "int32"),
+        serialize(size, TypingInfo, "number", "int32"),
         "",
       );
     }
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
-        ObjectSerializer.serialize(query, "string", ""),
+        serialize(query, TypingInfo, "string", ""),
         "",
       );
     }
     if (orderDirection !== undefined) {
       requestContext.setQueryParam(
         "order_direction",
-        ObjectSerializer.serialize(orderDirection, "OrderDirection", ""),
+        serialize(orderDirection, TypingInfo, "OrderDirection", ""),
         "",
       );
     }
@@ -145,25 +151,22 @@ export class CSMAgentsApiResponseProcessor {
   public async listAllCSMAgents(
     response: ResponseContext,
   ): Promise<CsmAgentsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CsmAgentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CsmAgentsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CsmAgentsResponse",
       ) as CsmAgentsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -178,8 +181,9 @@ export class CSMAgentsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CsmAgentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CsmAgentsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CsmAgentsResponse",
         "",
       ) as CsmAgentsResponse;
@@ -203,25 +207,22 @@ export class CSMAgentsApiResponseProcessor {
   public async listAllCSMServerlessAgents(
     response: ResponseContext,
   ): Promise<CsmAgentsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CsmAgentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CsmAgentsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CsmAgentsResponse",
       ) as CsmAgentsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -236,8 +237,9 @@ export class CSMAgentsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CsmAgentsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CsmAgentsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CsmAgentsResponse",
         "",
       ) as CsmAgentsResponse;

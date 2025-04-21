@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { ObservabilityPipeline } from "./models/ObservabilityPipeline";
 import { ObservabilityPipelineCreateRequest } from "./models/ObservabilityPipelineCreateRequest";
@@ -45,16 +51,10 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "ObservabilityPipelineCreateRequest",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ObservabilityPipelineCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -183,12 +183,10 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ObservabilityPipeline", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ObservabilityPipeline", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -214,12 +212,11 @@ export class ObservabilityPipelinesApiResponseProcessor {
   public async createPipeline(
     response: ResponseContext,
   ): Promise<ObservabilityPipeline> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ObservabilityPipeline",
       ) as ObservabilityPipeline;
       return body;
@@ -230,14 +227,12 @@ export class ObservabilityPipelinesApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -252,8 +247,9 @@ export class ObservabilityPipelinesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ObservabilityPipeline",
         "",
       ) as ObservabilityPipeline;
@@ -275,9 +271,7 @@ export class ObservabilityPipelinesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deletePipeline(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -287,14 +281,12 @@ export class ObservabilityPipelinesApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -329,25 +321,22 @@ export class ObservabilityPipelinesApiResponseProcessor {
   public async getPipeline(
     response: ResponseContext,
   ): Promise<ObservabilityPipeline> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ObservabilityPipeline",
       ) as ObservabilityPipeline;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -362,8 +351,9 @@ export class ObservabilityPipelinesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ObservabilityPipeline",
         "",
       ) as ObservabilityPipeline;
@@ -387,12 +377,11 @@ export class ObservabilityPipelinesApiResponseProcessor {
   public async updatePipeline(
     response: ResponseContext,
   ): Promise<ObservabilityPipeline> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ObservabilityPipeline",
       ) as ObservabilityPipeline;
       return body;
@@ -404,14 +393,12 @@ export class ObservabilityPipelinesApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -426,8 +413,9 @@ export class ObservabilityPipelinesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ObservabilityPipeline = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ObservabilityPipeline = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ObservabilityPipeline",
         "",
       ) as ObservabilityPipeline;

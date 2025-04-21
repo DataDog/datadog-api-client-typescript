@@ -7,3 +7,4 @@ export * from "./servers";
 export * from "./logger";
 export * from "./baseapi";
 export * from "./util";
+export * from "./ObjectSerializer";

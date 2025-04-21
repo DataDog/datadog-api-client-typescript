@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { AwsOnDemandCreateRequest } from "./models/AwsOnDemandCreateRequest";
 import { AwsOnDemandListResponse } from "./models/AwsOnDemandListResponse";
@@ -44,12 +50,10 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "AwsOnDemandCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AwsOnDemandCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -85,12 +89,10 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "AwsScanOptionsCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AwsScanOptionsCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -252,12 +254,10 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "AwsScanOptionsUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AwsScanOptionsUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -283,12 +283,11 @@ export class AgentlessScanningApiResponseProcessor {
   public async createAwsOnDemandTask(
     response: ResponseContext,
   ): Promise<AwsOnDemandResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsOnDemandResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsOnDemandResponse",
       ) as AwsOnDemandResponse;
       return body;
@@ -298,14 +297,12 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -320,8 +317,9 @@ export class AgentlessScanningApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsOnDemandResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsOnDemandResponse",
         "",
       ) as AwsOnDemandResponse;
@@ -345,12 +343,11 @@ export class AgentlessScanningApiResponseProcessor {
   public async createAwsScanOptions(
     response: ResponseContext,
   ): Promise<AwsScanOptionsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: AwsScanOptionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsScanOptionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsScanOptionsResponse",
       ) as AwsScanOptionsResponse;
       return body;
@@ -361,14 +358,12 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -383,8 +378,9 @@ export class AgentlessScanningApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AwsScanOptionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsScanOptionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsScanOptionsResponse",
         "",
       ) as AwsScanOptionsResponse;
@@ -406,9 +402,7 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteAwsScanOptions(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -418,14 +412,12 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -460,12 +452,11 @@ export class AgentlessScanningApiResponseProcessor {
   public async getAwsOnDemandTask(
     response: ResponseContext,
   ): Promise<AwsOnDemandResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsOnDemandResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsOnDemandResponse",
       ) as AwsOnDemandResponse;
       return body;
@@ -476,14 +467,12 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -498,8 +487,9 @@ export class AgentlessScanningApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AwsOnDemandResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsOnDemandResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsOnDemandResponse",
         "",
       ) as AwsOnDemandResponse;
@@ -523,25 +513,22 @@ export class AgentlessScanningApiResponseProcessor {
   public async listAwsOnDemandTasks(
     response: ResponseContext,
   ): Promise<AwsOnDemandListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AwsOnDemandListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsOnDemandListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsOnDemandListResponse",
       ) as AwsOnDemandListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -556,8 +543,9 @@ export class AgentlessScanningApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AwsOnDemandListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsOnDemandListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsOnDemandListResponse",
         "",
       ) as AwsOnDemandListResponse;
@@ -581,25 +569,22 @@ export class AgentlessScanningApiResponseProcessor {
   public async listAwsScanOptions(
     response: ResponseContext,
   ): Promise<AwsScanOptionsListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AwsScanOptionsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsScanOptionsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsScanOptionsListResponse",
       ) as AwsScanOptionsListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -614,8 +599,9 @@ export class AgentlessScanningApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AwsScanOptionsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsScanOptionsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsScanOptionsListResponse",
         "",
       ) as AwsScanOptionsListResponse;
@@ -637,9 +623,7 @@ export class AgentlessScanningApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateAwsScanOptions(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -649,14 +633,12 @@ export class AgentlessScanningApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {

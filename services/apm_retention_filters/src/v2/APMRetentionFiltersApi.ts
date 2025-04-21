@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { ReorderRetentionFiltersRequest } from "./models/ReorderRetentionFiltersRequest";
 import { RetentionFilterCreateRequest } from "./models/RetentionFilterCreateRequest";
@@ -43,12 +49,10 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RetentionFilterCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RetentionFilterCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -176,12 +180,10 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ReorderRetentionFiltersRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ReorderRetentionFiltersRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -227,12 +229,10 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RetentionFilterUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RetentionFilterUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -258,12 +258,11 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async createApmRetentionFilter(
     response: ResponseContext,
   ): Promise<RetentionFilterCreateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RetentionFilterCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RetentionFilterCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RetentionFilterCreateResponse",
       ) as RetentionFilterCreateResponse;
       return body;
@@ -274,14 +273,12 @@ export class APMRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -296,8 +293,9 @@ export class APMRetentionFiltersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RetentionFilterCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RetentionFilterCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RetentionFilterCreateResponse",
         "",
       ) as RetentionFilterCreateResponse;
@@ -321,9 +319,7 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async deleteApmRetentionFilter(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -332,14 +328,12 @@ export class APMRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -374,12 +368,11 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async getApmRetentionFilter(
     response: ResponseContext,
   ): Promise<RetentionFilterResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RetentionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RetentionFilterResponse",
       ) as RetentionFilterResponse;
       return body;
@@ -389,14 +382,12 @@ export class APMRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -411,8 +402,9 @@ export class APMRetentionFiltersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RetentionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RetentionFilterResponse",
         "",
       ) as RetentionFilterResponse;
@@ -436,25 +428,22 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async listApmRetentionFilters(
     response: ResponseContext,
   ): Promise<RetentionFiltersResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RetentionFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RetentionFiltersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RetentionFiltersResponse",
       ) as RetentionFiltersResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -469,8 +458,9 @@ export class APMRetentionFiltersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RetentionFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RetentionFiltersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RetentionFiltersResponse",
         "",
       ) as RetentionFiltersResponse;
@@ -494,9 +484,7 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async reorderApmRetentionFilters(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       return;
     }
@@ -505,14 +493,12 @@ export class APMRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -547,12 +533,11 @@ export class APMRetentionFiltersApiResponseProcessor {
   public async updateApmRetentionFilter(
     response: ResponseContext,
   ): Promise<RetentionFilterResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RetentionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RetentionFilterResponse",
       ) as RetentionFilterResponse;
       return body;
@@ -563,14 +548,12 @@ export class APMRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -585,8 +568,9 @@ export class APMRetentionFiltersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RetentionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RetentionFilterResponse",
         "",
       ) as RetentionFilterResponse;

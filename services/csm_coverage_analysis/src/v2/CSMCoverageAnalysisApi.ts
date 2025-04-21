@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CsmCloudAccountsCoverageAnalysisResponse } from "./models/CsmCloudAccountsCoverageAnalysisResponse";
 import { CsmHostsAndContainersCoverageAnalysisResponse } from "./models/CsmHostsAndContainersCoverageAnalysisResponse";
@@ -108,26 +114,22 @@ export class CSMCoverageAnalysisApiResponseProcessor {
   public async getCSMCloudAccountsCoverageAnalysis(
     response: ResponseContext,
   ): Promise<CsmCloudAccountsCoverageAnalysisResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CsmCloudAccountsCoverageAnalysisResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CsmCloudAccountsCoverageAnalysisResponse",
-        ) as CsmCloudAccountsCoverageAnalysisResponse;
+      const body: CsmCloudAccountsCoverageAnalysisResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CsmCloudAccountsCoverageAnalysisResponse",
+      ) as CsmCloudAccountsCoverageAnalysisResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -142,12 +144,12 @@ export class CSMCoverageAnalysisApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CsmCloudAccountsCoverageAnalysisResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CsmCloudAccountsCoverageAnalysisResponse",
-          "",
-        ) as CsmCloudAccountsCoverageAnalysisResponse;
+      const body: CsmCloudAccountsCoverageAnalysisResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CsmCloudAccountsCoverageAnalysisResponse",
+        "",
+      ) as CsmCloudAccountsCoverageAnalysisResponse;
       return body;
     }
 
@@ -168,26 +170,22 @@ export class CSMCoverageAnalysisApiResponseProcessor {
   public async getCSMHostsAndContainersCoverageAnalysis(
     response: ResponseContext,
   ): Promise<CsmHostsAndContainersCoverageAnalysisResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CsmHostsAndContainersCoverageAnalysisResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CsmHostsAndContainersCoverageAnalysisResponse",
-        ) as CsmHostsAndContainersCoverageAnalysisResponse;
+      const body: CsmHostsAndContainersCoverageAnalysisResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CsmHostsAndContainersCoverageAnalysisResponse",
+      ) as CsmHostsAndContainersCoverageAnalysisResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -202,12 +200,12 @@ export class CSMCoverageAnalysisApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CsmHostsAndContainersCoverageAnalysisResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CsmHostsAndContainersCoverageAnalysisResponse",
-          "",
-        ) as CsmHostsAndContainersCoverageAnalysisResponse;
+      const body: CsmHostsAndContainersCoverageAnalysisResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CsmHostsAndContainersCoverageAnalysisResponse",
+        "",
+      ) as CsmHostsAndContainersCoverageAnalysisResponse;
       return body;
     }
 
@@ -228,26 +226,22 @@ export class CSMCoverageAnalysisApiResponseProcessor {
   public async getCSMServerlessCoverageAnalysis(
     response: ResponseContext,
   ): Promise<CsmServerlessCoverageAnalysisResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CsmServerlessCoverageAnalysisResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CsmServerlessCoverageAnalysisResponse",
-        ) as CsmServerlessCoverageAnalysisResponse;
+      const body: CsmServerlessCoverageAnalysisResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CsmServerlessCoverageAnalysisResponse",
+      ) as CsmServerlessCoverageAnalysisResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -262,12 +256,12 @@ export class CSMCoverageAnalysisApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CsmServerlessCoverageAnalysisResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CsmServerlessCoverageAnalysisResponse",
-          "",
-        ) as CsmServerlessCoverageAnalysisResponse;
+      const body: CsmServerlessCoverageAnalysisResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CsmServerlessCoverageAnalysisResponse",
+        "",
+      ) as CsmServerlessCoverageAnalysisResponse;
       return body;
     }
 

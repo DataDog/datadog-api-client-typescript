@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { GCPSTSDelegateAccountResponse } from "./models/GCPSTSDelegateAccountResponse";
 import { GCPSTSServiceAccountCreateRequest } from "./models/GCPSTSServiceAccountCreateRequest";
@@ -42,12 +48,10 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "GCPSTSServiceAccountCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "GCPSTSServiceAccountCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -160,12 +164,10 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "any", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "any", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -211,12 +213,10 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "GCPSTSServiceAccountUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "GCPSTSServiceAccountUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -242,12 +242,11 @@ export class GCPIntegrationApiResponseProcessor {
   public async createGCPSTSAccount(
     response: ResponseContext,
   ): Promise<GCPSTSServiceAccountResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: GCPSTSServiceAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GCPSTSServiceAccountResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GCPSTSServiceAccountResponse",
       ) as GCPSTSServiceAccountResponse;
       return body;
@@ -259,14 +258,12 @@ export class GCPIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -281,8 +278,9 @@ export class GCPIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GCPSTSServiceAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GCPSTSServiceAccountResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GCPSTSServiceAccountResponse",
         "",
       ) as GCPSTSServiceAccountResponse;
@@ -304,9 +302,7 @@ export class GCPIntegrationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteGCPSTSAccount(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -315,14 +311,12 @@ export class GCPIntegrationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -357,25 +351,22 @@ export class GCPIntegrationApiResponseProcessor {
   public async getGCPSTSDelegate(
     response: ResponseContext,
   ): Promise<GCPSTSDelegateAccountResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GCPSTSDelegateAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GCPSTSDelegateAccountResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GCPSTSDelegateAccountResponse",
       ) as GCPSTSDelegateAccountResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -390,8 +381,9 @@ export class GCPIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GCPSTSDelegateAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GCPSTSDelegateAccountResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GCPSTSDelegateAccountResponse",
         "",
       ) as GCPSTSDelegateAccountResponse;
@@ -415,12 +407,11 @@ export class GCPIntegrationApiResponseProcessor {
   public async listGCPSTSAccounts(
     response: ResponseContext,
   ): Promise<GCPSTSServiceAccountsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GCPSTSServiceAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GCPSTSServiceAccountsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GCPSTSServiceAccountsResponse",
       ) as GCPSTSServiceAccountsResponse;
       return body;
@@ -430,14 +421,12 @@ export class GCPIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -452,8 +441,9 @@ export class GCPIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GCPSTSServiceAccountsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GCPSTSServiceAccountsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GCPSTSServiceAccountsResponse",
         "",
       ) as GCPSTSServiceAccountsResponse;
@@ -477,12 +467,11 @@ export class GCPIntegrationApiResponseProcessor {
   public async makeGCPSTSDelegate(
     response: ResponseContext,
   ): Promise<GCPSTSDelegateAccountResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GCPSTSDelegateAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GCPSTSDelegateAccountResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GCPSTSDelegateAccountResponse",
       ) as GCPSTSDelegateAccountResponse;
       return body;
@@ -492,14 +481,12 @@ export class GCPIntegrationApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -514,8 +501,9 @@ export class GCPIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GCPSTSDelegateAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GCPSTSDelegateAccountResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GCPSTSDelegateAccountResponse",
         "",
       ) as GCPSTSDelegateAccountResponse;
@@ -539,12 +527,11 @@ export class GCPIntegrationApiResponseProcessor {
   public async updateGCPSTSAccount(
     response: ResponseContext,
   ): Promise<GCPSTSServiceAccountResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: GCPSTSServiceAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GCPSTSServiceAccountResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GCPSTSServiceAccountResponse",
       ) as GCPSTSServiceAccountResponse;
       return body;
@@ -555,14 +542,12 @@ export class GCPIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -577,8 +562,9 @@ export class GCPIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GCPSTSServiceAccountResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GCPSTSServiceAccountResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GCPSTSServiceAccountResponse",
         "",
       ) as GCPSTSServiceAccountResponse;

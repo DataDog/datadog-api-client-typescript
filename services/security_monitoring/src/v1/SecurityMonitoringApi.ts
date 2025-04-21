@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { AddSignalToIncidentRequest } from "./models/AddSignalToIncidentRequest";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { SignalAssigneeUpdateRequest } from "./models/SignalAssigneeUpdateRequest";
@@ -56,12 +62,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "AddSignalToIncidentRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AddSignalToIncidentRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -112,12 +116,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SignalAssigneeUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SignalAssigneeUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -163,12 +165,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SignalStateUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SignalStateUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -194,12 +194,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async addSecurityMonitoringSignalToIncident(
     response: ResponseContext,
   ): Promise<SuccessfulSignalUpdateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SuccessfulSignalUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SuccessfulSignalUpdateResponse",
       ) as SuccessfulSignalUpdateResponse;
       return body;
@@ -210,14 +209,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -232,8 +229,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SuccessfulSignalUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SuccessfulSignalUpdateResponse",
         "",
       ) as SuccessfulSignalUpdateResponse;
@@ -257,12 +255,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async editSecurityMonitoringSignalAssignee(
     response: ResponseContext,
   ): Promise<SuccessfulSignalUpdateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SuccessfulSignalUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SuccessfulSignalUpdateResponse",
       ) as SuccessfulSignalUpdateResponse;
       return body;
@@ -273,14 +270,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -295,8 +290,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SuccessfulSignalUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SuccessfulSignalUpdateResponse",
         "",
       ) as SuccessfulSignalUpdateResponse;
@@ -320,12 +316,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async editSecurityMonitoringSignalState(
     response: ResponseContext,
   ): Promise<SuccessfulSignalUpdateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SuccessfulSignalUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SuccessfulSignalUpdateResponse",
       ) as SuccessfulSignalUpdateResponse;
       return body;
@@ -336,14 +331,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -358,8 +351,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SuccessfulSignalUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SuccessfulSignalUpdateResponse",
         "",
       ) as SuccessfulSignalUpdateResponse;

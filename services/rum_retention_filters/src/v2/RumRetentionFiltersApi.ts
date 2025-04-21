@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { RumRetentionFilterCreateRequest } from "./models/RumRetentionFilterCreateRequest";
 import { RumRetentionFilterResponse } from "./models/RumRetentionFilterResponse";
@@ -53,12 +59,10 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RumRetentionFilterCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RumRetentionFilterCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -216,12 +220,10 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RumRetentionFiltersOrderRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RumRetentionFiltersOrderRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -272,12 +274,10 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RumRetentionFilterUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RumRetentionFilterUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -303,12 +303,11 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async createRetentionFilter(
     response: ResponseContext,
   ): Promise<RumRetentionFilterResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RumRetentionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RumRetentionFilterResponse",
       ) as RumRetentionFilterResponse;
       return body;
@@ -318,14 +317,12 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -340,8 +337,9 @@ export class RumRetentionFiltersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RumRetentionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RumRetentionFilterResponse",
         "",
       ) as RumRetentionFilterResponse;
@@ -363,9 +361,7 @@ export class RumRetentionFiltersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteRetentionFilter(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -374,14 +370,12 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -416,12 +410,11 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async getRetentionFilter(
     response: ResponseContext,
   ): Promise<RumRetentionFilterResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RumRetentionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RumRetentionFilterResponse",
       ) as RumRetentionFilterResponse;
       return body;
@@ -431,14 +424,12 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -453,8 +444,9 @@ export class RumRetentionFiltersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RumRetentionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RumRetentionFilterResponse",
         "",
       ) as RumRetentionFilterResponse;
@@ -478,25 +470,22 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async listRetentionFilters(
     response: ResponseContext,
   ): Promise<RumRetentionFiltersResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RumRetentionFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RumRetentionFiltersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RumRetentionFiltersResponse",
       ) as RumRetentionFiltersResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -511,8 +500,9 @@ export class RumRetentionFiltersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRetentionFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RumRetentionFiltersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RumRetentionFiltersResponse",
         "",
       ) as RumRetentionFiltersResponse;
@@ -536,15 +526,13 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async orderRetentionFilters(
     response: ResponseContext,
   ): Promise<RumRetentionFiltersOrderResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RumRetentionFiltersOrderResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RumRetentionFiltersOrderResponse",
-        ) as RumRetentionFiltersOrderResponse;
+      const body: RumRetentionFiltersOrderResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumRetentionFiltersOrderResponse",
+      ) as RumRetentionFiltersOrderResponse;
       return body;
     }
     if (
@@ -552,14 +540,12 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -574,12 +560,12 @@ export class RumRetentionFiltersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRetentionFiltersOrderResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "RumRetentionFiltersOrderResponse",
-          "",
-        ) as RumRetentionFiltersOrderResponse;
+      const body: RumRetentionFiltersOrderResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "RumRetentionFiltersOrderResponse",
+        "",
+      ) as RumRetentionFiltersOrderResponse;
       return body;
     }
 
@@ -600,12 +586,11 @@ export class RumRetentionFiltersApiResponseProcessor {
   public async updateRetentionFilter(
     response: ResponseContext,
   ): Promise<RumRetentionFilterResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RumRetentionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RumRetentionFilterResponse",
       ) as RumRetentionFilterResponse;
       return body;
@@ -616,14 +601,12 @@ export class RumRetentionFiltersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -638,8 +621,9 @@ export class RumRetentionFiltersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RumRetentionFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RumRetentionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RumRetentionFilterResponse",
         "",
       ) as RumRetentionFilterResponse;

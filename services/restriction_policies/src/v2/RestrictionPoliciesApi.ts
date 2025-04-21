@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { RestrictionPolicyResponse } from "./models/RestrictionPolicyResponse";
 import { RestrictionPolicyUpdateRequest } from "./models/RestrictionPolicyUpdateRequest";
@@ -120,18 +126,16 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     if (allowSelfLockout !== undefined) {
       requestContext.setQueryParam(
         "allow_self_lockout",
-        ObjectSerializer.serialize(allowSelfLockout, "boolean", ""),
+        serialize(allowSelfLockout, TypingInfo, "boolean", ""),
         "",
       );
     }
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RestrictionPolicyUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RestrictionPolicyUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -158,9 +162,7 @@ export class RestrictionPoliciesApiResponseProcessor {
   public async deleteRestrictionPolicy(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -169,14 +171,12 @@ export class RestrictionPoliciesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -211,12 +211,11 @@ export class RestrictionPoliciesApiResponseProcessor {
   public async getRestrictionPolicy(
     response: ResponseContext,
   ): Promise<RestrictionPolicyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RestrictionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RestrictionPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RestrictionPolicyResponse",
       ) as RestrictionPolicyResponse;
       return body;
@@ -226,14 +225,12 @@ export class RestrictionPoliciesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -248,8 +245,9 @@ export class RestrictionPoliciesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RestrictionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RestrictionPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RestrictionPolicyResponse",
         "",
       ) as RestrictionPolicyResponse;
@@ -273,12 +271,11 @@ export class RestrictionPoliciesApiResponseProcessor {
   public async updateRestrictionPolicy(
     response: ResponseContext,
   ): Promise<RestrictionPolicyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RestrictionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RestrictionPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RestrictionPolicyResponse",
       ) as RestrictionPolicyResponse;
       return body;
@@ -288,14 +285,12 @@ export class RestrictionPoliciesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -310,8 +305,9 @@ export class RestrictionPoliciesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RestrictionPolicyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RestrictionPolicyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RestrictionPolicyResponse",
         "",
       ) as RestrictionPolicyResponse;

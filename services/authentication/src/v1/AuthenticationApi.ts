@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { AuthenticationValidationResponse } from "./models/AuthenticationValidationResponse";
 
@@ -47,26 +53,22 @@ export class AuthenticationApiResponseProcessor {
   public async validate(
     response: ResponseContext,
   ): Promise<AuthenticationValidationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AuthenticationValidationResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AuthenticationValidationResponse",
-        ) as AuthenticationValidationResponse;
+      const body: AuthenticationValidationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AuthenticationValidationResponse",
+      ) as AuthenticationValidationResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -81,12 +83,12 @@ export class AuthenticationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AuthenticationValidationResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AuthenticationValidationResponse",
-          "",
-        ) as AuthenticationValidationResponse;
+      const body: AuthenticationValidationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AuthenticationValidationResponse",
+        "",
+      ) as AuthenticationValidationResponse;
       return body;
     }
 

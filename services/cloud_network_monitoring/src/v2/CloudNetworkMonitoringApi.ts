@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { SingleAggregatedConnectionResponseArray } from "./models/SingleAggregatedConnectionResponseArray";
 
@@ -47,35 +53,35 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     if (from !== undefined) {
       requestContext.setQueryParam(
         "from",
-        ObjectSerializer.serialize(from, "number", "int64"),
+        serialize(from, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (to !== undefined) {
       requestContext.setQueryParam(
         "to",
-        ObjectSerializer.serialize(to, "number", "int64"),
+        serialize(to, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (groupBy !== undefined) {
       requestContext.setQueryParam(
         "group_by",
-        ObjectSerializer.serialize(groupBy, "string", ""),
+        serialize(groupBy, TypingInfo, "string", ""),
         "",
       );
     }
     if (tags !== undefined) {
       requestContext.setQueryParam(
         "tags",
-        ObjectSerializer.serialize(tags, "string", ""),
+        serialize(tags, TypingInfo, "string", ""),
         "",
       );
     }
     if (limit !== undefined) {
       requestContext.setQueryParam(
         "limit",
-        ObjectSerializer.serialize(limit, "number", "int32"),
+        serialize(limit, TypingInfo, "number", "int32"),
         "",
       );
     }
@@ -101,26 +107,22 @@ export class CloudNetworkMonitoringApiResponseProcessor {
   public async getAggregatedConnections(
     response: ResponseContext,
   ): Promise<SingleAggregatedConnectionResponseArray> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SingleAggregatedConnectionResponseArray =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SingleAggregatedConnectionResponseArray",
-        ) as SingleAggregatedConnectionResponseArray;
+      const body: SingleAggregatedConnectionResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SingleAggregatedConnectionResponseArray",
+      ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -135,12 +137,12 @@ export class CloudNetworkMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SingleAggregatedConnectionResponseArray =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SingleAggregatedConnectionResponseArray",
-          "",
-        ) as SingleAggregatedConnectionResponseArray;
+      const body: SingleAggregatedConnectionResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SingleAggregatedConnectionResponseArray",
+        "",
+      ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
 

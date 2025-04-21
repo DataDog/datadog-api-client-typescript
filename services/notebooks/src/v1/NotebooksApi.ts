@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { NotebookCreateRequest } from "./models/NotebookCreateRequest";
 import { NotebookResponse } from "./models/NotebookResponse";
@@ -42,12 +48,10 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "NotebookCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "NotebookCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -156,70 +160,70 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     if (authorHandle !== undefined) {
       requestContext.setQueryParam(
         "author_handle",
-        ObjectSerializer.serialize(authorHandle, "string", ""),
+        serialize(authorHandle, TypingInfo, "string", ""),
         "",
       );
     }
     if (excludeAuthorHandle !== undefined) {
       requestContext.setQueryParam(
         "exclude_author_handle",
-        ObjectSerializer.serialize(excludeAuthorHandle, "string", ""),
+        serialize(excludeAuthorHandle, TypingInfo, "string", ""),
         "",
       );
     }
     if (start !== undefined) {
       requestContext.setQueryParam(
         "start",
-        ObjectSerializer.serialize(start, "number", "int64"),
+        serialize(start, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (count !== undefined) {
       requestContext.setQueryParam(
         "count",
-        ObjectSerializer.serialize(count, "number", "int64"),
+        serialize(count, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (sortField !== undefined) {
       requestContext.setQueryParam(
         "sort_field",
-        ObjectSerializer.serialize(sortField, "string", ""),
+        serialize(sortField, TypingInfo, "string", ""),
         "",
       );
     }
     if (sortDir !== undefined) {
       requestContext.setQueryParam(
         "sort_dir",
-        ObjectSerializer.serialize(sortDir, "string", ""),
+        serialize(sortDir, TypingInfo, "string", ""),
         "",
       );
     }
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
-        ObjectSerializer.serialize(query, "string", ""),
+        serialize(query, TypingInfo, "string", ""),
         "",
       );
     }
     if (includeCells !== undefined) {
       requestContext.setQueryParam(
         "include_cells",
-        ObjectSerializer.serialize(includeCells, "boolean", ""),
+        serialize(includeCells, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (isTemplate !== undefined) {
       requestContext.setQueryParam(
         "is_template",
-        ObjectSerializer.serialize(isTemplate, "boolean", ""),
+        serialize(isTemplate, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (type !== undefined) {
       requestContext.setQueryParam(
         "type",
-        ObjectSerializer.serialize(type, "string", ""),
+        serialize(type, TypingInfo, "string", ""),
         "",
       );
     }
@@ -264,12 +268,10 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "NotebookUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "NotebookUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -295,12 +297,11 @@ export class NotebooksApiResponseProcessor {
   public async createNotebook(
     response: ResponseContext,
   ): Promise<NotebookResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotebookResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotebookResponse",
       ) as NotebookResponse;
       return body;
@@ -310,14 +311,12 @@ export class NotebooksApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -332,8 +331,9 @@ export class NotebooksApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotebookResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotebookResponse",
         "",
       ) as NotebookResponse;
@@ -355,9 +355,7 @@ export class NotebooksApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteNotebook(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -367,14 +365,12 @@ export class NotebooksApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -409,12 +405,11 @@ export class NotebooksApiResponseProcessor {
   public async getNotebook(
     response: ResponseContext,
   ): Promise<NotebookResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotebookResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotebookResponse",
       ) as NotebookResponse;
       return body;
@@ -425,14 +420,12 @@ export class NotebooksApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -447,8 +440,9 @@ export class NotebooksApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotebookResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotebookResponse",
         "",
       ) as NotebookResponse;
@@ -472,12 +466,11 @@ export class NotebooksApiResponseProcessor {
   public async listNotebooks(
     response: ResponseContext,
   ): Promise<NotebooksResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: NotebooksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotebooksResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotebooksResponse",
       ) as NotebooksResponse;
       return body;
@@ -487,14 +480,12 @@ export class NotebooksApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -509,8 +500,9 @@ export class NotebooksApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotebooksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotebooksResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotebooksResponse",
         "",
       ) as NotebooksResponse;
@@ -534,12 +526,11 @@ export class NotebooksApiResponseProcessor {
   public async updateNotebook(
     response: ResponseContext,
   ): Promise<NotebookResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotebookResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotebookResponse",
       ) as NotebookResponse;
       return body;
@@ -551,14 +542,12 @@ export class NotebooksApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -573,8 +562,9 @@ export class NotebooksApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotebookResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotebookResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotebookResponse",
         "",
       ) as NotebookResponse;

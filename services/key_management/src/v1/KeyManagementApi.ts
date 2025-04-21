@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { ApiKey } from "./models/ApiKey";
 import { ApiKeyListResponse } from "./models/ApiKeyListResponse";
@@ -43,12 +49,10 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ApiKey", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ApiKey", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -84,12 +88,10 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ApplicationKey", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ApplicationKey", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -312,12 +314,10 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ApiKey", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ApiKey", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -362,12 +362,10 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ApplicationKey", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ApplicationKey", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -393,12 +391,11 @@ export class KeyManagementApiResponseProcessor {
   public async createAPIKey(
     response: ResponseContext,
   ): Promise<ApiKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApiKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApiKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApiKeyResponse",
       ) as ApiKeyResponse;
       return body;
@@ -408,14 +405,12 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -430,8 +425,9 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApiKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApiKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApiKeyResponse",
         "",
       ) as ApiKeyResponse;
@@ -455,12 +451,11 @@ export class KeyManagementApiResponseProcessor {
   public async createApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApplicationKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApplicationKeyResponse",
       ) as ApplicationKeyResponse;
       return body;
@@ -471,14 +466,12 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -493,8 +486,9 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApplicationKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApplicationKeyResponse",
         "",
       ) as ApplicationKeyResponse;
@@ -518,12 +512,11 @@ export class KeyManagementApiResponseProcessor {
   public async deleteAPIKey(
     response: ResponseContext,
   ): Promise<ApiKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApiKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApiKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApiKeyResponse",
       ) as ApiKeyResponse;
       return body;
@@ -534,14 +527,12 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -556,8 +547,9 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApiKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApiKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApiKeyResponse",
         "",
       ) as ApiKeyResponse;
@@ -581,12 +573,11 @@ export class KeyManagementApiResponseProcessor {
   public async deleteApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApplicationKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApplicationKeyResponse",
       ) as ApplicationKeyResponse;
       return body;
@@ -596,14 +587,12 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -618,8 +607,9 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApplicationKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApplicationKeyResponse",
         "",
       ) as ApplicationKeyResponse;
@@ -641,12 +631,11 @@ export class KeyManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getAPIKey(response: ResponseContext): Promise<ApiKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApiKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApiKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApiKeyResponse",
       ) as ApiKeyResponse;
       return body;
@@ -656,14 +645,12 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -678,8 +665,9 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApiKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApiKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApiKeyResponse",
         "",
       ) as ApiKeyResponse;
@@ -703,12 +691,11 @@ export class KeyManagementApiResponseProcessor {
   public async getApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApplicationKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApplicationKeyResponse",
       ) as ApplicationKeyResponse;
       return body;
@@ -718,14 +705,12 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -740,8 +725,9 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApplicationKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApplicationKeyResponse",
         "",
       ) as ApplicationKeyResponse;
@@ -765,25 +751,22 @@ export class KeyManagementApiResponseProcessor {
   public async listAPIKeys(
     response: ResponseContext,
   ): Promise<ApiKeyListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApiKeyListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApiKeyListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApiKeyListResponse",
       ) as ApiKeyListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -798,8 +781,9 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApiKeyListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApiKeyListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApiKeyListResponse",
         "",
       ) as ApiKeyListResponse;
@@ -823,25 +807,22 @@ export class KeyManagementApiResponseProcessor {
   public async listApplicationKeys(
     response: ResponseContext,
   ): Promise<ApplicationKeyListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationKeyListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApplicationKeyListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApplicationKeyListResponse",
       ) as ApplicationKeyListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -856,8 +837,9 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationKeyListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApplicationKeyListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApplicationKeyListResponse",
         "",
       ) as ApplicationKeyListResponse;
@@ -881,12 +863,11 @@ export class KeyManagementApiResponseProcessor {
   public async updateAPIKey(
     response: ResponseContext,
   ): Promise<ApiKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApiKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApiKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApiKeyResponse",
       ) as ApiKeyResponse;
       return body;
@@ -897,14 +878,12 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -919,8 +898,9 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApiKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApiKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApiKeyResponse",
         "",
       ) as ApiKeyResponse;
@@ -944,12 +924,11 @@ export class KeyManagementApiResponseProcessor {
   public async updateApplicationKey(
     response: ResponseContext,
   ): Promise<ApplicationKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApplicationKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApplicationKeyResponse",
       ) as ApplicationKeyResponse;
       return body;
@@ -961,14 +940,12 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -983,8 +960,9 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ApplicationKeyResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ApplicationKeyResponse",
         "",
       ) as ApplicationKeyResponse;

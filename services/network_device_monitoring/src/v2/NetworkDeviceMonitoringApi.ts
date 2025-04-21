@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { GetDeviceResponse } from "./models/GetDeviceResponse";
 import { GetInterfacesResponse } from "./models/GetInterfacesResponse";
@@ -78,14 +84,14 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     if (deviceId !== undefined) {
       requestContext.setQueryParam(
         "device_id",
-        ObjectSerializer.serialize(deviceId, "string", ""),
+        serialize(deviceId, TypingInfo, "string", ""),
         "",
       );
     }
     if (getIpAddresses !== undefined) {
       requestContext.setQueryParam(
         "get_ip_addresses",
-        ObjectSerializer.serialize(getIpAddresses, "boolean", ""),
+        serialize(getIpAddresses, TypingInfo, "boolean", ""),
         "",
       );
     }
@@ -122,28 +128,28 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "string", ""),
+        serialize(sort, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterTag !== undefined) {
       requestContext.setQueryParam(
         "filter[tag]",
-        ObjectSerializer.serialize(filterTag, "string", ""),
+        serialize(filterTag, TypingInfo, "string", ""),
         "",
       );
     }
@@ -221,12 +227,10 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ListTagsResponse", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ListTagsResponse", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -252,12 +256,11 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async getDevice(
     response: ResponseContext,
   ): Promise<GetDeviceResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GetDeviceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetDeviceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetDeviceResponse",
       ) as GetDeviceResponse;
       return body;
@@ -267,14 +270,12 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -289,8 +290,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GetDeviceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetDeviceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetDeviceResponse",
         "",
       ) as GetDeviceResponse;
@@ -314,25 +316,22 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async getInterfaces(
     response: ResponseContext,
   ): Promise<GetInterfacesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GetInterfacesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetInterfacesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetInterfacesResponse",
       ) as GetInterfacesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -347,8 +346,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GetInterfacesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetInterfacesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetInterfacesResponse",
         "",
       ) as GetInterfacesResponse;
@@ -372,12 +372,11 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async listDevices(
     response: ResponseContext,
   ): Promise<ListDevicesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListDevicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListDevicesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListDevicesResponse",
       ) as ListDevicesResponse;
       return body;
@@ -387,14 +386,12 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -409,8 +406,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListDevicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListDevicesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListDevicesResponse",
         "",
       ) as ListDevicesResponse;
@@ -434,12 +432,11 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async listDeviceUserTags(
     response: ResponseContext,
   ): Promise<ListTagsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListTagsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListTagsResponse",
       ) as ListTagsResponse;
       return body;
@@ -449,14 +446,12 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -471,8 +466,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListTagsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListTagsResponse",
         "",
       ) as ListTagsResponse;
@@ -496,12 +492,11 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
   public async updateDeviceUserTags(
     response: ResponseContext,
   ): Promise<ListTagsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListTagsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListTagsResponse",
       ) as ListTagsResponse;
       return body;
@@ -511,14 +506,12 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -533,8 +526,9 @@ export class NetworkDeviceMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListTagsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListTagsResponse",
         "",
       ) as ListTagsResponse;

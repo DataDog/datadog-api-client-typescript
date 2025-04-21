@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { RUMAggregateRequest } from "./models/RUMAggregateRequest";
 import { RUMAnalyticsAggregateResponse } from "./models/RUMAnalyticsAggregateResponse";
@@ -48,12 +54,10 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RUMAggregateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RUMAggregateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -90,12 +94,10 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RUMApplicationCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RUMApplicationCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -224,42 +226,42 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     if (filterQuery !== undefined) {
       requestContext.setQueryParam(
         "filter[query]",
-        ObjectSerializer.serialize(filterQuery, "string", ""),
+        serialize(filterQuery, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterFrom !== undefined) {
       requestContext.setQueryParam(
         "filter[from]",
-        ObjectSerializer.serialize(filterFrom, "Date", "date-time"),
+        serialize(filterFrom, TypingInfo, "Date", "date-time"),
         "",
       );
     }
     if (filterTo !== undefined) {
       requestContext.setQueryParam(
         "filter[to]",
-        ObjectSerializer.serialize(filterTo, "Date", "date-time"),
+        serialize(filterTo, TypingInfo, "Date", "date-time"),
         "",
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "RUMSort", ""),
+        serialize(sort, TypingInfo, "RUMSort", ""),
         "",
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", ""),
+        serialize(pageCursor, TypingInfo, "string", ""),
         "",
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        serialize(pageLimit, TypingInfo, "number", "int32"),
         "",
       );
     }
@@ -296,12 +298,10 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RUMSearchEventsRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RUMSearchEventsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -347,12 +347,10 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RUMApplicationUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RUMApplicationUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -378,12 +376,11 @@ export class RUMApiResponseProcessor {
   public async aggregateRUMEvents(
     response: ResponseContext,
   ): Promise<RUMAnalyticsAggregateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RUMAnalyticsAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMAnalyticsAggregateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMAnalyticsAggregateResponse",
       ) as RUMAnalyticsAggregateResponse;
       return body;
@@ -393,14 +390,12 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -415,8 +410,9 @@ export class RUMApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RUMAnalyticsAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMAnalyticsAggregateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMAnalyticsAggregateResponse",
         "",
       ) as RUMAnalyticsAggregateResponse;
@@ -440,25 +436,22 @@ export class RUMApiResponseProcessor {
   public async createRUMApplication(
     response: ResponseContext,
   ): Promise<RUMApplicationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMApplicationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMApplicationResponse",
       ) as RUMApplicationResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -473,8 +466,9 @@ export class RUMApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMApplicationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMApplicationResponse",
         "",
       ) as RUMApplicationResponse;
@@ -496,21 +490,17 @@ export class RUMApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteRUMApplication(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -545,25 +535,22 @@ export class RUMApiResponseProcessor {
   public async getRUMApplication(
     response: ResponseContext,
   ): Promise<RUMApplicationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMApplicationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMApplicationResponse",
       ) as RUMApplicationResponse;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -578,8 +565,9 @@ export class RUMApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMApplicationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMApplicationResponse",
         "",
       ) as RUMApplicationResponse;
@@ -603,25 +591,22 @@ export class RUMApiResponseProcessor {
   public async getRUMApplications(
     response: ResponseContext,
   ): Promise<RUMApplicationsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RUMApplicationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMApplicationsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMApplicationsResponse",
       ) as RUMApplicationsResponse;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -636,8 +621,9 @@ export class RUMApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RUMApplicationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMApplicationsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMApplicationsResponse",
         "",
       ) as RUMApplicationsResponse;
@@ -661,12 +647,11 @@ export class RUMApiResponseProcessor {
   public async listRUMEvents(
     response: ResponseContext,
   ): Promise<RUMEventsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RUMEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMEventsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMEventsResponse",
       ) as RUMEventsResponse;
       return body;
@@ -676,14 +661,12 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -698,8 +681,9 @@ export class RUMApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RUMEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMEventsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMEventsResponse",
         "",
       ) as RUMEventsResponse;
@@ -723,12 +707,11 @@ export class RUMApiResponseProcessor {
   public async searchRUMEvents(
     response: ResponseContext,
   ): Promise<RUMEventsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RUMEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMEventsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMEventsResponse",
       ) as RUMEventsResponse;
       return body;
@@ -738,14 +721,12 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -760,8 +741,9 @@ export class RUMApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RUMEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMEventsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMEventsResponse",
         "",
       ) as RUMEventsResponse;
@@ -785,12 +767,11 @@ export class RUMApiResponseProcessor {
   public async updateRUMApplication(
     response: ResponseContext,
   ): Promise<RUMApplicationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMApplicationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMApplicationResponse",
       ) as RUMApplicationResponse;
       return body;
@@ -801,14 +782,12 @@ export class RUMApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -823,8 +802,9 @@ export class RUMApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RUMApplicationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RUMApplicationResponse",
         "",
       ) as RUMApplicationResponse;

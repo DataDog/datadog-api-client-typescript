@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { IncidentRelatedObject } from "./models/IncidentRelatedObject";
 import { IncidentServiceCreateRequest } from "./models/IncidentServiceCreateRequest";
@@ -47,12 +53,10 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "IncidentServiceCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentServiceCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -140,7 +144,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "IncidentRelatedObject", ""),
+        serialize(include, TypingInfo, "IncidentRelatedObject", ""),
         "",
       );
     }
@@ -183,28 +187,28 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "IncidentRelatedObject", ""),
+        serialize(include, TypingInfo, "IncidentRelatedObject", ""),
         "",
       );
     }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        serialize(pageOffset, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", ""),
+        serialize(filter, TypingInfo, "string", ""),
         "",
       );
     }
@@ -255,12 +259,10 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "IncidentServiceUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "IncidentServiceUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -287,12 +289,11 @@ export class IncidentServicesApiResponseProcessor {
   public async createIncidentService(
     response: ResponseContext,
   ): Promise<IncidentServiceResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: IncidentServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IncidentServiceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IncidentServiceResponse",
       ) as IncidentServiceResponse;
       return body;
@@ -304,14 +305,12 @@ export class IncidentServicesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -326,8 +325,9 @@ export class IncidentServicesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IncidentServiceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IncidentServiceResponse",
         "",
       ) as IncidentServiceResponse;
@@ -349,9 +349,7 @@ export class IncidentServicesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteIncidentService(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -362,14 +360,12 @@ export class IncidentServicesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -404,12 +400,11 @@ export class IncidentServicesApiResponseProcessor {
   public async getIncidentService(
     response: ResponseContext,
   ): Promise<IncidentServiceResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: IncidentServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IncidentServiceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IncidentServiceResponse",
       ) as IncidentServiceResponse;
       return body;
@@ -421,14 +416,12 @@ export class IncidentServicesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -443,8 +436,9 @@ export class IncidentServicesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IncidentServiceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IncidentServiceResponse",
         "",
       ) as IncidentServiceResponse;
@@ -468,12 +462,11 @@ export class IncidentServicesApiResponseProcessor {
   public async listIncidentServices(
     response: ResponseContext,
   ): Promise<IncidentServicesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: IncidentServicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IncidentServicesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IncidentServicesResponse",
       ) as IncidentServicesResponse;
       return body;
@@ -485,14 +478,12 @@ export class IncidentServicesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -507,8 +498,9 @@ export class IncidentServicesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentServicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IncidentServicesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IncidentServicesResponse",
         "",
       ) as IncidentServicesResponse;
@@ -532,12 +524,11 @@ export class IncidentServicesApiResponseProcessor {
   public async updateIncidentService(
     response: ResponseContext,
   ): Promise<IncidentServiceResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: IncidentServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IncidentServiceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IncidentServiceResponse",
       ) as IncidentServiceResponse;
       return body;
@@ -549,14 +540,12 @@ export class IncidentServicesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -571,8 +560,9 @@ export class IncidentServicesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IncidentServiceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IncidentServiceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IncidentServiceResponse",
         "",
       ) as IncidentServiceResponse;

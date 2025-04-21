@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { AppsSortField } from "./models/AppsSortField";
 import { CreateAppRequest } from "./models/CreateAppRequest";
@@ -50,12 +56,10 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CreateAppRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateAppRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -124,12 +128,10 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "DeleteAppsRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "DeleteAppsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -172,7 +174,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     if (version !== undefined) {
       requestContext.setQueryParam(
         "version",
-        ObjectSerializer.serialize(version, "string", ""),
+        serialize(version, TypingInfo, "string", ""),
         "",
       );
     }
@@ -216,77 +218,77 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     if (limit !== undefined) {
       requestContext.setQueryParam(
         "limit",
-        ObjectSerializer.serialize(limit, "number", "int64"),
+        serialize(limit, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (page !== undefined) {
       requestContext.setQueryParam(
         "page",
-        ObjectSerializer.serialize(page, "number", "int64"),
+        serialize(page, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (filterUserName !== undefined) {
       requestContext.setQueryParam(
         "filter[user_name]",
-        ObjectSerializer.serialize(filterUserName, "string", ""),
+        serialize(filterUserName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterUserUuid !== undefined) {
       requestContext.setQueryParam(
         "filter[user_uuid]",
-        ObjectSerializer.serialize(filterUserUuid, "string", "uuid"),
+        serialize(filterUserUuid, TypingInfo, "string", "uuid"),
         "",
       );
     }
     if (filterName !== undefined) {
       requestContext.setQueryParam(
         "filter[name]",
-        ObjectSerializer.serialize(filterName, "string", ""),
+        serialize(filterName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterQuery !== undefined) {
       requestContext.setQueryParam(
         "filter[query]",
-        ObjectSerializer.serialize(filterQuery, "string", ""),
+        serialize(filterQuery, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterDeployed !== undefined) {
       requestContext.setQueryParam(
         "filter[deployed]",
-        ObjectSerializer.serialize(filterDeployed, "boolean", ""),
+        serialize(filterDeployed, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterTags !== undefined) {
       requestContext.setQueryParam(
         "filter[tags]",
-        ObjectSerializer.serialize(filterTags, "string", ""),
+        serialize(filterTags, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterFavorite !== undefined) {
       requestContext.setQueryParam(
         "filter[favorite]",
-        ObjectSerializer.serialize(filterFavorite, "boolean", ""),
+        serialize(filterFavorite, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterSelfService !== undefined) {
       requestContext.setQueryParam(
         "filter[self_service]",
-        ObjectSerializer.serialize(filterSelfService, "boolean", ""),
+        serialize(filterSelfService, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "Array<AppsSortField>", ""),
+        serialize(sort, TypingInfo, "Array<AppsSortField>", ""),
         "csv",
       );
     }
@@ -397,12 +399,10 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "UpdateAppRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UpdateAppRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -428,25 +428,22 @@ export class AppBuilderApiResponseProcessor {
   public async createApp(
     response: ResponseContext,
   ): Promise<CreateAppResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: CreateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CreateAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CreateAppResponse",
       ) as CreateAppResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -462,14 +459,12 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -484,8 +479,9 @@ export class AppBuilderApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CreateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CreateAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CreateAppResponse",
         "",
       ) as CreateAppResponse;
@@ -509,12 +505,11 @@ export class AppBuilderApiResponseProcessor {
   public async deleteApp(
     response: ResponseContext,
   ): Promise<DeleteAppResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: DeleteAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: DeleteAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "DeleteAppResponse",
       ) as DeleteAppResponse;
       return body;
@@ -525,14 +520,12 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 410
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -548,14 +541,12 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -570,8 +561,9 @@ export class AppBuilderApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DeleteAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: DeleteAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "DeleteAppResponse",
         "",
       ) as DeleteAppResponse;
@@ -595,12 +587,11 @@ export class AppBuilderApiResponseProcessor {
   public async deleteApps(
     response: ResponseContext,
   ): Promise<DeleteAppsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: DeleteAppsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: DeleteAppsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "DeleteAppsResponse",
       ) as DeleteAppsResponse;
       return body;
@@ -610,14 +601,12 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -633,14 +622,12 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -655,8 +642,9 @@ export class AppBuilderApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DeleteAppsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: DeleteAppsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "DeleteAppsResponse",
         "",
       ) as DeleteAppsResponse;
@@ -678,12 +666,11 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getApp(response: ResponseContext): Promise<GetAppResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GetAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetAppResponse",
       ) as GetAppResponse;
       return body;
@@ -694,14 +681,12 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 410
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -717,14 +702,12 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -739,8 +722,9 @@ export class AppBuilderApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GetAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetAppResponse",
         "",
       ) as GetAppResponse;
@@ -762,25 +746,22 @@ export class AppBuilderApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listApps(response: ResponseContext): Promise<ListAppsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListAppsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListAppsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListAppsResponse",
       ) as ListAppsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -796,14 +777,12 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -818,8 +797,9 @@ export class AppBuilderApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListAppsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListAppsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListAppsResponse",
         "",
       ) as ListAppsResponse;
@@ -843,12 +823,11 @@ export class AppBuilderApiResponseProcessor {
   public async publishApp(
     response: ResponseContext,
   ): Promise<PublishAppResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: PublishAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PublishAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PublishAppResponse",
       ) as PublishAppResponse;
       return body;
@@ -858,14 +837,12 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -881,14 +858,12 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -903,8 +878,9 @@ export class AppBuilderApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PublishAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PublishAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PublishAppResponse",
         "",
       ) as PublishAppResponse;
@@ -928,12 +904,11 @@ export class AppBuilderApiResponseProcessor {
   public async unpublishApp(
     response: ResponseContext,
   ): Promise<UnpublishAppResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UnpublishAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UnpublishAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UnpublishAppResponse",
       ) as UnpublishAppResponse;
       return body;
@@ -943,14 +918,12 @@ export class AppBuilderApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -966,14 +939,12 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -988,8 +959,9 @@ export class AppBuilderApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UnpublishAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UnpublishAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UnpublishAppResponse",
         "",
       ) as UnpublishAppResponse;
@@ -1013,25 +985,22 @@ export class AppBuilderApiResponseProcessor {
   public async updateApp(
     response: ResponseContext,
   ): Promise<UpdateAppResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UpdateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpdateAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpdateAppResponse",
       ) as UpdateAppResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -1047,14 +1016,12 @@ export class AppBuilderApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1069,8 +1036,9 @@ export class AppBuilderApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UpdateAppResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpdateAppResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpdateAppResponse",
         "",
       ) as UpdateAppResponse;

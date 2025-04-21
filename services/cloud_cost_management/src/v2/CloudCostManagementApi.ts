@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { AwsCURConfigPatchRequest } from "./models/AwsCURConfigPatchRequest";
 import { AwsCURConfigPostRequest } from "./models/AwsCURConfigPostRequest";
@@ -49,12 +55,10 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "AwsCURConfigPostRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AwsCURConfigPostRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -91,12 +95,10 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "AzureUCConfigPostRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AzureUCConfigPostRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -356,12 +358,10 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "AwsCURConfigPatchRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AwsCURConfigPatchRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -408,12 +408,10 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "AzureUCConfigPatchRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AzureUCConfigPatchRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -450,12 +448,10 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "Array<CustomCostsFileLineItem>", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "Array<CustomCostsFileLineItem>", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -482,12 +478,11 @@ export class CloudCostManagementApiResponseProcessor {
   public async createCostAWSCURConfig(
     response: ResponseContext,
   ): Promise<AwsCURConfigResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AwsCURConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsCURConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsCURConfigResponse",
       ) as AwsCURConfigResponse;
       return body;
@@ -497,14 +492,12 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -519,8 +512,9 @@ export class CloudCostManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AwsCURConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsCURConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsCURConfigResponse",
         "",
       ) as AwsCURConfigResponse;
@@ -544,12 +538,11 @@ export class CloudCostManagementApiResponseProcessor {
   public async createCostAzureUCConfigs(
     response: ResponseContext,
   ): Promise<AzureUCConfigPairsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AzureUCConfigPairsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AzureUCConfigPairsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AzureUCConfigPairsResponse",
       ) as AzureUCConfigPairsResponse;
       return body;
@@ -559,14 +552,12 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -581,8 +572,9 @@ export class CloudCostManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AzureUCConfigPairsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AzureUCConfigPairsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AzureUCConfigPairsResponse",
         "",
       ) as AzureUCConfigPairsResponse;
@@ -606,9 +598,7 @@ export class CloudCostManagementApiResponseProcessor {
   public async deleteCostAWSCURConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -617,14 +607,12 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -659,9 +647,7 @@ export class CloudCostManagementApiResponseProcessor {
   public async deleteCostAzureUCConfig(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -670,14 +656,12 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -710,21 +694,17 @@ export class CloudCostManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteCustomCostsFile(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -759,25 +739,22 @@ export class CloudCostManagementApiResponseProcessor {
   public async getCustomCostsFile(
     response: ResponseContext,
   ): Promise<CustomCostsFileGetResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CustomCostsFileGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CustomCostsFileGetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CustomCostsFileGetResponse",
       ) as CustomCostsFileGetResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -792,8 +769,9 @@ export class CloudCostManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CustomCostsFileGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CustomCostsFileGetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CustomCostsFileGetResponse",
         "",
       ) as CustomCostsFileGetResponse;
@@ -817,25 +795,22 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostAWSCURConfigs(
     response: ResponseContext,
   ): Promise<AwsCURConfigsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AwsCURConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsCURConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsCURConfigsResponse",
       ) as AwsCURConfigsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -850,8 +825,9 @@ export class CloudCostManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AwsCURConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsCURConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsCURConfigsResponse",
         "",
       ) as AwsCURConfigsResponse;
@@ -875,25 +851,22 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCostAzureUCConfigs(
     response: ResponseContext,
   ): Promise<AzureUCConfigsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AzureUCConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AzureUCConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AzureUCConfigsResponse",
       ) as AzureUCConfigsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -908,8 +881,9 @@ export class CloudCostManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AzureUCConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AzureUCConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AzureUCConfigsResponse",
         "",
       ) as AzureUCConfigsResponse;
@@ -933,25 +907,22 @@ export class CloudCostManagementApiResponseProcessor {
   public async listCustomCostsFiles(
     response: ResponseContext,
   ): Promise<CustomCostsFileListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CustomCostsFileListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CustomCostsFileListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CustomCostsFileListResponse",
       ) as CustomCostsFileListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -966,8 +937,9 @@ export class CloudCostManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CustomCostsFileListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CustomCostsFileListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CustomCostsFileListResponse",
         "",
       ) as CustomCostsFileListResponse;
@@ -991,25 +963,22 @@ export class CloudCostManagementApiResponseProcessor {
   public async updateCostAWSCURConfig(
     response: ResponseContext,
   ): Promise<AwsCURConfigsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AwsCURConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsCURConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsCURConfigsResponse",
       ) as AwsCURConfigsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1024,8 +993,9 @@ export class CloudCostManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AwsCURConfigsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AwsCURConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AwsCURConfigsResponse",
         "",
       ) as AwsCURConfigsResponse;
@@ -1049,12 +1019,11 @@ export class CloudCostManagementApiResponseProcessor {
   public async updateCostAzureUCConfigs(
     response: ResponseContext,
   ): Promise<AzureUCConfigPairsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AzureUCConfigPairsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AzureUCConfigPairsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AzureUCConfigPairsResponse",
       ) as AzureUCConfigPairsResponse;
       return body;
@@ -1064,14 +1033,12 @@ export class CloudCostManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1086,8 +1053,9 @@ export class CloudCostManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AzureUCConfigPairsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AzureUCConfigPairsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AzureUCConfigPairsResponse",
         "",
       ) as AzureUCConfigPairsResponse;
@@ -1111,25 +1079,22 @@ export class CloudCostManagementApiResponseProcessor {
   public async uploadCustomCostsFile(
     response: ResponseContext,
   ): Promise<CustomCostsFileUploadResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
-      const body: CustomCostsFileUploadResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CustomCostsFileUploadResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CustomCostsFileUploadResponse",
       ) as CustomCostsFileUploadResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1144,8 +1109,9 @@ export class CloudCostManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CustomCostsFileUploadResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CustomCostsFileUploadResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CustomCostsFileUploadResponse",
         "",
       ) as CustomCostsFileUploadResponse;

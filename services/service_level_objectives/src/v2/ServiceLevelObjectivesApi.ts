@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { SloReportCreateRequest } from "./models/SloReportCreateRequest";
 import { SLOReportPostResponse } from "./models/SLOReportPostResponse";
@@ -45,12 +51,10 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SloReportCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SloReportCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -155,12 +159,11 @@ export class ServiceLevelObjectivesApiResponseProcessor {
   public async createSLOReportJob(
     response: ResponseContext,
   ): Promise<SLOReportPostResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SLOReportPostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SLOReportPostResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SLOReportPostResponse",
       ) as SLOReportPostResponse;
       return body;
@@ -170,14 +173,12 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -192,8 +193,9 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SLOReportPostResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SLOReportPostResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SLOReportPostResponse",
         "",
       ) as SLOReportPostResponse;
@@ -215,12 +217,11 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSLOReport(response: ResponseContext): Promise<string> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: string = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: string = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "string",
       ) as string;
       return body;
@@ -231,14 +232,12 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -253,8 +252,9 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: string = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: string = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "string",
         "",
       ) as string;
@@ -278,12 +278,11 @@ export class ServiceLevelObjectivesApiResponseProcessor {
   public async getSLOReportJobStatus(
     response: ResponseContext,
   ): Promise<SLOReportStatusGetResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SLOReportStatusGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SLOReportStatusGetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SLOReportStatusGetResponse",
       ) as SLOReportStatusGetResponse;
       return body;
@@ -294,14 +293,12 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -316,8 +313,9 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SLOReportStatusGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SLOReportStatusGetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SLOReportStatusGetResponse",
         "",
       ) as SLOReportStatusGetResponse;

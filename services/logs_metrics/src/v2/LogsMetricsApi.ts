@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { LogsMetricCreateRequest } from "./models/LogsMetricCreateRequest";
 import { LogsMetricResponse } from "./models/LogsMetricResponse";
@@ -41,12 +47,10 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "LogsMetricCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LogsMetricCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -181,12 +185,10 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "LogsMetricUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "LogsMetricUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -212,12 +214,11 @@ export class LogsMetricsApiResponseProcessor {
   public async createLogsMetric(
     response: ResponseContext,
   ): Promise<LogsMetricResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: LogsMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: LogsMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "LogsMetricResponse",
       ) as LogsMetricResponse;
       return body;
@@ -228,14 +229,12 @@ export class LogsMetricsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -250,8 +249,9 @@ export class LogsMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: LogsMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: LogsMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "LogsMetricResponse",
         "",
       ) as LogsMetricResponse;
@@ -273,9 +273,7 @@ export class LogsMetricsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteLogsMetric(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -284,14 +282,12 @@ export class LogsMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -326,12 +322,11 @@ export class LogsMetricsApiResponseProcessor {
   public async getLogsMetric(
     response: ResponseContext,
   ): Promise<LogsMetricResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: LogsMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: LogsMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "LogsMetricResponse",
       ) as LogsMetricResponse;
       return body;
@@ -341,14 +336,12 @@ export class LogsMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -363,8 +356,9 @@ export class LogsMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: LogsMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: LogsMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "LogsMetricResponse",
         "",
       ) as LogsMetricResponse;
@@ -388,25 +382,22 @@ export class LogsMetricsApiResponseProcessor {
   public async listLogsMetrics(
     response: ResponseContext,
   ): Promise<LogsMetricsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: LogsMetricsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: LogsMetricsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "LogsMetricsResponse",
       ) as LogsMetricsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -421,8 +412,9 @@ export class LogsMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: LogsMetricsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: LogsMetricsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "LogsMetricsResponse",
         "",
       ) as LogsMetricsResponse;
@@ -446,12 +438,11 @@ export class LogsMetricsApiResponseProcessor {
   public async updateLogsMetric(
     response: ResponseContext,
   ): Promise<LogsMetricResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: LogsMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: LogsMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "LogsMetricResponse",
       ) as LogsMetricResponse;
       return body;
@@ -462,14 +453,12 @@ export class LogsMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -484,8 +473,9 @@ export class LogsMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: LogsMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: LogsMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "LogsMetricResponse",
         "",
       ) as LogsMetricResponse;

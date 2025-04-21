@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
 import { ServiceCheck } from "./models/ServiceCheck";
@@ -39,12 +45,10 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "Array<ServiceCheck>", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "Array<ServiceCheck>", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -67,12 +71,11 @@ export class ServiceChecksApiResponseProcessor {
   public async submitServiceCheck(
     response: ResponseContext,
   ): Promise<IntakePayloadAccepted> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
-      const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IntakePayloadAccepted = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IntakePayloadAccepted",
       ) as IntakePayloadAccepted;
       return body;
@@ -84,14 +87,12 @@ export class ServiceChecksApiResponseProcessor {
       response.httpStatusCode === 413 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -106,8 +107,9 @@ export class ServiceChecksApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IntakePayloadAccepted = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IntakePayloadAccepted",
         "",
       ) as IntakePayloadAccepted;

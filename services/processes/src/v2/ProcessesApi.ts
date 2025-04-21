@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { ProcessSummariesResponse } from "./models/ProcessSummariesResponse";
 import { ProcessSummary } from "./models/ProcessSummary";
@@ -42,42 +48,42 @@ export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
     if (search !== undefined) {
       requestContext.setQueryParam(
         "search",
-        ObjectSerializer.serialize(search, "string", ""),
+        serialize(search, TypingInfo, "string", ""),
         "",
       );
     }
     if (tags !== undefined) {
       requestContext.setQueryParam(
         "tags",
-        ObjectSerializer.serialize(tags, "string", ""),
+        serialize(tags, TypingInfo, "string", ""),
         "",
       );
     }
     if (from !== undefined) {
       requestContext.setQueryParam(
         "from",
-        ObjectSerializer.serialize(from, "number", "int64"),
+        serialize(from, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (to !== undefined) {
       requestContext.setQueryParam(
         "to",
-        ObjectSerializer.serialize(to, "number", "int64"),
+        serialize(to, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        serialize(pageLimit, TypingInfo, "number", "int32"),
         "",
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", ""),
+        serialize(pageCursor, TypingInfo, "string", ""),
         "",
       );
     }
@@ -104,12 +110,11 @@ export class ProcessesApiResponseProcessor {
   public async listProcesses(
     response: ResponseContext,
   ): Promise<ProcessSummariesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ProcessSummariesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ProcessSummariesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ProcessSummariesResponse",
       ) as ProcessSummariesResponse;
       return body;
@@ -119,14 +124,12 @@ export class ProcessesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -141,8 +144,9 @@ export class ProcessesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ProcessSummariesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ProcessSummariesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ProcessSummariesResponse",
         "",
       ) as ProcessSummariesResponse;

@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { OnDemandConcurrencyCapAttributes } from "./models/OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./models/OnDemandConcurrencyCapResponse";
@@ -65,12 +71,10 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "OnDemandConcurrencyCapAttributes", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OnDemandConcurrencyCapAttributes", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -96,25 +100,22 @@ export class SyntheticsApiResponseProcessor {
   public async getOnDemandConcurrencyCap(
     response: ResponseContext,
   ): Promise<OnDemandConcurrencyCapResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: OnDemandConcurrencyCapResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: OnDemandConcurrencyCapResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "OnDemandConcurrencyCapResponse",
       ) as OnDemandConcurrencyCapResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -129,8 +130,9 @@ export class SyntheticsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OnDemandConcurrencyCapResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: OnDemandConcurrencyCapResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "OnDemandConcurrencyCapResponse",
         "",
       ) as OnDemandConcurrencyCapResponse;
@@ -154,25 +156,22 @@ export class SyntheticsApiResponseProcessor {
   public async setOnDemandConcurrencyCap(
     response: ResponseContext,
   ): Promise<OnDemandConcurrencyCapResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: OnDemandConcurrencyCapResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: OnDemandConcurrencyCapResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "OnDemandConcurrencyCapResponse",
       ) as OnDemandConcurrencyCapResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -187,8 +186,9 @@ export class SyntheticsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OnDemandConcurrencyCapResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: OnDemandConcurrencyCapResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "OnDemandConcurrencyCapResponse",
         "",
       ) as OnDemandConcurrencyCapResponse;

@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { GraphSnapshot } from "./models/GraphSnapshot";
 
@@ -53,56 +59,56 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
     if (metricQuery !== undefined) {
       requestContext.setQueryParam(
         "metric_query",
-        ObjectSerializer.serialize(metricQuery, "string", ""),
+        serialize(metricQuery, TypingInfo, "string", ""),
         "",
       );
     }
     if (start !== undefined) {
       requestContext.setQueryParam(
         "start",
-        ObjectSerializer.serialize(start, "number", "int64"),
+        serialize(start, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (end !== undefined) {
       requestContext.setQueryParam(
         "end",
-        ObjectSerializer.serialize(end, "number", "int64"),
+        serialize(end, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (eventQuery !== undefined) {
       requestContext.setQueryParam(
         "event_query",
-        ObjectSerializer.serialize(eventQuery, "string", ""),
+        serialize(eventQuery, TypingInfo, "string", ""),
         "",
       );
     }
     if (graphDef !== undefined) {
       requestContext.setQueryParam(
         "graph_def",
-        ObjectSerializer.serialize(graphDef, "string", ""),
+        serialize(graphDef, TypingInfo, "string", ""),
         "",
       );
     }
     if (title !== undefined) {
       requestContext.setQueryParam(
         "title",
-        ObjectSerializer.serialize(title, "string", ""),
+        serialize(title, TypingInfo, "string", ""),
         "",
       );
     }
     if (height !== undefined) {
       requestContext.setQueryParam(
         "height",
-        ObjectSerializer.serialize(height, "number", "int64"),
+        serialize(height, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (width !== undefined) {
       requestContext.setQueryParam(
         "width",
-        ObjectSerializer.serialize(width, "number", "int64"),
+        serialize(width, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -129,12 +135,11 @@ export class SnapshotsApiResponseProcessor {
   public async getGraphSnapshot(
     response: ResponseContext,
   ): Promise<GraphSnapshot> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GraphSnapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GraphSnapshot = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GraphSnapshot",
       ) as GraphSnapshot;
       return body;
@@ -144,14 +149,12 @@ export class SnapshotsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -166,8 +169,9 @@ export class SnapshotsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GraphSnapshot = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GraphSnapshot = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GraphSnapshot",
         "",
       ) as GraphSnapshot;

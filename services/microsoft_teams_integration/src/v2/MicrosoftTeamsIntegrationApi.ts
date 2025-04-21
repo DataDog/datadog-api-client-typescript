@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { MicrosoftTeamsCreateTenantBasedHandleRequest } from "./models/MicrosoftTeamsCreateTenantBasedHandleRequest";
 import { MicrosoftTeamsCreateWorkflowsWebhookHandleRequest } from "./models/MicrosoftTeamsCreateWorkflowsWebhookHandleRequest";
@@ -47,13 +53,12 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "MicrosoftTeamsCreateTenantBasedHandleRequest",
         "",
       ),
@@ -93,13 +98,12 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "MicrosoftTeamsCreateWorkflowsWebhookHandleRequest",
         "",
       ),
@@ -320,14 +324,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     if (tenantId !== undefined) {
       requestContext.setQueryParam(
         "tenant_id",
-        ObjectSerializer.serialize(tenantId, "string", ""),
+        serialize(tenantId, TypingInfo, "string", ""),
         "",
       );
     }
     if (name !== undefined) {
       requestContext.setQueryParam(
         "name",
-        ObjectSerializer.serialize(name, "string", ""),
+        serialize(name, TypingInfo, "string", ""),
         "",
       );
     }
@@ -362,7 +366,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     if (name !== undefined) {
       requestContext.setQueryParam(
         "name",
-        ObjectSerializer.serialize(name, "string", ""),
+        serialize(name, TypingInfo, "string", ""),
         "",
       );
     }
@@ -408,13 +412,12 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "MicrosoftTeamsUpdateTenantBasedHandleRequest",
         "",
       ),
@@ -463,13 +466,12 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest",
         "",
       ),
@@ -498,15 +500,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   public async createTenantBasedHandle(
     response: ResponseContext,
   ): Promise<MicrosoftTeamsTenantBasedHandleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsTenantBasedHandleResponse",
-        ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsTenantBasedHandleResponse",
+      ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
     if (
@@ -517,14 +517,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -539,12 +537,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsTenantBasedHandleResponse",
-          "",
-        ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsTenantBasedHandleResponse",
+        "",
+      ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
 
@@ -565,15 +563,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   public async createWorkflowsWebhookHandle(
     response: ResponseContext,
   ): Promise<MicrosoftTeamsWorkflowsWebhookHandleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
     if (
@@ -584,14 +580,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -606,12 +600,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-          "",
-        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+        "",
+      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
 
@@ -632,9 +626,7 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   public async deleteTenantBasedHandle(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -644,14 +636,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -686,9 +676,7 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   public async deleteWorkflowsWebhookHandle(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -698,14 +686,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -740,15 +726,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   public async getChannelByName(
     response: ResponseContext,
   ): Promise<MicrosoftTeamsGetChannelByNameResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsGetChannelByNameResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsGetChannelByNameResponse",
-        ) as MicrosoftTeamsGetChannelByNameResponse;
+      const body: MicrosoftTeamsGetChannelByNameResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsGetChannelByNameResponse",
+      ) as MicrosoftTeamsGetChannelByNameResponse;
       return body;
     }
     if (
@@ -757,14 +741,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -779,12 +761,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsGetChannelByNameResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsGetChannelByNameResponse",
-          "",
-        ) as MicrosoftTeamsGetChannelByNameResponse;
+      const body: MicrosoftTeamsGetChannelByNameResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsGetChannelByNameResponse",
+        "",
+      ) as MicrosoftTeamsGetChannelByNameResponse;
       return body;
     }
 
@@ -805,15 +787,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   public async getTenantBasedHandle(
     response: ResponseContext,
   ): Promise<MicrosoftTeamsTenantBasedHandleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsTenantBasedHandleResponse",
-        ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsTenantBasedHandleResponse",
+      ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
     if (
@@ -823,14 +803,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -845,12 +823,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsTenantBasedHandleResponse",
-          "",
-        ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsTenantBasedHandleResponse",
+        "",
+      ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
 
@@ -871,15 +849,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   public async getWorkflowsWebhookHandle(
     response: ResponseContext,
   ): Promise<MicrosoftTeamsWorkflowsWebhookHandleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
     if (
@@ -889,14 +865,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -911,12 +885,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-          "",
-        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+        "",
+      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
 
@@ -937,15 +911,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   public async listTenantBasedHandles(
     response: ResponseContext,
   ): Promise<MicrosoftTeamsTenantBasedHandlesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsTenantBasedHandlesResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsTenantBasedHandlesResponse",
-        ) as MicrosoftTeamsTenantBasedHandlesResponse;
+      const body: MicrosoftTeamsTenantBasedHandlesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsTenantBasedHandlesResponse",
+      ) as MicrosoftTeamsTenantBasedHandlesResponse;
       return body;
     }
     if (
@@ -955,14 +927,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -977,12 +947,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsTenantBasedHandlesResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsTenantBasedHandlesResponse",
-          "",
-        ) as MicrosoftTeamsTenantBasedHandlesResponse;
+      const body: MicrosoftTeamsTenantBasedHandlesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsTenantBasedHandlesResponse",
+        "",
+      ) as MicrosoftTeamsTenantBasedHandlesResponse;
       return body;
     }
 
@@ -1003,15 +973,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   public async listWorkflowsWebhookHandles(
     response: ResponseContext,
   ): Promise<MicrosoftTeamsWorkflowsWebhookHandlesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
-        ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
+      ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
       return body;
     }
     if (
@@ -1021,14 +989,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1043,12 +1009,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
-          "",
-        ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandlesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
+        "",
+      ) as MicrosoftTeamsWorkflowsWebhookHandlesResponse;
       return body;
     }
 
@@ -1069,15 +1035,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   public async updateTenantBasedHandle(
     response: ResponseContext,
   ): Promise<MicrosoftTeamsTenantBasedHandleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsTenantBasedHandleResponse",
-        ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsTenantBasedHandleResponse",
+      ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
     if (
@@ -1088,14 +1052,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1110,12 +1072,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsTenantBasedHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsTenantBasedHandleResponse",
-          "",
-        ) as MicrosoftTeamsTenantBasedHandleResponse;
+      const body: MicrosoftTeamsTenantBasedHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsTenantBasedHandleResponse",
+        "",
+      ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
 
@@ -1136,15 +1098,13 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   public async updateWorkflowsWebhookHandle(
     response: ResponseContext,
   ): Promise<MicrosoftTeamsWorkflowsWebhookHandleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
     if (
@@ -1155,14 +1115,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1177,12 +1135,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsWorkflowsWebhookHandleResponse",
-          "",
-        ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
+      const body: MicrosoftTeamsWorkflowsWebhookHandleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+        "",
+      ) as MicrosoftTeamsWorkflowsWebhookHandleResponse;
       return body;
     }
 

@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CIAppQueryPageOptions } from "./models/CIAppQueryPageOptions";
 import { CIAppSort } from "./models/CIAppSort";
@@ -44,12 +50,10 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CIAppTestsAggregateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CIAppTestsAggregateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -89,42 +93,42 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterQuery !== undefined) {
       requestContext.setQueryParam(
         "filter[query]",
-        ObjectSerializer.serialize(filterQuery, "string", ""),
+        serialize(filterQuery, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterFrom !== undefined) {
       requestContext.setQueryParam(
         "filter[from]",
-        ObjectSerializer.serialize(filterFrom, "Date", "date-time"),
+        serialize(filterFrom, TypingInfo, "Date", "date-time"),
         "",
       );
     }
     if (filterTo !== undefined) {
       requestContext.setQueryParam(
         "filter[to]",
-        ObjectSerializer.serialize(filterTo, "Date", "date-time"),
+        serialize(filterTo, TypingInfo, "Date", "date-time"),
         "",
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "CIAppSort", ""),
+        serialize(sort, TypingInfo, "CIAppSort", ""),
         "",
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", ""),
+        serialize(pageCursor, TypingInfo, "string", ""),
         "",
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        serialize(pageLimit, TypingInfo, "number", "int32"),
         "",
       );
     }
@@ -156,12 +160,10 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CIAppTestEventsRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CIAppTestEventsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -188,15 +190,13 @@ export class CIVisibilityTestsApiResponseProcessor {
   public async aggregateCIAppTestEvents(
     response: ResponseContext,
   ): Promise<CIAppTestsAnalyticsAggregateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CIAppTestsAnalyticsAggregateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CIAppTestsAnalyticsAggregateResponse",
-        ) as CIAppTestsAnalyticsAggregateResponse;
+      const body: CIAppTestsAnalyticsAggregateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CIAppTestsAnalyticsAggregateResponse",
+      ) as CIAppTestsAnalyticsAggregateResponse;
       return body;
     }
     if (
@@ -204,14 +204,12 @@ export class CIVisibilityTestsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -226,12 +224,12 @@ export class CIVisibilityTestsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CIAppTestsAnalyticsAggregateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CIAppTestsAnalyticsAggregateResponse",
-          "",
-        ) as CIAppTestsAnalyticsAggregateResponse;
+      const body: CIAppTestsAnalyticsAggregateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CIAppTestsAnalyticsAggregateResponse",
+        "",
+      ) as CIAppTestsAnalyticsAggregateResponse;
       return body;
     }
 
@@ -252,12 +250,11 @@ export class CIVisibilityTestsApiResponseProcessor {
   public async listCIAppTestEvents(
     response: ResponseContext,
   ): Promise<CIAppTestEventsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CIAppTestEventsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CIAppTestEventsResponse",
       ) as CIAppTestEventsResponse;
       return body;
@@ -267,14 +264,12 @@ export class CIVisibilityTestsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -289,8 +284,9 @@ export class CIVisibilityTestsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CIAppTestEventsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CIAppTestEventsResponse",
         "",
       ) as CIAppTestEventsResponse;
@@ -314,12 +310,11 @@ export class CIVisibilityTestsApiResponseProcessor {
   public async searchCIAppTestEvents(
     response: ResponseContext,
   ): Promise<CIAppTestEventsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CIAppTestEventsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CIAppTestEventsResponse",
       ) as CIAppTestEventsResponse;
       return body;
@@ -329,14 +324,12 @@ export class CIVisibilityTestsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -351,8 +344,9 @@ export class CIVisibilityTestsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CIAppTestEventsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CIAppTestEventsResponse",
         "",
       ) as CIAppTestEventsResponse;
