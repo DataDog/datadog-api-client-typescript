@@ -9,12 +9,18 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
   HttpFile,
 } from "@datadog/datadog-api-client";
 
 import FormData from "form-data";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
@@ -169,21 +175,21 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (query !== undefined) {
       requestContext.setQueryParam(
         "query",
-        ObjectSerializer.serialize(query, "string", ""),
+        serialize(query, TypingInfo, "string", ""),
         "",
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        serialize(pageLimit, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        serialize(pageOffset, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -258,25 +264,22 @@ export class APIManagementApiResponseProcessor {
   public async createOpenAPI(
     response: ResponseContext,
   ): Promise<CreateOpenAPIResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: CreateOpenAPIResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CreateOpenAPIResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CreateOpenAPIResponse",
       ) as CreateOpenAPIResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -292,14 +295,12 @@ export class APIManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -314,8 +315,9 @@ export class APIManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CreateOpenAPIResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CreateOpenAPIResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CreateOpenAPIResponse",
         "",
       ) as CreateOpenAPIResponse;
@@ -337,9 +339,7 @@ export class APIManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteOpenAPI(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -348,14 +348,12 @@ export class APIManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -371,14 +369,12 @@ export class APIManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -411,9 +407,7 @@ export class APIManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getOpenAPI(response: ResponseContext): Promise<HttpFile> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
       return body;
@@ -423,14 +417,12 @@ export class APIManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -446,14 +438,12 @@ export class APIManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -488,25 +478,22 @@ export class APIManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listAPIs(response: ResponseContext): Promise<ListAPIsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListAPIsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListAPIsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListAPIsResponse",
       ) as ListAPIsResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -522,14 +509,12 @@ export class APIManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -544,8 +529,9 @@ export class APIManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListAPIsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListAPIsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListAPIsResponse",
         "",
       ) as ListAPIsResponse;
@@ -569,12 +555,11 @@ export class APIManagementApiResponseProcessor {
   public async updateOpenAPI(
     response: ResponseContext,
   ): Promise<UpdateOpenAPIResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UpdateOpenAPIResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpdateOpenAPIResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpdateOpenAPIResponse",
       ) as UpdateOpenAPIResponse;
       return body;
@@ -584,14 +569,12 @@ export class APIManagementApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -607,14 +590,12 @@ export class APIManagementApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -629,8 +610,9 @@ export class APIManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UpdateOpenAPIResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpdateOpenAPIResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpdateOpenAPIResponse",
         "",
       ) as UpdateOpenAPIResponse;

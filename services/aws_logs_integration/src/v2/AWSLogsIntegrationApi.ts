@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { AWSLogsServicesResponse } from "./models/AWSLogsServicesResponse";
 
@@ -57,25 +63,22 @@ export class AWSLogsIntegrationApiResponseProcessor {
   public async listAWSLogsServices(
     response: ResponseContext,
   ): Promise<AWSLogsServicesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AWSLogsServicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AWSLogsServicesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AWSLogsServicesResponse",
       ) as AWSLogsServicesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -90,8 +93,9 @@ export class AWSLogsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AWSLogsServicesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AWSLogsServicesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AWSLogsServicesResponse",
         "",
       ) as AWSLogsServicesResponse;

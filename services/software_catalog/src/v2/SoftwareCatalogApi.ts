@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { EntityData } from "./models/EntityData";
 import { IncludeType } from "./models/IncludeType";
@@ -84,70 +90,70 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        serialize(pageOffset, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        serialize(pageLimit, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (filterId !== undefined) {
       requestContext.setQueryParam(
         "filter[id]",
-        ObjectSerializer.serialize(filterId, "string", ""),
+        serialize(filterId, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRef !== undefined) {
       requestContext.setQueryParam(
         "filter[ref]",
-        ObjectSerializer.serialize(filterRef, "string", ""),
+        serialize(filterRef, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterName !== undefined) {
       requestContext.setQueryParam(
         "filter[name]",
-        ObjectSerializer.serialize(filterName, "string", ""),
+        serialize(filterName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterKind !== undefined) {
       requestContext.setQueryParam(
         "filter[kind]",
-        ObjectSerializer.serialize(filterKind, "string", ""),
+        serialize(filterKind, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterOwner !== undefined) {
       requestContext.setQueryParam(
         "filter[owner]",
-        ObjectSerializer.serialize(filterOwner, "string", ""),
+        serialize(filterOwner, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRelationType !== undefined) {
       requestContext.setQueryParam(
         "filter[relation][type]",
-        ObjectSerializer.serialize(filterRelationType, "RelationType", ""),
+        serialize(filterRelationType, TypingInfo, "RelationType", ""),
         "",
       );
     }
     if (filterExcludeSnapshot !== undefined) {
       requestContext.setQueryParam(
         "filter[exclude_snapshot]",
-        ObjectSerializer.serialize(filterExcludeSnapshot, "string", ""),
+        serialize(filterExcludeSnapshot, TypingInfo, "string", ""),
         "",
       );
     }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "IncludeType", ""),
+        serialize(include, TypingInfo, "IncludeType", ""),
         "",
       );
     }
@@ -184,12 +190,10 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "UpsertCatalogEntityRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UpsertCatalogEntityRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -214,9 +218,7 @@ export class SoftwareCatalogApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteCatalogEntity(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -226,14 +228,12 @@ export class SoftwareCatalogApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -268,25 +268,22 @@ export class SoftwareCatalogApiResponseProcessor {
   public async listCatalogEntity(
     response: ResponseContext,
   ): Promise<ListEntityCatalogResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListEntityCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListEntityCatalogResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListEntityCatalogResponse",
       ) as ListEntityCatalogResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -301,8 +298,9 @@ export class SoftwareCatalogApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListEntityCatalogResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListEntityCatalogResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListEntityCatalogResponse",
         "",
       ) as ListEntityCatalogResponse;
@@ -326,12 +324,11 @@ export class SoftwareCatalogApiResponseProcessor {
   public async upsertCatalogEntity(
     response: ResponseContext,
   ): Promise<UpsertCatalogEntityResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
-      const body: UpsertCatalogEntityResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpsertCatalogEntityResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpsertCatalogEntityResponse",
       ) as UpsertCatalogEntityResponse;
       return body;
@@ -341,14 +338,12 @@ export class SoftwareCatalogApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -363,8 +358,9 @@ export class SoftwareCatalogApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UpsertCatalogEntityResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpsertCatalogEntityResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpsertCatalogEntityResponse",
         "",
       ) as UpsertCatalogEntityResponse;

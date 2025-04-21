@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { PermissionsResponse } from "./models/PermissionsResponse";
 import { RelationshipToPermission } from "./models/RelationshipToPermission";
@@ -58,12 +64,10 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RelationshipToPermission", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RelationshipToPermission", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -109,12 +113,10 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RelationshipToUser", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RelationshipToUser", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -160,12 +162,10 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RoleCloneRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RoleCloneRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -202,12 +202,10 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RoleCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RoleCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -373,35 +371,35 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "RolesSort", ""),
+        serialize(sort, TypingInfo, "RolesSort", ""),
         "",
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", ""),
+        serialize(filter, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterId !== undefined) {
       requestContext.setQueryParam(
         "filter[id]",
-        ObjectSerializer.serialize(filterId, "string", ""),
+        serialize(filterId, TypingInfo, "string", ""),
         "",
       );
     }
@@ -448,28 +446,28 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "string", ""),
+        serialize(sort, TypingInfo, "string", ""),
         "",
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", ""),
+        serialize(filter, TypingInfo, "string", ""),
         "",
       );
     }
@@ -515,12 +513,10 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RelationshipToPermission", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RelationshipToPermission", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -566,12 +562,10 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RelationshipToUser", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RelationshipToUser", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -617,12 +611,10 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RoleUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RoleUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -649,12 +641,11 @@ export class RolesApiResponseProcessor {
   public async addPermissionToRole(
     response: ResponseContext,
   ): Promise<PermissionsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: PermissionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PermissionsResponse",
       ) as PermissionsResponse;
       return body;
@@ -665,14 +656,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -687,8 +676,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PermissionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PermissionsResponse",
         "",
       ) as PermissionsResponse;
@@ -712,12 +702,11 @@ export class RolesApiResponseProcessor {
   public async addUserToRole(
     response: ResponseContext,
   ): Promise<UsersResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UsersResponse",
       ) as UsersResponse;
       return body;
@@ -728,14 +717,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -750,8 +737,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UsersResponse",
         "",
       ) as UsersResponse;
@@ -773,12 +761,11 @@ export class RolesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async cloneRole(response: ResponseContext): Promise<RoleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RoleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RoleResponse",
       ) as RoleResponse;
       return body;
@@ -790,14 +777,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -812,8 +797,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RoleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RoleResponse",
         "",
       ) as RoleResponse;
@@ -837,12 +823,11 @@ export class RolesApiResponseProcessor {
   public async createRole(
     response: ResponseContext,
   ): Promise<RoleCreateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RoleCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RoleCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RoleCreateResponse",
       ) as RoleCreateResponse;
       return body;
@@ -852,14 +837,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -874,8 +857,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RoleCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RoleCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RoleCreateResponse",
         "",
       ) as RoleCreateResponse;
@@ -897,9 +881,7 @@ export class RolesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteRole(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -908,14 +890,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -948,12 +928,11 @@ export class RolesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getRole(response: ResponseContext): Promise<RoleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RoleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RoleResponse",
       ) as RoleResponse;
       return body;
@@ -963,14 +942,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -985,8 +962,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RoleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RoleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RoleResponse",
         "",
       ) as RoleResponse;
@@ -1010,12 +988,11 @@ export class RolesApiResponseProcessor {
   public async listPermissions(
     response: ResponseContext,
   ): Promise<PermissionsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: PermissionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PermissionsResponse",
       ) as PermissionsResponse;
       return body;
@@ -1025,14 +1002,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1047,8 +1022,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PermissionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PermissionsResponse",
         "",
       ) as PermissionsResponse;
@@ -1072,12 +1048,11 @@ export class RolesApiResponseProcessor {
   public async listRolePermissions(
     response: ResponseContext,
   ): Promise<PermissionsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: PermissionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PermissionsResponse",
       ) as PermissionsResponse;
       return body;
@@ -1087,14 +1062,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1109,8 +1082,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PermissionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PermissionsResponse",
         "",
       ) as PermissionsResponse;
@@ -1132,25 +1106,22 @@ export class RolesApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listRoles(response: ResponseContext): Promise<RolesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RolesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RolesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RolesResponse",
       ) as RolesResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1165,8 +1136,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RolesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RolesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RolesResponse",
         "",
       ) as RolesResponse;
@@ -1190,12 +1162,11 @@ export class RolesApiResponseProcessor {
   public async listRoleUsers(
     response: ResponseContext,
   ): Promise<UsersResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UsersResponse",
       ) as UsersResponse;
       return body;
@@ -1205,14 +1176,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1227,8 +1196,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UsersResponse",
         "",
       ) as UsersResponse;
@@ -1252,12 +1222,11 @@ export class RolesApiResponseProcessor {
   public async removePermissionFromRole(
     response: ResponseContext,
   ): Promise<PermissionsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: PermissionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PermissionsResponse",
       ) as PermissionsResponse;
       return body;
@@ -1268,14 +1237,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1290,8 +1257,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PermissionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PermissionsResponse",
         "",
       ) as PermissionsResponse;
@@ -1315,12 +1283,11 @@ export class RolesApiResponseProcessor {
   public async removeUserFromRole(
     response: ResponseContext,
   ): Promise<UsersResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UsersResponse",
       ) as UsersResponse;
       return body;
@@ -1331,14 +1298,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1353,8 +1318,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UsersResponse",
         "",
       ) as UsersResponse;
@@ -1378,12 +1344,11 @@ export class RolesApiResponseProcessor {
   public async updateRole(
     response: ResponseContext,
   ): Promise<RoleUpdateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: RoleUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RoleUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RoleUpdateResponse",
       ) as RoleUpdateResponse;
       return body;
@@ -1395,14 +1360,12 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1417,8 +1380,9 @@ export class RolesApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RoleUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: RoleUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "RoleUpdateResponse",
         "",
       ) as RoleUpdateResponse;

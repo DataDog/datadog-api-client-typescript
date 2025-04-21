@@ -1,0 +1,97 @@
+import { ModelTypingInfo } from "@datadog/datadog-api-client";
+
+import { APIErrorResponse } from "./APIErrorResponse";
+import { LogsAPIError } from "./LogsAPIError";
+import { LogsAPIErrorResponse } from "./LogsAPIErrorResponse";
+import { LogsArithmeticProcessor } from "./LogsArithmeticProcessor";
+import { LogsAttributeRemapper } from "./LogsAttributeRemapper";
+import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
+import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
+import { LogsDateRemapper } from "./LogsDateRemapper";
+import { LogsFilter } from "./LogsFilter";
+import { LogsGeoIPParser } from "./LogsGeoIPParser";
+import { LogsGrokParser } from "./LogsGrokParser";
+import { LogsGrokParserRules } from "./LogsGrokParserRules";
+import { LogsLookupProcessor } from "./LogsLookupProcessor";
+import { LogsMessageRemapper } from "./LogsMessageRemapper";
+import { LogsPipeline } from "./LogsPipeline";
+import { LogsPipelineProcessor } from "./LogsPipelineProcessor";
+import { LogsPipelinesOrder } from "./LogsPipelinesOrder";
+import { LogsServiceRemapper } from "./LogsServiceRemapper";
+import { LogsSpanRemapper } from "./LogsSpanRemapper";
+import { LogsStatusRemapper } from "./LogsStatusRemapper";
+import { LogsStringBuilderProcessor } from "./LogsStringBuilderProcessor";
+import { LogsTraceRemapper } from "./LogsTraceRemapper";
+import { LogsURLParser } from "./LogsURLParser";
+import { LogsUserAgentParser } from "./LogsUserAgentParser";
+import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupProcessor";
+
+export const TypingInfo: ModelTypingInfo = {
+  enumsMap: {
+    LogsArithmeticProcessorType: ["arithmetic-processor"],
+    LogsAttributeRemapperType: ["attribute-remapper"],
+    LogsCategoryProcessorType: ["category-processor"],
+    LogsDateRemapperType: ["date-remapper"],
+    LogsGeoIPParserType: ["geo-ip-parser"],
+    LogsGrokParserType: ["grok-parser"],
+    LogsLookupProcessorType: ["lookup-processor"],
+    LogsMessageRemapperType: ["message-remapper"],
+    LogsPipelineProcessorType: ["pipeline"],
+    LogsServiceRemapperType: ["service-remapper"],
+    LogsSpanRemapperType: ["span-id-remapper"],
+    LogsStatusRemapperType: ["status-remapper"],
+    LogsStringBuilderProcessorType: ["string-builder-processor"],
+    LogsTraceRemapperType: ["trace-id-remapper"],
+    LogsURLParserType: ["url-parser"],
+    LogsUserAgentParserType: ["user-agent-parser"],
+    TargetFormatType: ["auto", "string", "integer", "double"],
+  },
+  oneOfMap: {
+    LogsProcessor: [
+      "LogsGrokParser",
+      "LogsDateRemapper",
+      "LogsStatusRemapper",
+      "LogsServiceRemapper",
+      "LogsMessageRemapper",
+      "LogsAttributeRemapper",
+      "LogsURLParser",
+      "LogsUserAgentParser",
+      "LogsCategoryProcessor",
+      "LogsArithmeticProcessor",
+      "LogsStringBuilderProcessor",
+      "LogsPipelineProcessor",
+      "LogsGeoIPParser",
+      "LogsLookupProcessor",
+      "ReferenceTableLogsLookupProcessor",
+      "LogsTraceRemapper",
+      "LogsSpanRemapper",
+    ],
+  },
+  typeMap: {
+    APIErrorResponse: APIErrorResponse,
+    LogsAPIError: LogsAPIError,
+    LogsAPIErrorResponse: LogsAPIErrorResponse,
+    LogsArithmeticProcessor: LogsArithmeticProcessor,
+    LogsAttributeRemapper: LogsAttributeRemapper,
+    LogsCategoryProcessor: LogsCategoryProcessor,
+    LogsCategoryProcessorCategory: LogsCategoryProcessorCategory,
+    LogsDateRemapper: LogsDateRemapper,
+    LogsFilter: LogsFilter,
+    LogsGeoIPParser: LogsGeoIPParser,
+    LogsGrokParser: LogsGrokParser,
+    LogsGrokParserRules: LogsGrokParserRules,
+    LogsLookupProcessor: LogsLookupProcessor,
+    LogsMessageRemapper: LogsMessageRemapper,
+    LogsPipeline: LogsPipeline,
+    LogsPipelineProcessor: LogsPipelineProcessor,
+    LogsPipelinesOrder: LogsPipelinesOrder,
+    LogsServiceRemapper: LogsServiceRemapper,
+    LogsSpanRemapper: LogsSpanRemapper,
+    LogsStatusRemapper: LogsStatusRemapper,
+    LogsStringBuilderProcessor: LogsStringBuilderProcessor,
+    LogsTraceRemapper: LogsTraceRemapper,
+    LogsURLParser: LogsURLParser,
+    LogsUserAgentParser: LogsUserAgentParser,
+    ReferenceTableLogsLookupProcessor: ReferenceTableLogsLookupProcessor,
+  },
+};

@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { EventCreateRequestPayload } from "./models/EventCreateRequestPayload";
 import { EventCreateResponsePayload } from "./models/EventCreateResponsePayload";
@@ -45,12 +51,10 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "EventCreateRequestPayload", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "EventCreateRequestPayload", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -89,42 +93,42 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterQuery !== undefined) {
       requestContext.setQueryParam(
         "filter[query]",
-        ObjectSerializer.serialize(filterQuery, "string", ""),
+        serialize(filterQuery, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterFrom !== undefined) {
       requestContext.setQueryParam(
         "filter[from]",
-        ObjectSerializer.serialize(filterFrom, "string", ""),
+        serialize(filterFrom, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterTo !== undefined) {
       requestContext.setQueryParam(
         "filter[to]",
-        ObjectSerializer.serialize(filterTo, "string", ""),
+        serialize(filterTo, TypingInfo, "string", ""),
         "",
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "EventsSort", ""),
+        serialize(sort, TypingInfo, "EventsSort", ""),
         "",
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", ""),
+        serialize(pageCursor, TypingInfo, "string", ""),
         "",
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        serialize(pageLimit, TypingInfo, "number", "int32"),
         "",
       );
     }
@@ -156,12 +160,10 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "EventsListRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "EventsListRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -187,25 +189,22 @@ export class EventsApiResponseProcessor {
   public async createEvent(
     response: ResponseContext,
   ): Promise<EventCreateResponsePayload> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: EventCreateResponsePayload = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: EventCreateResponsePayload = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "EventCreateResponsePayload",
       ) as EventCreateResponsePayload;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -221,14 +220,12 @@ export class EventsApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -243,8 +240,9 @@ export class EventsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: EventCreateResponsePayload = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: EventCreateResponsePayload = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "EventCreateResponsePayload",
         "",
       ) as EventCreateResponsePayload;
@@ -268,12 +266,11 @@ export class EventsApiResponseProcessor {
   public async listEvents(
     response: ResponseContext,
   ): Promise<EventsListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: EventsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: EventsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "EventsListResponse",
       ) as EventsListResponse;
       return body;
@@ -283,14 +280,12 @@ export class EventsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -305,8 +300,9 @@ export class EventsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: EventsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: EventsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "EventsListResponse",
         "",
       ) as EventsListResponse;
@@ -330,12 +326,11 @@ export class EventsApiResponseProcessor {
   public async searchEvents(
     response: ResponseContext,
   ): Promise<EventsListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: EventsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: EventsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "EventsListResponse",
       ) as EventsListResponse;
       return body;
@@ -345,14 +340,12 @@ export class EventsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -367,8 +360,9 @@ export class EventsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: EventsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: EventsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "EventsListResponse",
         "",
       ) as EventsListResponse;

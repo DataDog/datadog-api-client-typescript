@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
 import { MetricAllTagsResponse } from "./models/MetricAllTagsResponse";
@@ -58,12 +64,10 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "MetricBulkTagConfigCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "MetricBulkTagConfigCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -108,16 +112,10 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "MetricTagConfigurationCreateRequest",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "MetricTagConfigurationCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -153,12 +151,10 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "MetricBulkTagConfigDeleteRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "MetricBulkTagConfigDeleteRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -238,35 +234,35 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterGroups !== undefined) {
       requestContext.setQueryParam(
         "filter[groups]",
-        ObjectSerializer.serialize(filterGroups, "string", ""),
+        serialize(filterGroups, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterHoursAgo !== undefined) {
       requestContext.setQueryParam(
         "filter[hours_ago]",
-        ObjectSerializer.serialize(filterHoursAgo, "number", "int32"),
+        serialize(filterHoursAgo, TypingInfo, "number", "int32"),
         "",
       );
     }
     if (filterNumAggregations !== undefined) {
       requestContext.setQueryParam(
         "filter[num_aggregations]",
-        ObjectSerializer.serialize(filterNumAggregations, "number", "int32"),
+        serialize(filterNumAggregations, TypingInfo, "number", "int32"),
         "",
       );
     }
     if (filterPct !== undefined) {
       requestContext.setQueryParam(
         "filter[pct]",
-        ObjectSerializer.serialize(filterPct, "boolean", ""),
+        serialize(filterPct, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterTimespanH !== undefined) {
       requestContext.setQueryParam(
         "filter[timespan_h]",
-        ObjectSerializer.serialize(filterTimespanH, "number", "int32"),
+        serialize(filterTimespanH, TypingInfo, "number", "int32"),
         "",
       );
     }
@@ -310,7 +306,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (windowSeconds !== undefined) {
       requestContext.setQueryParam(
         "window[seconds]",
-        ObjectSerializer.serialize(windowSeconds, "number", "int64"),
+        serialize(windowSeconds, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -421,22 +417,23 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterConfigured !== undefined) {
       requestContext.setQueryParam(
         "filter[configured]",
-        ObjectSerializer.serialize(filterConfigured, "boolean", ""),
+        serialize(filterConfigured, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterTagsConfigured !== undefined) {
       requestContext.setQueryParam(
         "filter[tags_configured]",
-        ObjectSerializer.serialize(filterTagsConfigured, "string", ""),
+        serialize(filterTagsConfigured, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterMetricType !== undefined) {
       requestContext.setQueryParam(
         "filter[metric_type]",
-        ObjectSerializer.serialize(
+        serialize(
           filterMetricType,
+          TypingInfo,
           "MetricTagConfigurationMetricTypeCategory",
           "",
         ),
@@ -446,49 +443,49 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterIncludePercentiles !== undefined) {
       requestContext.setQueryParam(
         "filter[include_percentiles]",
-        ObjectSerializer.serialize(filterIncludePercentiles, "boolean", ""),
+        serialize(filterIncludePercentiles, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterQueried !== undefined) {
       requestContext.setQueryParam(
         "filter[queried]",
-        ObjectSerializer.serialize(filterQueried, "boolean", ""),
+        serialize(filterQueried, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterTags !== undefined) {
       requestContext.setQueryParam(
         "filter[tags]",
-        ObjectSerializer.serialize(filterTags, "string", ""),
+        serialize(filterTags, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRelatedAssets !== undefined) {
       requestContext.setQueryParam(
         "filter[related_assets]",
-        ObjectSerializer.serialize(filterRelatedAssets, "boolean", ""),
+        serialize(filterRelatedAssets, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (windowSeconds !== undefined) {
       requestContext.setQueryParam(
         "window[seconds]",
-        ObjectSerializer.serialize(windowSeconds, "number", "int64"),
+        serialize(windowSeconds, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int32"),
+        serialize(pageSize, TypingInfo, "number", "int32"),
         "",
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", ""),
+        serialize(pageCursor, TypingInfo, "string", ""),
         "",
       );
     }
@@ -592,12 +589,10 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ScalarFormulaQueryRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ScalarFormulaQueryRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -634,12 +629,10 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "TimeseriesFormulaQueryRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "TimeseriesFormulaQueryRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -680,21 +673,15 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (contentEncoding !== undefined) {
       requestContext.setHeaderParam(
         "Content-Encoding",
-        ObjectSerializer.serialize(
-          contentEncoding,
-          "MetricContentEncoding",
-          "",
-        ),
+        serialize(contentEncoding, TypingInfo, "MetricContentEncoding", ""),
       );
     }
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "MetricPayload", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "MetricPayload", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -736,16 +723,10 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "MetricTagConfigurationUpdateRequest",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "MetricTagConfigurationUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -771,12 +752,11 @@ export class MetricsApiResponseProcessor {
   public async createBulkTagsMetricsConfiguration(
     response: ResponseContext,
   ): Promise<MetricBulkTagConfigResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
-      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricBulkTagConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricBulkTagConfigResponse",
       ) as MetricBulkTagConfigResponse;
       return body;
@@ -787,14 +767,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -809,8 +787,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricBulkTagConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricBulkTagConfigResponse",
         "",
       ) as MetricBulkTagConfigResponse;
@@ -834,12 +813,11 @@ export class MetricsApiResponseProcessor {
   public async createTagConfiguration(
     response: ResponseContext,
   ): Promise<MetricTagConfigurationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricTagConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricTagConfigurationResponse",
       ) as MetricTagConfigurationResponse;
       return body;
@@ -850,14 +828,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -872,8 +848,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricTagConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricTagConfigurationResponse",
         "",
       ) as MetricTagConfigurationResponse;
@@ -897,12 +874,11 @@ export class MetricsApiResponseProcessor {
   public async deleteBulkTagsMetricsConfiguration(
     response: ResponseContext,
   ): Promise<MetricBulkTagConfigResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
-      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricBulkTagConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricBulkTagConfigResponse",
       ) as MetricBulkTagConfigResponse;
       return body;
@@ -913,14 +889,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -935,8 +909,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricBulkTagConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricBulkTagConfigResponse",
         "",
       ) as MetricBulkTagConfigResponse;
@@ -960,9 +935,7 @@ export class MetricsApiResponseProcessor {
   public async deleteTagConfiguration(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -971,14 +944,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1013,12 +984,11 @@ export class MetricsApiResponseProcessor {
   public async estimateMetricsOutputSeries(
     response: ResponseContext,
   ): Promise<MetricEstimateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MetricEstimateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricEstimateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricEstimateResponse",
       ) as MetricEstimateResponse;
       return body;
@@ -1029,14 +999,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1051,8 +1019,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricEstimateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricEstimateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricEstimateResponse",
         "",
       ) as MetricEstimateResponse;
@@ -1076,15 +1045,13 @@ export class MetricsApiResponseProcessor {
   public async listActiveMetricConfigurations(
     response: ResponseContext,
   ): Promise<MetricSuggestedTagsAndAggregationsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MetricSuggestedTagsAndAggregationsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MetricSuggestedTagsAndAggregationsResponse",
-        ) as MetricSuggestedTagsAndAggregationsResponse;
+      const body: MetricSuggestedTagsAndAggregationsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MetricSuggestedTagsAndAggregationsResponse",
+      ) as MetricSuggestedTagsAndAggregationsResponse;
       return body;
     }
     if (
@@ -1093,14 +1060,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1115,12 +1080,12 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricSuggestedTagsAndAggregationsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MetricSuggestedTagsAndAggregationsResponse",
-          "",
-        ) as MetricSuggestedTagsAndAggregationsResponse;
+      const body: MetricSuggestedTagsAndAggregationsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MetricSuggestedTagsAndAggregationsResponse",
+        "",
+      ) as MetricSuggestedTagsAndAggregationsResponse;
       return body;
     }
 
@@ -1141,12 +1106,11 @@ export class MetricsApiResponseProcessor {
   public async listMetricAssets(
     response: ResponseContext,
   ): Promise<MetricAssetsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MetricAssetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricAssetsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricAssetsResponse",
       ) as MetricAssetsResponse;
       return body;
@@ -1157,14 +1121,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1179,8 +1141,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricAssetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricAssetsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricAssetsResponse",
         "",
       ) as MetricAssetsResponse;
@@ -1204,12 +1167,11 @@ export class MetricsApiResponseProcessor {
   public async listTagConfigurationByName(
     response: ResponseContext,
   ): Promise<MetricTagConfigurationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricTagConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricTagConfigurationResponse",
       ) as MetricTagConfigurationResponse;
       return body;
@@ -1219,14 +1181,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1241,8 +1201,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricTagConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricTagConfigurationResponse",
         "",
       ) as MetricTagConfigurationResponse;
@@ -1266,15 +1227,13 @@ export class MetricsApiResponseProcessor {
   public async listTagConfigurations(
     response: ResponseContext,
   ): Promise<MetricsAndMetricTagConfigurationsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MetricsAndMetricTagConfigurationsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MetricsAndMetricTagConfigurationsResponse",
-        ) as MetricsAndMetricTagConfigurationsResponse;
+      const body: MetricsAndMetricTagConfigurationsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MetricsAndMetricTagConfigurationsResponse",
+      ) as MetricsAndMetricTagConfigurationsResponse;
       return body;
     }
     if (
@@ -1282,14 +1241,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1304,12 +1261,12 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricsAndMetricTagConfigurationsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MetricsAndMetricTagConfigurationsResponse",
-          "",
-        ) as MetricsAndMetricTagConfigurationsResponse;
+      const body: MetricsAndMetricTagConfigurationsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MetricsAndMetricTagConfigurationsResponse",
+        "",
+      ) as MetricsAndMetricTagConfigurationsResponse;
       return body;
     }
 
@@ -1330,12 +1287,11 @@ export class MetricsApiResponseProcessor {
   public async listTagsByMetricName(
     response: ResponseContext,
   ): Promise<MetricAllTagsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MetricAllTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricAllTagsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricAllTagsResponse",
       ) as MetricAllTagsResponse;
       return body;
@@ -1346,14 +1302,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1368,8 +1322,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricAllTagsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricAllTagsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricAllTagsResponse",
         "",
       ) as MetricAllTagsResponse;
@@ -1393,12 +1348,11 @@ export class MetricsApiResponseProcessor {
   public async listVolumesByMetricName(
     response: ResponseContext,
   ): Promise<MetricVolumesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MetricVolumesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricVolumesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricVolumesResponse",
       ) as MetricVolumesResponse;
       return body;
@@ -1409,14 +1363,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1431,8 +1383,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricVolumesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricVolumesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricVolumesResponse",
         "",
       ) as MetricVolumesResponse;
@@ -1456,12 +1409,11 @@ export class MetricsApiResponseProcessor {
   public async queryScalarData(
     response: ResponseContext,
   ): Promise<ScalarFormulaQueryResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ScalarFormulaQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ScalarFormulaQueryResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ScalarFormulaQueryResponse",
       ) as ScalarFormulaQueryResponse;
       return body;
@@ -1472,14 +1424,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1494,8 +1444,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ScalarFormulaQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ScalarFormulaQueryResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ScalarFormulaQueryResponse",
         "",
       ) as ScalarFormulaQueryResponse;
@@ -1519,12 +1470,11 @@ export class MetricsApiResponseProcessor {
   public async queryTimeseriesData(
     response: ResponseContext,
   ): Promise<TimeseriesFormulaQueryResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: TimeseriesFormulaQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: TimeseriesFormulaQueryResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "TimeseriesFormulaQueryResponse",
       ) as TimeseriesFormulaQueryResponse;
       return body;
@@ -1535,14 +1485,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1557,8 +1505,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: TimeseriesFormulaQueryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: TimeseriesFormulaQueryResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "TimeseriesFormulaQueryResponse",
         "",
       ) as TimeseriesFormulaQueryResponse;
@@ -1582,12 +1531,11 @@ export class MetricsApiResponseProcessor {
   public async submitMetrics(
     response: ResponseContext,
   ): Promise<IntakePayloadAccepted> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
-      const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IntakePayloadAccepted = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IntakePayloadAccepted",
       ) as IntakePayloadAccepted;
       return body;
@@ -1599,14 +1547,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 413 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1621,8 +1567,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: IntakePayloadAccepted = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "IntakePayloadAccepted",
         "",
       ) as IntakePayloadAccepted;
@@ -1646,12 +1593,11 @@ export class MetricsApiResponseProcessor {
   public async updateTagConfiguration(
     response: ResponseContext,
   ): Promise<MetricTagConfigurationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricTagConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricTagConfigurationResponse",
       ) as MetricTagConfigurationResponse;
       return body;
@@ -1662,14 +1608,12 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1684,8 +1628,9 @@ export class MetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: MetricTagConfigurationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "MetricTagConfigurationResponse",
         "",
       ) as MetricTagConfigurationResponse;

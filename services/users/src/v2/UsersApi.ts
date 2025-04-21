@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { PermissionsResponse } from "./models/PermissionsResponse";
 import { QuerySortOrder } from "./models/QuerySortOrder";
@@ -47,12 +53,10 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "UserCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UserCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -263,42 +267,42 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "string", ""),
+        serialize(sort, TypingInfo, "string", ""),
         "",
       );
     }
     if (sortDir !== undefined) {
       requestContext.setQueryParam(
         "sort_dir",
-        ObjectSerializer.serialize(sortDir, "QuerySortOrder", ""),
+        serialize(sortDir, TypingInfo, "QuerySortOrder", ""),
         "",
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", ""),
+        serialize(filter, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterStatus !== undefined) {
       requestContext.setQueryParam(
         "filter[status]",
-        ObjectSerializer.serialize(filterStatus, "string", ""),
+        serialize(filterStatus, TypingInfo, "string", ""),
         "",
       );
     }
@@ -335,12 +339,10 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "UserInvitationsRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UserInvitationsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -386,12 +388,10 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "UserUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UserUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -416,12 +416,11 @@ export class UsersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createUser(response: ResponseContext): Promise<UserResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: UserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserResponse",
       ) as UserResponse;
       return body;
@@ -431,14 +430,12 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -453,8 +450,9 @@ export class UsersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserResponse",
         "",
       ) as UserResponse;
@@ -476,9 +474,7 @@ export class UsersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async disableUser(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -487,14 +483,12 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -529,12 +523,11 @@ export class UsersApiResponseProcessor {
   public async getInvitation(
     response: ResponseContext,
   ): Promise<UserInvitationResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UserInvitationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserInvitationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserInvitationResponse",
       ) as UserInvitationResponse;
       return body;
@@ -544,14 +537,12 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -566,8 +557,9 @@ export class UsersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UserInvitationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserInvitationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserInvitationResponse",
         "",
       ) as UserInvitationResponse;
@@ -589,12 +581,11 @@ export class UsersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getUser(response: ResponseContext): Promise<UserResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserResponse",
       ) as UserResponse;
       return body;
@@ -604,14 +595,12 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -626,8 +615,9 @@ export class UsersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserResponse",
         "",
       ) as UserResponse;
@@ -651,12 +641,11 @@ export class UsersApiResponseProcessor {
   public async listUserOrganizations(
     response: ResponseContext,
   ): Promise<UserResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserResponse",
       ) as UserResponse;
       return body;
@@ -666,14 +655,12 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -688,8 +675,9 @@ export class UsersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserResponse",
         "",
       ) as UserResponse;
@@ -713,12 +701,11 @@ export class UsersApiResponseProcessor {
   public async listUserPermissions(
     response: ResponseContext,
   ): Promise<PermissionsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: PermissionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PermissionsResponse",
       ) as PermissionsResponse;
       return body;
@@ -728,14 +715,12 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -750,8 +735,9 @@ export class UsersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PermissionsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PermissionsResponse",
         "",
       ) as PermissionsResponse;
@@ -773,12 +759,11 @@ export class UsersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listUsers(response: ResponseContext): Promise<UsersResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UsersResponse",
       ) as UsersResponse;
       return body;
@@ -788,14 +773,12 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -810,8 +793,9 @@ export class UsersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UsersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UsersResponse",
         "",
       ) as UsersResponse;
@@ -835,12 +819,11 @@ export class UsersApiResponseProcessor {
   public async sendInvitations(
     response: ResponseContext,
   ): Promise<UserInvitationsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: UserInvitationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserInvitationsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserInvitationsResponse",
       ) as UserInvitationsResponse;
       return body;
@@ -850,14 +833,12 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -872,8 +853,9 @@ export class UsersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UserInvitationsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserInvitationsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserInvitationsResponse",
         "",
       ) as UserInvitationsResponse;
@@ -895,12 +877,11 @@ export class UsersApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateUser(response: ResponseContext): Promise<UserResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserResponse",
       ) as UserResponse;
       return body;
@@ -912,14 +893,12 @@ export class UsersApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -934,8 +913,9 @@ export class UsersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UserResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UserResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UserResponse",
         "",
       ) as UserResponse;

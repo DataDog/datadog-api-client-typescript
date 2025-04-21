@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { AuthNMappingCreateRequest } from "./models/AuthNMappingCreateRequest";
 import { AuthNMappingResourceType } from "./models/AuthNMappingResourceType";
@@ -43,12 +49,10 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "AuthNMappingCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AuthNMappingCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -152,39 +156,35 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "AuthNMappingsSort", ""),
+        serialize(sort, TypingInfo, "AuthNMappingsSort", ""),
         "",
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", ""),
+        serialize(filter, TypingInfo, "string", ""),
         "",
       );
     }
     if (resourceType !== undefined) {
       requestContext.setQueryParam(
         "resource_type",
-        ObjectSerializer.serialize(
-          resourceType,
-          "AuthNMappingResourceType",
-          "",
-        ),
+        serialize(resourceType, TypingInfo, "AuthNMappingResourceType", ""),
         "",
       );
     }
@@ -229,12 +229,10 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "AuthNMappingUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "AuthNMappingUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -260,12 +258,11 @@ export class AuthNMappingsApiResponseProcessor {
   public async createAuthNMapping(
     response: ResponseContext,
   ): Promise<AuthNMappingResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AuthNMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AuthNMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AuthNMappingResponse",
       ) as AuthNMappingResponse;
       return body;
@@ -276,14 +273,12 @@ export class AuthNMappingsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -298,8 +293,9 @@ export class AuthNMappingsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AuthNMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AuthNMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AuthNMappingResponse",
         "",
       ) as AuthNMappingResponse;
@@ -321,9 +317,7 @@ export class AuthNMappingsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteAuthNMapping(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -332,14 +326,12 @@ export class AuthNMappingsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -374,12 +366,11 @@ export class AuthNMappingsApiResponseProcessor {
   public async getAuthNMapping(
     response: ResponseContext,
   ): Promise<AuthNMappingResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AuthNMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AuthNMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AuthNMappingResponse",
       ) as AuthNMappingResponse;
       return body;
@@ -389,14 +380,12 @@ export class AuthNMappingsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -411,8 +400,9 @@ export class AuthNMappingsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AuthNMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AuthNMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AuthNMappingResponse",
         "",
       ) as AuthNMappingResponse;
@@ -436,25 +426,22 @@ export class AuthNMappingsApiResponseProcessor {
   public async listAuthNMappings(
     response: ResponseContext,
   ): Promise<AuthNMappingsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AuthNMappingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AuthNMappingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AuthNMappingsResponse",
       ) as AuthNMappingsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -469,8 +456,9 @@ export class AuthNMappingsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AuthNMappingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AuthNMappingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AuthNMappingsResponse",
         "",
       ) as AuthNMappingsResponse;
@@ -494,12 +482,11 @@ export class AuthNMappingsApiResponseProcessor {
   public async updateAuthNMapping(
     response: ResponseContext,
   ): Promise<AuthNMappingResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: AuthNMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AuthNMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AuthNMappingResponse",
       ) as AuthNMappingResponse;
       return body;
@@ -512,14 +499,12 @@ export class AuthNMappingsApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -534,8 +519,9 @@ export class AuthNMappingsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AuthNMappingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: AuthNMappingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "AuthNMappingResponse",
         "",
       ) as AuthNMappingResponse;

@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CreateRuleRequest } from "./models/CreateRuleRequest";
 import { CreateRuleResponse } from "./models/CreateRuleResponse";
@@ -54,12 +60,10 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "OutcomesBatchRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "OutcomesBatchRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -101,12 +105,10 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CreateRuleRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateRuleRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -194,70 +196,70 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        serialize(pageOffset, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "string", ""),
+        serialize(include, TypingInfo, "string", ""),
         "",
       );
     }
     if (fieldsOutcome !== undefined) {
       requestContext.setQueryParam(
         "fields[outcome]",
-        ObjectSerializer.serialize(fieldsOutcome, "string", ""),
+        serialize(fieldsOutcome, TypingInfo, "string", ""),
         "",
       );
     }
     if (fieldsRule !== undefined) {
       requestContext.setQueryParam(
         "fields[rule]",
-        ObjectSerializer.serialize(fieldsRule, "string", ""),
+        serialize(fieldsRule, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterOutcomeServiceName !== undefined) {
       requestContext.setQueryParam(
         "filter[outcome][service_name]",
-        ObjectSerializer.serialize(filterOutcomeServiceName, "string", ""),
+        serialize(filterOutcomeServiceName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterOutcomeState !== undefined) {
       requestContext.setQueryParam(
         "filter[outcome][state]",
-        ObjectSerializer.serialize(filterOutcomeState, "string", ""),
+        serialize(filterOutcomeState, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRuleEnabled !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][enabled]",
-        ObjectSerializer.serialize(filterRuleEnabled, "boolean", ""),
+        serialize(filterRuleEnabled, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterRuleId !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][id]",
-        ObjectSerializer.serialize(filterRuleId, "string", ""),
+        serialize(filterRuleId, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRuleName !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][name]",
-        ObjectSerializer.serialize(filterRuleName, "string", ""),
+        serialize(filterRuleName, TypingInfo, "string", ""),
         "",
       );
     }
@@ -306,70 +308,70 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        serialize(pageOffset, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (include !== undefined) {
       requestContext.setQueryParam(
         "include",
-        ObjectSerializer.serialize(include, "string", ""),
+        serialize(include, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRuleId !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][id]",
-        ObjectSerializer.serialize(filterRuleId, "string", ""),
+        serialize(filterRuleId, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRuleEnabled !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][enabled]",
-        ObjectSerializer.serialize(filterRuleEnabled, "boolean", ""),
+        serialize(filterRuleEnabled, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterRuleCustom !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][custom]",
-        ObjectSerializer.serialize(filterRuleCustom, "boolean", ""),
+        serialize(filterRuleCustom, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterRuleName !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][name]",
-        ObjectSerializer.serialize(filterRuleName, "string", ""),
+        serialize(filterRuleName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRuleDescription !== undefined) {
       requestContext.setQueryParam(
         "filter[rule][description]",
-        ObjectSerializer.serialize(filterRuleDescription, "string", ""),
+        serialize(filterRuleDescription, TypingInfo, "string", ""),
         "",
       );
     }
     if (fieldsRule !== undefined) {
       requestContext.setQueryParam(
         "fields[rule]",
-        ObjectSerializer.serialize(fieldsRule, "string", ""),
+        serialize(fieldsRule, TypingInfo, "string", ""),
         "",
       );
     }
     if (fieldsScorecard !== undefined) {
       requestContext.setQueryParam(
         "fields[scorecard]",
-        ObjectSerializer.serialize(fieldsScorecard, "string", ""),
+        serialize(fieldsScorecard, TypingInfo, "string", ""),
         "",
       );
     }
@@ -420,12 +422,10 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "UpdateRuleRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UpdateRuleRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -452,12 +452,11 @@ export class ServiceScorecardsApiResponseProcessor {
   public async createScorecardOutcomesBatch(
     response: ResponseContext,
   ): Promise<OutcomesBatchResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: OutcomesBatchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: OutcomesBatchResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "OutcomesBatchResponse",
       ) as OutcomesBatchResponse;
       return body;
@@ -467,14 +466,12 @@ export class ServiceScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -489,8 +486,9 @@ export class ServiceScorecardsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OutcomesBatchResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: OutcomesBatchResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "OutcomesBatchResponse",
         "",
       ) as OutcomesBatchResponse;
@@ -514,12 +512,11 @@ export class ServiceScorecardsApiResponseProcessor {
   public async createScorecardRule(
     response: ResponseContext,
   ): Promise<CreateRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: CreateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CreateRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CreateRuleResponse",
       ) as CreateRuleResponse;
       return body;
@@ -529,14 +526,12 @@ export class ServiceScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -551,8 +546,9 @@ export class ServiceScorecardsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CreateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CreateRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CreateRuleResponse",
         "",
       ) as CreateRuleResponse;
@@ -574,9 +570,7 @@ export class ServiceScorecardsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteScorecardRule(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -586,14 +580,12 @@ export class ServiceScorecardsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -628,12 +620,11 @@ export class ServiceScorecardsApiResponseProcessor {
   public async listScorecardOutcomes(
     response: ResponseContext,
   ): Promise<OutcomesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: OutcomesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: OutcomesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "OutcomesResponse",
       ) as OutcomesResponse;
       return body;
@@ -643,14 +634,12 @@ export class ServiceScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -665,8 +654,9 @@ export class ServiceScorecardsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OutcomesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: OutcomesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "OutcomesResponse",
         "",
       ) as OutcomesResponse;
@@ -690,12 +680,11 @@ export class ServiceScorecardsApiResponseProcessor {
   public async listScorecardRules(
     response: ResponseContext,
   ): Promise<ListRulesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListRulesResponse",
       ) as ListRulesResponse;
       return body;
@@ -705,14 +694,12 @@ export class ServiceScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -727,8 +714,9 @@ export class ServiceScorecardsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListRulesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListRulesResponse",
         "",
       ) as ListRulesResponse;
@@ -752,12 +740,11 @@ export class ServiceScorecardsApiResponseProcessor {
   public async updateScorecardRule(
     response: ResponseContext,
   ): Promise<UpdateRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UpdateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpdateRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpdateRuleResponse",
       ) as UpdateRuleResponse;
       return body;
@@ -767,14 +754,12 @@ export class ServiceScorecardsApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -789,8 +774,9 @@ export class ServiceScorecardsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UpdateRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpdateRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpdateRuleResponse",
         "",
       ) as UpdateRuleResponse;

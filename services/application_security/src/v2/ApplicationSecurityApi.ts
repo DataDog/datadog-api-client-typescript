@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { ApplicationSecurityWafCustomRuleCreateRequest } from "./models/ApplicationSecurityWafCustomRuleCreateRequest";
 import { ApplicationSecurityWafCustomRuleListResponse } from "./models/ApplicationSecurityWafCustomRuleListResponse";
@@ -47,13 +53,12 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "ApplicationSecurityWafCustomRuleCreateRequest",
         "",
       ),
@@ -98,13 +103,12 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "ApplicationSecurityWafExclusionFilterCreateRequest",
         "",
       ),
@@ -367,13 +371,12 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "ApplicationSecurityWafCustomRuleUpdateRequest",
         "",
       ),
@@ -430,13 +433,12 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "ApplicationSecurityWafExclusionFilterUpdateRequest",
         "",
       ),
@@ -465,15 +467,13 @@ export class ApplicationSecurityApiResponseProcessor {
   public async createApplicationSecurityWafCustomRule(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: ApplicationSecurityWafCustomRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleResponse",
-        ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafCustomRuleResponse",
+      ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
     if (
@@ -482,14 +482,12 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -504,12 +502,12 @@ export class ApplicationSecurityApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafCustomRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleResponse",
-          "",
-        ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafCustomRuleResponse",
+        "",
+      ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
 
@@ -530,15 +528,13 @@ export class ApplicationSecurityApiResponseProcessor {
   public async createApplicationSecurityWafExclusionFilter(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafExclusionFilterResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFilterResponse",
-        ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafExclusionFilterResponse",
+      ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
     if (
@@ -547,14 +543,12 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -569,12 +563,12 @@ export class ApplicationSecurityApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafExclusionFilterResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFilterResponse",
-          "",
-        ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafExclusionFilterResponse",
+        "",
+      ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
 
@@ -595,9 +589,7 @@ export class ApplicationSecurityApiResponseProcessor {
   public async deleteApplicationSecurityWafCustomRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -607,14 +599,12 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -649,9 +639,7 @@ export class ApplicationSecurityApiResponseProcessor {
   public async deleteApplicationSecurityWafExclusionFilter(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -661,14 +649,12 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -703,26 +689,22 @@ export class ApplicationSecurityApiResponseProcessor {
   public async getApplicationSecurityWafCustomRule(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafCustomRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleResponse",
-        ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafCustomRuleResponse",
+      ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -737,12 +719,12 @@ export class ApplicationSecurityApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafCustomRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleResponse",
-          "",
-        ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafCustomRuleResponse",
+        "",
+      ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
 
@@ -763,15 +745,13 @@ export class ApplicationSecurityApiResponseProcessor {
   public async getApplicationSecurityWafExclusionFilter(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafExclusionFilterResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFilterResponse",
-        ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafExclusionFilterResponse",
+      ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
     if (
@@ -779,14 +759,12 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -801,12 +779,12 @@ export class ApplicationSecurityApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafExclusionFilterResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFilterResponse",
-          "",
-        ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafExclusionFilterResponse",
+        "",
+      ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
 
@@ -827,26 +805,22 @@ export class ApplicationSecurityApiResponseProcessor {
   public async listApplicationSecurityWAFCustomRules(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafCustomRuleListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafCustomRuleListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleListResponse",
-        ) as ApplicationSecurityWafCustomRuleListResponse;
+      const body: ApplicationSecurityWafCustomRuleListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafCustomRuleListResponse",
+      ) as ApplicationSecurityWafCustomRuleListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -861,12 +835,12 @@ export class ApplicationSecurityApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafCustomRuleListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleListResponse",
-          "",
-        ) as ApplicationSecurityWafCustomRuleListResponse;
+      const body: ApplicationSecurityWafCustomRuleListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafCustomRuleListResponse",
+        "",
+      ) as ApplicationSecurityWafCustomRuleListResponse;
       return body;
     }
 
@@ -887,26 +861,22 @@ export class ApplicationSecurityApiResponseProcessor {
   public async listApplicationSecurityWafExclusionFilters(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafExclusionFiltersResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafExclusionFiltersResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFiltersResponse",
-        ) as ApplicationSecurityWafExclusionFiltersResponse;
+      const body: ApplicationSecurityWafExclusionFiltersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafExclusionFiltersResponse",
+      ) as ApplicationSecurityWafExclusionFiltersResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -921,12 +891,12 @@ export class ApplicationSecurityApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafExclusionFiltersResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFiltersResponse",
-          "",
-        ) as ApplicationSecurityWafExclusionFiltersResponse;
+      const body: ApplicationSecurityWafExclusionFiltersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafExclusionFiltersResponse",
+        "",
+      ) as ApplicationSecurityWafExclusionFiltersResponse;
       return body;
     }
 
@@ -947,15 +917,13 @@ export class ApplicationSecurityApiResponseProcessor {
   public async updateApplicationSecurityWafCustomRule(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafCustomRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafCustomRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleResponse",
-        ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafCustomRuleResponse",
+      ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
     if (
@@ -965,14 +933,12 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -987,12 +953,12 @@ export class ApplicationSecurityApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafCustomRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafCustomRuleResponse",
-          "",
-        ) as ApplicationSecurityWafCustomRuleResponse;
+      const body: ApplicationSecurityWafCustomRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafCustomRuleResponse",
+        "",
+      ) as ApplicationSecurityWafCustomRuleResponse;
       return body;
     }
 
@@ -1013,15 +979,13 @@ export class ApplicationSecurityApiResponseProcessor {
   public async updateApplicationSecurityWafExclusionFilter(
     response: ResponseContext,
   ): Promise<ApplicationSecurityWafExclusionFilterResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ApplicationSecurityWafExclusionFilterResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFilterResponse",
-        ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafExclusionFilterResponse",
+      ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
     if (
@@ -1031,14 +995,12 @@ export class ApplicationSecurityApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1053,12 +1015,12 @@ export class ApplicationSecurityApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationSecurityWafExclusionFilterResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ApplicationSecurityWafExclusionFilterResponse",
-          "",
-        ) as ApplicationSecurityWafExclusionFilterResponse;
+      const body: ApplicationSecurityWafExclusionFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ApplicationSecurityWafExclusionFilterResponse",
+        "",
+      ) as ApplicationSecurityWafExclusionFilterResponse;
       return body;
     }
 

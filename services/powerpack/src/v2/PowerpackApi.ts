@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { ListPowerpacksResponse } from "./models/ListPowerpacksResponse";
 import { Powerpack } from "./models/Powerpack";
@@ -41,12 +47,10 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "Powerpack", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "Powerpack", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -150,14 +154,14 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        serialize(pageLimit, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        serialize(pageOffset, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -203,12 +207,10 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "Powerpack", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "Powerpack", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -235,25 +237,22 @@ export class PowerpackApiResponseProcessor {
   public async createPowerpack(
     response: ResponseContext,
   ): Promise<PowerpackResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PowerpackResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PowerpackResponse",
       ) as PowerpackResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -268,8 +267,9 @@ export class PowerpackApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PowerpackResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PowerpackResponse",
         "",
       ) as PowerpackResponse;
@@ -291,21 +291,17 @@ export class PowerpackApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deletePowerpack(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -340,25 +336,22 @@ export class PowerpackApiResponseProcessor {
   public async getPowerpack(
     response: ResponseContext,
   ): Promise<PowerpackResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PowerpackResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PowerpackResponse",
       ) as PowerpackResponse;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -373,8 +366,9 @@ export class PowerpackApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PowerpackResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PowerpackResponse",
         "",
       ) as PowerpackResponse;
@@ -398,25 +392,22 @@ export class PowerpackApiResponseProcessor {
   public async listPowerpacks(
     response: ResponseContext,
   ): Promise<ListPowerpacksResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListPowerpacksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListPowerpacksResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListPowerpacksResponse",
       ) as ListPowerpacksResponse;
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -431,8 +422,9 @@ export class PowerpackApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListPowerpacksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListPowerpacksResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListPowerpacksResponse",
         "",
       ) as ListPowerpacksResponse;
@@ -456,12 +448,11 @@ export class PowerpackApiResponseProcessor {
   public async updatePowerpack(
     response: ResponseContext,
   ): Promise<PowerpackResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PowerpackResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PowerpackResponse",
       ) as PowerpackResponse;
       return body;
@@ -471,14 +462,12 @@ export class PowerpackApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -493,8 +482,9 @@ export class PowerpackApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: PowerpackResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: PowerpackResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "PowerpackResponse",
         "",
       ) as PowerpackResponse;

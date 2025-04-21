@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CreateWorkflowRequest } from "./models/CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "./models/CreateWorkflowResponse";
@@ -87,12 +93,10 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CreateWorkflowRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateWorkflowRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -137,12 +141,10 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "WorkflowInstanceCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "WorkflowInstanceCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -293,14 +295,14 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -346,12 +348,10 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "UpdateWorkflowRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UpdateWorkflowRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -377,15 +377,13 @@ export class WorkflowAutomationApiResponseProcessor {
   public async cancelWorkflowInstance(
     response: ResponseContext,
   ): Promise<WorklflowCancelInstanceResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: WorklflowCancelInstanceResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WorklflowCancelInstanceResponse",
-        ) as WorklflowCancelInstanceResponse;
+      const body: WorklflowCancelInstanceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "WorklflowCancelInstanceResponse",
+      ) as WorklflowCancelInstanceResponse;
       return body;
     }
     if (
@@ -394,14 +392,12 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -416,12 +412,12 @@ export class WorkflowAutomationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: WorklflowCancelInstanceResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WorklflowCancelInstanceResponse",
-          "",
-        ) as WorklflowCancelInstanceResponse;
+      const body: WorklflowCancelInstanceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "WorklflowCancelInstanceResponse",
+        "",
+      ) as WorklflowCancelInstanceResponse;
       return body;
     }
 
@@ -442,12 +438,11 @@ export class WorkflowAutomationApiResponseProcessor {
   public async createWorkflow(
     response: ResponseContext,
   ): Promise<CreateWorkflowResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: CreateWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CreateWorkflowResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CreateWorkflowResponse",
       ) as CreateWorkflowResponse;
       return body;
@@ -457,14 +452,12 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -482,8 +475,9 @@ export class WorkflowAutomationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CreateWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CreateWorkflowResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CreateWorkflowResponse",
         "",
       ) as CreateWorkflowResponse;
@@ -507,12 +501,11 @@ export class WorkflowAutomationApiResponseProcessor {
   public async createWorkflowInstance(
     response: ResponseContext,
   ): Promise<WorkflowInstanceCreateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: WorkflowInstanceCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: WorkflowInstanceCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "WorkflowInstanceCreateResponse",
       ) as WorkflowInstanceCreateResponse;
       return body;
@@ -522,14 +515,12 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -544,8 +535,9 @@ export class WorkflowAutomationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: WorkflowInstanceCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: WorkflowInstanceCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "WorkflowInstanceCreateResponse",
         "",
       ) as WorkflowInstanceCreateResponse;
@@ -567,9 +559,7 @@ export class WorkflowAutomationApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteWorkflow(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -578,14 +568,12 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -623,12 +611,11 @@ export class WorkflowAutomationApiResponseProcessor {
   public async getWorkflow(
     response: ResponseContext,
   ): Promise<GetWorkflowResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GetWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetWorkflowResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetWorkflowResponse",
       ) as GetWorkflowResponse;
       return body;
@@ -639,14 +626,12 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -664,8 +649,9 @@ export class WorkflowAutomationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GetWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetWorkflowResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetWorkflowResponse",
         "",
       ) as GetWorkflowResponse;
@@ -689,12 +675,11 @@ export class WorkflowAutomationApiResponseProcessor {
   public async getWorkflowInstance(
     response: ResponseContext,
   ): Promise<WorklflowGetInstanceResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: WorklflowGetInstanceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: WorklflowGetInstanceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "WorklflowGetInstanceResponse",
       ) as WorklflowGetInstanceResponse;
       return body;
@@ -705,14 +690,12 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -727,8 +710,9 @@ export class WorkflowAutomationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: WorklflowGetInstanceResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: WorklflowGetInstanceResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "WorklflowGetInstanceResponse",
         "",
       ) as WorklflowGetInstanceResponse;
@@ -752,12 +736,11 @@ export class WorkflowAutomationApiResponseProcessor {
   public async listWorkflowInstances(
     response: ResponseContext,
   ): Promise<WorkflowListInstancesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: WorkflowListInstancesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: WorkflowListInstancesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "WorkflowListInstancesResponse",
       ) as WorkflowListInstancesResponse;
       return body;
@@ -767,14 +750,12 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -789,8 +770,9 @@ export class WorkflowAutomationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: WorkflowListInstancesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: WorkflowListInstancesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "WorkflowListInstancesResponse",
         "",
       ) as WorkflowListInstancesResponse;
@@ -814,12 +796,11 @@ export class WorkflowAutomationApiResponseProcessor {
   public async updateWorkflow(
     response: ResponseContext,
   ): Promise<UpdateWorkflowResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UpdateWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpdateWorkflowResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpdateWorkflowResponse",
       ) as UpdateWorkflowResponse;
       return body;
@@ -830,14 +811,12 @@ export class WorkflowAutomationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -855,8 +834,9 @@ export class WorkflowAutomationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UpdateWorkflowResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpdateWorkflowResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpdateWorkflowResponse",
         "",
       ) as UpdateWorkflowResponse;

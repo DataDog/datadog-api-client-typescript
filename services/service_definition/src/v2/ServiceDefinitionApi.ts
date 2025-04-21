@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { ServiceDefinitionCreateResponse } from "./models/ServiceDefinitionCreateResponse";
 import { ServiceDefinitionData } from "./models/ServiceDefinitionData";
@@ -43,12 +49,10 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ServiceDefinitionsCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ServiceDefinitionsCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -126,8 +130,9 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     if (schemaVersion !== undefined) {
       requestContext.setQueryParam(
         "schema_version",
-        ObjectSerializer.serialize(
+        serialize(
           schemaVersion,
+          TypingInfo,
           "ServiceDefinitionSchemaVersions",
           "",
         ),
@@ -167,22 +172,23 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (schemaVersion !== undefined) {
       requestContext.setQueryParam(
         "schema_version",
-        ObjectSerializer.serialize(
+        serialize(
           schemaVersion,
+          TypingInfo,
           "ServiceDefinitionSchemaVersions",
           "",
         ),
@@ -212,15 +218,13 @@ export class ServiceDefinitionApiResponseProcessor {
   public async createOrUpdateServiceDefinitions(
     response: ResponseContext,
   ): Promise<ServiceDefinitionCreateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ServiceDefinitionCreateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ServiceDefinitionCreateResponse",
-        ) as ServiceDefinitionCreateResponse;
+      const body: ServiceDefinitionCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ServiceDefinitionCreateResponse",
+      ) as ServiceDefinitionCreateResponse;
       return body;
     }
     if (
@@ -229,14 +233,12 @@ export class ServiceDefinitionApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -251,12 +253,12 @@ export class ServiceDefinitionApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ServiceDefinitionCreateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ServiceDefinitionCreateResponse",
-          "",
-        ) as ServiceDefinitionCreateResponse;
+      const body: ServiceDefinitionCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ServiceDefinitionCreateResponse",
+        "",
+      ) as ServiceDefinitionCreateResponse;
       return body;
     }
 
@@ -277,9 +279,7 @@ export class ServiceDefinitionApiResponseProcessor {
   public async deleteServiceDefinition(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -289,14 +289,12 @@ export class ServiceDefinitionApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -331,12 +329,11 @@ export class ServiceDefinitionApiResponseProcessor {
   public async getServiceDefinition(
     response: ResponseContext,
   ): Promise<ServiceDefinitionGetResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ServiceDefinitionGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ServiceDefinitionGetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ServiceDefinitionGetResponse",
       ) as ServiceDefinitionGetResponse;
       return body;
@@ -348,14 +345,12 @@ export class ServiceDefinitionApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -370,8 +365,9 @@ export class ServiceDefinitionApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ServiceDefinitionGetResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ServiceDefinitionGetResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ServiceDefinitionGetResponse",
         "",
       ) as ServiceDefinitionGetResponse;
@@ -395,25 +391,22 @@ export class ServiceDefinitionApiResponseProcessor {
   public async listServiceDefinitions(
     response: ResponseContext,
   ): Promise<ServiceDefinitionsListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ServiceDefinitionsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ServiceDefinitionsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ServiceDefinitionsListResponse",
       ) as ServiceDefinitionsListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -428,8 +421,9 @@ export class ServiceDefinitionApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ServiceDefinitionsListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ServiceDefinitionsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ServiceDefinitionsListResponse",
         "",
       ) as ServiceDefinitionsListResponse;

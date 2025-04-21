@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { Case } from "./models/Case";
 import { CaseAssignRequest } from "./models/CaseAssignRequest";
@@ -58,12 +64,10 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CaseEmptyRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CaseEmptyRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -109,12 +113,10 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CaseAssignRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CaseAssignRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -151,12 +153,10 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CaseCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CaseCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -193,12 +193,10 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ProjectCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ProjectCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -362,35 +360,35 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (sortField !== undefined) {
       requestContext.setQueryParam(
         "sort[field]",
-        ObjectSerializer.serialize(sortField, "CaseSortableField", ""),
+        serialize(sortField, TypingInfo, "CaseSortableField", ""),
         "",
       );
     }
     if (filter !== undefined) {
       requestContext.setQueryParam(
         "filter",
-        ObjectSerializer.serialize(filter, "string", ""),
+        serialize(filter, TypingInfo, "string", ""),
         "",
       );
     }
     if (sortAsc !== undefined) {
       requestContext.setQueryParam(
         "sort[asc]",
-        ObjectSerializer.serialize(sortAsc, "boolean", ""),
+        serialize(sortAsc, TypingInfo, "boolean", ""),
         "",
       );
     }
@@ -436,12 +434,10 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CaseEmptyRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CaseEmptyRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -487,12 +483,10 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CaseEmptyRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CaseEmptyRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -538,12 +532,10 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CaseUpdatePriorityRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CaseUpdatePriorityRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -589,12 +581,10 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CaseUpdateStatusRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CaseUpdateStatusRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -619,12 +609,11 @@ export class CaseManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async archiveCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
       ) as CaseResponse;
       return body;
@@ -636,14 +625,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -658,8 +645,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
         "",
       ) as CaseResponse;
@@ -681,12 +669,11 @@ export class CaseManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async assignCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
       ) as CaseResponse;
       return body;
@@ -698,14 +685,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -720,8 +705,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
         "",
       ) as CaseResponse;
@@ -743,12 +729,11 @@ export class CaseManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
       ) as CaseResponse;
       return body;
@@ -760,14 +745,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -782,8 +765,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
         "",
       ) as CaseResponse;
@@ -807,12 +791,11 @@ export class CaseManagementApiResponseProcessor {
   public async createProject(
     response: ResponseContext,
   ): Promise<ProjectResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: ProjectResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ProjectResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ProjectResponse",
       ) as ProjectResponse;
       return body;
@@ -824,14 +807,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -846,8 +827,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ProjectResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ProjectResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ProjectResponse",
         "",
       ) as ProjectResponse;
@@ -869,9 +851,7 @@ export class CaseManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteProject(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -880,14 +860,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -920,12 +898,11 @@ export class CaseManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
       ) as CaseResponse;
       return body;
@@ -937,14 +914,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -959,8 +934,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
         "",
       ) as CaseResponse;
@@ -982,12 +958,11 @@ export class CaseManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getProject(response: ResponseContext): Promise<ProjectResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ProjectResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ProjectResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ProjectResponse",
       ) as ProjectResponse;
       return body;
@@ -999,14 +974,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1021,8 +994,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ProjectResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ProjectResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ProjectResponse",
         "",
       ) as ProjectResponse;
@@ -1046,12 +1020,11 @@ export class CaseManagementApiResponseProcessor {
   public async getProjects(
     response: ResponseContext,
   ): Promise<ProjectsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ProjectsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ProjectsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ProjectsResponse",
       ) as ProjectsResponse;
       return body;
@@ -1063,14 +1036,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1085,8 +1056,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ProjectsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ProjectsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ProjectsResponse",
         "",
       ) as ProjectsResponse;
@@ -1108,12 +1080,11 @@ export class CaseManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async searchCases(response: ResponseContext): Promise<CasesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CasesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CasesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CasesResponse",
       ) as CasesResponse;
       return body;
@@ -1125,14 +1096,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1147,8 +1116,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CasesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CasesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CasesResponse",
         "",
       ) as CasesResponse;
@@ -1170,12 +1140,11 @@ export class CaseManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async unarchiveCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
       ) as CaseResponse;
       return body;
@@ -1187,14 +1156,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1209,8 +1176,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
         "",
       ) as CaseResponse;
@@ -1232,12 +1200,11 @@ export class CaseManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async unassignCase(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
       ) as CaseResponse;
       return body;
@@ -1249,14 +1216,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1271,8 +1236,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
         "",
       ) as CaseResponse;
@@ -1296,12 +1262,11 @@ export class CaseManagementApiResponseProcessor {
   public async updatePriority(
     response: ResponseContext,
   ): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
       ) as CaseResponse;
       return body;
@@ -1313,14 +1278,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1335,8 +1298,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
         "",
       ) as CaseResponse;
@@ -1358,12 +1322,11 @@ export class CaseManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateStatus(response: ResponseContext): Promise<CaseResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
       ) as CaseResponse;
       return body;
@@ -1375,14 +1338,12 @@ export class CaseManagementApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1397,8 +1358,9 @@ export class CaseManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CaseResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CaseResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CaseResponse",
         "",
       ) as CaseResponse;

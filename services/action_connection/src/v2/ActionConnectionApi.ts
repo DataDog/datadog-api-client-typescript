@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { CreateActionConnectionRequest } from "./models/CreateActionConnectionRequest";
 import { CreateActionConnectionResponse } from "./models/CreateActionConnectionResponse";
 import { GetActionConnectionResponse } from "./models/GetActionConnectionResponse";
@@ -42,12 +48,10 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CreateActionConnectionRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateActionConnectionRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -158,12 +162,10 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "UpdateActionConnectionRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "UpdateActionConnectionRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -189,12 +191,11 @@ export class ActionConnectionApiResponseProcessor {
   public async createActionConnection(
     response: ResponseContext,
   ): Promise<CreateActionConnectionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: CreateActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CreateActionConnectionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CreateActionConnectionResponse",
       ) as CreateActionConnectionResponse;
       return body;
@@ -204,14 +205,12 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -229,8 +228,9 @@ export class ActionConnectionApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CreateActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: CreateActionConnectionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "CreateActionConnectionResponse",
         "",
       ) as CreateActionConnectionResponse;
@@ -254,9 +254,7 @@ export class ActionConnectionApiResponseProcessor {
   public async deleteActionConnection(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -265,14 +263,12 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -310,12 +306,11 @@ export class ActionConnectionApiResponseProcessor {
   public async getActionConnection(
     response: ResponseContext,
   ): Promise<GetActionConnectionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GetActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetActionConnectionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetActionConnectionResponse",
       ) as GetActionConnectionResponse;
       return body;
@@ -326,14 +321,12 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -351,8 +344,9 @@ export class ActionConnectionApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GetActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetActionConnectionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetActionConnectionResponse",
         "",
       ) as GetActionConnectionResponse;
@@ -376,12 +370,11 @@ export class ActionConnectionApiResponseProcessor {
   public async updateActionConnection(
     response: ResponseContext,
   ): Promise<UpdateActionConnectionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UpdateActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpdateActionConnectionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpdateActionConnectionResponse",
       ) as UpdateActionConnectionResponse;
       return body;
@@ -392,14 +385,12 @@ export class ActionConnectionApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -417,8 +408,9 @@ export class ActionConnectionApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UpdateActionConnectionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: UpdateActionConnectionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "UpdateActionConnectionResponse",
         "",
       ) as UpdateActionConnectionResponse;

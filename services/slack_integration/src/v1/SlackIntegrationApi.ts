@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { SlackIntegrationChannel } from "./models/SlackIntegrationChannel";
 
@@ -48,12 +54,10 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SlackIntegrationChannel", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SlackIntegrationChannel", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -216,12 +220,10 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SlackIntegrationChannel", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SlackIntegrationChannel", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -247,12 +249,11 @@ export class SlackIntegrationApiResponseProcessor {
   public async createSlackIntegrationChannel(
     response: ResponseContext,
   ): Promise<SlackIntegrationChannel> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SlackIntegrationChannel = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SlackIntegrationChannel",
       ) as SlackIntegrationChannel;
       return body;
@@ -263,14 +264,12 @@ export class SlackIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -285,8 +284,9 @@ export class SlackIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SlackIntegrationChannel = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SlackIntegrationChannel",
         "",
       ) as SlackIntegrationChannel;
@@ -310,12 +310,11 @@ export class SlackIntegrationApiResponseProcessor {
   public async getSlackIntegrationChannel(
     response: ResponseContext,
   ): Promise<SlackIntegrationChannel> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SlackIntegrationChannel = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SlackIntegrationChannel",
       ) as SlackIntegrationChannel;
       return body;
@@ -326,14 +325,12 @@ export class SlackIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -348,8 +345,9 @@ export class SlackIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SlackIntegrationChannel = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SlackIntegrationChannel",
         "",
       ) as SlackIntegrationChannel;
@@ -373,12 +371,11 @@ export class SlackIntegrationApiResponseProcessor {
   public async getSlackIntegrationChannels(
     response: ResponseContext,
   ): Promise<Array<SlackIntegrationChannel>> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: Array<SlackIntegrationChannel> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: Array<SlackIntegrationChannel> = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "Array<SlackIntegrationChannel>",
       ) as Array<SlackIntegrationChannel>;
       return body;
@@ -389,14 +386,12 @@ export class SlackIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -411,8 +406,9 @@ export class SlackIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: Array<SlackIntegrationChannel> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: Array<SlackIntegrationChannel> = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "Array<SlackIntegrationChannel>",
         "",
       ) as Array<SlackIntegrationChannel>;
@@ -436,9 +432,7 @@ export class SlackIntegrationApiResponseProcessor {
   public async removeSlackIntegrationChannel(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -448,14 +442,12 @@ export class SlackIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -490,12 +482,11 @@ export class SlackIntegrationApiResponseProcessor {
   public async updateSlackIntegrationChannel(
     response: ResponseContext,
   ): Promise<SlackIntegrationChannel> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SlackIntegrationChannel = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SlackIntegrationChannel",
       ) as SlackIntegrationChannel;
       return body;
@@ -506,14 +497,12 @@ export class SlackIntegrationApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -528,8 +517,9 @@ export class SlackIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SlackIntegrationChannel = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SlackIntegrationChannel",
         "",
       ) as SlackIntegrationChannel;

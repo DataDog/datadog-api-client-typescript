@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { HostTags } from "./models/HostTags";
 import { TagToHosts } from "./models/TagToHosts";
@@ -52,18 +58,16 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     if (source !== undefined) {
       requestContext.setQueryParam(
         "source",
-        ObjectSerializer.serialize(source, "string", ""),
+        serialize(source, TypingInfo, "string", ""),
         "",
       );
     }
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "HostTags", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "HostTags", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -106,7 +110,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     if (source !== undefined) {
       requestContext.setQueryParam(
         "source",
-        ObjectSerializer.serialize(source, "string", ""),
+        serialize(source, TypingInfo, "string", ""),
         "",
       );
     }
@@ -149,7 +153,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     if (source !== undefined) {
       requestContext.setQueryParam(
         "source",
-        ObjectSerializer.serialize(source, "string", ""),
+        serialize(source, TypingInfo, "string", ""),
         "",
       );
     }
@@ -183,7 +187,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     if (source !== undefined) {
       requestContext.setQueryParam(
         "source",
-        ObjectSerializer.serialize(source, "string", ""),
+        serialize(source, TypingInfo, "string", ""),
         "",
       );
     }
@@ -233,18 +237,16 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     if (source !== undefined) {
       requestContext.setQueryParam(
         "source",
-        ObjectSerializer.serialize(source, "string", ""),
+        serialize(source, TypingInfo, "string", ""),
         "",
       );
     }
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "HostTags", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "HostTags", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -268,12 +270,11 @@ export class TagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async createHostTags(response: ResponseContext): Promise<HostTags> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: HostTags = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: HostTags = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "HostTags",
       ) as HostTags;
       return body;
@@ -283,14 +284,12 @@ export class TagsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -305,8 +304,9 @@ export class TagsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HostTags = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: HostTags = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "HostTags",
         "",
       ) as HostTags;
@@ -328,9 +328,7 @@ export class TagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteHostTags(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -339,14 +337,12 @@ export class TagsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -379,12 +375,11 @@ export class TagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getHostTags(response: ResponseContext): Promise<HostTags> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: HostTags = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: HostTags = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "HostTags",
       ) as HostTags;
       return body;
@@ -394,14 +389,12 @@ export class TagsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -416,8 +409,9 @@ export class TagsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HostTags = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: HostTags = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "HostTags",
         "",
       ) as HostTags;
@@ -439,12 +433,11 @@ export class TagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async listHostTags(response: ResponseContext): Promise<TagToHosts> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: TagToHosts = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: TagToHosts = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "TagToHosts",
       ) as TagToHosts;
       return body;
@@ -454,14 +447,12 @@ export class TagsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -476,8 +467,9 @@ export class TagsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: TagToHosts = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: TagToHosts = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "TagToHosts",
         "",
       ) as TagToHosts;
@@ -499,12 +491,11 @@ export class TagsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async updateHostTags(response: ResponseContext): Promise<HostTags> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: HostTags = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: HostTags = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "HostTags",
       ) as HostTags;
       return body;
@@ -514,14 +505,12 @@ export class TagsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -536,8 +525,9 @@ export class TagsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HostTags = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: HostTags = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "HostTags",
         "",
       ) as HostTags;

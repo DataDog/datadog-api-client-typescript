@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { SpansMetricCreateRequest } from "./models/SpansMetricCreateRequest";
 import { SpansMetricResponse } from "./models/SpansMetricResponse";
@@ -41,12 +47,10 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SpansMetricCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SpansMetricCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -181,12 +185,10 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SpansMetricUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SpansMetricUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -212,12 +214,11 @@ export class SpansMetricsApiResponseProcessor {
   public async createSpansMetric(
     response: ResponseContext,
   ): Promise<SpansMetricResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SpansMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SpansMetricResponse",
       ) as SpansMetricResponse;
       return body;
@@ -228,14 +229,12 @@ export class SpansMetricsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -250,8 +249,9 @@ export class SpansMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SpansMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SpansMetricResponse",
         "",
       ) as SpansMetricResponse;
@@ -273,9 +273,7 @@ export class SpansMetricsApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteSpansMetric(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -284,14 +282,12 @@ export class SpansMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -326,12 +322,11 @@ export class SpansMetricsApiResponseProcessor {
   public async getSpansMetric(
     response: ResponseContext,
   ): Promise<SpansMetricResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SpansMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SpansMetricResponse",
       ) as SpansMetricResponse;
       return body;
@@ -341,14 +336,12 @@ export class SpansMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -363,8 +356,9 @@ export class SpansMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SpansMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SpansMetricResponse",
         "",
       ) as SpansMetricResponse;
@@ -388,25 +382,22 @@ export class SpansMetricsApiResponseProcessor {
   public async listSpansMetrics(
     response: ResponseContext,
   ): Promise<SpansMetricsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SpansMetricsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SpansMetricsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SpansMetricsResponse",
       ) as SpansMetricsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -421,8 +412,9 @@ export class SpansMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SpansMetricsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SpansMetricsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SpansMetricsResponse",
         "",
       ) as SpansMetricsResponse;
@@ -446,12 +438,11 @@ export class SpansMetricsApiResponseProcessor {
   public async updateSpansMetric(
     response: ResponseContext,
   ): Promise<SpansMetricResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SpansMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SpansMetricResponse",
       ) as SpansMetricResponse;
       return body;
@@ -462,14 +453,12 @@ export class SpansMetricsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -484,8 +473,9 @@ export class SpansMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SpansMetricResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SpansMetricResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SpansMetricResponse",
         "",
       ) as SpansMetricResponse;

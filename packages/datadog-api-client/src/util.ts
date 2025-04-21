@@ -14,6 +14,12 @@ export type AttributeTypeMap = {
   };
 };
 
+export type ModelTypingInfo = {
+  enumsMap: { [key: string]: any[] };
+  typeMap: { [index: string]: any };
+  oneOfMap: { [index: string]: any };
+};
+
 export const isBrowser: boolean =
   typeof window !== "undefined" && typeof window.document !== "undefined";
 

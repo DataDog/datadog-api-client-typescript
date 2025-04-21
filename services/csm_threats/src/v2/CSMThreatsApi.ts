@@ -9,10 +9,16 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
   HttpFile,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CloudWorkloadSecurityAgentRuleCreateRequest } from "./models/CloudWorkloadSecurityAgentRuleCreateRequest";
 import { CloudWorkloadSecurityAgentRuleResponse } from "./models/CloudWorkloadSecurityAgentRuleResponse";
@@ -43,13 +49,12 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "CloudWorkloadSecurityAgentRuleCreateRequest",
         "",
       ),
@@ -88,13 +93,12 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "CloudWorkloadSecurityAgentRuleCreateRequest",
         "",
       ),
@@ -391,13 +395,12 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "CloudWorkloadSecurityAgentRuleUpdateRequest",
         "",
       ),
@@ -446,13 +449,12 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "CloudWorkloadSecurityAgentRuleUpdateRequest",
         "",
       ),
@@ -481,15 +483,13 @@ export class CSMThreatsApiResponseProcessor {
   public async createCloudWorkloadSecurityAgentRule(
     response: ResponseContext,
   ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
     if (
@@ -498,14 +498,12 @@ export class CSMThreatsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -520,12 +518,12 @@ export class CSMThreatsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          "",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+        "",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
 
@@ -546,15 +544,13 @@ export class CSMThreatsApiResponseProcessor {
   public async createCSMThreatsAgentRule(
     response: ResponseContext,
   ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
     if (
@@ -563,14 +559,12 @@ export class CSMThreatsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -585,12 +579,12 @@ export class CSMThreatsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          "",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+        "",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
 
@@ -611,9 +605,7 @@ export class CSMThreatsApiResponseProcessor {
   public async deleteCloudWorkloadSecurityAgentRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -622,14 +614,12 @@ export class CSMThreatsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -664,9 +654,7 @@ export class CSMThreatsApiResponseProcessor {
   public async deleteCSMThreatsAgentRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -675,14 +663,12 @@ export class CSMThreatsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -717,22 +703,18 @@ export class CSMThreatsApiResponseProcessor {
   public async downloadCloudWorkloadPolicyFile(
     response: ResponseContext,
   ): Promise<HttpFile> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -769,22 +751,18 @@ export class CSMThreatsApiResponseProcessor {
   public async downloadCSMThreatsPolicy(
     response: ResponseContext,
   ): Promise<HttpFile> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -821,15 +799,13 @@ export class CSMThreatsApiResponseProcessor {
   public async getCloudWorkloadSecurityAgentRule(
     response: ResponseContext,
   ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
     if (
@@ -837,14 +813,12 @@ export class CSMThreatsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -859,12 +833,12 @@ export class CSMThreatsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          "",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+        "",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
 
@@ -885,15 +859,13 @@ export class CSMThreatsApiResponseProcessor {
   public async getCSMThreatsAgentRule(
     response: ResponseContext,
   ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
     if (
@@ -901,14 +873,12 @@ export class CSMThreatsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -923,12 +893,12 @@ export class CSMThreatsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          "",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+        "",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
 
@@ -949,26 +919,22 @@ export class CSMThreatsApiResponseProcessor {
   public async listCloudWorkloadSecurityAgentRules(
     response: ResponseContext,
   ): Promise<CloudWorkloadSecurityAgentRulesListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CloudWorkloadSecurityAgentRulesListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRulesListResponse",
-        ) as CloudWorkloadSecurityAgentRulesListResponse;
+      const body: CloudWorkloadSecurityAgentRulesListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRulesListResponse",
+      ) as CloudWorkloadSecurityAgentRulesListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -983,12 +949,12 @@ export class CSMThreatsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRulesListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRulesListResponse",
-          "",
-        ) as CloudWorkloadSecurityAgentRulesListResponse;
+      const body: CloudWorkloadSecurityAgentRulesListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRulesListResponse",
+        "",
+      ) as CloudWorkloadSecurityAgentRulesListResponse;
       return body;
     }
 
@@ -1009,26 +975,22 @@ export class CSMThreatsApiResponseProcessor {
   public async listCSMThreatsAgentRules(
     response: ResponseContext,
   ): Promise<CloudWorkloadSecurityAgentRulesListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CloudWorkloadSecurityAgentRulesListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRulesListResponse",
-        ) as CloudWorkloadSecurityAgentRulesListResponse;
+      const body: CloudWorkloadSecurityAgentRulesListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRulesListResponse",
+      ) as CloudWorkloadSecurityAgentRulesListResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1043,12 +1005,12 @@ export class CSMThreatsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRulesListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRulesListResponse",
-          "",
-        ) as CloudWorkloadSecurityAgentRulesListResponse;
+      const body: CloudWorkloadSecurityAgentRulesListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRulesListResponse",
+        "",
+      ) as CloudWorkloadSecurityAgentRulesListResponse;
       return body;
     }
 
@@ -1069,15 +1031,13 @@ export class CSMThreatsApiResponseProcessor {
   public async updateCloudWorkloadSecurityAgentRule(
     response: ResponseContext,
   ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
     if (
@@ -1087,14 +1047,12 @@ export class CSMThreatsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1109,12 +1067,12 @@ export class CSMThreatsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          "",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+        "",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
 
@@ -1135,15 +1093,13 @@ export class CSMThreatsApiResponseProcessor {
   public async updateCSMThreatsAgentRule(
     response: ResponseContext,
   ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
     if (
@@ -1153,14 +1109,12 @@ export class CSMThreatsApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -1175,12 +1129,12 @@ export class CSMThreatsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          "",
-        ) as CloudWorkloadSecurityAgentRuleResponse;
+      const body: CloudWorkloadSecurityAgentRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "CloudWorkloadSecurityAgentRuleResponse",
+        "",
+      ) as CloudWorkloadSecurityAgentRuleResponse;
       return body;
     }
 

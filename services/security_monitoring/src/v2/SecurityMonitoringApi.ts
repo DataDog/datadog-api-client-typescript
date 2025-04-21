@@ -9,9 +9,15 @@ import {
   RequiredError,
   ApiException,
   createConfiguration,
+  getPreferredMediaType,
+  stringify,
+  serialize,
+  deserialize,
+  parse,
+  normalizeMediaType,
 } from "@datadog/datadog-api-client";
 
-import { ObjectSerializer } from "./models/ObjectSerializer";
+import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { AssetType } from "./models/AssetType";
 import { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
@@ -180,12 +186,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "ConvertJobResultsToSignalsRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ConvertJobResultsToSignalsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -226,16 +230,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "SecurityMonitoringRuleConvertPayload",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityMonitoringRuleConvertPayload", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -273,12 +271,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SecurityFilterCreateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityFilterCreateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -315,16 +311,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "SecurityMonitoringRuleCreatePayload",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityMonitoringRuleCreatePayload", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -362,13 +352,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "SecurityMonitoringSuppressionCreateRequest",
         "",
       ),
@@ -408,12 +397,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CreateNotificationRuleParameters", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateNotificationRuleParameters", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -450,12 +437,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "CreateNotificationRuleParameters", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CreateNotificationRuleParameters", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -724,13 +709,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "SecurityMonitoringSignalAssigneeUpdateRequest",
         "",
       ),
@@ -784,13 +768,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "SecurityMonitoringSignalIncidentsUpdateRequest",
         "",
       ),
@@ -839,13 +822,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "SecurityMonitoringSignalStateUpdateRequest",
         "",
       ),
@@ -897,7 +879,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (snapshotTimestamp !== undefined) {
       requestContext.setQueryParam(
         "snapshot_timestamp",
-        ObjectSerializer.serialize(snapshotTimestamp, "number", "int64"),
+        serialize(snapshotTimestamp, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -988,14 +970,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -1050,14 +1032,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterAssetName !== undefined) {
       requestContext.setQueryParam(
         "filter[asset_name]",
-        ObjectSerializer.serialize(filterAssetName, "string", ""),
+        serialize(filterAssetName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRepoDigest !== undefined) {
       requestContext.setQueryParam(
         "filter[repo_digest]",
-        ObjectSerializer.serialize(filterRepoDigest, "string", ""),
+        serialize(filterRepoDigest, TypingInfo, "string", ""),
         "",
       );
     }
@@ -1371,92 +1353,93 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        serialize(pageLimit, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (snapshotTimestamp !== undefined) {
       requestContext.setQueryParam(
         "snapshot_timestamp",
-        ObjectSerializer.serialize(snapshotTimestamp, "number", "int64"),
+        serialize(snapshotTimestamp, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", ""),
+        serialize(pageCursor, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterTags !== undefined) {
       requestContext.setQueryParam(
         "filter[tags]",
-        ObjectSerializer.serialize(filterTags, "string", ""),
+        serialize(filterTags, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterEvaluationChangedAt !== undefined) {
       requestContext.setQueryParam(
         "filter[evaluation_changed_at]",
-        ObjectSerializer.serialize(filterEvaluationChangedAt, "string", ""),
+        serialize(filterEvaluationChangedAt, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterMuted !== undefined) {
       requestContext.setQueryParam(
         "filter[muted]",
-        ObjectSerializer.serialize(filterMuted, "boolean", ""),
+        serialize(filterMuted, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterRuleId !== undefined) {
       requestContext.setQueryParam(
         "filter[rule_id]",
-        ObjectSerializer.serialize(filterRuleId, "string", ""),
+        serialize(filterRuleId, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRuleName !== undefined) {
       requestContext.setQueryParam(
         "filter[rule_name]",
-        ObjectSerializer.serialize(filterRuleName, "string", ""),
+        serialize(filterRuleName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterResourceType !== undefined) {
       requestContext.setQueryParam(
         "filter[resource_type]",
-        ObjectSerializer.serialize(filterResourceType, "string", ""),
+        serialize(filterResourceType, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterDiscoveryTimestamp !== undefined) {
       requestContext.setQueryParam(
         "filter[discovery_timestamp]",
-        ObjectSerializer.serialize(filterDiscoveryTimestamp, "string", ""),
+        serialize(filterDiscoveryTimestamp, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterEvaluation !== undefined) {
       requestContext.setQueryParam(
         "filter[evaluation]",
-        ObjectSerializer.serialize(filterEvaluation, "FindingEvaluation", ""),
+        serialize(filterEvaluation, TypingInfo, "FindingEvaluation", ""),
         "",
       );
     }
     if (filterStatus !== undefined) {
       requestContext.setQueryParam(
         "filter[status]",
-        ObjectSerializer.serialize(filterStatus, "FindingStatus", ""),
+        serialize(filterStatus, TypingInfo, "FindingStatus", ""),
         "",
       );
     }
     if (filterVulnerabilityType !== undefined) {
       requestContext.setQueryParam(
         "filter[vulnerability_type]",
-        ObjectSerializer.serialize(
+        serialize(
           filterVulnerabilityType,
+          TypingInfo,
           "Array<FindingVulnerabilityType>",
           "",
         ),
@@ -1502,28 +1485,28 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "string", ""),
+        serialize(sort, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterQuery !== undefined) {
       requestContext.setQueryParam(
         "filter[query]",
-        ObjectSerializer.serialize(filterQuery, "string", ""),
+        serialize(filterQuery, TypingInfo, "string", ""),
         "",
       );
     }
@@ -1585,14 +1568,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        serialize(pageSize, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -1632,42 +1615,42 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterQuery !== undefined) {
       requestContext.setQueryParam(
         "filter[query]",
-        ObjectSerializer.serialize(filterQuery, "string", ""),
+        serialize(filterQuery, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterFrom !== undefined) {
       requestContext.setQueryParam(
         "filter[from]",
-        ObjectSerializer.serialize(filterFrom, "Date", "date-time"),
+        serialize(filterFrom, TypingInfo, "Date", "date-time"),
         "",
       );
     }
     if (filterTo !== undefined) {
       requestContext.setQueryParam(
         "filter[to]",
-        ObjectSerializer.serialize(filterTo, "Date", "date-time"),
+        serialize(filterTo, TypingInfo, "Date", "date-time"),
         "",
       );
     }
     if (sort !== undefined) {
       requestContext.setQueryParam(
         "sort",
-        ObjectSerializer.serialize(sort, "SecurityMonitoringSignalsSort", ""),
+        serialize(sort, TypingInfo, "SecurityMonitoringSignalsSort", ""),
         "",
       );
     }
     if (pageCursor !== undefined) {
       requestContext.setQueryParam(
         "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", ""),
+        serialize(pageCursor, TypingInfo, "string", ""),
         "",
       );
     }
     if (pageLimit !== undefined) {
       requestContext.setQueryParam(
         "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int32"),
+        serialize(pageLimit, TypingInfo, "number", "int32"),
         "",
       );
     }
@@ -1772,36 +1755,37 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (pageToken !== undefined) {
       requestContext.setQueryParam(
         "page[token]",
-        ObjectSerializer.serialize(pageToken, "string", ""),
+        serialize(pageToken, TypingInfo, "string", ""),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (filterType !== undefined) {
       requestContext.setQueryParam(
         "filter[type]",
-        ObjectSerializer.serialize(filterType, "VulnerabilityType", ""),
+        serialize(filterType, TypingInfo, "VulnerabilityType", ""),
         "",
       );
     }
     if (filterCvssBaseScoreOp !== undefined) {
       requestContext.setQueryParam(
         "filter[cvss.base.score][`$op`]",
-        ObjectSerializer.serialize(filterCvssBaseScoreOp, "number", "double"),
+        serialize(filterCvssBaseScoreOp, TypingInfo, "number", "double"),
         "",
       );
     }
     if (filterCvssBaseSeverity !== undefined) {
       requestContext.setQueryParam(
         "filter[cvss.base.severity]",
-        ObjectSerializer.serialize(
+        serialize(
           filterCvssBaseSeverity,
+          TypingInfo,
           "VulnerabilitySeverity",
           "",
         ),
@@ -1811,26 +1795,23 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterCvssBaseVector !== undefined) {
       requestContext.setQueryParam(
         "filter[cvss.base.vector]",
-        ObjectSerializer.serialize(filterCvssBaseVector, "string", ""),
+        serialize(filterCvssBaseVector, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterCvssDatadogScoreOp !== undefined) {
       requestContext.setQueryParam(
         "filter[cvss.datadog.score][`$op`]",
-        ObjectSerializer.serialize(
-          filterCvssDatadogScoreOp,
-          "number",
-          "double",
-        ),
+        serialize(filterCvssDatadogScoreOp, TypingInfo, "number", "double"),
         "",
       );
     }
     if (filterCvssDatadogSeverity !== undefined) {
       requestContext.setQueryParam(
         "filter[cvss.datadog.severity]",
-        ObjectSerializer.serialize(
+        serialize(
           filterCvssDatadogSeverity,
+          TypingInfo,
           "VulnerabilitySeverity",
           "",
         ),
@@ -1840,50 +1821,51 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterCvssDatadogVector !== undefined) {
       requestContext.setQueryParam(
         "filter[cvss.datadog.vector]",
-        ObjectSerializer.serialize(filterCvssDatadogVector, "string", ""),
+        serialize(filterCvssDatadogVector, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterStatus !== undefined) {
       requestContext.setQueryParam(
         "filter[status]",
-        ObjectSerializer.serialize(filterStatus, "VulnerabilityStatus", ""),
+        serialize(filterStatus, TypingInfo, "VulnerabilityStatus", ""),
         "",
       );
     }
     if (filterTool !== undefined) {
       requestContext.setQueryParam(
         "filter[tool]",
-        ObjectSerializer.serialize(filterTool, "VulnerabilityTool", ""),
+        serialize(filterTool, TypingInfo, "VulnerabilityTool", ""),
         "",
       );
     }
     if (filterLibraryName !== undefined) {
       requestContext.setQueryParam(
         "filter[library.name]",
-        ObjectSerializer.serialize(filterLibraryName, "string", ""),
+        serialize(filterLibraryName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterLibraryVersion !== undefined) {
       requestContext.setQueryParam(
         "filter[library.version]",
-        ObjectSerializer.serialize(filterLibraryVersion, "string", ""),
+        serialize(filterLibraryVersion, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterAdvisoryId !== undefined) {
       requestContext.setQueryParam(
         "filter[advisory_id]",
-        ObjectSerializer.serialize(filterAdvisoryId, "string", ""),
+        serialize(filterAdvisoryId, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRisksExploitationProbability !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.exploitation_probability]",
-        ObjectSerializer.serialize(
+        serialize(
           filterRisksExploitationProbability,
+          TypingInfo,
           "boolean",
           "",
         ),
@@ -1893,33 +1875,30 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterRisksPocExploitAvailable !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.poc_exploit_available]",
-        ObjectSerializer.serialize(
-          filterRisksPocExploitAvailable,
-          "boolean",
-          "",
-        ),
+        serialize(filterRisksPocExploitAvailable, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterRisksExploitAvailable !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.exploit_available]",
-        ObjectSerializer.serialize(filterRisksExploitAvailable, "boolean", ""),
+        serialize(filterRisksExploitAvailable, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterRisksEpssScoreOp !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.epss.score][`$op`]",
-        ObjectSerializer.serialize(filterRisksEpssScoreOp, "number", "double"),
+        serialize(filterRisksEpssScoreOp, TypingInfo, "number", "double"),
         "",
       );
     }
     if (filterRisksEpssSeverity !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.epss.severity]",
-        ObjectSerializer.serialize(
+        serialize(
           filterRisksEpssSeverity,
+          TypingInfo,
           "VulnerabilitySeverity",
           "",
         ),
@@ -1929,110 +1908,107 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterLanguage !== undefined) {
       requestContext.setQueryParam(
         "filter[language]",
-        ObjectSerializer.serialize(filterLanguage, "string", ""),
+        serialize(filterLanguage, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterEcosystem !== undefined) {
       requestContext.setQueryParam(
         "filter[ecosystem]",
-        ObjectSerializer.serialize(
-          filterEcosystem,
-          "VulnerabilityEcosystem",
-          "",
-        ),
+        serialize(filterEcosystem, TypingInfo, "VulnerabilityEcosystem", ""),
         "",
       );
     }
     if (filterCodeLocationLocation !== undefined) {
       requestContext.setQueryParam(
         "filter[code_location.location]",
-        ObjectSerializer.serialize(filterCodeLocationLocation, "string", ""),
+        serialize(filterCodeLocationLocation, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterCodeLocationFilePath !== undefined) {
       requestContext.setQueryParam(
         "filter[code_location.file_path]",
-        ObjectSerializer.serialize(filterCodeLocationFilePath, "string", ""),
+        serialize(filterCodeLocationFilePath, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterCodeLocationMethod !== undefined) {
       requestContext.setQueryParam(
         "filter[code_location.method]",
-        ObjectSerializer.serialize(filterCodeLocationMethod, "string", ""),
+        serialize(filterCodeLocationMethod, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterFixAvailable !== undefined) {
       requestContext.setQueryParam(
         "filter[fix_available]",
-        ObjectSerializer.serialize(filterFixAvailable, "boolean", ""),
+        serialize(filterFixAvailable, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterRepoDigests !== undefined) {
       requestContext.setQueryParam(
         "filter[repo_digests]",
-        ObjectSerializer.serialize(filterRepoDigests, "string", ""),
+        serialize(filterRepoDigests, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterAssetName !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.name]",
-        ObjectSerializer.serialize(filterAssetName, "string", ""),
+        serialize(filterAssetName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterAssetType !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.type]",
-        ObjectSerializer.serialize(filterAssetType, "AssetType", ""),
+        serialize(filterAssetType, TypingInfo, "AssetType", ""),
         "",
       );
     }
     if (filterAssetVersionFirst !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.version.first]",
-        ObjectSerializer.serialize(filterAssetVersionFirst, "string", ""),
+        serialize(filterAssetVersionFirst, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterAssetVersionLast !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.version.last]",
-        ObjectSerializer.serialize(filterAssetVersionLast, "string", ""),
+        serialize(filterAssetVersionLast, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterAssetRepositoryUrl !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.repository_url]",
-        ObjectSerializer.serialize(filterAssetRepositoryUrl, "string", ""),
+        serialize(filterAssetRepositoryUrl, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterAssetRisksInProduction !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.risks.in_production]",
-        ObjectSerializer.serialize(filterAssetRisksInProduction, "boolean", ""),
+        serialize(filterAssetRisksInProduction, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterAssetRisksUnderAttack !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.risks.under_attack]",
-        ObjectSerializer.serialize(filterAssetRisksUnderAttack, "boolean", ""),
+        serialize(filterAssetRisksUnderAttack, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterAssetRisksIsPubliclyAccessible !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.risks.is_publicly_accessible]",
-        ObjectSerializer.serialize(
+        serialize(
           filterAssetRisksIsPubliclyAccessible,
+          TypingInfo,
           "boolean",
           "",
         ),
@@ -2042,8 +2018,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterAssetRisksHasPrivilegedAccess !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.risks.has_privileged_access]",
-        ObjectSerializer.serialize(
+        serialize(
           filterAssetRisksHasPrivilegedAccess,
+          TypingInfo,
           "boolean",
           "",
         ),
@@ -2053,8 +2030,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterAssetRisksHasAccessToSensitiveData !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.risks.has_access_to_sensitive_data]",
-        ObjectSerializer.serialize(
+        serialize(
           filterAssetRisksHasAccessToSensitiveData,
+          TypingInfo,
           "boolean",
           "",
         ),
@@ -2064,36 +2042,28 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterAssetEnvironments !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.environments]",
-        ObjectSerializer.serialize(filterAssetEnvironments, "string", ""),
+        serialize(filterAssetEnvironments, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterAssetArch !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.arch]",
-        ObjectSerializer.serialize(filterAssetArch, "string", ""),
+        serialize(filterAssetArch, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterAssetOperatingSystemName !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.operating_system.name]",
-        ObjectSerializer.serialize(
-          filterAssetOperatingSystemName,
-          "string",
-          "",
-        ),
+        serialize(filterAssetOperatingSystemName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterAssetOperatingSystemVersion !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.operating_system.version]",
-        ObjectSerializer.serialize(
-          filterAssetOperatingSystemVersion,
-          "string",
-          "",
-        ),
+        serialize(filterAssetOperatingSystemVersion, TypingInfo, "string", ""),
         "",
       );
     }
@@ -2148,93 +2118,86 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (pageToken !== undefined) {
       requestContext.setQueryParam(
         "page[token]",
-        ObjectSerializer.serialize(pageToken, "string", ""),
+        serialize(pageToken, TypingInfo, "string", ""),
         "",
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
     if (filterName !== undefined) {
       requestContext.setQueryParam(
         "filter[name]",
-        ObjectSerializer.serialize(filterName, "string", ""),
+        serialize(filterName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterType !== undefined) {
       requestContext.setQueryParam(
         "filter[type]",
-        ObjectSerializer.serialize(filterType, "AssetType", ""),
+        serialize(filterType, TypingInfo, "AssetType", ""),
         "",
       );
     }
     if (filterVersionFirst !== undefined) {
       requestContext.setQueryParam(
         "filter[version.first]",
-        ObjectSerializer.serialize(filterVersionFirst, "string", ""),
+        serialize(filterVersionFirst, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterVersionLast !== undefined) {
       requestContext.setQueryParam(
         "filter[version.last]",
-        ObjectSerializer.serialize(filterVersionLast, "string", ""),
+        serialize(filterVersionLast, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRepositoryUrl !== undefined) {
       requestContext.setQueryParam(
         "filter[repository_url]",
-        ObjectSerializer.serialize(filterRepositoryUrl, "string", ""),
+        serialize(filterRepositoryUrl, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterRisksInProduction !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.in_production]",
-        ObjectSerializer.serialize(filterRisksInProduction, "boolean", ""),
+        serialize(filterRisksInProduction, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterRisksUnderAttack !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.under_attack]",
-        ObjectSerializer.serialize(filterRisksUnderAttack, "boolean", ""),
+        serialize(filterRisksUnderAttack, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterRisksIsPubliclyAccessible !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.is_publicly_accessible]",
-        ObjectSerializer.serialize(
-          filterRisksIsPubliclyAccessible,
-          "boolean",
-          "",
-        ),
+        serialize(filterRisksIsPubliclyAccessible, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterRisksHasPrivilegedAccess !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.has_privileged_access]",
-        ObjectSerializer.serialize(
-          filterRisksHasPrivilegedAccess,
-          "boolean",
-          "",
-        ),
+        serialize(filterRisksHasPrivilegedAccess, TypingInfo, "boolean", ""),
         "",
       );
     }
     if (filterRisksHasAccessToSensitiveData !== undefined) {
       requestContext.setQueryParam(
         "filter[risks.has_access_to_sensitive_data]",
-        ObjectSerializer.serialize(
+        serialize(
           filterRisksHasAccessToSensitiveData,
+          TypingInfo,
           "boolean",
           "",
         ),
@@ -2244,28 +2207,28 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     if (filterEnvironments !== undefined) {
       requestContext.setQueryParam(
         "filter[environments]",
-        ObjectSerializer.serialize(filterEnvironments, "string", ""),
+        serialize(filterEnvironments, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterArch !== undefined) {
       requestContext.setQueryParam(
         "filter[arch]",
-        ObjectSerializer.serialize(filterArch, "string", ""),
+        serialize(filterArch, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterOperatingSystemName !== undefined) {
       requestContext.setQueryParam(
         "filter[operating_system.name]",
-        ObjectSerializer.serialize(filterOperatingSystemName, "string", ""),
+        serialize(filterOperatingSystemName, TypingInfo, "string", ""),
         "",
       );
     }
     if (filterOperatingSystemVersion !== undefined) {
       requestContext.setQueryParam(
         "filter[operating_system.version]",
-        ObjectSerializer.serialize(filterOperatingSystemVersion, "string", ""),
+        serialize(filterOperatingSystemVersion, TypingInfo, "string", ""),
         "",
       );
     }
@@ -2307,12 +2270,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "BulkMuteFindingsRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "BulkMuteFindingsRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2358,12 +2319,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "PatchNotificationRuleParameters", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "PatchNotificationRuleParameters", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2410,12 +2369,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "PatchNotificationRuleParameters", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "PatchNotificationRuleParameters", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2457,12 +2414,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RunHistoricalJobRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "RunHistoricalJobRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2494,16 +2449,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "SecurityMonitoringSignalListRequest",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityMonitoringSignalListRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2550,12 +2499,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SecurityMonitoringRuleTestRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityMonitoringRuleTestRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2592,12 +2539,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SecurityMonitoringRuleTestRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityMonitoringRuleTestRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2644,12 +2589,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SecurityFilterUpdateRequest", ""),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityFilterUpdateRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2695,16 +2638,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "SecurityMonitoringRuleUpdatePayload",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityMonitoringRuleUpdatePayload", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2754,13 +2691,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
+    const serializedBody = stringify(
+      serialize(
         body,
+        TypingInfo,
         "SecurityMonitoringSuppressionUpdateRequest",
         "",
       ),
@@ -2800,16 +2736,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "SecurityMonitoringRuleValidatePayload",
-        "",
-      ),
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "SecurityMonitoringRuleValidatePayload", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -2834,9 +2764,7 @@ export class SecurityMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async cancelHistoricalJob(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2848,14 +2776,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -2890,15 +2816,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async convertExistingSecurityMonitoringRule(
     response: ResponseContext,
   ): Promise<SecurityMonitoringRuleConvertResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringRuleConvertResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringRuleConvertResponse",
-        ) as SecurityMonitoringRuleConvertResponse;
+      const body: SecurityMonitoringRuleConvertResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringRuleConvertResponse",
+      ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
     if (
@@ -2907,14 +2831,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -2929,12 +2851,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleConvertResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringRuleConvertResponse",
-          "",
-        ) as SecurityMonitoringRuleConvertResponse;
+      const body: SecurityMonitoringRuleConvertResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringRuleConvertResponse",
+        "",
+      ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
 
@@ -2955,9 +2877,7 @@ export class SecurityMonitoringApiResponseProcessor {
   public async convertJobResultToSignal(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -2968,14 +2888,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3010,15 +2928,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async convertSecurityMonitoringRuleFromJSONToTerraform(
     response: ResponseContext,
   ): Promise<SecurityMonitoringRuleConvertResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringRuleConvertResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringRuleConvertResponse",
-        ) as SecurityMonitoringRuleConvertResponse;
+      const body: SecurityMonitoringRuleConvertResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringRuleConvertResponse",
+      ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
     if (
@@ -3028,14 +2944,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3050,12 +2964,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleConvertResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringRuleConvertResponse",
-          "",
-        ) as SecurityMonitoringRuleConvertResponse;
+      const body: SecurityMonitoringRuleConvertResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringRuleConvertResponse",
+        "",
+      ) as SecurityMonitoringRuleConvertResponse;
       return body;
     }
 
@@ -3076,12 +2990,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async createSecurityFilter(
     response: ResponseContext,
   ): Promise<SecurityFilterResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityFilterResponse",
       ) as SecurityFilterResponse;
       return body;
@@ -3092,14 +3005,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3114,8 +3025,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityFilterResponse",
         "",
       ) as SecurityFilterResponse;
@@ -3139,12 +3051,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async createSecurityMonitoringRule(
     response: ResponseContext,
   ): Promise<SecurityMonitoringRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityMonitoringRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityMonitoringRuleResponse",
       ) as SecurityMonitoringRuleResponse;
       return body;
@@ -3154,14 +3065,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3176,8 +3085,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityMonitoringRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityMonitoringRuleResponse",
         "",
       ) as SecurityMonitoringRuleResponse;
@@ -3201,15 +3111,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async createSecurityMonitoringSuppression(
     response: ResponseContext,
   ): Promise<SecurityMonitoringSuppressionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSuppressionResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSuppressionResponse",
-        ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSuppressionResponse",
+      ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
     if (
@@ -3218,14 +3126,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3240,12 +3146,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSuppressionResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSuppressionResponse",
-          "",
-        ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSuppressionResponse",
+        "",
+      ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
 
@@ -3266,12 +3172,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async createSignalNotificationRule(
     response: ResponseContext,
   ): Promise<NotificationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
       ) as NotificationRuleResponse;
       return body;
@@ -3281,14 +3186,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3303,8 +3206,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
         "",
       ) as NotificationRuleResponse;
@@ -3328,12 +3232,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async createVulnerabilityNotificationRule(
     response: ResponseContext,
   ): Promise<NotificationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
       ) as NotificationRuleResponse;
       return body;
@@ -3343,14 +3246,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3365,8 +3266,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
         "",
       ) as NotificationRuleResponse;
@@ -3388,9 +3290,7 @@ export class SecurityMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteHistoricalJob(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -3402,14 +3302,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3442,9 +3340,7 @@ export class SecurityMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteSecurityFilter(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -3453,14 +3349,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3495,9 +3389,7 @@ export class SecurityMonitoringApiResponseProcessor {
   public async deleteSecurityMonitoringRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -3506,14 +3398,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3548,9 +3438,7 @@ export class SecurityMonitoringApiResponseProcessor {
   public async deleteSecurityMonitoringSuppression(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -3559,14 +3447,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3601,9 +3487,7 @@ export class SecurityMonitoringApiResponseProcessor {
   public async deleteSignalNotificationRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -3612,14 +3496,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3654,9 +3536,7 @@ export class SecurityMonitoringApiResponseProcessor {
   public async deleteVulnerabilityNotificationRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -3665,14 +3545,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3707,15 +3585,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async editSecurityMonitoringSignalAssignee(
     response: ResponseContext,
   ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalTriageUpdateResponse",
+      ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
     if (
@@ -3724,14 +3600,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3746,12 +3620,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-          "",
-        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalTriageUpdateResponse",
+        "",
+      ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
 
@@ -3772,15 +3646,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async editSecurityMonitoringSignalIncidents(
     response: ResponseContext,
   ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalTriageUpdateResponse",
+      ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
     if (
@@ -3789,14 +3661,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3811,12 +3681,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-          "",
-        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalTriageUpdateResponse",
+        "",
+      ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
 
@@ -3837,15 +3707,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async editSecurityMonitoringSignalState(
     response: ResponseContext,
   ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalTriageUpdateResponse",
+      ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
     if (
@@ -3854,14 +3722,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -3876,12 +3742,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-          "",
-        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      const body: SecurityMonitoringSignalTriageUpdateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalTriageUpdateResponse",
+        "",
+      ) as SecurityMonitoringSignalTriageUpdateResponse;
       return body;
     }
 
@@ -3902,12 +3768,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async getFinding(
     response: ResponseContext,
   ): Promise<GetFindingResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GetFindingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetFindingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetFindingResponse",
       ) as GetFindingResponse;
       return body;
@@ -3918,14 +3783,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -3943,8 +3806,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GetFindingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetFindingResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetFindingResponse",
         "",
       ) as GetFindingResponse;
@@ -3968,12 +3832,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async getHistoricalJob(
     response: ResponseContext,
   ): Promise<HistoricalJobResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: HistoricalJobResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: HistoricalJobResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "HistoricalJobResponse",
       ) as HistoricalJobResponse;
       return body;
@@ -3984,14 +3847,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4006,8 +3867,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HistoricalJobResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: HistoricalJobResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "HistoricalJobResponse",
         "",
       ) as HistoricalJobResponse;
@@ -4031,12 +3893,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async getRuleVersionHistory(
     response: ResponseContext,
   ): Promise<GetRuleVersionHistoryResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GetRuleVersionHistoryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetRuleVersionHistoryResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetRuleVersionHistoryResponse",
       ) as GetRuleVersionHistoryResponse;
       return body;
@@ -4047,14 +3908,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4069,8 +3928,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GetRuleVersionHistoryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetRuleVersionHistoryResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetRuleVersionHistoryResponse",
         "",
       ) as GetRuleVersionHistoryResponse;
@@ -4092,12 +3952,11 @@ export class SecurityMonitoringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getSBOM(response: ResponseContext): Promise<GetSBOMResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: GetSBOMResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetSBOMResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetSBOMResponse",
       ) as GetSBOMResponse;
       return body;
@@ -4107,14 +3966,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -4130,14 +3987,12 @@ export class SecurityMonitoringApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4152,8 +4007,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GetSBOMResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: GetSBOMResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "GetSBOMResponse",
         "",
       ) as GetSBOMResponse;
@@ -4177,12 +4033,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async getSecurityFilter(
     response: ResponseContext,
   ): Promise<SecurityFilterResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityFilterResponse",
       ) as SecurityFilterResponse;
       return body;
@@ -4192,14 +4047,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4214,8 +4067,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityFilterResponse",
         "",
       ) as SecurityFilterResponse;
@@ -4239,25 +4093,22 @@ export class SecurityMonitoringApiResponseProcessor {
   public async getSecurityMonitoringRule(
     response: ResponseContext,
   ): Promise<SecurityMonitoringRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityMonitoringRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityMonitoringRuleResponse",
       ) as SecurityMonitoringRuleResponse;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4272,8 +4123,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityMonitoringRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityMonitoringRuleResponse",
         "",
       ) as SecurityMonitoringRuleResponse;
@@ -4297,26 +4149,22 @@ export class SecurityMonitoringApiResponseProcessor {
   public async getSecurityMonitoringSignal(
     response: ResponseContext,
   ): Promise<SecurityMonitoringSignalResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalResponse",
-        ) as SecurityMonitoringSignalResponse;
+      const body: SecurityMonitoringSignalResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalResponse",
+      ) as SecurityMonitoringSignalResponse;
       return body;
     }
     if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4331,12 +4179,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalResponse",
-          "",
-        ) as SecurityMonitoringSignalResponse;
+      const body: SecurityMonitoringSignalResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalResponse",
+        "",
+      ) as SecurityMonitoringSignalResponse;
       return body;
     }
 
@@ -4357,15 +4205,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async getSecurityMonitoringSuppression(
     response: ResponseContext,
   ): Promise<SecurityMonitoringSuppressionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSuppressionResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSuppressionResponse",
-        ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSuppressionResponse",
+      ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
     if (
@@ -4373,14 +4219,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4395,12 +4239,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSuppressionResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSuppressionResponse",
-          "",
-        ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSuppressionResponse",
+        "",
+      ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
 
@@ -4421,12 +4265,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async getSignalNotificationRule(
     response: ResponseContext,
   ): Promise<NotificationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
       ) as NotificationRuleResponse;
       return body;
@@ -4437,14 +4280,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4459,8 +4300,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
         "",
       ) as NotificationRuleResponse;
@@ -4484,25 +4326,22 @@ export class SecurityMonitoringApiResponseProcessor {
   public async getSignalNotificationRules(
     response: ResponseContext,
   ): Promise<NotificationRulesList> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: NotificationRulesList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRulesList = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRulesList",
       ) as NotificationRulesList;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4517,8 +4356,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotificationRulesList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRulesList = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRulesList",
         "",
       ) as NotificationRulesList;
@@ -4542,12 +4382,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async getVulnerabilityNotificationRule(
     response: ResponseContext,
   ): Promise<NotificationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
       ) as NotificationRuleResponse;
       return body;
@@ -4558,14 +4397,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4580,8 +4417,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
         "",
       ) as NotificationRuleResponse;
@@ -4605,25 +4443,22 @@ export class SecurityMonitoringApiResponseProcessor {
   public async getVulnerabilityNotificationRules(
     response: ResponseContext,
   ): Promise<NotificationRulesList> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: NotificationRulesList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRulesList = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRulesList",
       ) as NotificationRulesList;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4638,8 +4473,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotificationRulesList = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRulesList = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRulesList",
         "",
       ) as NotificationRulesList;
@@ -4663,12 +4499,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async listFindings(
     response: ResponseContext,
   ): Promise<ListFindingsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListFindingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListFindingsResponse",
       ) as ListFindingsResponse;
       return body;
@@ -4679,14 +4514,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -4704,8 +4537,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListFindingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListFindingsResponse",
         "",
       ) as ListFindingsResponse;
@@ -4729,12 +4563,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async listHistoricalJobs(
     response: ResponseContext,
   ): Promise<ListHistoricalJobsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListHistoricalJobsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListHistoricalJobsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListHistoricalJobsResponse",
       ) as ListHistoricalJobsResponse;
       return body;
@@ -4744,14 +4577,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4766,8 +4597,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListHistoricalJobsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListHistoricalJobsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListHistoricalJobsResponse",
         "",
       ) as ListHistoricalJobsResponse;
@@ -4791,25 +4623,22 @@ export class SecurityMonitoringApiResponseProcessor {
   public async listSecurityFilters(
     response: ResponseContext,
   ): Promise<SecurityFiltersResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityFiltersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityFiltersResponse",
       ) as SecurityFiltersResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4824,8 +4653,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityFiltersResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityFiltersResponse",
         "",
       ) as SecurityFiltersResponse;
@@ -4849,26 +4679,22 @@ export class SecurityMonitoringApiResponseProcessor {
   public async listSecurityMonitoringRules(
     response: ResponseContext,
   ): Promise<SecurityMonitoringListRulesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringListRulesResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringListRulesResponse",
-        ) as SecurityMonitoringListRulesResponse;
+      const body: SecurityMonitoringListRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringListRulesResponse",
+      ) as SecurityMonitoringListRulesResponse;
       return body;
     }
     if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4883,12 +4709,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringListRulesResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringListRulesResponse",
-          "",
-        ) as SecurityMonitoringListRulesResponse;
+      const body: SecurityMonitoringListRulesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringListRulesResponse",
+        "",
+      ) as SecurityMonitoringListRulesResponse;
       return body;
     }
 
@@ -4909,15 +4735,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async listSecurityMonitoringSignals(
     response: ResponseContext,
   ): Promise<SecurityMonitoringSignalsListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalsListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalsListResponse",
-        ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalsListResponse",
+      ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
     if (
@@ -4925,14 +4749,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -4947,12 +4769,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalsListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalsListResponse",
-          "",
-        ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalsListResponse",
+        "",
+      ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
 
@@ -4973,26 +4795,22 @@ export class SecurityMonitoringApiResponseProcessor {
   public async listSecurityMonitoringSuppressions(
     response: ResponseContext,
   ): Promise<SecurityMonitoringSuppressionsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSuppressionsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSuppressionsResponse",
-        ) as SecurityMonitoringSuppressionsResponse;
+      const body: SecurityMonitoringSuppressionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSuppressionsResponse",
+      ) as SecurityMonitoringSuppressionsResponse;
       return body;
     }
     if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5007,12 +4825,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSuppressionsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSuppressionsResponse",
-          "",
-        ) as SecurityMonitoringSuppressionsResponse;
+      const body: SecurityMonitoringSuppressionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSuppressionsResponse",
+        "",
+      ) as SecurityMonitoringSuppressionsResponse;
       return body;
     }
 
@@ -5033,12 +4851,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async listVulnerabilities(
     response: ResponseContext,
   ): Promise<ListVulnerabilitiesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListVulnerabilitiesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListVulnerabilitiesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListVulnerabilitiesResponse",
       ) as ListVulnerabilitiesResponse;
       return body;
@@ -5048,14 +4865,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -5071,14 +4886,12 @@ export class SecurityMonitoringApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5093,8 +4906,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListVulnerabilitiesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListVulnerabilitiesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListVulnerabilitiesResponse",
         "",
       ) as ListVulnerabilitiesResponse;
@@ -5118,12 +4932,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async listVulnerableAssets(
     response: ResponseContext,
   ): Promise<ListVulnerableAssetsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: ListVulnerableAssetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListVulnerableAssetsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListVulnerableAssetsResponse",
       ) as ListVulnerableAssetsResponse;
       return body;
@@ -5133,14 +4946,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -5156,14 +4967,12 @@ export class SecurityMonitoringApiResponseProcessor {
       );
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5178,8 +4987,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListVulnerableAssetsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: ListVulnerableAssetsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "ListVulnerableAssetsResponse",
         "",
       ) as ListVulnerableAssetsResponse;
@@ -5203,12 +5013,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async muteFindings(
     response: ResponseContext,
   ): Promise<BulkMuteFindingsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: BulkMuteFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: BulkMuteFindingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "BulkMuteFindingsResponse",
       ) as BulkMuteFindingsResponse;
       return body;
@@ -5220,14 +5029,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -5245,8 +5052,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: BulkMuteFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: BulkMuteFindingsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "BulkMuteFindingsResponse",
         "",
       ) as BulkMuteFindingsResponse;
@@ -5270,12 +5078,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async patchSignalNotificationRule(
     response: ResponseContext,
   ): Promise<NotificationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
       ) as NotificationRuleResponse;
       return body;
@@ -5286,14 +5093,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5306,14 +5111,12 @@ export class SecurityMonitoringApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 422) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -5331,8 +5134,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
         "",
       ) as NotificationRuleResponse;
@@ -5356,12 +5160,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async patchVulnerabilityNotificationRule(
     response: ResponseContext,
   ): Promise<NotificationRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
       ) as NotificationRuleResponse;
       return body;
@@ -5372,14 +5175,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5392,14 +5193,12 @@ export class SecurityMonitoringApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 422) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: JSONAPIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "JSONAPIErrorResponse",
         ) as JSONAPIErrorResponse;
       } catch (error) {
@@ -5417,8 +5216,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: NotificationRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: NotificationRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "NotificationRuleResponse",
         "",
       ) as NotificationRuleResponse;
@@ -5442,12 +5242,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async runHistoricalJob(
     response: ResponseContext,
   ): Promise<JobCreateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: JobCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: JobCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "JobCreateResponse",
       ) as JobCreateResponse;
       return body;
@@ -5459,14 +5258,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5481,8 +5278,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: JobCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: JobCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "JobCreateResponse",
         "",
       ) as JobCreateResponse;
@@ -5506,15 +5304,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async searchSecurityMonitoringSignals(
     response: ResponseContext,
   ): Promise<SecurityMonitoringSignalsListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSignalsListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalsListResponse",
-        ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalsListResponse",
+      ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
     if (
@@ -5522,14 +5318,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5544,12 +5338,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalsListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalsListResponse",
-          "",
-        ) as SecurityMonitoringSignalsListResponse;
+      const body: SecurityMonitoringSignalsListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSignalsListResponse",
+        "",
+      ) as SecurityMonitoringSignalsListResponse;
       return body;
     }
 
@@ -5570,15 +5364,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async testExistingSecurityMonitoringRule(
     response: ResponseContext,
   ): Promise<SecurityMonitoringRuleTestResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringRuleTestResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringRuleTestResponse",
-        ) as SecurityMonitoringRuleTestResponse;
+      const body: SecurityMonitoringRuleTestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringRuleTestResponse",
+      ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
     if (
@@ -5588,14 +5380,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5610,12 +5400,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleTestResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringRuleTestResponse",
-          "",
-        ) as SecurityMonitoringRuleTestResponse;
+      const body: SecurityMonitoringRuleTestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringRuleTestResponse",
+        "",
+      ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
 
@@ -5636,15 +5426,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async testSecurityMonitoringRule(
     response: ResponseContext,
   ): Promise<SecurityMonitoringRuleTestResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringRuleTestResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringRuleTestResponse",
-        ) as SecurityMonitoringRuleTestResponse;
+      const body: SecurityMonitoringRuleTestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringRuleTestResponse",
+      ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
     if (
@@ -5654,14 +5442,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5676,12 +5462,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleTestResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringRuleTestResponse",
-          "",
-        ) as SecurityMonitoringRuleTestResponse;
+      const body: SecurityMonitoringRuleTestResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringRuleTestResponse",
+        "",
+      ) as SecurityMonitoringRuleTestResponse;
       return body;
     }
 
@@ -5702,12 +5488,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async updateSecurityFilter(
     response: ResponseContext,
   ): Promise<SecurityFilterResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityFilterResponse",
       ) as SecurityFilterResponse;
       return body;
@@ -5719,14 +5504,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5741,8 +5524,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityFilterResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityFilterResponse",
         "",
       ) as SecurityFilterResponse;
@@ -5766,12 +5550,11 @@ export class SecurityMonitoringApiResponseProcessor {
   public async updateSecurityMonitoringRule(
     response: ResponseContext,
   ): Promise<SecurityMonitoringRuleResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityMonitoringRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityMonitoringRuleResponse",
       ) as SecurityMonitoringRuleResponse;
       return body;
@@ -5783,14 +5566,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5805,8 +5586,9 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
+      const body: SecurityMonitoringRuleResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
         "SecurityMonitoringRuleResponse",
         "",
       ) as SecurityMonitoringRuleResponse;
@@ -5830,15 +5612,13 @@ export class SecurityMonitoringApiResponseProcessor {
   public async updateSecurityMonitoringSuppression(
     response: ResponseContext,
   ): Promise<SecurityMonitoringSuppressionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: SecurityMonitoringSuppressionResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSuppressionResponse",
-        ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSuppressionResponse",
+      ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
     if (
@@ -5848,14 +5628,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
@@ -5870,12 +5648,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSuppressionResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSuppressionResponse",
-          "",
-        ) as SecurityMonitoringSuppressionResponse;
+      const body: SecurityMonitoringSuppressionResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SecurityMonitoringSuppressionResponse",
+        "",
+      ) as SecurityMonitoringSuppressionResponse;
       return body;
     }
 
@@ -5896,9 +5674,7 @@ export class SecurityMonitoringApiResponseProcessor {
   public async validateSecurityMonitoringRule(
     response: ResponseContext,
   ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"],
-    );
+    const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
@@ -5907,14 +5683,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType,
-      );
+      const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
-        body = ObjectSerializer.deserialize(
+        body = deserialize(
           bodyText,
+          TypingInfo,
           "APIErrorResponse",
         ) as APIErrorResponse;
       } catch (error) {
