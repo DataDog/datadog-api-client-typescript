@@ -170,6 +170,7 @@ import { AwsScanOptionsResponse } from "./AwsScanOptionsResponse";
 import { AwsScanOptionsUpdateAttributes } from "./AwsScanOptionsUpdateAttributes";
 import { AwsScanOptionsUpdateData } from "./AwsScanOptionsUpdateData";
 import { AwsScanOptionsUpdateRequest } from "./AwsScanOptionsUpdateRequest";
+import { AzureStorageDestination } from "./AzureStorageDestination";
 import { AzureUCConfig } from "./AzureUCConfig";
 import { AzureUCConfigPair } from "./AzureUCConfigPair";
 import { AzureUCConfigPairAttributes } from "./AzureUCConfigPairAttributes";
@@ -987,6 +988,7 @@ import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTag
 import { MetricsListResponseLinks } from "./MetricsListResponseLinks";
 import { MetricsScalarQuery } from "./MetricsScalarQuery";
 import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
+import { MicrosoftSentinelDestination } from "./MicrosoftSentinelDestination";
 import { MicrosoftTeamsChannelInfoResponseAttributes } from "./MicrosoftTeamsChannelInfoResponseAttributes";
 import { MicrosoftTeamsChannelInfoResponseData } from "./MicrosoftTeamsChannelInfoResponseData";
 import { MicrosoftTeamsCreateTenantBasedHandleRequest } from "./MicrosoftTeamsCreateTenantBasedHandleRequest";
@@ -1064,6 +1066,7 @@ import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
 import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineFieldValue } from "./ObservabilityPipelineFieldValue";
 import { ObservabilityPipelineFilterProcessor } from "./ObservabilityPipelineFilterProcessor";
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
@@ -1076,6 +1079,29 @@ import { ObservabilityPipelineQuotaProcessorOverride } from "./ObservabilityPipe
 import { ObservabilityPipelineRemoveFieldsProcessor } from "./ObservabilityPipelineRemoveFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessor } from "./ObservabilityPipelineRenameFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessorField } from "./ObservabilityPipelineRenameFieldsProcessorField";
+import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
+import { ObservabilityPipelineRsyslogSource } from "./ObservabilityPipelineRsyslogSource";
+import { ObservabilityPipelineSensitiveDataScannerProcessor } from "./ObservabilityPipelineSensitiveDataScannerProcessor";
+import { ObservabilityPipelineSensitiveDataScannerProcessorActionHash } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionHash";
+import { ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact";
+import { ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions";
+import { ObservabilityPipelineSensitiveDataScannerProcessorActionRedact } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionRedact";
+import { ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions";
+import { ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern } from "./ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern";
+import { ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions";
+import { ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions";
+import { ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern } from "./ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern";
+import { ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions";
+import { ObservabilityPipelineSensitiveDataScannerProcessorRule } from "./ObservabilityPipelineSensitiveDataScannerProcessorRule";
+import { ObservabilityPipelineSensitiveDataScannerProcessorScopeAll } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeAll";
+import { ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude";
+import { ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude";
+import { ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions";
+import { ObservabilityPipelineSumoLogicDestination } from "./ObservabilityPipelineSumoLogicDestination";
+import { ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem } from "./ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem";
+import { ObservabilityPipelineSumoLogicSource } from "./ObservabilityPipelineSumoLogicSource";
+import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelineSyslogNgDestination";
+import { ObservabilityPipelineSyslogNgSource } from "./ObservabilityPipelineSyslogNgSource";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 import { OktaAccount } from "./OktaAccount";
 import { OktaAccountAttributes } from "./OktaAccountAttributes";
@@ -1922,6 +1948,7 @@ const enumsMap: { [key: string]: any[] } = {
   AwsCURConfigType: ["aws_cur_config"],
   AwsOnDemandType: ["aws_resource"],
   AwsScanOptionsType: ["aws_scan_options"],
+  AzureStorageDestinationType: ["azure_storage"],
   AzureUCConfigPairType: ["azure_uc_configs"],
   AzureUCConfigPatchRequestType: ["azure_uc_config_patch_request"],
   AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
@@ -2324,6 +2351,7 @@ const enumsMap: { [key: string]: any[] } = {
     "area",
   ],
   MetricsDataSource: ["metrics", "cloud_cost"],
+  MicrosoftSentinelDestinationType: ["microsoft_sentinel"],
   MicrosoftTeamsChannelInfoType: ["ms-teams-channel-info"],
   MicrosoftTeamsTenantBasedHandleInfoType: [
     "ms-teams-tenant-based-handle-info",
@@ -2338,6 +2366,13 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
   ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
   ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
+  ObservabilityPipelineElasticsearchDestinationApiVersion: [
+    "auto",
+    "v6",
+    "v7",
+    "v8",
+  ],
+  ObservabilityPipelineElasticsearchDestinationType: ["elasticsearch"],
   ObservabilityPipelineFilterProcessorType: ["filter"],
   ObservabilityPipelineKafkaSourceType: ["kafka"],
   ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
@@ -2350,6 +2385,43 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineQuotaProcessorType: ["quota"],
   ObservabilityPipelineRemoveFieldsProcessorType: ["remove_fields"],
   ObservabilityPipelineRenameFieldsProcessorType: ["rename_fields"],
+  ObservabilityPipelineRsyslogDestinationType: ["rsyslog"],
+  ObservabilityPipelineRsyslogSourceType: ["rsyslog"],
+  ObservabilityPipelineSensitiveDataScannerProcessorActionHashAction: ["hash"],
+  ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactAction: [
+    "partial_redact",
+  ],
+  ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptionsDirection:
+    ["first", "last"],
+  ObservabilityPipelineSensitiveDataScannerProcessorActionRedactAction: [
+    "redact",
+  ],
+  ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternType: [
+    "custom",
+  ],
+  ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternType: [
+    "library",
+  ],
+  ObservabilityPipelineSensitiveDataScannerProcessorScopeAllTarget: ["all"],
+  ObservabilityPipelineSensitiveDataScannerProcessorScopeExcludeTarget: [
+    "exclude",
+  ],
+  ObservabilityPipelineSensitiveDataScannerProcessorScopeIncludeTarget: [
+    "include",
+  ],
+  ObservabilityPipelineSensitiveDataScannerProcessorType: [
+    "sensitive_data_scanner",
+  ],
+  ObservabilityPipelineSumoLogicDestinationEncoding: [
+    "json",
+    "raw_message",
+    "logfmt",
+  ],
+  ObservabilityPipelineSumoLogicDestinationType: ["sumo_logic"],
+  ObservabilityPipelineSumoLogicSourceType: ["sumo_logic"],
+  ObservabilityPipelineSyslogNgDestinationType: ["syslog_ng"],
+  ObservabilityPipelineSyslogNgSourceType: ["syslog_ng"],
+  ObservabilityPipelineSyslogSourceMode: ["tcp", "udp"],
   OktaAccountType: ["okta-accounts"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
@@ -3055,6 +3127,7 @@ const typeMap: { [index: string]: any } = {
   AwsScanOptionsUpdateAttributes: AwsScanOptionsUpdateAttributes,
   AwsScanOptionsUpdateData: AwsScanOptionsUpdateData,
   AwsScanOptionsUpdateRequest: AwsScanOptionsUpdateRequest,
+  AzureStorageDestination: AzureStorageDestination,
   AzureUCConfig: AzureUCConfig,
   AzureUCConfigPair: AzureUCConfigPair,
   AzureUCConfigPairAttributes: AzureUCConfigPairAttributes,
@@ -3971,6 +4044,7 @@ const typeMap: { [index: string]: any } = {
   MetricsListResponseLinks: MetricsListResponseLinks,
   MetricsScalarQuery: MetricsScalarQuery,
   MetricsTimeseriesQuery: MetricsTimeseriesQuery,
+  MicrosoftSentinelDestination: MicrosoftSentinelDestination,
   MicrosoftTeamsChannelInfoResponseAttributes:
     MicrosoftTeamsChannelInfoResponseAttributes,
   MicrosoftTeamsChannelInfoResponseData: MicrosoftTeamsChannelInfoResponseData,
@@ -4084,6 +4158,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineDatadogAgentSource,
   ObservabilityPipelineDatadogLogsDestination:
     ObservabilityPipelineDatadogLogsDestination,
+  ObservabilityPipelineElasticsearchDestination:
+    ObservabilityPipelineElasticsearchDestination,
   ObservabilityPipelineFieldValue: ObservabilityPipelineFieldValue,
   ObservabilityPipelineFilterProcessor: ObservabilityPipelineFilterProcessor,
   ObservabilityPipelineKafkaSource: ObservabilityPipelineKafkaSource,
@@ -4103,6 +4179,49 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineRenameFieldsProcessor,
   ObservabilityPipelineRenameFieldsProcessorField:
     ObservabilityPipelineRenameFieldsProcessorField,
+  ObservabilityPipelineRsyslogDestination:
+    ObservabilityPipelineRsyslogDestination,
+  ObservabilityPipelineRsyslogSource: ObservabilityPipelineRsyslogSource,
+  ObservabilityPipelineSensitiveDataScannerProcessor:
+    ObservabilityPipelineSensitiveDataScannerProcessor,
+  ObservabilityPipelineSensitiveDataScannerProcessorActionHash:
+    ObservabilityPipelineSensitiveDataScannerProcessorActionHash,
+  ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact:
+    ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact,
+  ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions:
+    ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedactOptions,
+  ObservabilityPipelineSensitiveDataScannerProcessorActionRedact:
+    ObservabilityPipelineSensitiveDataScannerProcessorActionRedact,
+  ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions:
+    ObservabilityPipelineSensitiveDataScannerProcessorActionRedactOptions,
+  ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern:
+    ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern,
+  ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions:
+    ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions,
+  ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions:
+    ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions,
+  ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern:
+    ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern,
+  ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions:
+    ObservabilityPipelineSensitiveDataScannerProcessorLibraryPatternOptions,
+  ObservabilityPipelineSensitiveDataScannerProcessorRule:
+    ObservabilityPipelineSensitiveDataScannerProcessorRule,
+  ObservabilityPipelineSensitiveDataScannerProcessorScopeAll:
+    ObservabilityPipelineSensitiveDataScannerProcessorScopeAll,
+  ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude:
+    ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude,
+  ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude:
+    ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude,
+  ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions:
+    ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions,
+  ObservabilityPipelineSumoLogicDestination:
+    ObservabilityPipelineSumoLogicDestination,
+  ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem:
+    ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem,
+  ObservabilityPipelineSumoLogicSource: ObservabilityPipelineSumoLogicSource,
+  ObservabilityPipelineSyslogNgDestination:
+    ObservabilityPipelineSyslogNgDestination,
+  ObservabilityPipelineSyslogNgSource: ObservabilityPipelineSyslogNgSource,
   ObservabilityPipelineTls: ObservabilityPipelineTls,
   OktaAccount: OktaAccount,
   OktaAccountAttributes: OktaAccountAttributes,
@@ -5050,6 +5169,12 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorNotificationRuleResponseIncludedItem: ["User"],
   ObservabilityPipelineConfigDestinationItem: [
     "ObservabilityPipelineDatadogLogsDestination",
+    "ObservabilityPipelineSumoLogicDestination",
+    "ObservabilityPipelineElasticsearchDestination",
+    "ObservabilityPipelineRsyslogDestination",
+    "ObservabilityPipelineSyslogNgDestination",
+    "AzureStorageDestination",
+    "MicrosoftSentinelDestination",
   ],
   ObservabilityPipelineConfigProcessorItem: [
     "ObservabilityPipelineFilterProcessor",
@@ -5058,10 +5183,28 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineAddFieldsProcessor",
     "ObservabilityPipelineRemoveFieldsProcessor",
     "ObservabilityPipelineRenameFieldsProcessor",
+    "ObservabilityPipelineSensitiveDataScannerProcessor",
   ],
   ObservabilityPipelineConfigSourceItem: [
     "ObservabilityPipelineKafkaSource",
     "ObservabilityPipelineDatadogAgentSource",
+    "ObservabilityPipelineSumoLogicSource",
+    "ObservabilityPipelineRsyslogSource",
+    "ObservabilityPipelineSyslogNgSource",
+  ],
+  ObservabilityPipelineSensitiveDataScannerProcessorAction: [
+    "ObservabilityPipelineSensitiveDataScannerProcessorActionRedact",
+    "ObservabilityPipelineSensitiveDataScannerProcessorActionHash",
+    "ObservabilityPipelineSensitiveDataScannerProcessorActionPartialRedact",
+  ],
+  ObservabilityPipelineSensitiveDataScannerProcessorPattern: [
+    "ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern",
+    "ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern",
+  ],
+  ObservabilityPipelineSensitiveDataScannerProcessorScope: [
+    "ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude",
+    "ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude",
+    "ObservabilityPipelineSensitiveDataScannerProcessorScopeAll",
   ],
   Query: ["ActionQuery", "DataTransform", "StateVariable"],
   RUMAggregateBucketValue: [

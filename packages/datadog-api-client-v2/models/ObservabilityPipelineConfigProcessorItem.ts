@@ -9,6 +9,7 @@ import { ObservabilityPipelineParseJSONProcessor } from "./ObservabilityPipeline
 import { ObservabilityPipelineQuotaProcessor } from "./ObservabilityPipelineQuotaProcessor";
 import { ObservabilityPipelineRemoveFieldsProcessor } from "./ObservabilityPipelineRemoveFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessor } from "./ObservabilityPipelineRenameFieldsProcessor";
+import { ObservabilityPipelineSensitiveDataScannerProcessor } from "./ObservabilityPipelineSensitiveDataScannerProcessor";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -23,4 +24,5 @@ export type ObservabilityPipelineConfigProcessorItem =
   | ObservabilityPipelineAddFieldsProcessor
   | ObservabilityPipelineRemoveFieldsProcessor
   | ObservabilityPipelineRenameFieldsProcessor
+  | ObservabilityPipelineSensitiveDataScannerProcessor
   | UnparsedObject;

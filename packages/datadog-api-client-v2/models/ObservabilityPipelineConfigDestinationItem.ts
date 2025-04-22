@@ -3,7 +3,13 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AzureStorageDestination } from "./AzureStorageDestination";
+import { MicrosoftSentinelDestination } from "./MicrosoftSentinelDestination";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
+import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
+import { ObservabilityPipelineSumoLogicDestination } from "./ObservabilityPipelineSumoLogicDestination";
+import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelineSyslogNgDestination";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -13,4 +19,10 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineDatadogLogsDestination
+  | ObservabilityPipelineSumoLogicDestination
+  | ObservabilityPipelineElasticsearchDestination
+  | ObservabilityPipelineRsyslogDestination
+  | ObservabilityPipelineSyslogNgDestination
+  | AzureStorageDestination
+  | MicrosoftSentinelDestination
   | UnparsedObject;

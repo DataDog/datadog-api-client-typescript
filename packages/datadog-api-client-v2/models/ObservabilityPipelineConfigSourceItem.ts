@@ -5,6 +5,9 @@
  */
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
+import { ObservabilityPipelineRsyslogSource } from "./ObservabilityPipelineRsyslogSource";
+import { ObservabilityPipelineSumoLogicSource } from "./ObservabilityPipelineSumoLogicSource";
+import { ObservabilityPipelineSyslogNgSource } from "./ObservabilityPipelineSyslogNgSource";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -15,4 +18,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type ObservabilityPipelineConfigSourceItem =
   | ObservabilityPipelineKafkaSource
   | ObservabilityPipelineDatadogAgentSource
+  | ObservabilityPipelineSumoLogicSource
+  | ObservabilityPipelineRsyslogSource
+  | ObservabilityPipelineSyslogNgSource
   | UnparsedObject;
