@@ -16,7 +16,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/DataDog/datadog-api-client-typescript.git"
+    "url": "https://github.com/DataDog/datadog-api-client-typescript.git",
+    "directory": "services/auth-n-mappings"
   },
   "files": [
     "dist/**/*"

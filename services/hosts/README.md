@@ -1,0 +1,27 @@
+# @datadog/datadog-api-client-hosts
+
+## Description
+
+Get information about your infrastructure hosts in Datadog, and mute or unmute any notifications from your hosts. See the [Infrastructure page](https://docs.datadoghq.com/infrastructure/) for more information.
+
+## Installation
+
+```sh
+# NPM
+npm install @datadog/datadog-api-client-hosts
+# Yarn
+yarn add @datadog/datadog-api-client-hosts
+```
+
+## Getting Started
+```ts
+import { createConfiguration } from "@datadog/datadog-api-client";
+import { HostsApiV1 } from "@datadog/datadog-api-client-hosts";
+
+const configuration = createConfiguration();
+const apiInstance = new HostsApiV1(configuration);
+const params = {/* parameters */};
+
+const result = await apiInstance.muteHost(params);
+console.log("API called successfully. Returned data: " + JSON.stringify(result));
+```
