@@ -29,6 +29,7 @@
     "chai-quantifiers": "^1.0.17",
     "commander": "^13.1.0",
     "dd-trace": "^4.3.0",
+    "ts-morph": "^25.0.1",
     "ts-node": "^10.9.1",
     "zstd.ts": "^1.1.3"
   },

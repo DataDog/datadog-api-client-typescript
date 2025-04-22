@@ -31,3 +31,6 @@ __pycache__
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Ignore generated api_info.ts file
+private/bdd_runner/src/support/api_info.ts
