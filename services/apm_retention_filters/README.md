@@ -17,10 +17,14 @@ yarn add @datadog/datadog-api-client-apm-retention-filters
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { APMRetentionFiltersApiV2 } from "@datadog/datadog-api-client-apm-retention-filters";
+import { v2 } from "@datadog/datadog-api-client-apm-retention-filters";
 
 const configuration = createConfiguration();
 const apiInstance = new APMRetentionFiltersApiV2(configuration);
 
-const result = await apiInstance.listApmRetentionFilters(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listApmRetentionFilters(params).then((data: v2.RetentionFiltersResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

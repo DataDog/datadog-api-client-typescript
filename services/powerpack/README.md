@@ -27,11 +27,15 @@ yarn add @datadog/datadog-api-client-powerpack
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { PowerpackApiV2 } from "@datadog/datadog-api-client-powerpack";
+import { v2 } from "@datadog/datadog-api-client-powerpack";
 
 const configuration = createConfiguration();
 const apiInstance = new PowerpackApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listPowerpacks(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listPowerpacks(params).then((data: v2.ListPowerpacksResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

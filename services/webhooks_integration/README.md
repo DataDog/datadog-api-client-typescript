@@ -18,11 +18,15 @@ yarn add @datadog/datadog-api-client-webhooks-integration
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { WebhooksIntegrationApiV1 } from "@datadog/datadog-api-client-webhooks-integration";
+import { v1 } from "@datadog/datadog-api-client-webhooks-integration";
 
 const configuration = createConfiguration();
 const apiInstance = new WebhooksIntegrationApiV1(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.createWebhooksIntegrationCustomVariable(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.createWebhooksIntegrationCustomVariable(params).then((data: v1.WebhooksIntegrationCustomVariableResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

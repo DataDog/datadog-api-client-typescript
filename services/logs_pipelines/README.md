@@ -37,10 +37,14 @@ yarn add @datadog/datadog-api-client-logs-pipelines
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { LogsPipelinesApiV1 } from "@datadog/datadog-api-client-logs-pipelines";
+import { v1 } from "@datadog/datadog-api-client-logs-pipelines";
 
 const configuration = createConfiguration();
 const apiInstance = new LogsPipelinesApiV1(configuration);
 
-const result = await apiInstance.getLogsPipelineOrder(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.getLogsPipelineOrder(params).then((data: v1.LogsPipelinesOrder) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

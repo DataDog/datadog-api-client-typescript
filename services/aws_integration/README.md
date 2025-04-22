@@ -18,12 +18,17 @@ yarn add @datadog/datadog-api-client-aws-integration
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { AWSIntegrationApiV2 } from "@datadog/datadog-api-client-aws-integration";
+import { v2 } from "@datadog/datadog-api-client-aws-integration";
 
 const configuration = createConfiguration();
+// Enable unstable operations
 configuration.unstableOperations["v2.listAWSAccounts"] = true;
 const apiInstance = new AWSIntegrationApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listAWSAccounts(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listAWSAccounts(params).then((data: v2.AWSAccountsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

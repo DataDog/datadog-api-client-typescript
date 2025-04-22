@@ -17,10 +17,14 @@ yarn add @datadog/datadog-api-client-confluent-cloud
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { ConfluentCloudApiV2 } from "@datadog/datadog-api-client-confluent-cloud";
+import { v2 } from "@datadog/datadog-api-client-confluent-cloud";
 
 const configuration = createConfiguration();
 const apiInstance = new ConfluentCloudApiV2(configuration);
 
-const result = await apiInstance.listConfluentAccount(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listConfluentAccount(params).then((data: v2.ConfluentAccountsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

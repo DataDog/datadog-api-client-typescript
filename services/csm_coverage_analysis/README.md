@@ -20,10 +20,14 @@ yarn add @datadog/datadog-api-client-csm-coverage-analysis
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { CSMCoverageAnalysisApiV2 } from "@datadog/datadog-api-client-csm-coverage-analysis";
+import { v2 } from "@datadog/datadog-api-client-csm-coverage-analysis";
 
 const configuration = createConfiguration();
 const apiInstance = new CSMCoverageAnalysisApiV2(configuration);
 
-const result = await apiInstance.getCSMCloudAccountsCoverageAnalysis(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.getCSMCloudAccountsCoverageAnalysis(params).then((data: v2.CsmCloudAccountsCoverageAnalysisResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

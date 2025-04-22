@@ -18,10 +18,14 @@ yarn add @datadog/datadog-api-client-opsgenie-integration
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { OpsgenieIntegrationApiV2 } from "@datadog/datadog-api-client-opsgenie-integration";
+import { v2 } from "@datadog/datadog-api-client-opsgenie-integration";
 
 const configuration = createConfiguration();
 const apiInstance = new OpsgenieIntegrationApiV2(configuration);
 
-const result = await apiInstance.listOpsgenieServices(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listOpsgenieServices(params).then((data: v2.OpsgenieServicesResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-container-images
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { ContainerImagesApiV2 } from "@datadog/datadog-api-client-container-images";
+import { v2 } from "@datadog/datadog-api-client-container-images";
 
 const configuration = createConfiguration();
 const apiInstance = new ContainerImagesApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listContainerImages(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listContainerImages(params).then((data: v2.ContainerImagesResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

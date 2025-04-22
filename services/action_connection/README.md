@@ -24,11 +24,15 @@ yarn add @datadog/datadog-api-client-action-connection
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { ActionConnectionApiV2 } from "@datadog/datadog-api-client-action-connection";
+import { v2 } from "@datadog/datadog-api-client-action-connection";
 
 const configuration = createConfiguration();
 const apiInstance = new ActionConnectionApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.createActionConnection(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.createActionConnection(params).then((data: v2.CreateActionConnectionResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

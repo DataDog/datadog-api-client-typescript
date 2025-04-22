@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-case-management
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { CaseManagementApiV2 } from "@datadog/datadog-api-client-case-management";
+import { v2 } from "@datadog/datadog-api-client-case-management";
 
 const configuration = createConfiguration();
 const apiInstance = new CaseManagementApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.searchCases(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.searchCases(params).then((data: v2.CasesResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

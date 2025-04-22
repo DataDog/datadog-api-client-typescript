@@ -18,10 +18,14 @@ yarn add @datadog/datadog-api-client-gcp-integration
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { GCPIntegrationApiV2 } from "@datadog/datadog-api-client-gcp-integration";
+import { v2 } from "@datadog/datadog-api-client-gcp-integration";
 
 const configuration = createConfiguration();
 const apiInstance = new GCPIntegrationApiV2(configuration);
 
-const result = await apiInstance.listGCPSTSAccounts(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listGCPSTSAccounts(params).then((data: v2.GCPSTSServiceAccountsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

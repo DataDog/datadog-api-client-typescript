@@ -17,10 +17,14 @@ yarn add @datadog/datadog-api-client-okta-integration
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { OktaIntegrationApiV2 } from "@datadog/datadog-api-client-okta-integration";
+import { v2 } from "@datadog/datadog-api-client-okta-integration";
 
 const configuration = createConfiguration();
 const apiInstance = new OktaIntegrationApiV2(configuration);
 
-const result = await apiInstance.listOktaAccounts(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listOktaAccounts(params).then((data: v2.OktaAccountsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

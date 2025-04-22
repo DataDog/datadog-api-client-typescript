@@ -22,10 +22,14 @@ yarn add @datadog/datadog-api-client-application-security
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { ApplicationSecurityApiV2 } from "@datadog/datadog-api-client-application-security";
+import { v2 } from "@datadog/datadog-api-client-application-security";
 
 const configuration = createConfiguration();
 const apiInstance = new ApplicationSecurityApiV2(configuration);
 
-const result = await apiInstance.listApplicationSecurityWAFCustomRules(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listApplicationSecurityWAFCustomRules(params).then((data: v2.ApplicationSecurityWafCustomRuleListResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

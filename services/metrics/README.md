@@ -31,11 +31,15 @@ yarn add @datadog/datadog-api-client-metrics
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { MetricsApiV2 } from "@datadog/datadog-api-client-metrics";
+import { v2 } from "@datadog/datadog-api-client-metrics";
 
 const configuration = createConfiguration();
 const apiInstance = new MetricsApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listTagConfigurations(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listTagConfigurations(params).then((data: v2.MetricsAndMetricTagConfigurationsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

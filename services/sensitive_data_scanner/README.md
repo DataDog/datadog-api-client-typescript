@@ -17,10 +17,14 @@ yarn add @datadog/datadog-api-client-sensitive-data-scanner
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { SensitiveDataScannerApiV2 } from "@datadog/datadog-api-client-sensitive-data-scanner";
+import { v2 } from "@datadog/datadog-api-client-sensitive-data-scanner";
 
 const configuration = createConfiguration();
 const apiInstance = new SensitiveDataScannerApiV2(configuration);
 
-const result = await apiInstance.listScanningGroups(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listScanningGroups(params).then((data: v2.SensitiveDataScannerGetConfigResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

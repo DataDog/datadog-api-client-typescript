@@ -18,10 +18,14 @@ yarn add @datadog/datadog-api-client-azure-integration
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { AzureIntegrationApiV1 } from "@datadog/datadog-api-client-azure-integration";
+import { v1 } from "@datadog/datadog-api-client-azure-integration";
 
 const configuration = createConfiguration();
 const apiInstance = new AzureIntegrationApiV1(configuration);
 
-const result = await apiInstance.listAzureIntegration(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listAzureIntegration(params).then((data: v1.Array<AzureAccount>) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

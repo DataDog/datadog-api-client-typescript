@@ -18,11 +18,15 @@ yarn add @datadog/datadog-api-client-slack-integration
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { SlackIntegrationApiV1 } from "@datadog/datadog-api-client-slack-integration";
+import { v1 } from "@datadog/datadog-api-client-slack-integration";
 
 const configuration = createConfiguration();
 const apiInstance = new SlackIntegrationApiV1(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.getSlackIntegrationChannels(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.getSlackIntegrationChannels(params).then((data: v1.Array<SlackIntegrationChannel>) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

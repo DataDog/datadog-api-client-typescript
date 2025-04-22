@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-ci-visibility-pipelines
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { CIVisibilityPipelinesApiV2 } from "@datadog/datadog-api-client-ci-visibility-pipelines";
+import { v2 } from "@datadog/datadog-api-client-ci-visibility-pipelines";
 
 const configuration = createConfiguration();
 const apiInstance = new CIVisibilityPipelinesApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.createCIAppPipelineEvent(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.createCIAppPipelineEvent(params).then((data: v2.any) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-workflow-automation
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { WorkflowAutomationApiV2 } from "@datadog/datadog-api-client-workflow-automation";
+import { v2 } from "@datadog/datadog-api-client-workflow-automation";
 
 const configuration = createConfiguration();
 const apiInstance = new WorkflowAutomationApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.createWorkflow(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.createWorkflow(params).then((data: v2.CreateWorkflowResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

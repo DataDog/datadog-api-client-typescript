@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-service-accounts
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { ServiceAccountsApiV2 } from "@datadog/datadog-api-client-service-accounts";
+import { v2 } from "@datadog/datadog-api-client-service-accounts";
 
 const configuration = createConfiguration();
 const apiInstance = new ServiceAccountsApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.createServiceAccount(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.createServiceAccount(params).then((data: v2.UserResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

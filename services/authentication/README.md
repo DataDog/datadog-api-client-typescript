@@ -25,10 +25,14 @@ yarn add @datadog/datadog-api-client-authentication
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { AuthenticationApiV1 } from "@datadog/datadog-api-client-authentication";
+import { v1 } from "@datadog/datadog-api-client-authentication";
 
 const configuration = createConfiguration();
 const apiInstance = new AuthenticationApiV1(configuration);
 
-const result = await apiInstance.validate(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.validate(params).then((data: v1.AuthenticationValidationResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

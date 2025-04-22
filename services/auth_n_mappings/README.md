@@ -19,11 +19,15 @@ yarn add @datadog/datadog-api-client-auth-n-mappings
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { AuthNMappingsApiV2 } from "@datadog/datadog-api-client-auth-n-mappings";
+import { v2 } from "@datadog/datadog-api-client-auth-n-mappings";
 
 const configuration = createConfiguration();
 const apiInstance = new AuthNMappingsApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listAuthNMappings(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listAuthNMappings(params).then((data: v2.AuthNMappingsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

@@ -26,10 +26,14 @@ yarn add @datadog/datadog-api-client-usage-metering
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { UsageMeteringApiV2 } from "@datadog/datadog-api-client-usage-metering";
+import { v2 } from "@datadog/datadog-api-client-usage-metering";
 
 const configuration = createConfiguration();
 const apiInstance = new UsageMeteringApiV2(configuration);
 
-const result = await apiInstance.getActiveBillingDimensions(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.getActiveBillingDimensions(params).then((data: v2.ActiveBillingDimensionsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

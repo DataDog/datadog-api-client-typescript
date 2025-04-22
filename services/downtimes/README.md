@@ -22,11 +22,15 @@ yarn add @datadog/datadog-api-client-downtimes
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { DowntimesApiV2 } from "@datadog/datadog-api-client-downtimes";
+import { v2 } from "@datadog/datadog-api-client-downtimes";
 
 const configuration = createConfiguration();
 const apiInstance = new DowntimesApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listDowntimes(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listDowntimes(params).then((data: v2.ListDowntimesResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

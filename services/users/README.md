@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-users
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { UsersApiV2 } from "@datadog/datadog-api-client-users";
+import { v2 } from "@datadog/datadog-api-client-users";
 
 const configuration = createConfiguration();
 const apiInstance = new UsersApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.sendInvitations(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.sendInvitations(params).then((data: v2.UserInvitationsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

@@ -20,11 +20,15 @@ yarn add @datadog/datadog-api-client-key-management
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { KeyManagementApiV2 } from "@datadog/datadog-api-client-key-management";
+import { v2 } from "@datadog/datadog-api-client-key-management";
 
 const configuration = createConfiguration();
 const apiInstance = new KeyManagementApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listAPIKeys(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listAPIKeys(params).then((data: v2.APIKeysResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

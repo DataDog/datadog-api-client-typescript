@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-app-builder
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { AppBuilderApiV2 } from "@datadog/datadog-api-client-app-builder";
+import { v2 } from "@datadog/datadog-api-client-app-builder";
 
 const configuration = createConfiguration();
 const apiInstance = new AppBuilderApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listApps(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listApps(params).then((data: v2.ListAppsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

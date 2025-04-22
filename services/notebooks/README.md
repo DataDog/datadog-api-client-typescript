@@ -19,11 +19,15 @@ yarn add @datadog/datadog-api-client-notebooks
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { NotebooksApiV1 } from "@datadog/datadog-api-client-notebooks";
+import { v1 } from "@datadog/datadog-api-client-notebooks";
 
 const configuration = createConfiguration();
 const apiInstance = new NotebooksApiV1(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listNotebooks(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listNotebooks(params).then((data: v1.NotebooksResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

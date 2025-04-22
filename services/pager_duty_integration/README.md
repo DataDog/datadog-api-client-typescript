@@ -18,11 +18,15 @@ yarn add @datadog/datadog-api-client-pager-duty-integration
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { PagerDutyIntegrationApiV1 } from "@datadog/datadog-api-client-pager-duty-integration";
+import { v1 } from "@datadog/datadog-api-client-pager-duty-integration";
 
 const configuration = createConfiguration();
 const apiInstance = new PagerDutyIntegrationApiV1(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.createPagerDutyIntegrationService(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.createPagerDutyIntegrationService(params).then((data: v1.PagerDutyServiceName) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

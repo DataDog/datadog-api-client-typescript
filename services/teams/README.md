@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-teams
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { TeamsApiV2 } from "@datadog/datadog-api-client-teams";
+import { v2 } from "@datadog/datadog-api-client-teams";
 
 const configuration = createConfiguration();
 const apiInstance = new TeamsApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listTeams(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listTeams(params).then((data: v2.TeamsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

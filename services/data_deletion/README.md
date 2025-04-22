@@ -17,12 +17,17 @@ yarn add @datadog/datadog-api-client-data-deletion
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { DataDeletionApiV2 } from "@datadog/datadog-api-client-data-deletion";
+import { v2 } from "@datadog/datadog-api-client-data-deletion";
 
 const configuration = createConfiguration();
+// Enable unstable operations
 configuration.unstableOperations["v2.createDataDeletionRequest"] = true;
 const apiInstance = new DataDeletionApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.createDataDeletionRequest(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.createDataDeletionRequest(params).then((data: v2.CreateDataDeletionResponseBody) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

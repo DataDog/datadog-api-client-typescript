@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-audit
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { AuditApiV2 } from "@datadog/datadog-api-client-audit";
+import { v2 } from "@datadog/datadog-api-client-audit";
 
 const configuration = createConfiguration();
 const apiInstance = new AuditApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listAuditLogs(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listAuditLogs(params).then((data: v2.AuditLogsEventsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

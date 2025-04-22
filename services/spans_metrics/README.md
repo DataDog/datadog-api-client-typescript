@@ -17,10 +17,14 @@ yarn add @datadog/datadog-api-client-spans-metrics
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { SpansMetricsApiV2 } from "@datadog/datadog-api-client-spans-metrics";
+import { v2 } from "@datadog/datadog-api-client-spans-metrics";
 
 const configuration = createConfiguration();
 const apiInstance = new SpansMetricsApiV2(configuration);
 
-const result = await apiInstance.listSpansMetrics(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listSpansMetrics(params).then((data: v2.SpansMetricsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

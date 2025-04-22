@@ -17,10 +17,14 @@ yarn add @datadog/datadog-api-client-fastly-integration
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { FastlyIntegrationApiV2 } from "@datadog/datadog-api-client-fastly-integration";
+import { v2 } from "@datadog/datadog-api-client-fastly-integration";
 
 const configuration = createConfiguration();
 const apiInstance = new FastlyIntegrationApiV2(configuration);
 
-const result = await apiInstance.listFastlyAccounts(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listFastlyAccounts(params).then((data: v2.FastlyAccountsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

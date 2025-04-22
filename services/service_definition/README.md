@@ -18,11 +18,15 @@ yarn add @datadog/datadog-api-client-service-definition
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { ServiceDefinitionApiV2 } from "@datadog/datadog-api-client-service-definition";
+import { v2 } from "@datadog/datadog-api-client-service-definition";
 
 const configuration = createConfiguration();
 const apiInstance = new ServiceDefinitionApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listServiceDefinitions(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listServiceDefinitions(params).then((data: v2.ServiceDefinitionsListResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

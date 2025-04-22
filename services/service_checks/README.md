@@ -33,11 +33,15 @@ yarn add @datadog/datadog-api-client-service-checks
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { ServiceChecksApiV1 } from "@datadog/datadog-api-client-service-checks";
+import { v1 } from "@datadog/datadog-api-client-service-checks";
 
 const configuration = createConfiguration();
 const apiInstance = new ServiceChecksApiV1(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.submitServiceCheck(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.submitServiceCheck(params).then((data: v1.IntakePayloadAccepted) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

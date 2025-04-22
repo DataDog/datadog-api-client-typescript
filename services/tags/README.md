@@ -27,11 +27,15 @@ yarn add @datadog/datadog-api-client-tags
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { TagsApiV1 } from "@datadog/datadog-api-client-tags";
+import { v1 } from "@datadog/datadog-api-client-tags";
 
 const configuration = createConfiguration();
 const apiInstance = new TagsApiV1(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listHostTags(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listHostTags(params).then((data: v1.TagToHosts) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

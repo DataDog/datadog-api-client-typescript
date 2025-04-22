@@ -17,12 +17,17 @@ yarn add @datadog/datadog-api-client-incident-services
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { IncidentServicesApiV2 } from "@datadog/datadog-api-client-incident-services";
+import { v2 } from "@datadog/datadog-api-client-incident-services";
 
 const configuration = createConfiguration();
+// Enable unstable operations
 configuration.unstableOperations["v2.listIncidentServices"] = true;
 const apiInstance = new IncidentServicesApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listIncidentServices(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listIncidentServices(params).then((data: v2.IncidentServicesResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

@@ -22,10 +22,14 @@ yarn add @datadog/datadog-api-client-ip-allowlist
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { IPAllowlistApiV2 } from "@datadog/datadog-api-client-ip-allowlist";
+import { v2 } from "@datadog/datadog-api-client-ip-allowlist";
 
 const configuration = createConfiguration();
 const apiInstance = new IPAllowlistApiV2(configuration);
 
-const result = await apiInstance.getIPAllowlist(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.getIPAllowlist(params).then((data: v2.IPAllowlistResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

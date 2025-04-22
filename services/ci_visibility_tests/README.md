@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-ci-visibility-tests
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { CIVisibilityTestsApiV2 } from "@datadog/datadog-api-client-ci-visibility-tests";
+import { v2 } from "@datadog/datadog-api-client-ci-visibility-tests";
 
 const configuration = createConfiguration();
 const apiInstance = new CIVisibilityTestsApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.aggregateCIAppTestEvents(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.aggregateCIAppTestEvents(params).then((data: v2.CIAppTestsAnalyticsAggregateResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

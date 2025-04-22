@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-processes
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { ProcessesApiV2 } from "@datadog/datadog-api-client-processes";
+import { v2 } from "@datadog/datadog-api-client-processes";
 
 const configuration = createConfiguration();
 const apiInstance = new ProcessesApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listProcesses(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listProcesses(params).then((data: v2.ProcessSummariesResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

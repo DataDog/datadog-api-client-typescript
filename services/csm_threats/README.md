@@ -17,10 +17,14 @@ yarn add @datadog/datadog-api-client-csm-threats
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { CSMThreatsApiV2 } from "@datadog/datadog-api-client-csm-threats";
+import { v2 } from "@datadog/datadog-api-client-csm-threats";
 
 const configuration = createConfiguration();
 const apiInstance = new CSMThreatsApiV2(configuration);
 
-const result = await apiInstance.listCSMThreatsAgentRules(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listCSMThreatsAgentRules(params).then((data: v2.CloudWorkloadSecurityAgentRulesListResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

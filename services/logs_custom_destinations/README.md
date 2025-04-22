@@ -22,10 +22,14 @@ yarn add @datadog/datadog-api-client-logs-custom-destinations
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { LogsCustomDestinationsApiV2 } from "@datadog/datadog-api-client-logs-custom-destinations";
+import { v2 } from "@datadog/datadog-api-client-logs-custom-destinations";
 
 const configuration = createConfiguration();
 const apiInstance = new LogsCustomDestinationsApiV2(configuration);
 
-const result = await apiInstance.listLogsCustomDestinations(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listLogsCustomDestinations(params).then((data: v2.CustomDestinationsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

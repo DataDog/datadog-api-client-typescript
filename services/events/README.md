@@ -19,11 +19,15 @@ yarn add @datadog/datadog-api-client-events
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { EventsApiV2 } from "@datadog/datadog-api-client-events";
+import { v2 } from "@datadog/datadog-api-client-events";
 
 const configuration = createConfiguration();
 const apiInstance = new EventsApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listEvents(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listEvents(params).then((data: v2.EventsListResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

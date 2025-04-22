@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-network-device-monitoring
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { NetworkDeviceMonitoringApiV2 } from "@datadog/datadog-api-client-network-device-monitoring";
+import { v2 } from "@datadog/datadog-api-client-network-device-monitoring";
 
 const configuration = createConfiguration();
 const apiInstance = new NetworkDeviceMonitoringApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listDevices(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listDevices(params).then((data: v2.ListDevicesResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

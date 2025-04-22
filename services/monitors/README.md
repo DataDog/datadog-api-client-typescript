@@ -21,12 +21,17 @@ yarn add @datadog/datadog-api-client-monitors
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { MonitorsApiV2 } from "@datadog/datadog-api-client-monitors";
+import { v2 } from "@datadog/datadog-api-client-monitors";
 
 const configuration = createConfiguration();
+// Enable unstable operations
 configuration.unstableOperations["v2.getMonitorNotificationRules"] = true;
 const apiInstance = new MonitorsApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.getMonitorNotificationRules(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.getMonitorNotificationRules(params).then((data: v2.MonitorNotificationRuleListResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

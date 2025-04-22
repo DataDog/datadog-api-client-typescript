@@ -21,10 +21,14 @@ yarn add @datadog/datadog-api-client-agentless-scanning
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { AgentlessScanningApiV2 } from "@datadog/datadog-api-client-agentless-scanning";
+import { v2 } from "@datadog/datadog-api-client-agentless-scanning";
 
 const configuration = createConfiguration();
 const apiInstance = new AgentlessScanningApiV2(configuration);
 
-const result = await apiInstance.listAwsScanOptions(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listAwsScanOptions(params).then((data: v2.AwsScanOptionsListResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

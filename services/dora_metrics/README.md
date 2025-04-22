@@ -17,12 +17,17 @@ yarn add @datadog/datadog-api-client-dora-metrics
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { DORAMetricsApiV2 } from "@datadog/datadog-api-client-dora-metrics";
+import { v2 } from "@datadog/datadog-api-client-dora-metrics";
 
 const configuration = createConfiguration();
+// Enable unstable operations
 configuration.unstableOperations["v2.createDORADeployment"] = true;
 const apiInstance = new DORAMetricsApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.createDORADeployment(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.createDORADeployment(params).then((data: v2.DORADeploymentResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

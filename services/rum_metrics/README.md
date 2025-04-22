@@ -17,10 +17,14 @@ yarn add @datadog/datadog-api-client-rum-metrics
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { RumMetricsApiV2 } from "@datadog/datadog-api-client-rum-metrics";
+import { v2 } from "@datadog/datadog-api-client-rum-metrics";
 
 const configuration = createConfiguration();
 const apiInstance = new RumMetricsApiV2(configuration);
 
-const result = await apiInstance.listRumMetrics(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listRumMetrics(params).then((data: v2.RumMetricsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

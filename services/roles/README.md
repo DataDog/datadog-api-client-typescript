@@ -24,10 +24,14 @@ yarn add @datadog/datadog-api-client-roles
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { RolesApiV2 } from "@datadog/datadog-api-client-roles";
+import { v2 } from "@datadog/datadog-api-client-roles";
 
 const configuration = createConfiguration();
 const apiInstance = new RolesApiV2(configuration);
 
-const result = await apiInstance.listPermissions(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listPermissions(params).then((data: v2.PermissionsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

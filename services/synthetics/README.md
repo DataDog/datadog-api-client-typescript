@@ -23,10 +23,14 @@ yarn add @datadog/datadog-api-client-synthetics
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { SyntheticsApiV2 } from "@datadog/datadog-api-client-synthetics";
+import { v2 } from "@datadog/datadog-api-client-synthetics";
 
 const configuration = createConfiguration();
 const apiInstance = new SyntheticsApiV2(configuration);
 
-const result = await apiInstance.getOnDemandConcurrencyCap(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.getOnDemandConcurrencyCap(params).then((data: v2.OnDemandConcurrencyCapResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

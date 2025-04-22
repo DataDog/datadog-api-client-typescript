@@ -19,10 +19,14 @@ yarn add @datadog/datadog-api-client-domain-allowlist
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { DomainAllowlistApiV2 } from "@datadog/datadog-api-client-domain-allowlist";
+import { v2 } from "@datadog/datadog-api-client-domain-allowlist";
 
 const configuration = createConfiguration();
 const apiInstance = new DomainAllowlistApiV2(configuration);
 
-const result = await apiInstance.getDomainAllowlist(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.getDomainAllowlist(params).then((data: v2.DomainAllowlistResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

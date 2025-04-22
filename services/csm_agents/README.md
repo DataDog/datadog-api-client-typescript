@@ -20,11 +20,15 @@ yarn add @datadog/datadog-api-client-csm-agents
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { CSMAgentsApiV2 } from "@datadog/datadog-api-client-csm-agents";
+import { v2 } from "@datadog/datadog-api-client-csm-agents";
 
 const configuration = createConfiguration();
 const apiInstance = new CSMAgentsApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listAllCSMAgents(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listAllCSMAgents(params).then((data: v2.CsmAgentsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

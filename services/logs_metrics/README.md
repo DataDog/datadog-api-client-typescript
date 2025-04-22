@@ -17,10 +17,14 @@ yarn add @datadog/datadog-api-client-logs-metrics
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { LogsMetricsApiV2 } from "@datadog/datadog-api-client-logs-metrics";
+import { v2 } from "@datadog/datadog-api-client-logs-metrics";
 
 const configuration = createConfiguration();
 const apiInstance = new LogsMetricsApiV2(configuration);
 
-const result = await apiInstance.listLogsMetrics(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listLogsMetrics(params).then((data: v2.LogsMetricsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

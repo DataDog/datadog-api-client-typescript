@@ -17,11 +17,15 @@ yarn add @datadog/datadog-api-client-hosts
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { HostsApiV1 } from "@datadog/datadog-api-client-hosts";
+import { v1 } from "@datadog/datadog-api-client-hosts";
 
 const configuration = createConfiguration();
 const apiInstance = new HostsApiV1(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.muteHost(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.muteHost(params).then((data: v1.HostMuteResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

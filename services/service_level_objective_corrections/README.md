@@ -20,11 +20,15 @@ yarn add @datadog/datadog-api-client-service-level-objective-corrections
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { ServiceLevelObjectiveCorrectionsApiV1 } from "@datadog/datadog-api-client-service-level-objective-corrections";
+import { v1 } from "@datadog/datadog-api-client-service-level-objective-corrections";
 
 const configuration = createConfiguration();
 const apiInstance = new ServiceLevelObjectiveCorrectionsApiV1(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listSLOCorrection(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listSLOCorrection(params).then((data: v1.SLOCorrectionListResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

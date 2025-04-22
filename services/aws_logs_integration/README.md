@@ -18,11 +18,16 @@ yarn add @datadog/datadog-api-client-aws-logs-integration
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { AWSLogsIntegrationApiV2 } from "@datadog/datadog-api-client-aws-logs-integration";
+import { v2 } from "@datadog/datadog-api-client-aws-logs-integration";
 
 const configuration = createConfiguration();
+// Enable unstable operations
 configuration.unstableOperations["v2.listAWSLogsServices"] = true;
 const apiInstance = new AWSLogsIntegrationApiV2(configuration);
 
-const result = await apiInstance.listAWSLogsServices(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listAWSLogsServices(params).then((data: v2.AWSLogsServicesResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

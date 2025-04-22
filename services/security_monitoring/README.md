@@ -17,12 +17,17 @@ yarn add @datadog/datadog-api-client-security-monitoring
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { SecurityMonitoringApiV2 } from "@datadog/datadog-api-client-security-monitoring";
+import { v2 } from "@datadog/datadog-api-client-security-monitoring";
 
 const configuration = createConfiguration();
+// Enable unstable operations
 configuration.unstableOperations["v2.listFindings"] = true;
 const apiInstance = new SecurityMonitoringApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.listFindings(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.listFindings(params).then((data: v2.ListFindingsResponse) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

@@ -20,10 +20,14 @@ yarn add @datadog/datadog-api-client-logs-archives
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { LogsArchivesApiV2 } from "@datadog/datadog-api-client-logs-archives";
+import { v2 } from "@datadog/datadog-api-client-logs-archives";
 
 const configuration = createConfiguration();
 const apiInstance = new LogsArchivesApiV2(configuration);
 
-const result = await apiInstance.getLogsArchiveOrder(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.getLogsArchiveOrder(params).then((data: v2.LogsArchiveOrder) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

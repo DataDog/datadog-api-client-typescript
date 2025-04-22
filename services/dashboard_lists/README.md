@@ -19,11 +19,15 @@ yarn add @datadog/datadog-api-client-dashboard-lists
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { DashboardListsApiV2 } from "@datadog/datadog-api-client-dashboard-lists";
+import { v2 } from "@datadog/datadog-api-client-dashboard-lists";
 
 const configuration = createConfiguration();
 const apiInstance = new DashboardListsApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.getDashboardListItems(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.getDashboardListItems(params).then((data: v2.DashboardListItems) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```

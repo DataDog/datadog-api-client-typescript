@@ -18,11 +18,15 @@ yarn add @datadog/datadog-api-client-on-call
 ```ts
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { OnCallApiV2 } from "@datadog/datadog-api-client-on-call";
+import { v2 } from "@datadog/datadog-api-client-on-call";
 
 const configuration = createConfiguration();
 const apiInstance = new OnCallApiV2(configuration);
 const params = {/* parameters */};
 
-const result = await apiInstance.createOnCallEscalationPolicy(params);
-console.log("API called successfully. Returned data: " + JSON.stringify(result));
+apiInstance.createOnCallEscalationPolicy(params).then((data: v2.EscalationPolicy) => {
+    console.log("API called successfully. Returned data: " + JSON.stringify(data));
+}).catch((error) => {
+    console.error("Error calling API: " + error);
+});
 ```
