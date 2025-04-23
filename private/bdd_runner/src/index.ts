@@ -39,7 +39,7 @@ function buildImportsAndMappings(servicesDir: string): {
     if (isDirectory(servicePath) && isFile(packageJson)) {
       // Load the source file. We don't use ast parser because its too slow.
       const file = fs.readFileSync(packageJson, "utf8");
-      // Parse the refex matching the Api export format. For example: UsageMeteringApiV2
+      // Parse the regex matching the Api export format. For example: UsageMeteringApiV2
       const apiMatches = file.match(apiExportRegex);
       if (apiMatches) {
         imports.push({
@@ -64,9 +64,7 @@ function buildImportsAndMappings(servicesDir: string): {
         }
 
         // Remove the Version from the Api name
-        const apiName = apiMatches[0]
-          .replace("ApiV2", "Api")
-          .replace("ApiV1", "Api");
+        const apiName = apiMatches[0].replace(/ApiV\d+/, "Api");
         apiNameToServiceNameMapping[apiName] = service;
       }
     }
