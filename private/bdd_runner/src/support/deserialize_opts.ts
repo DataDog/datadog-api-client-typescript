@@ -4,9 +4,10 @@ import path from "path";
 import { getProperty } from "./templating";
 import { ScenariosModelMappings } from "./scenarios_model_mapping";
 import * as datadogCommon from "@datadog/datadog-api-client";
-import { apiNameToServiceNameMapping } from "./api_info";
-
-import { TypingInfo } from "@datadog/datadog-api-client-dashboard-lists/dist/v2/models/TypingInfo";
+import {
+  apiNameToServiceNameMapping,
+  apiNameToTypingInfoMapping,
+} from "./api_info";
 
 function deserializeOpts(
   opts: Record<string, any>,
@@ -15,9 +16,8 @@ function deserializeOpts(
   apiName: string,
   operationId: string,
 ): Record<string, any> {
-  const typingInfo = require(
-    `${servicesDir}/${apiNameToServiceNameMapping[apiName]}/dist/${apiVersion}/models/TypingInfo`,
-  )["TypingInfo"];
+  const typingInfo =
+    apiNameToTypingInfoMapping[apiName + apiVersion.toUpperCase()];
   Object.keys(opts).forEach((key) => {
     const mapping = getProperty(
       ScenariosModelMappings[

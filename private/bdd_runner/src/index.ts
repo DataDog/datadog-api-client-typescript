@@ -26,9 +26,11 @@ function isFile(path: string): boolean {
 function buildImportsAndMappings(servicesDir: string): {
   imports: ImportDeclarationStructure[];
   apiNameToServiceNameMapping: Record<string, string>;
+  apiNameToTypingInfoMapping: Record<string, string>;
 } {
   const imports: ImportDeclarationStructure[] = [];
   const apiNameToServiceNameMapping: Record<string, string> = {};
+  const apiNameToTypingInfoMapping: Record<string, string> = {};
 
   fs.readdirSync(servicesDir).forEach((service) => {
     const servicePath = path.join(servicesDir, service);
@@ -45,6 +47,21 @@ function buildImportsAndMappings(servicesDir: string): {
           moduleSpecifier: `@datadog/datadog-api-client-${service.replace(/_/g, "-")}`,
         });
 
+        for (const apiMatch of apiMatches) {
+          // Extract version number (e.g. "V2" from "UsageMeteringApiV2")
+          const version = apiMatch.match(/V([0-9]+)/)?.[1];
+          if (!version) {
+            throw new Error(`Failed to extract version from ${apiMatch}`);
+          }
+          imports.push({
+            kind: StructureKind.ImportDeclaration,
+            namedImports: ["TypingInfo as " + apiMatch + "TypingInfo"],
+            moduleSpecifier: `@datadog/datadog-api-client-${service.replace(/_/g, "-")}/dist/v${version}/models/TypingInfo`,
+          });
+
+          apiNameToTypingInfoMapping[apiMatch] = apiMatch + "TypingInfo";
+        }
+
         // Remove the Version from the Api name
         const apiName = apiMatches[0]
           .replace("ApiV2", "Api")
@@ -54,12 +71,13 @@ function buildImportsAndMappings(servicesDir: string): {
     }
   });
 
-  return { imports, apiNameToServiceNameMapping };
+  return { imports, apiNameToServiceNameMapping, apiNameToTypingInfoMapping };
 }
 
 function populateApiTypes(
   sourceFile: SourceFile,
   apiNameToServiceNameMapping: Record<string, string>,
+  apiNameToTypingInfoMapping: Record<string, string>,
 ) {
   sourceFile.addVariableStatements([
     {
@@ -84,6 +102,17 @@ function populateApiTypes(
       ],
       isExported: true,
     },
+    {
+      declarationKind: VariableDeclarationKind.Const,
+      declarations: [
+        {
+          name: "apiNameToTypingInfoMapping",
+          initializer: "{}",
+          type: "Record<string, any>",
+        },
+      ],
+      isExported: true,
+    },
   ]);
 
   // Populate apiTypes map
@@ -94,6 +123,9 @@ function populateApiTypes(
   const imports = sourceFile.getImportDeclarations();
   for (const importDecl of imports) {
     for (const namedImport of importDecl.getNamedImports()) {
+      if (namedImport.getName().includes("TypingInfo")) {
+        continue;
+      }
       apiTypesInitializer.addPropertyAssignment({
         name: namedImport.getName(),
         initializer: namedImport.getName(),
@@ -118,6 +150,24 @@ function populateApiTypes(
       initializer: `"${serviceName}"`,
     });
   }
+
+  // Populate apiNameToTypingInfoMapping map
+  const apiNameToTypingInfo = sourceFile.getVariableDeclarationOrThrow(
+    "apiNameToTypingInfoMapping",
+  );
+  const apiNameToTypingInfoInitializer =
+    apiNameToTypingInfo.getInitializerIfKindOrThrow(
+      SyntaxKind.ObjectLiteralExpression,
+    );
+
+  for (const [apiName, typingInfo] of Object.entries(
+    apiNameToTypingInfoMapping,
+  )) {
+    apiNameToTypingInfoInitializer.addPropertyAssignment({
+      name: apiName,
+      initializer: `${typingInfo}`,
+    });
+  }
 }
 
 function generateApiInfo(servicesDir: string) {
@@ -128,12 +178,16 @@ function generateApiInfo(servicesDir: string) {
 
   let sourceFile = project.getSourceFileOrThrow("src/support/api_info.ts");
 
-  const { imports, apiNameToServiceNameMapping } =
+  const { imports, apiNameToServiceNameMapping, apiNameToTypingInfoMapping } =
     buildImportsAndMappings(servicesDir);
   sourceFile.addImportDeclarations(imports);
 
   // Populate apiTypes map
-  populateApiTypes(sourceFile, apiNameToServiceNameMapping);
+  populateApiTypes(
+    sourceFile,
+    apiNameToServiceNameMapping,
+    apiNameToTypingInfoMapping,
+  );
 
   sourceFile.saveSync();
 }
