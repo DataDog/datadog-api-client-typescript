@@ -4,10 +4,7 @@ import chaiQuantifiers from "chai-quantifiers";
 use(chaiQuantifiers);
 import { World } from "../support/world";
 
-import {
-  apiTypes,
-  apiNameToTypingInfoMapping,
-} from "../support/api_info";
+import { apiTypes, apiNameToTypingInfoMapping } from "../support/api_info";
 
 import {
   pathLookup,
