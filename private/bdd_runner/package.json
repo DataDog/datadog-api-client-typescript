@@ -13,7 +13,8 @@
   "bin": "./dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "start:profile": "node --prof -r ts-node/register src/index.ts"
   },
   "dependencies": {
     "@cucumber/cucumber": "^9.2.0",
