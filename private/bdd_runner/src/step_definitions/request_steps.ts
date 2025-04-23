@@ -4,7 +4,10 @@ import chaiQuantifiers from "chai-quantifiers";
 use(chaiQuantifiers);
 import { World } from "../support/world";
 
-import { apiTypes, apiNameToServiceNameMapping } from "../support/api_info";
+import {
+  apiTypes,
+  apiNameToTypingInfoMapping,
+} from "../support/api_info";
 
 import {
   pathLookup,
@@ -292,9 +295,10 @@ Then(
     const _type = getTypeForValue(pathResult);
     let templatedFixtureValue = JSON.parse(value.templated(this.fixtures));
     if (_type) {
-      const typingInfo = require(
-        `${this.servicesDir}/${apiNameToServiceNameMapping[this.apiName]}/src/${this.apiVersion}/models/TypingInfo`,
-      )["TypingInfo"];
+      const typingInfo =
+        apiNameToTypingInfoMapping[
+          this.apiName + this.apiVersion.toUpperCase()
+        ];
       templatedFixtureValue = datadogCommon.deserialize(
         templatedFixtureValue,
         typingInfo,

@@ -4,10 +4,7 @@ import path from "path";
 import { getProperty } from "./templating";
 import { ScenariosModelMappings } from "./scenarios_model_mapping";
 import * as datadogCommon from "@datadog/datadog-api-client";
-import {
-  apiNameToServiceNameMapping,
-  apiNameToTypingInfoMapping,
-} from "./api_info";
+import { apiNameToTypingInfoMapping } from "./api_info";
 
 function deserializeOpts(
   opts: Record<string, any>,
