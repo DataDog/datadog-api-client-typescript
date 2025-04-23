@@ -5,9 +5,7 @@
 # }
 # trap finish EXIT
 
-yarn install
-yarn workspace @datadog/datadog-api-client build
-yarn workspace bdd-runner run build
+yarn install && yarn build
 
 # Check licenses
 yarn run check-licenses || exit 1
