@@ -1,16 +1,28 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import { ImportDeclarationStructure, ObjectLiteralExpression, Project, SourceFile, StructureKind, SyntaxKind, VariableDeclarationKind } from "ts-morph";
+import {
+  ImportDeclarationStructure,
+  ObjectLiteralExpression,
+  Project,
+  SourceFile,
+  StructureKind,
+  SyntaxKind,
+  VariableDeclarationKind,
+} from "ts-morph";
 import Cli from "@cucumber/cucumber/lib/cli/index";
 
 import path from "path";
 import fs from "fs";
 
-import * as templating from "./support/templating";
+const apiExportRegex = /(\S+)ApiV\d+/g;
 
 function isDirectory(path: string): boolean {
   return fs.statSync(path).isDirectory();
+}
+
+function isFile(path: string): boolean {
+  return fs.statSync(path).isFile();
 }
 
 function buildImports(servicesDir: string): ImportDeclarationStructure[] {
@@ -19,20 +31,17 @@ function buildImports(servicesDir: string): ImportDeclarationStructure[] {
 
   fs.readdirSync(servicesDir).forEach((service) => {
     const servicePath = path.join(servicesDir, service);
-    if (isDirectory(servicePath)) {
-      const namedImports: string[] = [];
-      fs.readdirSync(path.join(servicePath, "src")).forEach((version) => {
-        const versionPath = path.join(servicePath, "src", version);
-        if (isDirectory(versionPath) && versionRegex.test(version)) {
-          const apiClassName = templating.tagToApiClassName(service) + version.toUpperCase();
-          namedImports.push(apiClassName);
-        }
-      });
-      if (namedImports.length > 0) {
+    const packageJson = path.join(servicePath, "src", "index.ts");
+    if (isDirectory(servicePath) && isFile(packageJson)) {
+      // Load the source file. We don't use ast parser because its too slow.
+      const file = fs.readFileSync(packageJson, "utf8");
+      // Parse the refex matching the Api export format. For example: UsageMeteringApiV2
+      const apiMatches = file.match(apiExportRegex);
+      if (apiMatches) {
         imports.push({
-          namedImports: namedImports,
-          moduleSpecifier: `@datadog/datadog-api-client-${service.replace(/_/g, '-')}`,
-          kind: StructureKind.ImportDeclaration
+          kind: StructureKind.ImportDeclaration,
+          namedImports: apiMatches,
+          moduleSpecifier: `@datadog/datadog-api-client-${service.replace(/_/g, "-")}`,
         });
       }
     }
@@ -40,55 +49,50 @@ function buildImports(servicesDir: string): ImportDeclarationStructure[] {
 
   return imports;
 }
-function populateApiTypes(sourceFile: SourceFile, imports: ImportDeclarationStructure[]) {
-    // Populate apiTypes map
-    if (!sourceFile.getVariableDeclaration("apiTypes")) {
-      sourceFile.addVariableStatement({
-        declarationKind: VariableDeclarationKind.Const,
-        declarations: [
-          {
-            name: "apiTypes",
-            initializer: "{}",
-            type: "Record<string, Any>",
-          }
-        ],
-        isExported: true,
-      });
-    }
+function populateApiTypes(sourceFile: SourceFile) {
+  if (!sourceFile.getVariableDeclaration("apiTypes")) {
+    sourceFile.addVariableStatement({
+      declarationKind: VariableDeclarationKind.Const,
+      declarations: [
+        {
+          name: "apiTypes",
+          initializer: "{}",
+          type: "Record<string, any>",
+        },
+      ],
+      isExported: true,
+    });
+  }
 
   const apiTypes = sourceFile.getVariableDeclarationOrThrow("apiTypes");
-  const initializer = apiTypes.getInitializerIfKindOrThrow(SyntaxKind.ObjectLiteralExpression);
+  const initializer = apiTypes.getInitializerIfKindOrThrow(
+    SyntaxKind.ObjectLiteralExpression,
+  );
 
-  imports.forEach((importDecl) => {
-    if (Array.isArray(importDecl.namedImports)) {
-      importDecl.namedImports.forEach((namedImport) => {
-        if (typeof namedImport === 'string') {
-          initializer.addPropertyAssignment({
-            name: namedImport,
-            initializer: namedImport,
-          });
-        } 
+  const imports = sourceFile.getImportDeclarations();
+  for (const importDecl of imports) {
+    for (const namedImport of importDecl.getNamedImports()) {
+      initializer.addPropertyAssignment({
+        name: namedImport.getName(),
+        initializer: namedImport.getName(),
       });
     }
-  });
+  }
 }
 
 function generateApiInfo(servicesDir: string) {
   const project = new Project({
     skipAddingFilesFromTsConfig: true,
   });
-  project.addSourceFilesAtPaths("src/support/**/*.ts");
-  
-  let sourceFile = project.getSourceFile("src/support/api_info.ts");
-  if (!sourceFile) {
-    sourceFile = project.createSourceFile("src/support/api_info.ts");
-  }
+  project.createSourceFile("src/support/api_info.ts", "", { overwrite: true });
+
+  let sourceFile = project.getSourceFileOrThrow("src/support/api_info.ts");
 
   const imports = buildImports(servicesDir);
   sourceFile.addImportDeclarations(imports);
 
   // Populate apiTypes map
-  populateApiTypes(sourceFile, imports);
+  populateApiTypes(sourceFile);
 
   sourceFile.saveSync();
 }
@@ -108,7 +112,10 @@ function main() {
       "--cassettes-dir <path>",
       "Fully qualified path to cassettes directory",
     )
-    .option("--services-dir <path>", "Fully qualified path to services directory")
+    .option(
+      "--services-dir <path>",
+      "Fully qualified path to services directory",
+    )
     .option(
       "--package-prefix <prefix>",
       "Prefix to add to the package name",
@@ -185,6 +192,6 @@ function main() {
 
   // Run Cucumber
   // cli.run();
-};
+}
 
 main();
