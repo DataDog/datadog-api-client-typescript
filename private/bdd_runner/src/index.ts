@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import { ImportDeclarationStructure, ObjectLiteralExpression, Project, SourceFile, StructureKind, SyntaxKind } from "ts-morph";
+import { ImportDeclarationStructure, ObjectLiteralExpression, Project, SourceFile, StructureKind, SyntaxKind, VariableDeclarationKind } from "ts-morph";
 import Cli from "@cucumber/cucumber/lib/cli/index";
 
 import path from "path";
@@ -42,21 +42,35 @@ function buildImports(servicesDir: string): ImportDeclarationStructure[] {
 }
 function populateApiTypes(sourceFile: SourceFile, imports: ImportDeclarationStructure[]) {
     // Populate apiTypes map
-    const apiTypes = sourceFile.getVariableDeclarationOrThrow("apiTypes");
-    const initializer = apiTypes.getInitializerIfKindOrThrow(SyntaxKind.ObjectLiteralExpression);
+    if (!sourceFile.getVariableDeclaration("apiTypes")) {
+      sourceFile.addVariableStatement({
+        declarationKind: VariableDeclarationKind.Const,
+        declarations: [
+          {
+            name: "apiTypes",
+            initializer: "{}",
+            type: "Record<string, Any>",
+          }
+        ],
+        isExported: true,
+      });
+    }
 
-    imports.forEach((importDecl) => {
-      if (Array.isArray(importDecl.namedImports)) {
-        importDecl.namedImports.forEach((namedImport) => {
-          if (typeof namedImport === 'string') {
-            initializer.addPropertyAssignment({
-              name: namedImport,
-              initializer: namedImport,
-            });
-          } 
-        });
-      }
-    });
+  const apiTypes = sourceFile.getVariableDeclarationOrThrow("apiTypes");
+  const initializer = apiTypes.getInitializerIfKindOrThrow(SyntaxKind.ObjectLiteralExpression);
+
+  imports.forEach((importDecl) => {
+    if (Array.isArray(importDecl.namedImports)) {
+      importDecl.namedImports.forEach((namedImport) => {
+        if (typeof namedImport === 'string') {
+          initializer.addPropertyAssignment({
+            name: namedImport,
+            initializer: namedImport,
+          });
+        } 
+      });
+    }
+  });
 }
 
 function generateApiInfo(servicesDir: string) {
@@ -64,18 +78,19 @@ function generateApiInfo(servicesDir: string) {
     skipAddingFilesFromTsConfig: true,
   });
   project.addSourceFilesAtPaths("src/support/**/*.ts");
-  const sourceFile = project.getSourceFileOrThrow("src/support/api_info.ts");
+  
+  let sourceFile = project.getSourceFile("src/support/api_info.ts");
+  if (!sourceFile) {
+    sourceFile = project.createSourceFile("src/support/api_info.ts");
+  }
 
   const imports = buildImports(servicesDir);
   sourceFile.addImportDeclarations(imports);
-  sourceFile.organizeImports();
 
   // Populate apiTypes map
   populateApiTypes(sourceFile, imports);
 
-  console.log(sourceFile.getText());
-
-  // sourceFile.saveSync();
+  sourceFile.saveSync();
 }
 
 function main() {
