@@ -204,15 +204,6 @@ String.prototype.toAttributeName = function (): string {
   return val.charAt(0).toLowerCase() + val.slice(1);
 };
 
-function apiClassNameToServicePackageDirName(name: string): string {
-  return name
-    .replace(/Api$/, "")
-    .replace(/([a-z])([A-Z])/g, "$1_$2")
-    .replace(/([A-Z])([A-Z][a-z])/g, "$1_$2")
-    .replace(/[^a-zA-Z0-9]/g, "_")
-    .toLowerCase();
-}
-
 function tagToApiClassName(tag: string): string {
   return (
     tag
@@ -232,6 +223,5 @@ export {
   pathLookup,
   getProperty,
   getTypeForValue,
-  apiClassNameToServicePackageDirName,
   tagToApiClassName,
 };

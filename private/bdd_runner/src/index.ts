@@ -1,9 +1,7 @@
 #!/usr/bin/env node
-
 import { Command } from "commander";
 import {
   ImportDeclarationStructure,
-  ObjectLiteralExpression,
   Project,
   SourceFile,
   StructureKind,
@@ -25,9 +23,9 @@ function isFile(path: string): boolean {
   return fs.statSync(path).isFile();
 }
 
-function buildImports(servicesDir: string): ImportDeclarationStructure[] {
-  var versionRegex = new RegExp("^v[0-9]+$");
+function buildImportsAndMappings(servicesDir: string): { imports: ImportDeclarationStructure[], apiNameToServiceNameMapping: Record<string, string> } {
   const imports: ImportDeclarationStructure[] = [];
+  const apiNameToServiceNameMapping: Record<string, string> = {};
 
   fs.readdirSync(servicesDir).forEach((service) => {
     const servicePath = path.join(servicesDir, service);
@@ -43,40 +41,59 @@ function buildImports(servicesDir: string): ImportDeclarationStructure[] {
           namedImports: apiMatches,
           moduleSpecifier: `@datadog/datadog-api-client-${service.replace(/_/g, "-")}`,
         });
+
+        // Remove the Version from the Api name
+        const apiName = apiMatches[0].replace("ApiV2", "Api").replace("ApiV1", "Api");
+        apiNameToServiceNameMapping[apiName] = service;
       }
     }
   });
 
-  return imports;
+  return { imports, apiNameToServiceNameMapping };
 }
-function populateApiTypes(sourceFile: SourceFile) {
-  if (!sourceFile.getVariableDeclaration("apiTypes")) {
-    sourceFile.addVariableStatement({
-      declarationKind: VariableDeclarationKind.Const,
-      declarations: [
-        {
-          name: "apiTypes",
-          initializer: "{}",
-          type: "Record<string, any>",
-        },
-      ],
-      isExported: true,
-    });
-  }
+
+function populateApiTypes(sourceFile: SourceFile, apiNameToServiceNameMapping: Record<string, string>) {
+  sourceFile.addVariableStatements([{
+    declarationKind: VariableDeclarationKind.Const,
+    declarations: [
+      {
+        name: "apiTypes",
+        initializer: "{}",
+        type: "Record<string, any>",
+      },
+    ],
+    isExported: true,
+  },
+  {
+    declarationKind: VariableDeclarationKind.Const,
+    declarations: [
+      {
+        name: "apiNameToServiceNameMapping",
+        initializer: "{}",
+        type: "Record<string, string>",
+      },
+    ],
+    isExported: true,
+  }]);
 
   const apiTypes = sourceFile.getVariableDeclarationOrThrow("apiTypes");
-  const initializer = apiTypes.getInitializerIfKindOrThrow(
-    SyntaxKind.ObjectLiteralExpression,
-  );
+  const apiTypesInitializer = apiTypes.getInitializerIfKindOrThrow(SyntaxKind.ObjectLiteralExpression);
 
   const imports = sourceFile.getImportDeclarations();
   for (const importDecl of imports) {
     for (const namedImport of importDecl.getNamedImports()) {
-      initializer.addPropertyAssignment({
+      apiTypesInitializer.addPropertyAssignment({
         name: namedImport.getName(),
         initializer: namedImport.getName(),
       });
     }
+  }
+
+  const apiNameToServiceName = sourceFile.getVariableDeclarationOrThrow("apiNameToServiceNameMapping");
+  const apiNameToServiceNameInitializer = apiNameToServiceName.getInitializerIfKindOrThrow(SyntaxKind.ObjectLiteralExpression);
+
+  for (const [apiName, serviceName] of Object.entries(apiNameToServiceNameMapping)) {
+    apiNameToServiceNameInitializer.addPropertyAssignment({ name: apiName, initializer: `"${serviceName}"` });
   }
 }
 
@@ -88,11 +105,11 @@ function generateApiInfo(servicesDir: string) {
 
   let sourceFile = project.getSourceFileOrThrow("src/support/api_info.ts");
 
-  const imports = buildImports(servicesDir);
+  const { imports, apiNameToServiceNameMapping } = buildImportsAndMappings(servicesDir);
   sourceFile.addImportDeclarations(imports);
 
   // Populate apiTypes map
-  populateApiTypes(sourceFile);
+  populateApiTypes(sourceFile, apiNameToServiceNameMapping);
 
   sourceFile.saveSync();
 }
@@ -132,7 +149,7 @@ function main() {
 
   // Initialize Datadog tracing if enabled and host is set
   if (process.env.DD_AGENT_HOST != undefined) {
-    require("dd-trace/ci/init");
+    // require("dd-trace/init");
   }
 
   if (options.workingDir) {

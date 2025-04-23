@@ -173,39 +173,39 @@ After(async function (this: World) {
 });
 
 AfterAll(function () {
-  const recordMode = process.env.RECORD || "false";
-  if (recordMode !== "false" || process.env.CLEANUP_CASSETTES !== "true") {
-    return;
-  }
-  const getAllDirs = function (dirPath: string): string[] {
-    let files = fs.readdirSync(dirPath).map((file) => path.join(dirPath, file));
-    let arrayOfFiles: any = [];
+  // const recordMode = process.env.RECORD || "false";
+  // if (recordMode !== "false" || process.env.CLEANUP_CASSETTES !== "true") {
+  //   return;
+  // }
+  // const getAllDirs = function (dirPath: string): string[] {
+  //   let files = fs.readdirSync(dirPath).map((file) => path.join(dirPath, file));
+  //   let arrayOfFiles: any = [];
 
-    while (files.length > 0) {
-      const fileName = files.pop() as string;
-      if (fs.statSync(fileName).isDirectory()) {
-        const children = fs
-          .readdirSync(fileName)
-          .map((file) => path.join(fileName, file))
-          .filter((d) => fs.statSync(d).isDirectory());
-        if (children.length > 0) {
-          files = files.concat(children);
-        } else {
-          arrayOfFiles.push(fileName);
-        }
-      }
-    }
+  //   while (files.length > 0) {
+  //     const fileName = files.pop() as string;
+  //     if (fs.statSync(fileName).isDirectory()) {
+  //       const children = fs
+  //         .readdirSync(fileName)
+  //         .map((file) => path.join(fileName, file))
+  //         .filter((d) => fs.statSync(d).isDirectory());
+  //       if (children.length > 0) {
+  //         files = files.concat(children);
+  //       } else {
+  //         arrayOfFiles.push(fileName);
+  //       }
+  //     }
+  //   }
 
-    return arrayOfFiles;
-  };
+  //   return arrayOfFiles;
+  // };
 
-  const existingCassettes = getAllDirs(this.cassettesDir);
-  const usedCassettes = new Set(cassettes);
+  // const existingCassettes = getAllDirs(this.cassettesDir);
+  // const usedCassettes = new Set(cassettes);
 
-  existingCassettes
-    .filter((c) => !usedCassettes.has(c))
-    .forEach((cassette) => {
-      console.log(`Removing unused cassette ${cassette}`);
-      fs.rmSync(cassette, { recursive: true });
-    });
+  // existingCassettes
+  //   .filter((c) => !usedCassettes.has(c))
+  //   .forEach((cassette) => {
+  //     console.log(`Removing unused cassette ${cassette}`);
+  //     fs.rmSync(cassette, { recursive: true });
+  //   });
 });

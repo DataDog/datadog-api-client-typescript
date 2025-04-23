@@ -31,7 +31,8 @@
     "lint": "eslint --ext .ts packages/* services/*",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write --ignore-unknown '**.{js,ts}'",
-    "bdd-test": "yarn workspace bdd-runner run start --working-dir \"$(pwd)\" \"features/v*/*.feature\""
+    "bdd-test": "yarn workspace bdd-runner run start --working-dir \"$(pwd)\" \"features/v*/*.feature\"",
+    "bdd-test:profile": "yarn workspace bdd-runner run start:profile --working-dir \"$(pwd)\" \"features/v*/*.feature\""
   },
   "devDependencies": {
     "eslint": "^9.23.0",

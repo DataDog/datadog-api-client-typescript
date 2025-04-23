@@ -1,7 +1,5 @@
 import fs from "fs";
 import {
-  apiClassNameToServicePackageDirName,
-  getProperty,
   pathLookup,
   tagToApiClassName,
 } from "./templating";

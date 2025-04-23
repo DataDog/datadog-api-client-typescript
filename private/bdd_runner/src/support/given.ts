@@ -5,8 +5,6 @@ import fs from "fs";
 
 import { World } from "../support/world";
 import {
-  apiClassNameToServicePackageDirName,
-  getProperty,
   pathLookup,
   tagToApiClassName,
 } from "./templating";
@@ -153,5 +151,4 @@ for (const [apiVersion, givenFile] of Object.entries(
     });
   }
 }
-
 export { IOperationParameter, IGivenStep };

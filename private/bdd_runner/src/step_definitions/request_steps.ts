@@ -4,13 +4,12 @@ import chaiQuantifiers from "chai-quantifiers";
 use(chaiQuantifiers);
 import { World } from "../support/world";
 
-import { apiTypes } from "../support/api_info";
+import { apiTypes, apiNameToServiceNameMapping } from "../support/api_info";
 
 import {
   pathLookup,
   getTypeForValue,
   tagToApiClassName,
-  apiClassNameToServicePackageDirName,
 } from "../support/templating";
 import { Store } from "../support/store";
 import { buildUndoFor, UndoActions } from "../support/undo";
@@ -20,7 +19,6 @@ import path from "path";
 
 import { compressSync } from "zstd.ts";
 import log from "loglevel";
-import { ScenariosModelMappings } from "../support/scenarios_model_mapping";
 import { deserializeOpts } from "../support/deserialize_opts";
 const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
@@ -295,7 +293,7 @@ Then(
     let templatedFixtureValue = JSON.parse(value.templated(this.fixtures));
     if (_type) {
       const typingInfo = require(
-        `${this.servicesDir}/${apiClassNameToServicePackageDirName(this.apiName)}/src/${this.apiVersion}/models/TypingInfo`,
+        `${this.servicesDir}/${apiNameToServiceNameMapping[this.apiName]}/src/${this.apiVersion}/models/TypingInfo`,
       )["TypingInfo"];
       templatedFixtureValue = datadogCommon.deserialize(
         templatedFixtureValue,
@@ -374,9 +372,9 @@ Then(
   },
 );
 
-AfterAll(function (this: World) {
-  let dd_service = process.env.DD_SERVICE;
-  let ci_pipeline_id = process.env.GITHUB_RUN_ID;
+AfterAll(async function () {
+  const dd_service = process.env.DD_SERVICE;
+  const ci_pipeline_id = process.env.GITHUB_RUN_ID;
   if (dd_service !== undefined && ci_pipeline_id !== undefined) {
     console.log("\nTest reports:\n");
     console.log(
