@@ -191,7 +191,7 @@ function main() {
   generateApiInfo(worldParameters["servicesDir"]);
 
   // Run Cucumber
-  // cli.run();
+  cli.run();
 }
 
 main();

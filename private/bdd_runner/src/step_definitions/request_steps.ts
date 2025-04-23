@@ -4,6 +4,8 @@ import chaiQuantifiers from "chai-quantifiers";
 use(chaiQuantifiers);
 import { World } from "../support/world";
 
+import { apiTypes } from "../support/api_info";
+
 import {
   pathLookup,
   getTypeForValue,
@@ -82,12 +84,7 @@ Given("new {string} request", function (this: World, operationId: string) {
 When("the request is sent", async function (this: World) {
   // build request from scenario
   const apiNameWithVersion = `${this.apiName}${this.apiVersion.toUpperCase()}`;
-
-  // TODO(sherz): evaluate if building the package and requiring it is the better approach.
-  // we are importing the package from the services directory directly.
-  const api = require(
-    `${this.servicesDir}/${apiClassNameToServicePackageDirName(this.apiName)}/src`,
-  )[apiNameWithVersion];
+  const api = apiTypes[apiNameWithVersion];
 
   const configurationOpts = {
     authMethods: this.authMethods,
@@ -189,9 +186,7 @@ When("the request is sent", async function (this: World) {
 
 When("the request with pagination is sent", async function (this: World) {
   const apiNameWithVersion = `${this.apiName}${this.apiVersion.toUpperCase()}`;
-  const api = require(
-    `${this.servicesDir}/${apiClassNameToServicePackageDirName(this.apiName)}/src`,
-  )[apiNameWithVersion];
+  const api = apiTypes[apiNameWithVersion];
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
