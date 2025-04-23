@@ -23,7 +23,10 @@ function isFile(path: string): boolean {
   return fs.statSync(path).isFile();
 }
 
-function buildImportsAndMappings(servicesDir: string): { imports: ImportDeclarationStructure[], apiNameToServiceNameMapping: Record<string, string> } {
+function buildImportsAndMappings(servicesDir: string): {
+  imports: ImportDeclarationStructure[];
+  apiNameToServiceNameMapping: Record<string, string>;
+} {
   const imports: ImportDeclarationStructure[] = [];
   const apiNameToServiceNameMapping: Record<string, string> = {};
 
@@ -43,7 +46,9 @@ function buildImportsAndMappings(servicesDir: string): { imports: ImportDeclarat
         });
 
         // Remove the Version from the Api name
-        const apiName = apiMatches[0].replace("ApiV2", "Api").replace("ApiV1", "Api");
+        const apiName = apiMatches[0]
+          .replace("ApiV2", "Api")
+          .replace("ApiV1", "Api");
         apiNameToServiceNameMapping[apiName] = service;
       }
     }
@@ -52,33 +57,40 @@ function buildImportsAndMappings(servicesDir: string): { imports: ImportDeclarat
   return { imports, apiNameToServiceNameMapping };
 }
 
-function populateApiTypes(sourceFile: SourceFile, apiNameToServiceNameMapping: Record<string, string>) {
-  sourceFile.addVariableStatements([{
-    declarationKind: VariableDeclarationKind.Const,
-    declarations: [
-      {
-        name: "apiTypes",
-        initializer: "{}",
-        type: "Record<string, any>",
-      },
-    ],
-    isExported: true,
-  },
-  {
-    declarationKind: VariableDeclarationKind.Const,
-    declarations: [
-      {
-        name: "apiNameToServiceNameMapping",
-        initializer: "{}",
-        type: "Record<string, string>",
-      },
-    ],
-    isExported: true,
-  }]);
+function populateApiTypes(
+  sourceFile: SourceFile,
+  apiNameToServiceNameMapping: Record<string, string>,
+) {
+  sourceFile.addVariableStatements([
+    {
+      declarationKind: VariableDeclarationKind.Const,
+      declarations: [
+        {
+          name: "apiTypes",
+          initializer: "{}",
+          type: "Record<string, any>",
+        },
+      ],
+      isExported: true,
+    },
+    {
+      declarationKind: VariableDeclarationKind.Const,
+      declarations: [
+        {
+          name: "apiNameToServiceNameMapping",
+          initializer: "{}",
+          type: "Record<string, string>",
+        },
+      ],
+      isExported: true,
+    },
+  ]);
 
+  // Populate apiTypes map
   const apiTypes = sourceFile.getVariableDeclarationOrThrow("apiTypes");
-  const apiTypesInitializer = apiTypes.getInitializerIfKindOrThrow(SyntaxKind.ObjectLiteralExpression);
-
+  const apiTypesInitializer = apiTypes.getInitializerIfKindOrThrow(
+    SyntaxKind.ObjectLiteralExpression,
+  );
   const imports = sourceFile.getImportDeclarations();
   for (const importDecl of imports) {
     for (const namedImport of importDecl.getNamedImports()) {
@@ -89,11 +101,22 @@ function populateApiTypes(sourceFile: SourceFile, apiNameToServiceNameMapping: R
     }
   }
 
-  const apiNameToServiceName = sourceFile.getVariableDeclarationOrThrow("apiNameToServiceNameMapping");
-  const apiNameToServiceNameInitializer = apiNameToServiceName.getInitializerIfKindOrThrow(SyntaxKind.ObjectLiteralExpression);
+  // Populate apiNameToServiceNameMapping map
+  const apiNameToServiceName = sourceFile.getVariableDeclarationOrThrow(
+    "apiNameToServiceNameMapping",
+  );
+  const apiNameToServiceNameInitializer =
+    apiNameToServiceName.getInitializerIfKindOrThrow(
+      SyntaxKind.ObjectLiteralExpression,
+    );
 
-  for (const [apiName, serviceName] of Object.entries(apiNameToServiceNameMapping)) {
-    apiNameToServiceNameInitializer.addPropertyAssignment({ name: apiName, initializer: `"${serviceName}"` });
+  for (const [apiName, serviceName] of Object.entries(
+    apiNameToServiceNameMapping,
+  )) {
+    apiNameToServiceNameInitializer.addPropertyAssignment({
+      name: apiName,
+      initializer: `"${serviceName}"`,
+    });
   }
 }
 
@@ -105,7 +128,8 @@ function generateApiInfo(servicesDir: string) {
 
   let sourceFile = project.getSourceFileOrThrow("src/support/api_info.ts");
 
-  const { imports, apiNameToServiceNameMapping } = buildImportsAndMappings(servicesDir);
+  const { imports, apiNameToServiceNameMapping } =
+    buildImportsAndMappings(servicesDir);
   sourceFile.addImportDeclarations(imports);
 
   // Populate apiTypes map

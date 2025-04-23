@@ -4,10 +4,7 @@ import { compressSync } from "zstd.ts";
 import fs from "fs";
 
 import { World } from "../support/world";
-import {
-  pathLookup,
-  tagToApiClassName,
-} from "./templating";
+import { pathLookup, tagToApiClassName } from "./templating";
 import { UndoActions, buildUndoFor } from "./undo";
 import * as datadogCommon from "@datadog/datadog-api-client";
 import { deserializeOpts } from "./deserialize_opts";

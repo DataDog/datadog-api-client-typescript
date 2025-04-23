@@ -180,7 +180,6 @@ AfterAll(function () {
   // const getAllDirs = function (dirPath: string): string[] {
   //   let files = fs.readdirSync(dirPath).map((file) => path.join(dirPath, file));
   //   let arrayOfFiles: any = [];
-
   //   while (files.length > 0) {
   //     const fileName = files.pop() as string;
   //     if (fs.statSync(fileName).isDirectory()) {
@@ -195,13 +194,10 @@ AfterAll(function () {
   //       }
   //     }
   //   }
-
   //   return arrayOfFiles;
   // };
-
   // const existingCassettes = getAllDirs(this.cassettesDir);
   // const usedCassettes = new Set(cassettes);
-
   // existingCassettes
   //   .filter((c) => !usedCassettes.has(c))
   //   .forEach((cassette) => {

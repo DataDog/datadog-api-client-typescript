@@ -219,9 +219,4 @@ function getProperty<T, K extends keyof T>(obj: T, name: string): T[K] {
   return obj[key];
 }
 
-export {
-  pathLookup,
-  getProperty,
-  getTypeForValue,
-  tagToApiClassName,
-};
+export { pathLookup, getProperty, getTypeForValue, tagToApiClassName };

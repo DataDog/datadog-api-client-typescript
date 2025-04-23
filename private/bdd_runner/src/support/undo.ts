@@ -1,8 +1,5 @@
 import fs from "fs";
-import {
-  pathLookup,
-  tagToApiClassName,
-} from "./templating";
+import { pathLookup, tagToApiClassName } from "./templating";
 import * as datadogCommon from "@datadog/datadog-api-client";
 
 import log from "loglevel";
