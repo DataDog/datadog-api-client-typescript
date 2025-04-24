@@ -32,6 +32,10 @@ export class GCPSTSServiceAccountAttributes {
    */
   "isCspmEnabled"?: boolean;
   /**
+   * When enabled, Datadog applies the `X-Goog-User-Project` header, attributing Google Cloud billing and quota usage to the project being monitored rather than the default service account project.
+   */
+  "isPerProjectQuotaEnabled"?: boolean;
+  /**
    * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
    */
   "isResourceChangeCollectionEnabled"?: boolean;
@@ -84,6 +88,10 @@ export class GCPSTSServiceAccountAttributes {
     },
     isCspmEnabled: {
       baseName: "is_cspm_enabled",
+      type: "boolean",
+    },
+    isPerProjectQuotaEnabled: {
+      baseName: "is_per_project_quota_enabled",
       type: "boolean",
     },
     isResourceChangeCollectionEnabled: {
