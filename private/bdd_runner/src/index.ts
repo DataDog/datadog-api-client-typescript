@@ -73,45 +73,42 @@ function buildImportsAndMappings(servicesDir: string): {
   return { imports, apiNameToServiceNameMapping, apiNameToTypingInfoMapping };
 }
 
+function createVariableStatement(
+  name: string,
+  initializer: string,
+  type: string,
+  isExported: boolean = true,
+) {
+  return {
+    declarationKind: VariableDeclarationKind.Const,
+    declarations: [
+      {
+        name,
+        initializer,
+        type,
+      },
+    ],
+    isExported: isExported,
+  };
+}
+
 function populateApiTypes(
   sourceFile: SourceFile,
   apiNameToServiceNameMapping: Record<string, string>,
   apiNameToTypingInfoMapping: Record<string, string>,
 ) {
   sourceFile.addVariableStatements([
-    {
-      declarationKind: VariableDeclarationKind.Const,
-      declarations: [
-        {
-          name: "apiTypes",
-          initializer: "{}",
-          type: "Record<string, any>",
-        },
-      ],
-      isExported: true,
-    },
-    {
-      declarationKind: VariableDeclarationKind.Const,
-      declarations: [
-        {
-          name: "apiNameToServiceNameMapping",
-          initializer: "{}",
-          type: "Record<string, string>",
-        },
-      ],
-      isExported: true,
-    },
-    {
-      declarationKind: VariableDeclarationKind.Const,
-      declarations: [
-        {
-          name: "apiNameToTypingInfoMapping",
-          initializer: "{}",
-          type: "Record<string, any>",
-        },
-      ],
-      isExported: true,
-    },
+    createVariableStatement("apiTypes", "{}", "Record<string, any>"),
+    createVariableStatement(
+      "apiNameToServiceNameMapping",
+      "{}",
+      "Record<string, string>",
+    ),
+    createVariableStatement(
+      "apiNameToTypingInfoMapping",
+      "{}",
+      "Record<string, any>",
+    ),
   ]);
 
   // Populate apiTypes map
