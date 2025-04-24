@@ -1,5 +1,5 @@
 /**
- * Get on call escalation policy returns "OK" response
+ * Get on-call escalation policy returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
