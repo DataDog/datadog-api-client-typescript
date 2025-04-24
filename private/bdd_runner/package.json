@@ -10,9 +10,7 @@
   ],
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
-  "bin": {
-    "bdd-runner": "./dist/index.js"
-  },
+  "bin": "./dist/index.js",
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/index.ts"
@@ -26,11 +24,11 @@
     "@pollyjs/persister-fs": "^6.0.5",
     "@types/chai": "^4.3.4",
     "@types/jest": "^29.5.2",
+    "@types/node": "*",
     "chai": "^4.3.7",
     "chai-quantifiers": "^1.0.17",
     "commander": "^13.1.0",
     "dd-trace": "^4.3.0",
-    "@types/node": "*",
     "ts-node": "^10.9.1",
     "zstd.ts": "^1.1.3"
   },
