@@ -5,7 +5,7 @@
 # }
 # trap finish EXIT
 
-yarn install --ignore-scripts
+yarn install
 yarn workspace @datadog/datadog-api-client build
 yarn workspace bdd-runner run build
 

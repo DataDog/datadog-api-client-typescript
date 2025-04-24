@@ -27,10 +27,10 @@
   ],
   "scripts": {
     "check-licenses": "node bin/check-licenses.js",
-    "build": "yarn workspaces run build",
-    "lint": "yarn install --ignore-scripts; eslint --ext .ts packages/* services/*",
-    "lint:fix": "yarn install --ignore-scripts;  yarn lint --fix",
-    "format": "yarn install --ignore-scripts; prettier --write --ignore-unknown '**.{js,ts}'",
+    "build": "yarn workspaces foreach -Ap run build",
+    "lint": "eslint --ext .ts packages/* services/*",
+    "lint:fix": "yarn lint --fix",
+    "format": "prettier --write --ignore-unknown '**.{js,ts}'",
     "bdd-test": "yarn workspace bdd-runner run start --working-dir \"$(pwd)\" \"features/v*/*.feature\""
   },
   "devDependencies": {
@@ -43,5 +43,5 @@
     "node": ">=18.0.0"
   },
   "version": "0.0.1",
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "yarn@4.9.1"
 }
