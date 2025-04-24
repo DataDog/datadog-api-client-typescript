@@ -24,11 +24,6 @@ import { AzureUCConfigPostRequest } from "./AzureUCConfigPostRequest";
 import { AzureUCConfigPostRequestAttributes } from "./AzureUCConfigPostRequestAttributes";
 import { AzureUCConfigsResponse } from "./AzureUCConfigsResponse";
 import { BillConfig } from "./BillConfig";
-import { Budget } from "./Budget";
-import { BudgetArray } from "./BudgetArray";
-import { BudgetEntry } from "./BudgetEntry";
-import { BudgetWithEntries } from "./BudgetWithEntries";
-import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
 import { CustomCostGetResponseMeta } from "./CustomCostGetResponseMeta";
 import { CustomCostListResponseMeta } from "./CustomCostListResponseMeta";
 import { CustomCostUploadResponseMeta } from "./CustomCostUploadResponseMeta";
@@ -78,11 +73,6 @@ export const TypingInfo: ModelTypingInfo = {
     AzureUCConfigPostRequestAttributes: AzureUCConfigPostRequestAttributes,
     AzureUCConfigsResponse: AzureUCConfigsResponse,
     BillConfig: BillConfig,
-    Budget: Budget,
-    BudgetArray: BudgetArray,
-    BudgetEntry: BudgetEntry,
-    BudgetWithEntries: BudgetWithEntries,
-    BudgetWithEntriesData: BudgetWithEntriesData,
     CustomCostGetResponseMeta: CustomCostGetResponseMeta,
     CustomCostListResponseMeta: CustomCostListResponseMeta,
     CustomCostUploadResponseMeta: CustomCostUploadResponseMeta,

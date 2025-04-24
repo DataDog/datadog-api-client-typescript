@@ -27,8 +27,6 @@ import { AzureUCConfigPairsResponse } from "./models/AzureUCConfigPairsResponse"
 import { AzureUCConfigPatchRequest } from "./models/AzureUCConfigPatchRequest";
 import { AzureUCConfigPostRequest } from "./models/AzureUCConfigPostRequest";
 import { AzureUCConfigsResponse } from "./models/AzureUCConfigsResponse";
-import { BudgetArray } from "./models/BudgetArray";
-import { BudgetWithEntries } from "./models/BudgetWithEntries";
 import { CustomCostsFileGetResponse } from "./models/CustomCostsFileGetResponse";
 import { CustomCostsFileLineItem } from "./models/CustomCostsFileLineItem";
 import { CustomCostsFileListResponse } from "./models/CustomCostsFileListResponse";
@@ -104,40 +102,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       contentType,
     );
     requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async deleteBudget(
-    budgetId: string,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'budgetId' is not null or undefined
-    if (budgetId === null || budgetId === undefined) {
-      throw new RequiredError("budgetId", "deleteBudget");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/cost/budget/{budget_id}".replace(
-      "{budget_id}",
-      encodeURIComponent(String(budgetId)),
-    );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.deleteBudget")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "*/*");
-    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -253,40 +217,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async getBudget(
-    budgetId: string,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'budgetId' is not null or undefined
-    if (budgetId === null || budgetId === undefined) {
-      throw new RequiredError("budgetId", "getBudget");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/cost/budget/{budget_id}".replace(
-      "{budget_id}",
-      encodeURIComponent(String(budgetId)),
-    );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.getBudget")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
   public async getCustomCostsFile(
     fileId: string,
     _options?: Configuration,
@@ -307,29 +237,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer("v2.CloudCostManagementApi.getCustomCostsFile")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async listBudgets(_options?: Configuration): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // Path Params
-    const localVarPath = "/api/v2/cost/budgets";
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.listBudgets")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -558,46 +465,6 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
 
     return requestContext;
   }
-
-  public async upsertBudget(
-    body: BudgetWithEntries,
-    _options?: Configuration,
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'body' is not null or undefined
-    if (body === null || body === undefined) {
-      throw new RequiredError("body", "upsertBudget");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/cost/budget";
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.upsertBudget")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Body Params
-    const contentType = getPreferredMediaType(["application/json"]);
-    requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = stringify(
-      serialize(body, TypingInfo, "BudgetWithEntries", ""),
-      contentType,
-    );
-    requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
 }
 
 export class CloudCostManagementApiResponseProcessor {
@@ -712,49 +579,6 @@ export class CloudCostManagementApiResponseProcessor {
         "",
       ) as AzureUCConfigPairsResponse;
       return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to deleteBudget
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async deleteBudget(response: ResponseContext): Promise<void> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 204) {
-      return;
-    }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -909,66 +733,6 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getBudget
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getBudget(
-    response: ResponseContext,
-  ): Promise<BudgetWithEntries> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: BudgetWithEntries = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "BudgetWithEntries",
-      ) as BudgetWithEntries;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: BudgetWithEntries = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "BudgetWithEntries",
-        "",
-      ) as BudgetWithEntries;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to getCustomCostsFile
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1011,60 +775,6 @@ export class CloudCostManagementApiResponseProcessor {
         "CustomCostsFileGetResponse",
         "",
       ) as CustomCostsFileGetResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to listBudgets
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async listBudgets(response: ResponseContext): Promise<BudgetArray> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: BudgetArray = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "BudgetArray",
-      ) as BudgetArray;
-      return body;
-    }
-    if (response.httpStatusCode === 429) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: BudgetArray = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "BudgetArray",
-        "",
-      ) as BudgetArray;
       return body;
     }
 
@@ -1414,66 +1124,6 @@ export class CloudCostManagementApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to upsertBudget
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async upsertBudget(
-    response: ResponseContext,
-  ): Promise<BudgetWithEntries> {
-    const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
-      const body: BudgetWithEntries = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "BudgetWithEntries",
-      ) as BudgetWithEntries;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
-      try {
-        body = deserialize(
-          bodyText,
-          TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText,
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: BudgetWithEntries = deserialize(
-        parse(await response.body.text(), contentType),
-        TypingInfo,
-        "BudgetWithEntries",
-        "",
-      ) as BudgetWithEntries;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"',
-    );
-  }
 }
 
 export interface CloudCostManagementApiCreateCostAWSCURConfigRequest {
@@ -1488,14 +1138,6 @@ export interface CloudCostManagementApiCreateCostAzureUCConfigsRequest {
    * @type AzureUCConfigPostRequest
    */
   body: AzureUCConfigPostRequest;
-}
-
-export interface CloudCostManagementApiDeleteBudgetRequest {
-  /**
-   * Budget id.
-   * @type string
-   */
-  budgetId: string;
 }
 
 export interface CloudCostManagementApiDeleteCostAWSCURConfigRequest {
@@ -1520,14 +1162,6 @@ export interface CloudCostManagementApiDeleteCustomCostsFileRequest {
    * @type string
    */
   fileId: string;
-}
-
-export interface CloudCostManagementApiGetBudgetRequest {
-  /**
-   * Budget id.
-   * @type string
-   */
-  budgetId: string;
 }
 
 export interface CloudCostManagementApiGetCustomCostsFileRequest {
@@ -1567,13 +1201,6 @@ export interface CloudCostManagementApiUploadCustomCostsFileRequest {
    * @type Array<CustomCostsFileLineItem>
    */
   body: Array<CustomCostsFileLineItem>;
-}
-
-export interface CloudCostManagementApiUpsertBudgetRequest {
-  /**
-   * @type BudgetWithEntries
-   */
-  body: BudgetWithEntries;
 }
 
 export class CloudCostManagementApi {
@@ -1634,27 +1261,6 @@ export class CloudCostManagementApi {
           return this.responseProcessor.createCostAzureUCConfigs(
             responseContext,
           );
-        });
-    });
-  }
-
-  /**
-   * Delete a budget.
-   * @param param The request object
-   */
-  public deleteBudget(
-    param: CloudCostManagementApiDeleteBudgetRequest,
-    options?: Configuration,
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteBudget(
-      param.budgetId,
-      options,
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteBudget(responseContext);
         });
     });
   }
@@ -1725,27 +1331,6 @@ export class CloudCostManagementApi {
   }
 
   /**
-   * Get a budget.
-   * @param param The request object
-   */
-  public getBudget(
-    param: CloudCostManagementApiGetBudgetRequest,
-    options?: Configuration,
-  ): Promise<BudgetWithEntries> {
-    const requestContextPromise = this.requestFactory.getBudget(
-      param.budgetId,
-      options,
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getBudget(responseContext);
-        });
-    });
-  }
-
-  /**
    * Fetch the specified Custom Costs file.
    * @param param The request object
    */
@@ -1762,21 +1347,6 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getCustomCostsFile(responseContext);
-        });
-    });
-  }
-
-  /**
-   * List budgets.
-   * @param param The request object
-   */
-  public listBudgets(options?: Configuration): Promise<BudgetArray> {
-    const requestContextPromise = this.requestFactory.listBudgets(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listBudgets(responseContext);
         });
     });
   }
@@ -1898,27 +1468,6 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.uploadCustomCostsFile(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Create a new budget or update an existing one.
-   * @param param The request object
-   */
-  public upsertBudget(
-    param: CloudCostManagementApiUpsertBudgetRequest,
-    options?: Configuration,
-  ): Promise<BudgetWithEntries> {
-    const requestContextPromise = this.requestFactory.upsertBudget(
-      param.body,
-      options,
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.upsertBudget(responseContext);
         });
     });
   }

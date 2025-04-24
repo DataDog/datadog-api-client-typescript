@@ -3298,30 +3298,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AzureUCConfigPairsResponse",
   },
-  "CloudCostManagementApi.V2.UpsertBudget": {
-    body: {
-      type: "BudgetWithEntries",
-      format: "",
-    },
-    operationResponseType: "BudgetWithEntries",
-  },
-  "CloudCostManagementApi.V2.GetBudget": {
-    budgetId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "BudgetWithEntries",
-  },
-  "CloudCostManagementApi.V2.DeleteBudget": {
-    budgetId: {
-      type: "string",
-      format: "",
-    },
-    operationResponseType: "{}",
-  },
-  "CloudCostManagementApi.V2.ListBudgets": {
-    operationResponseType: "BudgetArray",
-  },
   "CloudCostManagementApi.V2.ListCustomCostsFiles": {
     operationResponseType: "CustomCostsFileListResponse",
   },
