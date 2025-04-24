@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "check-licenses": "node bin/check-licenses.js",
-    "build": "yarn workspaces foreach -Ap run build",
+    "build": "yarn workspaces foreach -Apt run build",
     "lint": "eslint --ext .ts packages/* services/*",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write --ignore-unknown '**.{js,ts}'",
