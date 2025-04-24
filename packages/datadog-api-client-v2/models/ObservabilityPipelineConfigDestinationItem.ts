@@ -4,6 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
+import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
+import { ObservabilityPipelineSentinelOneDestination } from "./ObservabilityPipelineSentinelOneDestination";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -13,4 +16,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineDatadogLogsDestination
+  | ObservabilityPipelineGoogleChronicleDestination
+  | ObservabilityPipelineNewRelicDestination
+  | ObservabilityPipelineSentinelOneDestination
   | UnparsedObject;

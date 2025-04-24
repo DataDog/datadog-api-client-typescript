@@ -1056,7 +1056,11 @@ import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
 import { ObservabilityPipeline } from "./ObservabilityPipeline";
+import { ObservabilityPipelineAddEnvVarsProcessor } from "./ObservabilityPipelineAddEnvVarsProcessor";
+import { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./ObservabilityPipelineAddEnvVarsProcessorVariable";
 import { ObservabilityPipelineAddFieldsProcessor } from "./ObservabilityPipelineAddFieldsProcessor";
+import { ObservabilityPipelineAmazonDataFirehoseSource } from "./ObservabilityPipelineAmazonDataFirehoseSource";
+import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
 import { ObservabilityPipelineCreateRequest } from "./ObservabilityPipelineCreateRequest";
 import { ObservabilityPipelineCreateRequestData } from "./ObservabilityPipelineCreateRequestData";
@@ -1064,18 +1068,37 @@ import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
 import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
+import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
+import { ObservabilityPipelineEnrichmentTableFileEncoding } from "./ObservabilityPipelineEnrichmentTableFileEncoding";
+import { ObservabilityPipelineEnrichmentTableFileKeyItems } from "./ObservabilityPipelineEnrichmentTableFileKeyItems";
+import { ObservabilityPipelineEnrichmentTableFileSchemaItems } from "./ObservabilityPipelineEnrichmentTableFileSchemaItems";
+import { ObservabilityPipelineEnrichmentTableGeoIp } from "./ObservabilityPipelineEnrichmentTableGeoIp";
+import { ObservabilityPipelineEnrichmentTableProcessor } from "./ObservabilityPipelineEnrichmentTableProcessor";
 import { ObservabilityPipelineFieldValue } from "./ObservabilityPipelineFieldValue";
 import { ObservabilityPipelineFilterProcessor } from "./ObservabilityPipelineFilterProcessor";
+import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
+import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
+import { ObservabilityPipelineGooglePubSubSource } from "./ObservabilityPipelineGooglePubSubSource";
+import { ObservabilityPipelineHttpClientSource } from "./ObservabilityPipelineHttpClientSource";
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
 import { ObservabilityPipelineKafkaSourceLibrdkafkaOption } from "./ObservabilityPipelineKafkaSourceLibrdkafkaOption";
 import { ObservabilityPipelineKafkaSourceSasl } from "./ObservabilityPipelineKafkaSourceSasl";
+import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
+import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
+import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
+import { ObservabilityPipelineOcsfMapperProcessorMapping } from "./ObservabilityPipelineOcsfMapperProcessorMapping";
 import { ObservabilityPipelineParseJSONProcessor } from "./ObservabilityPipelineParseJSONProcessor";
 import { ObservabilityPipelineQuotaProcessor } from "./ObservabilityPipelineQuotaProcessor";
 import { ObservabilityPipelineQuotaProcessorLimit } from "./ObservabilityPipelineQuotaProcessorLimit";
 import { ObservabilityPipelineQuotaProcessorOverride } from "./ObservabilityPipelineQuotaProcessorOverride";
+import { ObservabilityPipelineReduceProcessor } from "./ObservabilityPipelineReduceProcessor";
+import { ObservabilityPipelineReduceProcessorMergeStrategy } from "./ObservabilityPipelineReduceProcessorMergeStrategy";
 import { ObservabilityPipelineRemoveFieldsProcessor } from "./ObservabilityPipelineRemoveFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessor } from "./ObservabilityPipelineRenameFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessorField } from "./ObservabilityPipelineRenameFieldsProcessorField";
+import { ObservabilityPipelineSentinelOneDestination } from "./ObservabilityPipelineSentinelOneDestination";
+import { ObservabilityPipelineThrottleProcessor } from "./ObservabilityPipelineThrottleProcessor";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 import { OktaAccount } from "./OktaAccount";
 import { OktaAccountAttributes } from "./OktaAccountAttributes";
@@ -2335,11 +2358,52 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorDowntimeMatchResourceType: ["downtime_match"],
   MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
   NotificationRulesType: ["notification_rules"],
+  ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
+  ObservabilityPipelineAmazonDataFirehoseSourceType: ["amazon_data_firehose"],
   ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
   ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
+  ObservabilityPipelineDecoding: ["bytes", "gelf", "json", "syslog"],
+  ObservabilityPipelineDedupeProcessorMode: ["match", "ignore"],
+  ObservabilityPipelineDedupeProcessorType: ["dedupe"],
+  ObservabilityPipelineEnrichmentTableFileEncodingType: ["csv"],
+  ObservabilityPipelineEnrichmentTableFileKeyItemsComparison: ["equals"],
+  ObservabilityPipelineEnrichmentTableFileSchemaItemsType: [
+    "string",
+    "boolean",
+    "integer",
+    "float",
+    "date",
+    "timestamp",
+  ],
+  ObservabilityPipelineEnrichmentTableProcessorType: ["enrichment_table"],
   ObservabilityPipelineFilterProcessorType: ["filter"],
+  ObservabilityPipelineGoogleChronicleDestinationEncoding: [
+    "json",
+    "raw_message",
+  ],
+  ObservabilityPipelineGoogleChronicleDestinationType: ["google_chronicle"],
+  ObservabilityPipelineGooglePubSubSourceType: ["google_pubsub"],
+  ObservabilityPipelineHttpClientSourceAuthStrategy: ["basic", "bearer"],
+  ObservabilityPipelineHttpClientSourceType: ["http_client"],
   ObservabilityPipelineKafkaSourceType: ["kafka"],
+  ObservabilityPipelineLogstashSourceType: ["logstash"],
+  ObservabilityPipelineNewRelicDestinationRegion: ["us", "eu"],
+  ObservabilityPipelineNewRelicDestinationType: ["new_relic"],
+  ObservabilityPipelineOcsfMapperProcessorType: ["ocsf_mapper"],
+  ObservabilityPipelineOcsfMappingLibrary: [
+    "CloudTrail Account Change",
+    "GCP Cloud Audit CreateBucket",
+    "GCP Cloud Audit CreateSink",
+    "GCP Cloud Audit SetIamPolicy",
+    "GCP Cloud Audit UpdateSink",
+    "Github Audit Log API Activity",
+    "Google Workspace Admin Audit addPrivilege",
+    "Microsoft 365 Defender Incident",
+    "Microsoft 365 Defender UserLoggedIn",
+    "Okta System Log Authentication",
+    "Palo Alto Networks Firewall Traffic",
+  ],
   ObservabilityPipelineParseJSONProcessorType: ["parse_json"],
   ObservabilityPipelinePipelineKafkaSourceSaslMechanism: [
     "PLAIN",
@@ -2348,8 +2412,31 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ObservabilityPipelineQuotaProcessorLimitEnforceType: ["bytes", "events"],
   ObservabilityPipelineQuotaProcessorType: ["quota"],
+  ObservabilityPipelineReduceProcessorMergeStrategyStrategy: [
+    "discard",
+    "retain",
+    "sum",
+    "max",
+    "min",
+    "array",
+    "concat",
+    "concat_newline",
+    "concat_raw",
+    "shortest_array",
+    "longest_array",
+    "flat_unique",
+  ],
+  ObservabilityPipelineReduceProcessorType: ["reduce"],
   ObservabilityPipelineRemoveFieldsProcessorType: ["remove_fields"],
   ObservabilityPipelineRenameFieldsProcessorType: ["rename_fields"],
+  ObservabilityPipelineSentinelOneDestinationRegion: [
+    "us",
+    "eu",
+    "ca",
+    "data_set_us",
+  ],
+  ObservabilityPipelineSentinelOneDestinationType: ["sentinel_one"],
+  ObservabilityPipelineThrottleProcessorType: ["throttle"],
   OktaAccountType: ["okta-accounts"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
@@ -4072,8 +4159,15 @@ const typeMap: { [index: string]: any } = {
   NullableUserRelationship: NullableUserRelationship,
   NullableUserRelationshipData: NullableUserRelationshipData,
   ObservabilityPipeline: ObservabilityPipeline,
+  ObservabilityPipelineAddEnvVarsProcessor:
+    ObservabilityPipelineAddEnvVarsProcessor,
+  ObservabilityPipelineAddEnvVarsProcessorVariable:
+    ObservabilityPipelineAddEnvVarsProcessorVariable,
   ObservabilityPipelineAddFieldsProcessor:
     ObservabilityPipelineAddFieldsProcessor,
+  ObservabilityPipelineAmazonDataFirehoseSource:
+    ObservabilityPipelineAmazonDataFirehoseSource,
+  ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
   ObservabilityPipelineConfig: ObservabilityPipelineConfig,
   ObservabilityPipelineCreateRequest: ObservabilityPipelineCreateRequest,
   ObservabilityPipelineCreateRequestData:
@@ -4084,12 +4178,38 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineDatadogAgentSource,
   ObservabilityPipelineDatadogLogsDestination:
     ObservabilityPipelineDatadogLogsDestination,
+  ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
+  ObservabilityPipelineEnrichmentTableFile:
+    ObservabilityPipelineEnrichmentTableFile,
+  ObservabilityPipelineEnrichmentTableFileEncoding:
+    ObservabilityPipelineEnrichmentTableFileEncoding,
+  ObservabilityPipelineEnrichmentTableFileKeyItems:
+    ObservabilityPipelineEnrichmentTableFileKeyItems,
+  ObservabilityPipelineEnrichmentTableFileSchemaItems:
+    ObservabilityPipelineEnrichmentTableFileSchemaItems,
+  ObservabilityPipelineEnrichmentTableGeoIp:
+    ObservabilityPipelineEnrichmentTableGeoIp,
+  ObservabilityPipelineEnrichmentTableProcessor:
+    ObservabilityPipelineEnrichmentTableProcessor,
   ObservabilityPipelineFieldValue: ObservabilityPipelineFieldValue,
   ObservabilityPipelineFilterProcessor: ObservabilityPipelineFilterProcessor,
+  ObservabilityPipelineGcpAuth: ObservabilityPipelineGcpAuth,
+  ObservabilityPipelineGoogleChronicleDestination:
+    ObservabilityPipelineGoogleChronicleDestination,
+  ObservabilityPipelineGooglePubSubSource:
+    ObservabilityPipelineGooglePubSubSource,
+  ObservabilityPipelineHttpClientSource: ObservabilityPipelineHttpClientSource,
   ObservabilityPipelineKafkaSource: ObservabilityPipelineKafkaSource,
   ObservabilityPipelineKafkaSourceLibrdkafkaOption:
     ObservabilityPipelineKafkaSourceLibrdkafkaOption,
   ObservabilityPipelineKafkaSourceSasl: ObservabilityPipelineKafkaSourceSasl,
+  ObservabilityPipelineLogstashSource: ObservabilityPipelineLogstashSource,
+  ObservabilityPipelineNewRelicDestination:
+    ObservabilityPipelineNewRelicDestination,
+  ObservabilityPipelineOcsfMapperProcessor:
+    ObservabilityPipelineOcsfMapperProcessor,
+  ObservabilityPipelineOcsfMapperProcessorMapping:
+    ObservabilityPipelineOcsfMapperProcessorMapping,
   ObservabilityPipelineParseJSONProcessor:
     ObservabilityPipelineParseJSONProcessor,
   ObservabilityPipelineQuotaProcessor: ObservabilityPipelineQuotaProcessor,
@@ -4097,12 +4217,19 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineQuotaProcessorLimit,
   ObservabilityPipelineQuotaProcessorOverride:
     ObservabilityPipelineQuotaProcessorOverride,
+  ObservabilityPipelineReduceProcessor: ObservabilityPipelineReduceProcessor,
+  ObservabilityPipelineReduceProcessorMergeStrategy:
+    ObservabilityPipelineReduceProcessorMergeStrategy,
   ObservabilityPipelineRemoveFieldsProcessor:
     ObservabilityPipelineRemoveFieldsProcessor,
   ObservabilityPipelineRenameFieldsProcessor:
     ObservabilityPipelineRenameFieldsProcessor,
   ObservabilityPipelineRenameFieldsProcessorField:
     ObservabilityPipelineRenameFieldsProcessorField,
+  ObservabilityPipelineSentinelOneDestination:
+    ObservabilityPipelineSentinelOneDestination,
+  ObservabilityPipelineThrottleProcessor:
+    ObservabilityPipelineThrottleProcessor,
   ObservabilityPipelineTls: ObservabilityPipelineTls,
   OktaAccount: OktaAccount,
   OktaAccountAttributes: OktaAccountAttributes,
@@ -5050,6 +5177,9 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorNotificationRuleResponseIncludedItem: ["User"],
   ObservabilityPipelineConfigDestinationItem: [
     "ObservabilityPipelineDatadogLogsDestination",
+    "ObservabilityPipelineGoogleChronicleDestination",
+    "ObservabilityPipelineNewRelicDestination",
+    "ObservabilityPipelineSentinelOneDestination",
   ],
   ObservabilityPipelineConfigProcessorItem: [
     "ObservabilityPipelineFilterProcessor",
@@ -5058,10 +5188,23 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineAddFieldsProcessor",
     "ObservabilityPipelineRemoveFieldsProcessor",
     "ObservabilityPipelineRenameFieldsProcessor",
+    "ObservabilityPipelineOcsfMapperProcessor",
+    "ObservabilityPipelineAddEnvVarsProcessor",
+    "ObservabilityPipelineDedupeProcessor",
+    "ObservabilityPipelineEnrichmentTableProcessor",
+    "ObservabilityPipelineReduceProcessor",
+    "ObservabilityPipelineThrottleProcessor",
   ],
   ObservabilityPipelineConfigSourceItem: [
     "ObservabilityPipelineKafkaSource",
     "ObservabilityPipelineDatadogAgentSource",
+    "ObservabilityPipelineAmazonDataFirehoseSource",
+    "ObservabilityPipelineGooglePubSubSource",
+    "ObservabilityPipelineHttpClientSource",
+    "ObservabilityPipelineLogstashSource",
+  ],
+  ObservabilityPipelineOcsfMapperProcessorMappingMapping: [
+    "ObservabilityPipelineOcsfMappingLibrary",
   ],
   Query: ["ActionQuery", "DataTransform", "StateVariable"],
   RUMAggregateBucketValue: [

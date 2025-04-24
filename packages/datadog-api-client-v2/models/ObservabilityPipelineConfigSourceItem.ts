@@ -3,8 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ObservabilityPipelineAmazonDataFirehoseSource } from "./ObservabilityPipelineAmazonDataFirehoseSource";
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
+import { ObservabilityPipelineGooglePubSubSource } from "./ObservabilityPipelineGooglePubSubSource";
+import { ObservabilityPipelineHttpClientSource } from "./ObservabilityPipelineHttpClientSource";
 import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSource";
+import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -15,4 +19,8 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type ObservabilityPipelineConfigSourceItem =
   | ObservabilityPipelineKafkaSource
   | ObservabilityPipelineDatadogAgentSource
+  | ObservabilityPipelineAmazonDataFirehoseSource
+  | ObservabilityPipelineGooglePubSubSource
+  | ObservabilityPipelineHttpClientSource
+  | ObservabilityPipelineLogstashSource
   | UnparsedObject;
