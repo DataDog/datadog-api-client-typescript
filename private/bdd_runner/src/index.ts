@@ -24,7 +24,34 @@ function isFile(path: string): boolean {
   return fs.statSync(path).isFile();
 }
 
-function buildImportsAndMappings(servicesDir: string): {
+function createImportDeclaration(
+  namedImports: string[],
+  serviceDirName: string,
+  servicesDir: string,
+  importPath: string,
+  useBuiltPackages: boolean,
+): ImportDeclarationStructure {
+  let moduleSpecifier = "";
+  if (useBuiltPackages) {
+    moduleSpecifier = `@datadog/datadog-api-client-${serviceDirName.replace(/_/g, "-")}`;
+    if (importPath !== "") {
+      moduleSpecifier += "/dist" + importPath;
+    }
+  } else {
+    moduleSpecifier = `${servicesDir}/${serviceDirName}/src/${importPath}`;
+  }
+
+  return {
+    kind: StructureKind.ImportDeclaration,
+    namedImports,
+    moduleSpecifier,
+  };
+}
+
+function buildImportsAndMappings(
+  servicesDir: string,
+  useBuiltPackages: boolean,
+): {
   imports: ImportDeclarationStructure[];
   apiNameToServiceNameMapping: Record<string, string>;
   apiNameToTypingInfoMapping: Record<string, string>;
@@ -42,11 +69,15 @@ function buildImportsAndMappings(servicesDir: string): {
       // Parse the regex matching the Api export format. For example: UsageMeteringApiV2
       const apiMatches = file.match(apiExportRegex);
       if (apiMatches) {
-        imports.push({
-          kind: StructureKind.ImportDeclaration,
-          namedImports: apiMatches,
-          moduleSpecifier: `@datadog/datadog-api-client-${service.replace(/_/g, "-")}`,
-        });
+        imports.push(
+          createImportDeclaration(
+            apiMatches,
+            service,
+            servicesDir,
+            "",
+            useBuiltPackages,
+          ),
+        );
 
         for (const apiMatch of apiMatches) {
           // Extract version number (e.g. "V2" from "UsageMeteringApiV2")
@@ -54,11 +85,15 @@ function buildImportsAndMappings(servicesDir: string): {
           if (!version) {
             throw new Error(`Failed to extract version from ${apiMatch}`);
           }
-          imports.push({
-            kind: StructureKind.ImportDeclaration,
-            namedImports: ["TypingInfo as " + apiMatch + "TypingInfo"],
-            moduleSpecifier: `@datadog/datadog-api-client-${service.replace(/_/g, "-")}/dist/v${version}/models/TypingInfo`,
-          });
+          imports.push(
+            createImportDeclaration(
+              ["TypingInfo as " + apiMatch + "TypingInfo"],
+              service,
+              servicesDir,
+              `v${version}/models/TypingInfo`,
+              useBuiltPackages,
+            ),
+          );
 
           apiNameToTypingInfoMapping[apiMatch] = apiMatch + "TypingInfo";
         }
@@ -166,7 +201,7 @@ function populateApiTypes(
   }
 }
 
-function generateApiInfo(servicesDir: string) {
+function generateApiInfo(servicesDir: string, useBuiltPackages: boolean) {
   const project = new Project({
     skipAddingFilesFromTsConfig: true,
   });
@@ -175,7 +210,7 @@ function generateApiInfo(servicesDir: string) {
   let sourceFile = project.getSourceFileOrThrow("src/support/api_info.ts");
 
   const { imports, apiNameToServiceNameMapping, apiNameToTypingInfoMapping } =
-    buildImportsAndMappings(servicesDir);
+    buildImportsAndMappings(servicesDir, useBuiltPackages);
   sourceFile.addImportDeclarations(imports);
 
   // Populate apiTypes map
@@ -215,6 +250,10 @@ function main() {
     .option(
       "--additional-givens <additionalGivens>",
       "Additional given files to be added to cucumber. The value is mapping of version to the given file.",
+    )
+    .option(
+      "--built-packages",
+      "Use built packages instead of directory structure",
     )
     .argument("<feature>", "Fully qualified path to feature files")
     .parse(process.argv);
@@ -279,7 +318,7 @@ function main() {
   });
 
   // Generate API info
-  generateApiInfo(worldParameters["servicesDir"]);
+  generateApiInfo(worldParameters["servicesDir"], options.useBuiltPackages);
 
   // Run Cucumber
   cli.run();
