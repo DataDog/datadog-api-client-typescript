@@ -250,6 +250,9 @@ def get_references_for_model(model, model_name):
                 name = formatter.get_name(oneOf["items"])
             elif not (oneOf.get("additionalProperties", False) != False and not oneOf.get("properties")) and oneOf.get("type", "object") == "object":
                 name = formatter.get_name(oneOf)
+            elif "enum" in oneOf:
+                name = formatter.get_name(oneOf)
+
             if name:
                 result.append(name)
     for key, definition in model.get("properties", {}).items():
