@@ -8,7 +8,7 @@ import { CloudWorkloadSecurityAgentRuleKill } from "./CloudWorkloadSecurityAgent
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The action the rule can perform if triggered.
+ * The action the rule can perform if triggered
  */
 export class CloudWorkloadSecurityAgentRuleAction {
   /**
