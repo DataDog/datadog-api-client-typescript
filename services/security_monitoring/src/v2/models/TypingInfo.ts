@@ -28,9 +28,19 @@ import { CodeLocation } from "./CodeLocation";
 import { ConvertJobResultsToSignalsAttributes } from "./ConvertJobResultsToSignalsAttributes";
 import { ConvertJobResultsToSignalsData } from "./ConvertJobResultsToSignalsData";
 import { ConvertJobResultsToSignalsRequest } from "./ConvertJobResultsToSignalsRequest";
+import { CreateCustomFrameworkRequest } from "./CreateCustomFrameworkRequest";
+import { CreateCustomFrameworkResponse } from "./CreateCustomFrameworkResponse";
 import { CreateNotificationRuleParameters } from "./CreateNotificationRuleParameters";
 import { CreateNotificationRuleParametersData } from "./CreateNotificationRuleParametersData";
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
+import { CustomFrameworkControl } from "./CustomFrameworkControl";
+import { CustomFrameworkData } from "./CustomFrameworkData";
+import { CustomFrameworkDataAttributes } from "./CustomFrameworkDataAttributes";
+import { CustomFrameworkDataHandleAndVersion } from "./CustomFrameworkDataHandleAndVersion";
+import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
+import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
+import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
+import { DeleteCustomFrameworkResponse } from "./DeleteCustomFrameworkResponse";
 import { DependencyLocation } from "./DependencyLocation";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
@@ -39,6 +49,10 @@ import { Finding } from "./Finding";
 import { FindingAttributes } from "./FindingAttributes";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
+import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
+import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
+import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
+import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GetRuleVersionHistoryData } from "./GetRuleVersionHistoryData";
 import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
@@ -165,6 +179,8 @@ import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoring
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 import { Selectors } from "./Selectors";
+import { UpdateCustomFrameworkRequest } from "./UpdateCustomFrameworkRequest";
+import { UpdateCustomFrameworkResponse } from "./UpdateCustomFrameworkResponse";
 import { Vulnerability } from "./Vulnerability";
 import { VulnerabilityAttributes } from "./VulnerabilityAttributes";
 import { VulnerabilityCvss } from "./VulnerabilityCvss";
@@ -182,6 +198,7 @@ export const TypingInfo: ModelTypingInfo = {
     ConvertJobResultsToSignalsDataType: [
       "historicalDetectionsJobResultSignalConversion",
     ],
+    CustomFrameworkType: ["custom_framework"],
     DetailedFindingType: ["detailed_finding"],
     FindingEvaluation: ["pass", "fail"],
     FindingMuteReason: [
@@ -457,10 +474,20 @@ export const TypingInfo: ModelTypingInfo = {
     ConvertJobResultsToSignalsAttributes: ConvertJobResultsToSignalsAttributes,
     ConvertJobResultsToSignalsData: ConvertJobResultsToSignalsData,
     ConvertJobResultsToSignalsRequest: ConvertJobResultsToSignalsRequest,
+    CreateCustomFrameworkRequest: CreateCustomFrameworkRequest,
+    CreateCustomFrameworkResponse: CreateCustomFrameworkResponse,
     CreateNotificationRuleParameters: CreateNotificationRuleParameters,
     CreateNotificationRuleParametersData: CreateNotificationRuleParametersData,
     CreateNotificationRuleParametersDataAttributes:
       CreateNotificationRuleParametersDataAttributes,
+    CustomFrameworkControl: CustomFrameworkControl,
+    CustomFrameworkData: CustomFrameworkData,
+    CustomFrameworkDataAttributes: CustomFrameworkDataAttributes,
+    CustomFrameworkDataHandleAndVersion: CustomFrameworkDataHandleAndVersion,
+    CustomFrameworkMetadata: CustomFrameworkMetadata,
+    CustomFrameworkRequirement: CustomFrameworkRequirement,
+    CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
+    DeleteCustomFrameworkResponse: DeleteCustomFrameworkResponse,
     DependencyLocation: DependencyLocation,
     DetailedFinding: DetailedFinding,
     DetailedFindingAttributes: DetailedFindingAttributes,
@@ -469,6 +496,11 @@ export const TypingInfo: ModelTypingInfo = {
     FindingAttributes: FindingAttributes,
     FindingMute: FindingMute,
     FindingRule: FindingRule,
+    FrameworkHandleAndVersionResponseData:
+      FrameworkHandleAndVersionResponseData,
+    FullCustomFrameworkData: FullCustomFrameworkData,
+    FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
+    GetCustomFrameworkResponse: GetCustomFrameworkResponse,
     GetFindingResponse: GetFindingResponse,
     GetRuleVersionHistoryData: GetRuleVersionHistoryData,
     GetRuleVersionHistoryResponse: GetRuleVersionHistoryResponse,
@@ -638,6 +670,8 @@ export const TypingInfo: ModelTypingInfo = {
     SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
     SecurityMonitoringUser: SecurityMonitoringUser,
     Selectors: Selectors,
+    UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
+    UpdateCustomFrameworkResponse: UpdateCustomFrameworkResponse,
     Vulnerability: Vulnerability,
     VulnerabilityAttributes: VulnerabilityAttributes,
     VulnerabilityCvss: VulnerabilityCvss,

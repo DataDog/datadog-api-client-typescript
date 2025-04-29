@@ -3,11 +3,13 @@ export {
   SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiConvertJobResultToSignalRequest,
   SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
+  SecurityMonitoringApiCreateCustomFrameworkRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiCreateSignalNotificationRuleRequest,
   SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiDeleteCustomFrameworkRequest,
   SecurityMonitoringApiDeleteHistoricalJobRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
@@ -17,6 +19,7 @@ export {
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
+  SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetHistoricalJobRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
@@ -40,6 +43,7 @@ export {
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiUpdateCustomFrameworkRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
@@ -78,10 +82,21 @@ export { ConvertJobResultsToSignalsAttributes } from "./models/ConvertJobResults
 export { ConvertJobResultsToSignalsData } from "./models/ConvertJobResultsToSignalsData";
 export { ConvertJobResultsToSignalsDataType } from "./models/ConvertJobResultsToSignalsDataType";
 export { ConvertJobResultsToSignalsRequest } from "./models/ConvertJobResultsToSignalsRequest";
+export { CreateCustomFrameworkRequest } from "./models/CreateCustomFrameworkRequest";
+export { CreateCustomFrameworkResponse } from "./models/CreateCustomFrameworkResponse";
 export { CreateNotificationRuleParameters } from "./models/CreateNotificationRuleParameters";
 export { CreateNotificationRuleParametersData } from "./models/CreateNotificationRuleParametersData";
 export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateNotificationRuleParametersDataAttributes";
+export { CustomFrameworkControl } from "./models/CustomFrameworkControl";
+export { CustomFrameworkData } from "./models/CustomFrameworkData";
+export { CustomFrameworkDataAttributes } from "./models/CustomFrameworkDataAttributes";
+export { CustomFrameworkDataHandleAndVersion } from "./models/CustomFrameworkDataHandleAndVersion";
+export { CustomFrameworkMetadata } from "./models/CustomFrameworkMetadata";
+export { CustomFrameworkRequirement } from "./models/CustomFrameworkRequirement";
+export { CustomFrameworkType } from "./models/CustomFrameworkType";
+export { CustomFrameworkWithoutRequirements } from "./models/CustomFrameworkWithoutRequirements";
 export { CVSS } from "./models/CVSS";
+export { DeleteCustomFrameworkResponse } from "./models/DeleteCustomFrameworkResponse";
 export { DependencyLocation } from "./models/DependencyLocation";
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
@@ -96,6 +111,10 @@ export { FindingRule } from "./models/FindingRule";
 export { FindingStatus } from "./models/FindingStatus";
 export { FindingType } from "./models/FindingType";
 export { FindingVulnerabilityType } from "./models/FindingVulnerabilityType";
+export { FrameworkHandleAndVersionResponseData } from "./models/FrameworkHandleAndVersionResponseData";
+export { FullCustomFrameworkData } from "./models/FullCustomFrameworkData";
+export { FullCustomFrameworkDataAttributes } from "./models/FullCustomFrameworkDataAttributes";
+export { GetCustomFrameworkResponse } from "./models/GetCustomFrameworkResponse";
 export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetRuleVersionHistoryData } from "./models/GetRuleVersionHistoryData";
 export { GetRuleVersionHistoryDataType } from "./models/GetRuleVersionHistoryDataType";
@@ -265,6 +284,8 @@ export { SecurityMonitoringUser } from "./models/SecurityMonitoringUser";
 export { Selectors } from "./models/Selectors";
 export { SpecVersion } from "./models/SpecVersion";
 export { TriggerSource } from "./models/TriggerSource";
+export { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
+export { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkResponse";
 export { VulnerabilitiesType } from "./models/VulnerabilitiesType";
 export { Vulnerability } from "./models/Vulnerability";
 export { VulnerabilityAttributes } from "./models/VulnerabilityAttributes";

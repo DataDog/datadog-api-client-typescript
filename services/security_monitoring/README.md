@@ -20,12 +20,10 @@ import { SecurityMonitoringApiV2 } from "@datadog/datadog-api-client-security-mo
 import { v2 } from "@datadog/datadog-api-client-security-monitoring";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-configuration.unstableOperations["v2.listFindings"] = true;
 const apiInstance = new SecurityMonitoringApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listFindings(params).then((data: v2.ListFindingsResponse) => {
+apiInstance.createCustomFramework(params).then((data: v2.CreateCustomFrameworkResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
