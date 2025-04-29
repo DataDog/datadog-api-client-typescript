@@ -9,7 +9,7 @@ import {
   SyntaxKind,
   VariableDeclarationKind,
 } from "ts-morph";
-import Cli from "@cucumber/cucumber/lib/cli/index";
+import Cli, { ICliRunResult } from "@cucumber/cucumber/lib/cli/index";
 
 import path from "path";
 import fs from "fs";
@@ -223,7 +223,7 @@ function generateApiInfo(servicesDir: string, useBuiltPackages: boolean) {
   sourceFile.saveSync();
 }
 
-function main() {
+async function main(): Promise<ICliRunResult>{
   let cwd = process.cwd();
   const program = new Command();
   program
@@ -321,7 +321,11 @@ function main() {
   generateApiInfo(worldParameters["servicesDir"], options.useBuiltPackages);
 
   // Run Cucumber
-  cli.run();
+  return cli.run();
 }
 
-main();
+// Run the main function and exit with the result
+(async () => {
+  const result = await main();
+  process.exit(result.success ? 0 : 1);
+})();
