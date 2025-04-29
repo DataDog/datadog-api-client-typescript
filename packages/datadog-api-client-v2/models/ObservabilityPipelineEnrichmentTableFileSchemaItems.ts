@@ -3,22 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
+import { ObservabilityPipelineEnrichmentTableFileSchemaItemsType } from "./ObservabilityPipelineEnrichmentTableFileSchemaItemsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Contains the pipeline’s ID, type, and configuration attributes.
+ * Describes a single column and its type in an enrichment table schema.
  */
-export class ObservabilityPipelineCreateRequestData {
+export class ObservabilityPipelineEnrichmentTableFileSchemaItems {
   /**
-   * Defines the pipeline’s name and its components (sources, processors, and destinations).
+   * The `items` `column`.
    */
-  "attributes": ObservabilityPipelineDataAttributes;
+  "column": string;
   /**
-   * The resource type identifier. For pipeline resources, this should always be set to `pipelines`.
+   * Declares allowed data types for enrichment table columns.
    */
-  "type": string;
+  "type": ObservabilityPipelineEnrichmentTableFileSchemaItemsType;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +36,14 @@ export class ObservabilityPipelineCreateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ObservabilityPipelineDataAttributes",
+    column: {
+      baseName: "column",
+      type: "string",
       required: true,
     },
     type: {
       baseName: "type",
-      type: "string",
+      type: "ObservabilityPipelineEnrichmentTableFileSchemaItemsType",
       required: true,
     },
     additionalProperties: {
@@ -56,7 +56,7 @@ export class ObservabilityPipelineCreateRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineCreateRequestData.attributeTypeMap;
+    return ObservabilityPipelineEnrichmentTableFileSchemaItems.attributeTypeMap;
   }
 
   public constructor() {}

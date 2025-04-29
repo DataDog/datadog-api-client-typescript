@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Configuration for enabling TLS encryption.
+ * Configuration for enabling TLS encryption between the pipeline component and external services.
  */
 export class ObservabilityPipelineTls {
   /**
