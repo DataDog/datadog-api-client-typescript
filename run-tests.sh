@@ -5,6 +5,7 @@
 # }
 # trap finish EXIT
 
+COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable
 yarn install
 
 if [ "$USE_BUILT_PACKAGES" == "false" ]; then
