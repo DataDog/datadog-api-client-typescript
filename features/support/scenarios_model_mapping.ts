@@ -3186,6 +3186,733 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CIAppTestEventsResponse",
     },
+    "v2.CreateCustomFramework": {
+        "body": {
+            "type": "CreateCustomFrameworkRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateCustomFrameworkResponse",
+    },
+    "v2.DeleteCustomFramework": {
+        "handle": {
+            "type": "string",
+            "format": "",
+            },
+        "version": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeleteCustomFrameworkResponse",
+    },
+    "v2.GetCustomFramework": {
+        "handle": {
+            "type": "string",
+            "format": "",
+            },
+        "version": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetCustomFrameworkResponse",
+    },
+    "v2.UpdateCustomFramework": {
+        "handle": {
+            "type": "string",
+            "format": "",
+            },
+        "version": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateCustomFrameworkRequest",
+            "format": "",
+            },
+        "operationResponseType": "UpdateCustomFrameworkResponse",
+    },
+    "v2.ListFindings": {
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "snapshotTimestamp": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTags": {
+            "type": "string",
+            "format": "",
+            },
+        "filterEvaluationChangedAt": {
+            "type": "string",
+            "format": "",
+            },
+        "filterMuted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterResourceType": {
+            "type": "string",
+            "format": "",
+            },
+        "filterDiscoveryTimestamp": {
+            "type": "string",
+            "format": "",
+            },
+        "filterEvaluation": {
+            "type": "FindingEvaluation",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "FindingStatus",
+            "format": "",
+            },
+        "filterVulnerabilityType": {
+            "type": "Array<FindingVulnerabilityType>",
+            "format": "",
+            },
+        "operationResponseType": "ListFindingsResponse",
+    },
+    "v2.MuteFindings": {
+        "body": {
+            "type": "BulkMuteFindingsRequest",
+            "format": "",
+            },
+        "operationResponseType": "BulkMuteFindingsResponse",
+    },
+    "v2.GetFinding": {
+        "findingId": {
+            "type": "string",
+            "format": "",
+            },
+        "snapshotTimestamp": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "GetFindingResponse",
+    },
+    "v2.ListVulnerableAssets": {
+        "pageToken": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterType": {
+            "type": "AssetType",
+            "format": "",
+            },
+        "filterVersionFirst": {
+            "type": "string",
+            "format": "",
+            },
+        "filterVersionLast": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRepositoryUrl": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRisksInProduction": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksUnderAttack": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksIsPubliclyAccessible": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksHasPrivilegedAccess": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksHasAccessToSensitiveData": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterEnvironments": {
+            "type": "string",
+            "format": "",
+            },
+        "filterArch": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOperatingSystemName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOperatingSystemVersion": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListVulnerableAssetsResponse",
+    },
+    "v2.GetSBOM": {
+        "assetType": {
+            "type": "AssetType",
+            "format": "",
+            },
+        "filterAssetName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRepoDigest": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetSBOMResponse",
+    },
+    "v2.GetSignalNotificationRules": {
+        "operationResponseType": "any",
+    },
+    "v2.CreateSignalNotificationRule": {
+        "body": {
+            "type": "CreateNotificationRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.DeleteSignalNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetSignalNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.PatchSignalNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchNotificationRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.ListVulnerabilities": {
+        "pageToken": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterType": {
+            "type": "VulnerabilityType",
+            "format": "",
+            },
+        "filterCvssBaseScoreOp": {
+            "type": "number",
+            "format": "double",
+            },
+        "filterCvssBaseSeverity": {
+            "type": "VulnerabilitySeverity",
+            "format": "",
+            },
+        "filterCvssBaseVector": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCvssDatadogScoreOp": {
+            "type": "number",
+            "format": "double",
+            },
+        "filterCvssDatadogSeverity": {
+            "type": "VulnerabilitySeverity",
+            "format": "",
+            },
+        "filterCvssDatadogVector": {
+            "type": "string",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "VulnerabilityStatus",
+            "format": "",
+            },
+        "filterTool": {
+            "type": "VulnerabilityTool",
+            "format": "",
+            },
+        "filterLibraryName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterLibraryVersion": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAdvisoryId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRisksExploitationProbability": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksPocExploitAvailable": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksExploitAvailable": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRisksEpssScoreOp": {
+            "type": "number",
+            "format": "double",
+            },
+        "filterRisksEpssSeverity": {
+            "type": "VulnerabilitySeverity",
+            "format": "",
+            },
+        "filterLanguage": {
+            "type": "string",
+            "format": "",
+            },
+        "filterEcosystem": {
+            "type": "VulnerabilityEcosystem",
+            "format": "",
+            },
+        "filterCodeLocationLocation": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCodeLocationFilePath": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCodeLocationMethod": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFixAvailable": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRepoDigests": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetType": {
+            "type": "AssetType",
+            "format": "",
+            },
+        "filterAssetVersionFirst": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetVersionLast": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetRepositoryUrl": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetRisksInProduction": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterAssetRisksUnderAttack": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterAssetRisksIsPubliclyAccessible": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterAssetRisksHasPrivilegedAccess": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterAssetRisksHasAccessToSensitiveData": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterAssetEnvironments": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetArch": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetOperatingSystemName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAssetOperatingSystemVersion": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListVulnerabilitiesResponse",
+    },
+    "v2.GetVulnerabilityNotificationRules": {
+        "operationResponseType": "any",
+    },
+    "v2.CreateVulnerabilityNotificationRule": {
+        "body": {
+            "type": "CreateNotificationRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.DeleteVulnerabilityNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetVulnerabilityNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.PatchVulnerabilityNotificationRule": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PatchNotificationRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.ListSecurityFilters": {
+        "operationResponseType": "SecurityFiltersResponse",
+    },
+    "v2.CreateSecurityFilter": {
+        "body": {
+            "type": "SecurityFilterCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityFilterResponse",
+    },
+    "v2.DeleteSecurityFilter": {
+        "securityFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetSecurityFilter": {
+        "securityFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityFilterResponse",
+    },
+    "v2.UpdateSecurityFilter": {
+        "securityFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityFilterUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityFilterResponse",
+    },
+    "v2.ListSecurityMonitoringSuppressions": {
+        "operationResponseType": "SecurityMonitoringSuppressionsResponse",
+    },
+    "v2.CreateSecurityMonitoringSuppression": {
+        "body": {
+            "type": "SecurityMonitoringSuppressionCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSuppressionResponse",
+    },
+    "v2.DeleteSecurityMonitoringSuppression": {
+        "suppressionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetSecurityMonitoringSuppression": {
+        "suppressionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSuppressionResponse",
+    },
+    "v2.UpdateSecurityMonitoringSuppression": {
+        "suppressionId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSuppressionUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSuppressionResponse",
+    },
+    "v2.ListSecurityMonitoringRules": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SecurityMonitoringListRulesResponse",
+    },
+    "v2.CreateSecurityMonitoringRule": {
+        "body": {
+            "type": "SecurityMonitoringRuleCreatePayload",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleResponse",
+    },
+    "v2.ConvertSecurityMonitoringRuleFromJSONToTerraform": {
+        "body": {
+            "type": "SecurityMonitoringRuleConvertPayload",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleConvertResponse",
+    },
+    "v2.TestSecurityMonitoringRule": {
+        "body": {
+            "type": "SecurityMonitoringRuleTestRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleTestResponse",
+    },
+    "v2.ValidateSecurityMonitoringRule": {
+        "body": {
+            "type": "SecurityMonitoringRuleValidatePayload",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.DeleteSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleResponse",
+    },
+    "v2.UpdateSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringRuleUpdatePayload",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleResponse",
+    },
+    "v2.ConvertExistingSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleConvertResponse",
+    },
+    "v2.TestExistingSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringRuleTestRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleTestResponse",
+    },
+    "v2.GetRuleVersionHistory": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "GetRuleVersionHistoryResponse",
+    },
+    "v2.ListSecurityMonitoringSignals": {
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "sort": {
+            "type": "SecurityMonitoringSignalsSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "SecurityMonitoringSignalsListResponse",
+    },
+    "v2.SearchSecurityMonitoringSignals": {
+        "body": {
+            "type": "SecurityMonitoringSignalListRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalsListResponse",
+    },
+    "v2.GetSecurityMonitoringSignal": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalResponse",
+    },
+    "v2.EditSecurityMonitoringSignalAssignee": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSignalAssigneeUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
+    },
+    "v2.EditSecurityMonitoringSignalIncidents": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSignalIncidentsUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
+    },
+    "v2.EditSecurityMonitoringSignalState": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSignalStateUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
+    },
+    "v2.ListHistoricalJobs": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListHistoricalJobsResponse",
+    },
+    "v2.RunHistoricalJob": {
+        "body": {
+            "type": "RunHistoricalJobRequest",
+            "format": "",
+            },
+        "operationResponseType": "JobCreateResponse",
+    },
+    "v2.ConvertJobResultToSignal": {
+        "body": {
+            "type": "ConvertJobResultsToSignalsRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.DeleteHistoricalJob": {
+        "jobId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetHistoricalJob": {
+        "jobId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "HistoricalJobResponse",
+    },
+    "v2.CancelHistoricalJob": {
+        "jobId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
     "v2.ListContainerImages": {
         "filterTags": {
             "type": "string",
@@ -5298,689 +6025,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "UsersResponse",
-    },
-    "v2.ListFindings": {
-        "pageLimit": {
-            "type": "number",
-            "format": "int64",
-            },
-        "snapshotTimestamp": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageCursor": {
-            "type": "string",
-            "format": "",
-            },
-        "filterTags": {
-            "type": "string",
-            "format": "",
-            },
-        "filterEvaluationChangedAt": {
-            "type": "string",
-            "format": "",
-            },
-        "filterMuted": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "filterRuleName": {
-            "type": "string",
-            "format": "",
-            },
-        "filterResourceType": {
-            "type": "string",
-            "format": "",
-            },
-        "filterDiscoveryTimestamp": {
-            "type": "string",
-            "format": "",
-            },
-        "filterEvaluation": {
-            "type": "FindingEvaluation",
-            "format": "",
-            },
-        "filterStatus": {
-            "type": "FindingStatus",
-            "format": "",
-            },
-        "filterVulnerabilityType": {
-            "type": "Array<FindingVulnerabilityType>",
-            "format": "",
-            },
-        "operationResponseType": "ListFindingsResponse",
-    },
-    "v2.MuteFindings": {
-        "body": {
-            "type": "BulkMuteFindingsRequest",
-            "format": "",
-            },
-        "operationResponseType": "BulkMuteFindingsResponse",
-    },
-    "v2.GetFinding": {
-        "findingId": {
-            "type": "string",
-            "format": "",
-            },
-        "snapshotTimestamp": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "GetFindingResponse",
-    },
-    "v2.ListVulnerableAssets": {
-        "pageToken": {
-            "type": "string",
-            "format": "",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "filterName": {
-            "type": "string",
-            "format": "",
-            },
-        "filterType": {
-            "type": "AssetType",
-            "format": "",
-            },
-        "filterVersionFirst": {
-            "type": "string",
-            "format": "",
-            },
-        "filterVersionLast": {
-            "type": "string",
-            "format": "",
-            },
-        "filterRepositoryUrl": {
-            "type": "string",
-            "format": "",
-            },
-        "filterRisksInProduction": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterRisksUnderAttack": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterRisksIsPubliclyAccessible": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterRisksHasPrivilegedAccess": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterRisksHasAccessToSensitiveData": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterEnvironments": {
-            "type": "string",
-            "format": "",
-            },
-        "filterArch": {
-            "type": "string",
-            "format": "",
-            },
-        "filterOperatingSystemName": {
-            "type": "string",
-            "format": "",
-            },
-        "filterOperatingSystemVersion": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "ListVulnerableAssetsResponse",
-    },
-    "v2.GetSBOM": {
-        "assetType": {
-            "type": "AssetType",
-            "format": "",
-            },
-        "filterAssetName": {
-            "type": "string",
-            "format": "",
-            },
-        "filterRepoDigest": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "GetSBOMResponse",
-    },
-    "v2.GetSignalNotificationRules": {
-        "operationResponseType": "any",
-    },
-    "v2.CreateSignalNotificationRule": {
-        "body": {
-            "type": "CreateNotificationRuleParameters",
-            "format": "",
-            },
-        "operationResponseType": "NotificationRuleResponse",
-    },
-    "v2.DeleteSignalNotificationRule": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetSignalNotificationRule": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "NotificationRuleResponse",
-    },
-    "v2.PatchSignalNotificationRule": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "PatchNotificationRuleParameters",
-            "format": "",
-            },
-        "operationResponseType": "NotificationRuleResponse",
-    },
-    "v2.ListVulnerabilities": {
-        "pageToken": {
-            "type": "string",
-            "format": "",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "filterType": {
-            "type": "VulnerabilityType",
-            "format": "",
-            },
-        "filterCvssBaseScoreOp": {
-            "type": "number",
-            "format": "double",
-            },
-        "filterCvssBaseSeverity": {
-            "type": "VulnerabilitySeverity",
-            "format": "",
-            },
-        "filterCvssBaseVector": {
-            "type": "string",
-            "format": "",
-            },
-        "filterCvssDatadogScoreOp": {
-            "type": "number",
-            "format": "double",
-            },
-        "filterCvssDatadogSeverity": {
-            "type": "VulnerabilitySeverity",
-            "format": "",
-            },
-        "filterCvssDatadogVector": {
-            "type": "string",
-            "format": "",
-            },
-        "filterStatus": {
-            "type": "VulnerabilityStatus",
-            "format": "",
-            },
-        "filterTool": {
-            "type": "VulnerabilityTool",
-            "format": "",
-            },
-        "filterLibraryName": {
-            "type": "string",
-            "format": "",
-            },
-        "filterLibraryVersion": {
-            "type": "string",
-            "format": "",
-            },
-        "filterAdvisoryId": {
-            "type": "string",
-            "format": "",
-            },
-        "filterRisksExploitationProbability": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterRisksPocExploitAvailable": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterRisksExploitAvailable": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterRisksEpssScoreOp": {
-            "type": "number",
-            "format": "double",
-            },
-        "filterRisksEpssSeverity": {
-            "type": "VulnerabilitySeverity",
-            "format": "",
-            },
-        "filterLanguage": {
-            "type": "string",
-            "format": "",
-            },
-        "filterEcosystem": {
-            "type": "VulnerabilityEcosystem",
-            "format": "",
-            },
-        "filterCodeLocationLocation": {
-            "type": "string",
-            "format": "",
-            },
-        "filterCodeLocationFilePath": {
-            "type": "string",
-            "format": "",
-            },
-        "filterCodeLocationMethod": {
-            "type": "string",
-            "format": "",
-            },
-        "filterFixAvailable": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterRepoDigests": {
-            "type": "string",
-            "format": "",
-            },
-        "filterAssetName": {
-            "type": "string",
-            "format": "",
-            },
-        "filterAssetType": {
-            "type": "AssetType",
-            "format": "",
-            },
-        "filterAssetVersionFirst": {
-            "type": "string",
-            "format": "",
-            },
-        "filterAssetVersionLast": {
-            "type": "string",
-            "format": "",
-            },
-        "filterAssetRepositoryUrl": {
-            "type": "string",
-            "format": "",
-            },
-        "filterAssetRisksInProduction": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterAssetRisksUnderAttack": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterAssetRisksIsPubliclyAccessible": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterAssetRisksHasPrivilegedAccess": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterAssetRisksHasAccessToSensitiveData": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterAssetEnvironments": {
-            "type": "string",
-            "format": "",
-            },
-        "filterAssetArch": {
-            "type": "string",
-            "format": "",
-            },
-        "filterAssetOperatingSystemName": {
-            "type": "string",
-            "format": "",
-            },
-        "filterAssetOperatingSystemVersion": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "ListVulnerabilitiesResponse",
-    },
-    "v2.GetVulnerabilityNotificationRules": {
-        "operationResponseType": "any",
-    },
-    "v2.CreateVulnerabilityNotificationRule": {
-        "body": {
-            "type": "CreateNotificationRuleParameters",
-            "format": "",
-            },
-        "operationResponseType": "NotificationRuleResponse",
-    },
-    "v2.DeleteVulnerabilityNotificationRule": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetVulnerabilityNotificationRule": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "NotificationRuleResponse",
-    },
-    "v2.PatchVulnerabilityNotificationRule": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "PatchNotificationRuleParameters",
-            "format": "",
-            },
-        "operationResponseType": "NotificationRuleResponse",
-    },
-    "v2.ListSecurityFilters": {
-        "operationResponseType": "SecurityFiltersResponse",
-    },
-    "v2.CreateSecurityFilter": {
-        "body": {
-            "type": "SecurityFilterCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityFilterResponse",
-    },
-    "v2.DeleteSecurityFilter": {
-        "securityFilterId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetSecurityFilter": {
-        "securityFilterId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SecurityFilterResponse",
-    },
-    "v2.UpdateSecurityFilter": {
-        "securityFilterId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityFilterUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityFilterResponse",
-    },
-    "v2.ListSecurityMonitoringSuppressions": {
-        "operationResponseType": "SecurityMonitoringSuppressionsResponse",
-    },
-    "v2.CreateSecurityMonitoringSuppression": {
-        "body": {
-            "type": "SecurityMonitoringSuppressionCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSuppressionResponse",
-    },
-    "v2.DeleteSecurityMonitoringSuppression": {
-        "suppressionId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetSecurityMonitoringSuppression": {
-        "suppressionId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSuppressionResponse",
-    },
-    "v2.UpdateSecurityMonitoringSuppression": {
-        "suppressionId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityMonitoringSuppressionUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSuppressionResponse",
-    },
-    "v2.ListSecurityMonitoringRules": {
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "SecurityMonitoringListRulesResponse",
-    },
-    "v2.CreateSecurityMonitoringRule": {
-        "body": {
-            "type": "SecurityMonitoringRuleCreatePayload",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringRuleResponse",
-    },
-    "v2.ConvertSecurityMonitoringRuleFromJSONToTerraform": {
-        "body": {
-            "type": "SecurityMonitoringRuleConvertPayload",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringRuleConvertResponse",
-    },
-    "v2.TestSecurityMonitoringRule": {
-        "body": {
-            "type": "SecurityMonitoringRuleTestRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringRuleTestResponse",
-    },
-    "v2.ValidateSecurityMonitoringRule": {
-        "body": {
-            "type": "SecurityMonitoringRuleValidatePayload",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.DeleteSecurityMonitoringRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetSecurityMonitoringRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringRuleResponse",
-    },
-    "v2.UpdateSecurityMonitoringRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityMonitoringRuleUpdatePayload",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringRuleResponse",
-    },
-    "v2.ConvertExistingSecurityMonitoringRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringRuleConvertResponse",
-    },
-    "v2.TestExistingSecurityMonitoringRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityMonitoringRuleTestRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringRuleTestResponse",
-    },
-    "v2.GetRuleVersionHistory": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "GetRuleVersionHistoryResponse",
-    },
-    "v2.ListSecurityMonitoringSignals": {
-        "filterQuery": {
-            "type": "string",
-            "format": "",
-            },
-        "filterFrom": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "filterTo": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "sort": {
-            "type": "SecurityMonitoringSignalsSort",
-            "format": "",
-            },
-        "pageCursor": {
-            "type": "string",
-            "format": "",
-            },
-        "pageLimit": {
-            "type": "number",
-            "format": "int32",
-            },
-        "operationResponseType": "SecurityMonitoringSignalsListResponse",
-    },
-    "v2.SearchSecurityMonitoringSignals": {
-        "body": {
-            "type": "SecurityMonitoringSignalListRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSignalsListResponse",
-    },
-    "v2.GetSecurityMonitoringSignal": {
-        "signalId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSignalResponse",
-    },
-    "v2.EditSecurityMonitoringSignalAssignee": {
-        "signalId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityMonitoringSignalAssigneeUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
-    },
-    "v2.EditSecurityMonitoringSignalIncidents": {
-        "signalId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityMonitoringSignalIncidentsUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
-    },
-    "v2.EditSecurityMonitoringSignalState": {
-        "signalId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityMonitoringSignalStateUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
-    },
-    "v2.ListHistoricalJobs": {
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "sort": {
-            "type": "string",
-            "format": "",
-            },
-        "filterQuery": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "ListHistoricalJobsResponse",
-    },
-    "v2.RunHistoricalJob": {
-        "body": {
-            "type": "RunHistoricalJobRequest",
-            "format": "",
-            },
-        "operationResponseType": "JobCreateResponse",
-    },
-    "v2.ConvertJobResultToSignal": {
-        "body": {
-            "type": "ConvertJobResultsToSignalsRequest",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.DeleteHistoricalJob": {
-        "jobId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetHistoricalJob": {
-        "jobId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "HistoricalJobResponse",
-    },
-    "v2.CancelHistoricalJob": {
-        "jobId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
     },
     "v2.ListPowerpacks": {
         "pageLimit": {
