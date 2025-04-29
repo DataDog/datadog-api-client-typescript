@@ -21,11 +21,15 @@ import { AssetType } from "../models/AssetType";
 import { BulkMuteFindingsRequest } from "../models/BulkMuteFindingsRequest";
 import { BulkMuteFindingsResponse } from "../models/BulkMuteFindingsResponse";
 import { ConvertJobResultsToSignalsRequest } from "../models/ConvertJobResultsToSignalsRequest";
+import { CreateCustomFrameworkRequest } from "../models/CreateCustomFrameworkRequest";
+import { CreateCustomFrameworkResponse } from "../models/CreateCustomFrameworkResponse";
 import { CreateNotificationRuleParameters } from "../models/CreateNotificationRuleParameters";
+import { DeleteCustomFrameworkResponse } from "../models/DeleteCustomFrameworkResponse";
 import { Finding } from "../models/Finding";
 import { FindingEvaluation } from "../models/FindingEvaluation";
 import { FindingStatus } from "../models/FindingStatus";
 import { FindingVulnerabilityType } from "../models/FindingVulnerabilityType";
+import { GetCustomFrameworkResponse } from "../models/GetCustomFrameworkResponse";
 import { GetFindingResponse } from "../models/GetFindingResponse";
 import { GetRuleVersionHistoryResponse } from "../models/GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "../models/GetSBOMResponse";
@@ -66,6 +70,8 @@ import { SecurityMonitoringSuppressionCreateRequest } from "../models/SecurityMo
 import { SecurityMonitoringSuppressionResponse } from "../models/SecurityMonitoringSuppressionResponse";
 import { SecurityMonitoringSuppressionsResponse } from "../models/SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringSuppressionUpdateRequest } from "../models/SecurityMonitoringSuppressionUpdateRequest";
+import { UpdateCustomFrameworkRequest } from "../models/UpdateCustomFrameworkRequest";
+import { UpdateCustomFrameworkResponse } from "../models/UpdateCustomFrameworkResponse";
 import { VulnerabilityEcosystem } from "../models/VulnerabilityEcosystem";
 import { VulnerabilitySeverity } from "../models/VulnerabilitySeverity";
 import { VulnerabilityStatus } from "../models/VulnerabilityStatus";
@@ -239,6 +245,48 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "SecurityMonitoringRuleConvertPayload",
         ""
       ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createCustomFramework(
+    body: CreateCustomFrameworkRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createCustomFramework");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cloud_security_management/custom_frameworks";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createCustomFramework")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CreateCustomFrameworkRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -462,6 +510,46 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       contentType
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteCustomFramework(
+    handle: string,
+    version: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'handle' is not null or undefined
+    if (handle === null || handle === undefined) {
+      throw new RequiredError("handle", "deleteCustomFramework");
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError("version", "deleteCustomFramework");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cloud_security_management/custom_frameworks/{handle}/{version}"
+        .replace("{handle}", encodeURIComponent(String(handle)))
+        .replace("{version}", encodeURIComponent(String(version)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.deleteCustomFramework")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -865,6 +953,46 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getCustomFramework(
+    handle: string,
+    version: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'handle' is not null or undefined
+    if (handle === null || handle === undefined) {
+      throw new RequiredError("handle", "getCustomFramework");
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError("version", "getCustomFramework");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cloud_security_management/custom_frameworks/{handle}/{version}"
+        .replace("{handle}", encodeURIComponent(String(handle)))
+        .replace("{version}", encodeURIComponent(String(version)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getCustomFramework")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getFinding(
     findingId: string,
     snapshotTimestamp?: number,
@@ -1005,7 +1133,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -2615,6 +2742,63 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async updateCustomFramework(
+    handle: string,
+    version: string,
+    body: UpdateCustomFrameworkRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'handle' is not null or undefined
+    if (handle === null || handle === undefined) {
+      throw new RequiredError("handle", "updateCustomFramework");
+    }
+
+    // verify required parameter 'version' is not null or undefined
+    if (version === null || version === undefined) {
+      throw new RequiredError("version", "updateCustomFramework");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateCustomFramework");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cloud_security_management/custom_frameworks/{handle}/{version}"
+        .replace("{handle}", encodeURIComponent(String(handle)))
+        .replace("{version}", encodeURIComponent(String(version)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.updateCustomFramework")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "UpdateCustomFrameworkRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateSecurityFilter(
     securityFilterId: string,
     body: SecurityFilterUpdateRequest,
@@ -3083,6 +3267,69 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createCustomFramework
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createCustomFramework(
+    response: ResponseContext
+  ): Promise<CreateCustomFrameworkResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CreateCustomFrameworkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CreateCustomFrameworkResponse"
+      ) as CreateCustomFrameworkResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CreateCustomFrameworkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CreateCustomFrameworkResponse",
+        ""
+      ) as CreateCustomFrameworkResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3383,6 +3630,68 @@ export class SecurityMonitoringApiResponseProcessor {
         "NotificationRuleResponse",
         ""
       ) as NotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteCustomFramework
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteCustomFramework(
+    response: ResponseContext
+  ): Promise<DeleteCustomFrameworkResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: DeleteCustomFrameworkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeleteCustomFrameworkResponse"
+      ) as DeleteCustomFrameworkResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DeleteCustomFrameworkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeleteCustomFrameworkResponse",
+        ""
+      ) as DeleteCustomFrameworkResponse;
       return body;
     }
 
@@ -3925,6 +4234,68 @@ export class SecurityMonitoringApiResponseProcessor {
           "SecurityMonitoringSignalTriageUpdateResponse",
           ""
         ) as SecurityMonitoringSignalTriageUpdateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCustomFramework
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCustomFramework(
+    response: ResponseContext
+  ): Promise<GetCustomFrameworkResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: GetCustomFrameworkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetCustomFrameworkResponse"
+      ) as GetCustomFrameworkResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetCustomFrameworkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetCustomFrameworkResponse",
+        ""
+      ) as GetCustomFrameworkResponse;
       return body;
     }
 
@@ -5739,6 +6110,68 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateCustomFramework
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateCustomFramework(
+    response: ResponseContext
+  ): Promise<UpdateCustomFrameworkResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: UpdateCustomFrameworkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UpdateCustomFrameworkResponse"
+      ) as UpdateCustomFrameworkResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 429 ||
+      response.httpStatusCode === 500
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UpdateCustomFrameworkResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UpdateCustomFrameworkResponse",
+        ""
+      ) as UpdateCustomFrameworkResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -6018,6 +6451,13 @@ export interface SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTer
   body: SecurityMonitoringRuleConvertPayload;
 }
 
+export interface SecurityMonitoringApiCreateCustomFrameworkRequest {
+  /**
+   * @type CreateCustomFrameworkRequest
+   */
+  body: CreateCustomFrameworkRequest;
+}
+
 export interface SecurityMonitoringApiCreateSecurityFilterRequest {
   /**
    * The definition of the new security filter.
@@ -6057,6 +6497,19 @@ export interface SecurityMonitoringApiCreateVulnerabilityNotificationRuleRequest
    * @type CreateNotificationRuleParameters
    */
   body: CreateNotificationRuleParameters;
+}
+
+export interface SecurityMonitoringApiDeleteCustomFrameworkRequest {
+  /**
+   * The framework handle
+   * @type string
+   */
+  handle: string;
+  /**
+   * The framework version
+   * @type string
+   */
+  version: string;
 }
 
 export interface SecurityMonitoringApiDeleteHistoricalJobRequest {
@@ -6144,6 +6597,19 @@ export interface SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest {
    * @type SecurityMonitoringSignalStateUpdateRequest
    */
   body: SecurityMonitoringSignalStateUpdateRequest;
+}
+
+export interface SecurityMonitoringApiGetCustomFrameworkRequest {
+  /**
+   * The framework handle
+   * @type string
+   */
+  handle: string;
+  /**
+   * The framework version
+   * @type string
+   */
+  version: string;
 }
 
 export interface SecurityMonitoringApiGetFindingRequest {
@@ -6748,6 +7214,23 @@ export interface SecurityMonitoringApiTestSecurityMonitoringRuleRequest {
   body: SecurityMonitoringRuleTestRequest;
 }
 
+export interface SecurityMonitoringApiUpdateCustomFrameworkRequest {
+  /**
+   * The framework handle
+   * @type string
+   */
+  handle: string;
+  /**
+   * The framework version
+   * @type string
+   */
+  version: string;
+  /**
+   * @type UpdateCustomFrameworkRequest
+   */
+  body: UpdateCustomFrameworkRequest;
+}
+
 export interface SecurityMonitoringApiUpdateSecurityFilterRequest {
   /**
    * The ID of the security filter.
@@ -6905,6 +7388,27 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Create a custom framework.
+   * @param param The request object
+   */
+  public createCustomFramework(
+    param: SecurityMonitoringApiCreateCustomFrameworkRequest,
+    options?: Configuration
+  ): Promise<CreateCustomFrameworkResponse> {
+    const requestContextPromise = this.requestFactory.createCustomFramework(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCustomFramework(responseContext);
+        });
+    });
+  }
+
+  /**
    * Create a security filter.
    *
    * See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
@@ -7014,6 +7518,28 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.createVulnerabilityNotificationRule(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Delete a custom framework.
+   * @param param The request object
+   */
+  public deleteCustomFramework(
+    param: SecurityMonitoringApiDeleteCustomFrameworkRequest,
+    options?: Configuration
+  ): Promise<DeleteCustomFrameworkResponse> {
+    const requestContextPromise = this.requestFactory.deleteCustomFramework(
+      param.handle,
+      param.version,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCustomFramework(responseContext);
         });
     });
   }
@@ -7221,6 +7747,28 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.editSecurityMonitoringSignalState(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get a custom framework.
+   * @param param The request object
+   */
+  public getCustomFramework(
+    param: SecurityMonitoringApiGetCustomFrameworkRequest,
+    options?: Configuration
+  ): Promise<GetCustomFrameworkResponse> {
+    const requestContextPromise = this.requestFactory.getCustomFramework(
+      param.handle,
+      param.version,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCustomFramework(responseContext);
         });
     });
   }
@@ -8197,6 +8745,29 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.testSecurityMonitoringRule(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Update a custom framework.
+   * @param param The request object
+   */
+  public updateCustomFramework(
+    param: SecurityMonitoringApiUpdateCustomFrameworkRequest,
+    options?: Configuration
+  ): Promise<UpdateCustomFrameworkResponse> {
+    const requestContextPromise = this.requestFactory.updateCustomFramework(
+      param.handle,
+      param.version,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCustomFramework(responseContext);
         });
     });
   }
