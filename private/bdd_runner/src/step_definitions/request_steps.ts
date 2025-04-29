@@ -4,11 +4,12 @@ import chaiQuantifiers from "chai-quantifiers";
 use(chaiQuantifiers);
 import { World } from "../support/world";
 
+import { apiTypes, apiNameToTypingInfoMapping } from "../support/api_info";
+
 import {
   pathLookup,
   getTypeForValue,
   tagToApiClassName,
-  apiClassNameToServicePackageDirName,
 } from "../support/templating";
 import { Store } from "../support/store";
 import { buildUndoFor, UndoActions } from "../support/undo";
@@ -18,7 +19,6 @@ import path from "path";
 
 import { compressSync } from "zstd.ts";
 import log from "loglevel";
-import { ScenariosModelMappings } from "../support/scenarios_model_mapping";
 import { deserializeOpts } from "../support/deserialize_opts";
 const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
@@ -82,12 +82,7 @@ Given("new {string} request", function (this: World, operationId: string) {
 When("the request is sent", async function (this: World) {
   // build request from scenario
   const apiNameWithVersion = `${this.apiName}${this.apiVersion.toUpperCase()}`;
-
-  // TODO(sherz): evaluate if building the package and requiring it is the better approach.
-  // we are importing the package from the services directory directly.
-  const api = require(
-    `${this.servicesDir}/${apiClassNameToServicePackageDirName(this.apiName)}/src`,
-  )[apiNameWithVersion];
+  const api = apiTypes[apiNameWithVersion];
 
   const configurationOpts = {
     authMethods: this.authMethods,
@@ -189,9 +184,7 @@ When("the request is sent", async function (this: World) {
 
 When("the request with pagination is sent", async function (this: World) {
   const apiNameWithVersion = `${this.apiName}${this.apiVersion.toUpperCase()}`;
-  const api = require(
-    `${this.servicesDir}/${apiClassNameToServicePackageDirName(this.apiName)}/src`,
-  )[apiNameWithVersion];
+  const api = apiTypes[apiNameWithVersion];
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
@@ -299,9 +292,10 @@ Then(
     const _type = getTypeForValue(pathResult);
     let templatedFixtureValue = JSON.parse(value.templated(this.fixtures));
     if (_type) {
-      const typingInfo = require(
-        `${this.servicesDir}/${apiClassNameToServicePackageDirName(this.apiName)}/src/${this.apiVersion}/models/TypingInfo`,
-      )["TypingInfo"];
+      const typingInfo =
+        apiNameToTypingInfoMapping[
+          this.apiName + this.apiVersion.toUpperCase()
+        ];
       templatedFixtureValue = datadogCommon.deserialize(
         templatedFixtureValue,
         typingInfo,
@@ -379,9 +373,9 @@ Then(
   },
 );
 
-AfterAll(function (this: World) {
-  let dd_service = process.env.DD_SERVICE;
-  let ci_pipeline_id = process.env.GITHUB_RUN_ID;
+AfterAll(async function () {
+  const dd_service = process.env.DD_SERVICE;
+  const ci_pipeline_id = process.env.GITHUB_RUN_ID;
   if (dd_service !== undefined && ci_pipeline_id !== undefined) {
     console.log("\nTest reports:\n");
     console.log(

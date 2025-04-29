@@ -6,8 +6,13 @@
 # trap finish EXIT
 
 yarn install
-yarn workspace @datadog/datadog-api-client build
-yarn workspace bdd-runner run build
+
+if [ "$USE_BUILT_PACKAGES" == "false" ]; then
+    echo "Building packages"
+    yarn build
+else
+    yarn workspace @datadog/datadog-api-client build
+fi
 
 # Check licenses
 yarn run check-licenses || exit 1
@@ -24,7 +29,11 @@ yarn run check-licenses || exit 1
 
 
 # Run tests
-yarn run bdd-test
+if [ "$USE_BUILT_PACKAGES" == "false" ]; then
+    yarn run bdd-test
+else
+    yarn run bdd-test:built
+fi
 # TEST_RESULT=$?
 # if [ "$RECORD" == "none" ] && [ "$TEST_RESULT" -ne "0" ]; then
 #     yarn run test:retry

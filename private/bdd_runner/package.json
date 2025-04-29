@@ -12,12 +12,12 @@
   "typings": "./dist/index.d.ts",
   "bin": "./dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "start:profile": "node --prof -r ts-node/register src/index.ts"
   },
   "dependencies": {
-    "@cucumber/cucumber": "^9.2.0",
-    "@cucumber/messages": "^22.0.0",
+    "@cucumber/cucumber": "^11.2.0",
+    "@cucumber/messages": "^27.2.0",
     "@datadog/datadog-api-client": "^2.0.0-beta.0",
     "@pollyjs/adapter-node-http": "^6.0.5",
     "@pollyjs/core": "^6.0.5",
@@ -28,7 +28,8 @@
     "chai": "^4.3.7",
     "chai-quantifiers": "^1.0.17",
     "commander": "^13.1.0",
-    "dd-trace": "^4.3.0",
+    "dd-trace": "^5.49.0",
+    "ts-morph": "^25.0.1",
     "ts-node": "^10.9.1",
     "zstd.ts": "^1.1.3"
   },

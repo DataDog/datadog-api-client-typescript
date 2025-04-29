@@ -1,13 +1,9 @@
 import fs from "fs";
-import {
-  apiClassNameToServicePackageDirName,
-  getProperty,
-  pathLookup,
-  tagToApiClassName,
-} from "./templating";
+import { pathLookup, tagToApiClassName } from "./templating";
 import * as datadogCommon from "@datadog/datadog-api-client";
 
 import log from "loglevel";
+import { apiTypes } from "./api_info";
 const logger = log.getLogger("testing");
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
@@ -54,9 +50,7 @@ function buildUndoFor(
     const apiName: string = tagToApiClassName(operationUndo.tag);
     const operationName = operationUndo.undo.operationId.toOperationName();
     const apiNameWithVersion = `${apiName}${apiVersion.toUpperCase()}`;
-    const api = require(
-      `${servicesDir}/${apiClassNameToServicePackageDirName(apiName)}/src`,
-    )[apiNameWithVersion];
+    const api = apiTypes[apiNameWithVersion];
     const configurationOpts = {
       authMethods: {
         apiKeyAuth: process.env.DD_TEST_CLIENT_API_KEY,

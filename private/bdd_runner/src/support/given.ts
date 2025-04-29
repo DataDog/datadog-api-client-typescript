@@ -4,15 +4,11 @@ import { compressSync } from "zstd.ts";
 import fs from "fs";
 
 import { World } from "../support/world";
-import {
-  apiClassNameToServicePackageDirName,
-  getProperty,
-  pathLookup,
-  tagToApiClassName,
-} from "./templating";
+import { pathLookup, tagToApiClassName } from "./templating";
 import { UndoActions, buildUndoFor } from "./undo";
 import * as datadogCommon from "@datadog/datadog-api-client";
 import { deserializeOpts } from "./deserialize_opts";
+import { apiTypes } from "./api_info";
 
 interface IOperationParameter {
   name: string;
@@ -41,9 +37,7 @@ for (const [apiVersion, givenFile] of Object.entries(
       const operationName: string = operation.operationId.toOperationName();
       // make sure we have a fresh instance of API client and configuration
       const apiNameWithVersion = `${apiName}${apiVersion.toUpperCase()}`;
-      const api = require(
-        `${this.servicesDir}/${apiClassNameToServicePackageDirName(apiName)}/src`,
-      )[apiNameWithVersion];
+      const api = apiTypes[apiNameWithVersion];
 
       const configurationOpts = {
         authMethods: {
@@ -154,5 +148,4 @@ for (const [apiVersion, givenFile] of Object.entries(
     });
   }
 }
-
 export { IOperationParameter, IGivenStep };

@@ -25,3 +25,4 @@ loglevel,MIT,Copyright (c) 2013 Tim Perry
 zstd.ts,BSD-2-Clause,Copyright (c) [2021] [Beeno Tung (Tung Cheung Leong)]
 commander,MIT,(c) 2011 TJ Holowaychuk
 typescript-eslint,MIT,2019 typescript-eslint and other contributors
+ts-morph,MIT,2017 David Sherret
