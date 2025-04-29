@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ObservabilityPipelineQuotaProcessorLimit } from "./ObservabilityPipelineQuotaProcessorLimit";
+import { ObservabilityPipelineQuotaProcessorOverflowAction } from "./ObservabilityPipelineQuotaProcessorOverflowAction";
 import { ObservabilityPipelineQuotaProcessorOverride } from "./ObservabilityPipelineQuotaProcessorOverride";
 import { ObservabilityPipelineQuotaProcessorType } from "./ObservabilityPipelineQuotaProcessorType";
 
@@ -38,9 +39,16 @@ export class ObservabilityPipelineQuotaProcessor {
    */
   "limit": ObservabilityPipelineQuotaProcessorLimit;
   /**
-   * Name for identifying the processor.
+   * Name of the quota.
    */
   "name": string;
+  /**
+   * The action to take when the quota is exceeded. Options:
+   * - `drop`: Drop the event.
+   * - `no_action`: Let the event pass through.
+   * - `overflow_routing`: Route to an overflow destination.
+   */
+  "overflowAction"?: ObservabilityPipelineQuotaProcessorOverflowAction;
   /**
    * A list of alternate quota rules that apply to specific sets of events, identified by matching field values. Each override can define a custom limit.
    */
@@ -103,6 +111,10 @@ export class ObservabilityPipelineQuotaProcessor {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    overflowAction: {
+      baseName: "overflow_action",
+      type: "ObservabilityPipelineQuotaProcessorOverflowAction",
     },
     overrides: {
       baseName: "overrides",

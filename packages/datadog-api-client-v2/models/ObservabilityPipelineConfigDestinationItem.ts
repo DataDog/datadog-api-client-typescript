@@ -3,7 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AzureStorageDestination } from "./AzureStorageDestination";
+import { MicrosoftSentinelDestination } from "./MicrosoftSentinelDestination";
+import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
+import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelineAmazonS3Destination";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
+import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
+import { ObservabilityPipelineGoogleCloudStorageDestination } from "./ObservabilityPipelineGoogleCloudStorageDestination";
+import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
+import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
+import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
+import { ObservabilityPipelineSentinelOneDestination } from "./ObservabilityPipelineSentinelOneDestination";
+import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
+import { ObservabilityPipelineSumoLogicDestination } from "./ObservabilityPipelineSumoLogicDestination";
+import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelineSyslogNgDestination";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -13,4 +27,18 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineDatadogLogsDestination
+  | ObservabilityPipelineAmazonS3Destination
+  | ObservabilityPipelineGoogleCloudStorageDestination
+  | ObservabilityPipelineSplunkHecDestination
+  | ObservabilityPipelineSumoLogicDestination
+  | ObservabilityPipelineElasticsearchDestination
+  | ObservabilityPipelineRsyslogDestination
+  | ObservabilityPipelineSyslogNgDestination
+  | AzureStorageDestination
+  | MicrosoftSentinelDestination
+  | ObservabilityPipelineGoogleChronicleDestination
+  | ObservabilityPipelineNewRelicDestination
+  | ObservabilityPipelineSentinelOneDestination
+  | ObservabilityPipelineOpenSearchDestination
+  | ObservabilityPipelineAmazonOpenSearchDestination
   | UnparsedObject;

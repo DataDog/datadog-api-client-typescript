@@ -3,18 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ObservabilityPipelineCreateRequestData } from "./ObservabilityPipelineCreateRequestData";
+import { ValidationErrorMeta } from "./ValidationErrorMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Top-level schema representing a pipeline.
+ * Represents a single validation error, including a human-readable title and metadata.
  */
-export class ObservabilityPipelineCreateRequest {
+export class ValidationError {
   /**
-   * Contains the pipeline’s ID, type, and configuration attributes.
+   * Describes additional metadata for validation errors, including field names and error messages.
    */
-  "data": ObservabilityPipelineCreateRequestData;
+  "meta": ValidationErrorMeta;
+  /**
+   * A short, human-readable summary of the error.
+   */
+  "title": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +36,14 @@ export class ObservabilityPipelineCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ObservabilityPipelineCreateRequestData",
+    meta: {
+      baseName: "meta",
+      type: "ValidationErrorMeta",
+      required: true,
+    },
+    title: {
+      baseName: "title",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +56,7 @@ export class ObservabilityPipelineCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ObservabilityPipelineCreateRequest.attributeTypeMap;
+    return ValidationError.attributeTypeMap;
   }
 
   public constructor() {}
