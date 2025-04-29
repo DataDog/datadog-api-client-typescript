@@ -369,6 +369,8 @@ import { CreateAppRequestData } from "./CreateAppRequestData";
 import { CreateAppRequestDataAttributes } from "./CreateAppRequestDataAttributes";
 import { CreateAppResponse } from "./CreateAppResponse";
 import { CreateAppResponseData } from "./CreateAppResponseData";
+import { CreateCustomFrameworkRequest } from "./CreateCustomFrameworkRequest";
+import { CreateCustomFrameworkResponse } from "./CreateCustomFrameworkResponse";
 import { CreateDataDeletionRequestBody } from "./CreateDataDeletionRequestBody";
 import { CreateDataDeletionRequestBodyAttributes } from "./CreateDataDeletionRequestBodyAttributes";
 import { CreateDataDeletionRequestBodyData } from "./CreateDataDeletionRequestBodyData";
@@ -436,6 +438,13 @@ import { CustomDestinationUpdateRequest } from "./CustomDestinationUpdateRequest
 import { CustomDestinationUpdateRequestAttributes } from "./CustomDestinationUpdateRequestAttributes";
 import { CustomDestinationUpdateRequestDefinition } from "./CustomDestinationUpdateRequestDefinition";
 import { CustomDestinationsResponse } from "./CustomDestinationsResponse";
+import { CustomFrameworkControl } from "./CustomFrameworkControl";
+import { CustomFrameworkData } from "./CustomFrameworkData";
+import { CustomFrameworkDataAttributes } from "./CustomFrameworkDataAttributes";
+import { CustomFrameworkDataHandleAndVersion } from "./CustomFrameworkDataHandleAndVersion";
+import { CustomFrameworkMetadata } from "./CustomFrameworkMetadata";
+import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
+import { CustomFrameworkWithoutRequirements } from "./CustomFrameworkWithoutRequirements";
 import { DORADeploymentRequest } from "./DORADeploymentRequest";
 import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
 import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
@@ -471,6 +480,7 @@ import { DeleteAppsRequest } from "./DeleteAppsRequest";
 import { DeleteAppsRequestDataItems } from "./DeleteAppsRequestDataItems";
 import { DeleteAppsResponse } from "./DeleteAppsResponse";
 import { DeleteAppsResponseDataItems } from "./DeleteAppsResponseDataItems";
+import { DeleteCustomFrameworkResponse } from "./DeleteCustomFrameworkResponse";
 import { DependencyLocation } from "./DependencyLocation";
 import { Deployment } from "./Deployment";
 import { DeploymentAttributes } from "./DeploymentAttributes";
@@ -644,10 +654,13 @@ import { FindingAttributes } from "./FindingAttributes";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
 import { FormulaLimit } from "./FormulaLimit";
+import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
 import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
+import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
+import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
 import { GCPSTSDelegateAccount } from "./GCPSTSDelegateAccount";
 import { GCPSTSDelegateAccountAttributes } from "./GCPSTSDelegateAccountAttributes";
@@ -665,6 +678,7 @@ import { GetActionConnectionResponse } from "./GetActionConnectionResponse";
 import { GetAppResponse } from "./GetAppResponse";
 import { GetAppResponseData } from "./GetAppResponseData";
 import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
+import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
 import { GetDataDeletionsResponseBody } from "./GetDataDeletionsResponseBody";
 import { GetDeviceAttributes } from "./GetDeviceAttributes";
 import { GetDeviceData } from "./GetDeviceData";
@@ -1673,6 +1687,8 @@ import { UpdateAppRequestDataAttributes } from "./UpdateAppRequestDataAttributes
 import { UpdateAppResponse } from "./UpdateAppResponse";
 import { UpdateAppResponseData } from "./UpdateAppResponseData";
 import { UpdateAppResponseDataAttributes } from "./UpdateAppResponseDataAttributes";
+import { UpdateCustomFrameworkRequest } from "./UpdateCustomFrameworkRequest";
+import { UpdateCustomFrameworkResponse } from "./UpdateCustomFrameworkResponse";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
 import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
@@ -2062,6 +2078,7 @@ const enumsMap: { [key: string]: any[] } = {
     "custom_header",
   ],
   CustomDestinationType: ["custom_destination"],
+  CustomFrameworkType: ["custom_framework"],
   DORADeploymentType: ["dora_deployment"],
   DORAIncidentType: ["dora_incident"],
   DashboardType: [
@@ -3280,6 +3297,8 @@ const typeMap: { [index: string]: any } = {
   CreateAppRequestDataAttributes: CreateAppRequestDataAttributes,
   CreateAppResponse: CreateAppResponse,
   CreateAppResponseData: CreateAppResponseData,
+  CreateCustomFrameworkRequest: CreateCustomFrameworkRequest,
+  CreateCustomFrameworkResponse: CreateCustomFrameworkResponse,
   CreateDataDeletionRequestBody: CreateDataDeletionRequestBody,
   CreateDataDeletionRequestBodyAttributes:
     CreateDataDeletionRequestBodyAttributes,
@@ -3372,6 +3391,13 @@ const typeMap: { [index: string]: any } = {
   CustomDestinationUpdateRequestDefinition:
     CustomDestinationUpdateRequestDefinition,
   CustomDestinationsResponse: CustomDestinationsResponse,
+  CustomFrameworkControl: CustomFrameworkControl,
+  CustomFrameworkData: CustomFrameworkData,
+  CustomFrameworkDataAttributes: CustomFrameworkDataAttributes,
+  CustomFrameworkDataHandleAndVersion: CustomFrameworkDataHandleAndVersion,
+  CustomFrameworkMetadata: CustomFrameworkMetadata,
+  CustomFrameworkRequirement: CustomFrameworkRequirement,
+  CustomFrameworkWithoutRequirements: CustomFrameworkWithoutRequirements,
   DORADeploymentRequest: DORADeploymentRequest,
   DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
   DORADeploymentRequestData: DORADeploymentRequestData,
@@ -3407,6 +3433,7 @@ const typeMap: { [index: string]: any } = {
   DeleteAppsRequestDataItems: DeleteAppsRequestDataItems,
   DeleteAppsResponse: DeleteAppsResponse,
   DeleteAppsResponseDataItems: DeleteAppsResponseDataItems,
+  DeleteCustomFrameworkResponse: DeleteCustomFrameworkResponse,
   DependencyLocation: DependencyLocation,
   Deployment: Deployment,
   DeploymentAttributes: DeploymentAttributes,
@@ -3610,10 +3637,13 @@ const typeMap: { [index: string]: any } = {
   FindingMute: FindingMute,
   FindingRule: FindingRule,
   FormulaLimit: FormulaLimit,
+  FrameworkHandleAndVersionResponseData: FrameworkHandleAndVersionResponseData,
   FullAPIKey: FullAPIKey,
   FullAPIKeyAttributes: FullAPIKeyAttributes,
   FullApplicationKey: FullApplicationKey,
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
+  FullCustomFrameworkData: FullCustomFrameworkData,
+  FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
   GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
   GCPSTSDelegateAccount: GCPSTSDelegateAccount,
   GCPSTSDelegateAccountAttributes: GCPSTSDelegateAccountAttributes,
@@ -3631,6 +3661,7 @@ const typeMap: { [index: string]: any } = {
   GetAppResponse: GetAppResponse,
   GetAppResponseData: GetAppResponseData,
   GetAppResponseDataAttributes: GetAppResponseDataAttributes,
+  GetCustomFrameworkResponse: GetCustomFrameworkResponse,
   GetDataDeletionsResponseBody: GetDataDeletionsResponseBody,
   GetDeviceAttributes: GetDeviceAttributes,
   GetDeviceData: GetDeviceData,
@@ -4784,6 +4815,8 @@ const typeMap: { [index: string]: any } = {
   UpdateAppResponse: UpdateAppResponse,
   UpdateAppResponseData: UpdateAppResponseData,
   UpdateAppResponseDataAttributes: UpdateAppResponseDataAttributes,
+  UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
+  UpdateCustomFrameworkResponse: UpdateCustomFrameworkResponse,
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
   UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
   UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
