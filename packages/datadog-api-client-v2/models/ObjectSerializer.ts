@@ -187,6 +187,12 @@ import { BillingDimensionsMappingBodyItem } from "./BillingDimensionsMappingBody
 import { BillingDimensionsMappingBodyItemAttributes } from "./BillingDimensionsMappingBodyItemAttributes";
 import { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./BillingDimensionsMappingBodyItemAttributesEndpointsItems";
 import { BillingDimensionsMappingResponse } from "./BillingDimensionsMappingResponse";
+import { Budget } from "./Budget";
+import { BudgetArray } from "./BudgetArray";
+import { BudgetAttributes } from "./BudgetAttributes";
+import { BudgetEntry } from "./BudgetEntry";
+import { BudgetWithEntries } from "./BudgetWithEntries";
+import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
 import { BulkMuteFindingsRequest } from "./BulkMuteFindingsRequest";
 import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
 import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
@@ -1706,6 +1712,7 @@ import { StateVariableProperties } from "./StateVariableProperties";
 import { Step } from "./Step";
 import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
+import { TagFilter } from "./TagFilter";
 import { Team } from "./Team";
 import { TeamAttributes } from "./TeamAttributes";
 import { TeamCreate } from "./TeamCreate";
@@ -3342,6 +3349,12 @@ const typeMap: { [index: string]: any } = {
   BillingDimensionsMappingBodyItemAttributesEndpointsItems:
     BillingDimensionsMappingBodyItemAttributesEndpointsItems,
   BillingDimensionsMappingResponse: BillingDimensionsMappingResponse,
+  Budget: Budget,
+  BudgetArray: BudgetArray,
+  BudgetAttributes: BudgetAttributes,
+  BudgetEntry: BudgetEntry,
+  BudgetWithEntries: BudgetWithEntries,
+  BudgetWithEntriesData: BudgetWithEntriesData,
   BulkMuteFindingsRequest: BulkMuteFindingsRequest,
   BulkMuteFindingsRequestAttributes: BulkMuteFindingsRequestAttributes,
   BulkMuteFindingsRequestData: BulkMuteFindingsRequestData,
@@ -5134,6 +5147,7 @@ const typeMap: { [index: string]: any } = {
   Step: Step,
   StepDisplay: StepDisplay,
   StepDisplayBounds: StepDisplayBounds,
+  TagFilter: TagFilter,
   Team: Team,
   TeamAttributes: TeamAttributes,
   TeamCreate: TeamCreate,
