@@ -622,7 +622,7 @@ export interface TagsApiUpdateHostTagsRequest {
    */
   hostName: string;
   /**
-   * Add tags to host
+   * Add tags to host.
    * @type HostTags
    */
   body: HostTags;
