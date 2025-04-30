@@ -4015,6 +4015,30 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AzureUCConfigPairsResponse",
     },
+    "v2.UpsertBudget": {
+        "body": {
+            "type": "BudgetWithEntries",
+            "format": "",
+            },
+        "operationResponseType": "BudgetWithEntries",
+    },
+    "v2.DeleteBudget": {
+        "budgetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetBudget": {
+        "budgetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "BudgetWithEntries",
+    },
+    "v2.ListBudgets": {
+        "operationResponseType": "BudgetArray",
+    },
     "v2.ListCustomCostsFiles": {
         "operationResponseType": "CustomCostsFileListResponse",
     },
