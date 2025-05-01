@@ -13,7 +13,7 @@ const params: v2.SecurityMonitoringApiUpdateCustomFrameworkRequest = {
       type: "custom_framework",
       attributes: {
         name: "name",
-        handle: "create-framework-new",
+        handle: "",
         version: "10",
         iconUrl: "test-url",
         requirements: [
@@ -30,7 +30,7 @@ const params: v2.SecurityMonitoringApiUpdateCustomFrameworkRequest = {
       },
     },
   },
-  handle: "create-framework-new",
+  handle: "",
   version: "10",
 };
 

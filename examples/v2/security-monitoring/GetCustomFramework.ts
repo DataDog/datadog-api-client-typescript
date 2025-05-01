@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 const params: v2.SecurityMonitoringApiGetCustomFrameworkRequest = {
-  handle: "create-framework-new",
+  handle: "",
   version: "10",
 };
 
