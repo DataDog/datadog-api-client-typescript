@@ -13,7 +13,7 @@ const params: v2.SecurityMonitoringApiCreateCustomFrameworkRequest = {
       type: "custom_framework",
       attributes: {
         name: "name",
-        handle: "create-framework-new",
+        handle: "",
         version: "10",
         iconUrl: "test-url",
         requirements: [
