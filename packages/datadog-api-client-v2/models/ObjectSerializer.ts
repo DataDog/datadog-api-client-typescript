@@ -613,6 +613,8 @@ import { EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems } fro
 import { EscalationPolicyUpdateRequestDataRelationships } from "./EscalationPolicyUpdateRequestDataRelationships";
 import { EscalationPolicyUpdateRequestDataRelationshipsTeams } from "./EscalationPolicyUpdateRequestDataRelationshipsTeams";
 import { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems } from "./EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems";
+import { EscalationPolicyUser } from "./EscalationPolicyUser";
+import { EscalationPolicyUserAttributes } from "./EscalationPolicyUserAttributes";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventCreateRequest } from "./EventCreateRequest";
@@ -2218,6 +2220,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
   EscalationPolicyUpdateRequestDataType: ["policies"],
+  EscalationPolicyUserType: ["users"],
   EventCategory: ["change"],
   EventCreateRequestType: ["event"],
   EventPriority: ["normal", "low"],
@@ -3023,6 +3026,7 @@ const enumsMap: { [key: string]: any[] } = {
   TokenType: ["SECRET"],
   TriggerSource: ["security_findings", "security_signals"],
   UsageTimeSeriesType: ["usage_timeseries"],
+  UserAttributesStatus: ["active", "deactivated", "pending"],
   UserInvitationsType: ["user_invitations"],
   UserResourceType: ["user"],
   UserTargetType: ["users"],
@@ -3852,6 +3856,8 @@ const typeMap: { [index: string]: any } = {
     EscalationPolicyUpdateRequestDataRelationshipsTeams,
   EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems:
     EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems,
+  EscalationPolicyUser: EscalationPolicyUser,
+  EscalationPolicyUserAttributes: EscalationPolicyUserAttributes,
   Event: Event,
   EventAttributes: EventAttributes,
   EventCreateRequest: EventCreateRequest,
@@ -5399,9 +5405,8 @@ const oneOfMap: { [index: string]: string[] } = {
   EscalationPolicyIncluded: [
     "TeamReference",
     "EscalationPolicyStep",
-    "UserTarget",
-    "ScheduleTarget",
-    "TeamTarget",
+    "EscalationPolicyUser",
+    "ScheduleData",
   ],
   EscalationTarget: ["TeamTarget", "UserTarget", "ScheduleTarget"],
   EventPayloadAttributes: ["ChangeEventCustomAttributes"],

@@ -3,26 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { UserAttributesStatus } from "./UserAttributesStatus";
+import { EscalationPolicyUserAttributes } from "./EscalationPolicyUserAttributes";
+import { EscalationPolicyUserType } from "./EscalationPolicyUserType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Provides basic user information for a schedule, including a name and email address.
+ * Represents a user object in the context of an escalation policy, including their `id`, type, and basic attributes.
  */
-export class ScheduleUserAttributes {
+export class EscalationPolicyUser {
   /**
-   * The user's email address.
+   * Provides basic user information for an escalation policy, including a name and email address.
    */
-  "email"?: string;
+  "attributes"?: EscalationPolicyUserAttributes;
   /**
-   * The user's name.
+   * The unique user identifier.
    */
-  "name"?: string;
+  "id"?: string;
   /**
-   * The user's status.
+   * Users resource type.
    */
-  "status"?: UserAttributesStatus;
+  "type": EscalationPolicyUserType;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,17 +41,18 @@ export class ScheduleUserAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    email: {
-      baseName: "email",
+    attributes: {
+      baseName: "attributes",
+      type: "EscalationPolicyUserAttributes",
+    },
+    id: {
+      baseName: "id",
       type: "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-    },
-    status: {
-      baseName: "status",
-      type: "UserAttributesStatus",
+    type: {
+      baseName: "type",
+      type: "EscalationPolicyUserType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,7 +64,7 @@ export class ScheduleUserAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleUserAttributes.attributeTypeMap;
+    return EscalationPolicyUser.attributeTypeMap;
   }
 
   public constructor() {}
