@@ -20,6 +20,9 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { EntityData } from "../models/EntityData";
 import { IncludeType } from "../models/IncludeType";
 import { ListEntityCatalogResponse } from "../models/ListEntityCatalogResponse";
+import { ListRelationCatalogResponse } from "../models/ListRelationCatalogResponse";
+import { RelationIncludeType } from "../models/RelationIncludeType";
+import { RelationResponse } from "../models/RelationResponse";
 import { RelationType } from "../models/RelationType";
 import { UpsertCatalogEntityRequest } from "../models/UpsertCatalogEntityRequest";
 import { UpsertCatalogEntityResponse } from "../models/UpsertCatalogEntityResponse";
@@ -152,6 +155,81 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         ObjectSerializer.serialize(include, "IncludeType", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listCatalogRelation(
+    pageOffset?: number,
+    pageLimit?: number,
+    filterType?: RelationType,
+    filterFromRef?: string,
+    filterToRef?: string,
+    include?: RelationIncludeType,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/catalog/relation";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.SoftwareCatalogApi.listCatalogRelation")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64"),
+        ""
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64"),
+        ""
+      );
+    }
+    if (filterType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[type]",
+        ObjectSerializer.serialize(filterType, "RelationType", ""),
+        ""
+      );
+    }
+    if (filterFromRef !== undefined) {
+      requestContext.setQueryParam(
+        "filter[from_ref]",
+        ObjectSerializer.serialize(filterFromRef, "string", ""),
+        ""
+      );
+    }
+    if (filterToRef !== undefined) {
+      requestContext.setQueryParam(
+        "filter[to_ref]",
+        ObjectSerializer.serialize(filterToRef, "string", ""),
+        ""
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "RelationIncludeType", ""),
         ""
       );
     }
@@ -329,6 +407,64 @@ export class SoftwareCatalogApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listCatalogRelation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCatalogRelation(
+    response: ResponseContext
+  ): Promise<ListRelationCatalogResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListRelationCatalogResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListRelationCatalogResponse"
+      ) as ListRelationCatalogResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListRelationCatalogResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListRelationCatalogResponse",
+        ""
+      ) as ListRelationCatalogResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to upsertCatalogEntity
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -449,6 +585,39 @@ export interface SoftwareCatalogApiListCatalogEntityRequest {
   include?: IncludeType;
 }
 
+export interface SoftwareCatalogApiListCatalogRelationRequest {
+  /**
+   * Specific offset to use as the beginning of the returned page.
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * Maximum number of relations in the response.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Filter relations by type.
+   * @type RelationType
+   */
+  filterType?: RelationType;
+  /**
+   * Filter relations by the reference of the first entity in the relation.
+   * @type string
+   */
+  filterFromRef?: string;
+  /**
+   * Filter relations by the reference of the second entity in the relation.
+   * @type string
+   */
+  filterToRef?: string;
+  /**
+   * Include relationship data.
+   * @type RelationIncludeType
+   */
+  include?: RelationIncludeType;
+}
+
 export interface SoftwareCatalogApiUpsertCatalogEntityRequest {
   /**
    * Entity YAML or JSON.
@@ -556,6 +725,80 @@ export class SoftwareCatalogApi {
       );
 
       const response = await this.responseProcessor.listCatalogEntity(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.pageOffset === undefined) {
+        param.pageOffset = pageSize;
+      } else {
+        param.pageOffset = param.pageOffset + pageSize;
+      }
+    }
+  }
+
+  /**
+   * Get a list of entity relations from Software Catalog.
+   * @param param The request object
+   */
+  public listCatalogRelation(
+    param: SoftwareCatalogApiListCatalogRelationRequest = {},
+    options?: Configuration
+  ): Promise<ListRelationCatalogResponse> {
+    const requestContextPromise = this.requestFactory.listCatalogRelation(
+      param.pageOffset,
+      param.pageLimit,
+      param.filterType,
+      param.filterFromRef,
+      param.filterToRef,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCatalogRelation(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listCatalogRelation returning a generator with all the items.
+   */
+  public async *listCatalogRelationWithPagination(
+    param: SoftwareCatalogApiListCatalogRelationRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<RelationResponse> {
+    let pageSize = 100;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listCatalogRelation(
+        param.pageOffset,
+        param.pageLimit,
+        param.filterType,
+        param.filterFromRef,
+        param.filterToRef,
+        param.include,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listCatalogRelation(
         responseContext
       );
       const responseData = response.data;
