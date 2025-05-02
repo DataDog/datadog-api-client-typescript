@@ -435,6 +435,8 @@ export {
   OnCallApiDeleteOnCallScheduleRequest,
   OnCallApiGetOnCallEscalationPolicyRequest,
   OnCallApiGetOnCallScheduleRequest,
+  OnCallApiGetOnCallTeamRoutingRulesRequest,
+  OnCallApiSetOnCallTeamRoutingRulesRequest,
   OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
   OnCallApi,
@@ -1474,9 +1476,6 @@ export { EscalationPolicyCreateRequest } from "./models/EscalationPolicyCreateRe
 export { EscalationPolicyCreateRequestData } from "./models/EscalationPolicyCreateRequestData";
 export { EscalationPolicyCreateRequestDataAttributes } from "./models/EscalationPolicyCreateRequestDataAttributes";
 export { EscalationPolicyCreateRequestDataAttributesStepsItems } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItems";
-export { EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment";
-export { EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems";
-export { EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType } from "./models/EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType";
 export { EscalationPolicyCreateRequestDataRelationships } from "./models/EscalationPolicyCreateRequestDataRelationships";
 export { EscalationPolicyCreateRequestDataRelationshipsTeams } from "./models/EscalationPolicyCreateRequestDataRelationshipsTeams";
 export { EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems } from "./models/EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems";
@@ -1497,14 +1496,13 @@ export { EscalationPolicyStep } from "./models/EscalationPolicyStep";
 export { EscalationPolicyStepAttributes } from "./models/EscalationPolicyStepAttributes";
 export { EscalationPolicyStepAttributesAssignment } from "./models/EscalationPolicyStepAttributesAssignment";
 export { EscalationPolicyStepRelationships } from "./models/EscalationPolicyStepRelationships";
+export { EscalationPolicyStepTarget } from "./models/EscalationPolicyStepTarget";
+export { EscalationPolicyStepTargetType } from "./models/EscalationPolicyStepTargetType";
 export { EscalationPolicyStepType } from "./models/EscalationPolicyStepType";
 export { EscalationPolicyUpdateRequest } from "./models/EscalationPolicyUpdateRequest";
 export { EscalationPolicyUpdateRequestData } from "./models/EscalationPolicyUpdateRequestData";
 export { EscalationPolicyUpdateRequestDataAttributes } from "./models/EscalationPolicyUpdateRequestDataAttributes";
 export { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItems";
-export { EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment";
-export { EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems";
-export { EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType } from "./models/EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType";
 export { EscalationPolicyUpdateRequestDataRelationships } from "./models/EscalationPolicyUpdateRequestDataRelationships";
 export { EscalationPolicyUpdateRequestDataRelationshipsTeams } from "./models/EscalationPolicyUpdateRequestDataRelationshipsTeams";
 export { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems } from "./models/EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems";
@@ -2499,6 +2497,14 @@ export { RoleUpdateData } from "./models/RoleUpdateData";
 export { RoleUpdateRequest } from "./models/RoleUpdateRequest";
 export { RoleUpdateResponse } from "./models/RoleUpdateResponse";
 export { RoleUpdateResponseData } from "./models/RoleUpdateResponseData";
+export { RoutingRule } from "./models/RoutingRule";
+export { RoutingRuleAction } from "./models/RoutingRuleAction";
+export { RoutingRuleAttributes } from "./models/RoutingRuleAttributes";
+export { RoutingRuleRelationships } from "./models/RoutingRuleRelationships";
+export { RoutingRuleRelationshipsPolicy } from "./models/RoutingRuleRelationshipsPolicy";
+export { RoutingRuleRelationshipsPolicyData } from "./models/RoutingRuleRelationshipsPolicyData";
+export { RoutingRuleRelationshipsPolicyDataType } from "./models/RoutingRuleRelationshipsPolicyDataType";
+export { RoutingRuleType } from "./models/RoutingRuleType";
 export { RuleAttributes } from "./models/RuleAttributes";
 export { RuleOutcomeRelationships } from "./models/RuleOutcomeRelationships";
 export { RuleSeverity } from "./models/RuleSeverity";
@@ -2910,6 +2916,7 @@ export { SingleAggregatedConnectionResponseArray } from "./models/SingleAggregat
 export { SingleAggregatedConnectionResponseData } from "./models/SingleAggregatedConnectionResponseData";
 export { SingleAggregatedConnectionResponseDataAttributes } from "./models/SingleAggregatedConnectionResponseDataAttributes";
 export { SingleAggregatedConnectionResponseDataType } from "./models/SingleAggregatedConnectionResponseDataType";
+export { SlackAction } from "./models/SlackAction";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { SlackTriggerWrapper } from "./models/SlackTriggerWrapper";
@@ -3028,6 +3035,20 @@ export { TeamReferenceType } from "./models/TeamReferenceType";
 export { TeamRelationships } from "./models/TeamRelationships";
 export { TeamRelationshipsLinks } from "./models/TeamRelationshipsLinks";
 export { TeamResponse } from "./models/TeamResponse";
+export { TeamRoutingRules } from "./models/TeamRoutingRules";
+export { TeamRoutingRulesData } from "./models/TeamRoutingRulesData";
+export { TeamRoutingRulesDataRelationships } from "./models/TeamRoutingRulesDataRelationships";
+export { TeamRoutingRulesDataRelationshipsRules } from "./models/TeamRoutingRulesDataRelationshipsRules";
+export { TeamRoutingRulesDataRelationshipsRulesDataItems } from "./models/TeamRoutingRulesDataRelationshipsRulesDataItems";
+export { TeamRoutingRulesDataRelationshipsRulesDataItemsType } from "./models/TeamRoutingRulesDataRelationshipsRulesDataItemsType";
+export { TeamRoutingRulesDataType } from "./models/TeamRoutingRulesDataType";
+export { TeamRoutingRulesIncluded } from "./models/TeamRoutingRulesIncluded";
+export { TeamRoutingRulesRequest } from "./models/TeamRoutingRulesRequest";
+export { TeamRoutingRulesRequestData } from "./models/TeamRoutingRulesRequestData";
+export { TeamRoutingRulesRequestDataAttributes } from "./models/TeamRoutingRulesRequestDataAttributes";
+export { TeamRoutingRulesRequestDataType } from "./models/TeamRoutingRulesRequestDataType";
+export { TeamRoutingRulesRequestRule } from "./models/TeamRoutingRulesRequestRule";
+export { TeamsAction } from "./models/TeamsAction";
 export { TeamsField } from "./models/TeamsField";
 export { TeamsResponse } from "./models/TeamsResponse";
 export { TeamsResponseLinks } from "./models/TeamsResponseLinks";
@@ -3040,6 +3061,8 @@ export { TeamUpdate } from "./models/TeamUpdate";
 export { TeamUpdateAttributes } from "./models/TeamUpdateAttributes";
 export { TeamUpdateRelationships } from "./models/TeamUpdateRelationships";
 export { TeamUpdateRequest } from "./models/TeamUpdateRequest";
+export { TimeRestriction } from "./models/TimeRestriction";
+export { TimeRestrictions } from "./models/TimeRestrictions";
 export { TimeseriesFormulaQueryRequest } from "./models/TimeseriesFormulaQueryRequest";
 export { TimeseriesFormulaQueryResponse } from "./models/TimeseriesFormulaQueryResponse";
 export { TimeseriesFormulaRequest } from "./models/TimeseriesFormulaRequest";
@@ -3078,6 +3101,7 @@ export { UpdateWorkflowResponse } from "./models/UpdateWorkflowResponse";
 export { UpsertCatalogEntityRequest } from "./models/UpsertCatalogEntityRequest";
 export { UpsertCatalogEntityResponse } from "./models/UpsertCatalogEntityResponse";
 export { UpsertCatalogEntityResponseIncludedItem } from "./models/UpsertCatalogEntityResponseIncludedItem";
+export { Urgency } from "./models/Urgency";
 export { UrlParam } from "./models/UrlParam";
 export { UrlParamUpdate } from "./models/UrlParamUpdate";
 export { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
@@ -3149,6 +3173,7 @@ export { VulnerabilitySeverity } from "./models/VulnerabilitySeverity";
 export { VulnerabilityStatus } from "./models/VulnerabilityStatus";
 export { VulnerabilityTool } from "./models/VulnerabilityTool";
 export { VulnerabilityType } from "./models/VulnerabilityType";
+export { Weekday } from "./models/Weekday";
 export { WidgetLiveSpan } from "./models/WidgetLiveSpan";
 export { WorkflowData } from "./models/WorkflowData";
 export { WorkflowDataAttributes } from "./models/WorkflowDataAttributes";

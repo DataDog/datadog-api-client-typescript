@@ -591,7 +591,6 @@ import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
 import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateRequestData";
 import { EscalationPolicyCreateRequestDataAttributes } from "./EscalationPolicyCreateRequestDataAttributes";
 import { EscalationPolicyCreateRequestDataAttributesStepsItems } from "./EscalationPolicyCreateRequestDataAttributesStepsItems";
-import { EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems } from "./EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems";
 import { EscalationPolicyCreateRequestDataRelationships } from "./EscalationPolicyCreateRequestDataRelationships";
 import { EscalationPolicyCreateRequestDataRelationshipsTeams } from "./EscalationPolicyCreateRequestDataRelationshipsTeams";
 import { EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems } from "./EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems";
@@ -605,11 +604,11 @@ import { EscalationPolicyDataRelationshipsTeamsDataItems } from "./EscalationPol
 import { EscalationPolicyStep } from "./EscalationPolicyStep";
 import { EscalationPolicyStepAttributes } from "./EscalationPolicyStepAttributes";
 import { EscalationPolicyStepRelationships } from "./EscalationPolicyStepRelationships";
+import { EscalationPolicyStepTarget } from "./EscalationPolicyStepTarget";
 import { EscalationPolicyUpdateRequest } from "./EscalationPolicyUpdateRequest";
 import { EscalationPolicyUpdateRequestData } from "./EscalationPolicyUpdateRequestData";
 import { EscalationPolicyUpdateRequestDataAttributes } from "./EscalationPolicyUpdateRequestDataAttributes";
 import { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./EscalationPolicyUpdateRequestDataAttributesStepsItems";
-import { EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems } from "./EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems";
 import { EscalationPolicyUpdateRequestDataRelationships } from "./EscalationPolicyUpdateRequestDataRelationships";
 import { EscalationPolicyUpdateRequestDataRelationshipsTeams } from "./EscalationPolicyUpdateRequestDataRelationshipsTeams";
 import { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems } from "./EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems";
@@ -1385,6 +1384,11 @@ import { RoleUpdateRequest } from "./RoleUpdateRequest";
 import { RoleUpdateResponse } from "./RoleUpdateResponse";
 import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
+import { RoutingRule } from "./RoutingRule";
+import { RoutingRuleAttributes } from "./RoutingRuleAttributes";
+import { RoutingRuleRelationships } from "./RoutingRuleRelationships";
+import { RoutingRuleRelationshipsPolicy } from "./RoutingRuleRelationshipsPolicy";
+import { RoutingRuleRelationshipsPolicyData } from "./RoutingRuleRelationshipsPolicyData";
 import { RuleAttributes } from "./RuleAttributes";
 import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
 import { RuleUser } from "./RuleUser";
@@ -1657,6 +1661,7 @@ import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 import { SingleAggregatedConnectionResponseArray } from "./SingleAggregatedConnectionResponseArray";
 import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
 import { SingleAggregatedConnectionResponseDataAttributes } from "./SingleAggregatedConnectionResponseDataAttributes";
+import { SlackAction } from "./SlackAction";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
@@ -1742,15 +1747,27 @@ import { TeamReferenceRelationshipsOncallUsersDataItems } from "./TeamReferenceR
 import { TeamRelationships } from "./TeamRelationships";
 import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 import { TeamResponse } from "./TeamResponse";
+import { TeamRoutingRules } from "./TeamRoutingRules";
+import { TeamRoutingRulesData } from "./TeamRoutingRulesData";
+import { TeamRoutingRulesDataRelationships } from "./TeamRoutingRulesDataRelationships";
+import { TeamRoutingRulesDataRelationshipsRules } from "./TeamRoutingRulesDataRelationshipsRules";
+import { TeamRoutingRulesDataRelationshipsRulesDataItems } from "./TeamRoutingRulesDataRelationshipsRulesDataItems";
+import { TeamRoutingRulesRequest } from "./TeamRoutingRulesRequest";
+import { TeamRoutingRulesRequestData } from "./TeamRoutingRulesRequestData";
+import { TeamRoutingRulesRequestDataAttributes } from "./TeamRoutingRulesRequestDataAttributes";
+import { TeamRoutingRulesRequestRule } from "./TeamRoutingRulesRequestRule";
 import { TeamTarget } from "./TeamTarget";
 import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
 import { TeamUpdateRequest } from "./TeamUpdateRequest";
+import { TeamsAction } from "./TeamsAction";
 import { TeamsResponse } from "./TeamsResponse";
 import { TeamsResponseLinks } from "./TeamsResponseLinks";
 import { TeamsResponseMeta } from "./TeamsResponseMeta";
 import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
+import { TimeRestriction } from "./TimeRestriction";
+import { TimeRestrictions } from "./TimeRestrictions";
 import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
 import { TimeseriesFormulaQueryResponse } from "./TimeseriesFormulaQueryResponse";
 import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
@@ -2193,31 +2210,14 @@ const enumsMap: { [key: string]: any[] } = {
   EntityV3QueueKind: ["queue"],
   EntityV3ServiceKind: ["service"],
   EntityV3SystemKind: ["system"],
-  EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment: [
-    "default",
-    "round-robin",
-  ],
-  EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType: [
-    "users",
-    "schedules",
-    "teams",
-  ],
   EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
   EscalationPolicyCreateRequestDataType: ["policies"],
   EscalationPolicyDataRelationshipsStepsDataItemsType: ["steps"],
   EscalationPolicyDataRelationshipsTeamsDataItemsType: ["teams"],
   EscalationPolicyDataType: ["policies"],
   EscalationPolicyStepAttributesAssignment: ["default", "round-robin"],
+  EscalationPolicyStepTargetType: ["users", "schedules", "teams"],
   EscalationPolicyStepType: ["steps"],
-  EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment: [
-    "default",
-    "round-robin",
-  ],
-  EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType: [
-    "users",
-    "schedules",
-    "teams",
-  ],
   EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
   EscalationPolicyUpdateRequestDataType: ["policies"],
   EscalationPolicyUserType: ["users"],
@@ -2706,6 +2706,8 @@ const enumsMap: { [key: string]: any[] } = {
     "-user_count",
   ],
   RolesType: ["roles"],
+  RoutingRuleRelationshipsPolicyDataType: ["policies"],
+  RoutingRuleType: ["team_routing_rules"],
   RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
   RuleType: ["rule"],
   RuleTypesItems: [
@@ -3002,6 +3004,9 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   TeamReferenceRelationshipsOncallUsersDataItemsType: ["users"],
   TeamReferenceType: ["teams"],
+  TeamRoutingRulesDataRelationshipsRulesDataItemsType: ["team_routing_rules"],
+  TeamRoutingRulesDataType: ["team_routing_rules"],
+  TeamRoutingRulesRequestDataType: ["team_routing_rules"],
   TeamTargetType: ["teams"],
   TeamType: ["team"],
   TeamsField: [
@@ -3025,6 +3030,7 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
   TriggerSource: ["security_findings", "security_signals"],
+  Urgency: ["low", "high", "dynamic"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserAttributesStatus: ["active", "deactivated", "pending"],
   UserInvitationsType: ["user_invitations"],
@@ -3109,6 +3115,15 @@ const enumsMap: { [key: string]: any[] } = {
     "XContentTypeHeaderMissing",
     "XPathInjection",
     "Xss",
+  ],
+  Weekday: [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
   ],
   WidgetLiveSpan: [
     "1m",
@@ -3820,8 +3835,6 @@ const typeMap: { [index: string]: any } = {
     EscalationPolicyCreateRequestDataAttributes,
   EscalationPolicyCreateRequestDataAttributesStepsItems:
     EscalationPolicyCreateRequestDataAttributesStepsItems,
-  EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems:
-    EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems,
   EscalationPolicyCreateRequestDataRelationships:
     EscalationPolicyCreateRequestDataRelationships,
   EscalationPolicyCreateRequestDataRelationshipsTeams:
@@ -3842,14 +3855,13 @@ const typeMap: { [index: string]: any } = {
   EscalationPolicyStep: EscalationPolicyStep,
   EscalationPolicyStepAttributes: EscalationPolicyStepAttributes,
   EscalationPolicyStepRelationships: EscalationPolicyStepRelationships,
+  EscalationPolicyStepTarget: EscalationPolicyStepTarget,
   EscalationPolicyUpdateRequest: EscalationPolicyUpdateRequest,
   EscalationPolicyUpdateRequestData: EscalationPolicyUpdateRequestData,
   EscalationPolicyUpdateRequestDataAttributes:
     EscalationPolicyUpdateRequestDataAttributes,
   EscalationPolicyUpdateRequestDataAttributesStepsItems:
     EscalationPolicyUpdateRequestDataAttributesStepsItems,
-  EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems:
-    EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems,
   EscalationPolicyUpdateRequestDataRelationships:
     EscalationPolicyUpdateRequestDataRelationships,
   EscalationPolicyUpdateRequestDataRelationshipsTeams:
@@ -4749,6 +4761,11 @@ const typeMap: { [index: string]: any } = {
   RoleUpdateResponse: RoleUpdateResponse,
   RoleUpdateResponseData: RoleUpdateResponseData,
   RolesResponse: RolesResponse,
+  RoutingRule: RoutingRule,
+  RoutingRuleAttributes: RoutingRuleAttributes,
+  RoutingRuleRelationships: RoutingRuleRelationships,
+  RoutingRuleRelationshipsPolicy: RoutingRuleRelationshipsPolicy,
+  RoutingRuleRelationshipsPolicyData: RoutingRuleRelationshipsPolicyData,
   RuleAttributes: RuleAttributes,
   RuleOutcomeRelationships: RuleOutcomeRelationships,
   RuleUser: RuleUser,
@@ -5095,6 +5112,7 @@ const typeMap: { [index: string]: any } = {
     SingleAggregatedConnectionResponseData,
   SingleAggregatedConnectionResponseDataAttributes:
     SingleAggregatedConnectionResponseDataAttributes,
+  SlackAction: SlackAction,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   SlackTriggerWrapper: SlackTriggerWrapper,
@@ -5182,15 +5200,29 @@ const typeMap: { [index: string]: any } = {
   TeamRelationships: TeamRelationships,
   TeamRelationshipsLinks: TeamRelationshipsLinks,
   TeamResponse: TeamResponse,
+  TeamRoutingRules: TeamRoutingRules,
+  TeamRoutingRulesData: TeamRoutingRulesData,
+  TeamRoutingRulesDataRelationships: TeamRoutingRulesDataRelationships,
+  TeamRoutingRulesDataRelationshipsRules:
+    TeamRoutingRulesDataRelationshipsRules,
+  TeamRoutingRulesDataRelationshipsRulesDataItems:
+    TeamRoutingRulesDataRelationshipsRulesDataItems,
+  TeamRoutingRulesRequest: TeamRoutingRulesRequest,
+  TeamRoutingRulesRequestData: TeamRoutingRulesRequestData,
+  TeamRoutingRulesRequestDataAttributes: TeamRoutingRulesRequestDataAttributes,
+  TeamRoutingRulesRequestRule: TeamRoutingRulesRequestRule,
   TeamTarget: TeamTarget,
   TeamUpdate: TeamUpdate,
   TeamUpdateAttributes: TeamUpdateAttributes,
   TeamUpdateRelationships: TeamUpdateRelationships,
   TeamUpdateRequest: TeamUpdateRequest,
+  TeamsAction: TeamsAction,
   TeamsResponse: TeamsResponse,
   TeamsResponseLinks: TeamsResponseLinks,
   TeamsResponseMeta: TeamsResponseMeta,
   TeamsResponseMetaPagination: TeamsResponseMetaPagination,
+  TimeRestriction: TimeRestriction,
+  TimeRestrictions: TimeRestrictions,
   TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
   TimeseriesFormulaQueryResponse: TimeseriesFormulaQueryResponse,
   TimeseriesFormulaRequest: TimeseriesFormulaRequest,
@@ -5558,6 +5590,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
+  RoutingRuleAction: ["SlackAction", "TeamsAction"],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: ["MetricsScalarQuery", "EventsScalarQuery"],
   ScheduleDataIncludedItem: [
@@ -5625,6 +5658,7 @@ const oneOfMap: { [index: string]: string[] } = {
   SpansGroupByMissing: ["string", "number"],
   SpansGroupByTotal: ["boolean", "string", "number"],
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
+  TeamRoutingRulesIncluded: ["RoutingRule"],
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
   Trigger: [
     "APITriggerWrapper",

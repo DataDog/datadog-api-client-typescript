@@ -23,6 +23,8 @@ import { EscalationPolicyUpdateRequest } from "../models/EscalationPolicyUpdateR
 import { Schedule } from "../models/Schedule";
 import { ScheduleCreateRequest } from "../models/ScheduleCreateRequest";
 import { ScheduleUpdateRequest } from "../models/ScheduleUpdateRequest";
+import { TeamRoutingRules } from "../models/TeamRoutingRules";
+import { TeamRoutingRulesRequest } from "../models/TeamRoutingRulesRequest";
 
 export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
   public async createOnCallEscalationPolicy(
@@ -276,6 +278,113 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getOnCallTeamRoutingRules(
+    teamId: string,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "getOnCallTeamRoutingRules");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/teams/{team_id}/routing-rules".replace(
+        "{team_id}",
+        encodeURIComponent(String(teamId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.getOnCallTeamRoutingRules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async setOnCallTeamRoutingRules(
+    teamId: string,
+    body: TeamRoutingRulesRequest,
+    include?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "setOnCallTeamRoutingRules");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "setOnCallTeamRoutingRules");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/teams/{team_id}/routing-rules".replace(
+        "{team_id}",
+        encodeURIComponent(String(teamId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.setOnCallTeamRoutingRules")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "TeamRoutingRulesRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -783,6 +892,122 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getOnCallTeamRoutingRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getOnCallTeamRoutingRules(
+    response: ResponseContext
+  ): Promise<TeamRoutingRules> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TeamRoutingRules = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamRoutingRules"
+      ) as TeamRoutingRules;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamRoutingRules = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamRoutingRules",
+        ""
+      ) as TeamRoutingRules;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to setOnCallTeamRoutingRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async setOnCallTeamRoutingRules(
+    response: ResponseContext
+  ): Promise<TeamRoutingRules> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TeamRoutingRules = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamRoutingRules"
+      ) as TeamRoutingRules;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamRoutingRules = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamRoutingRules",
+        ""
+      ) as TeamRoutingRules;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateOnCallEscalationPolicy
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -974,6 +1199,36 @@ export interface OnCallApiGetOnCallScheduleRequest {
   include?: string;
 }
 
+export interface OnCallApiGetOnCallTeamRoutingRulesRequest {
+  /**
+   * The team ID
+   * @type string
+   */
+  teamId: string;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `rules`, `rules.policy`.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface OnCallApiSetOnCallTeamRoutingRulesRequest {
+  /**
+   * The team ID
+   * @type string
+   */
+  teamId: string;
+  /**
+   * @type TeamRoutingRulesRequest
+   */
+  body: TeamRoutingRulesRequest;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `rules`, `rules.policy`.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface OnCallApiUpdateOnCallEscalationPolicyRequest {
   /**
    * The ID of the escalation policy
@@ -1156,6 +1411,55 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOnCallSchedule(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a team's on-call routing rules
+   * @param param The request object
+   */
+  public getOnCallTeamRoutingRules(
+    param: OnCallApiGetOnCallTeamRoutingRulesRequest,
+    options?: Configuration
+  ): Promise<TeamRoutingRules> {
+    const requestContextPromise = this.requestFactory.getOnCallTeamRoutingRules(
+      param.teamId,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOnCallTeamRoutingRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Set a team's on-call routing rules
+   * @param param The request object
+   */
+  public setOnCallTeamRoutingRules(
+    param: OnCallApiSetOnCallTeamRoutingRulesRequest,
+    options?: Configuration
+  ): Promise<TeamRoutingRules> {
+    const requestContextPromise = this.requestFactory.setOnCallTeamRoutingRules(
+      param.teamId,
+      param.body,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.setOnCallTeamRoutingRules(
+            responseContext
+          );
         });
     });
   }

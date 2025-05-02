@@ -3,16 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { RoutingRule } from "./RoutingRule";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Specifies how this escalation step will assign targets (example `default` or `round-robin`).
+ * Represents additional included resources for team routing rules, such as associated routing rules.
  */
 
-export type EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment =
-  | typeof DEFAULT
-  | typeof ROUND_ROBIN
-  | UnparsedObject;
-export const DEFAULT = "default";
-export const ROUND_ROBIN = "round-robin";
+export type TeamRoutingRulesIncluded = RoutingRule | UnparsedObject;

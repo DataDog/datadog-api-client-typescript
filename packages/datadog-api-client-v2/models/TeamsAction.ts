@@ -3,22 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType } from "./EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Defines a single escalation target within a step for an escalation policy update request. Contains `id` and `type`.
+ * Sends a message to a Microsoft Teams channel.
  */
-export class EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems {
+export class TeamsAction {
   /**
-   * Specifies the unique identifier for this target.
+   * The channel ID.
    */
-  "id"?: string;
+  "channel": string;
   /**
-   * Specifies the type of escalation target (example `users`, `schedules`, or `teams`).
+   * The team ID.
    */
-  "type"?: EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType;
+  "team": string;
+  /**
+   * The tenant ID.
+   */
+  "tenant": string;
+  /**
+   * Must be set to "send_teams_message".
+   */
+  "type": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,13 +43,25 @@ export class EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
+    channel: {
+      baseName: "channel",
       type: "string",
+      required: true,
+    },
+    team: {
+      baseName: "team",
+      type: "string",
+      required: true,
+    },
+    tenant: {
+      baseName: "tenant",
+      type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType",
+      type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +73,7 @@ export class EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems.attributeTypeMap;
+    return TeamsAction.attributeTypeMap;
   }
 
   public constructor() {}
