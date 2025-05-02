@@ -1510,6 +1510,9 @@ export { EscalationPolicyUpdateRequestDataRelationshipsTeams } from "./models/Es
 export { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems } from "./models/EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems";
 export { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType } from "./models/EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType";
 export { EscalationPolicyUpdateRequestDataType } from "./models/EscalationPolicyUpdateRequestDataType";
+export { EscalationPolicyUser } from "./models/EscalationPolicyUser";
+export { EscalationPolicyUserAttributes } from "./models/EscalationPolicyUserAttributes";
+export { EscalationPolicyUserType } from "./models/EscalationPolicyUserType";
 export { EscalationTarget } from "./models/EscalationTarget";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
@@ -3086,6 +3089,7 @@ export { UsageTimeSeriesObject } from "./models/UsageTimeSeriesObject";
 export { UsageTimeSeriesType } from "./models/UsageTimeSeriesType";
 export { User } from "./models/User";
 export { UserAttributes } from "./models/UserAttributes";
+export { UserAttributesStatus } from "./models/UserAttributesStatus";
 export { UserCreateAttributes } from "./models/UserCreateAttributes";
 export { UserCreateData } from "./models/UserCreateData";
 export { UserCreateRequest } from "./models/UserCreateRequest";

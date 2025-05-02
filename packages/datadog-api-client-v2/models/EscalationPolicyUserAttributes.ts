@@ -8,9 +8,9 @@ import { UserAttributesStatus } from "./UserAttributesStatus";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Provides basic user information for a schedule, including a name and email address.
+ * Provides basic user information for an escalation policy, including a name and email address.
  */
-export class ScheduleUserAttributes {
+export class EscalationPolicyUserAttributes {
   /**
    * The user's email address.
    */
@@ -62,7 +62,7 @@ export class ScheduleUserAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleUserAttributes.attributeTypeMap;
+    return EscalationPolicyUserAttributes.attributeTypeMap;
   }
 
   public constructor() {}

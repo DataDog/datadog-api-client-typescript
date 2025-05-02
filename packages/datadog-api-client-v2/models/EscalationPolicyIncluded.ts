@@ -4,10 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { EscalationPolicyStep } from "./EscalationPolicyStep";
-import { ScheduleTarget } from "./ScheduleTarget";
+import { EscalationPolicyUser } from "./EscalationPolicyUser";
+import { ScheduleData } from "./ScheduleData";
 import { TeamReference } from "./TeamReference";
-import { TeamTarget } from "./TeamTarget";
-import { UserTarget } from "./UserTarget";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -18,7 +17,6 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type EscalationPolicyIncluded =
   | TeamReference
   | EscalationPolicyStep
-  | UserTarget
-  | ScheduleTarget
-  | TeamTarget
+  | EscalationPolicyUser
+  | ScheduleData
   | UnparsedObject;
