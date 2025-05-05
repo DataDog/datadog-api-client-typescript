@@ -7,12 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Specifies how this escalation step will assign targets (example `default` or `round-robin`).
+ * Indicates that the resource is of type 'team_routing_rules'.
  */
 
-export type EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment =
-  | typeof DEFAULT
-  | typeof ROUND_ROBIN
+export type TeamRoutingRulesDataRelationshipsRulesDataItemsType =
+  | typeof TEAM_ROUTING_RULES
   | UnparsedObject;
-export const DEFAULT = "default";
-export const ROUND_ROBIN = "round-robin";
+export const TEAM_ROUTING_RULES = "team_routing_rules";

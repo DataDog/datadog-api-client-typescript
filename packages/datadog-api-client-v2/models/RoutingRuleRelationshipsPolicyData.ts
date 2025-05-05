@@ -3,22 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType } from "./EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType";
+import { RoutingRuleRelationshipsPolicyDataType } from "./RoutingRuleRelationshipsPolicyDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Defines a single escalation target within a step for an escalation policy creation request. Contains `id` and `type`.
+ * Represents the policy data reference, containing the policy's ID and resource type.
  */
-export class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems {
+export class RoutingRuleRelationshipsPolicyData {
   /**
-   * Specifies the unique identifier for this target.
+   * Specifies the unique identifier of the policy.
    */
-  "id"?: string;
+  "id": string;
   /**
-   * Specifies the type of escalation target (example `users`, `schedules`, or `teams`).
+   * Indicates that the resource is of type 'policies'.
    */
-  "type"?: EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType;
+  "type": RoutingRuleRelationshipsPolicyDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,10 +39,12 @@ export class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType",
+      type: "RoutingRuleRelationshipsPolicyDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +56,7 @@ export class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.attributeTypeMap;
+    return RoutingRuleRelationshipsPolicyData.attributeTypeMap;
   }
 
   public constructor() {}

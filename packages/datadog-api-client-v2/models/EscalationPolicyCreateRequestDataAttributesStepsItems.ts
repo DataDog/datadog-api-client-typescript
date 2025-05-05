@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment } from "./EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment";
-import { EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems } from "./EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems";
+import { EscalationPolicyStepAttributesAssignment } from "./EscalationPolicyStepAttributesAssignment";
+import { EscalationPolicyStepTarget } from "./EscalationPolicyStepTarget";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,7 +15,7 @@ export class EscalationPolicyCreateRequestDataAttributesStepsItems {
   /**
    * Specifies how this escalation step will assign targets (example `default` or `round-robin`).
    */
-  "assignment"?: EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment;
+  "assignment"?: EscalationPolicyStepAttributesAssignment;
   /**
    * Defines how many seconds to wait before escalating to the next step.
    */
@@ -23,7 +23,7 @@ export class EscalationPolicyCreateRequestDataAttributesStepsItems {
   /**
    * Specifies the collection of escalation targets for this step.
    */
-  "targets": Array<EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems>;
+  "targets": Array<EscalationPolicyStepTarget>;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,7 +43,7 @@ export class EscalationPolicyCreateRequestDataAttributesStepsItems {
   static readonly attributeTypeMap: AttributeTypeMap = {
     assignment: {
       baseName: "assignment",
-      type: "EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment",
+      type: "EscalationPolicyStepAttributesAssignment",
     },
     escalateAfterSeconds: {
       baseName: "escalate_after_seconds",
@@ -52,7 +52,7 @@ export class EscalationPolicyCreateRequestDataAttributesStepsItems {
     },
     targets: {
       baseName: "targets",
-      type: "Array<EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems>",
+      type: "Array<EscalationPolicyStepTarget>",
       required: true,
     },
     additionalProperties: {

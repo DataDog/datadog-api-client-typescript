@@ -5879,6 +5879,32 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Schedule",
     },
+    "v2.GetOnCallTeamRoutingRules": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamRoutingRules",
+    },
+    "v2.SetOnCallTeamRoutingRules": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TeamRoutingRulesRequest",
+            "format": "",
+            },
+        "operationResponseType": "TeamRoutingRules",
+    },
     "v2.ListOrgConfigs": {
         "operationResponseType": "OrgConfigListResponse",
     },
