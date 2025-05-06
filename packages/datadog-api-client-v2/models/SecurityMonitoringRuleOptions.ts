@@ -48,12 +48,12 @@ export class SecurityMonitoringRuleOptions {
    */
   "impossibleTravelOptions"?: SecurityMonitoringRuleImpossibleTravelOptions;
   /**
-   * Once a signal is generated, the signal will remain “open” if a case is matched at least once within
+   * Once a signal is generated, the signal will remain "open" if a case is matched at least once within
    * this keep alive window. For third party detection method, this field is not used.
    */
   "keepAlive"?: SecurityMonitoringRuleKeepAlive;
   /**
-   * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
+   * A signal will "close" regardless of the query being matched once the time exceeds the maximum duration.
    * This time is calculated from the first seen timestamp.
    */
   "maxSignalDuration"?: SecurityMonitoringRuleMaxSignalDuration;
