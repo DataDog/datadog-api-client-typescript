@@ -217,6 +217,7 @@ export class DataDeletionApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429 ||
@@ -281,6 +282,7 @@ export class DataDeletionApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 412 ||
       response.httpStatusCode === 429 ||
@@ -345,6 +347,7 @@ export class DataDeletionApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500

@@ -3095,6 +3095,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -3285,6 +3286,8 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
@@ -3348,6 +3351,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
@@ -3411,6 +3415,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -3474,6 +3479,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
@@ -3538,6 +3544,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -3600,6 +3607,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -3662,6 +3670,8 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
     ) {
@@ -3776,6 +3786,7 @@ export class SecurityMonitoringApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -3834,6 +3845,7 @@ export class SecurityMonitoringApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -3892,6 +3904,7 @@ export class SecurityMonitoringApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -3950,6 +3963,7 @@ export class SecurityMonitoringApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -4008,6 +4022,7 @@ export class SecurityMonitoringApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -4266,6 +4281,8 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
     ) {
@@ -4354,6 +4371,26 @@ export class SecurityMonitoringApiResponseProcessor {
         body
       );
     }
+    if (response.httpStatusCode === 401) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -4394,6 +4431,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -4543,7 +4581,7 @@ export class SecurityMonitoringApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -4602,6 +4640,7 @@ export class SecurityMonitoringApiResponseProcessor {
       return body;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -4663,7 +4702,12 @@ export class SecurityMonitoringApiResponseProcessor {
       ) as SecurityMonitoringRuleResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -4722,7 +4766,12 @@ export class SecurityMonitoringApiResponseProcessor {
         ) as SecurityMonitoringSignalResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -4783,6 +4832,7 @@ export class SecurityMonitoringApiResponseProcessor {
       return body;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -4847,6 +4897,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -4908,7 +4959,11 @@ export class SecurityMonitoringApiResponseProcessor {
       ) as any;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -4968,6 +5023,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -5029,7 +5085,11 @@ export class SecurityMonitoringApiResponseProcessor {
       ) as any;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -5115,6 +5175,26 @@ export class SecurityMonitoringApiResponseProcessor {
         body
       );
     }
+    if (response.httpStatusCode === 401) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -5155,6 +5235,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -5215,7 +5296,11 @@ export class SecurityMonitoringApiResponseProcessor {
       ) as SecurityFiltersResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -5274,7 +5359,12 @@ export class SecurityMonitoringApiResponseProcessor {
         ) as SecurityMonitoringListRulesResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -5336,6 +5426,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -5398,7 +5489,11 @@ export class SecurityMonitoringApiResponseProcessor {
         ) as SecurityMonitoringSuppressionsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -5484,7 +5579,7 @@ export class SecurityMonitoringApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -5569,7 +5664,7 @@ export class SecurityMonitoringApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -5656,6 +5751,26 @@ export class SecurityMonitoringApiResponseProcessor {
         body
       );
     }
+    if (response.httpStatusCode === 401) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
@@ -5696,6 +5811,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -5782,6 +5898,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -5933,6 +6050,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -6128,6 +6246,8 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
       response.httpStatusCode === 429 ||
       response.httpStatusCode === 500
     ) {
@@ -6190,6 +6310,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 409 ||
@@ -6319,6 +6440,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 409 ||
@@ -6380,6 +6502,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {

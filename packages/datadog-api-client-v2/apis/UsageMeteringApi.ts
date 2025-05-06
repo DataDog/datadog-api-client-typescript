@@ -43,7 +43,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
-      "application/json;datetime-format=rfc3339"
+      "application/json;datetime-format=rfc3339, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -73,7 +73,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
-      "application/json;datetime-format=rfc3339"
+      "application/json;datetime-format=rfc3339, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -124,7 +124,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
-      "application/json;datetime-format=rfc3339"
+      "application/json;datetime-format=rfc3339, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -174,7 +174,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
-      "application/json;datetime-format=rfc3339"
+      "application/json;datetime-format=rfc3339, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -255,7 +255,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
-      "application/json;datetime-format=rfc3339"
+      "application/json;datetime-format=rfc3339, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -332,7 +332,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
-      "application/json;datetime-format=rfc3339"
+      "application/json;datetime-format=rfc3339, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -447,7 +447,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
-      "application/json;datetime-format=rfc3339"
+      "application/json;datetime-format=rfc3339, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -535,7 +535,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
-      "application/json;datetime-format=rfc3339"
+      "application/json;datetime-format=rfc3339, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -589,7 +589,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
-      "application/json;datetime-format=rfc3339"
+      "application/json;datetime-format=rfc3339, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -640,7 +640,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
-      "application/json;datetime-format=rfc3339"
+      "application/json;datetime-format=rfc3339, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -691,7 +691,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
-      "application/json;datetime-format=rfc3339"
+      "application/json;datetime-format=rfc3339, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -746,6 +746,7 @@ export class UsageMeteringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -810,6 +811,7 @@ export class UsageMeteringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -873,6 +875,7 @@ export class UsageMeteringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -935,6 +938,7 @@ export class UsageMeteringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -997,6 +1001,7 @@ export class UsageMeteringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -1059,6 +1064,7 @@ export class UsageMeteringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -1121,6 +1127,7 @@ export class UsageMeteringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -1183,6 +1190,7 @@ export class UsageMeteringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -1246,6 +1254,7 @@ export class UsageMeteringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -1310,6 +1319,7 @@ export class UsageMeteringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -1374,6 +1384,7 @@ export class UsageMeteringApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
