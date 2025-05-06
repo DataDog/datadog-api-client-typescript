@@ -388,6 +388,12 @@ import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotifica
 import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
 import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
 import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
+import { CreatePageRequest } from "./CreatePageRequest";
+import { CreatePageRequestData } from "./CreatePageRequestData";
+import { CreatePageRequestDataAttributes } from "./CreatePageRequestDataAttributes";
+import { CreatePageRequestDataAttributesTarget } from "./CreatePageRequestDataAttributesTarget";
+import { CreatePageResponse } from "./CreatePageResponse";
+import { CreatePageResponseData } from "./CreatePageResponseData";
 import { CreateRuleRequest } from "./CreateRuleRequest";
 import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
@@ -2161,6 +2167,8 @@ const enumsMap: { [key: string]: any[] } = {
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
   CreateDataDeletionRequestBodyDataType: ["create_deletion_req"],
+  CreatePageRequestDataType: ["pages"],
+  CreatePageResponseDataType: ["pages"],
   CustomConnectionType: ["custom_connections"],
   CustomDestinationAttributeTagsRestrictionListType: [
     "ALLOW_LIST",
@@ -3595,6 +3603,12 @@ const typeMap: { [index: string]: any } = {
   CreateOpenAPIResponse: CreateOpenAPIResponse,
   CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
   CreateOpenAPIResponseData: CreateOpenAPIResponseData,
+  CreatePageRequest: CreatePageRequest,
+  CreatePageRequestData: CreatePageRequestData,
+  CreatePageRequestDataAttributes: CreatePageRequestDataAttributes,
+  CreatePageRequestDataAttributesTarget: CreatePageRequestDataAttributesTarget,
+  CreatePageResponse: CreatePageResponse,
+  CreatePageResponseData: CreatePageResponseData,
   CreateRuleRequest: CreateRuleRequest,
   CreateRuleRequestData: CreateRuleRequestData,
   CreateRuleResponse: CreateRuleResponse,

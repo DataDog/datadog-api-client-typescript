@@ -5905,6 +5905,34 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TeamRoutingRules",
     },
+    "v2.CreateOnCallPage": {
+        "body": {
+            "type": "CreatePageRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreatePageResponse",
+    },
+    "v2.AcknowledgeOnCallPage": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.EscalateOnCallPage": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.ResolveOnCallPage": {
+        "pageId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "void",
+    },
     "v2.ListOrgConfigs": {
         "operationResponseType": "OrgConfigListResponse",
     },
