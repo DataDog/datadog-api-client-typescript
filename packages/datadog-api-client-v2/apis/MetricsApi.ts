@@ -1756,7 +1756,7 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   filterHoursAgo?: number;
   /**
-   * The number of aggregations that a `count`, `rate`, or `gauge` metric is configured to use. Max number of aggregation combos is 9.
+   * This argument has no effect as all time and space combinations are now available with no impact on customer bills.
    * @type number
    */
   filterNumAggregations?: number;
@@ -2038,7 +2038,7 @@ export class MetricsApi {
   }
 
   /**
-   * Returns the estimated cardinality for a metric with a given tag, percentile and number of aggregations configuration using Metrics without Limits&trade;.
+   * Returns the estimated cardinality for a metric with a given tag and percentile configuration using Metrics without Limits&trade;.
    * @param param The request object
    */
   public estimateMetricsOutputSeries(
