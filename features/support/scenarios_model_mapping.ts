@@ -5714,11 +5714,11 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "MonitorConfigPolicyResponse",
     },
     "v2.ListDevices": {
-        "pageNumber": {
+        "pageSize": {
             "type": "number",
             "format": "int64",
             },
-        "pageSize": {
+        "pageNumber": {
             "type": "number",
             "format": "int64",
             },

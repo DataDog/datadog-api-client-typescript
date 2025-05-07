@@ -8,8 +8,8 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.NetworkDeviceMonitoringApi(configuration);
 
 const params: v2.NetworkDeviceMonitoringApiListDevicesRequest = {
-  pageNumber: 0,
   pageSize: 1,
+  pageNumber: 0,
   filterTag: "device_namespace:default",
 };
 
