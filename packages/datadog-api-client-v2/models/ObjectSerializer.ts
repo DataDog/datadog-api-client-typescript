@@ -128,6 +128,7 @@ import { AuditLogsResponseMetadata } from "./AuditLogsResponseMetadata";
 import { AuditLogsResponsePage } from "./AuditLogsResponsePage";
 import { AuditLogsSearchEventsRequest } from "./AuditLogsSearchEventsRequest";
 import { AuditLogsWarning } from "./AuditLogsWarning";
+import { AuthCredentials } from "./AuthCredentials";
 import { AuthNMapping } from "./AuthNMapping";
 import { AuthNMappingAttributes } from "./AuthNMappingAttributes";
 import { AuthNMappingCreateAttributes } from "./AuthNMappingCreateAttributes";
@@ -392,6 +393,9 @@ import { CreateRuleRequest } from "./CreateRuleRequest";
 import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
 import { CreateRuleResponseData } from "./CreateRuleResponseData";
+import { CreateTenancyConfig } from "./CreateTenancyConfig";
+import { CreateTenancyConfigData } from "./CreateTenancyConfigData";
+import { CreateTenancyConfigDataAttributes } from "./CreateTenancyConfigDataAttributes";
 import { CreateWorkflowRequest } from "./CreateWorkflowRequest";
 import { CreateWorkflowResponse } from "./CreateWorkflowResponse";
 import { Creator } from "./Creator";
@@ -1080,6 +1084,8 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { NullableUserRelationship } from "./NullableUserRelationship";
 import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
+import { OCILogsConfig } from "./OCILogsConfig";
+import { OCIMetricsConfig } from "./OCIMetricsConfig";
 import { ObservabilityPipeline } from "./ObservabilityPipeline";
 import { ObservabilityPipelineAddEnvVarsProcessor } from "./ObservabilityPipelineAddEnvVarsProcessor";
 import { ObservabilityPipelineAddEnvVarsProcessorVariable } from "./ObservabilityPipelineAddEnvVarsProcessorVariable";
@@ -1766,6 +1772,10 @@ import { TeamsResponse } from "./TeamsResponse";
 import { TeamsResponseLinks } from "./TeamsResponseLinks";
 import { TeamsResponseMeta } from "./TeamsResponseMeta";
 import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
+import { TenancyConfig } from "./TenancyConfig";
+import { TenancyConfigData } from "./TenancyConfigData";
+import { TenancyConfigDataAttributes } from "./TenancyConfigDataAttributes";
+import { TenancyConfigList } from "./TenancyConfigList";
 import { TimeRestriction } from "./TimeRestriction";
 import { TimeRestrictions } from "./TimeRestrictions";
 import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
@@ -1795,6 +1805,9 @@ import { UpdateRuleRequest } from "./UpdateRuleRequest";
 import { UpdateRuleRequestData } from "./UpdateRuleRequestData";
 import { UpdateRuleResponse } from "./UpdateRuleResponse";
 import { UpdateRuleResponseData } from "./UpdateRuleResponseData";
+import { UpdateTenancyConfig } from "./UpdateTenancyConfig";
+import { UpdateTenancyConfigData } from "./UpdateTenancyConfigData";
+import { UpdateTenancyConfigDataAttributes } from "./UpdateTenancyConfigDataAttributes";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
@@ -2161,6 +2174,7 @@ const enumsMap: { [key: string]: any[] } = {
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
   CreateDataDeletionRequestBodyDataType: ["create_deletion_req"],
+  CreateTenancyConfigDataType: ["oci_tenancy"],
   CustomConnectionType: ["custom_connections"],
   CustomDestinationAttributeTagsRestrictionListType: [
     "ALLOW_LIST",
@@ -3034,10 +3048,12 @@ const enumsMap: { [key: string]: any[] } = {
     "team_links",
     "user_team_permissions",
   ],
+  TenancyConfigDataType: ["oci_tenancy"],
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
   TriggerSource: ["security_findings", "security_signals"],
+  UpdateTenancyConfigDataType: ["oci_tenancy"],
   Urgency: ["low", "high", "dynamic"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserAttributesStatus: ["active", "deactivated", "pending"],
@@ -3315,6 +3331,7 @@ const typeMap: { [index: string]: any } = {
   AuditLogsResponsePage: AuditLogsResponsePage,
   AuditLogsSearchEventsRequest: AuditLogsSearchEventsRequest,
   AuditLogsWarning: AuditLogsWarning,
+  AuthCredentials: AuthCredentials,
   AuthNMapping: AuthNMapping,
   AuthNMappingAttributes: AuthNMappingAttributes,
   AuthNMappingCreateAttributes: AuthNMappingCreateAttributes,
@@ -3607,6 +3624,9 @@ const typeMap: { [index: string]: any } = {
   CreateRuleRequestData: CreateRuleRequestData,
   CreateRuleResponse: CreateRuleResponse,
   CreateRuleResponseData: CreateRuleResponseData,
+  CreateTenancyConfig: CreateTenancyConfig,
+  CreateTenancyConfigData: CreateTenancyConfigData,
+  CreateTenancyConfigDataAttributes: CreateTenancyConfigDataAttributes,
   CreateWorkflowRequest: CreateWorkflowRequest,
   CreateWorkflowResponse: CreateWorkflowResponse,
   Creator: Creator,
@@ -4396,6 +4416,8 @@ const typeMap: { [index: string]: any } = {
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   NullableUserRelationship: NullableUserRelationship,
   NullableUserRelationshipData: NullableUserRelationshipData,
+  OCILogsConfig: OCILogsConfig,
+  OCIMetricsConfig: OCIMetricsConfig,
   ObservabilityPipeline: ObservabilityPipeline,
   ObservabilityPipelineAddEnvVarsProcessor:
     ObservabilityPipelineAddEnvVarsProcessor,
@@ -5229,6 +5251,10 @@ const typeMap: { [index: string]: any } = {
   TeamsResponseLinks: TeamsResponseLinks,
   TeamsResponseMeta: TeamsResponseMeta,
   TeamsResponseMetaPagination: TeamsResponseMetaPagination,
+  TenancyConfig: TenancyConfig,
+  TenancyConfigData: TenancyConfigData,
+  TenancyConfigDataAttributes: TenancyConfigDataAttributes,
+  TenancyConfigList: TenancyConfigList,
   TimeRestriction: TimeRestriction,
   TimeRestrictions: TimeRestrictions,
   TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
@@ -5258,6 +5284,9 @@ const typeMap: { [index: string]: any } = {
   UpdateRuleRequestData: UpdateRuleRequestData,
   UpdateRuleResponse: UpdateRuleResponse,
   UpdateRuleResponseData: UpdateRuleResponseData,
+  UpdateTenancyConfig: UpdateTenancyConfig,
+  UpdateTenancyConfigData: UpdateTenancyConfigData,
+  UpdateTenancyConfigDataAttributes: UpdateTenancyConfigDataAttributes,
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
   UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
