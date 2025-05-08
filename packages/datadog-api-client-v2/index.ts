@@ -436,6 +436,7 @@ export {
   OnCallApiGetOnCallEscalationPolicyRequest,
   OnCallApiGetOnCallScheduleRequest,
   OnCallApiGetOnCallTeamRoutingRulesRequest,
+  OnCallApiGetScheduleOnCallUserRequest,
   OnCallApiSetOnCallTeamRoutingRulesRequest,
   OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
@@ -2912,6 +2913,15 @@ export { ServiceDefinitionV2SlackType } from "./models/ServiceDefinitionV2SlackT
 export { ServiceDefinitionV2Version } from "./models/ServiceDefinitionV2Version";
 export { ServiceNowTicket } from "./models/ServiceNowTicket";
 export { ServiceNowTicketResult } from "./models/ServiceNowTicketResult";
+export { Shift } from "./models/Shift";
+export { ShiftData } from "./models/ShiftData";
+export { ShiftDataAttributes } from "./models/ShiftDataAttributes";
+export { ShiftDataRelationships } from "./models/ShiftDataRelationships";
+export { ShiftDataRelationshipsUser } from "./models/ShiftDataRelationshipsUser";
+export { ShiftDataRelationshipsUserData } from "./models/ShiftDataRelationshipsUserData";
+export { ShiftDataRelationshipsUserDataType } from "./models/ShiftDataRelationshipsUserDataType";
+export { ShiftDataType } from "./models/ShiftDataType";
+export { ShiftIncluded } from "./models/ShiftIncluded";
 export { SingleAggregatedConnectionResponseArray } from "./models/SingleAggregatedConnectionResponseArray";
 export { SingleAggregatedConnectionResponseData } from "./models/SingleAggregatedConnectionResponseData";
 export { SingleAggregatedConnectionResponseDataAttributes } from "./models/SingleAggregatedConnectionResponseDataAttributes";
