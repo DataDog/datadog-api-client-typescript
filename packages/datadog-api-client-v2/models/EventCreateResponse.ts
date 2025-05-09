@@ -16,6 +16,10 @@ export class EventCreateResponse {
    */
   "attributes"?: EventCreateResponseAttributes;
   /**
+   * A numerical ID compatible with the V1 endpoint. This field is not populated in response from the V2 endpoint. To retrieve this ID, refer to the event attributes in the Event Explorer.
+   */
+  "id"?: string;
+  /**
    * Event type
    */
   "type"?: string;
@@ -39,6 +43,10 @@ export class EventCreateResponse {
     attributes: {
       baseName: "attributes",
       type: "EventCreateResponseAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",
