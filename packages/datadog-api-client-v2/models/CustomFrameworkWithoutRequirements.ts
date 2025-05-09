@@ -13,7 +13,7 @@ export class CustomFrameworkWithoutRequirements {
   /**
    * Framework Description
    */
-  "description": string;
+  "description"?: string;
   /**
    * Framework Handle
    */
@@ -21,7 +21,7 @@ export class CustomFrameworkWithoutRequirements {
   /**
    * Framework Icon URL
    */
-  "iconUrl": string;
+  "iconUrl"?: string;
   /**
    * Framework Name
    */
@@ -50,7 +50,6 @@ export class CustomFrameworkWithoutRequirements {
     description: {
       baseName: "description",
       type: "string",
-      required: true,
     },
     handle: {
       baseName: "handle",
@@ -60,7 +59,6 @@ export class CustomFrameworkWithoutRequirements {
     iconUrl: {
       baseName: "icon_url",
       type: "string",
-      required: true,
     },
     name: {
       baseName: "name",

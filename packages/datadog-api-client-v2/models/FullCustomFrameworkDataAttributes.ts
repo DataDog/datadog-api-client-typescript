@@ -12,17 +12,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FullCustomFrameworkDataAttributes {
   /**
-   * Framework Description
-   */
-  "description": string;
-  /**
    * Framework Handle
    */
   "handle": string;
   /**
    * Framework Icon URL
    */
-  "iconUrl": string;
+  "iconUrl"?: string;
   /**
    * Framework Name
    */
@@ -52,11 +48,6 @@ export class FullCustomFrameworkDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-      required: true,
-    },
     handle: {
       baseName: "handle",
       type: "string",
@@ -65,7 +56,6 @@ export class FullCustomFrameworkDataAttributes {
     iconUrl: {
       baseName: "icon_url",
       type: "string",
-      required: true,
     },
     name: {
       baseName: "name",
