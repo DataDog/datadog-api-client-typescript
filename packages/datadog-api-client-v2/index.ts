@@ -107,12 +107,17 @@ export {
 export { CSMCoverageAnalysisApi } from "./apis/CSMCoverageAnalysisApi";
 
 export {
+  CSMThreatsApiCreateCSMThreatsAgentPolicyRequest,
   CSMThreatsApiCreateCSMThreatsAgentRuleRequest,
   CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest,
+  CSMThreatsApiDeleteCSMThreatsAgentPolicyRequest,
   CSMThreatsApiDeleteCSMThreatsAgentRuleRequest,
   CSMThreatsApiDeleteCloudWorkloadSecurityAgentRuleRequest,
+  CSMThreatsApiGetCSMThreatsAgentPolicyRequest,
   CSMThreatsApiGetCSMThreatsAgentRuleRequest,
   CSMThreatsApiGetCloudWorkloadSecurityAgentRuleRequest,
+  CSMThreatsApiListCSMThreatsAgentRulesRequest,
+  CSMThreatsApiUpdateCSMThreatsAgentPolicyRequest,
   CSMThreatsApiUpdateCSMThreatsAgentRuleRequest,
   CSMThreatsApiUpdateCloudWorkloadSecurityAgentRuleRequest,
   CSMThreatsApi,
@@ -1109,6 +1114,18 @@ export { CloudflareAccountType } from "./models/CloudflareAccountType";
 export { CloudflareAccountUpdateRequest } from "./models/CloudflareAccountUpdateRequest";
 export { CloudflareAccountUpdateRequestAttributes } from "./models/CloudflareAccountUpdateRequestAttributes";
 export { CloudflareAccountUpdateRequestData } from "./models/CloudflareAccountUpdateRequestData";
+export { CloudWorkloadSecurityAgentPoliciesListResponse } from "./models/CloudWorkloadSecurityAgentPoliciesListResponse";
+export { CloudWorkloadSecurityAgentPolicyAttributes } from "./models/CloudWorkloadSecurityAgentPolicyAttributes";
+export { CloudWorkloadSecurityAgentPolicyCreateAttributes } from "./models/CloudWorkloadSecurityAgentPolicyCreateAttributes";
+export { CloudWorkloadSecurityAgentPolicyCreateData } from "./models/CloudWorkloadSecurityAgentPolicyCreateData";
+export { CloudWorkloadSecurityAgentPolicyCreateRequest } from "./models/CloudWorkloadSecurityAgentPolicyCreateRequest";
+export { CloudWorkloadSecurityAgentPolicyData } from "./models/CloudWorkloadSecurityAgentPolicyData";
+export { CloudWorkloadSecurityAgentPolicyResponse } from "./models/CloudWorkloadSecurityAgentPolicyResponse";
+export { CloudWorkloadSecurityAgentPolicyType } from "./models/CloudWorkloadSecurityAgentPolicyType";
+export { CloudWorkloadSecurityAgentPolicyUpdateAttributes } from "./models/CloudWorkloadSecurityAgentPolicyUpdateAttributes";
+export { CloudWorkloadSecurityAgentPolicyUpdateData } from "./models/CloudWorkloadSecurityAgentPolicyUpdateData";
+export { CloudWorkloadSecurityAgentPolicyUpdaterAttributes } from "./models/CloudWorkloadSecurityAgentPolicyUpdaterAttributes";
+export { CloudWorkloadSecurityAgentPolicyUpdateRequest } from "./models/CloudWorkloadSecurityAgentPolicyUpdateRequest";
 export { CloudWorkloadSecurityAgentRuleAction } from "./models/CloudWorkloadSecurityAgentRuleAction";
 export { CloudWorkloadSecurityAgentRuleAttributes } from "./models/CloudWorkloadSecurityAgentRuleAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./models/CloudWorkloadSecurityAgentRuleCreateAttributes";

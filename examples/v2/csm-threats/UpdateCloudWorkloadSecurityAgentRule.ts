@@ -14,12 +14,11 @@ const params: v2.CSMThreatsApiUpdateCloudWorkloadSecurityAgentRuleRequest = {
   body: {
     data: {
       attributes: {
-        description: "Test Agent rule",
-        enabled: true,
+        description: "Updated Agent rule",
         expression: `exec.file.name == "sh"`,
       },
-      type: "agent_rule",
       id: AGENT_RULE_DATA_ID,
+      type: "agent_rule",
     },
   },
   agentRuleId: AGENT_RULE_DATA_ID,
