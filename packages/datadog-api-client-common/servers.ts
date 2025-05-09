@@ -182,4 +182,108 @@ export const operationServers: {
       subdomain: "http-intake.logs",
     }),
   ],
+  "v2.On-CallPagingApi.acknowledgeOnCallPage": [
+    new ServerConfiguration<{
+      site:
+        | "saffron.oncall.datadoghq.com"
+        | "navy.oncall.datadoghq.com"
+        | "coral.oncall.datadoghq.com"
+        | "teal.oncall.datadoghq.com"
+        | "beige.oncall.datadoghq.eu";
+    }>("https://{site}", {
+      site: "navy.oncall.datadoghq.com",
+    }),
+    new ServerConfiguration<{
+      name: string;
+      protocol: string;
+    }>("{protocol}://{name}", {
+      name: "api.datadoghq.com",
+      protocol: "https",
+    }),
+    new ServerConfiguration<{
+      site: string;
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "api",
+    }),
+  ],
+  "v2.On-CallPagingApi.createOnCallPage": [
+    new ServerConfiguration<{
+      site:
+        | "saffron.oncall.datadoghq.com"
+        | "navy.oncall.datadoghq.com"
+        | "coral.oncall.datadoghq.com"
+        | "teal.oncall.datadoghq.com"
+        | "beige.oncall.datadoghq.eu";
+    }>("https://{site}", {
+      site: "navy.oncall.datadoghq.com",
+    }),
+    new ServerConfiguration<{
+      name: string;
+      protocol: string;
+    }>("{protocol}://{name}", {
+      name: "api.datadoghq.com",
+      protocol: "https",
+    }),
+    new ServerConfiguration<{
+      site: string;
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "api",
+    }),
+  ],
+  "v2.On-CallPagingApi.escalateOnCallPage": [
+    new ServerConfiguration<{
+      site:
+        | "saffron.oncall.datadoghq.com"
+        | "navy.oncall.datadoghq.com"
+        | "coral.oncall.datadoghq.com"
+        | "teal.oncall.datadoghq.com"
+        | "beige.oncall.datadoghq.eu";
+    }>("https://{site}", {
+      site: "navy.oncall.datadoghq.com",
+    }),
+    new ServerConfiguration<{
+      name: string;
+      protocol: string;
+    }>("{protocol}://{name}", {
+      name: "api.datadoghq.com",
+      protocol: "https",
+    }),
+    new ServerConfiguration<{
+      site: string;
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "api",
+    }),
+  ],
+  "v2.On-CallPagingApi.resolveOnCallPage": [
+    new ServerConfiguration<{
+      site:
+        | "saffron.oncall.datadoghq.com"
+        | "navy.oncall.datadoghq.com"
+        | "coral.oncall.datadoghq.com"
+        | "teal.oncall.datadoghq.com"
+        | "beige.oncall.datadoghq.eu";
+    }>("https://{site}", {
+      site: "navy.oncall.datadoghq.com",
+    }),
+    new ServerConfiguration<{
+      name: string;
+      protocol: string;
+    }>("{protocol}://{name}", {
+      name: "api.datadoghq.com",
+      protocol: "https",
+    }),
+    new ServerConfiguration<{
+      site: string;
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "api",
+    }),
+  ],
 };
