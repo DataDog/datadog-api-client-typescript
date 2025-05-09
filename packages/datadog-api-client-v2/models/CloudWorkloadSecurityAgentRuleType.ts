@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of the resource. The value should always be `agent_rule`.
+ * The type of the resource, must always be `agent_rule`
  */
 
 export type CloudWorkloadSecurityAgentRuleType =

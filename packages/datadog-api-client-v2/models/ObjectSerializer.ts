@@ -286,6 +286,17 @@ import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurat
 import { CloudConfigurationRuleCreatePayload } from "./CloudConfigurationRuleCreatePayload";
 import { CloudConfigurationRuleOptions } from "./CloudConfigurationRuleOptions";
 import { CloudConfigurationRulePayload } from "./CloudConfigurationRulePayload";
+import { CloudWorkloadSecurityAgentPoliciesListResponse } from "./CloudWorkloadSecurityAgentPoliciesListResponse";
+import { CloudWorkloadSecurityAgentPolicyAttributes } from "./CloudWorkloadSecurityAgentPolicyAttributes";
+import { CloudWorkloadSecurityAgentPolicyCreateAttributes } from "./CloudWorkloadSecurityAgentPolicyCreateAttributes";
+import { CloudWorkloadSecurityAgentPolicyCreateData } from "./CloudWorkloadSecurityAgentPolicyCreateData";
+import { CloudWorkloadSecurityAgentPolicyCreateRequest } from "./CloudWorkloadSecurityAgentPolicyCreateRequest";
+import { CloudWorkloadSecurityAgentPolicyData } from "./CloudWorkloadSecurityAgentPolicyData";
+import { CloudWorkloadSecurityAgentPolicyResponse } from "./CloudWorkloadSecurityAgentPolicyResponse";
+import { CloudWorkloadSecurityAgentPolicyUpdateAttributes } from "./CloudWorkloadSecurityAgentPolicyUpdateAttributes";
+import { CloudWorkloadSecurityAgentPolicyUpdateData } from "./CloudWorkloadSecurityAgentPolicyUpdateData";
+import { CloudWorkloadSecurityAgentPolicyUpdateRequest } from "./CloudWorkloadSecurityAgentPolicyUpdateRequest";
+import { CloudWorkloadSecurityAgentPolicyUpdaterAttributes } from "./CloudWorkloadSecurityAgentPolicyUpdaterAttributes";
 import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
@@ -2103,6 +2114,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
   CloudConfigurationRuleType: ["cloud_configuration"],
+  CloudWorkloadSecurityAgentPolicyType: ["policy"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   CloudflareAccountType: ["cloudflare-accounts"],
   CompletionConditionOperator: [
@@ -3426,6 +3438,27 @@ const typeMap: { [index: string]: any } = {
   CloudConfigurationRuleCreatePayload: CloudConfigurationRuleCreatePayload,
   CloudConfigurationRuleOptions: CloudConfigurationRuleOptions,
   CloudConfigurationRulePayload: CloudConfigurationRulePayload,
+  CloudWorkloadSecurityAgentPoliciesListResponse:
+    CloudWorkloadSecurityAgentPoliciesListResponse,
+  CloudWorkloadSecurityAgentPolicyAttributes:
+    CloudWorkloadSecurityAgentPolicyAttributes,
+  CloudWorkloadSecurityAgentPolicyCreateAttributes:
+    CloudWorkloadSecurityAgentPolicyCreateAttributes,
+  CloudWorkloadSecurityAgentPolicyCreateData:
+    CloudWorkloadSecurityAgentPolicyCreateData,
+  CloudWorkloadSecurityAgentPolicyCreateRequest:
+    CloudWorkloadSecurityAgentPolicyCreateRequest,
+  CloudWorkloadSecurityAgentPolicyData: CloudWorkloadSecurityAgentPolicyData,
+  CloudWorkloadSecurityAgentPolicyResponse:
+    CloudWorkloadSecurityAgentPolicyResponse,
+  CloudWorkloadSecurityAgentPolicyUpdateAttributes:
+    CloudWorkloadSecurityAgentPolicyUpdateAttributes,
+  CloudWorkloadSecurityAgentPolicyUpdateData:
+    CloudWorkloadSecurityAgentPolicyUpdateData,
+  CloudWorkloadSecurityAgentPolicyUpdateRequest:
+    CloudWorkloadSecurityAgentPolicyUpdateRequest,
+  CloudWorkloadSecurityAgentPolicyUpdaterAttributes:
+    CloudWorkloadSecurityAgentPolicyUpdaterAttributes,
   CloudWorkloadSecurityAgentRuleAction: CloudWorkloadSecurityAgentRuleAction,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,

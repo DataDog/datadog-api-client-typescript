@@ -6217,6 +6217,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "ApplicationSecurityWafExclusionFilterResponse",
     },
     "v2.ListCSMThreatsAgentRules": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
     },
     "v2.CreateCSMThreatsAgentRule": {
@@ -6231,10 +6235,18 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "void",
     },
     "v2.GetCSMThreatsAgentRule": {
         "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "policyId": {
             "type": "string",
             "format": "",
             },
@@ -6245,14 +6257,53 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
         "body": {
             "type": "CloudWorkloadSecurityAgentRuleUpdateRequest",
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
+    "v2.ListCSMThreatsAgentPolicies": {
+        "operationResponseType": "CloudWorkloadSecurityAgentPoliciesListResponse",
+    },
+    "v2.CreateCSMThreatsAgentPolicy": {
+        "body": {
+            "type": "CloudWorkloadSecurityAgentPolicyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentPolicyResponse",
+    },
     "v2.DownloadCSMThreatsPolicy": {
         "operationResponseType": "HttpFile",
+    },
+    "v2.DeleteCSMThreatsAgentPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetCSMThreatsAgentPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentPolicyResponse",
+    },
+    "v2.UpdateCSMThreatsAgentPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CloudWorkloadSecurityAgentPolicyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentPolicyResponse",
     },
     "v2.DownloadCloudWorkloadPolicyFile": {
         "operationResponseType": "HttpFile",

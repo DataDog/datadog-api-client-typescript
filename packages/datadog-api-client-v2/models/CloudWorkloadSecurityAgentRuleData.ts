@@ -9,19 +9,19 @@ import { CloudWorkloadSecurityAgentRuleType } from "./CloudWorkloadSecurityAgent
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object for a single Agent rule.
+ * Object for a single Agent rule
  */
 export class CloudWorkloadSecurityAgentRuleData {
   /**
-   * A Cloud Workload Security Agent rule returned by the API.
+   * A Cloud Workload Security Agent rule returned by the API
    */
   "attributes"?: CloudWorkloadSecurityAgentRuleAttributes;
   /**
-   * The ID of the Agent rule.
+   * The ID of the Agent rule
    */
   "id"?: string;
   /**
-   * The type of the resource. The value should always be `agent_rule`.
+   * The type of the resource, must always be `agent_rule`
    */
   "type"?: CloudWorkloadSecurityAgentRuleType;
 
