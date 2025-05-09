@@ -849,7 +849,6 @@ import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
 import { Layer } from "./Layer";
 import { LayerAttributes } from "./LayerAttributes";
 import { LayerAttributesInterval } from "./LayerAttributesInterval";
-import { LayerAttributesRestrictionsItems } from "./LayerAttributesRestrictionsItems";
 import { LayerRelationships } from "./LayerRelationships";
 import { LayerRelationshipsMembers } from "./LayerRelationshipsMembers";
 import { LayerRelationshipsMembersDataItems } from "./LayerRelationshipsMembersDataItems";
@@ -1457,7 +1456,6 @@ import { ScheduleCreateRequestDataAttributesLayersItems } from "./ScheduleCreate
 import { ScheduleCreateRequestDataAttributesLayersItemsInterval } from "./ScheduleCreateRequestDataAttributesLayersItemsInterval";
 import { ScheduleCreateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleCreateRequestDataAttributesLayersItemsMembersItems";
 import { ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser } from "./ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser";
-import { ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems } from "./ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems";
 import { ScheduleCreateRequestDataRelationships } from "./ScheduleCreateRequestDataRelationships";
 import { ScheduleCreateRequestDataRelationshipsTeams } from "./ScheduleCreateRequestDataRelationshipsTeams";
 import { ScheduleCreateRequestDataRelationshipsTeamsDataItems } from "./ScheduleCreateRequestDataRelationshipsTeamsDataItems";
@@ -1482,7 +1480,6 @@ import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdate
 import { ScheduleUpdateRequestDataAttributesLayersItemsInterval } from "./ScheduleUpdateRequestDataAttributesLayersItemsInterval";
 import { ScheduleUpdateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleUpdateRequestDataAttributesLayersItemsMembersItems";
 import { ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser } from "./ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser";
-import { ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems } from "./ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems";
 import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestDataRelationships";
 import { ScheduleUpdateRequestDataRelationshipsTeams } from "./ScheduleUpdateRequestDataRelationshipsTeams";
 import { ScheduleUpdateRequestDataRelationshipsTeamsDataItems } from "./ScheduleUpdateRequestDataRelationshipsTeamsDataItems";
@@ -2342,24 +2339,6 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_OBJECT",
   ],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
-  LayerAttributesRestrictionsItemsEndDay: [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-    "sunday",
-  ],
-  LayerAttributesRestrictionsItemsStartDay: [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-    "sunday",
-  ],
   LayerRelationshipsMembersDataItemsType: ["members"],
   LayerType: ["layers"],
   LeakedKeyType: ["leaked_keys"],
@@ -2784,24 +2763,6 @@ const enumsMap: { [key: string]: any[] } = {
   ScalarColumnTypeNumber: ["number"],
   ScalarFormulaRequestType: ["scalar_request"],
   ScalarFormulaResponseType: ["scalar_response"],
-  ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItemsEndDay: [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-    "sunday",
-  ],
-  ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItemsStartDay: [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-    "sunday",
-  ],
   ScheduleCreateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
   ScheduleCreateRequestDataType: ["schedules"],
   ScheduleDataRelationshipsLayersDataItemsType: ["layers"],
@@ -2810,24 +2771,6 @@ const enumsMap: { [key: string]: any[] } = {
   ScheduleMemberRelationshipsUserDataType: ["users"],
   ScheduleMemberType: ["members"],
   ScheduleTargetType: ["schedules"],
-  ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItemsEndDay: [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-    "sunday",
-  ],
-  ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItemsStartDay: [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-    "sunday",
-  ],
   ScheduleUpdateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
   ScheduleUpdateRequestDataType: ["schedules"],
   ScheduleUserType: ["users"],
@@ -4127,7 +4070,6 @@ const typeMap: { [index: string]: any } = {
   Layer: Layer,
   LayerAttributes: LayerAttributes,
   LayerAttributesInterval: LayerAttributesInterval,
-  LayerAttributesRestrictionsItems: LayerAttributesRestrictionsItems,
   LayerRelationships: LayerRelationships,
   LayerRelationshipsMembers: LayerRelationshipsMembers,
   LayerRelationshipsMembersDataItems: LayerRelationshipsMembersDataItems,
@@ -4846,8 +4788,6 @@ const typeMap: { [index: string]: any } = {
     ScheduleCreateRequestDataAttributesLayersItemsMembersItems,
   ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser:
     ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser,
-  ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems:
-    ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems,
   ScheduleCreateRequestDataRelationships:
     ScheduleCreateRequestDataRelationships,
   ScheduleCreateRequestDataRelationshipsTeams:
@@ -4881,8 +4821,6 @@ const typeMap: { [index: string]: any } = {
     ScheduleUpdateRequestDataAttributesLayersItemsMembersItems,
   ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser:
     ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser,
-  ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems:
-    ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems,
   ScheduleUpdateRequestDataRelationships:
     ScheduleUpdateRequestDataRelationships,
   ScheduleUpdateRequestDataRelationshipsTeams:

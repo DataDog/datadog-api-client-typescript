@@ -5,7 +5,7 @@
  */
 import { ScheduleCreateRequestDataAttributesLayersItemsInterval } from "./ScheduleCreateRequestDataAttributesLayersItemsInterval";
 import { ScheduleCreateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleCreateRequestDataAttributesLayersItemsMembersItems";
-import { ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems } from "./ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems";
+import { TimeRestriction } from "./TimeRestriction";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -36,7 +36,7 @@ export class ScheduleCreateRequestDataAttributesLayersItems {
   /**
    * Zero or more time-based restrictions (for example, only weekdays, during business hours).
    */
-  "restrictions"?: Array<ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems>;
+  "restrictions"?: Array<TimeRestriction>;
   /**
    * The date/time when the rotation for this layer starts (in ISO 8601).
    */
@@ -86,7 +86,7 @@ export class ScheduleCreateRequestDataAttributesLayersItems {
     },
     restrictions: {
       baseName: "restrictions",
-      type: "Array<ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems>",
+      type: "Array<TimeRestriction>",
     },
     rotationStart: {
       baseName: "rotation_start",

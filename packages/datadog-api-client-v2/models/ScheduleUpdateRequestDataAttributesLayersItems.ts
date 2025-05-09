@@ -5,7 +5,7 @@
  */
 import { ScheduleUpdateRequestDataAttributesLayersItemsInterval } from "./ScheduleUpdateRequestDataAttributesLayersItemsInterval";
 import { ScheduleUpdateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleUpdateRequestDataAttributesLayersItemsMembersItems";
-import { ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems } from "./ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems";
+import { TimeRestriction } from "./TimeRestriction";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -41,7 +41,7 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
   /**
    * Any time restrictions that define when this layer is active.
    */
-  "restrictions"?: Array<ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems>;
+  "restrictions"?: Array<TimeRestriction>;
   /**
    * The date/time at which the rotation begins (ISO 8601 format).
    */
@@ -95,7 +95,7 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
     },
     restrictions: {
       baseName: "restrictions",
-      type: "Array<ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems>",
+      type: "Array<TimeRestriction>",
     },
     rotationStart: {
       baseName: "rotation_start",
