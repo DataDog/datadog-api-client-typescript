@@ -3,18 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { EventCreateRequest } from "./EventCreateRequest";
+import { AlertEventCustomAttributesLinksItemsCategory } from "./AlertEventCustomAttributesLinksItemsCategory";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Payload for creating an event.
+ * A link.
  */
-export class EventCreateRequestPayload {
+export class AlertEventCustomAttributesLinksItems {
   /**
-   * Object representing an event creation request.
+   * The category of the link.
    */
-  "data": EventCreateRequest;
+  "category": AlertEventCustomAttributesLinksItemsCategory;
+  /**
+   * The title of the link. Limited to 300 characters.
+   */
+  "title"?: string;
+  /**
+   * The URL of the link. Limited to 2048 characters.
+   */
+  "url": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +40,18 @@ export class EventCreateRequestPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "EventCreateRequest",
+    category: {
+      baseName: "category",
+      type: "AlertEventCustomAttributesLinksItemsCategory",
+      required: true,
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+    },
+    url: {
+      baseName: "url",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +64,7 @@ export class EventCreateRequestPayload {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return EventCreateRequestPayload.attributeTypeMap;
+    return AlertEventCustomAttributesLinksItems.attributeTypeMap;
   }
 
   public constructor() {}

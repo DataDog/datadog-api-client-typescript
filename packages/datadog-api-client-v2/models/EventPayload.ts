@@ -5,6 +5,7 @@
  */
 import { EventCategory } from "./EventCategory";
 import { EventPayloadAttributes } from "./EventPayloadAttributes";
+import { EventPayloadIntegrationId } from "./EventPayloadIntegrationId";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -21,9 +22,13 @@ export class EventPayload {
    */
   "attributes": EventPayloadAttributes;
   /**
-   * Event category to identify the type of event. Only the value `change` is supported. Support for other categories are coming. please reach out to datadog support if you're interested.
+   * Event category to identify the type of event. For example, `change` or `alert`.
    */
   "category": EventCategory;
+  /**
+   * Integration IDs sourced from integration manifests. Currently, only `custom-events` is supported.
+   */
+  "integrationId"?: EventPayloadIntegrationId;
   /**
    * The body of the event. Limited to 4000 characters.
    */
@@ -73,6 +78,10 @@ export class EventPayload {
       baseName: "category",
       type: "EventCategory",
       required: true,
+    },
+    integrationId: {
+      baseName: "integration_id",
+      type: "EventPayloadIntegrationId",
     },
     message: {
       baseName: "message",

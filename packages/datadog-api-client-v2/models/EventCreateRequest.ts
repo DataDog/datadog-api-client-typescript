@@ -15,11 +15,11 @@ export class EventCreateRequest {
   /**
    * Event attributes.
    */
-  "attributes"?: EventPayload;
+  "attributes": EventPayload;
   /**
    * Entity type.
    */
-  "type"?: EventCreateRequestType;
+  "type": EventCreateRequestType;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,10 +40,12 @@ export class EventCreateRequest {
     attributes: {
       baseName: "attributes",
       type: "EventPayload",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "EventCreateRequestType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
