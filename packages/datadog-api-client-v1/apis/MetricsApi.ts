@@ -391,6 +391,7 @@ export class MetricsApiResponseProcessor {
       return body;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -454,6 +455,7 @@ export class MetricsApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -516,6 +518,7 @@ export class MetricsApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -578,6 +581,7 @@ export class MetricsApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -640,6 +644,7 @@ export class MetricsApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 408 ||
       response.httpStatusCode === 413 ||
@@ -704,6 +709,7 @@ export class MetricsApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 408 ||
       response.httpStatusCode === 413 ||
@@ -768,6 +774,7 @@ export class MetricsApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429

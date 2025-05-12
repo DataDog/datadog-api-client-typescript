@@ -323,6 +323,7 @@ export class ObservabilityPipelinesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
@@ -379,6 +380,7 @@ export class ObservabilityPipelinesApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 409 ||
@@ -441,7 +443,11 @@ export class ObservabilityPipelinesApiResponseProcessor {
       ) as ObservabilityPipeline;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -501,6 +507,7 @@ export class ObservabilityPipelinesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -563,6 +570,7 @@ export class ObservabilityPipelinesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 409 ||
@@ -627,6 +635,7 @@ export class ObservabilityPipelinesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {

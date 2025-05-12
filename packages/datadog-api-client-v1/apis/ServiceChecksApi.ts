@@ -83,6 +83,7 @@ export class ServiceChecksApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 408 ||
       response.httpStatusCode === 413 ||

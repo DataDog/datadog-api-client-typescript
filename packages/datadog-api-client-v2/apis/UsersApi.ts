@@ -432,6 +432,7 @@ export class UsersApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -487,6 +488,7 @@ export class UsersApiResponseProcessor {
       return;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -549,6 +551,7 @@ export class UsersApiResponseProcessor {
       return body;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -609,6 +612,7 @@ export class UsersApiResponseProcessor {
       return body;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -671,6 +675,7 @@ export class UsersApiResponseProcessor {
       return body;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -733,6 +738,7 @@ export class UsersApiResponseProcessor {
       return body;
     }
     if (
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -794,6 +800,7 @@ export class UsersApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -856,6 +863,7 @@ export class UsersApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -916,6 +924,7 @@ export class UsersApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 422 ||

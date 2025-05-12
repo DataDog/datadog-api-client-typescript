@@ -303,7 +303,7 @@ export class APIManagementApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -382,7 +382,7 @@ export class APIManagementApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -462,7 +462,7 @@ export class APIManagementApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -538,7 +538,7 @@ export class APIManagementApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -623,7 +623,7 @@ export class APIManagementApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode === 429) {
+    if (response.httpStatusCode === 401 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType

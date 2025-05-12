@@ -113,7 +113,11 @@ export class CloudNetworkMonitoringApiResponseProcessor {
         ) as SingleAggregatedConnectionResponseArray;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType

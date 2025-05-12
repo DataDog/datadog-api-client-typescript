@@ -425,6 +425,7 @@ export class LogsArchivesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -488,6 +489,7 @@ export class LogsArchivesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 429
     ) {
@@ -544,6 +546,7 @@ export class LogsArchivesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -605,6 +608,7 @@ export class LogsArchivesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -666,7 +670,11 @@ export class LogsArchivesApiResponseProcessor {
       ) as LogsArchiveOrder;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -726,6 +734,7 @@ export class LogsArchivesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -787,7 +796,11 @@ export class LogsArchivesApiResponseProcessor {
       ) as LogsArchives;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -841,6 +854,7 @@ export class LogsArchivesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -904,6 +918,7 @@ export class LogsArchivesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
@@ -967,6 +982,7 @@ export class LogsArchivesApiResponseProcessor {
     }
     if (
       response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
       response.httpStatusCode === 403 ||
       response.httpStatusCode === 422 ||
       response.httpStatusCode === 429
