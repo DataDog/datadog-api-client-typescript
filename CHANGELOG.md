@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## 1.35.0 / 2025-05-12
+
+### Fixed
+* Set required properties for schedules in OnCall API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2170
+* Update On-Call Escalation policies endpoints schemas and description by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2183
+* Fix incorrect pattern for url by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2223
+* Remove isReadOnly default when creating dashboards by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2212
+### Added
+* Update NDM GetInterfaces documentation to add get_ip_addresses param by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2149
+* Add OnCall Escalation Policy v2 endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2169
+* datadog_integration_gcp_sts Add Support for IsPerProjectQuotaEnabled for GCP STS Service Accounts  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2180
+* Complete Observability Pipelines API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2190
+* Add budgeting endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2163
+* Add On-Call Team Rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2185
+* Add pagination method for NDM ListDevices. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2211
+* Add Sev0 as a supported incident severity by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2225
+* Share timerestriction object by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2222
+* adding cws multi-policy related endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2115
+### Changed
+* Add Monitor Notification Rules v2 API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/2136
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.34.1...v1.35.0
+
 ## 1.34.1 / 2025-04-14
 
 ### Fixed
