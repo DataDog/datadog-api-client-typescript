@@ -448,6 +448,14 @@ export {
 } from "./apis/OnCallApi";
 
 export {
+  OnCallPagingApiAcknowledgeOnCallPageRequest,
+  OnCallPagingApiCreateOnCallPageRequest,
+  OnCallPagingApiEscalateOnCallPageRequest,
+  OnCallPagingApiResolveOnCallPageRequest,
+  OnCallPagingApi,
+} from "./apis/OnCallPagingApi";
+
+export {
   OpsgenieIntegrationApiCreateOpsgenieServiceRequest,
   OpsgenieIntegrationApiDeleteOpsgenieServiceRequest,
   OpsgenieIntegrationApiGetOpsgenieServiceRequest,
@@ -1240,6 +1248,14 @@ export { CreateNotificationRuleParametersDataAttributes } from "./models/CreateN
 export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
 export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
+export { CreatePageRequest } from "./models/CreatePageRequest";
+export { CreatePageRequestData } from "./models/CreatePageRequestData";
+export { CreatePageRequestDataAttributes } from "./models/CreatePageRequestDataAttributes";
+export { CreatePageRequestDataAttributesTarget } from "./models/CreatePageRequestDataAttributesTarget";
+export { CreatePageRequestDataType } from "./models/CreatePageRequestDataType";
+export { CreatePageResponse } from "./models/CreatePageResponse";
+export { CreatePageResponseData } from "./models/CreatePageResponseData";
+export { CreatePageResponseDataType } from "./models/CreatePageResponseDataType";
 export { CreateRuleRequest } from "./models/CreateRuleRequest";
 export { CreateRuleRequestData } from "./models/CreateRuleRequestData";
 export { CreateRuleResponse } from "./models/CreateRuleResponse";
@@ -2364,6 +2380,7 @@ export { OutcomeType } from "./models/OutcomeType";
 export { OutputSchema } from "./models/OutputSchema";
 export { OutputSchemaParameters } from "./models/OutputSchemaParameters";
 export { OutputSchemaParametersType } from "./models/OutputSchemaParametersType";
+export { PageUrgency } from "./models/PageUrgency";
 export { Pagination } from "./models/Pagination";
 export { Parameter } from "./models/Parameter";
 export { PartialAPIKey } from "./models/PartialAPIKey";
