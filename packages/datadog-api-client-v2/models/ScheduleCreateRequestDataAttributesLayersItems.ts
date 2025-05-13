@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleCreateRequestDataAttributesLayersItemsInterval } from "./ScheduleCreateRequestDataAttributesLayersItemsInterval";
-import { ScheduleCreateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleCreateRequestDataAttributesLayersItemsMembersItems";
+import { LayerAttributesInterval } from "./LayerAttributesInterval";
+import { ScheduleRequestDataAttributesLayersItemsMembersItems } from "./ScheduleRequestDataAttributesLayersItemsMembersItems";
 import { TimeRestriction } from "./TimeRestriction";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -22,13 +22,13 @@ export class ScheduleCreateRequestDataAttributesLayersItems {
    */
   "endDate"?: Date;
   /**
-   * Defines how frequently the rotation repeats, using days and/or seconds (up to certain limits).
+   * Defines how often the rotation repeats, using a combination of days and optional seconds.
    */
-  "interval": ScheduleCreateRequestDataAttributesLayersItemsInterval;
+  "interval": LayerAttributesInterval;
   /**
    * A list of members who participate in this layer's rotation.
    */
-  "members": Array<ScheduleCreateRequestDataAttributesLayersItemsMembersItems>;
+  "members": Array<ScheduleRequestDataAttributesLayersItemsMembersItems>;
   /**
    * The name of this layer.
    */
@@ -71,12 +71,12 @@ export class ScheduleCreateRequestDataAttributesLayersItems {
     },
     interval: {
       baseName: "interval",
-      type: "ScheduleCreateRequestDataAttributesLayersItemsInterval",
+      type: "LayerAttributesInterval",
       required: true,
     },
     members: {
       baseName: "members",
-      type: "Array<ScheduleCreateRequestDataAttributesLayersItemsMembersItems>",
+      type: "Array<ScheduleRequestDataAttributesLayersItemsMembersItems>",
       required: true,
     },
     name: {

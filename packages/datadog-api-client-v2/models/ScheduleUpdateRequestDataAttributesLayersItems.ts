@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleUpdateRequestDataAttributesLayersItemsInterval } from "./ScheduleUpdateRequestDataAttributesLayersItemsInterval";
-import { ScheduleUpdateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleUpdateRequestDataAttributesLayersItemsMembersItems";
+import { LayerAttributesInterval } from "./LayerAttributesInterval";
+import { ScheduleRequestDataAttributesLayersItemsMembersItems } from "./ScheduleRequestDataAttributesLayersItemsMembersItems";
 import { TimeRestriction } from "./TimeRestriction";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -27,13 +27,13 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
    */
   "id"?: string;
   /**
-   * Specifies how the rotation repeats: number of days, plus optional seconds, up to the given maximums.
+   * Defines how often the rotation repeats, using a combination of days and optional seconds.
    */
-  "interval": ScheduleUpdateRequestDataAttributesLayersItemsInterval;
+  "interval": LayerAttributesInterval;
   /**
    * The members assigned to this layer.
    */
-  "members": Array<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems>;
+  "members": Array<ScheduleRequestDataAttributesLayersItemsMembersItems>;
   /**
    * The name for this layer (for example, "Secondary Coverage").
    */
@@ -80,12 +80,12 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
     },
     interval: {
       baseName: "interval",
-      type: "ScheduleUpdateRequestDataAttributesLayersItemsInterval",
+      type: "LayerAttributesInterval",
       required: true,
     },
     members: {
       baseName: "members",
-      type: "Array<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems>",
+      type: "Array<ScheduleRequestDataAttributesLayersItemsMembersItems>",
       required: true,
     },
     name: {

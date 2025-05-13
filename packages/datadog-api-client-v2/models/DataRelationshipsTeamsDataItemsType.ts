@@ -10,7 +10,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * Teams resource type.
  */
 
-export type ScheduleUpdateRequestDataRelationshipsTeamsDataItemsType =
-  | typeof TEAMS
-  | UnparsedObject;
+export type DataRelationshipsTeamsDataItemsType = typeof TEAMS | UnparsedObject;
 export const TEAMS = "teams";

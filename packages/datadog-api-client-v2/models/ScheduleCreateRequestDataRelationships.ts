@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleCreateRequestDataRelationshipsTeams } from "./ScheduleCreateRequestDataRelationshipsTeams";
+import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ScheduleCreateRequestDataRelationships {
   /**
-   * Associates the new schedule with one or more teams.
+   * Associates teams with this schedule in a data structure.
    */
-  "teams"?: ScheduleCreateRequestDataRelationshipsTeams;
+  "teams"?: DataRelationshipsTeams;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class ScheduleCreateRequestDataRelationships {
   static readonly attributeTypeMap: AttributeTypeMap = {
     teams: {
       baseName: "teams",
-      type: "ScheduleCreateRequestDataRelationshipsTeams",
+      type: "DataRelationshipsTeams",
     },
     additionalProperties: {
       baseName: "additionalProperties",

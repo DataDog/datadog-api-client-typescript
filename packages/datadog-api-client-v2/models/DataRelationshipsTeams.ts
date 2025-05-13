@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleDataRelationshipsTeamsDataItems } from "./ScheduleDataRelationshipsTeamsDataItems";
+import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Associates teams with this schedule in a data structure.
  */
-export class ScheduleDataRelationshipsTeams {
+export class DataRelationshipsTeams {
   /**
    * An array of team references for this schedule.
    */
-  "data"?: Array<ScheduleDataRelationshipsTeamsDataItems>;
+  "data"?: Array<DataRelationshipsTeamsDataItems>;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class ScheduleDataRelationshipsTeams {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<ScheduleDataRelationshipsTeamsDataItems>",
+      type: "Array<DataRelationshipsTeamsDataItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +46,7 @@ export class ScheduleDataRelationshipsTeams {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleDataRelationshipsTeams.attributeTypeMap;
+    return DataRelationshipsTeams.attributeTypeMap;
   }
 
   public constructor() {}
