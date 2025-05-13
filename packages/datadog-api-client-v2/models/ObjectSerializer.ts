@@ -494,6 +494,8 @@ import { DashboardTriggerWrapper } from "./DashboardTriggerWrapper";
 import { DataDeletionResponseItem } from "./DataDeletionResponseItem";
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
 import { DataDeletionResponseMeta } from "./DataDeletionResponseMeta";
+import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
+import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
 import { DataScalarColumn } from "./DataScalarColumn";
 import { DataTransform } from "./DataTransform";
 import { DataTransformProperties } from "./DataTransformProperties";
@@ -609,15 +611,11 @@ import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateReque
 import { EscalationPolicyCreateRequestDataAttributes } from "./EscalationPolicyCreateRequestDataAttributes";
 import { EscalationPolicyCreateRequestDataAttributesStepsItems } from "./EscalationPolicyCreateRequestDataAttributesStepsItems";
 import { EscalationPolicyCreateRequestDataRelationships } from "./EscalationPolicyCreateRequestDataRelationships";
-import { EscalationPolicyCreateRequestDataRelationshipsTeams } from "./EscalationPolicyCreateRequestDataRelationshipsTeams";
-import { EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems } from "./EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems";
 import { EscalationPolicyData } from "./EscalationPolicyData";
 import { EscalationPolicyDataAttributes } from "./EscalationPolicyDataAttributes";
 import { EscalationPolicyDataRelationships } from "./EscalationPolicyDataRelationships";
 import { EscalationPolicyDataRelationshipsSteps } from "./EscalationPolicyDataRelationshipsSteps";
 import { EscalationPolicyDataRelationshipsStepsDataItems } from "./EscalationPolicyDataRelationshipsStepsDataItems";
-import { EscalationPolicyDataRelationshipsTeams } from "./EscalationPolicyDataRelationshipsTeams";
-import { EscalationPolicyDataRelationshipsTeamsDataItems } from "./EscalationPolicyDataRelationshipsTeamsDataItems";
 import { EscalationPolicyStep } from "./EscalationPolicyStep";
 import { EscalationPolicyStepAttributes } from "./EscalationPolicyStepAttributes";
 import { EscalationPolicyStepRelationships } from "./EscalationPolicyStepRelationships";
@@ -627,8 +625,6 @@ import { EscalationPolicyUpdateRequestData } from "./EscalationPolicyUpdateReque
 import { EscalationPolicyUpdateRequestDataAttributes } from "./EscalationPolicyUpdateRequestDataAttributes";
 import { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./EscalationPolicyUpdateRequestDataAttributesStepsItems";
 import { EscalationPolicyUpdateRequestDataRelationships } from "./EscalationPolicyUpdateRequestDataRelationships";
-import { EscalationPolicyUpdateRequestDataRelationshipsTeams } from "./EscalationPolicyUpdateRequestDataRelationshipsTeams";
-import { EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems } from "./EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems";
 import { EscalationPolicyUser } from "./EscalationPolicyUser";
 import { EscalationPolicyUserAttributes } from "./EscalationPolicyUserAttributes";
 import { Event } from "./Event";
@@ -1470,23 +1466,18 @@ import { ScheduleCreateRequest } from "./ScheduleCreateRequest";
 import { ScheduleCreateRequestData } from "./ScheduleCreateRequestData";
 import { ScheduleCreateRequestDataAttributes } from "./ScheduleCreateRequestDataAttributes";
 import { ScheduleCreateRequestDataAttributesLayersItems } from "./ScheduleCreateRequestDataAttributesLayersItems";
-import { ScheduleCreateRequestDataAttributesLayersItemsInterval } from "./ScheduleCreateRequestDataAttributesLayersItemsInterval";
-import { ScheduleCreateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleCreateRequestDataAttributesLayersItemsMembersItems";
-import { ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser } from "./ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser";
 import { ScheduleCreateRequestDataRelationships } from "./ScheduleCreateRequestDataRelationships";
-import { ScheduleCreateRequestDataRelationshipsTeams } from "./ScheduleCreateRequestDataRelationshipsTeams";
-import { ScheduleCreateRequestDataRelationshipsTeamsDataItems } from "./ScheduleCreateRequestDataRelationshipsTeamsDataItems";
 import { ScheduleData } from "./ScheduleData";
 import { ScheduleDataAttributes } from "./ScheduleDataAttributes";
 import { ScheduleDataRelationships } from "./ScheduleDataRelationships";
 import { ScheduleDataRelationshipsLayers } from "./ScheduleDataRelationshipsLayers";
 import { ScheduleDataRelationshipsLayersDataItems } from "./ScheduleDataRelationshipsLayersDataItems";
-import { ScheduleDataRelationshipsTeams } from "./ScheduleDataRelationshipsTeams";
-import { ScheduleDataRelationshipsTeamsDataItems } from "./ScheduleDataRelationshipsTeamsDataItems";
 import { ScheduleMember } from "./ScheduleMember";
 import { ScheduleMemberRelationships } from "./ScheduleMemberRelationships";
 import { ScheduleMemberRelationshipsUser } from "./ScheduleMemberRelationshipsUser";
 import { ScheduleMemberRelationshipsUserData } from "./ScheduleMemberRelationshipsUserData";
+import { ScheduleRequestDataAttributesLayersItemsMembersItems } from "./ScheduleRequestDataAttributesLayersItemsMembersItems";
+import { ScheduleRequestDataAttributesLayersItemsMembersItemsUser } from "./ScheduleRequestDataAttributesLayersItemsMembersItemsUser";
 import { ScheduleTarget } from "./ScheduleTarget";
 import { ScheduleTrigger } from "./ScheduleTrigger";
 import { ScheduleTriggerWrapper } from "./ScheduleTriggerWrapper";
@@ -1494,12 +1485,7 @@ import { ScheduleUpdateRequest } from "./ScheduleUpdateRequest";
 import { ScheduleUpdateRequestData } from "./ScheduleUpdateRequestData";
 import { ScheduleUpdateRequestDataAttributes } from "./ScheduleUpdateRequestDataAttributes";
 import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdateRequestDataAttributesLayersItems";
-import { ScheduleUpdateRequestDataAttributesLayersItemsInterval } from "./ScheduleUpdateRequestDataAttributesLayersItemsInterval";
-import { ScheduleUpdateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleUpdateRequestDataAttributesLayersItemsMembersItems";
-import { ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser } from "./ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser";
 import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestDataRelationships";
-import { ScheduleUpdateRequestDataRelationshipsTeams } from "./ScheduleUpdateRequestDataRelationshipsTeams";
-import { ScheduleUpdateRequestDataRelationshipsTeamsDataItems } from "./ScheduleUpdateRequestDataRelationshipsTeamsDataItems";
 import { ScheduleUser } from "./ScheduleUser";
 import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
 import { SecurityFilter } from "./SecurityFilter";
@@ -2214,6 +2200,7 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
+  DataRelationshipsTeamsDataItemsType: ["teams"],
   DataTransformType: ["dataTransform"],
   DetailedFindingType: ["detailed_finding"],
   DomainAllowlistType: ["domain_allowlist"],
@@ -2233,15 +2220,12 @@ const enumsMap: { [key: string]: any[] } = {
   EntityV3QueueKind: ["queue"],
   EntityV3ServiceKind: ["service"],
   EntityV3SystemKind: ["system"],
-  EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
   EscalationPolicyCreateRequestDataType: ["policies"],
   EscalationPolicyDataRelationshipsStepsDataItemsType: ["steps"],
-  EscalationPolicyDataRelationshipsTeamsDataItemsType: ["teams"],
   EscalationPolicyDataType: ["policies"],
   EscalationPolicyStepAttributesAssignment: ["default", "round-robin"],
   EscalationPolicyStepTargetType: ["users", "schedules", "teams"],
   EscalationPolicyStepType: ["steps"],
-  EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
   EscalationPolicyUpdateRequestDataType: ["policies"],
   EscalationPolicyUserType: ["users"],
   EventCategory: ["change"],
@@ -2790,15 +2774,12 @@ const enumsMap: { [key: string]: any[] } = {
   ScalarColumnTypeNumber: ["number"],
   ScalarFormulaRequestType: ["scalar_request"],
   ScalarFormulaResponseType: ["scalar_response"],
-  ScheduleCreateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
   ScheduleCreateRequestDataType: ["schedules"],
   ScheduleDataRelationshipsLayersDataItemsType: ["layers"],
-  ScheduleDataRelationshipsTeamsDataItemsType: ["teams"],
   ScheduleDataType: ["schedules"],
   ScheduleMemberRelationshipsUserDataType: ["users"],
   ScheduleMemberType: ["members"],
   ScheduleTargetType: ["schedules"],
-  ScheduleUpdateRequestDataRelationshipsTeamsDataItemsType: ["teams"],
   ScheduleUpdateRequestDataType: ["schedules"],
   ScheduleUserType: ["users"],
   ScorecardType: ["scorecard"],
@@ -3714,6 +3695,8 @@ const typeMap: { [index: string]: any } = {
   DataDeletionResponseItem: DataDeletionResponseItem,
   DataDeletionResponseItemAttributes: DataDeletionResponseItemAttributes,
   DataDeletionResponseMeta: DataDeletionResponseMeta,
+  DataRelationshipsTeams: DataRelationshipsTeams,
+  DataRelationshipsTeamsDataItems: DataRelationshipsTeamsDataItems,
   DataScalarColumn: DataScalarColumn,
   DataTransform: DataTransform,
   DataTransformProperties: DataTransformProperties,
@@ -3844,10 +3827,6 @@ const typeMap: { [index: string]: any } = {
     EscalationPolicyCreateRequestDataAttributesStepsItems,
   EscalationPolicyCreateRequestDataRelationships:
     EscalationPolicyCreateRequestDataRelationships,
-  EscalationPolicyCreateRequestDataRelationshipsTeams:
-    EscalationPolicyCreateRequestDataRelationshipsTeams,
-  EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems:
-    EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems,
   EscalationPolicyData: EscalationPolicyData,
   EscalationPolicyDataAttributes: EscalationPolicyDataAttributes,
   EscalationPolicyDataRelationships: EscalationPolicyDataRelationships,
@@ -3855,10 +3834,6 @@ const typeMap: { [index: string]: any } = {
     EscalationPolicyDataRelationshipsSteps,
   EscalationPolicyDataRelationshipsStepsDataItems:
     EscalationPolicyDataRelationshipsStepsDataItems,
-  EscalationPolicyDataRelationshipsTeams:
-    EscalationPolicyDataRelationshipsTeams,
-  EscalationPolicyDataRelationshipsTeamsDataItems:
-    EscalationPolicyDataRelationshipsTeamsDataItems,
   EscalationPolicyStep: EscalationPolicyStep,
   EscalationPolicyStepAttributes: EscalationPolicyStepAttributes,
   EscalationPolicyStepRelationships: EscalationPolicyStepRelationships,
@@ -3871,10 +3846,6 @@ const typeMap: { [index: string]: any } = {
     EscalationPolicyUpdateRequestDataAttributesStepsItems,
   EscalationPolicyUpdateRequestDataRelationships:
     EscalationPolicyUpdateRequestDataRelationships,
-  EscalationPolicyUpdateRequestDataRelationshipsTeams:
-    EscalationPolicyUpdateRequestDataRelationshipsTeams,
-  EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems:
-    EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems,
   EscalationPolicyUser: EscalationPolicyUser,
   EscalationPolicyUserAttributes: EscalationPolicyUserAttributes,
   Event: Event,
@@ -4838,31 +4809,22 @@ const typeMap: { [index: string]: any } = {
   ScheduleCreateRequestDataAttributes: ScheduleCreateRequestDataAttributes,
   ScheduleCreateRequestDataAttributesLayersItems:
     ScheduleCreateRequestDataAttributesLayersItems,
-  ScheduleCreateRequestDataAttributesLayersItemsInterval:
-    ScheduleCreateRequestDataAttributesLayersItemsInterval,
-  ScheduleCreateRequestDataAttributesLayersItemsMembersItems:
-    ScheduleCreateRequestDataAttributesLayersItemsMembersItems,
-  ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser:
-    ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser,
   ScheduleCreateRequestDataRelationships:
     ScheduleCreateRequestDataRelationships,
-  ScheduleCreateRequestDataRelationshipsTeams:
-    ScheduleCreateRequestDataRelationshipsTeams,
-  ScheduleCreateRequestDataRelationshipsTeamsDataItems:
-    ScheduleCreateRequestDataRelationshipsTeamsDataItems,
   ScheduleData: ScheduleData,
   ScheduleDataAttributes: ScheduleDataAttributes,
   ScheduleDataRelationships: ScheduleDataRelationships,
   ScheduleDataRelationshipsLayers: ScheduleDataRelationshipsLayers,
   ScheduleDataRelationshipsLayersDataItems:
     ScheduleDataRelationshipsLayersDataItems,
-  ScheduleDataRelationshipsTeams: ScheduleDataRelationshipsTeams,
-  ScheduleDataRelationshipsTeamsDataItems:
-    ScheduleDataRelationshipsTeamsDataItems,
   ScheduleMember: ScheduleMember,
   ScheduleMemberRelationships: ScheduleMemberRelationships,
   ScheduleMemberRelationshipsUser: ScheduleMemberRelationshipsUser,
   ScheduleMemberRelationshipsUserData: ScheduleMemberRelationshipsUserData,
+  ScheduleRequestDataAttributesLayersItemsMembersItems:
+    ScheduleRequestDataAttributesLayersItemsMembersItems,
+  ScheduleRequestDataAttributesLayersItemsMembersItemsUser:
+    ScheduleRequestDataAttributesLayersItemsMembersItemsUser,
   ScheduleTarget: ScheduleTarget,
   ScheduleTrigger: ScheduleTrigger,
   ScheduleTriggerWrapper: ScheduleTriggerWrapper,
@@ -4871,18 +4833,8 @@ const typeMap: { [index: string]: any } = {
   ScheduleUpdateRequestDataAttributes: ScheduleUpdateRequestDataAttributes,
   ScheduleUpdateRequestDataAttributesLayersItems:
     ScheduleUpdateRequestDataAttributesLayersItems,
-  ScheduleUpdateRequestDataAttributesLayersItemsInterval:
-    ScheduleUpdateRequestDataAttributesLayersItemsInterval,
-  ScheduleUpdateRequestDataAttributesLayersItemsMembersItems:
-    ScheduleUpdateRequestDataAttributesLayersItemsMembersItems,
-  ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser:
-    ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser,
   ScheduleUpdateRequestDataRelationships:
     ScheduleUpdateRequestDataRelationships,
-  ScheduleUpdateRequestDataRelationshipsTeams:
-    ScheduleUpdateRequestDataRelationshipsTeams,
-  ScheduleUpdateRequestDataRelationshipsTeamsDataItems:
-    ScheduleUpdateRequestDataRelationshipsTeamsDataItems,
   ScheduleUser: ScheduleUser,
   ScheduleUserAttributes: ScheduleUserAttributes,
   SecurityFilter: SecurityFilter,

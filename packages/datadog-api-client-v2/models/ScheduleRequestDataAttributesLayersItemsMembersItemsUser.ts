@@ -9,7 +9,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * Identifies the user participating in this layer as a single object with an `id`.
  */
-export class ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser {
+export class ScheduleRequestDataAttributesLayersItemsMembersItemsUser {
   /**
    * The user's ID.
    */
@@ -45,7 +45,7 @@ export class ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser.attributeTypeMap;
+    return ScheduleRequestDataAttributesLayersItemsMembersItemsUser.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { EscalationPolicyUpdateRequestDataRelationshipsTeams } from "./EscalationPolicyUpdateRequestDataRelationshipsTeams";
+import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EscalationPolicyUpdateRequestDataRelationships {
   /**
-   * Defines the relationship to teams within an escalation policy update request, referencing the teams to be associated with or removed from the policy.
+   * Associates teams with this schedule in a data structure.
    */
-  "teams"?: EscalationPolicyUpdateRequestDataRelationshipsTeams;
+  "teams"?: DataRelationshipsTeams;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class EscalationPolicyUpdateRequestDataRelationships {
   static readonly attributeTypeMap: AttributeTypeMap = {
     teams: {
       baseName: "teams",
-      type: "EscalationPolicyUpdateRequestDataRelationshipsTeams",
+      type: "DataRelationshipsTeams",
     },
     additionalProperties: {
       baseName: "additionalProperties",

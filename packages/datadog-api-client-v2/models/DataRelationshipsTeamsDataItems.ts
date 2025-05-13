@@ -3,23 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleCreateRequestDataRelationshipsTeamsDataItemsType } from "./ScheduleCreateRequestDataRelationshipsTeamsDataItemsType";
+import { DataRelationshipsTeamsDataItemsType } from "./DataRelationshipsTeamsDataItemsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Holds the relationship data linking this schedule to a particular team,
- * identified by `id` and `type`.
+ * Relates a team to this schedule, identified by `id` and `type` (must be `teams`).
  */
-export class ScheduleCreateRequestDataRelationshipsTeamsDataItems {
+export class DataRelationshipsTeamsDataItems {
   /**
-   * A unique identifier for the team.
+   * The unique identifier of the team in this relationship.
    */
   "id": string;
   /**
    * Teams resource type.
    */
-  "type": ScheduleCreateRequestDataRelationshipsTeamsDataItemsType;
+  "type": DataRelationshipsTeamsDataItemsType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,7 +43,7 @@ export class ScheduleCreateRequestDataRelationshipsTeamsDataItems {
     },
     type: {
       baseName: "type",
-      type: "ScheduleCreateRequestDataRelationshipsTeamsDataItemsType",
+      type: "DataRelationshipsTeamsDataItemsType",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +56,7 @@ export class ScheduleCreateRequestDataRelationshipsTeamsDataItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleCreateRequestDataRelationshipsTeamsDataItems.attributeTypeMap;
+    return DataRelationshipsTeamsDataItems.attributeTypeMap;
   }
 
   public constructor() {}

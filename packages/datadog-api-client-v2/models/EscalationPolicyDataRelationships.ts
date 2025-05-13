@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { EscalationPolicyDataRelationshipsSteps } from "./EscalationPolicyDataRelationshipsSteps";
-import { EscalationPolicyDataRelationshipsTeams } from "./EscalationPolicyDataRelationshipsTeams";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -17,9 +17,9 @@ export class EscalationPolicyDataRelationships {
    */
   "steps": EscalationPolicyDataRelationshipsSteps;
   /**
-   * Defines the relationship to a collection of teams within an escalation policy. Contains an array of team data references.
+   * Associates teams with this schedule in a data structure.
    */
-  "teams"?: EscalationPolicyDataRelationshipsTeams;
+  "teams"?: DataRelationshipsTeams;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,7 +44,7 @@ export class EscalationPolicyDataRelationships {
     },
     teams: {
       baseName: "teams",
-      type: "EscalationPolicyDataRelationshipsTeams",
+      type: "DataRelationshipsTeams",
     },
     additionalProperties: {
       baseName: "additionalProperties",

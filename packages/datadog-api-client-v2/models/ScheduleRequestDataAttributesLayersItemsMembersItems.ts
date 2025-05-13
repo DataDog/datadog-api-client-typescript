@@ -3,22 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType } from "./EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType";
+import { ScheduleRequestDataAttributesLayersItemsMembersItemsUser } from "./ScheduleRequestDataAttributesLayersItemsMembersItemsUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Defines a single relationship to a team within an escalation policy creation request. Contains the team's `id` and `type`.
+ * Defines a single member within a schedule layer, including the reference to the underlying user.
  */
-export class EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems {
+export class ScheduleRequestDataAttributesLayersItemsMembersItems {
   /**
-   * Specifies the unique identifier for the related team.
+   * Identifies the user participating in this layer as a single object with an `id`.
    */
-  "id": string;
-  /**
-   * Indicates that the resource is of type `teams`.
-   */
-  "type": EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType;
+  "user"?: ScheduleRequestDataAttributesLayersItemsMembersItemsUser;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,15 +32,9 @@ export class EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    type: {
-      baseName: "type",
-      type: "EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType",
-      required: true,
+    user: {
+      baseName: "user",
+      type: "ScheduleRequestDataAttributesLayersItemsMembersItemsUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +46,7 @@ export class EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems.attributeTypeMap;
+    return ScheduleRequestDataAttributesLayersItemsMembersItems.attributeTypeMap;
   }
 
   public constructor() {}
