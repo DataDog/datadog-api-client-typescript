@@ -5879,6 +5879,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Schedule",
     },
+    "v2.GetScheduleOnCallUser": {
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "scheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterAtTs": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Shift",
+    },
     "v2.GetOnCallTeamRoutingRules": {
         "teamId": {
             "type": "string",
