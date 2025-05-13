@@ -23,6 +23,7 @@ import { EscalationPolicyUpdateRequest } from "../models/EscalationPolicyUpdateR
 import { Schedule } from "../models/Schedule";
 import { ScheduleCreateRequest } from "../models/ScheduleCreateRequest";
 import { ScheduleUpdateRequest } from "../models/ScheduleUpdateRequest";
+import { Shift } from "../models/Shift";
 import { TeamRoutingRules } from "../models/TeamRoutingRules";
 import { TeamRoutingRulesRequest } from "../models/TeamRoutingRulesRequest";
 
@@ -320,6 +321,59 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getScheduleOnCallUser(
+    scheduleId: string,
+    include?: string,
+    filterAtTs?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'scheduleId' is not null or undefined
+    if (scheduleId === null || scheduleId === undefined) {
+      throw new RequiredError("scheduleId", "getScheduleOnCallUser");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/on-call/schedules/{schedule_id}/on-call".replace(
+        "{schedule_id}",
+        encodeURIComponent(String(scheduleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.OnCallApi.getScheduleOnCallUser")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", ""),
+        ""
+      );
+    }
+    if (filterAtTs !== undefined) {
+      requestContext.setQueryParam(
+        "filter[at_ts]",
+        ObjectSerializer.serialize(filterAtTs, "string", ""),
         ""
       );
     }
@@ -950,6 +1004,70 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getScheduleOnCallUser
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getScheduleOnCallUser(
+    response: ResponseContext
+  ): Promise<Shift> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: Shift = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Shift"
+      ) as Shift;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Shift = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Shift",
+        ""
+      ) as Shift;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to setOnCallTeamRoutingRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1212,6 +1330,24 @@ export interface OnCallApiGetOnCallTeamRoutingRulesRequest {
   include?: string;
 }
 
+export interface OnCallApiGetScheduleOnCallUserRequest {
+  /**
+   * The ID of the schedule.
+   * @type string
+   */
+  scheduleId: string;
+  /**
+   * Specifies related resources to include in the response as a comma-separated list. Allowed value: `user`.
+   * @type string
+   */
+  include?: string;
+  /**
+   * Retrieves the on-call user at the given timestamp (ISO-8601). Defaults to the current time if omitted."
+   * @type string
+   */
+  filterAtTs?: string;
+}
+
 export interface OnCallApiSetOnCallTeamRoutingRulesRequest {
   /**
    * The team ID
@@ -1435,6 +1571,29 @@ export class OnCallApi {
           return this.responseProcessor.getOnCallTeamRoutingRules(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Retrieves the user who is on-call for the specified schedule at a given time.
+   * @param param The request object
+   */
+  public getScheduleOnCallUser(
+    param: OnCallApiGetScheduleOnCallUserRequest,
+    options?: Configuration
+  ): Promise<Shift> {
+    const requestContextPromise = this.requestFactory.getScheduleOnCallUser(
+      param.scheduleId,
+      param.include,
+      param.filterAtTs,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getScheduleOnCallUser(responseContext);
         });
     });
   }

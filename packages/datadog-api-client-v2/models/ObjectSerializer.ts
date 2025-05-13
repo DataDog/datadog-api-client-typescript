@@ -1672,6 +1672,12 @@ import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
 import { ServiceNowTicket } from "./ServiceNowTicket";
 import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
+import { Shift } from "./Shift";
+import { ShiftData } from "./ShiftData";
+import { ShiftDataAttributes } from "./ShiftDataAttributes";
+import { ShiftDataRelationships } from "./ShiftDataRelationships";
+import { ShiftDataRelationshipsUser } from "./ShiftDataRelationshipsUser";
+import { ShiftDataRelationshipsUserData } from "./ShiftDataRelationshipsUserData";
 import { SingleAggregatedConnectionResponseArray } from "./SingleAggregatedConnectionResponseArray";
 import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
 import { SingleAggregatedConnectionResponseDataAttributes } from "./SingleAggregatedConnectionResponseDataAttributes";
@@ -2934,6 +2940,8 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  ShiftDataRelationshipsUserDataType: ["users"],
+  ShiftDataType: ["shifts"],
   SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
   SortDirection: ["desc", "asc"],
   SpansAggregateBucketType: ["bucket"],
@@ -5100,6 +5108,12 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
   ServiceNowTicket: ServiceNowTicket,
   ServiceNowTicketResult: ServiceNowTicketResult,
+  Shift: Shift,
+  ShiftData: ShiftData,
+  ShiftDataAttributes: ShiftDataAttributes,
+  ShiftDataRelationships: ShiftDataRelationships,
+  ShiftDataRelationshipsUser: ShiftDataRelationshipsUser,
+  ShiftDataRelationshipsUserData: ShiftDataRelationshipsUserData,
   SingleAggregatedConnectionResponseArray:
     SingleAggregatedConnectionResponseArray,
   SingleAggregatedConnectionResponseData:
@@ -5644,6 +5658,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ServiceDefinitionV2",
     "string",
   ],
+  ShiftIncluded: ["ScheduleUser"],
   SpansAggregateBucketValue: [
     "string",
     "number",
