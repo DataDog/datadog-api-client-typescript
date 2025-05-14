@@ -1756,7 +1756,7 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   filterHoursAgo?: number;
   /**
-   * The number of aggregations that a `count`, `rate`, or `gauge` metric is configured to use. Max number of aggregation combos is 9.
+   * Deprecated. Number of aggregations has no impact on volume.
    * @type number
    */
   filterNumAggregations?: number;
@@ -1964,10 +1964,10 @@ export class MetricsApi {
 
   /**
    * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
-   * Optionally, include percentile aggregations on any distribution metric or configure custom aggregations
-   * on any count, rate, or gauge metric. By setting `exclude_tags_mode` to true the behavior is changed
-   * from an allow-list to a deny-list, and tags in the defined list will not be queryable.
-   * Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * Optionally, include percentile aggregations on any distribution metric. By setting `exclude_tags_mode`
+   * to true, the behavior is changed from an allow-list to a deny-list, and tags in the defined list are
+   * not queryable. Can only be used with application keys of users with the `Manage Tags for Metrics`
+   * permission.
    * @param param The request object
    */
   public createTagConfiguration(
