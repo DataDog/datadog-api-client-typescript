@@ -5,6 +5,7 @@
  */
 import { Creator } from "./Creator";
 import { MatchingDowntime } from "./MatchingDowntime";
+import { MonitorDraftStatus } from "./MonitorDraftStatus";
 import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorState } from "./MonitorState";
@@ -28,6 +29,12 @@ export class Monitor {
    * Whether or not the monitor is deleted. (Always `null`)
    */
   "deleted"?: Date;
+  /**
+   * Whether a monitor is in draft or published state. Draft monitors do not notify recipients. Draft monitors are currently in
+   * preview and the field is only processed for enabled customers. This accepts the values `draft`
+   * and `published`. Defaults to published.
+   */
+  "draftStatus"?: MonitorDraftStatus;
   /**
    * ID of this monitor.
    */
@@ -114,6 +121,10 @@ export class Monitor {
       baseName: "deleted",
       type: "Date",
       format: "date-time",
+    },
+    draftStatus: {
+      baseName: "draft_status",
+      type: "MonitorDraftStatus",
     },
     id: {
       baseName: "id",
