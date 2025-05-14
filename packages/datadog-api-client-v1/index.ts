@@ -901,6 +901,7 @@ export { SyntheticsAssertionJSONSchemaTarget } from "./models/SyntheticsAssertio
 export { SyntheticsAssertionJSONSchemaTargetTarget } from "./models/SyntheticsAssertionJSONSchemaTargetTarget";
 export { SyntheticsAssertionOperator } from "./models/SyntheticsAssertionOperator";
 export { SyntheticsAssertionTarget } from "./models/SyntheticsAssertionTarget";
+export { SyntheticsAssertionTargetValue } from "./models/SyntheticsAssertionTargetValue";
 export { SyntheticsAssertionTimingsScope } from "./models/SyntheticsAssertionTimingsScope";
 export { SyntheticsAssertionType } from "./models/SyntheticsAssertionType";
 export { SyntheticsAssertionXPathOperator } from "./models/SyntheticsAssertionXPathOperator";
