@@ -2450,6 +2450,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsAssertionXPathTarget",
     "SyntheticsAssertionJavascript",
   ],
+  SyntheticsAssertionTargetValue: ["number", "string"],
   SyntheticsBasicAuth: [
     "SyntheticsBasicAuthWeb",
     "SyntheticsBasicAuthSigv4",
