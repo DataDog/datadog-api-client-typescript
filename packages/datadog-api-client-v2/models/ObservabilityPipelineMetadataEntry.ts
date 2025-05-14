@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A custom metadata entry to attach to each object uploaded to the GCS bucket.
+ * A custom metadata entry.
  */
 export class ObservabilityPipelineMetadataEntry {
   /**

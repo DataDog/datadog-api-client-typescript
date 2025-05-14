@@ -41,9 +41,9 @@ export class ObservabilityPipelineGoogleCloudStorageDestination {
    */
   "keyPrefix"?: string;
   /**
-   * Custom metadata key-value pairs added to each object.
+   * Custom metadata to attach to each object uploaded to the GCS bucket.
    */
-  "metadata": Array<ObservabilityPipelineMetadataEntry>;
+  "metadata"?: Array<ObservabilityPipelineMetadataEntry>;
   /**
    * Storage class used for objects stored in GCS.
    */
@@ -101,7 +101,6 @@ export class ObservabilityPipelineGoogleCloudStorageDestination {
     metadata: {
       baseName: "metadata",
       type: "Array<ObservabilityPipelineMetadataEntry>",
-      required: true,
     },
     storageClass: {
       baseName: "storage_class",
