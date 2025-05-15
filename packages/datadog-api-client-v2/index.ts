@@ -1136,6 +1136,8 @@ export { CloudWorkloadSecurityAgentPolicyUpdateData } from "./models/CloudWorklo
 export { CloudWorkloadSecurityAgentPolicyUpdaterAttributes } from "./models/CloudWorkloadSecurityAgentPolicyUpdaterAttributes";
 export { CloudWorkloadSecurityAgentPolicyUpdateRequest } from "./models/CloudWorkloadSecurityAgentPolicyUpdateRequest";
 export { CloudWorkloadSecurityAgentRuleAction } from "./models/CloudWorkloadSecurityAgentRuleAction";
+export { CloudWorkloadSecurityAgentRuleActionMetadata } from "./models/CloudWorkloadSecurityAgentRuleActionMetadata";
+export { CloudWorkloadSecurityAgentRuleActionSet } from "./models/CloudWorkloadSecurityAgentRuleActionSet";
 export { CloudWorkloadSecurityAgentRuleAttributes } from "./models/CloudWorkloadSecurityAgentRuleAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./models/CloudWorkloadSecurityAgentRuleCreateAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateData } from "./models/CloudWorkloadSecurityAgentRuleCreateData";

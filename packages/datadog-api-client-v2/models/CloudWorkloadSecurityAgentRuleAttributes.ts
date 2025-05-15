@@ -22,6 +22,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    */
   "agentConstraint"?: string;
   /**
+   * The blocking policies that the rule belongs to
+   */
+  "blocking"?: Array<string>;
+  /**
    * The category of the Agent rule
    */
   "category"?: string;
@@ -46,6 +50,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    */
   "description"?: string;
   /**
+   * The disabled policies that the rule belongs to
+   */
+  "disabled"?: Array<string>;
+  /**
    * Whether the Agent rule is enabled
    */
   "enabled"?: boolean;
@@ -57,6 +65,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    * The platforms the Agent rule is supported on
    */
   "filters"?: Array<string>;
+  /**
+   * The monitoring policies that the rule belongs to
+   */
+  "monitoring"?: Array<string>;
   /**
    * The name of the Agent rule
    */
@@ -110,6 +122,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
       baseName: "agentConstraint",
       type: "string",
     },
+    blocking: {
+      baseName: "blocking",
+      type: "Array<string>",
+    },
     category: {
       baseName: "category",
       type: "string",
@@ -135,6 +151,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
       baseName: "description",
       type: "string",
     },
+    disabled: {
+      baseName: "disabled",
+      type: "Array<string>",
+    },
     enabled: {
       baseName: "enabled",
       type: "boolean",
@@ -145,6 +165,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
     },
     filters: {
       baseName: "filters",
+      type: "Array<string>",
+    },
+    monitoring: {
+      baseName: "monitoring",
       type: "Array<string>",
     },
     name: {
