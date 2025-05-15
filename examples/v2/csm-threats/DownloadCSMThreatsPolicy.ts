@@ -1,5 +1,5 @@
 /**
- * Get the latest CSM Threats policy returns "OK" response
+ * Download the Workload Protection policy returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

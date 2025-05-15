@@ -1,5 +1,5 @@
 /**
- * Get the latest Cloud Workload Security policy returns "OK" response
+ * Download the Workload Protection policy (US1-FED) returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
