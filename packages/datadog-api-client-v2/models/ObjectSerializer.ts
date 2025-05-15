@@ -707,6 +707,8 @@ import { GetDeviceResponse } from "./GetDeviceResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GetInterfacesData } from "./GetInterfacesData";
 import { GetInterfacesResponse } from "./GetInterfacesResponse";
+import { GetResourceEvaluationFiltersResponse } from "./GetResourceEvaluationFiltersResponse";
+import { GetResourceEvaluationFiltersResponseData } from "./GetResourceEvaluationFiltersResponseData";
 import { GetRuleVersionHistoryData } from "./GetRuleVersionHistoryData";
 import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./GetSBOMResponse";
@@ -1355,6 +1357,7 @@ import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { Remediation } from "./Remediation";
 import { ReorderRetentionFiltersRequest } from "./ReorderRetentionFiltersRequest";
+import { ResourceFilterAttributes } from "./ResourceFilterAttributes";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RestrictionPolicy } from "./RestrictionPolicy";
 import { RestrictionPolicyAttributes } from "./RestrictionPolicyAttributes";
@@ -1797,6 +1800,10 @@ import { UpdateCustomFrameworkResponse } from "./UpdateCustomFrameworkResponse";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
 import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
+import { UpdateResourceEvaluationFiltersRequest } from "./UpdateResourceEvaluationFiltersRequest";
+import { UpdateResourceEvaluationFiltersRequestData } from "./UpdateResourceEvaluationFiltersRequestData";
+import { UpdateResourceEvaluationFiltersResponse } from "./UpdateResourceEvaluationFiltersResponse";
+import { UpdateResourceEvaluationFiltersResponseData } from "./UpdateResourceEvaluationFiltersResponseData";
 import { UpdateRuleRequest } from "./UpdateRuleRequest";
 import { UpdateRuleRequestData } from "./UpdateRuleRequestData";
 import { UpdateRuleResponse } from "./UpdateRuleResponse";
@@ -2687,6 +2694,7 @@ const enumsMap: { [key: string]: any[] } = {
     "RelationTypeImplementedBy",
     "RelationTypeImplements",
   ],
+  ResourceFilterRequestType: ["csm_resource_filter"],
   RestrictionPolicyType: ["restriction_policy"],
   RetentionFilterAllType: [
     "spans-sampling-processor",
@@ -3930,6 +3938,9 @@ const typeMap: { [index: string]: any } = {
   GetFindingResponse: GetFindingResponse,
   GetInterfacesData: GetInterfacesData,
   GetInterfacesResponse: GetInterfacesResponse,
+  GetResourceEvaluationFiltersResponse: GetResourceEvaluationFiltersResponse,
+  GetResourceEvaluationFiltersResponseData:
+    GetResourceEvaluationFiltersResponseData,
   GetRuleVersionHistoryData: GetRuleVersionHistoryData,
   GetRuleVersionHistoryResponse: GetRuleVersionHistoryResponse,
   GetSBOMResponse: GetSBOMResponse,
@@ -4697,6 +4708,7 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUsers: RelationshipToUsers,
   Remediation: Remediation,
   ReorderRetentionFiltersRequest: ReorderRetentionFiltersRequest,
+  ResourceFilterAttributes: ResourceFilterAttributes,
   ResponseMetaAttributes: ResponseMetaAttributes,
   RestrictionPolicy: RestrictionPolicy,
   RestrictionPolicyAttributes: RestrictionPolicyAttributes,
@@ -5206,6 +5218,14 @@ const typeMap: { [index: string]: any } = {
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
   UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
   UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
+  UpdateResourceEvaluationFiltersRequest:
+    UpdateResourceEvaluationFiltersRequest,
+  UpdateResourceEvaluationFiltersRequestData:
+    UpdateResourceEvaluationFiltersRequestData,
+  UpdateResourceEvaluationFiltersResponse:
+    UpdateResourceEvaluationFiltersResponse,
+  UpdateResourceEvaluationFiltersResponseData:
+    UpdateResourceEvaluationFiltersResponseData,
   UpdateRuleRequest: UpdateRuleRequest,
   UpdateRuleRequestData: UpdateRuleRequestData,
   UpdateRuleResponse: UpdateRuleResponse,
