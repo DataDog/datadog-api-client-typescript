@@ -19,6 +19,7 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { DevicesListData } from "./models/DevicesListData";
 import { GetDeviceResponse } from "./models/GetDeviceResponse";
 import { GetInterfacesResponse } from "./models/GetInterfacesResponse";
 import { ListDevicesResponse } from "./models/ListDevicesResponse";
@@ -106,8 +107,8 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
   }
 
   public async listDevices(
-    pageNumber?: number,
     pageSize?: number,
+    pageNumber?: number,
     sort?: string,
     filterTag?: string,
     _options?: Configuration,
@@ -125,17 +126,17 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (pageNumber !== undefined) {
-      requestContext.setQueryParam(
-        "page[number]",
-        serialize(pageNumber, TypingInfo, "number", "int64"),
-        "",
-      );
-    }
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page[size]",
         serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
         "",
       );
     }
@@ -566,15 +567,15 @@ export interface NetworkDeviceMonitoringApiGetInterfacesRequest {
 
 export interface NetworkDeviceMonitoringApiListDevicesRequest {
   /**
-   * The page number to fetch.
-   * @type number
-   */
-  pageNumber?: number;
-  /**
-   * The number of devices to return per page.
+   * Size for a given page. The maximum allowed value is 100.
    * @type number
    */
   pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
   /**
    * The field to sort the devices by.
    * @type string
@@ -677,8 +678,8 @@ export class NetworkDeviceMonitoringApi {
     options?: Configuration,
   ): Promise<ListDevicesResponse> {
     const requestContextPromise = this.requestFactory.listDevices(
-      param.pageNumber,
       param.pageSize,
+      param.pageNumber,
       param.sort,
       param.filterTag,
       options,
@@ -690,6 +691,47 @@ export class NetworkDeviceMonitoringApi {
           return this.responseProcessor.listDevices(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listDevices returning a generator with all the items.
+   */
+  public async *listDevicesWithPagination(
+    param: NetworkDeviceMonitoringApiListDevicesRequest = {},
+    options?: Configuration,
+  ): AsyncGenerator<DevicesListData> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listDevices(
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.filterTag,
+        options,
+      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
+
+      const response =
+        await this.responseProcessor.listDevices(responseContext);
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
   }
 
   /**

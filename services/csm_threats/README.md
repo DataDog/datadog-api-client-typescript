@@ -21,6 +21,7 @@ import { v2 } from "@datadog/datadog-api-client-csm-threats";
 
 const configuration = createConfiguration();
 const apiInstance = new CSMThreatsApiV2(configuration);
+const params = {/* parameters */};
 
 apiInstance.listCSMThreatsAgentRules(params).then((data: v2.CloudWorkloadSecurityAgentRulesListResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));

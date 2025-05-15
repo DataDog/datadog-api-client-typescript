@@ -26,7 +26,7 @@ export class ObservabilityPipelineKafkaSource {
    */
   "sasl"?: ObservabilityPipelineKafkaSourceSasl;
   /**
-   * Configuration for enabling TLS encryption.
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
    */
   "tls"?: ObservabilityPipelineTls;
   /**

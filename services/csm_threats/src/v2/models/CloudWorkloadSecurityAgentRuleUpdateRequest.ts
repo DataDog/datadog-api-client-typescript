@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CloudWorkloadSecurityAgentRuleUpdateData } from "./CloudWorkloadSecurityAgentRuleUpdateData";
 
 /**
- * Request object that includes the Agent rule with the attributes to update.
+ * Request object that includes the Agent rule with the attributes to update
  */
 export class CloudWorkloadSecurityAgentRuleUpdateRequest {
   /**
-   * Object for a single Agent rule.
+   * Object for a single Agent rule
    */
   "data": CloudWorkloadSecurityAgentRuleUpdateData;
   /**

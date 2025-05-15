@@ -5,7 +5,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class CloudWorkloadSecurityAgentRuleKill {
   /**
-   * Supported signals for the kill system call.
+   * Supported signals for the kill system call
    */
   "signal"?: string;
   /**

@@ -5,6 +5,7 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
  */
 export type IncidentSeverity =
   | typeof UNKNOWN
+  | typeof SEV_0
   | typeof SEV_1
   | typeof SEV_2
   | typeof SEV_3
@@ -12,6 +13,7 @@ export type IncidentSeverity =
   | typeof SEV_5
   | UnparsedObject;
 export const UNKNOWN = "UNKNOWN";
+export const SEV_0 = "SEV-0";
 export const SEV_1 = "SEV-1";
 export const SEV_2 = "SEV-2";
 export const SEV_3 = "SEV-3";

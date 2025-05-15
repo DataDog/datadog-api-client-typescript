@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ScheduleUpdateRequestDataRelationshipsTeams } from "./ScheduleUpdateRequestDataRelationshipsTeams";
+import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 
 /**
  * Houses relationships for the schedule update, typically referencing teams.
  */
 export class ScheduleUpdateRequestDataRelationships {
   /**
-   * Defines the teams that this schedule update is associated with.
+   * Associates teams with this schedule in a data structure.
    */
-  "teams"?: ScheduleUpdateRequestDataRelationshipsTeams;
+  "teams"?: DataRelationshipsTeams;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class ScheduleUpdateRequestDataRelationships {
   static readonly attributeTypeMap: AttributeTypeMap = {
     teams: {
       baseName: "teams",
-      type: "ScheduleUpdateRequestDataRelationshipsTeams",
+      type: "DataRelationshipsTeams",
     },
     additionalProperties: {
       baseName: "additionalProperties",

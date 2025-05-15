@@ -1,8 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ScheduleCreateRequestDataAttributesLayersItemsInterval } from "./ScheduleCreateRequestDataAttributesLayersItemsInterval";
-import { ScheduleCreateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleCreateRequestDataAttributesLayersItemsMembersItems";
-import { ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems } from "./ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems";
+import { LayerAttributesInterval } from "./LayerAttributesInterval";
+import { ScheduleRequestDataAttributesLayersItemsMembersItems } from "./ScheduleRequestDataAttributesLayersItemsMembersItems";
+import { TimeRestriction } from "./TimeRestriction";
 
 /**
  * Describes a schedule layer, including rotation intervals, members, restrictions, and timeline settings.
@@ -17,13 +17,13 @@ export class ScheduleCreateRequestDataAttributesLayersItems {
    */
   "endDate"?: Date;
   /**
-   * Defines how frequently the rotation repeats, using days and/or seconds (up to certain limits).
+   * Defines how often the rotation repeats, using a combination of days and optional seconds.
    */
-  "interval": ScheduleCreateRequestDataAttributesLayersItemsInterval;
+  "interval": LayerAttributesInterval;
   /**
    * A list of members who participate in this layer's rotation.
    */
-  "members": Array<ScheduleCreateRequestDataAttributesLayersItemsMembersItems>;
+  "members": Array<ScheduleRequestDataAttributesLayersItemsMembersItems>;
   /**
    * The name of this layer.
    */
@@ -31,7 +31,7 @@ export class ScheduleCreateRequestDataAttributesLayersItems {
   /**
    * Zero or more time-based restrictions (for example, only weekdays, during business hours).
    */
-  "restrictions"?: Array<ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems>;
+  "restrictions"?: Array<TimeRestriction>;
   /**
    * The date/time when the rotation for this layer starts (in ISO 8601).
    */
@@ -64,12 +64,12 @@ export class ScheduleCreateRequestDataAttributesLayersItems {
     },
     interval: {
       baseName: "interval",
-      type: "ScheduleCreateRequestDataAttributesLayersItemsInterval",
+      type: "LayerAttributesInterval",
       required: true,
     },
     members: {
       baseName: "members",
-      type: "Array<ScheduleCreateRequestDataAttributesLayersItemsMembersItems>",
+      type: "Array<ScheduleRequestDataAttributesLayersItemsMembersItems>",
       required: true,
     },
     name: {
@@ -79,7 +79,7 @@ export class ScheduleCreateRequestDataAttributesLayersItems {
     },
     restrictions: {
       baseName: "restrictions",
-      type: "Array<ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems>",
+      type: "Array<TimeRestriction>",
     },
     rotationStart: {
       baseName: "rotation_start",

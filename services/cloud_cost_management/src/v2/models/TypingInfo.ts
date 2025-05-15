@@ -24,6 +24,12 @@ import { AzureUCConfigPostRequest } from "./AzureUCConfigPostRequest";
 import { AzureUCConfigPostRequestAttributes } from "./AzureUCConfigPostRequestAttributes";
 import { AzureUCConfigsResponse } from "./AzureUCConfigsResponse";
 import { BillConfig } from "./BillConfig";
+import { Budget } from "./Budget";
+import { BudgetArray } from "./BudgetArray";
+import { BudgetAttributes } from "./BudgetAttributes";
+import { BudgetEntry } from "./BudgetEntry";
+import { BudgetWithEntries } from "./BudgetWithEntries";
+import { BudgetWithEntriesData } from "./BudgetWithEntriesData";
 import { CustomCostGetResponseMeta } from "./CustomCostGetResponseMeta";
 import { CustomCostListResponseMeta } from "./CustomCostListResponseMeta";
 import { CustomCostUploadResponseMeta } from "./CustomCostUploadResponseMeta";
@@ -37,6 +43,7 @@ import { CustomCostsFileMetadataWithContentHighLevel } from "./CustomCostsFileMe
 import { CustomCostsFileUploadResponse } from "./CustomCostsFileUploadResponse";
 import { CustomCostsFileUsageChargePeriod } from "./CustomCostsFileUsageChargePeriod";
 import { CustomCostsUser } from "./CustomCostsUser";
+import { TagFilter } from "./TagFilter";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -73,6 +80,12 @@ export const TypingInfo: ModelTypingInfo = {
     AzureUCConfigPostRequestAttributes: AzureUCConfigPostRequestAttributes,
     AzureUCConfigsResponse: AzureUCConfigsResponse,
     BillConfig: BillConfig,
+    Budget: Budget,
+    BudgetArray: BudgetArray,
+    BudgetAttributes: BudgetAttributes,
+    BudgetEntry: BudgetEntry,
+    BudgetWithEntries: BudgetWithEntries,
+    BudgetWithEntriesData: BudgetWithEntriesData,
     CustomCostGetResponseMeta: CustomCostGetResponseMeta,
     CustomCostListResponseMeta: CustomCostListResponseMeta,
     CustomCostUploadResponseMeta: CustomCostUploadResponseMeta,
@@ -87,5 +100,6 @@ export const TypingInfo: ModelTypingInfo = {
     CustomCostsFileUploadResponse: CustomCostsFileUploadResponse,
     CustomCostsFileUsageChargePeriod: CustomCostsFileUsageChargePeriod,
     CustomCostsUser: CustomCostsUser,
+    TagFilter: TagFilter,
   },
 };
