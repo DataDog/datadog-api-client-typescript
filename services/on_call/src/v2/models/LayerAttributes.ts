@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { LayerAttributesInterval } from "./LayerAttributesInterval";
-import { LayerAttributesRestrictionsItems } from "./LayerAttributesRestrictionsItems";
+import { TimeRestriction } from "./TimeRestriction";
 
 /**
  * Describes key properties of a Layer, including rotation details, name, start/end times, and any restrictions.
@@ -26,7 +26,7 @@ export class LayerAttributes {
   /**
    * An optional list of time restrictions for when this layer is in effect.
    */
-  "restrictions"?: Array<LayerAttributesRestrictionsItems>;
+  "restrictions"?: Array<TimeRestriction>;
   /**
    * The date/time when the rotation starts (ISO 8601).
    */
@@ -66,7 +66,7 @@ export class LayerAttributes {
     },
     restrictions: {
       baseName: "restrictions",
-      type: "Array<LayerAttributesRestrictionsItems>",
+      type: "Array<TimeRestriction>",
     },
     rotationStart: {
       baseName: "rotation_start",

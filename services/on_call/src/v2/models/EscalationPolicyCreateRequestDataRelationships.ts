@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { EscalationPolicyCreateRequestDataRelationshipsTeams } from "./EscalationPolicyCreateRequestDataRelationshipsTeams";
+import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 
 /**
  * Represents relationships in an escalation policy creation request, including references to teams.
  */
 export class EscalationPolicyCreateRequestDataRelationships {
   /**
-   * Defines the relationship to teams within an escalation policy creation request, referencing the teams to be associated with the policy.
+   * Associates teams with this schedule in a data structure.
    */
-  "teams"?: EscalationPolicyCreateRequestDataRelationshipsTeams;
+  "teams"?: DataRelationshipsTeams;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class EscalationPolicyCreateRequestDataRelationships {
   static readonly attributeTypeMap: AttributeTypeMap = {
     teams: {
       baseName: "teams",
-      type: "EscalationPolicyCreateRequestDataRelationshipsTeams",
+      type: "DataRelationshipsTeams",
     },
     additionalProperties: {
       baseName: "additionalProperties",

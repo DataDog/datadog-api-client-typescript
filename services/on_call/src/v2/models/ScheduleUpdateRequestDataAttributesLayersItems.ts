@@ -1,8 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { ScheduleUpdateRequestDataAttributesLayersItemsInterval } from "./ScheduleUpdateRequestDataAttributesLayersItemsInterval";
-import { ScheduleUpdateRequestDataAttributesLayersItemsMembersItems } from "./ScheduleUpdateRequestDataAttributesLayersItemsMembersItems";
-import { ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems } from "./ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems";
+import { LayerAttributesInterval } from "./LayerAttributesInterval";
+import { ScheduleRequestDataAttributesLayersItemsMembersItems } from "./ScheduleRequestDataAttributesLayersItemsMembersItems";
+import { TimeRestriction } from "./TimeRestriction";
 
 /**
  * Represents a layer within a schedule update, including rotation details, members,
@@ -22,13 +22,13 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
    */
   "id"?: string;
   /**
-   * Specifies how the rotation repeats: number of days, plus optional seconds, up to the given maximums.
+   * Defines how often the rotation repeats, using a combination of days and optional seconds.
    */
-  "interval": ScheduleUpdateRequestDataAttributesLayersItemsInterval;
+  "interval": LayerAttributesInterval;
   /**
    * The members assigned to this layer.
    */
-  "members": Array<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems>;
+  "members": Array<ScheduleRequestDataAttributesLayersItemsMembersItems>;
   /**
    * The name for this layer (for example, "Secondary Coverage").
    */
@@ -36,7 +36,7 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
   /**
    * Any time restrictions that define when this layer is active.
    */
-  "restrictions"?: Array<ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems>;
+  "restrictions"?: Array<TimeRestriction>;
   /**
    * The date/time at which the rotation begins (ISO 8601 format).
    */
@@ -73,12 +73,12 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
     },
     interval: {
       baseName: "interval",
-      type: "ScheduleUpdateRequestDataAttributesLayersItemsInterval",
+      type: "LayerAttributesInterval",
       required: true,
     },
     members: {
       baseName: "members",
-      type: "Array<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems>",
+      type: "Array<ScheduleRequestDataAttributesLayersItemsMembersItems>",
       required: true,
     },
     name: {
@@ -88,7 +88,7 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
     },
     restrictions: {
       baseName: "restrictions",
-      type: "Array<ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems>",
+      type: "Array<TimeRestriction>",
     },
     rotationStart: {
       baseName: "rotation_start",

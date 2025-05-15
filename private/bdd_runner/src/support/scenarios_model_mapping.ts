@@ -4025,6 +4025,30 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "AzureUCConfigPairsResponse",
   },
+  "CloudCostManagementApi.V2.UpsertBudget": {
+    body: {
+      type: "BudgetWithEntries",
+      format: "",
+    },
+    operationResponseType: "BudgetWithEntries",
+  },
+  "CloudCostManagementApi.V2.GetBudget": {
+    budgetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "BudgetWithEntries",
+  },
+  "CloudCostManagementApi.V2.DeleteBudget": {
+    budgetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.ListBudgets": {
+    operationResponseType: "BudgetArray",
+  },
   "CloudCostManagementApi.V2.ListCustomCostsFiles": {
     operationResponseType: "CustomCostsFileListResponse",
   },
@@ -5700,11 +5724,11 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "MonitorConfigPolicyResponse",
   },
   "NetworkDeviceMonitoringApi.V2.ListDevices": {
-    pageNumber: {
+    pageSize: {
       type: "number",
       format: "int64",
     },
-    pageSize: {
+    pageNumber: {
       type: "number",
       format: "int64",
     },
@@ -5862,6 +5886,75 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     scheduleId: {
       type: "string",
       format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "OnCallApi.V2.GetScheduleOnCallUser": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    scheduleId: {
+      type: "string",
+      format: "",
+    },
+    filterAtTs: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "Shift",
+  },
+  "OnCallApi.V2.GetOnCallTeamRoutingRules": {
+    teamId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TeamRoutingRules",
+  },
+  "OnCallApi.V2.SetOnCallTeamRoutingRules": {
+    teamId: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "TeamRoutingRulesRequest",
+      format: "",
+    },
+    operationResponseType: "TeamRoutingRules",
+  },
+  "OnCallPagingApi.V2.CreateOnCallPage": {
+    body: {
+      type: "CreatePageRequest",
+      format: "",
+    },
+    operationResponseType: "CreatePageResponse",
+  },
+  "OnCallPagingApi.V2.AcknowledgeOnCallPage": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "OnCallPagingApi.V2.EscalateOnCallPage": {
+    pageId: {
+      type: "string",
+      format: "uuid",
+    },
+    operationResponseType: "{}",
+  },
+  "OnCallPagingApi.V2.ResolveOnCallPage": {
+    pageId: {
+      type: "string",
+      format: "uuid",
     },
     operationResponseType: "{}",
   },
@@ -6177,6 +6270,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "{}",
   },
   "CSMThreatsApi.V2.ListCSMThreatsAgentRules": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
     operationResponseType: "CloudWorkloadSecurityAgentRulesListResponse",
   },
   "CSMThreatsApi.V2.CreateCSMThreatsAgentRule": {
@@ -6191,10 +6288,18 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    policyId: {
+      type: "string",
+      format: "",
+    },
     operationResponseType: "CloudWorkloadSecurityAgentRuleResponse",
   },
   "CSMThreatsApi.V2.DeleteCSMThreatsAgentRule": {
     agentRuleId: {
+      type: "string",
+      format: "",
+    },
+    policyId: {
       type: "string",
       format: "",
     },
@@ -6205,14 +6310,53 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    policyId: {
+      type: "string",
+      format: "",
+    },
     body: {
       type: "CloudWorkloadSecurityAgentRuleUpdateRequest",
       format: "",
     },
     operationResponseType: "CloudWorkloadSecurityAgentRuleResponse",
   },
+  "CSMThreatsApi.V2.ListCSMThreatsAgentPolicies": {
+    operationResponseType: "CloudWorkloadSecurityAgentPoliciesListResponse",
+  },
+  "CSMThreatsApi.V2.CreateCSMThreatsAgentPolicy": {
+    body: {
+      type: "CloudWorkloadSecurityAgentPolicyCreateRequest",
+      format: "",
+    },
+    operationResponseType: "CloudWorkloadSecurityAgentPolicyResponse",
+  },
   "CSMThreatsApi.V2.DownloadCSMThreatsPolicy": {
     operationResponseType: "HttpFile",
+  },
+  "CSMThreatsApi.V2.GetCSMThreatsAgentPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "CloudWorkloadSecurityAgentPolicyResponse",
+  },
+  "CSMThreatsApi.V2.DeleteCSMThreatsAgentPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CSMThreatsApi.V2.UpdateCSMThreatsAgentPolicy": {
+    policyId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CloudWorkloadSecurityAgentPolicyUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "CloudWorkloadSecurityAgentPolicyResponse",
   },
   "CSMThreatsApi.V2.DownloadCloudWorkloadPolicyFile": {
     operationResponseType: "HttpFile",
@@ -6252,12 +6396,30 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CloudWorkloadSecurityAgentRuleResponse",
   },
+  "ObservabilityPipelinesApi.V2.ListPipelines": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ListPipelinesResponse",
+  },
   "ObservabilityPipelinesApi.V2.CreatePipeline": {
     body: {
-      type: "ObservabilityPipelineCreateRequest",
+      type: "ObservabilityPipelineSpec",
       format: "",
     },
     operationResponseType: "ObservabilityPipeline",
+  },
+  "ObservabilityPipelinesApi.V2.ValidatePipeline": {
+    body: {
+      type: "ObservabilityPipelineSpec",
+      format: "",
+    },
+    operationResponseType: "ValidationResponse",
   },
   "ObservabilityPipelinesApi.V2.GetPipeline": {
     pipelineId: {

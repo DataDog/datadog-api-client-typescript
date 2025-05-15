@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { CloudWorkloadSecurityAgentRuleData } from "./CloudWorkloadSecurityAgentRuleData";
 
 /**
- * Response object that includes a list of Agent rule.
+ * Response object that includes a list of Agent rule
  */
 export class CloudWorkloadSecurityAgentRulesListResponse {
   /**
-   * A list of Agent rules objects.
+   * A list of Agent rules objects
    */
   "data"?: Array<CloudWorkloadSecurityAgentRuleData>;
   /**

@@ -223,7 +223,7 @@ function generateApiInfo(servicesDir: string, useBuiltPackages: boolean) {
   sourceFile.saveSync();
 }
 
-async function main(): Promise<ICliRunResult>{
+async function main(): Promise<ICliRunResult> {
   let cwd = process.cwd();
   const program = new Command();
   program

@@ -19,12 +19,14 @@ import {
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
+import { ListPipelinesResponse } from "./models/ListPipelinesResponse";
 import { ObservabilityPipeline } from "./models/ObservabilityPipeline";
-import { ObservabilityPipelineCreateRequest } from "./models/ObservabilityPipelineCreateRequest";
+import { ObservabilityPipelineSpec } from "./models/ObservabilityPipelineSpec";
+import { ValidationResponse } from "./models/ValidationResponse";
 
 export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFactory {
   public async createPipeline(
-    body: ObservabilityPipelineCreateRequest,
+    body: ObservabilityPipelineSpec,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -54,7 +56,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(body, TypingInfo, "ObservabilityPipelineCreateRequest", ""),
+      serialize(body, TypingInfo, "ObservabilityPipelineSpec", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -146,6 +148,54 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     return requestContext;
   }
 
+  public async listPipelines(
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listPipelines'");
+    if (!_config.unstableOperations["v2.listPipelines"]) {
+      throw new Error("Unstable operation 'listPipelines' is disabled");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/remote_config/products/obs_pipelines/pipelines";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ObservabilityPipelinesApi.listPipelines")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async updatePipeline(
     pipelineId: string,
     body: ObservabilityPipeline,
@@ -187,6 +237,51 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "ObservabilityPipeline", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async validatePipeline(
+    body: ObservabilityPipelineSpec,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'validatePipeline'");
+    if (!_config.unstableOperations["v2.validatePipeline"]) {
+      throw new Error("Unstable operation 'validatePipeline' is disabled");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "validatePipeline");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/remote_config/products/obs_pipelines/pipelines/validate";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.ObservabilityPipelinesApi.validatePipeline")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "ObservabilityPipelineSpec", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -371,6 +466,66 @@ export class ObservabilityPipelinesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listPipelines
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listPipelines(
+    response: ResponseContext,
+  ): Promise<ListPipelinesResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ListPipelinesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListPipelinesResponse",
+      ) as ListPipelinesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListPipelinesResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListPipelinesResponse",
+        "",
+      ) as ListPipelinesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updatePipeline
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -428,13 +583,73 @@ export class ObservabilityPipelinesApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to validatePipeline
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validatePipeline(
+    response: ResponseContext,
+  ): Promise<ValidationResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ValidationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ValidationResponse",
+      ) as ValidationResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ValidationResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ValidationResponse",
+        "",
+      ) as ValidationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface ObservabilityPipelinesApiCreatePipelineRequest {
   /**
-   * @type ObservabilityPipelineCreateRequest
+   * @type ObservabilityPipelineSpec
    */
-  body: ObservabilityPipelineCreateRequest;
+  body: ObservabilityPipelineSpec;
 }
 
 export interface ObservabilityPipelinesApiDeletePipelineRequest {
@@ -453,6 +668,19 @@ export interface ObservabilityPipelinesApiGetPipelineRequest {
   pipelineId: string;
 }
 
+export interface ObservabilityPipelinesApiListPipelinesRequest {
+  /**
+   * Size for a given page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+}
+
 export interface ObservabilityPipelinesApiUpdatePipelineRequest {
   /**
    * The ID of the pipeline to update.
@@ -463,6 +691,13 @@ export interface ObservabilityPipelinesApiUpdatePipelineRequest {
    * @type ObservabilityPipeline
    */
   body: ObservabilityPipeline;
+}
+
+export interface ObservabilityPipelinesApiValidatePipelineRequest {
+  /**
+   * @type ObservabilityPipelineSpec
+   */
+  body: ObservabilityPipelineSpec;
 }
 
 export class ObservabilityPipelinesApi {
@@ -547,6 +782,28 @@ export class ObservabilityPipelinesApi {
   }
 
   /**
+   * Retrieve a list of pipelines.
+   * @param param The request object
+   */
+  public listPipelines(
+    param: ObservabilityPipelinesApiListPipelinesRequest = {},
+    options?: Configuration,
+  ): Promise<ListPipelinesResponse> {
+    const requestContextPromise = this.requestFactory.listPipelines(
+      param.pageSize,
+      param.pageNumber,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listPipelines(responseContext);
+        });
+    });
+  }
+
+  /**
    * Update a pipeline.
    * @param param The request object
    */
@@ -564,6 +821,28 @@ export class ObservabilityPipelinesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updatePipeline(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Validates a pipeline configuration without creating or updating any resources.
+   * Returns a list of validation errors, if any.
+   * @param param The request object
+   */
+  public validatePipeline(
+    param: ObservabilityPipelinesApiValidatePipelineRequest,
+    options?: Configuration,
+  ): Promise<ValidationResponse> {
+    const requestContextPromise = this.requestFactory.validatePipeline(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validatePipeline(responseContext);
         });
     });
   }

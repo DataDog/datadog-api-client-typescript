@@ -730,6 +730,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@datadog/datadog-api-client-on-call-paging@workspace:services/on_call_paging":
+  version: 0.0.0-use.local
+  resolution: "@datadog/datadog-api-client-on-call-paging@workspace:services/on_call_paging"
+  dependencies:
+    "@datadog/datadog-api-client": "npm:^2.0.0-beta.0"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@datadog/datadog-api-client-on-call@workspace:services/on_call":
   version: 0.0.0-use.local
   resolution: "@datadog/datadog-api-client-on-call@workspace:services/on_call"

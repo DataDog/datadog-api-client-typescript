@@ -9,7 +9,7 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    */
   "description"?: string;
   /**
-   * Whether the Agent rule is enabled.
+   * Whether the Agent rule is enabled
    */
   "enabled"?: boolean;
   /**
@@ -17,13 +17,21 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    */
   "expression": string;
   /**
-   * The platforms the Agent rule is supported on.
+   * The platforms the Agent rule is supported on
    */
   "filters"?: Array<string>;
   /**
    * The name of the Agent rule.
    */
   "name": string;
+  /**
+   * The ID of the policy where the Agent rule is saved
+   */
+  "policyId"?: string;
+  /**
+   * The list of product tags associated with the rule
+   */
+  "productTags"?: Array<string>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -60,6 +68,14 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    policyId: {
+      baseName: "policy_id",
+      type: "string",
+    },
+    productTags: {
+      baseName: "product_tags",
+      type: "Array<string>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

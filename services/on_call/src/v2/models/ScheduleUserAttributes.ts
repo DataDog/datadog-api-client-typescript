@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { UserAttributesStatus } from "./UserAttributesStatus";
+
 /**
  * Provides basic user information for a schedule, including a name and email address.
  */
@@ -12,6 +14,10 @@ export class ScheduleUserAttributes {
    * The user's name.
    */
   "name"?: string;
+  /**
+   * The user's status.
+   */
+  "status"?: UserAttributesStatus;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -34,6 +40,10 @@ export class ScheduleUserAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    status: {
+      baseName: "status",
+      type: "UserAttributesStatus",
     },
     additionalProperties: {
       baseName: "additionalProperties",
