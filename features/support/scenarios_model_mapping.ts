@@ -3230,6 +3230,28 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UpdateCustomFrameworkResponse",
     },
+    "v2.GetResourceEvaluationFilters": {
+        "cloudProvider": {
+            "type": "string",
+            "format": "",
+            },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "skipCache": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "GetResourceEvaluationFiltersResponse",
+    },
+    "v2.UpdateResourceEvaluationFilters": {
+        "body": {
+            "type": "UpdateResourceEvaluationFiltersRequest",
+            "format": "",
+            },
+        "operationResponseType": "UpdateResourceEvaluationFiltersResponse",
+    },
     "v2.ListFindings": {
         "pageLimit": {
             "type": "number",
