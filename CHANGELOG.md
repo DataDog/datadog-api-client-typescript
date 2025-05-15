@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 1.35.0/2025-05-15
+
+### Added
+* Add Sev0 as a supported incident severity [#2225](https://github.com/DataDog/datadog-api-client-typescript/pull/2225)
+* Share timerestriction object [#2222](https://github.com/DataDog/datadog-api-client-typescript/pull/2222)
+* add On-Call Paging spec [#2216](https://github.com/DataDog/datadog-api-client-typescript/pull/2216)
+* Add pagination method for NDM ListDevices. [#2211](https://github.com/DataDog/datadog-api-client-typescript/pull/2211)
+* Complete Observability Pipelines API [#2190](https://github.com/DataDog/datadog-api-client-typescript/pull/2190)
+* Add On-Call Team Rules [#2185](https://github.com/DataDog/datadog-api-client-typescript/pull/2185)
+* datadog_integration_gcp_sts Add Support for IsPerProjectQuotaEnabled for GCP STS Service Accounts  [#2180](https://github.com/DataDog/datadog-api-client-typescript/pull/2180)
+* Add OnCall Escalation Policy v2 endpoints [#2169](https://github.com/DataDog/datadog-api-client-typescript/pull/2169)
+
+### Fixed
+* Fix incorrect pattern for url [#2223](https://github.com/DataDog/datadog-api-client-typescript/pull/2223)
+* Make metadata optional for GCS destination [#2213](https://github.com/DataDog/datadog-api-client-typescript/pull/2213)
+* Remove isReadOnly default when creating dashboards [#2212](https://github.com/DataDog/datadog-api-client-typescript/pull/2212)
+* Update On-Call Escalation policies endpoints schemas and description [#2183](https://github.com/DataDog/datadog-api-client-typescript/pull/2183)
+* Set required properties for schedules in OnCall API [#2170](https://github.com/DataDog/datadog-api-client-typescript/pull/2170)
+
 ## 1.34.1 / 2025-04-14
 
 ### Fixed
