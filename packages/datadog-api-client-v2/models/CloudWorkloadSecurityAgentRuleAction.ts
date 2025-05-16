@@ -3,6 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CloudWorkloadSecurityAgentRuleActionMetadata } from "./CloudWorkloadSecurityAgentRuleActionMetadata";
+import { CloudWorkloadSecurityAgentRuleActionSet } from "./CloudWorkloadSecurityAgentRuleActionSet";
 import { CloudWorkloadSecurityAgentRuleKill } from "./CloudWorkloadSecurityAgentRuleKill";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -19,6 +21,14 @@ export class CloudWorkloadSecurityAgentRuleAction {
    * Kill system call applied on the container matching the rule
    */
   "kill"?: CloudWorkloadSecurityAgentRuleKill;
+  /**
+   * The metadata action applied on the scope matching the rule
+   */
+  "metadata"?: CloudWorkloadSecurityAgentRuleActionMetadata;
+  /**
+   * The set action applied on the scope matching the rule
+   */
+  "set"?: CloudWorkloadSecurityAgentRuleActionSet;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,6 +53,14 @@ export class CloudWorkloadSecurityAgentRuleAction {
     kill: {
       baseName: "kill",
       type: "CloudWorkloadSecurityAgentRuleKill",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "CloudWorkloadSecurityAgentRuleActionMetadata",
+    },
+    set: {
+      baseName: "set",
+      type: "CloudWorkloadSecurityAgentRuleActionSet",
     },
     additionalProperties: {
       baseName: "additionalProperties",
