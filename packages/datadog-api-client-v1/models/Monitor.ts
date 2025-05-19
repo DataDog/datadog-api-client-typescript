@@ -17,6 +17,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class Monitor {
   /**
+   * The classification of the monitor.
+   */
+  "classification"?: string;
+  /**
    * Timestamp of the monitor creation.
    */
   "created"?: Date;
@@ -101,6 +105,10 @@ export class Monitor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    classification: {
+      baseName: "classification",
+      type: "string",
+    },
     created: {
       baseName: "created",
       type: "Date",
