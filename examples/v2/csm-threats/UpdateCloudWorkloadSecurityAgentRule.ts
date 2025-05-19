@@ -1,5 +1,5 @@
 /**
- * Update a Cloud Workload Security Agent rule returns "OK" response
+ * Update a Workload Protection agent rule (US1-FED) returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
