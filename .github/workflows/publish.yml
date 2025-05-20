@@ -18,8 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: |
-          corepack enable; yarn
+      - run: corepack enable; yarn
         env:
           COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
       - run: |
