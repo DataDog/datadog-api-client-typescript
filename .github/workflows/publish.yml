@@ -26,7 +26,7 @@ jobs:
           # Get tag name from event
           tag_name="${{ github.event.release.tag_name }}"
 
-          cmd="yarn npm publish"
+          cmd="yarn npm publish --access public"
           if [ "${{ github.event.release.prerelease }}" == "true" ]; then
             cmd+=" --tag=beta"
           else
