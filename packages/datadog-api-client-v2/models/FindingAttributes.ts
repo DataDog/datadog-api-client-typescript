@@ -16,6 +16,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FindingAttributes {
   /**
+   * The Datadog relative link for this finding.
+   */
+  "datadogLink"?: string;
+  /**
+   * The description and remediation steps for this finding.
+   */
+  "description"?: string;
+  /**
    * The evaluation of the finding.
    */
   "evaluation"?: FindingEvaluation;
@@ -72,6 +80,14 @@ export class FindingAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    datadogLink: {
+      baseName: "datadog_link",
+      type: "string",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     evaluation: {
       baseName: "evaluation",
       type: "FindingEvaluation",
