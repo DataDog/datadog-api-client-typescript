@@ -28,19 +28,12 @@ jobs:
           app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
           private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
 
-      - name: Checkout ${{ github.base_ref }}
+      - name: Checkout ${{ github.event.pull_request.base.ref }}
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          fetch-depth: 1
           token: ${{ steps.get_token.outputs.token }}
           ref: ${{ github.event.pull_request.base.ref }}
-
-      - name: Checkout ${{ github.head_ref }}
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          fetch-depth: 1
-          token: ${{ steps.get_token.outputs.token }}
-          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
 
       - name: Release packages
         env:
@@ -49,7 +42,7 @@ jobs:
           GH_TOKEN: ${{ steps.get_token.outputs.token }}
         shell: bash
         run: |
-          CHANGED_PACKAGE_JSON_FILES=$(git diff --name-only $BASE_SHA...$HEAD_SHA \
+          CHANGED_PACKAGE_JSON_FILES=$(git diff --diff-filter=MACR --name-only $BASE_SHA...$HEAD_SHA \
             | grep -E 'package\.json$' \
             | xargs dirname \
             | sort \
@@ -95,5 +88,5 @@ jobs:
               "body": "See $package/CHANGELOG.md for details",
               "prerelease": $is_prerelease
             }
-            EOF
+          EOF
           done

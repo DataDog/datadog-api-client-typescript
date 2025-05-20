@@ -18,12 +18,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn
+      - run: |
+          corepack enable; yarn
+        env:
+          COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
       - run: |
           # Get tag name from event
           tag_name="${{ github.event.release.tag_name }}"
 
-          cmd="yarn publish"
+          cmd="yarn npm publish"
           if [ "${{ github.event.release.prerelease }}" == "true" ]; then
             cmd+=" --tag=beta"
           else
