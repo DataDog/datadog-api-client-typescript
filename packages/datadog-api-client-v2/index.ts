@@ -561,6 +561,7 @@ export {
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetHistoricalJobRequest,
+  SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
@@ -583,6 +584,7 @@ export {
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateCustomFrameworkRequest,
+  SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
@@ -1639,6 +1641,8 @@ export { GetDeviceResponse } from "./models/GetDeviceResponse";
 export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetInterfacesData } from "./models/GetInterfacesData";
 export { GetInterfacesResponse } from "./models/GetInterfacesResponse";
+export { GetResourceEvaluationFiltersResponse } from "./models/GetResourceEvaluationFiltersResponse";
+export { GetResourceEvaluationFiltersResponseData } from "./models/GetResourceEvaluationFiltersResponseData";
 export { GetRuleVersionHistoryData } from "./models/GetRuleVersionHistoryData";
 export { GetRuleVersionHistoryDataType } from "./models/GetRuleVersionHistoryDataType";
 export { GetRuleVersionHistoryResponse } from "./models/GetRuleVersionHistoryResponse";
@@ -2476,6 +2480,8 @@ export { RelationshipToUserTeamUserData } from "./models/RelationshipToUserTeamU
 export { RelationType } from "./models/RelationType";
 export { Remediation } from "./models/Remediation";
 export { ReorderRetentionFiltersRequest } from "./models/ReorderRetentionFiltersRequest";
+export { ResourceFilterAttributes } from "./models/ResourceFilterAttributes";
+export { ResourceFilterRequestType } from "./models/ResourceFilterRequestType";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { RestrictionPolicy } from "./models/RestrictionPolicy";
 export { RestrictionPolicyAttributes } from "./models/RestrictionPolicyAttributes";
@@ -3108,6 +3114,10 @@ export { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkRes
 export { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";
 export { UpdateOpenAPIResponseAttributes } from "./models/UpdateOpenAPIResponseAttributes";
 export { UpdateOpenAPIResponseData } from "./models/UpdateOpenAPIResponseData";
+export { UpdateResourceEvaluationFiltersRequest } from "./models/UpdateResourceEvaluationFiltersRequest";
+export { UpdateResourceEvaluationFiltersRequestData } from "./models/UpdateResourceEvaluationFiltersRequestData";
+export { UpdateResourceEvaluationFiltersResponse } from "./models/UpdateResourceEvaluationFiltersResponse";
+export { UpdateResourceEvaluationFiltersResponseData } from "./models/UpdateResourceEvaluationFiltersResponseData";
 export { UpdateRuleRequest } from "./models/UpdateRuleRequest";
 export { UpdateRuleRequestData } from "./models/UpdateRuleRequestData";
 export { UpdateRuleResponse } from "./models/UpdateRuleResponse";
