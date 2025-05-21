@@ -11,9 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EventCreateResponseAttributesAttributesEvt {
   /**
-   * Event id
+   * A unique identifier for the event. You can use this ID to query or reference the event in the V2 endpoint.
    */
-  "id"?: string;
+  "uid"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,8 +31,8 @@ export class EventCreateResponseAttributesAttributesEvt {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
+    uid: {
+      baseName: "uid",
       type: "string",
     },
     additionalProperties: {

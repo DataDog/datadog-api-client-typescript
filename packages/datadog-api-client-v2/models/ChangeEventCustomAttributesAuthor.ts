@@ -8,7 +8,7 @@ import { ChangeEventCustomAttributesAuthorType } from "./ChangeEventCustomAttrib
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object representing the entity which made the change. Optional field but if provided should include `type` and `name`.
+ * Object representing the entity that made the change. Optional field but if provided should include type and name.
  */
 export class ChangeEventCustomAttributesAuthor {
   /**

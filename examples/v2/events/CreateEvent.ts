@@ -11,6 +11,7 @@ const params: v2.EventsApiCreateEventRequest = {
   body: {
     data: {
       attributes: {
+        aggregationKey: "aggregation_key_123",
         attributes: {
           author: {
             name: "datadog@datadog.com",
@@ -42,8 +43,10 @@ const params: v2.EventsApiCreateEventRequest = {
           },
         },
         category: "change",
+        integrationId: "custom-events",
         message: "payment_processed feature flag has been enabled",
         tags: ["env:test"],
+        timestamp: "2020-01-01T01:30:15.010000Z",
         title: "payment_processed feature flag updated",
       },
       type: "event",

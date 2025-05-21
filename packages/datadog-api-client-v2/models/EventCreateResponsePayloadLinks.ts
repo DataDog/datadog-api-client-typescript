@@ -3,18 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { EventCreateRequest } from "./EventCreateRequest";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Payload for creating an event.
+ * Links attributes.
  */
-export class EventCreateRequestPayload {
+export class EventCreateResponsePayloadLinks {
   /**
-   * Object representing an event creation request.
+   * The URL of the event. This link is only functional when using the default subdomain.
    */
-  "data": EventCreateRequest;
+  "self"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,10 +31,9 @@ export class EventCreateRequestPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "EventCreateRequest",
-      required: true,
+    self: {
+      baseName: "self",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +45,7 @@ export class EventCreateRequestPayload {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return EventCreateRequestPayload.attributeTypeMap;
+    return EventCreateResponsePayloadLinks.attributeTypeMap;
   }
 
   public constructor() {}
