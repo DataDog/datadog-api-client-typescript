@@ -416,6 +416,14 @@ export {
 } from "./apis/NetworkDeviceMonitoringApi";
 
 export {
+  OCIIntegrationApiCreateTenancyConfigRequest,
+  OCIIntegrationApiDeleteTenancyConfigRequest,
+  OCIIntegrationApiGetTenancyConfigRequest,
+  OCIIntegrationApiUpdateTenancyConfigRequest,
+  OCIIntegrationApi,
+} from "./apis/OCIIntegrationApi";
+
+export {
   ObservabilityPipelinesApiCreatePipelineRequest,
   ObservabilityPipelinesApiDeletePipelineRequest,
   ObservabilityPipelinesApiGetPipelineRequest,
@@ -859,6 +867,7 @@ export { AuditLogsResponseStatus } from "./models/AuditLogsResponseStatus";
 export { AuditLogsSearchEventsRequest } from "./models/AuditLogsSearchEventsRequest";
 export { AuditLogsSort } from "./models/AuditLogsSort";
 export { AuditLogsWarning } from "./models/AuditLogsWarning";
+export { AuthCredentials } from "./models/AuthCredentials";
 export { AuthNMapping } from "./models/AuthNMapping";
 export { AuthNMappingAttributes } from "./models/AuthNMappingAttributes";
 export { AuthNMappingCreateAttributes } from "./models/AuthNMappingCreateAttributes";
@@ -1263,6 +1272,10 @@ export { CreateRuleRequest } from "./models/CreateRuleRequest";
 export { CreateRuleRequestData } from "./models/CreateRuleRequestData";
 export { CreateRuleResponse } from "./models/CreateRuleResponse";
 export { CreateRuleResponseData } from "./models/CreateRuleResponseData";
+export { CreateTenancyConfig } from "./models/CreateTenancyConfig";
+export { CreateTenancyConfigData } from "./models/CreateTenancyConfigData";
+export { CreateTenancyConfigDataAttributes } from "./models/CreateTenancyConfigDataAttributes";
+export { CreateTenancyConfigDataType } from "./models/CreateTenancyConfigDataType";
 export { CreateWorkflowRequest } from "./models/CreateWorkflowRequest";
 export { CreateWorkflowResponse } from "./models/CreateWorkflowResponse";
 export { Creator } from "./models/Creator";
@@ -2321,6 +2334,8 @@ export { ObservabilityPipelineSyslogSourceMode } from "./models/ObservabilityPip
 export { ObservabilityPipelineThrottleProcessor } from "./models/ObservabilityPipelineThrottleProcessor";
 export { ObservabilityPipelineThrottleProcessorType } from "./models/ObservabilityPipelineThrottleProcessorType";
 export { ObservabilityPipelineTls } from "./models/ObservabilityPipelineTls";
+export { OCILogsConfig } from "./models/OCILogsConfig";
+export { OCIMetricsConfig } from "./models/OCIMetricsConfig";
 export { OktaAccount } from "./models/OktaAccount";
 export { OktaAccountAttributes } from "./models/OktaAccountAttributes";
 export { OktaAccountRequest } from "./models/OktaAccountRequest";
@@ -2435,6 +2450,7 @@ export { QueryFormula } from "./models/QueryFormula";
 export { QuerySortOrder } from "./models/QuerySortOrder";
 export { ReadinessGate } from "./models/ReadinessGate";
 export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType";
+export { RegionsConfig } from "./models/RegionsConfig";
 export { RelationshipItem } from "./models/RelationshipItem";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
 export { RelationshipToIncidentAttachmentData } from "./models/RelationshipToIncidentAttachmentData";
@@ -3083,6 +3099,11 @@ export { TeamUpdate } from "./models/TeamUpdate";
 export { TeamUpdateAttributes } from "./models/TeamUpdateAttributes";
 export { TeamUpdateRelationships } from "./models/TeamUpdateRelationships";
 export { TeamUpdateRequest } from "./models/TeamUpdateRequest";
+export { TenancyConfig } from "./models/TenancyConfig";
+export { TenancyConfigData } from "./models/TenancyConfigData";
+export { TenancyConfigDataAttributes } from "./models/TenancyConfigDataAttributes";
+export { TenancyConfigDataType } from "./models/TenancyConfigDataType";
+export { TenancyConfigList } from "./models/TenancyConfigList";
 export { TimeRestriction } from "./models/TimeRestriction";
 export { TimeRestrictions } from "./models/TimeRestrictions";
 export { TimeseriesFormulaQueryRequest } from "./models/TimeseriesFormulaQueryRequest";
@@ -3122,6 +3143,10 @@ export { UpdateRuleRequest } from "./models/UpdateRuleRequest";
 export { UpdateRuleRequestData } from "./models/UpdateRuleRequestData";
 export { UpdateRuleResponse } from "./models/UpdateRuleResponse";
 export { UpdateRuleResponseData } from "./models/UpdateRuleResponseData";
+export { UpdateTenancyConfig } from "./models/UpdateTenancyConfig";
+export { UpdateTenancyConfigData } from "./models/UpdateTenancyConfigData";
+export { UpdateTenancyConfigDataAttributes } from "./models/UpdateTenancyConfigDataAttributes";
+export { UpdateTenancyConfigDataType } from "./models/UpdateTenancyConfigDataType";
 export { UpdateWorkflowRequest } from "./models/UpdateWorkflowRequest";
 export { UpdateWorkflowResponse } from "./models/UpdateWorkflowResponse";
 export { UpsertCatalogEntityRequest } from "./models/UpsertCatalogEntityRequest";
