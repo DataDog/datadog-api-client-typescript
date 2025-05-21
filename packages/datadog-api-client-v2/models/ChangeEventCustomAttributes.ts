@@ -14,7 +14,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ChangeEventCustomAttributes {
   /**
-   * Object representing the entity which made the change. Optional field but if provided should include `type` and `name`.
+   * Object representing the entity that made the change. Optional field but if provided should include type and name.
    */
   "author"?: ChangeEventCustomAttributesAuthor;
   /**
@@ -38,13 +38,6 @@ export class ChangeEventCustomAttributes {
    * Free form object to track previous value of the changed resource.
    */
   "prevValue"?: { [key: string]: any };
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
 
   /**
    * @ignore
@@ -79,10 +72,6 @@ export class ChangeEventCustomAttributes {
     prevValue: {
       baseName: "prev_value",
       type: "{ [key: string]: any; }",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
     },
   };
 
