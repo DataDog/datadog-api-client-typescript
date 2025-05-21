@@ -29,9 +29,6 @@ jobs:
             cd $(echo $tag_name | rev | cut -d'/' -f2- | rev)
           fi
 
-          # Build package
-          yarn build
-
           cmd="yarn npm publish --access public"
           if [ "${{ github.event.release.prerelease }}" == "true" ]; then
             cmd+=" --tag=beta"
