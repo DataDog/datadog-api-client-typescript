@@ -25,6 +25,13 @@ jobs:
           # Get tag name from event
           tag_name="${{ github.event.release.tag_name }}"
 
+          if [[ ! "$tag_name" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            cd $(echo $tag_name | rev | cut -d'/' -f2- | rev)
+          fi
+
+          # Build package
+          yarn build
+
           cmd="yarn npm publish --access public"
           if [ "${{ github.event.release.prerelease }}" == "true" ]; then
             cmd+=" --tag=beta"
@@ -32,11 +39,6 @@ jobs:
             cmd+=" --tag=latest"
           fi
 
-          if [[ "$tag_name" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            eval $cmd
-          else
-            cd $(echo $tag_name | rev | cut -d'/' -f2- | rev)
-            eval $cmd
-          fi
+          eval $cmd
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.YARN_NPM_AUTH_TOKEN }}
