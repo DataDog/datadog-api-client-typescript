@@ -194,6 +194,10 @@ export {
 export {
   DORAMetricsApiCreateDORADeploymentRequest,
   DORAMetricsApiCreateDORAIncidentRequest,
+  DORAMetricsApiGetDORADeploymentRequest,
+  DORAMetricsApiGetDORAFailureRequest,
+  DORAMetricsApiListDORADeploymentsRequest,
+  DORAMetricsApiListDORAFailuresRequest,
   DORAMetricsApi,
 } from "./apis/DORAMetricsApi";
 
@@ -1399,6 +1403,8 @@ export { DORADeploymentRequestData } from "./models/DORADeploymentRequestData";
 export { DORADeploymentResponse } from "./models/DORADeploymentResponse";
 export { DORADeploymentResponseData } from "./models/DORADeploymentResponseData";
 export { DORADeploymentType } from "./models/DORADeploymentType";
+export { DORAEvent } from "./models/DORAEvent";
+export { DORAFetchResponse } from "./models/DORAFetchResponse";
 export { DORAGitInfo } from "./models/DORAGitInfo";
 export { DORAIncidentRequest } from "./models/DORAIncidentRequest";
 export { DORAIncidentRequestAttributes } from "./models/DORAIncidentRequestAttributes";
@@ -1406,6 +1412,15 @@ export { DORAIncidentRequestData } from "./models/DORAIncidentRequestData";
 export { DORAIncidentResponse } from "./models/DORAIncidentResponse";
 export { DORAIncidentResponseData } from "./models/DORAIncidentResponseData";
 export { DORAIncidentType } from "./models/DORAIncidentType";
+export { DORAListDeploymentsRequest } from "./models/DORAListDeploymentsRequest";
+export { DORAListDeploymentsRequestAttributes } from "./models/DORAListDeploymentsRequestAttributes";
+export { DORAListDeploymentsRequestData } from "./models/DORAListDeploymentsRequestData";
+export { DORAListDeploymentsRequestDataType } from "./models/DORAListDeploymentsRequestDataType";
+export { DORAListFailuresRequest } from "./models/DORAListFailuresRequest";
+export { DORAListFailuresRequestAttributes } from "./models/DORAListFailuresRequestAttributes";
+export { DORAListFailuresRequestData } from "./models/DORAListFailuresRequestData";
+export { DORAListFailuresRequestDataType } from "./models/DORAListFailuresRequestDataType";
+export { DORAListResponse } from "./models/DORAListResponse";
 export { DowntimeCreateRequest } from "./models/DowntimeCreateRequest";
 export { DowntimeCreateRequestAttributes } from "./models/DowntimeCreateRequestAttributes";
 export { DowntimeCreateRequestData } from "./models/DowntimeCreateRequestData";
