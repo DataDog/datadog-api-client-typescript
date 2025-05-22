@@ -25,6 +25,7 @@
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
+    "prepack": "yarn workspace @datadog/datadog-api-client build && yarn build",
     "build": "tsc"
   },
   "dependencies": {
