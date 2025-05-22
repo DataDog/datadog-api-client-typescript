@@ -9,7 +9,7 @@ on:
       - prereleased
       - released
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -18,10 +18,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: corepack enable; yarn
-        env:
-          COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
-      - run: |
+      - name: Releasing tag ${{ github.event.release.tag_name }}
+        run: |
+          corepack enable; yarn
+
           # Get tag name from event
           tag_name="${{ github.event.release.tag_name }}"
 
@@ -39,3 +39,4 @@ jobs:
           eval $cmd
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.YARN_NPM_AUTH_TOKEN }}
+          COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
