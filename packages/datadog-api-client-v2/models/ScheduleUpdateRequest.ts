@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ScheduleUpdateRequest {
   /**
-   * Contains all data needed to update an existing schedule, including its attributes (such as name, layers, or tags) and any relationships to teams.
+   * Contains all data needed to update an existing schedule, including its attributes (such as name and time zone) and any relationships to teams.
    */
   "data": ScheduleUpdateRequestData;
 

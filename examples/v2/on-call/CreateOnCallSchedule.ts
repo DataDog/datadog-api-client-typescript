@@ -1,5 +1,5 @@
 /**
- * Create on-call schedule returns "Created" response
+ * Create On-Call schedule returns "Created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -44,7 +44,6 @@ const params: v2.OnCallApiCreateOnCallScheduleRequest = {
           },
         ],
         name: "Example-On-Call",
-        tags: ["tag1", "tag2"],
         timeZone: "America/New_York",
       },
       relationships: {

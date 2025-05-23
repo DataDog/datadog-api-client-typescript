@@ -1,5 +1,5 @@
 /**
- * Delete on-call schedule returns "No Content" response
+ * Delete On-Call schedule returns "No Content" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

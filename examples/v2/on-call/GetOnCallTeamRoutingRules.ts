@@ -1,5 +1,5 @@
 /**
- * Get on-call team routing rules returns "OK" response
+ * Get On-Call team routing rules returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

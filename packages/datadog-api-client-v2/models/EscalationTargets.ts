@@ -3,26 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdateRequestDataAttributesLayersItems";
+import { EscalationTarget } from "./EscalationTarget";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Defines the updatable attributes for a schedule, such as name, time zone, and layers.
+ * A list of escalation targets for a step
  */
-export class ScheduleUpdateRequestDataAttributes {
+export class EscalationTargets {
   /**
-   * The updated list of layers (rotations) for this schedule.
+   * The `EscalationTargets` `data`.
    */
-  "layers": Array<ScheduleUpdateRequestDataAttributesLayersItems>;
-  /**
-   * A short name for the schedule.
-   */
-  "name": string;
-  /**
-   * The time zone used when interpreting rotation times.
-   */
-  "timeZone": string;
+  "data"?: Array<EscalationTarget>;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,20 +32,9 @@ export class ScheduleUpdateRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    layers: {
-      baseName: "layers",
-      type: "Array<ScheduleUpdateRequestDataAttributesLayersItems>",
-      required: true,
-    },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
-    },
-    timeZone: {
-      baseName: "time_zone",
-      type: "string",
-      required: true,
+    data: {
+      baseName: "data",
+      type: "Array<EscalationTarget>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +46,7 @@ export class ScheduleUpdateRequestDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScheduleUpdateRequestDataAttributes.attributeTypeMap;
+    return EscalationTargets.attributeTypeMap;
   }
 
   public constructor() {}

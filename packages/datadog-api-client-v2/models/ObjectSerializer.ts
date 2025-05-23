@@ -627,6 +627,7 @@ import { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./Escalat
 import { EscalationPolicyUpdateRequestDataRelationships } from "./EscalationPolicyUpdateRequestDataRelationships";
 import { EscalationPolicyUser } from "./EscalationPolicyUser";
 import { EscalationPolicyUserAttributes } from "./EscalationPolicyUserAttributes";
+import { EscalationTargets } from "./EscalationTargets";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventCreateRequest } from "./EventCreateRequest";
@@ -1759,9 +1760,6 @@ import { TeamPermissionSettingUpdateRequest } from "./TeamPermissionSettingUpdat
 import { TeamPermissionSettingsResponse } from "./TeamPermissionSettingsResponse";
 import { TeamReference } from "./TeamReference";
 import { TeamReferenceAttributes } from "./TeamReferenceAttributes";
-import { TeamReferenceRelationships } from "./TeamReferenceRelationships";
-import { TeamReferenceRelationshipsOncallUsers } from "./TeamReferenceRelationshipsOncallUsers";
-import { TeamReferenceRelationshipsOncallUsersDataItems } from "./TeamReferenceRelationshipsOncallUsersDataItems";
 import { TeamRelationships } from "./TeamRelationships";
 import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 import { TeamResponse } from "./TeamResponse";
@@ -2642,6 +2640,7 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineSyslogSourceMode: ["tcp", "udp"],
   ObservabilityPipelineThrottleProcessorType: ["throttle"],
   OktaAccountType: ["okta-accounts"],
+  OnCallPageTargetType: ["team_id", "team_handle", "user_id"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
@@ -2982,7 +2981,6 @@ const enumsMap: { [key: string]: any[] } = {
     "user_access_manage",
     "teams_manage",
   ],
-  TeamReferenceRelationshipsOncallUsersDataItemsType: ["users"],
   TeamReferenceType: ["teams"],
   TeamRoutingRulesDataRelationshipsRulesDataItemsType: ["team_routing_rules"],
   TeamRoutingRulesDataType: ["team_routing_rules"],
@@ -3867,6 +3865,7 @@ const typeMap: { [index: string]: any } = {
     EscalationPolicyUpdateRequestDataRelationships,
   EscalationPolicyUser: EscalationPolicyUser,
   EscalationPolicyUserAttributes: EscalationPolicyUserAttributes,
+  EscalationTargets: EscalationTargets,
   Event: Event,
   EventAttributes: EventAttributes,
   EventCreateRequest: EventCreateRequest,
@@ -5185,10 +5184,6 @@ const typeMap: { [index: string]: any } = {
   TeamPermissionSettingsResponse: TeamPermissionSettingsResponse,
   TeamReference: TeamReference,
   TeamReferenceAttributes: TeamReferenceAttributes,
-  TeamReferenceRelationships: TeamReferenceRelationships,
-  TeamReferenceRelationshipsOncallUsers: TeamReferenceRelationshipsOncallUsers,
-  TeamReferenceRelationshipsOncallUsersDataItems:
-    TeamReferenceRelationshipsOncallUsersDataItems,
   TeamRelationships: TeamRelationships,
   TeamRelationshipsLinks: TeamRelationshipsLinks,
   TeamResponse: TeamResponse,

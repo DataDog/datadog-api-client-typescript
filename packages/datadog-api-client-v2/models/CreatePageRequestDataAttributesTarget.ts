@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { OnCallPageTargetType } from "./OnCallPageTargetType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,13 +12,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CreatePageRequestDataAttributesTarget {
   /**
-   * A unique ID for the target (for example, team handle or user UUID).
+   * Identifier for the target (for example, team handle or user ID).
    */
   "identifier"?: string;
   /**
-   * The kind of target, `team_uuid` | `team_handle` | `user_uuid`.
+   * The kind of target, `team_id` | `team_handle` | `user_id`.
    */
-  "type"?: string;
+  "type"?: OnCallPageTargetType;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,7 +42,7 @@ export class CreatePageRequestDataAttributesTarget {
     },
     type: {
       baseName: "type",
-      type: "string",
+      type: "OnCallPageTargetType",
     },
     additionalProperties: {
       baseName: "additionalProperties",

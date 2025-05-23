@@ -1,5 +1,5 @@
 /**
- * Update on-call escalation policy returns "OK" response
+ * Update On-Call escalation policy returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -23,7 +23,6 @@ const params: v2.OnCallApiUpdateOnCallEscalationPolicyRequest = {
   body: {
     data: {
       attributes: {
-        description: "Example-On-Call",
         name: "Example-On-Call-updated",
         resolvePageOnPolicyEnd: false,
         retries: 0,

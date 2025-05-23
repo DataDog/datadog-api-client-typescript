@@ -1,5 +1,5 @@
 /**
- * Create on-call escalation policy returns "Created" response
+ * Create On-Call escalation policy returns "Created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -20,7 +20,6 @@ const params: v2.OnCallApiCreateOnCallEscalationPolicyRequest = {
   body: {
     data: {
       attributes: {
-        description: "Escalation Policy 1 description",
         name: "Example-On-Call",
         resolvePageOnPolicyEnd: true,
         retries: 2,
@@ -68,6 +67,7 @@ const params: v2.OnCallApiCreateOnCallEscalationPolicyRequest = {
       type: "policies",
     },
   },
+  include: "steps.targets",
 };
 
 apiInstance

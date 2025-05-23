@@ -7,17 +7,13 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Provides core properties of a schedule object, such as its name, time zone, and tags.
+ * Provides core properties of a schedule object such as its name and time zone.
  */
 export class ScheduleDataAttributes {
   /**
    * A short name for the schedule.
    */
   "name"?: string;
-  /**
-   * A list of tags associated with this schedule.
-   */
-  "tags"?: Array<string>;
   /**
    * The time zone in which this schedule operates.
    */
@@ -42,10 +38,6 @@ export class ScheduleDataAttributes {
     name: {
       baseName: "name",
       type: "string",
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
     },
     timeZone: {
       baseName: "time_zone",

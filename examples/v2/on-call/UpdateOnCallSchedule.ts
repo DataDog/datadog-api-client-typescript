@@ -1,5 +1,5 @@
 /**
- * Update on-call schedule returns "OK" response
+ * Update On-Call schedule returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -51,7 +51,6 @@ const params: v2.OnCallApiUpdateOnCallScheduleRequest = {
           },
         ],
         name: "Example-On-Call",
-        tags: ["tag1", "tag2", "tag3"],
         timeZone: "America/New_York",
       },
       relationships: {

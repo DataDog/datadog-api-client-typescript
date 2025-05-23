@@ -1,5 +1,5 @@
 /**
- * Get on-call escalation policy returns "OK" response
+ * Get On-Call escalation policy returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -13,6 +13,7 @@ const ESCALATION_POLICY_DATA_ID = process.env
 
 const params: v2.OnCallApiGetOnCallEscalationPolicyRequest = {
   policyId: ESCALATION_POLICY_DATA_ID,
+  include: "steps.targets",
 };
 
 apiInstance
