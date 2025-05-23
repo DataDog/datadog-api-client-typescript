@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { TeamReferenceAttributes } from "./TeamReferenceAttributes";
-import { TeamReferenceRelationships } from "./TeamReferenceRelationships";
 import { TeamReferenceType } from "./TeamReferenceType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -21,10 +20,6 @@ export class TeamReference {
    * The team's unique identifier.
    */
   "id"?: string;
-  /**
-   * Collects the key relationship fields for a team reference, specifically on-call users.
-   */
-  "relationships"?: TeamReferenceRelationships;
   /**
    * Teams resource type.
    */
@@ -53,10 +48,6 @@ export class TeamReference {
     id: {
       baseName: "id",
       type: "string",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "TeamReferenceRelationships",
     },
     type: {
       baseName: "type",
