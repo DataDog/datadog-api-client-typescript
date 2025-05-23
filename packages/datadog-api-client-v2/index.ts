@@ -641,6 +641,7 @@ export {
 export {
   SoftwareCatalogApiDeleteCatalogEntityRequest,
   SoftwareCatalogApiListCatalogEntityRequest,
+  SoftwareCatalogApiListCatalogRelationRequest,
   SoftwareCatalogApiUpsertCatalogEntityRequest,
   SoftwareCatalogApi,
 } from "./apis/SoftwareCatalogApi";
@@ -1882,6 +1883,8 @@ export { ListHistoricalJobsResponse } from "./models/ListHistoricalJobsResponse"
 export { ListPipelinesResponse } from "./models/ListPipelinesResponse";
 export { ListPipelinesResponseMeta } from "./models/ListPipelinesResponseMeta";
 export { ListPowerpacksResponse } from "./models/ListPowerpacksResponse";
+export { ListRelationCatalogResponse } from "./models/ListRelationCatalogResponse";
+export { ListRelationCatalogResponseLinks } from "./models/ListRelationCatalogResponseLinks";
 export { ListRulesResponse } from "./models/ListRulesResponse";
 export { ListRulesResponseDataItem } from "./models/ListRulesResponseDataItem";
 export { ListRulesResponseLinks } from "./models/ListRulesResponseLinks";
@@ -2435,6 +2438,14 @@ export { QueryFormula } from "./models/QueryFormula";
 export { QuerySortOrder } from "./models/QuerySortOrder";
 export { ReadinessGate } from "./models/ReadinessGate";
 export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType";
+export { RelationAttributes } from "./models/RelationAttributes";
+export { RelationEntity } from "./models/RelationEntity";
+export { RelationIncludeType } from "./models/RelationIncludeType";
+export { RelationMeta } from "./models/RelationMeta";
+export { RelationRelationships } from "./models/RelationRelationships";
+export { RelationResponse } from "./models/RelationResponse";
+export { RelationResponseMeta } from "./models/RelationResponseMeta";
+export { RelationResponseType } from "./models/RelationResponseType";
 export { RelationshipItem } from "./models/RelationshipItem";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
 export { RelationshipToIncidentAttachmentData } from "./models/RelationshipToIncidentAttachmentData";
@@ -2477,6 +2488,7 @@ export { RelationshipToUserTeamTeam } from "./models/RelationshipToUserTeamTeam"
 export { RelationshipToUserTeamTeamData } from "./models/RelationshipToUserTeamTeamData";
 export { RelationshipToUserTeamUser } from "./models/RelationshipToUserTeamUser";
 export { RelationshipToUserTeamUserData } from "./models/RelationshipToUserTeamUserData";
+export { RelationToEntity } from "./models/RelationToEntity";
 export { RelationType } from "./models/RelationType";
 export { Remediation } from "./models/Remediation";
 export { ReorderRetentionFiltersRequest } from "./models/ReorderRetentionFiltersRequest";

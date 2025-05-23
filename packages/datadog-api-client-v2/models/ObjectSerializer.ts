@@ -896,6 +896,8 @@ import { ListHistoricalJobsResponse } from "./ListHistoricalJobsResponse";
 import { ListPipelinesResponse } from "./ListPipelinesResponse";
 import { ListPipelinesResponseMeta } from "./ListPipelinesResponseMeta";
 import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
+import { ListRelationCatalogResponse } from "./ListRelationCatalogResponse";
+import { ListRelationCatalogResponseLinks } from "./ListRelationCatalogResponseLinks";
 import { ListRulesResponse } from "./ListRulesResponse";
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
 import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
@@ -1313,6 +1315,13 @@ import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
 import { ReadinessGate } from "./ReadinessGate";
+import { RelationAttributes } from "./RelationAttributes";
+import { RelationEntity } from "./RelationEntity";
+import { RelationMeta } from "./RelationMeta";
+import { RelationRelationships } from "./RelationRelationships";
+import { RelationResponse } from "./RelationResponse";
+import { RelationResponseMeta } from "./RelationResponseMeta";
+import { RelationToEntity } from "./RelationToEntity";
 import { RelationshipItem } from "./RelationshipItem";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
 import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
@@ -2682,6 +2691,8 @@ const enumsMap: { [key: string]: any[] } = {
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
   ReadinessGateThresholdType: ["ANY", "ALL"],
+  RelationIncludeType: ["entity", "schema"],
+  RelationResponseType: ["relation"],
   RelationType: [
     "RelationTypeOwns",
     "RelationTypeOwnedBy",
@@ -4141,6 +4152,8 @@ const typeMap: { [index: string]: any } = {
   ListPipelinesResponse: ListPipelinesResponse,
   ListPipelinesResponseMeta: ListPipelinesResponseMeta,
   ListPowerpacksResponse: ListPowerpacksResponse,
+  ListRelationCatalogResponse: ListRelationCatalogResponse,
+  ListRelationCatalogResponseLinks: ListRelationCatalogResponseLinks,
   ListRulesResponse: ListRulesResponse,
   ListRulesResponseDataItem: ListRulesResponseDataItem,
   ListRulesResponseLinks: ListRulesResponseLinks,
@@ -4659,6 +4672,13 @@ const typeMap: { [index: string]: any } = {
   RUMSearchEventsRequest: RUMSearchEventsRequest,
   RUMWarning: RUMWarning,
   ReadinessGate: ReadinessGate,
+  RelationAttributes: RelationAttributes,
+  RelationEntity: RelationEntity,
+  RelationMeta: RelationMeta,
+  RelationRelationships: RelationRelationships,
+  RelationResponse: RelationResponse,
+  RelationResponseMeta: RelationResponseMeta,
+  RelationToEntity: RelationToEntity,
   RelationshipItem: RelationshipItem,
   RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
   RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
