@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SyntheticsAssertionTargetValue } from "./SyntheticsAssertionTargetValue";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -23,9 +24,9 @@ export class SyntheticsAssertionJSONPathTargetTarget {
    */
   "operator"?: string;
   /**
-   * The path target value to compare to.
+   * Value used by the operator in assertions. Can be either a number or string.
    */
-  "targetValue"?: any;
+  "targetValue"?: SyntheticsAssertionTargetValue;
 
   /**
    * A container for additional, undeclared properties.
@@ -57,7 +58,7 @@ export class SyntheticsAssertionJSONPathTargetTarget {
     },
     targetValue: {
       baseName: "targetValue",
-      type: "any",
+      type: "SyntheticsAssertionTargetValue",
     },
     additionalProperties: {
       baseName: "additionalProperties",
