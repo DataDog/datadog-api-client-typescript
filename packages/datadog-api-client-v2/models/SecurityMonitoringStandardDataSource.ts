@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Source of events, either logs or audit trail.
+ * Source of events, either logs, audit trail, or Datadog events.
  */
 
 export type SecurityMonitoringStandardDataSource =
@@ -17,6 +17,7 @@ export type SecurityMonitoringStandardDataSource =
   | typeof SPANS
   | typeof SECURITY_RUNTIME
   | typeof NETWORK
+  | typeof EVENTS
   | UnparsedObject;
 export const LOGS = "logs";
 export const AUDIT = "audit";
@@ -24,3 +25,4 @@ export const APP_SEC_SPANS = "app_sec_spans";
 export const SPANS = "spans";
 export const SECURITY_RUNTIME = "security_runtime";
 export const NETWORK = "network";
+export const EVENTS = "events";
