@@ -487,6 +487,10 @@ export class UsageSummaryDateOrg {
    */
   "opentelemetryHostTop99p"?: number;
   /**
+   * Shows the sum of all product analytics sessions over all hours in the current date for the given org.
+   */
+  "productAnalyticsSum"?: number;
+  /**
    * Shows the 99th percentile of all profiled Azure app services over all hours in the current date for all organizations.
    */
   "profilingAasCountTop99p"?: number;
@@ -1291,6 +1295,11 @@ export class UsageSummaryDateOrg {
     },
     opentelemetryHostTop99p: {
       baseName: "opentelemetry_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    productAnalyticsSum: {
+      baseName: "product_analytics_sum",
       type: "number",
       format: "int64",
     },
