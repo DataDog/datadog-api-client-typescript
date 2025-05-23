@@ -17,7 +17,7 @@ export class HistoricalJobQuery {
    */
   "aggregation"?: SecurityMonitoringRuleQueryAggregation;
   /**
-   * Source of events, either logs or audit trail.
+   * Source of events, either logs, audit trail, or Datadog events.
    */
   "dataSource"?: SecurityMonitoringStandardDataSource;
   /**
