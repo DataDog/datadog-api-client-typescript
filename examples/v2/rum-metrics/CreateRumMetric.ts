@@ -30,7 +30,7 @@ const params: v2.RumMetricsApiCreateRumMetricRequest = {
           when: "match",
         },
       },
-      id: "rum.sessions.webui.count",
+      id: "examplerummetric",
       type: "rum_metrics",
     },
   },
