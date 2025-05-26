@@ -4446,6 +4446,34 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DORADeploymentResponse",
     },
+    "v2.ListDORADeployments": {
+        "body": {
+            "type": "DORAListDeploymentsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORAListResponse",
+    },
+    "v2.GetDORADeployment": {
+        "deploymentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DORAFetchResponse",
+    },
+    "v2.ListDORAFailures": {
+        "body": {
+            "type": "DORAListFailuresRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORAListResponse",
+    },
+    "v2.GetDORAFailure": {
+        "failureId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DORAFetchResponse",
+    },
     "v2.CreateDORAIncident": {
         "body": {
             "type": "DORAIncidentRequest",
