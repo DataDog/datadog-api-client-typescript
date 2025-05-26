@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { EscalationTarget } from "./EscalationTarget";
+import { EscalationTargets } from "./EscalationTargets";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EscalationPolicyStepRelationships {
   /**
-   * Represents an escalation target, which can be a team, user, or schedule.
+   * A list of escalation targets for a step
    */
-  "targets"?: EscalationTarget;
+  "targets"?: EscalationTargets;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class EscalationPolicyStepRelationships {
   static readonly attributeTypeMap: AttributeTypeMap = {
     targets: {
       baseName: "targets",
-      type: "EscalationTarget",
+      type: "EscalationTargets",
     },
     additionalProperties: {
       baseName: "additionalProperties",
