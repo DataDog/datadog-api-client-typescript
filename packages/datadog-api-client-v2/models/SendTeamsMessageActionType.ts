@@ -3,16 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SendSlackMessageAction } from "./SendSlackMessageAction";
-import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Defines an action that is executed when a routing rule matches certain criteria.
+ * Indicates that the action is a send Microsoft Teams message action.
  */
 
-export type RoutingRuleAction =
-  | SendSlackMessageAction
-  | SendTeamsMessageAction
+export type SendTeamsMessageActionType =
+  | typeof SEND_TEAMS_MESSAGE
   | UnparsedObject;
+export const SEND_TEAMS_MESSAGE = "send_teams_message";

@@ -45,7 +45,6 @@ const params: v2.OnCallApiSetOnCallTeamRoutingRulesRequest = {
                 },
               ],
             },
-            urgency: "high",
           },
           {
             policyId: ESCALATION_POLICY_DATA_ID,
@@ -59,6 +58,7 @@ const params: v2.OnCallApiSetOnCallTeamRoutingRulesRequest = {
     },
   },
   teamId: DD_TEAM_DATA_ID,
+  include: "rules",
 };
 
 apiInstance

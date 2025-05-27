@@ -14,7 +14,7 @@ export class RoutingRuleRelationshipsPolicy {
   /**
    * Represents the policy data reference, containing the policy's ID and resource type.
    */
-  "data": RoutingRuleRelationshipsPolicyData;
+  "data"?: RoutingRuleRelationshipsPolicyData;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,7 +35,6 @@ export class RoutingRuleRelationshipsPolicy {
     data: {
       baseName: "data",
       type: "RoutingRuleRelationshipsPolicyData",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

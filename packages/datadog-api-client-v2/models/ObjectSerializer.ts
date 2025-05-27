@@ -1591,6 +1591,8 @@ import { SecurityTrigger } from "./SecurityTrigger";
 import { SecurityTriggerWrapper } from "./SecurityTriggerWrapper";
 import { Selectors } from "./Selectors";
 import { SelfServiceTriggerWrapper } from "./SelfServiceTriggerWrapper";
+import { SendSlackMessageAction } from "./SendSlackMessageAction";
+import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
 import { SensitiveDataScannerConfigurationData } from "./SensitiveDataScannerConfigurationData";
@@ -1689,7 +1691,6 @@ import { ShiftDataRelationshipsUserData } from "./ShiftDataRelationshipsUserData
 import { SingleAggregatedConnectionResponseArray } from "./SingleAggregatedConnectionResponseArray";
 import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
 import { SingleAggregatedConnectionResponseDataAttributes } from "./SingleAggregatedConnectionResponseDataAttributes";
-import { SlackAction } from "./SlackAction";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
@@ -1786,7 +1787,6 @@ import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
 import { TeamUpdateRequest } from "./TeamUpdateRequest";
-import { TeamsAction } from "./TeamsAction";
 import { TeamsResponse } from "./TeamsResponse";
 import { TeamsResponseLinks } from "./TeamsResponseLinks";
 import { TeamsResponseMeta } from "./TeamsResponseMeta";
@@ -2892,6 +2892,8 @@ const enumsMap: { [key: string]: any[] } = {
     "events",
   ],
   SecurityMonitoringSuppressionType: ["suppressions"],
+  SendSlackMessageActionType: ["send_slack_message"],
+  SendTeamsMessageActionType: ["send_teams_message"],
   SensitiveDataScannerConfigurationType: [
     "sensitive_data_scanner_configuration",
   ],
@@ -5005,6 +5007,8 @@ const typeMap: { [index: string]: any } = {
   SecurityTriggerWrapper: SecurityTriggerWrapper,
   Selectors: Selectors,
   SelfServiceTriggerWrapper: SelfServiceTriggerWrapper,
+  SendSlackMessageAction: SendSlackMessageAction,
+  SendTeamsMessageAction: SendTeamsMessageAction,
   SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
   SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
   SensitiveDataScannerConfigurationData: SensitiveDataScannerConfigurationData,
@@ -5124,7 +5128,6 @@ const typeMap: { [index: string]: any } = {
     SingleAggregatedConnectionResponseData,
   SingleAggregatedConnectionResponseDataAttributes:
     SingleAggregatedConnectionResponseDataAttributes,
-  SlackAction: SlackAction,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   SlackTriggerWrapper: SlackTriggerWrapper,
@@ -5224,7 +5227,6 @@ const typeMap: { [index: string]: any } = {
   TeamUpdateAttributes: TeamUpdateAttributes,
   TeamUpdateRelationships: TeamUpdateRelationships,
   TeamUpdateRequest: TeamUpdateRequest,
-  TeamsAction: TeamsAction,
   TeamsResponse: TeamsResponse,
   TeamsResponseLinks: TeamsResponseLinks,
   TeamsResponseMeta: TeamsResponseMeta,
@@ -5606,7 +5608,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
-  RoutingRuleAction: ["SlackAction", "TeamsAction"],
+  RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: ["MetricsScalarQuery", "EventsScalarQuery"],
   ScheduleDataIncludedItem: [
