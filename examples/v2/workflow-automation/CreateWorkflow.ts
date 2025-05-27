@@ -26,7 +26,6 @@ const params: v2.WorkflowAutomationApiCreateWorkflowRequest = {
               env: "default",
             },
           ],
-          handle: "my-handle",
           inputSchema: {
             parameters: [
               {
