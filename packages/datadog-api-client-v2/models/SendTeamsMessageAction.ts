@@ -3,25 +3,30 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SendTeamsMessageActionType } from "./SendTeamsMessageActionType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Sends a message to a Slack channel.
+ * Sends a message to a Microsoft Teams channel.
  */
-export class SlackAction {
+export class SendTeamsMessageAction {
   /**
    * The channel ID.
    */
   "channel": string;
   /**
-   * Must be set to "send_slack_message".
+   * The team ID.
    */
-  "type": string;
+  "team": string;
   /**
-   * The workspace ID.
+   * The tenant ID.
    */
-  "workspace": string;
+  "tenant": string;
+  /**
+   * Indicates that the action is a send Microsoft Teams message action.
+   */
+  "type": SendTeamsMessageActionType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,14 +49,19 @@ export class SlackAction {
       type: "string",
       required: true,
     },
-    type: {
-      baseName: "type",
+    team: {
+      baseName: "team",
       type: "string",
       required: true,
     },
-    workspace: {
-      baseName: "workspace",
+    tenant: {
+      baseName: "tenant",
       type: "string",
+      required: true,
+    },
+    type: {
+      baseName: "type",
+      type: "SendTeamsMessageActionType",
       required: true,
     },
     additionalProperties: {
@@ -64,7 +74,7 @@ export class SlackAction {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SlackAction.attributeTypeMap;
+    return SendTeamsMessageAction.attributeTypeMap;
   }
 
   public constructor() {}

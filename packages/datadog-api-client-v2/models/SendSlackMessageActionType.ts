@@ -3,16 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SendSlackMessageAction } from "./SendSlackMessageAction";
-import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Defines an action that is executed when a routing rule matches certain criteria.
+ * Indicates that the action is a send Slack message action.
  */
 
-export type RoutingRuleAction =
-  | SendSlackMessageAction
-  | SendTeamsMessageAction
+export type SendSlackMessageActionType =
+  | typeof SEND_SLACK_MESSAGE
   | UnparsedObject;
+export const SEND_SLACK_MESSAGE = "send_slack_message";

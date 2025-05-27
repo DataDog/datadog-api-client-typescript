@@ -2837,6 +2837,10 @@ export { SecurityTrigger } from "./models/SecurityTrigger";
 export { SecurityTriggerWrapper } from "./models/SecurityTriggerWrapper";
 export { Selectors } from "./models/Selectors";
 export { SelfServiceTriggerWrapper } from "./models/SelfServiceTriggerWrapper";
+export { SendSlackMessageAction } from "./models/SendSlackMessageAction";
+export { SendSlackMessageActionType } from "./models/SendSlackMessageActionType";
+export { SendTeamsMessageAction } from "./models/SendTeamsMessageAction";
+export { SendTeamsMessageActionType } from "./models/SendTeamsMessageActionType";
 export { SensitiveDataScannerConfigRequest } from "./models/SensitiveDataScannerConfigRequest";
 export { SensitiveDataScannerConfiguration } from "./models/SensitiveDataScannerConfiguration";
 export { SensitiveDataScannerConfigurationData } from "./models/SensitiveDataScannerConfigurationData";
@@ -2967,7 +2971,6 @@ export { SingleAggregatedConnectionResponseArray } from "./models/SingleAggregat
 export { SingleAggregatedConnectionResponseData } from "./models/SingleAggregatedConnectionResponseData";
 export { SingleAggregatedConnectionResponseDataAttributes } from "./models/SingleAggregatedConnectionResponseDataAttributes";
 export { SingleAggregatedConnectionResponseDataType } from "./models/SingleAggregatedConnectionResponseDataType";
-export { SlackAction } from "./models/SlackAction";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { SlackTriggerWrapper } from "./models/SlackTriggerWrapper";
@@ -3095,7 +3098,6 @@ export { TeamRoutingRulesRequestData } from "./models/TeamRoutingRulesRequestDat
 export { TeamRoutingRulesRequestDataAttributes } from "./models/TeamRoutingRulesRequestDataAttributes";
 export { TeamRoutingRulesRequestDataType } from "./models/TeamRoutingRulesRequestDataType";
 export { TeamRoutingRulesRequestRule } from "./models/TeamRoutingRulesRequestRule";
-export { TeamsAction } from "./models/TeamsAction";
 export { TeamsField } from "./models/TeamsField";
 export { TeamsResponse } from "./models/TeamsResponse";
 export { TeamsResponseLinks } from "./models/TeamsResponseLinks";
