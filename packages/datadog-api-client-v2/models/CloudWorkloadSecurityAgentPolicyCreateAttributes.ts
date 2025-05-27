@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -10,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Create a new Cloud Workload Security Agent policy
  */
 export class CloudWorkloadSecurityAgentPolicyCreateAttributes {
+  /**
+   * The array of actions the rule can perform if triggered
+   */
+  "actions"?: Array<CloudWorkloadSecurityAgentRuleAction>;
   /**
    * The description of the policy
    */
@@ -47,6 +52,10 @@ export class CloudWorkloadSecurityAgentPolicyCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    actions: {
+      baseName: "actions",
+      type: "Array<CloudWorkloadSecurityAgentRuleAction>",
+    },
     description: {
       baseName: "description",
       type: "string",

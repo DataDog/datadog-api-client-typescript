@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,9 +12,21 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CloudWorkloadSecurityAgentRuleCreateAttributes {
   /**
+   * The array of actions the rule can perform if triggered
+   */
+  "actions"?: Array<CloudWorkloadSecurityAgentRuleAction>;
+  /**
+   * The blocking policies that the rule belongs to
+   */
+  "blocking"?: Array<string>;
+  /**
    * The description of the Agent rule.
    */
   "description"?: string;
+  /**
+   * The disabled policies that the rule belongs to
+   */
+  "disabled"?: Array<string>;
   /**
    * Whether the Agent rule is enabled
    */
@@ -26,6 +39,10 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    * The platforms the Agent rule is supported on
    */
   "filters"?: Array<string>;
+  /**
+   * The monitoring policies that the rule belongs to
+   */
+  "monitoring"?: Array<string>;
   /**
    * The name of the Agent rule.
    */
@@ -55,9 +72,21 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    actions: {
+      baseName: "actions",
+      type: "Array<CloudWorkloadSecurityAgentRuleAction>",
+    },
+    blocking: {
+      baseName: "blocking",
+      type: "Array<string>",
+    },
     description: {
       baseName: "description",
       type: "string",
+    },
+    disabled: {
+      baseName: "disabled",
+      type: "Array<string>",
     },
     enabled: {
       baseName: "enabled",
@@ -70,6 +99,10 @@ export class CloudWorkloadSecurityAgentRuleCreateAttributes {
     },
     filters: {
       baseName: "filters",
+      type: "Array<string>",
+    },
+    monitoring: {
+      baseName: "monitoring",
       type: "Array<string>",
     },
     name: {
