@@ -29,7 +29,6 @@ const params: v2.WorkflowAutomationApiUpdateWorkflowRequest = {
               env: "default",
             },
           ],
-          handle: "my-handle",
           inputSchema: {
             parameters: [
               {
