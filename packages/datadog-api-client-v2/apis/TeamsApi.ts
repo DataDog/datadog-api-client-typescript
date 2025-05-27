@@ -16,6 +16,7 @@ import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
+import { AddMemberTeamRequest } from "../models/AddMemberTeamRequest";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { GetTeamMembershipsSort } from "../models/GetTeamMembershipsSort";
 import { ListTeamsInclude } from "../models/ListTeamsInclude";
@@ -39,6 +40,62 @@ import { UserTeamsResponse } from "../models/UserTeamsResponse";
 import { UserTeamUpdateRequest } from "../models/UserTeamUpdateRequest";
 
 export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
+  public async addMemberTeam(
+    superTeamId: string,
+    body: AddMemberTeamRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'addMemberTeam'");
+    if (!_config.unstableOperations["v2.addMemberTeam"]) {
+      throw new Error("Unstable operation 'addMemberTeam' is disabled");
+    }
+
+    // verify required parameter 'superTeamId' is not null or undefined
+    if (superTeamId === null || superTeamId === undefined) {
+      throw new RequiredError("superTeamId", "addMemberTeam");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "addMemberTeam");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team/{super_team_id}/member_teams".replace(
+      "{super_team_id}",
+      encodeURIComponent(String(superTeamId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.TeamsApi.addMemberTeam")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "AddMemberTeamRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createTeam(
     body: TeamCreateRequest,
     _options?: Configuration
@@ -538,6 +595,71 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listMemberTeams(
+    superTeamId: string,
+    pageSize?: number,
+    pageNumber?: number,
+    fieldsTeam?: Array<TeamsField>,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listMemberTeams'");
+    if (!_config.unstableOperations["v2.listMemberTeams"]) {
+      throw new Error("Unstable operation 'listMemberTeams' is disabled");
+    }
+
+    // verify required parameter 'superTeamId' is not null or undefined
+    if (superTeamId === null || superTeamId === undefined) {
+      throw new RequiredError("superTeamId", "listMemberTeams");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team/{super_team_id}/member_teams".replace(
+      "{super_team_id}",
+      encodeURIComponent(String(superTeamId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.TeamsApi.listMemberTeams")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64"),
+        ""
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64"),
+        ""
+      );
+    }
+    if (fieldsTeam !== undefined) {
+      requestContext.setQueryParam(
+        "fields[team]",
+        ObjectSerializer.serialize(fieldsTeam, "Array<TeamsField>", ""),
+        "csv"
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listTeams(
     pageNumber?: number,
     pageSize?: number,
@@ -610,6 +732,51 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
         "csv"
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async removeMemberTeam(
+    superTeamId: string,
+    memberTeamId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'removeMemberTeam'");
+    if (!_config.unstableOperations["v2.removeMemberTeam"]) {
+      throw new Error("Unstable operation 'removeMemberTeam' is disabled");
+    }
+
+    // verify required parameter 'superTeamId' is not null or undefined
+    if (superTeamId === null || superTeamId === undefined) {
+      throw new RequiredError("superTeamId", "removeMemberTeam");
+    }
+
+    // verify required parameter 'memberTeamId' is not null or undefined
+    if (memberTeamId === null || memberTeamId === undefined) {
+      throw new RequiredError("memberTeamId", "removeMemberTeam");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/team/{super_team_id}/member_teams/{member_team_id}"
+        .replace("{super_team_id}", encodeURIComponent(String(superTeamId)))
+        .replace("{member_team_id}", encodeURIComponent(String(memberTeamId)));
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.TeamsApi.removeMemberTeam")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -846,6 +1013,62 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class TeamsApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to addMemberTeam
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async addMemberTeam(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1570,6 +1793,68 @@ export class TeamsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listMemberTeams
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listMemberTeams(
+    response: ResponseContext
+  ): Promise<TeamsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: TeamsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamsResponse"
+      ) as TeamsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "TeamsResponse",
+        ""
+      ) as TeamsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listTeams
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1612,6 +1897,62 @@ export class TeamsApiResponseProcessor {
         "TeamsResponse",
         ""
       ) as TeamsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to removeMemberTeam
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async removeMemberTeam(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
       return body;
     }
 
@@ -1871,6 +2212,18 @@ export class TeamsApiResponseProcessor {
   }
 }
 
+export interface TeamsApiAddMemberTeamRequest {
+  /**
+   * None
+   * @type string
+   */
+  superTeamId: string;
+  /**
+   * @type AddMemberTeamRequest
+   */
+  body: AddMemberTeamRequest;
+}
+
 export interface TeamsApiCreateTeamRequest {
   /**
    * @type TeamCreateRequest
@@ -2009,6 +2362,29 @@ export interface TeamsApiGetUserMembershipsRequest {
   userUuid: string;
 }
 
+export interface TeamsApiListMemberTeamsRequest {
+  /**
+   * None
+   * @type string
+   */
+  superTeamId: string;
+  /**
+   * Size for a given page. The maximum allowed value is 100.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * List of fields that need to be fetched.
+   * @type Array<TeamsField>
+   */
+  fieldsTeam?: Array<TeamsField>;
+}
+
 export interface TeamsApiListTeamsRequest {
   /**
    * Specific page number to return.
@@ -2045,6 +2421,19 @@ export interface TeamsApiListTeamsRequest {
    * @type Array<TeamsField>
    */
   fieldsTeam?: Array<TeamsField>;
+}
+
+export interface TeamsApiRemoveMemberTeamRequest {
+  /**
+   * None
+   * @type string
+   */
+  superTeamId: string;
+  /**
+   * None
+   * @type string
+   */
+  memberTeamId: string;
 }
 
 export interface TeamsApiUpdateTeamRequest {
@@ -2125,6 +2514,29 @@ export class TeamsApi {
       requestFactory || new TeamsApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new TeamsApiResponseProcessor();
+  }
+
+  /**
+   * Add a member team.
+   * Adds the team given by the `id` in the body as a member team of the super team.
+   * @param param The request object
+   */
+  public addMemberTeam(
+    param: TeamsApiAddMemberTeamRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.addMemberTeam(
+      param.superTeamId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.addMemberTeam(responseContext);
+        });
+    });
   }
 
   /**
@@ -2436,6 +2848,73 @@ export class TeamsApi {
   }
 
   /**
+   * Get all member teams.
+   * @param param The request object
+   */
+  public listMemberTeams(
+    param: TeamsApiListMemberTeamsRequest,
+    options?: Configuration
+  ): Promise<TeamsResponse> {
+    const requestContextPromise = this.requestFactory.listMemberTeams(
+      param.superTeamId,
+      param.pageSize,
+      param.pageNumber,
+      param.fieldsTeam,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listMemberTeams(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listMemberTeams returning a generator with all the items.
+   */
+  public async *listMemberTeamsWithPagination(
+    param: TeamsApiListMemberTeamsRequest,
+    options?: Configuration
+  ): AsyncGenerator<Team> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listMemberTeams(
+        param.superTeamId,
+        param.pageSize,
+        param.pageNumber,
+        param.fieldsTeam,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listMemberTeams(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
+  }
+
+  /**
    * Get all teams.
    * Can be used to search for teams using the `filter[keyword]` and `filter[me]` query parameters.
    * @param param The request object
@@ -2505,6 +2984,28 @@ export class TeamsApi {
       }
       param.pageNumber = param.pageNumber + 1;
     }
+  }
+
+  /**
+   * Remove a super team's member team identified by `member_team_id`.
+   * @param param The request object
+   */
+  public removeMemberTeam(
+    param: TeamsApiRemoveMemberTeamRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.removeMemberTeam(
+      param.superTeamId,
+      param.memberTeamId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removeMemberTeam(responseContext);
+        });
+    });
   }
 
   /**
