@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { SyntheticsAssertionOperator } from "./SyntheticsAssertionOperator";
+import { SyntheticsAssertionTargetValue } from "./SyntheticsAssertionTargetValue";
 import { SyntheticsAssertionTimingsScope } from "./SyntheticsAssertionTimingsScope";
 import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
 
@@ -17,9 +18,9 @@ export class SyntheticsAssertionTarget {
    */
   "property"?: string;
   /**
-   * Value used by the operator.
+   * Value used by the operator in assertions. Can be either a number or string.
    */
-  "target": any;
+  "target": SyntheticsAssertionTargetValue;
   /**
    * Timings scope for response time assertions.
    */
@@ -54,7 +55,7 @@ export class SyntheticsAssertionTarget {
     },
     target: {
       baseName: "target",
-      type: "any",
+      type: "SyntheticsAssertionTargetValue",
       required: true,
     },
     timingsScope: {

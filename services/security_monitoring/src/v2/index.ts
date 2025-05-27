@@ -22,6 +22,7 @@ export {
   SecurityMonitoringApiGetCustomFrameworkRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetHistoricalJobRequest,
+  SecurityMonitoringApiGetResourceEvaluationFiltersRequest,
   SecurityMonitoringApiGetRuleVersionHistoryRequest,
   SecurityMonitoringApiGetSBOMRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
@@ -44,6 +45,7 @@ export {
   SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
   SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateCustomFrameworkRequest,
+  SecurityMonitoringApiUpdateResourceEvaluationFiltersRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
@@ -116,6 +118,8 @@ export { FullCustomFrameworkData } from "./models/FullCustomFrameworkData";
 export { FullCustomFrameworkDataAttributes } from "./models/FullCustomFrameworkDataAttributes";
 export { GetCustomFrameworkResponse } from "./models/GetCustomFrameworkResponse";
 export { GetFindingResponse } from "./models/GetFindingResponse";
+export { GetResourceEvaluationFiltersResponse } from "./models/GetResourceEvaluationFiltersResponse";
+export { GetResourceEvaluationFiltersResponseData } from "./models/GetResourceEvaluationFiltersResponseData";
 export { GetRuleVersionHistoryData } from "./models/GetRuleVersionHistoryData";
 export { GetRuleVersionHistoryDataType } from "./models/GetRuleVersionHistoryDataType";
 export { GetRuleVersionHistoryResponse } from "./models/GetRuleVersionHistoryResponse";
@@ -153,6 +157,8 @@ export { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleP
 export { PatchNotificationRuleParametersData } from "./models/PatchNotificationRuleParametersData";
 export { PatchNotificationRuleParametersDataAttributes } from "./models/PatchNotificationRuleParametersDataAttributes";
 export { Remediation } from "./models/Remediation";
+export { ResourceFilterAttributes } from "./models/ResourceFilterAttributes";
+export { ResourceFilterRequestType } from "./models/ResourceFilterRequestType";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { RuleSeverity } from "./models/RuleSeverity";
 export { RuleTypesItems } from "./models/RuleTypesItems";
@@ -286,6 +292,10 @@ export { SpecVersion } from "./models/SpecVersion";
 export { TriggerSource } from "./models/TriggerSource";
 export { UpdateCustomFrameworkRequest } from "./models/UpdateCustomFrameworkRequest";
 export { UpdateCustomFrameworkResponse } from "./models/UpdateCustomFrameworkResponse";
+export { UpdateResourceEvaluationFiltersRequest } from "./models/UpdateResourceEvaluationFiltersRequest";
+export { UpdateResourceEvaluationFiltersRequestData } from "./models/UpdateResourceEvaluationFiltersRequestData";
+export { UpdateResourceEvaluationFiltersResponse } from "./models/UpdateResourceEvaluationFiltersResponse";
+export { UpdateResourceEvaluationFiltersResponseData } from "./models/UpdateResourceEvaluationFiltersResponseData";
 export { VulnerabilitiesType } from "./models/VulnerabilitiesType";
 export { Vulnerability } from "./models/Vulnerability";
 export { VulnerabilityAttributes } from "./models/VulnerabilityAttributes";

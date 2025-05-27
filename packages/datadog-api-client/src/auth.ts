@@ -30,7 +30,7 @@ export class AuthZAuthentication implements SecurityAuthentication {
    *
    * @param accessToken: The access token to be used for every request
    */
-  public constructor(private accessToken: string) {}
+  public constructor(public accessToken: string) {}
 
   public getName(): string {
     return "AuthZ";
@@ -50,7 +50,7 @@ export class ApiKeyAuthAuthentication implements SecurityAuthentication {
    *
    * @param apiKey: The api key to be used for every request
    */
-  public constructor(private apiKey: string) {}
+  public constructor(public apiKey: string) {}
 
   public getName(): string {
     return "apiKeyAuth";
@@ -70,7 +70,7 @@ export class AppKeyAuthAuthentication implements SecurityAuthentication {
    *
    * @param apiKey: The api key to be used for every request
    */
-  public constructor(private apiKey: string) {}
+  public constructor(public apiKey: string) {}
 
   public getName(): string {
     return "appKeyAuth";

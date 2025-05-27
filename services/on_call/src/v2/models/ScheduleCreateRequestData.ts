@@ -9,7 +9,7 @@ import { ScheduleCreateRequestDataType } from "./ScheduleCreateRequestDataType";
  */
 export class ScheduleCreateRequestData {
   /**
-   * Describes the main attributes for creating a new schedule, including name, layers, time zone, and tags.
+   * Describes the main attributes for creating a new schedule, including name, layers, and time zone.
    */
   "attributes": ScheduleCreateRequestDataAttributes;
   /**

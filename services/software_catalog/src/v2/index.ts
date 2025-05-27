@@ -1,6 +1,7 @@
 export {
   SoftwareCatalogApiDeleteCatalogEntityRequest,
   SoftwareCatalogApiListCatalogEntityRequest,
+  SoftwareCatalogApiListCatalogRelationRequest,
   SoftwareCatalogApiUpsertCatalogEntityRequest,
   SoftwareCatalogApi,
 } from "./SoftwareCatalogApi";
@@ -74,7 +75,18 @@ export { IncludeType } from "./models/IncludeType";
 export { ListEntityCatalogResponse } from "./models/ListEntityCatalogResponse";
 export { ListEntityCatalogResponseIncludedItem } from "./models/ListEntityCatalogResponseIncludedItem";
 export { ListEntityCatalogResponseLinks } from "./models/ListEntityCatalogResponseLinks";
+export { ListRelationCatalogResponse } from "./models/ListRelationCatalogResponse";
+export { ListRelationCatalogResponseLinks } from "./models/ListRelationCatalogResponseLinks";
+export { RelationAttributes } from "./models/RelationAttributes";
+export { RelationEntity } from "./models/RelationEntity";
+export { RelationIncludeType } from "./models/RelationIncludeType";
+export { RelationMeta } from "./models/RelationMeta";
+export { RelationRelationships } from "./models/RelationRelationships";
+export { RelationResponse } from "./models/RelationResponse";
+export { RelationResponseMeta } from "./models/RelationResponseMeta";
+export { RelationResponseType } from "./models/RelationResponseType";
 export { RelationshipItem } from "./models/RelationshipItem";
+export { RelationToEntity } from "./models/RelationToEntity";
 export { RelationType } from "./models/RelationType";
 export { UpsertCatalogEntityRequest } from "./models/UpsertCatalogEntityRequest";
 export { UpsertCatalogEntityResponse } from "./models/UpsertCatalogEntityResponse";

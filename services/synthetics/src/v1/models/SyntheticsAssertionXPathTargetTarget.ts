@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { SyntheticsAssertionTargetValue } from "./SyntheticsAssertionTargetValue";
+
 /**
  * Composed target for `validatesXPath` operator.
  */
@@ -9,9 +11,9 @@ export class SyntheticsAssertionXPathTargetTarget {
    */
   "operator"?: string;
   /**
-   * The path target value to compare to.
+   * Value used by the operator in assertions. Can be either a number or string.
    */
-  "targetValue"?: any;
+  "targetValue"?: SyntheticsAssertionTargetValue;
   /**
    * The X path to assert.
    */
@@ -37,7 +39,7 @@ export class SyntheticsAssertionXPathTargetTarget {
     },
     targetValue: {
       baseName: "targetValue",
-      type: "any",
+      type: "SyntheticsAssertionTargetValue",
     },
     xPath: {
       baseName: "xPath",

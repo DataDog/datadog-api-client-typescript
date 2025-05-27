@@ -3,21 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ScheduleCreateRequestDataAttributesLayersItems } from "./ScheduleCreateRequestDataAttributesLayersItems";
 
 /**
- * Describes the main attributes for creating a new schedule, including name, layers, time zone, and tags.
+ * Describes the main attributes for creating a new schedule, including name, layers, and time zone.
  */
 export class ScheduleCreateRequestDataAttributes {
   /**
-   * The layers of on-call coverage that define rotation intervals and restrictions.
+   * The layers of On-Call coverage that define rotation intervals and restrictions.
    */
   "layers": Array<ScheduleCreateRequestDataAttributesLayersItems>;
   /**
    * A human-readable name for the new schedule.
    */
   "name": string;
-  /**
-   * A list of tags for categorizing or filtering the schedule.
-   */
-  "tags"?: Array<string>;
   /**
    * The time zone in which the schedule is defined.
    */
@@ -46,10 +42,6 @@ export class ScheduleCreateRequestDataAttributes {
       baseName: "name",
       type: "string",
       required: true,
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
     },
     timeZone: {
       baseName: "time_zone",

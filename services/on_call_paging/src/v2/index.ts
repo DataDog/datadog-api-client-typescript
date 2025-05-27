@@ -15,4 +15,5 @@ export { CreatePageRequestDataType } from "./models/CreatePageRequestDataType";
 export { CreatePageResponse } from "./models/CreatePageResponse";
 export { CreatePageResponseData } from "./models/CreatePageResponseData";
 export { CreatePageResponseDataType } from "./models/CreatePageResponseDataType";
+export { OnCallPageTargetType } from "./models/OnCallPageTargetType";
 export { PageUrgency } from "./models/PageUrgency";
