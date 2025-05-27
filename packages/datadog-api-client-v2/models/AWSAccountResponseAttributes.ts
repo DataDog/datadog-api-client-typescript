@@ -28,7 +28,7 @@ export class AWSAccountResponseAttributes {
   /**
    * AWS Account ID.
    */
-  "awsAccountId": string;
+  "awsAccountId"?: string;
   /**
    * AWS partition your AWS account is scoped to. Defaults to `aws`.
    * See [Partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html) in the AWS documentation for more information.
@@ -90,7 +90,6 @@ export class AWSAccountResponseAttributes {
     awsAccountId: {
       baseName: "aws_account_id",
       type: "string",
-      required: true,
     },
     awsPartition: {
       baseName: "aws_partition",
