@@ -3097,6 +3097,33 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "void",
     },
+    "v2.ListCatalogRelation": {
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterType": {
+            "type": "RelationType",
+            "format": "",
+            },
+        "filterFromRef": {
+            "type": "string",
+            "format": "",
+            },
+        "filterToRef": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "RelationIncludeType",
+            "format": "",
+            },
+        "operationResponseType": "ListRelationCatalogResponse",
+    },
     "v2.CreateCIAppPipelineEvent": {
         "body": {
             "type": "CIAppCreatePipelineEventRequest",
@@ -4418,6 +4445,34 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DORADeploymentResponse",
+    },
+    "v2.ListDORADeployments": {
+        "body": {
+            "type": "DORAListDeploymentsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORAListResponse",
+    },
+    "v2.GetDORADeployment": {
+        "deploymentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DORAFetchResponse",
+    },
+    "v2.ListDORAFailures": {
+        "body": {
+            "type": "DORAListFailuresRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORAListResponse",
+    },
+    "v2.GetDORAFailure": {
+        "failureId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DORAFetchResponse",
     },
     "v2.CreateDORAIncident": {
         "body": {

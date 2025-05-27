@@ -1417,7 +1417,7 @@ export class OnCallApi {
   }
 
   /**
-   * Create a new on-call escalation policy
+   * Create a new On-Call escalation policy
    * @param param The request object
    */
   public createOnCallEscalationPolicy(
@@ -1442,7 +1442,7 @@ export class OnCallApi {
   }
 
   /**
-   * Create a new on-call schedule
+   * Create a new On-Call schedule
    * @param param The request object
    */
   public createOnCallSchedule(
@@ -1464,7 +1464,7 @@ export class OnCallApi {
   }
 
   /**
-   * Delete an on-call escalation policy
+   * Delete an On-Call escalation policy
    * @param param The request object
    */
   public deleteOnCallEscalationPolicy(
@@ -1485,7 +1485,7 @@ export class OnCallApi {
   }
 
   /**
-   * Delete an on-call schedule
+   * Delete an On-Call schedule
    * @param param The request object
    */
   public deleteOnCallSchedule(
@@ -1506,7 +1506,7 @@ export class OnCallApi {
   }
 
   /**
-   * Get an on-call escalation policy
+   * Get an On-Call escalation policy
    * @param param The request object
    */
   public getOnCallEscalationPolicy(
@@ -1530,7 +1530,7 @@ export class OnCallApi {
   }
 
   /**
-   * Get an on-call schedule
+   * Get an On-Call schedule
    * @param param The request object
    */
   public getOnCallSchedule(
@@ -1552,7 +1552,7 @@ export class OnCallApi {
   }
 
   /**
-   * Get a team's on-call routing rules
+   * Get a team's On-Call routing rules
    * @param param The request object
    */
   public getOnCallTeamRoutingRules(
@@ -1599,7 +1599,7 @@ export class OnCallApi {
   }
 
   /**
-   * Set a team's on-call routing rules
+   * Set a team's On-Call routing rules
    * @param param The request object
    */
   public setOnCallTeamRoutingRules(
@@ -1624,7 +1624,7 @@ export class OnCallApi {
   }
 
   /**
-   * Update an on-call escalation policy
+   * Update an On-Call escalation policy
    * @param param The request object
    */
   public updateOnCallEscalationPolicy(
@@ -1650,7 +1650,7 @@ export class OnCallApi {
   }
 
   /**
-   * Update a new on-call schedule
+   * Update a new On-Call schedule
    * @param param The request object
    */
   public updateOnCallSchedule(

@@ -474,12 +474,21 @@ import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttribut
 import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
 import { DORADeploymentResponse } from "./DORADeploymentResponse";
 import { DORADeploymentResponseData } from "./DORADeploymentResponseData";
+import { DORAEvent } from "./DORAEvent";
+import { DORAFetchResponse } from "./DORAFetchResponse";
 import { DORAGitInfo } from "./DORAGitInfo";
 import { DORAIncidentRequest } from "./DORAIncidentRequest";
 import { DORAIncidentRequestAttributes } from "./DORAIncidentRequestAttributes";
 import { DORAIncidentRequestData } from "./DORAIncidentRequestData";
 import { DORAIncidentResponse } from "./DORAIncidentResponse";
 import { DORAIncidentResponseData } from "./DORAIncidentResponseData";
+import { DORAListDeploymentsRequest } from "./DORAListDeploymentsRequest";
+import { DORAListDeploymentsRequestAttributes } from "./DORAListDeploymentsRequestAttributes";
+import { DORAListDeploymentsRequestData } from "./DORAListDeploymentsRequestData";
+import { DORAListFailuresRequest } from "./DORAListFailuresRequest";
+import { DORAListFailuresRequestAttributes } from "./DORAListFailuresRequestAttributes";
+import { DORAListFailuresRequestData } from "./DORAListFailuresRequestData";
+import { DORAListResponse } from "./DORAListResponse";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
 import { DashboardListDeleteItemsRequest } from "./DashboardListDeleteItemsRequest";
@@ -627,6 +636,7 @@ import { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./Escalat
 import { EscalationPolicyUpdateRequestDataRelationships } from "./EscalationPolicyUpdateRequestDataRelationships";
 import { EscalationPolicyUser } from "./EscalationPolicyUser";
 import { EscalationPolicyUserAttributes } from "./EscalationPolicyUserAttributes";
+import { EscalationTargets } from "./EscalationTargets";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventCreateRequest } from "./EventCreateRequest";
@@ -896,6 +906,8 @@ import { ListHistoricalJobsResponse } from "./ListHistoricalJobsResponse";
 import { ListPipelinesResponse } from "./ListPipelinesResponse";
 import { ListPipelinesResponseMeta } from "./ListPipelinesResponseMeta";
 import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
+import { ListRelationCatalogResponse } from "./ListRelationCatalogResponse";
+import { ListRelationCatalogResponseLinks } from "./ListRelationCatalogResponseLinks";
 import { ListRulesResponse } from "./ListRulesResponse";
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
 import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
@@ -1313,6 +1325,13 @@ import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
 import { ReadinessGate } from "./ReadinessGate";
+import { RelationAttributes } from "./RelationAttributes";
+import { RelationEntity } from "./RelationEntity";
+import { RelationMeta } from "./RelationMeta";
+import { RelationRelationships } from "./RelationRelationships";
+import { RelationResponse } from "./RelationResponse";
+import { RelationResponseMeta } from "./RelationResponseMeta";
+import { RelationToEntity } from "./RelationToEntity";
 import { RelationshipItem } from "./RelationshipItem";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
 import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
@@ -1572,6 +1591,8 @@ import { SecurityTrigger } from "./SecurityTrigger";
 import { SecurityTriggerWrapper } from "./SecurityTriggerWrapper";
 import { Selectors } from "./Selectors";
 import { SelfServiceTriggerWrapper } from "./SelfServiceTriggerWrapper";
+import { SendSlackMessageAction } from "./SendSlackMessageAction";
+import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
 import { SensitiveDataScannerConfigurationData } from "./SensitiveDataScannerConfigurationData";
@@ -1670,7 +1691,6 @@ import { ShiftDataRelationshipsUserData } from "./ShiftDataRelationshipsUserData
 import { SingleAggregatedConnectionResponseArray } from "./SingleAggregatedConnectionResponseArray";
 import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
 import { SingleAggregatedConnectionResponseDataAttributes } from "./SingleAggregatedConnectionResponseDataAttributes";
-import { SlackAction } from "./SlackAction";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
@@ -1750,9 +1770,6 @@ import { TeamPermissionSettingUpdateRequest } from "./TeamPermissionSettingUpdat
 import { TeamPermissionSettingsResponse } from "./TeamPermissionSettingsResponse";
 import { TeamReference } from "./TeamReference";
 import { TeamReferenceAttributes } from "./TeamReferenceAttributes";
-import { TeamReferenceRelationships } from "./TeamReferenceRelationships";
-import { TeamReferenceRelationshipsOncallUsers } from "./TeamReferenceRelationshipsOncallUsers";
-import { TeamReferenceRelationshipsOncallUsersDataItems } from "./TeamReferenceRelationshipsOncallUsersDataItems";
 import { TeamRelationships } from "./TeamRelationships";
 import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 import { TeamResponse } from "./TeamResponse";
@@ -1770,7 +1787,6 @@ import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
 import { TeamUpdateRequest } from "./TeamUpdateRequest";
-import { TeamsAction } from "./TeamsAction";
 import { TeamsResponse } from "./TeamsResponse";
 import { TeamsResponseLinks } from "./TeamsResponseLinks";
 import { TeamsResponseMeta } from "./TeamsResponseMeta";
@@ -2200,6 +2216,8 @@ const enumsMap: { [key: string]: any[] } = {
   CustomFrameworkType: ["custom_framework"],
   DORADeploymentType: ["dora_deployment"],
   DORAIncidentType: ["dora_incident"],
+  DORAListDeploymentsRequestDataType: ["dora_deployments_list_request"],
+  DORAListFailuresRequestDataType: ["dora_failures_list_request"],
   DashboardType: [
     "custom_timeboard",
     "custom_screenboard",
@@ -2633,6 +2651,7 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineSyslogSourceMode: ["tcp", "udp"],
   ObservabilityPipelineThrottleProcessorType: ["throttle"],
   OktaAccountType: ["okta-accounts"],
+  OnCallPageTargetType: ["team_id", "team_handle", "user_id"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
@@ -2682,6 +2701,8 @@ const enumsMap: { [key: string]: any[] } = {
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
   ReadinessGateThresholdType: ["ANY", "ALL"],
+  RelationIncludeType: ["entity", "schema"],
+  RelationResponseType: ["relation"],
   RelationType: [
     "RelationTypeOwns",
     "RelationTypeOwnedBy",
@@ -2868,8 +2889,11 @@ const enumsMap: { [key: string]: any[] } = {
     "spans",
     "security_runtime",
     "network",
+    "events",
   ],
   SecurityMonitoringSuppressionType: ["suppressions"],
+  SendSlackMessageActionType: ["send_slack_message"],
+  SendTeamsMessageActionType: ["send_teams_message"],
   SensitiveDataScannerConfigurationType: [
     "sensitive_data_scanner_configuration",
   ],
@@ -2971,7 +2995,6 @@ const enumsMap: { [key: string]: any[] } = {
     "user_access_manage",
     "teams_manage",
   ],
-  TeamReferenceRelationshipsOncallUsersDataItemsType: ["users"],
   TeamReferenceType: ["teams"],
   TeamRoutingRulesDataRelationshipsRulesDataItemsType: ["team_routing_rules"],
   TeamRoutingRulesDataType: ["team_routing_rules"],
@@ -3683,12 +3706,21 @@ const typeMap: { [index: string]: any } = {
   DORADeploymentRequestData: DORADeploymentRequestData,
   DORADeploymentResponse: DORADeploymentResponse,
   DORADeploymentResponseData: DORADeploymentResponseData,
+  DORAEvent: DORAEvent,
+  DORAFetchResponse: DORAFetchResponse,
   DORAGitInfo: DORAGitInfo,
   DORAIncidentRequest: DORAIncidentRequest,
   DORAIncidentRequestAttributes: DORAIncidentRequestAttributes,
   DORAIncidentRequestData: DORAIncidentRequestData,
   DORAIncidentResponse: DORAIncidentResponse,
   DORAIncidentResponseData: DORAIncidentResponseData,
+  DORAListDeploymentsRequest: DORAListDeploymentsRequest,
+  DORAListDeploymentsRequestAttributes: DORAListDeploymentsRequestAttributes,
+  DORAListDeploymentsRequestData: DORAListDeploymentsRequestData,
+  DORAListFailuresRequest: DORAListFailuresRequest,
+  DORAListFailuresRequestAttributes: DORAListFailuresRequestAttributes,
+  DORAListFailuresRequestData: DORAListFailuresRequestData,
+  DORAListResponse: DORAListResponse,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
   DashboardListDeleteItemsRequest: DashboardListDeleteItemsRequest,
@@ -3856,6 +3888,7 @@ const typeMap: { [index: string]: any } = {
     EscalationPolicyUpdateRequestDataRelationships,
   EscalationPolicyUser: EscalationPolicyUser,
   EscalationPolicyUserAttributes: EscalationPolicyUserAttributes,
+  EscalationTargets: EscalationTargets,
   Event: Event,
   EventAttributes: EventAttributes,
   EventCreateRequest: EventCreateRequest,
@@ -4141,6 +4174,8 @@ const typeMap: { [index: string]: any } = {
   ListPipelinesResponse: ListPipelinesResponse,
   ListPipelinesResponseMeta: ListPipelinesResponseMeta,
   ListPowerpacksResponse: ListPowerpacksResponse,
+  ListRelationCatalogResponse: ListRelationCatalogResponse,
+  ListRelationCatalogResponseLinks: ListRelationCatalogResponseLinks,
   ListRulesResponse: ListRulesResponse,
   ListRulesResponseDataItem: ListRulesResponseDataItem,
   ListRulesResponseLinks: ListRulesResponseLinks,
@@ -4659,6 +4694,13 @@ const typeMap: { [index: string]: any } = {
   RUMSearchEventsRequest: RUMSearchEventsRequest,
   RUMWarning: RUMWarning,
   ReadinessGate: ReadinessGate,
+  RelationAttributes: RelationAttributes,
+  RelationEntity: RelationEntity,
+  RelationMeta: RelationMeta,
+  RelationRelationships: RelationRelationships,
+  RelationResponse: RelationResponse,
+  RelationResponseMeta: RelationResponseMeta,
+  RelationToEntity: RelationToEntity,
   RelationshipItem: RelationshipItem,
   RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
   RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
@@ -4965,6 +5007,8 @@ const typeMap: { [index: string]: any } = {
   SecurityTriggerWrapper: SecurityTriggerWrapper,
   Selectors: Selectors,
   SelfServiceTriggerWrapper: SelfServiceTriggerWrapper,
+  SendSlackMessageAction: SendSlackMessageAction,
+  SendTeamsMessageAction: SendTeamsMessageAction,
   SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
   SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
   SensitiveDataScannerConfigurationData: SensitiveDataScannerConfigurationData,
@@ -5084,7 +5128,6 @@ const typeMap: { [index: string]: any } = {
     SingleAggregatedConnectionResponseData,
   SingleAggregatedConnectionResponseDataAttributes:
     SingleAggregatedConnectionResponseDataAttributes,
-  SlackAction: SlackAction,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   SlackTriggerWrapper: SlackTriggerWrapper,
@@ -5165,10 +5208,6 @@ const typeMap: { [index: string]: any } = {
   TeamPermissionSettingsResponse: TeamPermissionSettingsResponse,
   TeamReference: TeamReference,
   TeamReferenceAttributes: TeamReferenceAttributes,
-  TeamReferenceRelationships: TeamReferenceRelationships,
-  TeamReferenceRelationshipsOncallUsers: TeamReferenceRelationshipsOncallUsers,
-  TeamReferenceRelationshipsOncallUsersDataItems:
-    TeamReferenceRelationshipsOncallUsersDataItems,
   TeamRelationships: TeamRelationships,
   TeamRelationshipsLinks: TeamRelationshipsLinks,
   TeamResponse: TeamResponse,
@@ -5188,7 +5227,6 @@ const typeMap: { [index: string]: any } = {
   TeamUpdateAttributes: TeamUpdateAttributes,
   TeamUpdateRelationships: TeamUpdateRelationships,
   TeamUpdateRequest: TeamUpdateRequest,
-  TeamsAction: TeamsAction,
   TeamsResponse: TeamsResponse,
   TeamsResponseLinks: TeamsResponseLinks,
   TeamsResponseMeta: TeamsResponseMeta,
@@ -5570,7 +5608,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
-  RoutingRuleAction: ["SlackAction", "TeamsAction"],
+  RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: ["MetricsScalarQuery", "EventsScalarQuery"],
   ScheduleDataIncludedItem: [

@@ -12,10 +12,6 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EscalationPolicyCreateRequestDataAttributes {
   /**
-   * Provides a detailed text description of the new escalation policy.
-   */
-  "description"?: string;
-  /**
    * Specifies the name for the new escalation policy.
    */
   "name": string;
@@ -48,10 +44,6 @@ export class EscalationPolicyCreateRequestDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
-    },
     name: {
       baseName: "name",
       type: "string",

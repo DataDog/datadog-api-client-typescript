@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SlackAction } from "./SlackAction";
-import { TeamsAction } from "./TeamsAction";
+import { SendSlackMessageAction } from "./SendSlackMessageAction";
+import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -12,4 +12,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * Defines an action that is executed when a routing rule matches certain criteria.
  */
 
-export type RoutingRuleAction = SlackAction | TeamsAction | UnparsedObject;
+export type RoutingRuleAction =
+  | SendSlackMessageAction
+  | SendTeamsMessageAction
+  | UnparsedObject;

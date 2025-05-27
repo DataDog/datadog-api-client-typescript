@@ -1,5 +1,5 @@
 /**
- * Set on-call team routing rules returns "OK" response
+ * Set On-Call team routing rules returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -45,7 +45,6 @@ const params: v2.OnCallApiSetOnCallTeamRoutingRulesRequest = {
                 },
               ],
             },
-            urgency: "high",
           },
           {
             policyId: ESCALATION_POLICY_DATA_ID,
@@ -59,6 +58,7 @@ const params: v2.OnCallApiSetOnCallTeamRoutingRulesRequest = {
     },
   },
   teamId: DD_TEAM_DATA_ID,
+  include: "rules",
 };
 
 apiInstance
