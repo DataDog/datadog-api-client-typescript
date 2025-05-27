@@ -2889,6 +2889,7 @@ const enumsMap: { [key: string]: any[] } = {
     "spans",
     "security_runtime",
     "network",
+    "events",
   ],
   SecurityMonitoringSuppressionType: ["suppressions"],
   SensitiveDataScannerConfigurationType: [
