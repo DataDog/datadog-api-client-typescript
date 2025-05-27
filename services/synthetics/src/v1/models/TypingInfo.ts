@@ -397,6 +397,7 @@ export const TypingInfo: ModelTypingInfo = {
       "SyntheticsAssertionXPathTarget",
       "SyntheticsAssertionJavascript",
     ],
+    SyntheticsAssertionTargetValue: ["number", "string"],
     SyntheticsBasicAuth: [
       "SyntheticsBasicAuthWeb",
       "SyntheticsBasicAuthSigv4",

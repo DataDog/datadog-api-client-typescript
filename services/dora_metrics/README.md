@@ -2,7 +2,9 @@
 
 ## Description
 
-Send events for DORA Metrics to measure and improve software delivery. See the [DORA Metrics page](https://docs.datadoghq.com/dora_metrics/) for more information.
+Search or send events for DORA Metrics to measure and improve your software delivery performance. See the [DORA Metrics page](https://docs.datadoghq.com/dora_metrics/) for more information.
+
+**Note**: DORA Metrics are not available in the US1-FED site.
 
 ## Installation
 

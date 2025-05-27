@@ -85,10 +85,10 @@ export interface HttpConfiguration {
  * Represents an HTTP request context
  */
 export class RequestContext {
-  private headers: { [key: string]: string } = {};
-  private body: RequestBody = undefined;
-  private url: URL;
-  private httpConfig: HttpConfiguration = {};
+  public headers: { [key: string]: string } = {};
+  public body: RequestBody = undefined;
+  public url: URL;
+  public httpConfig: HttpConfiguration = {};
 
   /**
    * Creates the request context using a http method and request resource url
@@ -98,7 +98,7 @@ export class RequestContext {
    */
   public constructor(
     url: string,
-    private httpMethod: HttpMethod,
+    public httpMethod: HttpMethod,
   ) {
     this.url = new URL(url);
   }
@@ -205,7 +205,7 @@ export interface ResponseBody {
  * Helper class to generate a `ResponseBody` from binary data
  */
 export class SelfDecodingBody implements ResponseBody {
-  constructor(private dataSource: Promise<Buffer>) {}
+  public constructor(public dataSource: Promise<Buffer>) {}
 
   binary(): Promise<Buffer> {
     return this.dataSource;

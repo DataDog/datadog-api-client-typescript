@@ -12,6 +12,7 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     CreatePageRequestDataType: ["pages"],
     CreatePageResponseDataType: ["pages"],
+    OnCallPageTargetType: ["team_id", "team_handle", "user_id"],
     PageUrgency: ["low", "high"],
   },
   oneOfMap: {},

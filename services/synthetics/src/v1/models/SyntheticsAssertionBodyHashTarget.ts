@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { SyntheticsAssertionBodyHashOperator } from "./SyntheticsAssertionBodyHashOperator";
 import { SyntheticsAssertionBodyHashType } from "./SyntheticsAssertionBodyHashType";
+import { SyntheticsAssertionTargetValue } from "./SyntheticsAssertionTargetValue";
 
 /**
  * An assertion which targets body hash.
@@ -12,9 +13,9 @@ export class SyntheticsAssertionBodyHashTarget {
    */
   "operator": SyntheticsAssertionBodyHashOperator;
   /**
-   * Value used by the operator.
+   * Value used by the operator in assertions. Can be either a number or string.
    */
-  "target": any;
+  "target": SyntheticsAssertionTargetValue;
   /**
    * Type of the assertion.
    */
@@ -41,7 +42,7 @@ export class SyntheticsAssertionBodyHashTarget {
     },
     target: {
       baseName: "target",
-      type: "any",
+      type: "SyntheticsAssertionTargetValue",
       required: true,
     },
     type: {

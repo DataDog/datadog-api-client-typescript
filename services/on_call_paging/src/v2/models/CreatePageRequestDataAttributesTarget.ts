@@ -1,17 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { OnCallPageTargetType } from "./OnCallPageTargetType";
+
 /**
  * Information about the target to notify (such as a team or user).
  */
 export class CreatePageRequestDataAttributesTarget {
   /**
-   * A unique ID for the target (for example, team handle or user UUID).
+   * Identifier for the target (for example, team handle or user ID).
    */
   "identifier"?: string;
   /**
-   * The kind of target, `team_uuid` | `team_handle` | `user_uuid`.
+   * The kind of target, `team_id` | `team_handle` | `user_id`.
    */
-  "type"?: string;
+  "type"?: OnCallPageTargetType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,7 +35,7 @@ export class CreatePageRequestDataAttributesTarget {
     },
     type: {
       baseName: "type",
-      type: "string",
+      type: "OnCallPageTargetType",
     },
     additionalProperties: {
       baseName: "additionalProperties",

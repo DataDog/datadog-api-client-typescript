@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { SyntheticsAssertionTargetValue } from "./SyntheticsAssertionTargetValue";
+
 /**
  * Composed target for `validatesJSONPath` operator.
  */
@@ -17,9 +19,9 @@ export class SyntheticsAssertionJSONPathTargetTarget {
    */
   "operator"?: string;
   /**
-   * The path target value to compare to.
+   * Value used by the operator in assertions. Can be either a number or string.
    */
-  "targetValue"?: any;
+  "targetValue"?: SyntheticsAssertionTargetValue;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -49,7 +51,7 @@ export class SyntheticsAssertionJSONPathTargetTarget {
     },
     targetValue: {
       baseName: "targetValue",
-      type: "any",
+      type: "SyntheticsAssertionTargetValue",
     },
     additionalProperties: {
       baseName: "additionalProperties",

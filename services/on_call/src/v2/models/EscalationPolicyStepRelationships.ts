@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { EscalationTarget } from "./EscalationTarget";
+import { EscalationTargets } from "./EscalationTargets";
 
 /**
  * Represents the relationship of an escalation policy step to its targets.
  */
 export class EscalationPolicyStepRelationships {
   /**
-   * Represents an escalation target, which can be a team, user, or schedule.
+   * A list of escalation targets for a step
    */
-  "targets"?: EscalationTarget;
+  "targets"?: EscalationTargets;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class EscalationPolicyStepRelationships {
   static readonly attributeTypeMap: AttributeTypeMap = {
     targets: {
       baseName: "targets",
-      type: "EscalationTarget",
+      type: "EscalationTargets",
     },
     additionalProperties: {
       baseName: "additionalProperties",
