@@ -5,15 +5,20 @@
  */
 import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for `UpdateOpenAPI`.
- */
+*/
 export class UpdateOpenAPIResponseAttributes {
   /**
    * List of endpoints which couldn't be parsed.
-   */
+  */
   "failedEndpoints"?: Array<OpenAPIEndpoint>;
 
   /**
@@ -32,22 +37,48 @@ export class UpdateOpenAPIResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    failedEndpoints: {
-      baseName: "failed_endpoints",
-      type: "Array<OpenAPIEndpoint>",
+    "failedEndpoints": {
+      "baseName": "failed_endpoints",
+      "type": "Array<OpenAPIEndpoint>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateOpenAPIResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

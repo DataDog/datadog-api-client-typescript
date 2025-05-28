@@ -6,19 +6,24 @@
 import { CaseAssignAttributes } from "./CaseAssignAttributes";
 import { CaseResourceType } from "./CaseResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case assign
- */
+*/
 export class CaseAssign {
   /**
    * Case assign attributes
-   */
+  */
   "attributes": CaseAssignAttributes;
   /**
    * Case resource type
-   */
+  */
   "type": CaseResourceType;
 
   /**
@@ -37,28 +42,54 @@ export class CaseAssign {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseAssignAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseAssignAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CaseResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseResourceType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseAssign.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

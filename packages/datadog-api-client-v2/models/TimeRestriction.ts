@@ -5,27 +5,32 @@
  */
 import { Weekday } from "./Weekday";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines a single time restriction rule with start and end times and the applicable weekdays.
- */
+*/
 export class TimeRestriction {
   /**
    * A day of the week.
-   */
+  */
   "endDay"?: Weekday;
   /**
    * Specifies the ending time for this restriction.
-   */
+  */
   "endTime"?: string;
   /**
    * A day of the week.
-   */
+  */
   "startDay"?: Weekday;
   /**
    * Specifies the starting time for this restriction.
-   */
+  */
   "startTime"?: string;
 
   /**
@@ -44,34 +49,60 @@ export class TimeRestriction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    endDay: {
-      baseName: "end_day",
-      type: "Weekday",
+    "endDay": {
+      "baseName": "end_day",
+      "type": "Weekday",
     },
-    endTime: {
-      baseName: "end_time",
-      type: "string",
+    "endTime": {
+      "baseName": "end_time",
+      "type": "string",
     },
-    startDay: {
-      baseName: "start_day",
-      type: "Weekday",
+    "startDay": {
+      "baseName": "start_day",
+      "type": "Weekday",
     },
-    startTime: {
-      baseName: "start_time",
-      type: "string",
+    "startTime": {
+      "baseName": "start_time",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TimeRestriction.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

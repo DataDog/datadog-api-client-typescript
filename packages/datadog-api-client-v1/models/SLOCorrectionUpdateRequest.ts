@@ -5,15 +5,20 @@
  */
 import { SLOCorrectionUpdateData } from "./SLOCorrectionUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object that defines a correction to be applied to an SLO.
- */
+*/
 export class SLOCorrectionUpdateRequest {
   /**
    * The data object associated with the SLO correction to be updated.
-   */
+  */
   "data"?: SLOCorrectionUpdateData;
 
   /**
@@ -32,22 +37,48 @@ export class SLOCorrectionUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SLOCorrectionUpdateData",
+    "data": {
+      "baseName": "data",
+      "type": "SLOCorrectionUpdateData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOCorrectionUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,23 +5,28 @@
  */
 import { SyntheticsBasicAuthWebType } from "./SyntheticsBasicAuthWebType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object to handle basic authentication when performing the test.
- */
+*/
 export class SyntheticsBasicAuthWeb {
   /**
    * Password to use for the basic authentication.
-   */
+  */
   "password": string;
   /**
    * The type of basic authentication to use when performing the test.
-   */
+  */
   "type"?: SyntheticsBasicAuthWebType;
   /**
    * Username to use for the basic authentication.
-   */
+  */
   "username": string;
 
   /**
@@ -40,32 +45,58 @@ export class SyntheticsBasicAuthWeb {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    password: {
-      baseName: "password",
-      type: "string",
-      required: true,
+    "password": {
+      "baseName": "password",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsBasicAuthWebType",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsBasicAuthWebType",
     },
-    username: {
-      baseName: "username",
-      type: "string",
-      required: true,
+    "username": {
+      "baseName": "username",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsBasicAuthWeb.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

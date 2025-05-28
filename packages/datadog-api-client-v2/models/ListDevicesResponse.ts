@@ -6,19 +6,24 @@
 import { DevicesListData } from "./DevicesListData";
 import { ListDevicesResponseMetadata } from "./ListDevicesResponseMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List devices response.
- */
+*/
 export class ListDevicesResponse {
   /**
    * The list devices response data.
-   */
+  */
   "data"?: Array<DevicesListData>;
   /**
    * Object describing meta attributes of response.
-   */
+  */
   "meta"?: ListDevicesResponseMetadata;
 
   /**
@@ -37,26 +42,52 @@ export class ListDevicesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DevicesListData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<DevicesListData>",
     },
-    meta: {
-      baseName: "meta",
-      type: "ListDevicesResponseMetadata",
+    "meta": {
+      "baseName": "meta",
+      "type": "ListDevicesResponseMetadata",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListDevicesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

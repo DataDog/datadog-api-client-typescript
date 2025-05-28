@@ -6,23 +6,28 @@
 import { HTTPCredentialsUpdate } from "./HTTPCredentialsUpdate";
 import { HTTPIntegrationType } from "./HTTPIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `HTTPIntegrationUpdate` object.
- */
+*/
 export class HTTPIntegrationUpdate {
   /**
    * Base HTTP url for the integration
-   */
+  */
   "baseUrl"?: string;
   /**
    * The definition of `HTTPCredentialsUpdate` object.
-   */
+  */
   "credentials"?: HTTPCredentialsUpdate;
   /**
    * The definition of `HTTPIntegrationType` object.
-   */
+  */
   "type": HTTPIntegrationType;
 
   /**
@@ -41,31 +46,57 @@ export class HTTPIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    baseUrl: {
-      baseName: "base_url",
-      type: "string",
+    "baseUrl": {
+      "baseName": "base_url",
+      "type": "string",
     },
-    credentials: {
-      baseName: "credentials",
-      type: "HTTPCredentialsUpdate",
+    "credentials": {
+      "baseName": "credentials",
+      "type": "HTTPCredentialsUpdate",
     },
-    type: {
-      baseName: "type",
-      type: "HTTPIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "HTTPIntegrationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HTTPIntegrationUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

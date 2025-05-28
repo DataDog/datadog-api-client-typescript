@@ -6,23 +6,28 @@
 import { IncidentUserAttributes } from "./IncidentUserAttributes";
 import { UsersType } from "./UsersType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * User object returned by the API.
- */
+*/
 export class IncidentUserData {
   /**
    * Attributes of user object returned by the API.
-   */
+  */
   "attributes"?: IncidentUserAttributes;
   /**
    * ID of the user.
-   */
+  */
   "id"?: string;
   /**
    * Users resource type.
-   */
+  */
   "type"?: UsersType;
 
   /**
@@ -41,30 +46,56 @@ export class IncidentUserData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentUserAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentUserAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "UsersType",
+    "type": {
+      "baseName": "type",
+      "type": "UsersType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentUserData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

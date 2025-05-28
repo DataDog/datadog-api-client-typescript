@@ -9,31 +9,36 @@ import { EntityToRawSchema } from "./EntityToRawSchema";
 import { EntityToRelatedEntities } from "./EntityToRelatedEntities";
 import { EntityToSchema } from "./EntityToSchema";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Entity relationships.
- */
+*/
 export class EntityRelationships {
   /**
    * Entity to incidents relationship.
-   */
+  */
   "incidents"?: EntityToIncidents;
   /**
    * Entity to oncalls relationship.
-   */
+  */
   "oncall"?: EntityToOncalls;
   /**
    * Entity to raw schema relationship.
-   */
+  */
   "rawSchema"?: EntityToRawSchema;
   /**
    * Entity to related entities relationship.
-   */
+  */
   "relatedEntities"?: EntityToRelatedEntities;
   /**
    * Entity to detail schema relationship.
-   */
+  */
   "schema"?: EntityToSchema;
 
   /**
@@ -52,38 +57,64 @@ export class EntityRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    incidents: {
-      baseName: "incidents",
-      type: "EntityToIncidents",
+    "incidents": {
+      "baseName": "incidents",
+      "type": "EntityToIncidents",
     },
-    oncall: {
-      baseName: "oncall",
-      type: "EntityToOncalls",
+    "oncall": {
+      "baseName": "oncall",
+      "type": "EntityToOncalls",
     },
-    rawSchema: {
-      baseName: "rawSchema",
-      type: "EntityToRawSchema",
+    "rawSchema": {
+      "baseName": "rawSchema",
+      "type": "EntityToRawSchema",
     },
-    relatedEntities: {
-      baseName: "relatedEntities",
-      type: "EntityToRelatedEntities",
+    "relatedEntities": {
+      "baseName": "relatedEntities",
+      "type": "EntityToRelatedEntities",
     },
-    schema: {
-      baseName: "schema",
-      type: "EntityToSchema",
+    "schema": {
+      "baseName": "schema",
+      "type": "EntityToSchema",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

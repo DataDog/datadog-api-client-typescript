@@ -5,15 +5,20 @@
  */
 import { UsageIncidentManagementHour } from "./UsageIncidentManagementHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the incident management usage for each hour for a given organization.
- */
+*/
 export class UsageIncidentManagementResponse {
   /**
    * Get hourly usage for incident management.
-   */
+  */
   "usage"?: Array<UsageIncidentManagementHour>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageIncidentManagementResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageIncidentManagementHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageIncidentManagementHour>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageIncidentManagementResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

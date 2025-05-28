@@ -7,27 +7,32 @@ import { ObservabilityPipelineRsyslogSourceType } from "./ObservabilityPipelineR
 import { ObservabilityPipelineSyslogSourceMode } from "./ObservabilityPipelineSyslogSourceMode";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
- */
+*/
 export class ObservabilityPipelineRsyslogSource {
   /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (e.g., as input to downstream components).
-   */
+  */
   "id": string;
   /**
    * Protocol used by the syslog source to receive messages.
-   */
+  */
   "mode": ObservabilityPipelineSyslogSourceMode;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-   */
+  */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The source type. The value should always be `rsyslog`.
-   */
+  */
   "type": ObservabilityPipelineRsyslogSourceType;
 
   /**
@@ -46,37 +51,63 @@ export class ObservabilityPipelineRsyslogSource {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    mode: {
-      baseName: "mode",
-      type: "ObservabilityPipelineSyslogSourceMode",
-      required: true,
+    "mode": {
+      "baseName": "mode",
+      "type": "ObservabilityPipelineSyslogSourceMode",
+      "required": true,
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineTls",
+    "tls": {
+      "baseName": "tls",
+      "type": "ObservabilityPipelineTls",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineRsyslogSourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineRsyslogSourceType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineRsyslogSource.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

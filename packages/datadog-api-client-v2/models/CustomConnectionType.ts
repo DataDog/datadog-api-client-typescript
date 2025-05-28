@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The custom connection type.
- */
+*/
 
 export type CustomConnectionType = typeof CUSTOM_CONNECTIONS | UnparsedObject;
-export const CUSTOM_CONNECTIONS = "custom_connections";
+export const CUSTOM_CONNECTIONS = 'custom_connections';

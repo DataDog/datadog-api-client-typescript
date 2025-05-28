@@ -6,23 +6,28 @@
 import { TeamRoutingRulesRequestDataAttributes } from "./TeamRoutingRulesRequestDataAttributes";
 import { TeamRoutingRulesRequestDataType } from "./TeamRoutingRulesRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Holds the data necessary to create or update team routing rules, including attributes, ID, and resource type.
- */
+*/
 export class TeamRoutingRulesRequestData {
   /**
    * Represents the attributes of a request to update or create team routing rules.
-   */
+  */
   "attributes"?: TeamRoutingRulesRequestDataAttributes;
   /**
    * Specifies the unique identifier for this set of team routing rules.
-   */
+  */
   "id"?: string;
   /**
    * Team routing rules resource type.
-   */
+  */
   "type": TeamRoutingRulesRequestDataType;
 
   /**
@@ -41,31 +46,57 @@ export class TeamRoutingRulesRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamRoutingRulesRequestDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TeamRoutingRulesRequestDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "TeamRoutingRulesRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamRoutingRulesRequestDataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamRoutingRulesRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

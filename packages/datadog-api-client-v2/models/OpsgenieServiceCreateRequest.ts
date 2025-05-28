@@ -5,15 +5,20 @@
  */
 import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create request for an Opsgenie service.
- */
+*/
 export class OpsgenieServiceCreateRequest {
   /**
    * Opsgenie service data for a create request.
-   */
+  */
   "data": OpsgenieServiceCreateData;
 
   /**
@@ -32,23 +37,49 @@ export class OpsgenieServiceCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "OpsgenieServiceCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "OpsgenieServiceCreateData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpsgenieServiceCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { WidgetSort } from "./WidgetSort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Which column and order to sort by
- */
+*/
 export class WidgetFieldSort {
   /**
    * Facet path for the column
-   */
+  */
   "column": string;
   /**
    * Widget sorting methods.
-   */
+  */
   "order": WidgetSort;
 
   /**
@@ -36,28 +41,54 @@ export class WidgetFieldSort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    column: {
-      baseName: "column",
-      type: "string",
-      required: true,
+    "column": {
+      "baseName": "column",
+      "type": "string",
+      "required": true,
     },
-    order: {
-      baseName: "order",
-      type: "WidgetSort",
-      required: true,
+    "order": {
+      "baseName": "order",
+      "type": "WidgetSort",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WidgetFieldSort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

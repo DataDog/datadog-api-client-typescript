@@ -6,42 +6,47 @@
 import { EventCategory } from "./EventCategory";
 import { EventPayloadAttributes } from "./EventPayloadAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Event attributes.
- */
+*/
 export class EventPayload {
   /**
    * An arbitrary string to use for aggregation when correlating events. Limited to 100 characters.
-   */
+  */
   "aggregationKey"?: string;
   /**
    * JSON object for custom attributes. Schema are different per each event category.
-   */
+  */
   "attributes": EventPayloadAttributes;
   /**
    * Event category to identify the type of event. Only the value `change` is supported. Support for other categories are coming. please reach out to datadog support if you're interested.
-   */
+  */
   "category": EventCategory;
   /**
    * The body of the event. Limited to 4000 characters.
-   */
+  */
   "message"?: string;
   /**
    * A list of tags to apply to the event.
    * Refer to [Tags docs](https://docs.datadoghq.com/getting_started/tagging/).
-   */
+  */
   "tags"?: Array<string>;
   /**
    * Timestamp when the event occurred. Must follow [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
    * For example `"2017-01-15T01:30:15.010000Z"`.
    * Defaults to the timestamp of receipt. Limited to values no older than 18 hours.
-   */
+  */
   "timestamp"?: string;
   /**
    * The event title. Limited to 500 characters.
-   */
+  */
   "title": string;
 
   /**
@@ -60,49 +65,75 @@ export class EventPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregationKey: {
-      baseName: "aggregation_key",
-      type: "string",
+    "aggregationKey": {
+      "baseName": "aggregation_key",
+      "type": "string",
     },
-    attributes: {
-      baseName: "attributes",
-      type: "EventPayloadAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EventPayloadAttributes",
+      "required": true,
     },
-    category: {
-      baseName: "category",
-      type: "EventCategory",
-      required: true,
+    "category": {
+      "baseName": "category",
+      "type": "EventCategory",
+      "required": true,
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "string",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "string",
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventPayload.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

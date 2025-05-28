@@ -4,20 +4,25 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Global query options that are used during the query.
  * Only supply timezone or time offset, not both. Otherwise, the query fails.
- */
+*/
 export class CIAppQueryOptions {
   /**
    * The time offset (in seconds) to apply to the query.
-   */
+  */
   "timeOffset"?: number;
   /**
    * The timezone can be specified as GMT, UTC, an offset from UTC (like UTC+1), or as a Timezone Database identifier (like America/New_York).
-   */
+  */
   "timezone"?: string;
 
   /**
@@ -36,27 +41,53 @@ export class CIAppQueryOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    timeOffset: {
-      baseName: "time_offset",
-      type: "number",
-      format: "int64",
+    "timeOffset": {
+      "baseName": "time_offset",
+      "type": "number",
+      "format": "int64",
     },
-    timezone: {
-      baseName: "timezone",
-      type: "string",
+    "timezone": {
+      "baseName": "timezone",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CIAppQueryOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

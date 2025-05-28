@@ -5,19 +5,24 @@
  */
 import { IncidentRespondersType } from "./IncidentRespondersType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to impact object.
- */
+*/
 export class RelationshipToIncidentResponderData {
   /**
    * A unique identifier that represents the responder.
-   */
+  */
   "id": string;
   /**
    * The incident responders type.
-   */
+  */
   "type": IncidentRespondersType;
 
   /**
@@ -36,28 +41,54 @@ export class RelationshipToIncidentResponderData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "IncidentRespondersType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentRespondersType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToIncidentResponderData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

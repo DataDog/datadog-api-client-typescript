@@ -6,19 +6,24 @@
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { EscalationPolicyDataRelationshipsSteps } from "./EscalationPolicyDataRelationshipsSteps";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents the relationships for an escalation policy, including references to steps and teams.
- */
+*/
 export class EscalationPolicyDataRelationships {
   /**
    * Defines the relationship to a collection of steps within an escalation policy. Contains an array of step data references.
-   */
+  */
   "steps": EscalationPolicyDataRelationshipsSteps;
   /**
    * Associates teams with this schedule in a data structure.
-   */
+  */
   "teams"?: DataRelationshipsTeams;
 
   /**
@@ -37,27 +42,53 @@ export class EscalationPolicyDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    steps: {
-      baseName: "steps",
-      type: "EscalationPolicyDataRelationshipsSteps",
-      required: true,
+    "steps": {
+      "baseName": "steps",
+      "type": "EscalationPolicyDataRelationshipsSteps",
+      "required": true,
     },
-    teams: {
-      baseName: "teams",
-      type: "DataRelationshipsTeams",
+    "teams": {
+      "baseName": "teams",
+      "type": "DataRelationshipsTeams",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EscalationPolicyDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

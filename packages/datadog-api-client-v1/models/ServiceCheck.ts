@@ -5,35 +5,40 @@
  */
 import { ServiceCheckStatus } from "./ServiceCheckStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object containing service check and status.
- */
+*/
 export class ServiceCheck {
   /**
    * The check.
-   */
+  */
   "check": string;
   /**
    * The host name correlated with the check.
-   */
+  */
   "hostName": string;
   /**
    * Message containing check status.
-   */
+  */
   "message"?: string;
   /**
    * The status of a service check. Set to `0` for OK, `1` for warning, `2` for critical, and `3` for unknown.
-   */
+  */
   "status": ServiceCheckStatus;
   /**
    * Tags related to a check.
-   */
+  */
   "tags": Array<string>;
   /**
    * Time of check.
-   */
+  */
   "timestamp"?: number;
 
   /**
@@ -52,48 +57,74 @@ export class ServiceCheck {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    check: {
-      baseName: "check",
-      type: "string",
-      required: true,
+    "check": {
+      "baseName": "check",
+      "type": "string",
+      "required": true,
     },
-    hostName: {
-      baseName: "host_name",
-      type: "string",
-      required: true,
+    "hostName": {
+      "baseName": "host_name",
+      "type": "string",
+      "required": true,
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "ServiceCheckStatus",
-      required: true,
-      format: "int32",
+    "status": {
+      "baseName": "status",
+      "type": "ServiceCheckStatus",
+      "required": true,
+      "format": "int32",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-      required: true,
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
+      "required": true,
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "number",
-      format: "int64",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceCheck.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

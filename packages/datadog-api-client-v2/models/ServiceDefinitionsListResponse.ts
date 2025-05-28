@@ -5,15 +5,20 @@
  */
 import { ServiceDefinitionData } from "./ServiceDefinitionData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create service definitions response.
- */
+*/
 export class ServiceDefinitionsListResponse {
   /**
    * Data representing service definitions.
-   */
+  */
   "data"?: Array<ServiceDefinitionData>;
 
   /**
@@ -32,22 +37,48 @@ export class ServiceDefinitionsListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ServiceDefinitionData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<ServiceDefinitionData>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionsListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

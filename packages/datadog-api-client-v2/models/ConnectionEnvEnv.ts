@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of `ConnectionEnvEnv` object.
- */
+*/
 
 export type ConnectionEnvEnv = typeof DEFAULT | UnparsedObject;
-export const DEFAULT = "default";
+export const DEFAULT = 'default';

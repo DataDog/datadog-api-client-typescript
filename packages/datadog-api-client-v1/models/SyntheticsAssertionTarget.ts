@@ -8,31 +8,36 @@ import { SyntheticsAssertionTargetValue } from "./SyntheticsAssertionTargetValue
 import { SyntheticsAssertionTimingsScope } from "./SyntheticsAssertionTimingsScope";
 import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An assertion which uses a simple target.
- */
+*/
 export class SyntheticsAssertionTarget {
   /**
    * Assertion operator to apply.
-   */
+  */
   "operator": SyntheticsAssertionOperator;
   /**
    * The associated assertion property.
-   */
+  */
   "property"?: string;
   /**
    * Value used by the operator in assertions. Can be either a number or string.
-   */
+  */
   "target": SyntheticsAssertionTargetValue;
   /**
    * Timings scope for response time assertions.
-   */
+  */
   "timingsScope"?: SyntheticsAssertionTimingsScope;
   /**
    * Type of the assertion.
-   */
+  */
   "type": SyntheticsAssertionType;
 
   /**
@@ -51,41 +56,67 @@ export class SyntheticsAssertionTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "SyntheticsAssertionOperator",
-      required: true,
+    "operator": {
+      "baseName": "operator",
+      "type": "SyntheticsAssertionOperator",
+      "required": true,
     },
-    property: {
-      baseName: "property",
-      type: "string",
+    "property": {
+      "baseName": "property",
+      "type": "string",
     },
-    target: {
-      baseName: "target",
-      type: "SyntheticsAssertionTargetValue",
-      required: true,
+    "target": {
+      "baseName": "target",
+      "type": "SyntheticsAssertionTargetValue",
+      "required": true,
     },
-    timingsScope: {
-      baseName: "timingsScope",
-      type: "SyntheticsAssertionTimingsScope",
+    "timingsScope": {
+      "baseName": "timingsScope",
+      "type": "SyntheticsAssertionTimingsScope",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsAssertionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsAssertionType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsAssertionTarget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

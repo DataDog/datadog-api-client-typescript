@@ -7,27 +7,32 @@ import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
 import { GCPServiceAccountType } from "./GCPServiceAccountType";
 import { GCPSTSServiceAccountAttributes } from "./GCPSTSServiceAccountAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Info on your service account.
- */
+*/
 export class GCPSTSServiceAccount {
   /**
    * Attributes associated with your service account.
-   */
+  */
   "attributes"?: GCPSTSServiceAccountAttributes;
   /**
    * Your service account's unique ID.
-   */
+  */
   "id"?: string;
   /**
    * Additional information related to your service account.
-   */
+  */
   "meta"?: GCPServiceAccountMeta;
   /**
    * The type of account.
-   */
+  */
   "type"?: GCPServiceAccountType;
 
   /**
@@ -46,34 +51,60 @@ export class GCPSTSServiceAccount {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "GCPSTSServiceAccountAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "GCPSTSServiceAccountAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    meta: {
-      baseName: "meta",
-      type: "GCPServiceAccountMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "GCPServiceAccountMeta",
     },
-    type: {
-      baseName: "type",
-      type: "GCPServiceAccountType",
+    "type": {
+      "baseName": "type",
+      "type": "GCPServiceAccountType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPSTSServiceAccount.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

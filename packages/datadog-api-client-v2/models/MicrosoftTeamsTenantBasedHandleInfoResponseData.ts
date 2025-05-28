@@ -6,23 +6,28 @@
 import { MicrosoftTeamsTenantBasedHandleInfoResponseAttributes } from "./MicrosoftTeamsTenantBasedHandleInfoResponseAttributes";
 import { MicrosoftTeamsTenantBasedHandleInfoType } from "./MicrosoftTeamsTenantBasedHandleInfoType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Tenant-based handle data from a response.
- */
+*/
 export class MicrosoftTeamsTenantBasedHandleInfoResponseData {
   /**
    * Tenant-based handle attributes.
-   */
+  */
   "attributes"?: MicrosoftTeamsTenantBasedHandleInfoResponseAttributes;
   /**
    * The ID of the tenant-based handle.
-   */
+  */
   "id"?: string;
   /**
    * Tenant-based handle resource type.
-   */
+  */
   "type"?: MicrosoftTeamsTenantBasedHandleInfoType;
 
   /**
@@ -41,30 +46,56 @@ export class MicrosoftTeamsTenantBasedHandleInfoResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MicrosoftTeamsTenantBasedHandleInfoResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MicrosoftTeamsTenantBasedHandleInfoResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "MicrosoftTeamsTenantBasedHandleInfoType",
+    "type": {
+      "baseName": "type",
+      "type": "MicrosoftTeamsTenantBasedHandleInfoType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MicrosoftTeamsTenantBasedHandleInfoResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

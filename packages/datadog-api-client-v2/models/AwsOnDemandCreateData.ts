@@ -6,19 +6,24 @@
 import { AwsOnDemandCreateAttributes } from "./AwsOnDemandCreateAttributes";
 import { AwsOnDemandType } from "./AwsOnDemandType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single AWS on demand task.
- */
+*/
 export class AwsOnDemandCreateData {
   /**
    * Attributes for the AWS on demand task.
-   */
+  */
   "attributes": AwsOnDemandCreateAttributes;
   /**
    * The type of the on demand task. The value should always be `aws_resource`.
-   */
+  */
   "type": AwsOnDemandType;
 
   /**
@@ -37,28 +42,54 @@ export class AwsOnDemandCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AwsOnDemandCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AwsOnDemandCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AwsOnDemandType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AwsOnDemandType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AwsOnDemandCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

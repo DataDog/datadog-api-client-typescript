@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * On-demand concurrency cap attributes.
- */
+*/
 export class OnDemandConcurrencyCapAttributes {
   /**
    * Value of the on-demand concurrency cap.
-   */
+  */
   "onDemandConcurrencyCap"?: number;
 
   /**
@@ -31,23 +36,49 @@ export class OnDemandConcurrencyCapAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    onDemandConcurrencyCap: {
-      baseName: "on_demand_concurrency_cap",
-      type: "number",
-      format: "double",
+    "onDemandConcurrencyCap": {
+      "baseName": "on_demand_concurrency_cap",
+      "type": "number",
+      "format": "double",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OnDemandConcurrencyCapAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

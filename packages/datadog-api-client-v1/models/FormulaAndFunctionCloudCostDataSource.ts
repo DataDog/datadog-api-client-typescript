@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Data source for Cloud Cost queries.
- */
+*/
 
-export type FormulaAndFunctionCloudCostDataSource =
-  | typeof CLOUD_COST
-  | UnparsedObject;
-export const CLOUD_COST = "cloud_cost";
+export type FormulaAndFunctionCloudCostDataSource = typeof CLOUD_COST | UnparsedObject;
+export const CLOUD_COST = 'cloud_cost';

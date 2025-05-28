@@ -8,15 +8,15 @@ import { ScheduleMember } from "./ScheduleMember";
 import { ScheduleUser } from "./ScheduleUser";
 import { TeamReference } from "./TeamReference";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Any additional resources related to this schedule, such as teams and layers.
- */
+*/
 
-export type ScheduleDataIncludedItem =
-  | TeamReference
-  | Layer
-  | ScheduleMember
-  | ScheduleUser
-  | UnparsedObject;
+export type ScheduleDataIncludedItem = TeamReference | Layer | ScheduleMember | ScheduleUser | UnparsedObject;

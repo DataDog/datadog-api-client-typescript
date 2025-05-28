@@ -5,15 +5,20 @@
  */
 import { IncidentTypePatchData } from "./IncidentTypePatchData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Patch request for an incident type.
- */
+*/
 export class IncidentTypePatchRequest {
   /**
    * Incident type data for a patch request.
-   */
+  */
   "data": IncidentTypePatchData;
 
   /**
@@ -32,23 +37,49 @@ export class IncidentTypePatchRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IncidentTypePatchData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "IncidentTypePatchData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentTypePatchRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

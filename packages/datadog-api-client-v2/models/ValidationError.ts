@@ -5,19 +5,24 @@
  */
 import { ValidationErrorMeta } from "./ValidationErrorMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a single validation error, including a human-readable title and metadata.
- */
+*/
 export class ValidationError {
   /**
    * Describes additional metadata for validation errors, including field names and error messages.
-   */
+  */
   "meta": ValidationErrorMeta;
   /**
    * A short, human-readable summary of the error.
-   */
+  */
   "title": string;
 
   /**
@@ -36,28 +41,54 @@ export class ValidationError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    meta: {
-      baseName: "meta",
-      type: "ValidationErrorMeta",
-      required: true,
+    "meta": {
+      "baseName": "meta",
+      "type": "ValidationErrorMeta",
+      "required": true,
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ValidationError.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

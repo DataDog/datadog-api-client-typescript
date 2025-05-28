@@ -5,12 +5,15 @@
  */
 import { ChangeEventCustomAttributes } from "./ChangeEventCustomAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON object for custom attributes. Schema are different per each event category.
- */
+*/
 
-export type EventPayloadAttributes =
-  | ChangeEventCustomAttributes
-  | UnparsedObject;
+export type EventPayloadAttributes = ChangeEventCustomAttributes | UnparsedObject;

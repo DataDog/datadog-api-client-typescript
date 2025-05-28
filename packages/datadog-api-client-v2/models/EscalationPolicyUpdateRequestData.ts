@@ -7,27 +7,32 @@ import { EscalationPolicyUpdateRequestDataAttributes } from "./EscalationPolicyU
 import { EscalationPolicyUpdateRequestDataRelationships } from "./EscalationPolicyUpdateRequestDataRelationships";
 import { EscalationPolicyUpdateRequestDataType } from "./EscalationPolicyUpdateRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents the data for updating an existing escalation policy, including its ID, attributes, relationships, and resource type.
- */
+*/
 export class EscalationPolicyUpdateRequestData {
   /**
    * Defines the attributes that can be updated for an escalation policy, such as description, name, resolution behavior, retries, and steps.
-   */
+  */
   "attributes": EscalationPolicyUpdateRequestDataAttributes;
   /**
    * Specifies the unique identifier of the escalation policy being updated.
-   */
+  */
   "id": string;
   /**
    * Represents relationships in an escalation policy update request, including references to teams.
-   */
+  */
   "relationships"?: EscalationPolicyUpdateRequestDataRelationships;
   /**
    * Indicates that the resource is of type `policies`.
-   */
+  */
   "type": EscalationPolicyUpdateRequestDataType;
 
   /**
@@ -46,37 +51,63 @@ export class EscalationPolicyUpdateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "EscalationPolicyUpdateRequestDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EscalationPolicyUpdateRequestDataAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "EscalationPolicyUpdateRequestDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "EscalationPolicyUpdateRequestDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "EscalationPolicyUpdateRequestDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "EscalationPolicyUpdateRequestDataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EscalationPolicyUpdateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

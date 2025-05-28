@@ -5,15 +5,20 @@
  */
 import { WorklflowCancelInstanceResponseData } from "./WorklflowCancelInstanceResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Information about the canceled instance.
- */
+*/
 export class WorklflowCancelInstanceResponse {
   /**
    * Data about the canceled instance.
-   */
+  */
   "data"?: WorklflowCancelInstanceResponseData;
 
   /**
@@ -32,22 +37,48 @@ export class WorklflowCancelInstanceResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "WorklflowCancelInstanceResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "WorklflowCancelInstanceResponseData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return WorklflowCancelInstanceResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

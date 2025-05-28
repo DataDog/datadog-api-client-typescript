@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * PagerDuty integration for the service.
- */
+*/
 export class ServiceDefinitionV2Dot2Pagerduty {
   /**
    * PagerDuty service url.
-   */
+  */
   "serviceUrl"?: string;
 
   /**
@@ -31,22 +36,48 @@ export class ServiceDefinitionV2Dot2Pagerduty {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    serviceUrl: {
-      baseName: "service-url",
-      type: "string",
+    "serviceUrl": {
+      "baseName": "service-url",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionV2Dot2Pagerduty.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

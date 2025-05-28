@@ -4,7 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS Metrics Collection tag filters list. Defaults to `[]`.
@@ -12,15 +17,15 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported.
  * For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored.
  * For example, `env:production,instance-type:c?.*,!region:us-east-1`.
- */
+*/
 export class AWSNamespaceTagFilter {
   /**
    * The AWS service for which the tag filters defined in `tags` will be applied.
-   */
+  */
   "namespace"?: string;
   /**
    * The AWS resource tags to filter on for the service specified by `namespace`.
-   */
+  */
   "tags"?: Array<string>;
 
   /**
@@ -39,26 +44,52 @@ export class AWSNamespaceTagFilter {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    namespace: {
-      baseName: "namespace",
-      type: "string",
+    "namespace": {
+      "baseName": "namespace",
+      "type": "string",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AWSNamespaceTagFilter.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { LeakedKeyType } from "./LeakedKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of LeakedKey object.
- */
+*/
 export class LeakedKey {
   /**
    * The definition of LeakedKeyAttributes object.
-   */
+  */
   "attributes": LeakedKeyAttributes;
   /**
    * The LeakedKey id.
-   */
+  */
   "id": string;
   /**
    * The definition of LeakedKeyType object.
-   */
+  */
   "type": LeakedKeyType;
 
   /**
@@ -41,33 +46,59 @@ export class LeakedKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "LeakedKeyAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "LeakedKeyAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LeakedKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LeakedKeyType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LeakedKey.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

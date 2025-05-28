@@ -11,18 +11,15 @@ import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMet
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
 import { FormulaAndFunctionSLOQueryDefinition } from "./FormulaAndFunctionSLOQueryDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A formula and function query.
- */
+*/
 
-export type FormulaAndFunctionQueryDefinition =
-  | FormulaAndFunctionMetricQueryDefinition
-  | FormulaAndFunctionEventQueryDefinition
-  | FormulaAndFunctionProcessQueryDefinition
-  | FormulaAndFunctionApmDependencyStatsQueryDefinition
-  | FormulaAndFunctionApmResourceStatsQueryDefinition
-  | FormulaAndFunctionSLOQueryDefinition
-  | FormulaAndFunctionCloudCostQueryDefinition
-  | UnparsedObject;
+export type FormulaAndFunctionQueryDefinition = FormulaAndFunctionMetricQueryDefinition | FormulaAndFunctionEventQueryDefinition | FormulaAndFunctionProcessQueryDefinition | FormulaAndFunctionApmDependencyStatsQueryDefinition | FormulaAndFunctionApmResourceStatsQueryDefinition | FormulaAndFunctionSLOQueryDefinition | FormulaAndFunctionCloudCostQueryDefinition | UnparsedObject;

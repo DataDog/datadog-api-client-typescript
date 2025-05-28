@@ -5,15 +5,20 @@
  */
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response object after an app is successfully deleted.
- */
+*/
 export class DeleteAppResponse {
   /**
    * The definition of `DeleteAppResponseData` object.
-   */
+  */
   "data"?: DeleteAppResponseData;
 
   /**
@@ -32,22 +37,48 @@ export class DeleteAppResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DeleteAppResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "DeleteAppResponseData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DeleteAppResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

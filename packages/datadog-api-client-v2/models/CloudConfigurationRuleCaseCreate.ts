@@ -5,19 +5,24 @@
  */
 import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Description of signals.
- */
+*/
 export class CloudConfigurationRuleCaseCreate {
   /**
    * Notification targets for each rule case.
-   */
+  */
   "notifications"?: Array<string>;
   /**
    * Severity of the Security Signal.
-   */
+  */
   "status": SecurityMonitoringRuleSeverity;
 
   /**
@@ -36,27 +41,53 @@ export class CloudConfigurationRuleCaseCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    notifications: {
-      baseName: "notifications",
-      type: "Array<string>",
+    "notifications": {
+      "baseName": "notifications",
+      "type": "Array<string>",
     },
-    status: {
-      baseName: "status",
-      type: "SecurityMonitoringRuleSeverity",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "SecurityMonitoringRuleSeverity",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudConfigurationRuleCaseCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

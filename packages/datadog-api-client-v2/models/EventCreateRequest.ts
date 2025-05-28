@@ -6,19 +6,24 @@
 import { EventCreateRequestType } from "./EventCreateRequestType";
 import { EventPayload } from "./EventPayload";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object representing an event creation request.
- */
+*/
 export class EventCreateRequest {
   /**
    * Event attributes.
-   */
+  */
   "attributes"?: EventPayload;
   /**
    * Entity type.
-   */
+  */
   "type"?: EventCreateRequestType;
 
   /**
@@ -37,26 +42,52 @@ export class EventCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "EventPayload",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EventPayload",
     },
-    type: {
-      baseName: "type",
-      type: "EventCreateRequestType",
+    "type": {
+      "baseName": "type",
+      "type": "EventCreateRequestType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

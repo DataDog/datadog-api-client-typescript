@@ -6,23 +6,28 @@
 import { JobDefinition } from "./JobDefinition";
 import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Run a historical job request.
- */
+*/
 export class RunHistoricalJobRequestAttributes {
   /**
    * Definition of a historical job based on a security monitoring rule.
-   */
+  */
   "fromRule"?: JobDefinitionFromRule;
   /**
    * Request ID.
-   */
+  */
   "id"?: string;
   /**
    * Definition of a historical job.
-   */
+  */
   "jobDefinition"?: JobDefinition;
 
   /**
@@ -41,30 +46,56 @@ export class RunHistoricalJobRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fromRule: {
-      baseName: "fromRule",
-      type: "JobDefinitionFromRule",
+    "fromRule": {
+      "baseName": "fromRule",
+      "type": "JobDefinitionFromRule",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    jobDefinition: {
-      baseName: "jobDefinition",
-      type: "JobDefinition",
+    "jobDefinition": {
+      "baseName": "jobDefinition",
+      "type": "JobDefinition",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RunHistoricalJobRequestAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

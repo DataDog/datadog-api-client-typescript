@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metric origin information.
- */
+*/
 export class MetricOrigin {
   /**
    * The origin metric type code
-   */
+  */
   "metricType"?: number;
   /**
    * The origin product code
-   */
+  */
   "product"?: number;
   /**
    * The origin service code
-   */
+  */
   "service"?: number;
 
   /**
@@ -39,33 +44,59 @@ export class MetricOrigin {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    metricType: {
-      baseName: "metric_type",
-      type: "number",
-      format: "int32",
+    "metricType": {
+      "baseName": "metric_type",
+      "type": "number",
+      "format": "int32",
     },
-    product: {
-      baseName: "product",
-      type: "number",
-      format: "int32",
+    "product": {
+      "baseName": "product",
+      "type": "number",
+      "format": "int32",
     },
-    service: {
-      baseName: "service",
-      type: "number",
-      format: "int32",
+    "service": {
+      "baseName": "service",
+      "type": "number",
+      "format": "int32",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricOrigin.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

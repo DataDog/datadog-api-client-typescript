@@ -6,19 +6,24 @@
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterMeta } from "./SecurityFilterMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * All the available security filters objects.
- */
+*/
 export class SecurityFiltersResponse {
   /**
    * A list of security filters objects.
-   */
+  */
   "data"?: Array<SecurityFilter>;
   /**
    * Optional metadata associated to the response.
-   */
+  */
   "meta"?: SecurityFilterMeta;
 
   /**
@@ -37,26 +42,52 @@ export class SecurityFiltersResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityFilter>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<SecurityFilter>",
     },
-    meta: {
-      baseName: "meta",
-      type: "SecurityFilterMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "SecurityFilterMeta",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityFiltersResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

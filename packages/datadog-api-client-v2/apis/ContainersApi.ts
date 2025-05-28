@@ -1,92 +1,62 @@
-import { BaseAPIRequestFactory } from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+  HttpFile
+  } from "../../datadog-api-client-common/http/http";
+
+import FormData from "form-data";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ContainerItem } from "../models/ContainerItem";
 import { ContainersResponse } from "../models/ContainersResponse";
 
 export class ContainersApiRequestFactory extends BaseAPIRequestFactory {
-  public async listContainers(
-    filterTags?: string,
-    groupBy?: string,
-    sort?: string,
-    pageSize?: number,
-    pageCursor?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listContainers(filterTags?: string,groupBy?: string,sort?: string,pageSize?: number,pageCursor?: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/containers";
+    const localVarPath = '/api/v2/containers';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ContainersApi.listContainers")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.ContainersApi.listContainers').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (filterTags !== undefined) {
-      requestContext.setQueryParam(
-        "filter[tags]",
-        ObjectSerializer.serialize(filterTags, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("filter[tags]", ObjectSerializer.serialize(filterTags, "string", ""), "");
     }
     if (groupBy !== undefined) {
-      requestContext.setQueryParam(
-        "group_by",
-        ObjectSerializer.serialize(groupBy, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("group_by", ObjectSerializer.serialize(groupBy, "string", ""), "");
     }
     if (sort !== undefined) {
-      requestContext.setQueryParam(
-        "sort",
-        ObjectSerializer.serialize(sort, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("sort", ObjectSerializer.serialize(sort, "string", ""), "");
     }
     if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int32"),
-        ""
-      );
+      requestContext.setQueryParam("page[size]", ObjectSerializer.serialize(pageSize, "number", "int32"), "");
     }
     if (pageCursor !== undefined) {
-      requestContext.setQueryParam(
-        "page[cursor]",
-        ObjectSerializer.serialize(pageCursor, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("page[cursor]", ObjectSerializer.serialize(pageCursor, "string", ""), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 }
 
 export class ContainersApiResponseProcessor {
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -94,12 +64,8 @@ export class ContainersApiResponseProcessor {
    * @params response Response returned by the server for a request to listContainers
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listContainers(
-    response: ResponseContext
-  ): Promise<ContainersResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listContainers(response: ResponseContext): Promise<ContainersResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: ContainersResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -107,15 +73,8 @@ export class ContainersApiResponseProcessor {
       ) as ContainersResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -124,11 +83,8 @@ export class ContainersApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -136,17 +92,13 @@ export class ContainersApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ContainersResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ContainersResponse",
-        ""
+        "ContainersResponse", ""
       ) as ContainersResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -155,28 +107,28 @@ export interface ContainersApiListContainersRequest {
    * Comma-separated list of tags to filter containers by.
    * @type string
    */
-  filterTags?: string;
+  filterTags?: string
   /**
    * Comma-separated list of tags to group containers by.
    * @type string
    */
-  groupBy?: string;
+  groupBy?: string
   /**
    * Attribute to sort containers by.
    * @type string
    */
-  sort?: string;
+  sort?: string
   /**
    * Maximum number of results returned.
    * @type number
    */
-  pageSize?: number;
+  pageSize?: number
   /**
    * String to query the next page of results.
    * This key is provided with each valid response from the API in `meta.pagination.next_cursor`.
    * @type string
    */
-  pageCursor?: string;
+  pageCursor?: string
 }
 
 export class ContainersApi {
@@ -184,39 +136,21 @@ export class ContainersApi {
   private responseProcessor: ContainersApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: ContainersApiRequestFactory,
-    responseProcessor?: ContainersApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: ContainersApiRequestFactory, responseProcessor?: ContainersApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new ContainersApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new ContainersApiResponseProcessor();
+    this.requestFactory = requestFactory || new ContainersApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new ContainersApiResponseProcessor();
   }
 
   /**
    * Get all containers for your organization.
    * @param param The request object
    */
-  public listContainers(
-    param: ContainersApiListContainersRequest = {},
-    options?: Configuration
-  ): Promise<ContainersResponse> {
-    const requestContextPromise = this.requestFactory.listContainers(
-      param.filterTags,
-      param.groupBy,
-      param.sort,
-      param.pageSize,
-      param.pageCursor,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listContainers(responseContext);
+  public listContainers(param: ContainersApiListContainersRequest = {}, options?: Configuration): Promise<ContainersResponse> {
+    const requestContextPromise = this.requestFactory.listContainers(param.filterTags,param.groupBy,param.sort,param.pageSize,param.pageCursor,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listContainers(responseContext);
         });
     });
   }
@@ -224,29 +158,18 @@ export class ContainersApi {
   /**
    * Provide a paginated version of listContainers returning a generator with all the items.
    */
-  public async *listContainersWithPagination(
-    param: ContainersApiListContainersRequest = {},
-    options?: Configuration
-  ): AsyncGenerator<ContainerItem> {
+  public async *listContainersWithPagination(param: ContainersApiListContainersRequest = {}, options?: Configuration): AsyncGenerator<ContainerItem> {
+
     let pageSize = 1000;
     if (param.pageSize !== undefined) {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listContainers(
-        param.filterTags,
-        param.groupBy,
-        param.sort,
-        param.pageSize,
-        param.pageCursor,
-        options
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listContainers(param.filterTags,param.groupBy,param.sort,param.pageSize,param.pageCursor,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listContainers(responseContext);
+      const response = await this.responseProcessor.listContainers(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

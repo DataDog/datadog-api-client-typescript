@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing IDs of Synthetic tests and a timeframe.
- */
+*/
 export class SyntheticsFetchUptimesPayload {
   /**
    * Timestamp in seconds (Unix epoch) for the start of uptime.
-   */
+  */
   "fromTs": number;
   /**
    * An array of Synthetic test IDs you want uptimes for.
-   */
+  */
   "publicIds": Array<string>;
   /**
    * Timestamp in seconds (Unix epoch) for the end of uptime.
-   */
+  */
   "toTs": number;
 
   /**
@@ -39,35 +44,61 @@ export class SyntheticsFetchUptimesPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fromTs: {
-      baseName: "from_ts",
-      type: "number",
-      required: true,
-      format: "int64",
+    "fromTs": {
+      "baseName": "from_ts",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    publicIds: {
-      baseName: "public_ids",
-      type: "Array<string>",
-      required: true,
+    "publicIds": {
+      "baseName": "public_ids",
+      "type": "Array<string>",
+      "required": true,
     },
-    toTs: {
-      baseName: "to_ts",
-      type: "number",
-      required: true,
-      format: "int64",
+    "toTs": {
+      "baseName": "to_ts",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsFetchUptimesPayload.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The rule type.
- */
+*/
 
-export type CloudConfigurationRuleType =
-  | typeof CLOUD_CONFIGURATION
-  | UnparsedObject;
-export const CLOUD_CONFIGURATION = "cloud_configuration";
+export type CloudConfigurationRuleType = typeof CLOUD_CONFIGURATION | UnparsedObject;
+export const CLOUD_CONFIGURATION = 'cloud_configuration';

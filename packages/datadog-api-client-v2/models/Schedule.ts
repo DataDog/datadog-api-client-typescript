@@ -6,19 +6,24 @@
 import { ScheduleData } from "./ScheduleData";
 import { ScheduleDataIncludedItem } from "./ScheduleDataIncludedItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Top-level container for a schedule object, including both the `data` payload and any related `included` resources (such as teams, layers, or members).
- */
+*/
 export class Schedule {
   /**
    * Represents the primary data object for a schedule, linking attributes and relationships.
-   */
+  */
   "data"?: ScheduleData;
   /**
    * Any additional resources related to this schedule, such as teams and layers.
-   */
+  */
   "included"?: Array<ScheduleDataIncludedItem>;
 
   /**
@@ -37,26 +42,52 @@ export class Schedule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ScheduleData",
+    "data": {
+      "baseName": "data",
+      "type": "ScheduleData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<ScheduleDataIncludedItem>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<ScheduleDataIncludedItem>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Schedule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

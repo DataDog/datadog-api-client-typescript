@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of the event.
- */
+*/
 
-export type CIAppCreatePipelineEventRequestDataType =
-  | typeof CIPIPELINE_RESOURCE_REQUEST
-  | UnparsedObject;
-export const CIPIPELINE_RESOURCE_REQUEST = "cipipeline_resource_request";
+export type CIAppCreatePipelineEventRequestDataType = typeof CIPIPELINE_RESOURCE_REQUEST | UnparsedObject;
+export const CIPIPELINE_RESOURCE_REQUEST = 'cipipeline_resource_request';

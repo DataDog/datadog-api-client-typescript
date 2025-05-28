@@ -5,15 +5,20 @@
  */
 import { DowntimeMetaPage } from "./DowntimeMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata returned by the API.
- */
+*/
 export class DowntimeMeta {
   /**
    * Object containing the total filtered count.
-   */
+  */
   "page"?: DowntimeMetaPage;
 
   /**
@@ -32,22 +37,48 @@ export class DowntimeMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "DowntimeMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "DowntimeMetaPage",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DowntimeMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

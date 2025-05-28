@@ -5,15 +5,20 @@
  */
 import { ScheduleDataRelationshipsLayersDataItems } from "./ScheduleDataRelationshipsLayersDataItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Associates layers with this schedule in a data structure.
- */
+*/
 export class ScheduleDataRelationshipsLayers {
   /**
    * An array of layer references for this schedule.
-   */
+  */
   "data"?: Array<ScheduleDataRelationshipsLayersDataItems>;
 
   /**
@@ -32,22 +37,48 @@ export class ScheduleDataRelationshipsLayers {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ScheduleDataRelationshipsLayersDataItems>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<ScheduleDataRelationshipsLayersDataItems>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleDataRelationshipsLayers.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

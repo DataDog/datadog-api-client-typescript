@@ -5,15 +5,20 @@
  */
 import { ShiftDataRelationshipsUser } from "./ShiftDataRelationshipsUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ShiftDataRelationships` object.
- */
+*/
 export class ShiftDataRelationships {
   /**
    * Defines the relationship between a shift and the user who is working that shift.
-   */
+  */
   "user"?: ShiftDataRelationshipsUser;
 
   /**
@@ -32,22 +37,48 @@ export class ShiftDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    user: {
-      baseName: "user",
-      type: "ShiftDataRelationshipsUser",
+    "user": {
+      "baseName": "user",
+      "type": "ShiftDataRelationshipsUser",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ShiftDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

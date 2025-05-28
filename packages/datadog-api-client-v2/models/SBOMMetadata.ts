@@ -5,15 +5,20 @@
  */
 import { SBOMMetadataComponent } from "./SBOMMetadataComponent";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Provides additional information about a BOM.
- */
+*/
 export class SBOMMetadata {
   /**
    * The component that the BOM describes.
-   */
+  */
   "component"?: SBOMMetadataComponent;
 
   /**
@@ -32,22 +37,48 @@ export class SBOMMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    component: {
-      baseName: "component",
-      type: "SBOMMetadataComponent",
+    "component": {
+      "baseName": "component",
+      "type": "SBOMMetadataComponent",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SBOMMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

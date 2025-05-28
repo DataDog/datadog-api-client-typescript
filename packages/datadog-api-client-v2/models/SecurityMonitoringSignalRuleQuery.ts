@@ -5,35 +5,40 @@
  */
 import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRuleQueryAggregation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Query for matching rule on signals.
- */
+*/
 export class SecurityMonitoringSignalRuleQuery {
   /**
    * The aggregation type.
-   */
+  */
   "aggregation"?: SecurityMonitoringRuleQueryAggregation;
   /**
    * Fields to group by.
-   */
+  */
   "correlatedByFields"?: Array<string>;
   /**
    * Index of the rule query used to retrieve the correlated field.
-   */
+  */
   "correlatedQueryIndex"?: number;
   /**
    * Group of target fields to aggregate over.
-   */
+  */
   "metrics"?: Array<string>;
   /**
    * Name of the query.
-   */
+  */
   "name"?: string;
   /**
    * Rule ID to match on signals.
-   */
+  */
   "ruleId": string;
 
   /**
@@ -52,44 +57,70 @@ export class SecurityMonitoringSignalRuleQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "SecurityMonitoringRuleQueryAggregation",
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "SecurityMonitoringRuleQueryAggregation",
     },
-    correlatedByFields: {
-      baseName: "correlatedByFields",
-      type: "Array<string>",
+    "correlatedByFields": {
+      "baseName": "correlatedByFields",
+      "type": "Array<string>",
     },
-    correlatedQueryIndex: {
-      baseName: "correlatedQueryIndex",
-      type: "number",
-      format: "int32",
+    "correlatedQueryIndex": {
+      "baseName": "correlatedQueryIndex",
+      "type": "number",
+      "format": "int32",
     },
-    metrics: {
-      baseName: "metrics",
-      type: "Array<string>",
+    "metrics": {
+      "baseName": "metrics",
+      "type": "Array<string>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    ruleId: {
-      baseName: "ruleId",
-      type: "string",
-      required: true,
+    "ruleId": {
+      "baseName": "ruleId",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalRuleQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

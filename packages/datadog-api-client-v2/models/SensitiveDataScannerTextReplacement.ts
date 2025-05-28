@@ -5,20 +5,25 @@
  */
 import { SensitiveDataScannerTextReplacementType } from "./SensitiveDataScannerTextReplacementType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing how the scanned event will be replaced.
- */
+*/
 export class SensitiveDataScannerTextReplacement {
   /**
    * Required if type == 'partial_replacement_from_beginning'
    * or 'partial_replacement_from_end'. It must be > 0.
-   */
+  */
   "numberOfChars"?: number;
   /**
    * Required if type == 'replacement_string'.
-   */
+  */
   "replacementString"?: string;
   /**
    * Type of the replacement text. None means no replacement.
@@ -27,7 +32,7 @@ export class SensitiveDataScannerTextReplacement {
    * allows a user to partially replace the data from the beginning, and
    * partial_replacement_from_end on the other hand, allows to replace data from
    * the end.
-   */
+  */
   "type"?: SensitiveDataScannerTextReplacementType;
 
   /**
@@ -46,31 +51,57 @@ export class SensitiveDataScannerTextReplacement {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    numberOfChars: {
-      baseName: "number_of_chars",
-      type: "number",
-      format: "int64",
+    "numberOfChars": {
+      "baseName": "number_of_chars",
+      "type": "number",
+      "format": "int64",
     },
-    replacementString: {
-      baseName: "replacement_string",
-      type: "string",
+    "replacementString": {
+      "baseName": "replacement_string",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SensitiveDataScannerTextReplacementType",
+    "type": {
+      "baseName": "type",
+      "type": "SensitiveDataScannerTextReplacementType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerTextReplacement.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

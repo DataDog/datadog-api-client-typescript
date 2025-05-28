@@ -5,19 +5,24 @@
  */
 import { TableWidgetTextFormatMatchType } from "./TableWidgetTextFormatMatchType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Match rule for the table widget text format.
- */
+*/
 export class TableWidgetTextFormatMatch {
   /**
    * Match or compare option.
-   */
+  */
   "type": TableWidgetTextFormatMatchType;
   /**
    * Table Widget Match String.
-   */
+  */
   "value": string;
 
   /**
@@ -36,28 +41,54 @@ export class TableWidgetTextFormatMatch {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "TableWidgetTextFormatMatchType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TableWidgetTextFormatMatchType",
+      "required": true,
     },
-    value: {
-      baseName: "value",
-      type: "string",
-      required: true,
+    "value": {
+      "baseName": "value",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TableWidgetTextFormatMatch.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines how often the rotation repeats, using a combination of days and optional seconds.
- */
+*/
 export class LayerAttributesInterval {
   /**
    * The number of days in each rotation cycle.
-   */
+  */
   "days"?: number;
   /**
    * Any additional seconds for the rotation cycle (up to 30 days).
-   */
+  */
   "seconds"?: number;
 
   /**
@@ -35,28 +40,54 @@ export class LayerAttributesInterval {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    days: {
-      baseName: "days",
-      type: "number",
-      format: "int32",
+    "days": {
+      "baseName": "days",
+      "type": "number",
+      "format": "int32",
     },
-    seconds: {
-      baseName: "seconds",
-      type: "number",
-      format: "int64",
+    "seconds": {
+      "baseName": "seconds",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LayerAttributesInterval.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -9,43 +9,48 @@ import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Run workflow is widget that allows you to run a workflow from a dashboard.
- */
+*/
 export class RunWorkflowWidgetDefinition {
   /**
    * List of custom links.
-   */
+  */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
    * Array of workflow inputs to map to dashboard template variables.
-   */
+  */
   "inputs"?: Array<RunWorkflowWidgetInput>;
   /**
    * Time setting for the widget.
-   */
+  */
   "time"?: WidgetTime;
   /**
    * Title of your widget.
-   */
+  */
   "title"?: string;
   /**
    * How to align the text on the widget.
-   */
+  */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-   */
+  */
   "titleSize"?: string;
   /**
    * Type of the run workflow widget.
-   */
+  */
   "type": RunWorkflowWidgetDefinitionType;
   /**
    * Workflow id.
-   */
+  */
   "workflowId": string;
 
   /**
@@ -64,52 +69,78 @@ export class RunWorkflowWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customLinks: {
-      baseName: "custom_links",
-      type: "Array<WidgetCustomLink>",
+    "customLinks": {
+      "baseName": "custom_links",
+      "type": "Array<WidgetCustomLink>",
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<RunWorkflowWidgetInput>",
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<RunWorkflowWidgetInput>",
     },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
+    "time": {
+      "baseName": "time",
+      "type": "WidgetTime",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
+    "titleAlign": {
+      "baseName": "title_align",
+      "type": "WidgetTextAlign",
     },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
+    "titleSize": {
+      "baseName": "title_size",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "RunWorkflowWidgetDefinitionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "RunWorkflowWidgetDefinitionType",
+      "required": true,
     },
-    workflowId: {
-      baseName: "workflow_id",
-      type: "string",
-      required: true,
+    "workflowId": {
+      "baseName": "workflow_id",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RunWorkflowWidgetDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

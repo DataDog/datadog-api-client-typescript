@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Usage amount for a given usage type.
- */
+*/
 export class HourlyUsageMeasurement {
   /**
    * Type of usage.
-   */
+  */
   "usageType"?: string;
   /**
    * Contains the number measured for the given usage_type during the hour.
-   */
+  */
   "value"?: number;
 
   /**
@@ -35,27 +40,53 @@ export class HourlyUsageMeasurement {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usageType: {
-      baseName: "usage_type",
-      type: "string",
+    "usageType": {
+      "baseName": "usage_type",
+      "type": "string",
     },
-    value: {
-      baseName: "value",
-      type: "number",
-      format: "int64",
+    "value": {
+      "baseName": "value",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HourlyUsageMeasurement.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

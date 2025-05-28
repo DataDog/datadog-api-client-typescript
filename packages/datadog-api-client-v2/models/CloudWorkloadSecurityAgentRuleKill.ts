@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Kill system call applied on the container matching the rule
- */
+*/
 export class CloudWorkloadSecurityAgentRuleKill {
   /**
    * Supported signals for the kill system call
-   */
+  */
   "signal"?: string;
 
   /**
@@ -31,22 +36,48 @@ export class CloudWorkloadSecurityAgentRuleKill {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    signal: {
-      baseName: "signal",
-      type: "string",
+    "signal": {
+      "baseName": "signal",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentRuleKill.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

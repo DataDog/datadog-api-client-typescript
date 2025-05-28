@@ -5,15 +5,20 @@
  */
 import { RelationshipToOutcomeData } from "./RelationshipToOutcomeData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API relationship to a scorecard outcome.
- */
+*/
 export class RelationshipToOutcome {
   /**
    * The JSON:API relationship to an outcome, which returns the related rule id.
-   */
+  */
   "data"?: RelationshipToOutcomeData;
 
   /**
@@ -32,22 +37,48 @@ export class RelationshipToOutcome {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RelationshipToOutcomeData",
+    "data": {
+      "baseName": "data",
+      "type": "RelationshipToOutcomeData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToOutcome.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

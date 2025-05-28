@@ -7,14 +7,15 @@ import { ActionQuery } from "./ActionQuery";
 import { DataTransform } from "./DataTransform";
 import { StateVariable } from "./StateVariable";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A data query used by an app. This can take the form of an external action, a data transformation, or a state variable.
- */
+*/
 
-export type Query =
-  | ActionQuery
-  | DataTransform
-  | StateVariable
-  | UnparsedObject;
+export type Query = ActionQuery | DataTransform | StateVariable | UnparsedObject;

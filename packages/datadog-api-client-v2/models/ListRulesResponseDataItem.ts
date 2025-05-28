@@ -7,27 +7,32 @@ import { RelationshipToRule } from "./RelationshipToRule";
 import { RuleAttributes } from "./RuleAttributes";
 import { RuleType } from "./RuleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Rule details.
- */
+*/
 export class ListRulesResponseDataItem {
   /**
    * Details of a rule.
-   */
+  */
   "attributes"?: RuleAttributes;
   /**
    * The unique ID for a scorecard rule.
-   */
+  */
   "id"?: string;
   /**
    * Scorecard create rule response relationship.
-   */
+  */
   "relationships"?: RelationshipToRule;
   /**
    * The JSON:API type for scorecard rules.
-   */
+  */
   "type"?: RuleType;
 
   /**
@@ -46,34 +51,60 @@ export class ListRulesResponseDataItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "RuleAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "RuleAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "RelationshipToRule",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "RelationshipToRule",
     },
-    type: {
-      baseName: "type",
-      type: "RuleType",
+    "type": {
+      "baseName": "type",
+      "type": "RuleType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListRulesResponseDataItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

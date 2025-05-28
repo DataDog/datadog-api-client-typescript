@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Data sources that rely on the process backend.
- */
+*/
 
-export type FormulaAndFunctionProcessQueryDataSource =
-  | typeof PROCESS
-  | typeof CONTAINER
-  | UnparsedObject;
-export const PROCESS = "process";
-export const CONTAINER = "container";
+export type FormulaAndFunctionProcessQueryDataSource = typeof PROCESS| typeof CONTAINER | UnparsedObject;
+export const PROCESS = 'process';
+export const CONTAINER = 'container';

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of `ReadinessGateThresholdType` object.
- */
+*/
 
-export type ReadinessGateThresholdType =
-  | typeof ANY
-  | typeof ALL
-  | UnparsedObject;
-export const ANY = "ANY";
-export const ALL = "ALL";
+export type ReadinessGateThresholdType = typeof ANY| typeof ALL | UnparsedObject;
+export const ANY = 'ANY';
+export const ALL = 'ALL';

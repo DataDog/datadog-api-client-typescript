@@ -5,15 +5,20 @@
  */
 import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a request to create a new escalation policy, including the policy data.
- */
+*/
 export class EscalationPolicyCreateRequest {
   /**
    * Represents the data for creating an escalation policy, including its attributes, relationships, and resource type.
-   */
+  */
   "data": EscalationPolicyCreateRequestData;
 
   /**
@@ -32,23 +37,49 @@ export class EscalationPolicyCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "EscalationPolicyCreateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "EscalationPolicyCreateRequestData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EscalationPolicyCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

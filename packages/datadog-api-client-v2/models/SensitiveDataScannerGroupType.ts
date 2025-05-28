@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Sensitive Data Scanner group type.
- */
+*/
 
-export type SensitiveDataScannerGroupType =
-  | typeof SENSITIVE_DATA_SCANNER_GROUP
-  | UnparsedObject;
-export const SENSITIVE_DATA_SCANNER_GROUP = "sensitive_data_scanner_group";
+export type SensitiveDataScannerGroupType = typeof SENSITIVE_DATA_SCANNER_GROUP | UnparsedObject;
+export const SENSITIVE_DATA_SCANNER_GROUP = 'sensitive_data_scanner_group';

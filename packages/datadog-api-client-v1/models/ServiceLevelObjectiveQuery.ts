@@ -4,21 +4,26 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
  * to be used because this will sum up all request counts instead of averaging them, or taking the max or
  * min of all of those requests.
- */
+*/
 export class ServiceLevelObjectiveQuery {
   /**
    * A Datadog metric query for total (valid) events.
-   */
+  */
   "denominator": string;
   /**
    * A Datadog metric query for good events.
-   */
+  */
   "numerator": string;
 
   /**
@@ -37,28 +42,54 @@ export class ServiceLevelObjectiveQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    denominator: {
-      baseName: "denominator",
-      type: "string",
-      required: true,
+    "denominator": {
+      "baseName": "denominator",
+      "type": "string",
+      "required": true,
     },
-    numerator: {
-      baseName: "numerator",
-      type: "string",
-      required: true,
+    "numerator": {
+      "baseName": "numerator",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceLevelObjectiveQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

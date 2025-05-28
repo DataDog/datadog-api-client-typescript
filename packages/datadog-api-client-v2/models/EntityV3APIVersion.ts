@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The schema version of entity type. The field is known as schema-version in the previous version.
- */
+*/
 
 export type EntityV3APIVersion = typeof V3 | UnparsedObject;
-export const V3 = "v3";
+export const V3 = 'v3';

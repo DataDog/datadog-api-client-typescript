@@ -5,23 +5,28 @@
  */
 import { CsmCoverageAnalysis } from "./CsmCoverageAnalysis";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * CSM Serverless Resources Coverage Analysis attributes.
- */
+*/
 export class CsmServerlessCoverageAnalysisAttributes {
   /**
    * CSM Coverage Analysis.
-   */
+  */
   "cwsCoverage"?: CsmCoverageAnalysis;
   /**
    * The ID of your organization.
-   */
+  */
   "orgId"?: number;
   /**
    * CSM Coverage Analysis.
-   */
+  */
   "totalCoverage"?: CsmCoverageAnalysis;
 
   /**
@@ -40,31 +45,57 @@ export class CsmServerlessCoverageAnalysisAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    cwsCoverage: {
-      baseName: "cws_coverage",
-      type: "CsmCoverageAnalysis",
+    "cwsCoverage": {
+      "baseName": "cws_coverage",
+      "type": "CsmCoverageAnalysis",
     },
-    orgId: {
-      baseName: "org_id",
-      type: "number",
-      format: "int64",
+    "orgId": {
+      "baseName": "org_id",
+      "type": "number",
+      "format": "int64",
     },
-    totalCoverage: {
-      baseName: "total_coverage",
-      type: "CsmCoverageAnalysis",
+    "totalCoverage": {
+      "baseName": "total_coverage",
+      "type": "CsmCoverageAnalysis",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmServerlessCoverageAnalysisAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

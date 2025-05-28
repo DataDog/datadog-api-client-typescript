@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The user's role within the team
- */
+*/
 
 export type UserTeamRole = typeof ADMIN | UnparsedObject;
-export const ADMIN = "admin";
+export const ADMIN = 'admin';

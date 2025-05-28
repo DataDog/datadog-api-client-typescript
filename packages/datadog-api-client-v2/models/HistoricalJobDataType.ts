@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of payload.
- */
+*/
 
-export type HistoricalJobDataType =
-  | typeof HISTORICALDETECTIONSJOB
-  | UnparsedObject;
-export const HISTORICALDETECTIONSJOB = "historicalDetectionsJob";
+export type HistoricalJobDataType = typeof HISTORICALDETECTIONSJOB | UnparsedObject;
+export const HISTORICALDETECTIONSJOB = 'historicalDetectionsJob';

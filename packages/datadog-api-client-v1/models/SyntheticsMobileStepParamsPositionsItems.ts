@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A description of a single position for a `flick` step type.
- */
+*/
 export class SyntheticsMobileStepParamsPositionsItems {
   /**
    * The `x` position for the flick.
-   */
+  */
   "x"?: number;
   /**
    * The `y` position for the flick.
-   */
+  */
   "y"?: number;
 
   /**
@@ -35,28 +40,54 @@ export class SyntheticsMobileStepParamsPositionsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    x: {
-      baseName: "x",
-      type: "number",
-      format: "double",
+    "x": {
+      "baseName": "x",
+      "type": "number",
+      "format": "double",
     },
-    y: {
-      baseName: "y",
-      type: "number",
-      format: "double",
+    "y": {
+      "baseName": "y",
+      "type": "number",
+      "format": "double",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsMobileStepParamsPositionsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

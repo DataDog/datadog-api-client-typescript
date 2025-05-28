@@ -6,13 +6,15 @@
 import { AWSIntegration } from "./AWSIntegration";
 import { HTTPIntegration } from "./HTTPIntegration";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of `ActionConnectionIntegration` object.
- */
+*/
 
-export type ActionConnectionIntegration =
-  | AWSIntegration
-  | HTTPIntegration
-  | UnparsedObject;
+export type ActionConnectionIntegration = AWSIntegration | HTTPIntegration | UnparsedObject;

@@ -1,20 +1,18 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+  HttpFile
+  } from "../../datadog-api-client-common/http/http";
+
+import FormData from "form-data";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { RumMetricCreateRequest } from "../models/RumMetricCreateRequest";
@@ -23,31 +21,26 @@ import { RumMetricsResponse } from "../models/RumMetricsResponse";
 import { RumMetricUpdateRequest } from "../models/RumMetricUpdateRequest";
 
 export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
-  public async createRumMetric(
-    body: RumMetricCreateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createRumMetric(body: RumMetricCreateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createRumMetric");
+      throw new RequiredError('body', 'createRumMetric');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/config/metrics";
+    const localVarPath = '/api/v2/rum/config/metrics';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.RumMetricsApi.createRumMetric")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.RumMetricsApi.createRumMetric').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RumMetricCreateRequest", ""),
@@ -56,138 +49,99 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async deleteRumMetric(
-    metricId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async deleteRumMetric(metricId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricId' is not null or undefined
     if (metricId === null || metricId === undefined) {
-      throw new RequiredError("metricId", "deleteRumMetric");
+      throw new RequiredError('metricId', 'deleteRumMetric');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/config/metrics/{metric_id}".replace(
-      "{metric_id}",
-      encodeURIComponent(String(metricId))
-    );
+    const localVarPath = '/api/v2/rum/config/metrics/{metric_id}'
+      .replace('{metric_id}', encodeURIComponent(String(metricId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.RumMetricsApi.deleteRumMetric")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.RumMetricsApi.deleteRumMetric').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async getRumMetric(
-    metricId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getRumMetric(metricId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricId' is not null or undefined
     if (metricId === null || metricId === undefined) {
-      throw new RequiredError("metricId", "getRumMetric");
+      throw new RequiredError('metricId', 'getRumMetric');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/config/metrics/{metric_id}".replace(
-      "{metric_id}",
-      encodeURIComponent(String(metricId))
-    );
+    const localVarPath = '/api/v2/rum/config/metrics/{metric_id}'
+      .replace('{metric_id}', encodeURIComponent(String(metricId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.RumMetricsApi.getRumMetric")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.RumMetricsApi.getRumMetric').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async listRumMetrics(
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async listRumMetrics(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/rum/config/metrics";
+    const localVarPath = '/api/v2/rum/config/metrics';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.RumMetricsApi.listRumMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.RumMetricsApi.listRumMetrics').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async updateRumMetric(
-    metricId: string,
-    body: RumMetricUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async updateRumMetric(metricId: string,body: RumMetricUpdateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricId' is not null or undefined
     if (metricId === null || metricId === undefined) {
-      throw new RequiredError("metricId", "updateRumMetric");
+      throw new RequiredError('metricId', 'updateRumMetric');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateRumMetric");
+      throw new RequiredError('body', 'updateRumMetric');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/rum/config/metrics/{metric_id}".replace(
-      "{metric_id}",
-      encodeURIComponent(String(metricId))
-    );
+    const localVarPath = '/api/v2/rum/config/metrics/{metric_id}'
+      .replace('{metric_id}', encodeURIComponent(String(metricId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.RumMetricsApi.updateRumMetric")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config.getServer('v2.RumMetricsApi.updateRumMetric').makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RumMetricUpdateRequest", ""),
@@ -196,16 +150,14 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 }
 
 export class RumMetricsApiResponseProcessor {
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -213,12 +165,8 @@ export class RumMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to createRumMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createRumMetric(
-    response: ResponseContext
-  ): Promise<RumMetricResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createRumMetric(response: ResponseContext): Promise<RumMetricResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -226,16 +174,8 @@ export class RumMetricsApiResponseProcessor {
       ) as RumMetricResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 409 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 409||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -244,11 +184,8 @@ export class RumMetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -256,17 +193,13 @@ export class RumMetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumMetricResponse",
-        ""
+        "RumMetricResponse", ""
       ) as RumMetricResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -276,22 +209,13 @@ export class RumMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteRumMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteRumMetric(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteRumMetric(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -300,11 +224,8 @@ export class RumMetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -312,17 +233,13 @@ export class RumMetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
+        "void", ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -332,12 +249,8 @@ export class RumMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to getRumMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getRumMetric(
-    response: ResponseContext
-  ): Promise<RumMetricResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getRumMetric(response: ResponseContext): Promise<RumMetricResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -345,15 +258,8 @@ export class RumMetricsApiResponseProcessor {
       ) as RumMetricResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -362,11 +268,8 @@ export class RumMetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -374,17 +277,13 @@ export class RumMetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumMetricResponse",
-        ""
+        "RumMetricResponse", ""
       ) as RumMetricResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -394,12 +293,8 @@ export class RumMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to listRumMetrics
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listRumMetrics(
-    response: ResponseContext
-  ): Promise<RumMetricsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listRumMetrics(response: ResponseContext): Promise<RumMetricsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: RumMetricsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -407,11 +302,8 @@ export class RumMetricsApiResponseProcessor {
       ) as RumMetricsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -420,11 +312,8 @@ export class RumMetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -432,17 +321,13 @@ export class RumMetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumMetricsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumMetricsResponse",
-        ""
+        "RumMetricsResponse", ""
       ) as RumMetricsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -452,12 +337,8 @@ export class RumMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateRumMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateRumMetric(
-    response: ResponseContext
-  ): Promise<RumMetricResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateRumMetric(response: ResponseContext): Promise<RumMetricResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -465,17 +346,8 @@ export class RumMetricsApiResponseProcessor {
       ) as RumMetricResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 409 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 409||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -484,11 +356,8 @@ export class RumMetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -496,17 +365,13 @@ export class RumMetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RumMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "RumMetricResponse",
-        ""
+        "RumMetricResponse", ""
       ) as RumMetricResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -515,7 +380,7 @@ export interface RumMetricsApiCreateRumMetricRequest {
    * The definition of the new rum-based metric.
    * @type RumMetricCreateRequest
    */
-  body: RumMetricCreateRequest;
+  body: RumMetricCreateRequest
 }
 
 export interface RumMetricsApiDeleteRumMetricRequest {
@@ -523,7 +388,7 @@ export interface RumMetricsApiDeleteRumMetricRequest {
    * The name of the rum-based metric.
    * @type string
    */
-  metricId: string;
+  metricId: string
 }
 
 export interface RumMetricsApiGetRumMetricRequest {
@@ -531,7 +396,7 @@ export interface RumMetricsApiGetRumMetricRequest {
    * The name of the rum-based metric.
    * @type string
    */
-  metricId: string;
+  metricId: string
 }
 
 export interface RumMetricsApiUpdateRumMetricRequest {
@@ -539,12 +404,12 @@ export interface RumMetricsApiUpdateRumMetricRequest {
    * The name of the rum-based metric.
    * @type string
    */
-  metricId: string;
+  metricId: string
   /**
    * New definition of the rum-based metric.
    * @type RumMetricUpdateRequest
    */
-  body: RumMetricUpdateRequest;
+  body: RumMetricUpdateRequest
 }
 
 export class RumMetricsApi {
@@ -552,16 +417,10 @@ export class RumMetricsApi {
   private responseProcessor: RumMetricsApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: RumMetricsApiRequestFactory,
-    responseProcessor?: RumMetricsApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: RumMetricsApiRequestFactory, responseProcessor?: RumMetricsApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new RumMetricsApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new RumMetricsApiResponseProcessor();
+    this.requestFactory = requestFactory || new RumMetricsApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new RumMetricsApiResponseProcessor();
   }
 
   /**
@@ -569,19 +428,11 @@ export class RumMetricsApi {
    * Returns the rum-based metric object from the request body when the request is successful.
    * @param param The request object
    */
-  public createRumMetric(
-    param: RumMetricsApiCreateRumMetricRequest,
-    options?: Configuration
-  ): Promise<RumMetricResponse> {
-    const requestContextPromise = this.requestFactory.createRumMetric(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createRumMetric(responseContext);
+  public createRumMetric(param: RumMetricsApiCreateRumMetricRequest, options?: Configuration): Promise<RumMetricResponse> {
+    const requestContextPromise = this.requestFactory.createRumMetric(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createRumMetric(responseContext);
         });
     });
   }
@@ -590,19 +441,11 @@ export class RumMetricsApi {
    * Delete a specific rum-based metric from your organization.
    * @param param The request object
    */
-  public deleteRumMetric(
-    param: RumMetricsApiDeleteRumMetricRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteRumMetric(
-      param.metricId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteRumMetric(responseContext);
+  public deleteRumMetric(param: RumMetricsApiDeleteRumMetricRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteRumMetric(param.metricId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteRumMetric(responseContext);
         });
     });
   }
@@ -611,19 +454,11 @@ export class RumMetricsApi {
    * Get a specific rum-based metric from your organization.
    * @param param The request object
    */
-  public getRumMetric(
-    param: RumMetricsApiGetRumMetricRequest,
-    options?: Configuration
-  ): Promise<RumMetricResponse> {
-    const requestContextPromise = this.requestFactory.getRumMetric(
-      param.metricId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getRumMetric(responseContext);
+  public getRumMetric(param: RumMetricsApiGetRumMetricRequest, options?: Configuration): Promise<RumMetricResponse> {
+    const requestContextPromise = this.requestFactory.getRumMetric(param.metricId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getRumMetric(responseContext);
         });
     });
   }
@@ -632,13 +467,11 @@ export class RumMetricsApi {
    * Get the list of configured rum-based metrics with their definitions.
    * @param param The request object
    */
-  public listRumMetrics(options?: Configuration): Promise<RumMetricsResponse> {
+  public listRumMetrics( options?: Configuration): Promise<RumMetricsResponse> {
     const requestContextPromise = this.requestFactory.listRumMetrics(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listRumMetrics(responseContext);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listRumMetrics(responseContext);
         });
     });
   }
@@ -648,20 +481,11 @@ export class RumMetricsApi {
    * Returns the rum-based metric object from the request body when the request is successful.
    * @param param The request object
    */
-  public updateRumMetric(
-    param: RumMetricsApiUpdateRumMetricRequest,
-    options?: Configuration
-  ): Promise<RumMetricResponse> {
-    const requestContextPromise = this.requestFactory.updateRumMetric(
-      param.metricId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateRumMetric(responseContext);
+  public updateRumMetric(param: RumMetricsApiUpdateRumMetricRequest, options?: Configuration): Promise<RumMetricResponse> {
+    const requestContextPromise = this.requestFactory.updateRumMetric(param.metricId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateRumMetric(responseContext);
         });
     });
   }

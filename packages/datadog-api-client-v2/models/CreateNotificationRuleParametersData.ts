@@ -6,19 +6,24 @@
 import { CreateNotificationRuleParametersDataAttributes } from "./CreateNotificationRuleParametersDataAttributes";
 import { NotificationRulesType } from "./NotificationRulesType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data of the notification rule create request: the rule type, and the rule attributes. All fields are required.
- */
+*/
 export class CreateNotificationRuleParametersData {
   /**
    * Attributes of the notification rule create request.
-   */
+  */
   "attributes": CreateNotificationRuleParametersDataAttributes;
   /**
    * The rule type associated to notification rules.
-   */
+  */
   "type": NotificationRulesType;
 
   /**
@@ -37,28 +42,54 @@ export class CreateNotificationRuleParametersData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CreateNotificationRuleParametersDataAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CreateNotificationRuleParametersDataAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "NotificationRulesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "NotificationRulesType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateNotificationRuleParametersData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

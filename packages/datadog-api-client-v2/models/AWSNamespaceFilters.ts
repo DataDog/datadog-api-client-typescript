@@ -6,13 +6,15 @@
 import { AWSNamespaceFiltersExcludeOnly } from "./AWSNamespaceFiltersExcludeOnly";
 import { AWSNamespaceFiltersIncludeOnly } from "./AWSNamespaceFiltersIncludeOnly";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * AWS Metrics namespace filters. Defaults to `exclude_only`.
- */
+*/
 
-export type AWSNamespaceFilters =
-  | AWSNamespaceFiltersExcludeOnly
-  | AWSNamespaceFiltersIncludeOnly
-  | UnparsedObject;
+export type AWSNamespaceFilters = AWSNamespaceFiltersExcludeOnly | AWSNamespaceFiltersIncludeOnly | UnparsedObject;

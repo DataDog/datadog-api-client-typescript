@@ -6,27 +6,32 @@
 import { SecurityMonitoringSignalArchiveReason } from "./SecurityMonitoringSignalArchiveReason";
 import { SecurityMonitoringSignalState } from "./SecurityMonitoringSignalState";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes describing the change of state of a security signal.
- */
+*/
 export class SecurityMonitoringSignalStateUpdateAttributes {
   /**
    * Optional comment to display on archived signals.
-   */
+  */
   "archiveComment"?: string;
   /**
    * Reason a signal is archived.
-   */
+  */
   "archiveReason"?: SecurityMonitoringSignalArchiveReason;
   /**
    * The new triage state of the signal.
-   */
+  */
   "state": SecurityMonitoringSignalState;
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
-   */
+  */
   "version"?: number;
 
   /**
@@ -45,36 +50,62 @@ export class SecurityMonitoringSignalStateUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    archiveComment: {
-      baseName: "archive_comment",
-      type: "string",
+    "archiveComment": {
+      "baseName": "archive_comment",
+      "type": "string",
     },
-    archiveReason: {
-      baseName: "archive_reason",
-      type: "SecurityMonitoringSignalArchiveReason",
+    "archiveReason": {
+      "baseName": "archive_reason",
+      "type": "SecurityMonitoringSignalArchiveReason",
     },
-    state: {
-      baseName: "state",
-      type: "SecurityMonitoringSignalState",
-      required: true,
+    "state": {
+      "baseName": "state",
+      "type": "SecurityMonitoringSignalState",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "number",
-      format: "int64",
+    "version": {
+      "baseName": "version",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalStateUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A timeseries point.
- */
+*/
 export class CIAppAggregateBucketValueTimeseriesPoint {
   /**
    * The time value for this point.
-   */
+  */
   "time"?: Date;
   /**
    * The value for this point.
-   */
+  */
   "value"?: number;
 
   /**
@@ -35,28 +40,54 @@ export class CIAppAggregateBucketValueTimeseriesPoint {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    time: {
-      baseName: "time",
-      type: "Date",
-      format: "date-time",
+    "time": {
+      "baseName": "time",
+      "type": "Date",
+      "format": "date-time",
     },
-    value: {
-      baseName: "value",
-      type: "number",
-      format: "double",
+    "value": {
+      "baseName": "value",
+      "type": "number",
+      "format": "double",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CIAppAggregateBucketValueTimeseriesPoint.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,24 +6,29 @@
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
 import { SLOListResponseMetadata } from "./SLOListResponseMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A response with one or more service level objective.
- */
+*/
 export class SLOListResponse {
   /**
    * An array of service level objective objects.
-   */
+  */
   "data"?: Array<ServiceLevelObjective>;
   /**
    * An array of error messages. Each endpoint documents how/whether this field is
    * used.
-   */
+  */
   "errors"?: Array<string>;
   /**
    * The metadata object containing additional information about the list of SLOs.
-   */
+  */
   "metadata"?: SLOListResponseMetadata;
 
   /**
@@ -42,30 +47,56 @@ export class SLOListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<ServiceLevelObjective>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<ServiceLevelObjective>",
     },
-    errors: {
-      baseName: "errors",
-      type: "Array<string>",
+    "errors": {
+      "baseName": "errors",
+      "type": "Array<string>",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "SLOListResponseMetadata",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "SLOListResponseMetadata",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

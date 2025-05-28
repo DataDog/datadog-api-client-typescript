@@ -8,35 +8,40 @@ import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFo
 import { MonitorFormulaAndFunctionEventQueryGroupBy } from "./MonitorFormulaAndFunctionEventQueryGroupBy";
 import { MonitorFormulaAndFunctionEventsDataSource } from "./MonitorFormulaAndFunctionEventsDataSource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A formula and functions events query.
- */
+*/
 export class MonitorFormulaAndFunctionEventQueryDefinition {
   /**
    * Compute options.
-   */
+  */
   "compute": MonitorFormulaAndFunctionEventQueryDefinitionCompute;
   /**
    * Data source for event platform-based queries.
-   */
+  */
   "dataSource": MonitorFormulaAndFunctionEventsDataSource;
   /**
    * Group by options.
-   */
+  */
   "groupBy"?: Array<MonitorFormulaAndFunctionEventQueryGroupBy>;
   /**
    * An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-   */
+  */
   "indexes"?: Array<string>;
   /**
    * Name of the query for use in formulas.
-   */
+  */
   "name": string;
   /**
    * Search options.
-   */
+  */
   "search"?: MonitorFormulaAndFunctionEventQueryDefinitionSearch;
 
   /**
@@ -55,45 +60,71 @@ export class MonitorFormulaAndFunctionEventQueryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compute: {
-      baseName: "compute",
-      type: "MonitorFormulaAndFunctionEventQueryDefinitionCompute",
-      required: true,
+    "compute": {
+      "baseName": "compute",
+      "type": "MonitorFormulaAndFunctionEventQueryDefinitionCompute",
+      "required": true,
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "MonitorFormulaAndFunctionEventsDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "MonitorFormulaAndFunctionEventsDataSource",
+      "required": true,
     },
-    groupBy: {
-      baseName: "group_by",
-      type: "Array<MonitorFormulaAndFunctionEventQueryGroupBy>",
+    "groupBy": {
+      "baseName": "group_by",
+      "type": "Array<MonitorFormulaAndFunctionEventQueryGroupBy>",
     },
-    indexes: {
-      baseName: "indexes",
-      type: "Array<string>",
+    "indexes": {
+      "baseName": "indexes",
+      "type": "Array<string>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    search: {
-      baseName: "search",
-      type: "MonitorFormulaAndFunctionEventQueryDefinitionSearch",
+    "search": {
+      "baseName": "search",
+      "type": "MonitorFormulaAndFunctionEventQueryDefinitionSearch",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorFormulaAndFunctionEventQueryDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { SyntheticsBatchDetailsData } from "./SyntheticsBatchDetailsData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Details about a batch response.
- */
+*/
 export class SyntheticsBatchDetails {
   /**
    * Wrapper object that contains the details of a batch.
-   */
+  */
   "data"?: SyntheticsBatchDetailsData;
 
   /**
@@ -32,22 +37,48 @@ export class SyntheticsBatchDetails {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "SyntheticsBatchDetailsData",
+    "data": {
+      "baseName": "data",
+      "type": "SyntheticsBatchDetailsData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsBatchDetails.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+
