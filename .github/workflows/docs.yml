@@ -18,16 +18,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Enable Corepack
+        run: corepack enable
+        env:
+          COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
+
       - name: Set up Node 16
         uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: 'yarn'
-
-      - name: Enable Corepack
-        run: corepack enable
-        env:
-          COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
 
       - name: Build documentation
         run: |
