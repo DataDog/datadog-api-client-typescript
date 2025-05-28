@@ -5,19 +5,24 @@
  */
 import { CloudWorkloadSecurityAgentRuleKill } from "./CloudWorkloadSecurityAgentRuleKill";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The action the rule can perform if triggered
- */
+*/
 export class CloudWorkloadSecurityAgentRuleAction {
   /**
    * SECL expression used to target the container to apply the action on
-   */
+  */
   "filter"?: string;
   /**
    * Kill system call applied on the container matching the rule
-   */
+  */
   "kill"?: CloudWorkloadSecurityAgentRuleKill;
 
   /**
@@ -36,26 +41,52 @@ export class CloudWorkloadSecurityAgentRuleAction {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "string",
+    "filter": {
+      "baseName": "filter",
+      "type": "string",
     },
-    kill: {
-      baseName: "kill",
-      type: "CloudWorkloadSecurityAgentRuleKill",
+    "kill": {
+      "baseName": "kill",
+      "type": "CloudWorkloadSecurityAgentRuleKill",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentRuleAction.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

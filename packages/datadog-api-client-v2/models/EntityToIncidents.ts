@@ -5,15 +5,20 @@
  */
 import { RelationshipItem } from "./RelationshipItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Entity to incidents relationship.
- */
+*/
 export class EntityToIncidents {
   /**
    * Relationships.
-   */
+  */
   "data"?: Array<RelationshipItem>;
 
   /**
@@ -32,22 +37,48 @@ export class EntityToIncidents {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RelationshipItem>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<RelationshipItem>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityToIncidents.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

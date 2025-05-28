@@ -7,14 +7,15 @@ import { ObservabilityPipelineSensitiveDataScannerProcessorScopeAll } from "./Ob
 import { ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude";
 import { ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Determines which parts of the log the pattern-matching rule should be applied to.
- */
+*/
 
-export type ObservabilityPipelineSensitiveDataScannerProcessorScope =
-  | ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude
-  | ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude
-  | ObservabilityPipelineSensitiveDataScannerProcessorScopeAll
-  | UnparsedObject;
+export type ObservabilityPipelineSensitiveDataScannerProcessorScope = ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude | ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude | ObservabilityPipelineSensitiveDataScannerProcessorScopeAll | UnparsedObject;

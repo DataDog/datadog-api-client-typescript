@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Timings scope for response time assertions.
- */
+*/
 
-export type SyntheticsAssertionTimingsScope =
-  | typeof ALL
-  | typeof WITHOUT_DNS
-  | UnparsedObject;
-export const ALL = "all";
-export const WITHOUT_DNS = "withoutDNS";
+export type SyntheticsAssertionTimingsScope = typeof ALL| typeof WITHOUT_DNS | UnparsedObject;
+export const ALL = 'all';
+export const WITHOUT_DNS = 'withoutDNS';

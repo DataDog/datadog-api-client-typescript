@@ -6,19 +6,24 @@
 import { SearchServiceLevelObjective } from "./SearchServiceLevelObjective";
 import { SearchSLOResponseDataAttributesFacets } from "./SearchSLOResponseDataAttributesFacets";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes
- */
+*/
 export class SearchSLOResponseDataAttributes {
   /**
    * Facets
-   */
+  */
   "facets"?: SearchSLOResponseDataAttributesFacets;
   /**
    * SLOs
-   */
+  */
   "slos"?: Array<SearchServiceLevelObjective>;
 
   /**
@@ -37,26 +42,52 @@ export class SearchSLOResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facets: {
-      baseName: "facets",
-      type: "SearchSLOResponseDataAttributesFacets",
+    "facets": {
+      "baseName": "facets",
+      "type": "SearchSLOResponseDataAttributesFacets",
     },
-    slos: {
-      baseName: "slos",
-      type: "Array<SearchServiceLevelObjective>",
+    "slos": {
+      "baseName": "slos",
+      "type": "Array<SearchServiceLevelObjective>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SearchSLOResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

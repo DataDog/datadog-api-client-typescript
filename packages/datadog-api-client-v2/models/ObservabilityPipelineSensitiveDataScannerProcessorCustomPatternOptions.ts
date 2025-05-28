@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for defining a custom regex pattern.
- */
+*/
 export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions {
   /**
    * A regular expression used to detect sensitive values. Must be a valid regex.
-   */
+  */
   "rule": string;
 
   /**
@@ -31,23 +36,49 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOpti
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    rule: {
-      baseName: "rule",
-      type: "string",
-      required: true,
+    "rule": {
+      "baseName": "rule",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,31 +5,36 @@
  */
 import { SBOMComponentType } from "./SBOMComponentType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Software or hardware component.
- */
+*/
 export class SBOMComponent {
   /**
    * An optional identifier that can be used to reference the component elsewhere in the BOM.
-   */
+  */
   "bomRef"?: string;
   /**
    * The name of the component. This will often be a shortened, single name of the component.
-   */
+  */
   "name": string;
   /**
    * Specifies the package-url (purl). The purl, if specified, MUST be valid and conform to the [specification](https://github.com/package-url/purl-spec).
-   */
+  */
   "purl"?: string;
   /**
    * The SBOM component type
-   */
+  */
   "type": SBOMComponentType;
   /**
    * The component version.
-   */
+  */
   "version": string;
 
   /**
@@ -48,41 +53,67 @@ export class SBOMComponent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bomRef: {
-      baseName: "bom-ref",
-      type: "string",
+    "bomRef": {
+      "baseName": "bom-ref",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    purl: {
-      baseName: "purl",
-      type: "string",
+    "purl": {
+      "baseName": "purl",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SBOMComponentType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SBOMComponentType",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "string",
-      required: true,
+    "version": {
+      "baseName": "version",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SBOMComponent.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

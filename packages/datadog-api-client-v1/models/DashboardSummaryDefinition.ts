@@ -5,49 +5,54 @@
  */
 import { DashboardLayoutType } from "./DashboardLayoutType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Dashboard definition.
- */
+*/
 export class DashboardSummaryDefinition {
   /**
    * Identifier of the dashboard author.
-   */
+  */
   "authorHandle"?: string;
   /**
    * Creation date of the dashboard.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Description of the dashboard.
-   */
+  */
   "description"?: string;
   /**
    * Dashboard identifier.
-   */
+  */
   "id"?: string;
   /**
    * Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
-   *
+   * 
    * This property is deprecated; please use the [Restriction Policies API](https://docs.datadoghq.com/api/latest/restriction-policies/) instead to manage write authorization for individual dashboards.
-   */
+  */
   "isReadOnly"?: boolean;
   /**
    * Layout type of the dashboard.
-   */
+  */
   "layoutType"?: DashboardLayoutType;
   /**
    * Modification date of the dashboard.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * Title of the dashboard.
-   */
+  */
   "title"?: string;
   /**
    * URL of the dashboard.
-   */
+  */
   "url"?: string;
 
   /**
@@ -66,56 +71,82 @@ export class DashboardSummaryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    authorHandle: {
-      baseName: "author_handle",
-      type: "string",
+    "authorHandle": {
+      "baseName": "author_handle",
+      "type": "string",
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    isReadOnly: {
-      baseName: "is_read_only",
-      type: "boolean",
+    "isReadOnly": {
+      "baseName": "is_read_only",
+      "type": "boolean",
     },
-    layoutType: {
-      baseName: "layout_type",
-      type: "DashboardLayoutType",
+    "layoutType": {
+      "baseName": "layout_type",
+      "type": "DashboardLayoutType",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    url: {
-      baseName: "url",
-      type: "string",
+    "url": {
+      "baseName": "url",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardSummaryDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

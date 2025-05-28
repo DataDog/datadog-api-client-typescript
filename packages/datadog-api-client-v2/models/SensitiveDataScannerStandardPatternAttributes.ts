@@ -4,35 +4,40 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the Sensitive Data Scanner standard pattern.
- */
+*/
 export class SensitiveDataScannerStandardPatternAttributes {
   /**
    * Description of the standard pattern.
-   */
+  */
   "description"?: string;
   /**
    * List of included keywords.
-   */
+  */
   "includedKeywords"?: Array<string>;
   /**
    * Name of the standard pattern.
-   */
+  */
   "name"?: string;
   /**
    * (Deprecated) Regex to match, optionally documented for older standard rules. Refer to the `description` field to understand what the rule does.
-   */
+  */
   "pattern"?: string;
   /**
    * Integer from 1 (high) to 5 (low) indicating standard pattern issue severity.
-   */
+  */
   "priority"?: number;
   /**
    * List of tags.
-   */
+  */
   "tags"?: Array<string>;
 
   /**
@@ -51,43 +56,69 @@ export class SensitiveDataScannerStandardPatternAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    includedKeywords: {
-      baseName: "included_keywords",
-      type: "Array<string>",
+    "includedKeywords": {
+      "baseName": "included_keywords",
+      "type": "Array<string>",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    pattern: {
-      baseName: "pattern",
-      type: "string",
+    "pattern": {
+      "baseName": "pattern",
+      "type": "string",
     },
-    priority: {
-      baseName: "priority",
-      type: "number",
-      format: "int64",
+    "priority": {
+      "baseName": "priority",
+      "type": "number",
+      "format": "int64",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerStandardPatternAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

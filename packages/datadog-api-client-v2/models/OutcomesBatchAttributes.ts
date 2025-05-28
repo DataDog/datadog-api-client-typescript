@@ -5,15 +5,20 @@
  */
 import { OutcomesBatchRequestItem } from "./OutcomesBatchRequestItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API attributes for a batched set of scorecard outcomes.
- */
+*/
 export class OutcomesBatchAttributes {
   /**
    * Set of scorecard outcomes to update.
-   */
+  */
   "results"?: Array<OutcomesBatchRequestItem>;
 
   /**
@@ -32,22 +37,48 @@ export class OutcomesBatchAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    results: {
-      baseName: "results",
-      type: "Array<OutcomesBatchRequestItem>",
+    "results": {
+      "baseName": "results",
+      "type": "Array<OutcomesBatchRequestItem>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OutcomesBatchAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

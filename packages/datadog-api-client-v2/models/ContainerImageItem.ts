@@ -6,13 +6,15 @@
 import { ContainerImage } from "./ContainerImage";
 import { ContainerImageGroup } from "./ContainerImageGroup";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Possible Container Image models.
- */
+*/
 
-export type ContainerImageItem =
-  | ContainerImage
-  | ContainerImageGroup
-  | UnparsedObject;
+export type ContainerImageItem = ContainerImage | ContainerImageGroup | UnparsedObject;

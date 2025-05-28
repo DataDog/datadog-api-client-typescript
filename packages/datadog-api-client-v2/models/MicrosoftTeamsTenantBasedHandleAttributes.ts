@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Tenant-based handle attributes.
- */
+*/
 export class MicrosoftTeamsTenantBasedHandleAttributes {
   /**
    * Channel id.
-   */
+  */
   "channelId"?: string;
   /**
    * Tenant-based handle name.
-   */
+  */
   "name"?: string;
   /**
    * Team id.
-   */
+  */
   "teamId"?: string;
   /**
    * Tenant id.
-   */
+  */
   "tenantId"?: string;
 
   /**
@@ -43,34 +48,60 @@ export class MicrosoftTeamsTenantBasedHandleAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    channelId: {
-      baseName: "channel_id",
-      type: "string",
+    "channelId": {
+      "baseName": "channel_id",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    teamId: {
-      baseName: "team_id",
-      type: "string",
+    "teamId": {
+      "baseName": "team_id",
+      "type": "string",
     },
-    tenantId: {
-      baseName: "tenant_id",
-      type: "string",
+    "tenantId": {
+      "baseName": "tenant_id",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MicrosoftTeamsTenantBasedHandleAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

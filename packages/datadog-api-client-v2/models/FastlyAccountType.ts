@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for this API. Should always be `fastly-accounts`.
- */
+*/
 
 export type FastlyAccountType = typeof FASTLY_ACCOUNTS | UnparsedObject;
-export const FASTLY_ACCOUNTS = "fastly-accounts";
+export const FASTLY_ACCOUNTS = 'fastly-accounts';

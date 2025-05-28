@@ -4,12 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The priority of the event's monitor. For example, `normal` or `low`.
- */
+*/
 
-export type EventPriority = typeof NORMAL | typeof LOW | UnparsedObject;
-export const NORMAL = "normal";
-export const LOW = "low";
+export type EventPriority = typeof NORMAL| typeof LOW | UnparsedObject;
+export const NORMAL = 'normal';
+export const LOW = 'low';

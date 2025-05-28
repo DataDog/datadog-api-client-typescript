@@ -5,15 +5,20 @@
  */
 import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The new bulk mute finding request.
- */
+*/
 export class BulkMuteFindingsRequest {
   /**
    * Data object containing the new bulk mute properties of the finding.
-   */
+  */
   "data": BulkMuteFindingsRequestData;
 
   /**
@@ -32,23 +37,49 @@ export class BulkMuteFindingsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "BulkMuteFindingsRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "BulkMuteFindingsRequestData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BulkMuteFindingsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

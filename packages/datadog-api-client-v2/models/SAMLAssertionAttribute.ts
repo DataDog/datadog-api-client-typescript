@@ -6,23 +6,28 @@
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { SAMLAssertionAttributesType } from "./SAMLAssertionAttributesType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * SAML assertion attribute.
- */
+*/
 export class SAMLAssertionAttribute {
   /**
    * Key/Value pair of attributes used in SAML assertion attributes.
-   */
+  */
   "attributes"?: SAMLAssertionAttributeAttributes;
   /**
    * The ID of the SAML assertion attribute.
-   */
+  */
   "id": string;
   /**
    * SAML assertion attributes resource type.
-   */
+  */
   "type": SAMLAssertionAttributesType;
 
   /**
@@ -41,32 +46,58 @@ export class SAMLAssertionAttribute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SAMLAssertionAttributeAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SAMLAssertionAttributeAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SAMLAssertionAttributesType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SAMLAssertionAttributesType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SAMLAssertionAttribute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

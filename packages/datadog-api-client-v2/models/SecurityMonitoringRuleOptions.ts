@@ -13,57 +13,62 @@ import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRul
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
 import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options.
- */
+*/
 export class SecurityMonitoringRuleOptions {
   /**
    * Options for cloud_configuration rules.
    * Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
-   */
+  */
   "complianceRuleOptions"?: CloudConfigurationComplianceRuleOptions;
   /**
    * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce signal noise.
    * The severity is decreased by one level: `CRITICAL` in production becomes `HIGH` in non-production, `HIGH` becomes `MEDIUM` and so on. `INFO` remains `INFO`.
    * The decrement is applied when the environment tag of the signal starts with `staging`, `test` or `dev`.
-   */
+  */
   "decreaseCriticalityBasedOnEnv"?: boolean;
   /**
    * The detection method.
-   */
+  */
   "detectionMethod"?: SecurityMonitoringRuleDetectionMethod;
   /**
    * A time window is specified to match when at least one of the cases matches true. This is a sliding window
    * and evaluates in real time. For third party detection method, this field is not used.
-   */
+  */
   "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
   /**
    * Hardcoded evaluator type.
-   */
+  */
   "hardcodedEvaluatorType"?: SecurityMonitoringRuleHardcodedEvaluatorType;
   /**
    * Options on impossible travel detection method.
-   */
+  */
   "impossibleTravelOptions"?: SecurityMonitoringRuleImpossibleTravelOptions;
   /**
    * Once a signal is generated, the signal will remain "open" if a case is matched at least once within
    * this keep alive window. For third party detection method, this field is not used.
-   */
+  */
   "keepAlive"?: SecurityMonitoringRuleKeepAlive;
   /**
    * A signal will "close" regardless of the query being matched once the time exceeds the maximum duration.
    * This time is calculated from the first seen timestamp.
-   */
+  */
   "maxSignalDuration"?: SecurityMonitoringRuleMaxSignalDuration;
   /**
    * Options on new value detection method.
-   */
+  */
   "newValueOptions"?: SecurityMonitoringRuleNewValueOptions;
   /**
    * Options on third party detection method.
-   */
+  */
   "thirdPartyRuleOptions"?: SecurityMonitoringRuleThirdPartyOptions;
 
   /**
@@ -82,61 +87,87 @@ export class SecurityMonitoringRuleOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    complianceRuleOptions: {
-      baseName: "complianceRuleOptions",
-      type: "CloudConfigurationComplianceRuleOptions",
+    "complianceRuleOptions": {
+      "baseName": "complianceRuleOptions",
+      "type": "CloudConfigurationComplianceRuleOptions",
     },
-    decreaseCriticalityBasedOnEnv: {
-      baseName: "decreaseCriticalityBasedOnEnv",
-      type: "boolean",
+    "decreaseCriticalityBasedOnEnv": {
+      "baseName": "decreaseCriticalityBasedOnEnv",
+      "type": "boolean",
     },
-    detectionMethod: {
-      baseName: "detectionMethod",
-      type: "SecurityMonitoringRuleDetectionMethod",
+    "detectionMethod": {
+      "baseName": "detectionMethod",
+      "type": "SecurityMonitoringRuleDetectionMethod",
     },
-    evaluationWindow: {
-      baseName: "evaluationWindow",
-      type: "SecurityMonitoringRuleEvaluationWindow",
-      format: "int32",
+    "evaluationWindow": {
+      "baseName": "evaluationWindow",
+      "type": "SecurityMonitoringRuleEvaluationWindow",
+      "format": "int32",
     },
-    hardcodedEvaluatorType: {
-      baseName: "hardcodedEvaluatorType",
-      type: "SecurityMonitoringRuleHardcodedEvaluatorType",
+    "hardcodedEvaluatorType": {
+      "baseName": "hardcodedEvaluatorType",
+      "type": "SecurityMonitoringRuleHardcodedEvaluatorType",
     },
-    impossibleTravelOptions: {
-      baseName: "impossibleTravelOptions",
-      type: "SecurityMonitoringRuleImpossibleTravelOptions",
+    "impossibleTravelOptions": {
+      "baseName": "impossibleTravelOptions",
+      "type": "SecurityMonitoringRuleImpossibleTravelOptions",
     },
-    keepAlive: {
-      baseName: "keepAlive",
-      type: "SecurityMonitoringRuleKeepAlive",
-      format: "int32",
+    "keepAlive": {
+      "baseName": "keepAlive",
+      "type": "SecurityMonitoringRuleKeepAlive",
+      "format": "int32",
     },
-    maxSignalDuration: {
-      baseName: "maxSignalDuration",
-      type: "SecurityMonitoringRuleMaxSignalDuration",
-      format: "int32",
+    "maxSignalDuration": {
+      "baseName": "maxSignalDuration",
+      "type": "SecurityMonitoringRuleMaxSignalDuration",
+      "format": "int32",
     },
-    newValueOptions: {
-      baseName: "newValueOptions",
-      type: "SecurityMonitoringRuleNewValueOptions",
+    "newValueOptions": {
+      "baseName": "newValueOptions",
+      "type": "SecurityMonitoringRuleNewValueOptions",
     },
-    thirdPartyRuleOptions: {
-      baseName: "thirdPartyRuleOptions",
-      type: "SecurityMonitoringRuleThirdPartyOptions",
+    "thirdPartyRuleOptions": {
+      "baseName": "thirdPartyRuleOptions",
+      "type": "SecurityMonitoringRuleThirdPartyOptions",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

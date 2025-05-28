@@ -6,19 +6,24 @@
 import { RelationshipToUserTeamPermissionData } from "./RelationshipToUserTeamPermissionData";
 import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship between a user team permission and a team
- */
+*/
 export class RelationshipToUserTeamPermission {
   /**
    * Related user team permission data
-   */
+  */
   "data"?: RelationshipToUserTeamPermissionData;
   /**
    * Links attributes.
-   */
+  */
   "links"?: TeamRelationshipsLinks;
 
   /**
@@ -37,26 +42,52 @@ export class RelationshipToUserTeamPermission {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RelationshipToUserTeamPermissionData",
+    "data": {
+      "baseName": "data",
+      "type": "RelationshipToUserTeamPermissionData",
     },
-    links: {
-      baseName: "links",
-      type: "TeamRelationshipsLinks",
+    "links": {
+      "baseName": "links",
+      "type": "TeamRelationshipsLinks",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToUserTeamPermission.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

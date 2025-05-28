@@ -6,24 +6,29 @@
 import { SecurityMonitoringSignalAttributes } from "./SecurityMonitoringSignalAttributes";
 import { SecurityMonitoringSignalType } from "./SecurityMonitoringSignalType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object description of a security signal.
- */
+*/
 export class SecurityMonitoringSignal {
   /**
    * The object containing all signal attributes and their
    * associated values.
-   */
+  */
   "attributes"?: SecurityMonitoringSignalAttributes;
   /**
    * The unique ID of the security signal.
-   */
+  */
   "id"?: string;
   /**
    * The type of event.
-   */
+  */
   "type"?: SecurityMonitoringSignalType;
 
   /**
@@ -42,30 +47,56 @@ export class SecurityMonitoringSignal {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringSignalAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringSignalAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringSignalType",
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringSignalType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignal.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

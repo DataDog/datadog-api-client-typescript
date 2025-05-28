@@ -8,15 +8,15 @@ import { EscalationPolicyUser } from "./EscalationPolicyUser";
 import { ScheduleData } from "./ScheduleData";
 import { TeamReference } from "./TeamReference";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Represents included related resources when retrieving an escalation policy, such as teams, steps, or targets.
- */
+*/
 
-export type EscalationPolicyIncluded =
-  | TeamReference
-  | EscalationPolicyStep
-  | EscalationPolicyUser
-  | ScheduleData
-  | UnparsedObject;
+export type EscalationPolicyIncluded = TeamReference | EscalationPolicyStep | EscalationPolicyUser | ScheduleData | UnparsedObject;

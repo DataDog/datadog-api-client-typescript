@@ -6,13 +6,15 @@
 import { SecurityMonitoringSignalRuleResponse } from "./SecurityMonitoringSignalRuleResponse";
 import { SecurityMonitoringStandardRuleResponse } from "./SecurityMonitoringStandardRuleResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Create a new rule.
- */
+*/
 
-export type SecurityMonitoringRuleResponse =
-  | SecurityMonitoringStandardRuleResponse
-  | SecurityMonitoringSignalRuleResponse
-  | UnparsedObject;
+export type SecurityMonitoringRuleResponse = SecurityMonitoringStandardRuleResponse | SecurityMonitoringSignalRuleResponse | UnparsedObject;

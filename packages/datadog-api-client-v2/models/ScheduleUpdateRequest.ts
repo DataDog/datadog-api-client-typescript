@@ -5,15 +5,20 @@
  */
 import { ScheduleUpdateRequestData } from "./ScheduleUpdateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A top-level wrapper for a schedule update request, referring to the `data` object with the new details.
- */
+*/
 export class ScheduleUpdateRequest {
   /**
    * Contains all data needed to update an existing schedule, including its attributes (such as name and time zone) and any relationships to teams.
-   */
+  */
   "data": ScheduleUpdateRequestData;
 
   /**
@@ -32,23 +37,49 @@ export class ScheduleUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ScheduleUpdateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ScheduleUpdateRequestData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

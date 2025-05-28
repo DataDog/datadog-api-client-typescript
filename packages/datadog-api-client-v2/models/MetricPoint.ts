@@ -4,20 +4,25 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A point object is of the form `{POSIX_timestamp, numeric_value}`.
- */
+*/
 export class MetricPoint {
   /**
    * The timestamp should be in seconds and current.
    * Current is defined as not more than 10 minutes in the future or more than 1 hour in the past.
-   */
+  */
   "timestamp"?: number;
   /**
    * The numeric value format should be a 64bit float gauge-type value.
-   */
+  */
   "value"?: number;
 
   /**
@@ -36,28 +41,54 @@ export class MetricPoint {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    timestamp: {
-      baseName: "timestamp",
-      type: "number",
-      format: "int64",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "number",
+      "format": "int64",
     },
-    value: {
-      baseName: "value",
-      type: "number",
-      format: "double",
+    "value": {
+      "baseName": "value",
+      "type": "number",
+      "format": "double",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricPoint.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,27 +7,32 @@ import { MonitorNotificationRuleRelationships } from "./MonitorNotificationRuleR
 import { MonitorNotificationRuleResourceType } from "./MonitorNotificationRuleResourceType";
 import { MonitorNotificationRuleResponseAttributes } from "./MonitorNotificationRuleResponseAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Monitor notification rule data.
- */
+*/
 export class MonitorNotificationRuleData {
   /**
    * Attributes of the monitor notification rule.
-   */
+  */
   "attributes"?: MonitorNotificationRuleResponseAttributes;
   /**
    * The ID of the monitor notification rule.
-   */
+  */
   "id"?: string;
   /**
    * All relationships associated with monitor notification rule.
-   */
+  */
   "relationships"?: MonitorNotificationRuleRelationships;
   /**
    * Monitor notification rule resource type.
-   */
+  */
   "type"?: MonitorNotificationRuleResourceType;
 
   /**
@@ -46,34 +51,60 @@ export class MonitorNotificationRuleData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MonitorNotificationRuleResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MonitorNotificationRuleResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "MonitorNotificationRuleRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "MonitorNotificationRuleRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "MonitorNotificationRuleResourceType",
+    "type": {
+      "baseName": "type",
+      "type": "MonitorNotificationRuleResourceType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorNotificationRuleData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

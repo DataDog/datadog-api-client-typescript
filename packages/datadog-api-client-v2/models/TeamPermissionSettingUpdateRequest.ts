@@ -5,15 +5,20 @@
  */
 import { TeamPermissionSettingUpdate } from "./TeamPermissionSettingUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team permission setting update request
- */
+*/
 export class TeamPermissionSettingUpdateRequest {
   /**
    * Team permission setting update
-   */
+  */
   "data": TeamPermissionSettingUpdate;
 
   /**
@@ -32,23 +37,49 @@ export class TeamPermissionSettingUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TeamPermissionSettingUpdate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "TeamPermissionSettingUpdate",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamPermissionSettingUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

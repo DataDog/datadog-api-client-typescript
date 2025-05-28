@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for the rule action
- */
+*/
 export class SecurityMonitoringRuleCaseActionOptions {
   /**
    * Duration of the action in seconds. 0 indicates no expiration.
-   */
+  */
   "duration"?: number;
   /**
    * Used with the case action of type 'user_behavior'. The value specified in this field is applied as a risk tag to all users affected by the rule.
-   */
+  */
   "userBehaviorName"?: string;
 
   /**
@@ -35,27 +40,53 @@ export class SecurityMonitoringRuleCaseActionOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    duration: {
-      baseName: "duration",
-      type: "number",
-      format: "int64",
+    "duration": {
+      "baseName": "duration",
+      "type": "number",
+      "format": "int64",
     },
-    userBehaviorName: {
-      baseName: "userBehaviorName",
-      type: "string",
+    "userBehaviorName": {
+      "baseName": "userBehaviorName",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleCaseActionOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

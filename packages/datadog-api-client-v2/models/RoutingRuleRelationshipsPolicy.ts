@@ -5,15 +5,20 @@
  */
 import { RoutingRuleRelationshipsPolicyData } from "./RoutingRuleRelationshipsPolicyData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines the relationship that links a routing rule to a policy.
- */
+*/
 export class RoutingRuleRelationshipsPolicy {
   /**
    * Represents the policy data reference, containing the policy's ID and resource type.
-   */
+  */
   "data"?: RoutingRuleRelationshipsPolicyData;
 
   /**
@@ -32,22 +37,48 @@ export class RoutingRuleRelationshipsPolicy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RoutingRuleRelationshipsPolicyData",
+    "data": {
+      "baseName": "data",
+      "type": "RoutingRuleRelationshipsPolicyData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RoutingRuleRelationshipsPolicy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

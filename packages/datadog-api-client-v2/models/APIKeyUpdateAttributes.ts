@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes used to update an API Key.
- */
+*/
 export class APIKeyUpdateAttributes {
   /**
    * The APIKeyUpdateAttributes category.
-   */
+  */
   "category"?: string;
   /**
    * Name of the API key.
-   */
+  */
   "name": string;
   /**
    * The APIKeyUpdateAttributes remote_config_read_enabled.
-   */
+  */
   "remoteConfigReadEnabled"?: boolean;
 
   /**
@@ -39,31 +44,57 @@ export class APIKeyUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "string",
+    "category": {
+      "baseName": "category",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    remoteConfigReadEnabled: {
-      baseName: "remote_config_read_enabled",
-      type: "boolean",
+    "remoteConfigReadEnabled": {
+      "baseName": "remote_config_read_enabled",
+      "type": "boolean",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return APIKeyUpdateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

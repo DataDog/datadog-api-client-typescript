@@ -6,19 +6,24 @@
 import { RetryStrategyKind } from "./RetryStrategyKind";
 import { RetryStrategyLinear } from "./RetryStrategyLinear";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `RetryStrategy` object.
- */
+*/
 export class RetryStrategy {
   /**
    * The definition of `RetryStrategyKind` object.
-   */
+  */
   "kind": RetryStrategyKind;
   /**
    * The definition of `RetryStrategyLinear` object.
-   */
+  */
   "linear"?: RetryStrategyLinear;
 
   /**
@@ -37,27 +42,53 @@ export class RetryStrategy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    kind: {
-      baseName: "kind",
-      type: "RetryStrategyKind",
-      required: true,
+    "kind": {
+      "baseName": "kind",
+      "type": "RetryStrategyKind",
+      "required": true,
     },
-    linear: {
-      baseName: "linear",
-      type: "RetryStrategyLinear",
+    "linear": {
+      "baseName": "linear",
+      "type": "RetryStrategyLinear",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RetryStrategy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

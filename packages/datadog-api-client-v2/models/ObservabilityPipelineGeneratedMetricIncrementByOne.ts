@@ -5,15 +5,20 @@
  */
 import { ObservabilityPipelineGeneratedMetricIncrementByOneStrategy } from "./ObservabilityPipelineGeneratedMetricIncrementByOneStrategy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Strategy that increments a generated metric by one for each matching event.
- */
+*/
 export class ObservabilityPipelineGeneratedMetricIncrementByOne {
   /**
    * Increments the metric by 1 for each matching event.
-   */
+  */
   "strategy": ObservabilityPipelineGeneratedMetricIncrementByOneStrategy;
 
   /**
@@ -32,23 +37,49 @@ export class ObservabilityPipelineGeneratedMetricIncrementByOne {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    strategy: {
-      baseName: "strategy",
-      type: "ObservabilityPipelineGeneratedMetricIncrementByOneStrategy",
-      required: true,
+    "strategy": {
+      "baseName": "strategy",
+      "type": "ObservabilityPipelineGeneratedMetricIncrementByOneStrategy",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineGeneratedMetricIncrementByOne.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,23 +5,28 @@
  */
 import { CsmHostsAndContainersCoverageAnalysisAttributes } from "./CsmHostsAndContainersCoverageAnalysisAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * CSM Hosts and Containers Coverage Analysis data.
- */
+*/
 export class CsmHostsAndContainersCoverageAnalysisData {
   /**
    * CSM Hosts and Containers Coverage Analysis attributes.
-   */
+  */
   "attributes"?: CsmHostsAndContainersCoverageAnalysisAttributes;
   /**
    * The ID of your organization.
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource. The value should always be `get_hosts_and_containers_coverage_analysis_response_public_v0`.
-   */
+  */
   "type"?: string;
 
   /**
@@ -40,30 +45,56 @@ export class CsmHostsAndContainersCoverageAnalysisData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CsmHostsAndContainersCoverageAnalysisAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CsmHostsAndContainersCoverageAnalysisAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "string",
+    "type": {
+      "baseName": "type",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmHostsAndContainersCoverageAnalysisData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

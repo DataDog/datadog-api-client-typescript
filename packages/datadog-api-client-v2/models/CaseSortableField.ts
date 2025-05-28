@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Case field that can be sorted on
- */
+*/
 
-export type CaseSortableField =
-  | typeof CREATED_AT
-  | typeof PRIORITY
-  | typeof STATUS
-  | UnparsedObject;
-export const CREATED_AT = "created_at";
-export const PRIORITY = "priority";
-export const STATUS = "status";
+export type CaseSortableField = typeof CREATED_AT| typeof PRIORITY| typeof STATUS | UnparsedObject;
+export const CREATED_AT = 'created_at';
+export const PRIORITY = 'priority';
+export const STATUS = 'status';

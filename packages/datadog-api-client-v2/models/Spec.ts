@@ -10,39 +10,44 @@ import { OutputSchema } from "./OutputSchema";
 import { Step } from "./Step";
 import { Trigger } from "./Trigger";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The spec defines what the workflow does.
- */
+*/
 export class Spec {
   /**
    * A list of annotations used in the workflow. These are like sticky notes for your workflow!
-   */
+  */
   "annotations"?: Array<Annotation>;
   /**
    * A list of connections or connection groups used in the workflow.
-   */
+  */
   "connectionEnvs"?: Array<ConnectionEnv>;
   /**
    * Unique identifier used to trigger workflows automatically in Datadog.
-   */
+  */
   "handle"?: string;
   /**
    * A list of input parameters for the workflow. These can be used as dynamic runtime values in your workflow.
-   */
+  */
   "inputSchema"?: InputSchema;
   /**
    * A list of output parameters for the workflow.
-   */
+  */
   "outputSchema"?: OutputSchema;
   /**
    * A `Step` is a sub-component of a workflow. Each `Step` performs an action.
-   */
+  */
   "steps"?: Array<Step>;
   /**
    * The list of triggers that activate this workflow. At least one trigger is required, and each trigger type may appear at most once.
-   */
+  */
   "triggers"?: Array<Trigger>;
 
   /**
@@ -61,46 +66,72 @@ export class Spec {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    annotations: {
-      baseName: "annotations",
-      type: "Array<Annotation>",
+    "annotations": {
+      "baseName": "annotations",
+      "type": "Array<Annotation>",
     },
-    connectionEnvs: {
-      baseName: "connectionEnvs",
-      type: "Array<ConnectionEnv>",
+    "connectionEnvs": {
+      "baseName": "connectionEnvs",
+      "type": "Array<ConnectionEnv>",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
     },
-    inputSchema: {
-      baseName: "inputSchema",
-      type: "InputSchema",
+    "inputSchema": {
+      "baseName": "inputSchema",
+      "type": "InputSchema",
     },
-    outputSchema: {
-      baseName: "outputSchema",
-      type: "OutputSchema",
+    "outputSchema": {
+      "baseName": "outputSchema",
+      "type": "OutputSchema",
     },
-    steps: {
-      baseName: "steps",
-      type: "Array<Step>",
+    "steps": {
+      "baseName": "steps",
+      "type": "Array<Step>",
     },
-    triggers: {
-      baseName: "triggers",
-      type: "Array<Trigger>",
+    "triggers": {
+      "baseName": "triggers",
+      "type": "Array<Trigger>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Spec.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

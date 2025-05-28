@@ -5,15 +5,20 @@
  */
 import { CsmServerlessCoverageAnalysisData } from "./CsmServerlessCoverageAnalysisData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * CSM Serverless Resources Coverage Analysis response.
- */
+*/
 export class CsmServerlessCoverageAnalysisResponse {
   /**
    * CSM Serverless Resources Coverage Analysis data.
-   */
+  */
   "data"?: CsmServerlessCoverageAnalysisData;
 
   /**
@@ -32,22 +37,48 @@ export class CsmServerlessCoverageAnalysisResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CsmServerlessCoverageAnalysisData",
+    "data": {
+      "baseName": "data",
+      "type": "CsmServerlessCoverageAnalysisData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CsmServerlessCoverageAnalysisResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

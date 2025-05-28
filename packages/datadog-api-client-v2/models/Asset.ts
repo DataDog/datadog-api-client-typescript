@@ -6,23 +6,28 @@
 import { AssetAttributes } from "./AssetAttributes";
 import { AssetEntityType } from "./AssetEntityType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single vulnerable asset
- */
+*/
 export class Asset {
   /**
    * The JSON:API attributes of the asset.
-   */
+  */
   "attributes": AssetAttributes;
   /**
    * The unique ID for this asset.
-   */
+  */
   "id": string;
   /**
    * The JSON:API type.
-   */
+  */
   "type": AssetEntityType;
 
   /**
@@ -41,33 +46,59 @@ export class Asset {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AssetAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AssetAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AssetEntityType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AssetEntityType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Asset.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

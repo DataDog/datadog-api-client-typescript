@@ -1,20 +1,18 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+  HttpFile
+  } from "../../datadog-api-client-common/http/http";
+
+import FormData from "form-data";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { DistributionPointsContentEncoding } from "../models/DistributionPointsContentEncoding";
@@ -28,238 +26,157 @@ import { MetricsPayload } from "../models/MetricsPayload";
 import { MetricsQueryResponse } from "../models/MetricsQueryResponse";
 
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
-  public async getMetricMetadata(
-    metricName: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getMetricMetadata(metricName: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError("metricName", "getMetricMetadata");
+      throw new RequiredError('metricName', 'getMetricMetadata');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/metrics/{metric_name}".replace(
-      "{metric_name}",
-      encodeURIComponent(String(metricName))
-    );
+    const localVarPath = '/api/v1/metrics/{metric_name}'
+      .replace('{metric_name}', encodeURIComponent(String(metricName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.getMetricMetadata")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.MetricsApi.getMetricMetadata').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async listActiveMetrics(
-    from: number,
-    host?: string,
-    tagFilter?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async listActiveMetrics(from: number,host?: string,tagFilter?: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'from' is not null or undefined
     if (from === null || from === undefined) {
-      throw new RequiredError("from", "listActiveMetrics");
+      throw new RequiredError('from', 'listActiveMetrics');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/metrics";
+    const localVarPath = '/api/v1/metrics';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.listActiveMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.MetricsApi.listActiveMetrics').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (from !== undefined) {
-      requestContext.setQueryParam(
-        "from",
-        ObjectSerializer.serialize(from, "number", "int64"),
-        ""
-      );
+      requestContext.setQueryParam("from", ObjectSerializer.serialize(from, "number", "int64"), "");
     }
     if (host !== undefined) {
-      requestContext.setQueryParam(
-        "host",
-        ObjectSerializer.serialize(host, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("host", ObjectSerializer.serialize(host, "string", ""), "");
     }
     if (tagFilter !== undefined) {
-      requestContext.setQueryParam(
-        "tag_filter",
-        ObjectSerializer.serialize(tagFilter, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("tag_filter", ObjectSerializer.serialize(tagFilter, "string", ""), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async listMetrics(
-    q: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async listMetrics(q: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'q' is not null or undefined
     if (q === null || q === undefined) {
-      throw new RequiredError("q", "listMetrics");
+      throw new RequiredError('q', 'listMetrics');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/search";
+    const localVarPath = '/api/v1/search';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.listMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.MetricsApi.listMetrics').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (q !== undefined) {
-      requestContext.setQueryParam(
-        "q",
-        ObjectSerializer.serialize(q, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("q", ObjectSerializer.serialize(q, "string", ""), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async queryMetrics(
-    from: number,
-    to: number,
-    query: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async queryMetrics(from: number,to: number,query: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'from' is not null or undefined
     if (from === null || from === undefined) {
-      throw new RequiredError("from", "queryMetrics");
+      throw new RequiredError('from', 'queryMetrics');
     }
 
     // verify required parameter 'to' is not null or undefined
     if (to === null || to === undefined) {
-      throw new RequiredError("to", "queryMetrics");
+      throw new RequiredError('to', 'queryMetrics');
     }
 
     // verify required parameter 'query' is not null or undefined
     if (query === null || query === undefined) {
-      throw new RequiredError("query", "queryMetrics");
+      throw new RequiredError('query', 'queryMetrics');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/query";
+    const localVarPath = '/api/v1/query';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.queryMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.MetricsApi.queryMetrics').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (from !== undefined) {
-      requestContext.setQueryParam(
-        "from",
-        ObjectSerializer.serialize(from, "number", "int64"),
-        ""
-      );
+      requestContext.setQueryParam("from", ObjectSerializer.serialize(from, "number", "int64"), "");
     }
     if (to !== undefined) {
-      requestContext.setQueryParam(
-        "to",
-        ObjectSerializer.serialize(to, "number", "int64"),
-        ""
-      );
+      requestContext.setQueryParam("to", ObjectSerializer.serialize(to, "number", "int64"), "");
     }
     if (query !== undefined) {
-      requestContext.setQueryParam(
-        "query",
-        ObjectSerializer.serialize(query, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("query", ObjectSerializer.serialize(query, "string", ""), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async submitDistributionPoints(
-    body: DistributionPointsPayload,
-    contentEncoding?: DistributionPointsContentEncoding,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async submitDistributionPoints(body: DistributionPointsPayload,contentEncoding?: DistributionPointsContentEncoding,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "submitDistributionPoints");
+      throw new RequiredError('body', 'submitDistributionPoints');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/distribution_points";
+    const localVarPath = '/api/v1/distribution_points';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.submitDistributionPoints")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v1.MetricsApi.submitDistributionPoints').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Header Params
     if (contentEncoding !== undefined) {
-      requestContext.setHeaderParam(
-        "Content-Encoding",
-        ObjectSerializer.serialize(
-          contentEncoding,
-          "DistributionPointsContentEncoding",
-          ""
-        )
-      );
+      requestContext.setHeaderParam("Content-Encoding", ObjectSerializer.serialize(contentEncoding, "DistributionPointsContentEncoding", ""));
     }
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType(["text/json"]);
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "text/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DistributionPointsPayload", ""),
@@ -273,38 +190,30 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async submitMetrics(
-    body: MetricsPayload,
-    contentEncoding?: MetricContentEncoding,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async submitMetrics(body: MetricsPayload,contentEncoding?: MetricContentEncoding,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "submitMetrics");
+      throw new RequiredError('body', 'submitMetrics');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/series";
+    const localVarPath = '/api/v1/series';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.submitMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v1.MetricsApi.submitMetrics').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Header Params
     if (contentEncoding !== undefined) {
-      requestContext.setHeaderParam(
-        "Content-Encoding",
-        ObjectSerializer.serialize(contentEncoding, "MetricContentEncoding", "")
-      );
+      requestContext.setHeaderParam("Content-Encoding", ObjectSerializer.serialize(contentEncoding, "MetricContentEncoding", ""));
     }
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType(["text/json"]);
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "text/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MetricsPayload", ""),
@@ -318,40 +227,31 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async updateMetricMetadata(
-    metricName: string,
-    body: MetricMetadata,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async updateMetricMetadata(metricName: string,body: MetricMetadata,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError("metricName", "updateMetricMetadata");
+      throw new RequiredError('metricName', 'updateMetricMetadata');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateMetricMetadata");
+      throw new RequiredError('body', 'updateMetricMetadata');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/metrics/{metric_name}".replace(
-      "{metric_name}",
-      encodeURIComponent(String(metricName))
-    );
+    const localVarPath = '/api/v1/metrics/{metric_name}'
+      .replace('{metric_name}', encodeURIComponent(String(metricName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.updateMetricMetadata")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v1.MetricsApi.updateMetricMetadata').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "MetricMetadata", ""),
@@ -360,16 +260,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 }
 
 export class MetricsApiResponseProcessor {
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -377,12 +275,8 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to getMetricMetadata
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getMetricMetadata(
-    response: ResponseContext
-  ): Promise<MetricMetadata> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getMetricMetadata(response: ResponseContext): Promise<MetricMetadata> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: MetricMetadata = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -390,15 +284,8 @@ export class MetricsApiResponseProcessor {
       ) as MetricMetadata;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -407,11 +294,8 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -419,17 +303,13 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricMetadata = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricMetadata",
-        ""
+        "MetricMetadata", ""
       ) as MetricMetadata;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -439,12 +319,8 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to listActiveMetrics
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listActiveMetrics(
-    response: ResponseContext
-  ): Promise<MetricsListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listActiveMetrics(response: ResponseContext): Promise<MetricsListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: MetricsListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -452,15 +328,8 @@ export class MetricsApiResponseProcessor {
       ) as MetricsListResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -469,11 +338,8 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -481,17 +347,13 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricsListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricsListResponse",
-        ""
+        "MetricsListResponse", ""
       ) as MetricsListResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -501,12 +363,8 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to listMetrics
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listMetrics(
-    response: ResponseContext
-  ): Promise<MetricSearchResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listMetrics(response: ResponseContext): Promise<MetricSearchResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: MetricSearchResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -514,15 +372,8 @@ export class MetricsApiResponseProcessor {
       ) as MetricSearchResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -531,11 +382,8 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -543,17 +391,13 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricSearchResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricSearchResponse",
-        ""
+        "MetricSearchResponse", ""
       ) as MetricSearchResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -563,12 +407,8 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to queryMetrics
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async queryMetrics(
-    response: ResponseContext
-  ): Promise<MetricsQueryResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async queryMetrics(response: ResponseContext): Promise<MetricsQueryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: MetricsQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -576,15 +416,8 @@ export class MetricsApiResponseProcessor {
       ) as MetricsQueryResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -593,11 +426,8 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -605,17 +435,13 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricsQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricsQueryResponse",
-        ""
+        "MetricsQueryResponse", ""
       ) as MetricsQueryResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -625,12 +451,8 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to submitDistributionPoints
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async submitDistributionPoints(
-    response: ResponseContext
-  ): Promise<IntakePayloadAccepted> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async submitDistributionPoints(response: ResponseContext): Promise<IntakePayloadAccepted> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -638,17 +460,8 @@ export class MetricsApiResponseProcessor {
       ) as IntakePayloadAccepted;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 408 ||
-      response.httpStatusCode === 413 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 408||response.httpStatusCode === 413||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -657,11 +470,8 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -669,17 +479,13 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IntakePayloadAccepted",
-        ""
+        "IntakePayloadAccepted", ""
       ) as IntakePayloadAccepted;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -689,12 +495,8 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to submitMetrics
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async submitMetrics(
-    response: ResponseContext
-  ): Promise<IntakePayloadAccepted> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async submitMetrics(response: ResponseContext): Promise<IntakePayloadAccepted> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -702,17 +504,8 @@ export class MetricsApiResponseProcessor {
       ) as IntakePayloadAccepted;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 408 ||
-      response.httpStatusCode === 413 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 408||response.httpStatusCode === 413||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -721,11 +514,8 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -733,17 +523,13 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IntakePayloadAccepted",
-        ""
+        "IntakePayloadAccepted", ""
       ) as IntakePayloadAccepted;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -753,12 +539,8 @@ export class MetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateMetricMetadata
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateMetricMetadata(
-    response: ResponseContext
-  ): Promise<MetricMetadata> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateMetricMetadata(response: ResponseContext): Promise<MetricMetadata> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: MetricMetadata = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -766,16 +548,8 @@ export class MetricsApiResponseProcessor {
       ) as MetricMetadata;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -784,11 +558,8 @@ export class MetricsApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -796,17 +567,13 @@ export class MetricsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricMetadata = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricMetadata",
-        ""
+        "MetricMetadata", ""
       ) as MetricMetadata;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -815,7 +582,7 @@ export interface MetricsApiGetMetricMetadataRequest {
    * Name of the metric for which to get metadata.
    * @type string
    */
-  metricName: string;
+  metricName: string
 }
 
 export interface MetricsApiListActiveMetricsRequest {
@@ -823,19 +590,19 @@ export interface MetricsApiListActiveMetricsRequest {
    * Seconds since the Unix epoch.
    * @type number
    */
-  from: number;
+  from: number
   /**
    * Hostname for filtering the list of metrics returned.
    * If set, metrics retrieved are those with the corresponding hostname tag.
    * @type string
    */
-  host?: string;
+  host?: string
   /**
    * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions.
    * Cannot be combined with other filters.
    * @type string
    */
-  tagFilter?: string;
+  tagFilter?: string
 }
 
 export interface MetricsApiListMetricsRequest {
@@ -843,7 +610,7 @@ export interface MetricsApiListMetricsRequest {
    * Query string to search metrics upon. Can optionally be prefixed with `metrics:`.
    * @type string
    */
-  q: string;
+  q: string
 }
 
 export interface MetricsApiQueryMetricsRequest {
@@ -851,41 +618,41 @@ export interface MetricsApiQueryMetricsRequest {
    * Start of the queried time period, seconds since the Unix epoch.
    * @type number
    */
-  from: number;
+  from: number
   /**
    * End of the queried time period, seconds since the Unix epoch.
    * @type number
    */
-  to: number;
+  to: number
   /**
    * Query string.
    * @type string
    */
-  query: string;
+  query: string
 }
 
 export interface MetricsApiSubmitDistributionPointsRequest {
   /**
    * @type DistributionPointsPayload
    */
-  body: DistributionPointsPayload;
+  body: DistributionPointsPayload
   /**
    * HTTP header used to compress the media-type.
    * @type DistributionPointsContentEncoding
    */
-  contentEncoding?: DistributionPointsContentEncoding;
+  contentEncoding?: DistributionPointsContentEncoding
 }
 
 export interface MetricsApiSubmitMetricsRequest {
   /**
    * @type MetricsPayload
    */
-  body: MetricsPayload;
+  body: MetricsPayload
   /**
    * HTTP header used to compress the media-type.
    * @type MetricContentEncoding
    */
-  contentEncoding?: MetricContentEncoding;
+  contentEncoding?: MetricContentEncoding
 }
 
 export interface MetricsApiUpdateMetricMetadataRequest {
@@ -893,12 +660,12 @@ export interface MetricsApiUpdateMetricMetadataRequest {
    * Name of the metric for which to edit metadata.
    * @type string
    */
-  metricName: string;
+  metricName: string
   /**
    * New metadata.
    * @type MetricMetadata
    */
-  body: MetricMetadata;
+  body: MetricMetadata
 }
 
 export class MetricsApi {
@@ -906,35 +673,21 @@ export class MetricsApi {
   private responseProcessor: MetricsApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: MetricsApiRequestFactory,
-    responseProcessor?: MetricsApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: MetricsApiRequestFactory, responseProcessor?: MetricsApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new MetricsApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new MetricsApiResponseProcessor();
+    this.requestFactory = requestFactory || new MetricsApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new MetricsApiResponseProcessor();
   }
 
   /**
    * Get metadata about a specific metric.
    * @param param The request object
    */
-  public getMetricMetadata(
-    param: MetricsApiGetMetricMetadataRequest,
-    options?: Configuration
-  ): Promise<MetricMetadata> {
-    const requestContextPromise = this.requestFactory.getMetricMetadata(
-      param.metricName,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getMetricMetadata(responseContext);
+  public getMetricMetadata(param: MetricsApiGetMetricMetadataRequest, options?: Configuration): Promise<MetricMetadata> {
+    const requestContextPromise = this.requestFactory.getMetricMetadata(param.metricName,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getMetricMetadata(responseContext);
         });
     });
   }
@@ -943,21 +696,11 @@ export class MetricsApi {
    * Get the list of actively reporting metrics from a given time until now.
    * @param param The request object
    */
-  public listActiveMetrics(
-    param: MetricsApiListActiveMetricsRequest,
-    options?: Configuration
-  ): Promise<MetricsListResponse> {
-    const requestContextPromise = this.requestFactory.listActiveMetrics(
-      param.from,
-      param.host,
-      param.tagFilter,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listActiveMetrics(responseContext);
+  public listActiveMetrics(param: MetricsApiListActiveMetricsRequest, options?: Configuration): Promise<MetricsListResponse> {
+    const requestContextPromise = this.requestFactory.listActiveMetrics(param.from,param.host,param.tagFilter,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listActiveMetrics(responseContext);
         });
     });
   }
@@ -966,19 +709,11 @@ export class MetricsApi {
    * Search for metrics from the last 24 hours in Datadog.
    * @param param The request object
    */
-  public listMetrics(
-    param: MetricsApiListMetricsRequest,
-    options?: Configuration
-  ): Promise<MetricSearchResponse> {
-    const requestContextPromise = this.requestFactory.listMetrics(
-      param.q,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listMetrics(responseContext);
+  public listMetrics(param: MetricsApiListMetricsRequest, options?: Configuration): Promise<MetricSearchResponse> {
+    const requestContextPromise = this.requestFactory.listMetrics(param.q,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listMetrics(responseContext);
         });
     });
   }
@@ -987,21 +722,11 @@ export class MetricsApi {
    * Query timeseries points.
    * @param param The request object
    */
-  public queryMetrics(
-    param: MetricsApiQueryMetricsRequest,
-    options?: Configuration
-  ): Promise<MetricsQueryResponse> {
-    const requestContextPromise = this.requestFactory.queryMetrics(
-      param.from,
-      param.to,
-      param.query,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.queryMetrics(responseContext);
+  public queryMetrics(param: MetricsApiQueryMetricsRequest, options?: Configuration): Promise<MetricsQueryResponse> {
+    const requestContextPromise = this.requestFactory.queryMetrics(param.from,param.to,param.query,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.queryMetrics(responseContext);
         });
     });
   }
@@ -1010,22 +735,11 @@ export class MetricsApi {
    * The distribution points end-point allows you to post distribution data that can be graphed on Datadog’s dashboards.
    * @param param The request object
    */
-  public submitDistributionPoints(
-    param: MetricsApiSubmitDistributionPointsRequest,
-    options?: Configuration
-  ): Promise<IntakePayloadAccepted> {
-    const requestContextPromise = this.requestFactory.submitDistributionPoints(
-      param.body,
-      param.contentEncoding,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.submitDistributionPoints(
-            responseContext
-          );
+  public submitDistributionPoints(param: MetricsApiSubmitDistributionPointsRequest, options?: Configuration): Promise<IntakePayloadAccepted> {
+    const requestContextPromise = this.requestFactory.submitDistributionPoints(param.body,param.contentEncoding,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.submitDistributionPoints(responseContext);
         });
     });
   }
@@ -1033,9 +747,9 @@ export class MetricsApi {
   /**
    * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
    * The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).
-   *
+   * 
    * If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
-   *
+   * 
    * - 64 bits for the timestamp
    * - 64 bits for the value
    * - 40 bytes for the metric names
@@ -1044,20 +758,11 @@ export class MetricsApi {
    * compression is applied, which reduces the payload size.
    * @param param The request object
    */
-  public submitMetrics(
-    param: MetricsApiSubmitMetricsRequest,
-    options?: Configuration
-  ): Promise<IntakePayloadAccepted> {
-    const requestContextPromise = this.requestFactory.submitMetrics(
-      param.body,
-      param.contentEncoding,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.submitMetrics(responseContext);
+  public submitMetrics(param: MetricsApiSubmitMetricsRequest, options?: Configuration): Promise<IntakePayloadAccepted> {
+    const requestContextPromise = this.requestFactory.submitMetrics(param.body,param.contentEncoding,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.submitMetrics(responseContext);
         });
     });
   }
@@ -1066,20 +771,11 @@ export class MetricsApi {
    * Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
    * @param param The request object
    */
-  public updateMetricMetadata(
-    param: MetricsApiUpdateMetricMetadataRequest,
-    options?: Configuration
-  ): Promise<MetricMetadata> {
-    const requestContextPromise = this.requestFactory.updateMetricMetadata(
-      param.metricName,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateMetricMetadata(responseContext);
+  public updateMetricMetadata(param: MetricsApiUpdateMetricMetadataRequest, options?: Configuration): Promise<MetricMetadata> {
+    const requestContextPromise = this.requestFactory.updateMetricMetadata(param.metricName,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateMetricMetadata(responseContext);
         });
     });
   }

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Included raw schema attributes.
- */
+*/
 export class EntityResponseIncludedRawSchemaAttributes {
   /**
    * Schema from user input in base64 encoding.
-   */
+  */
   "rawSchema"?: string;
 
   /**
@@ -31,22 +36,48 @@ export class EntityResponseIncludedRawSchemaAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    rawSchema: {
-      baseName: "rawSchema",
-      type: "string",
+    "rawSchema": {
+      "baseName": "rawSchema",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseIncludedRawSchemaAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

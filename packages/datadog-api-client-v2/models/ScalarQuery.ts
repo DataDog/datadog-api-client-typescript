@@ -6,13 +6,15 @@
 import { EventsScalarQuery } from "./EventsScalarQuery";
 import { MetricsScalarQuery } from "./MetricsScalarQuery";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An individual scalar query to one of the basic Datadog data sources.
- */
+*/
 
-export type ScalarQuery =
-  | MetricsScalarQuery
-  | EventsScalarQuery
-  | UnparsedObject;
+export type ScalarQuery = MetricsScalarQuery | EventsScalarQuery | UnparsedObject;

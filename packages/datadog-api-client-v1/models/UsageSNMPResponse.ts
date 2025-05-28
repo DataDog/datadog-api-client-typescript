@@ -5,15 +5,20 @@
  */
 import { UsageSNMPHour } from "./UsageSNMPHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the number of SNMP devices for each hour for a given organization.
- */
+*/
 export class UsageSNMPResponse {
   /**
    * Get hourly usage for SNMP devices.
-   */
+  */
   "usage"?: Array<UsageSNMPHour>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageSNMPResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageSNMPHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageSNMPHour>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageSNMPResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

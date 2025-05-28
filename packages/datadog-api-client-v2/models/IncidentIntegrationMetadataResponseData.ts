@@ -7,27 +7,32 @@ import { IncidentIntegrationMetadataAttributes } from "./IncidentIntegrationMeta
 import { IncidentIntegrationMetadataType } from "./IncidentIntegrationMetadataType";
 import { IncidentIntegrationRelationships } from "./IncidentIntegrationRelationships";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident integration metadata from a response.
- */
+*/
 export class IncidentIntegrationMetadataResponseData {
   /**
    * Incident integration metadata's attributes for a create request.
-   */
+  */
   "attributes"?: IncidentIntegrationMetadataAttributes;
   /**
    * The incident integration metadata's ID.
-   */
+  */
   "id": string;
   /**
    * The incident's integration relationships from a response.
-   */
+  */
   "relationships"?: IncidentIntegrationRelationships;
   /**
    * Integration metadata resource type.
-   */
+  */
   "type": IncidentIntegrationMetadataType;
 
   /**
@@ -46,36 +51,62 @@ export class IncidentIntegrationMetadataResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentIntegrationMetadataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentIntegrationMetadataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentIntegrationRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "IncidentIntegrationRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "IncidentIntegrationMetadataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentIntegrationMetadataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentIntegrationMetadataResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

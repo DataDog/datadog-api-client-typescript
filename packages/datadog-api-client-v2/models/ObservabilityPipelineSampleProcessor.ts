@@ -5,35 +5,40 @@
  */
 import { ObservabilityPipelineSampleProcessorType } from "./ObservabilityPipelineSampleProcessorType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `sample` processor allows probabilistic sampling of logs at a fixed rate.
- */
+*/
 export class ObservabilityPipelineSampleProcessor {
   /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
-   */
+  */
   "id": string;
   /**
    * A Datadog search query used to determine which logs this processor targets.
-   */
+  */
   "include": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * The percentage of logs to sample.
-   */
+  */
   "percentage"?: number;
   /**
    * Number of events to sample (1 in N).
-   */
+  */
   "rate"?: number;
   /**
    * The processor type. The value should always be `sample`.
-   */
+  */
   "type": ObservabilityPipelineSampleProcessorType;
 
   /**
@@ -52,48 +57,74 @@ export class ObservabilityPipelineSampleProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    include: {
-      baseName: "include",
-      type: "string",
-      required: true,
+    "include": {
+      "baseName": "include",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    percentage: {
-      baseName: "percentage",
-      type: "number",
-      format: "double",
+    "percentage": {
+      "baseName": "percentage",
+      "type": "number",
+      "format": "double",
     },
-    rate: {
-      baseName: "rate",
-      type: "number",
-      format: "int64",
+    "rate": {
+      "baseName": "rate",
+      "type": "number",
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineSampleProcessorType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineSampleProcessorType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSampleProcessor.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

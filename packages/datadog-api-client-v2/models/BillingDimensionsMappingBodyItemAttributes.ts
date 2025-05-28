@@ -5,23 +5,28 @@
  */
 import { BillingDimensionsMappingBodyItemAttributesEndpointsItems } from "./BillingDimensionsMappingBodyItemAttributesEndpointsItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Mapping of billing dimensions to endpoint keys.
- */
+*/
 export class BillingDimensionsMappingBodyItemAttributes {
   /**
    * List of supported endpoints with their keys mapped to the billing_dimension.
-   */
+  */
   "endpoints"?: Array<BillingDimensionsMappingBodyItemAttributesEndpointsItems>;
   /**
    * Label used for the billing dimension in the Plan & Usage charts.
-   */
+  */
   "inAppLabel"?: string;
   /**
    * Month in ISO-8601 format, UTC, and precise to the second: `[YYYY-MM-DDThh:mm:ss]`.
-   */
+  */
   "timestamp"?: Date;
 
   /**
@@ -40,31 +45,57 @@ export class BillingDimensionsMappingBodyItemAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    endpoints: {
-      baseName: "endpoints",
-      type: "Array<BillingDimensionsMappingBodyItemAttributesEndpointsItems>",
+    "endpoints": {
+      "baseName": "endpoints",
+      "type": "Array<BillingDimensionsMappingBodyItemAttributesEndpointsItems>",
     },
-    inAppLabel: {
-      baseName: "in_app_label",
-      type: "string",
+    "inAppLabel": {
+      "baseName": "in_app_label",
+      "type": "string",
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "Date",
-      format: "date-time",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "Date",
+      "format": "date-time",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BillingDimensionsMappingBodyItemAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

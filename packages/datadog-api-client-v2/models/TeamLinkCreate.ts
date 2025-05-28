@@ -6,19 +6,24 @@
 import { TeamLinkAttributes } from "./TeamLinkAttributes";
 import { TeamLinkType } from "./TeamLinkType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team link create
- */
+*/
 export class TeamLinkCreate {
   /**
    * Team link attributes
-   */
+  */
   "attributes": TeamLinkAttributes;
   /**
    * Team link type
-   */
+  */
   "type": TeamLinkType;
 
   /**
@@ -37,28 +42,54 @@ export class TeamLinkCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamLinkAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TeamLinkAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamLinkType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamLinkType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamLinkCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

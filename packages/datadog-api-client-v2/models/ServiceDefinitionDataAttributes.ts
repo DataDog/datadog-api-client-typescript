@@ -6,19 +6,24 @@
 import { ServiceDefinitionMeta } from "./ServiceDefinitionMeta";
 import { ServiceDefinitionSchema } from "./ServiceDefinitionSchema";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Service definition attributes.
- */
+*/
 export class ServiceDefinitionDataAttributes {
   /**
    * Metadata about a service definition.
-   */
+  */
   "meta"?: ServiceDefinitionMeta;
   /**
    * Service definition schema.
-   */
+  */
   "schema"?: ServiceDefinitionSchema;
 
   /**
@@ -37,26 +42,52 @@ export class ServiceDefinitionDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    meta: {
-      baseName: "meta",
-      type: "ServiceDefinitionMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "ServiceDefinitionMeta",
     },
-    schema: {
-      baseName: "schema",
-      type: "ServiceDefinitionSchema",
+    "schema": {
+      "baseName": "schema",
+      "type": "ServiceDefinitionSchema",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { ScheduleRequestDataAttributesLayersItemsMembersItemsUser } from "./ScheduleRequestDataAttributesLayersItemsMembersItemsUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines a single member within a schedule layer, including the reference to the underlying user.
- */
+*/
 export class ScheduleRequestDataAttributesLayersItemsMembersItems {
   /**
    * Identifies the user participating in this layer as a single object with an `id`.
-   */
+  */
   "user"?: ScheduleRequestDataAttributesLayersItemsMembersItemsUser;
 
   /**
@@ -32,22 +37,48 @@ export class ScheduleRequestDataAttributesLayersItemsMembersItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    user: {
-      baseName: "user",
-      type: "ScheduleRequestDataAttributesLayersItemsMembersItemsUser",
+    "user": {
+      "baseName": "user",
+      "type": "ScheduleRequestDataAttributesLayersItemsMembersItemsUser",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleRequestDataAttributesLayersItemsMembersItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

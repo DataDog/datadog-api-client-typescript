@@ -7,14 +7,15 @@ import { ScheduleTarget } from "./ScheduleTarget";
 import { TeamTarget } from "./TeamTarget";
 import { UserTarget } from "./UserTarget";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Represents an escalation target, which can be a team, user, or schedule.
- */
+*/
 
-export type EscalationTarget =
-  | TeamTarget
-  | UserTarget
-  | ScheduleTarget
-  | UnparsedObject;
+export type EscalationTarget = TeamTarget | UserTarget | ScheduleTarget | UnparsedObject;

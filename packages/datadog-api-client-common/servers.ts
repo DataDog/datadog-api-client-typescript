@@ -6,10 +6,7 @@ import { RequestContext, HttpMethod } from "./http/http";
  *
  */
 export class BaseServerConfiguration {
-  public constructor(
-    private url: string,
-    private variableConfiguration: { [key: string]: string }
-  ) {}
+  public constructor(private url: string, private variableConfiguration: { [key: string]: string }) {}
 
   /**
    * Sets the value of the variables of this server.
@@ -21,22 +18,20 @@ export class BaseServerConfiguration {
   }
 
   public getConfiguration(): { [key: string]: string } {
-    return this.variableConfiguration;
+    return this.variableConfiguration
   }
 
   public clone(): BaseServerConfiguration {
-    return new BaseServerConfiguration(this.url, {
-      ...this.variableConfiguration,
-    });
+    return new BaseServerConfiguration(this.url, {...this.variableConfiguration});
   }
 
   private getUrl() {
     let replacedUrl = this.url;
     for (const key in this.variableConfiguration) {
-      const re = new RegExp("{" + key + "}", "g");
+      var re = new RegExp("{" + key + "}","g");
       replacedUrl = replacedUrl.replace(re, this.variableConfiguration[key]);
     }
-    return replacedUrl;
+    return replacedUrl
   }
 
   /**
@@ -47,10 +42,7 @@ export class BaseServerConfiguration {
    * @param httpMethod httpMethod to be used
    *
    */
-  public makeRequestContext(
-    endpoint: string,
-    httpMethod: HttpMethod
-  ): RequestContext {
+  public makeRequestContext(endpoint: string, httpMethod: HttpMethod): RequestContext {
     return new RequestContext(this.getUrl() + endpoint, httpMethod);
   }
 }
@@ -61,229 +53,160 @@ export class BaseServerConfiguration {
  * url template and variable configuration based on the url.
  *
  */
-export class ServerConfiguration<
-  T extends { [key: string]: string },
-> extends BaseServerConfiguration {}
+export class ServerConfiguration<T extends { [key: string]: string }> extends BaseServerConfiguration {}
 export const server1 = new ServerConfiguration<{
-  site:
-    | "datadoghq.com"
-    | "us3.datadoghq.com"
-    | "us5.datadoghq.com"
-    | "ap1.datadoghq.com"
-    | "datadoghq.eu"
-    | "ddog-gov.com";
-  subdomain: string;
-}>("https://{subdomain}.{site}", {
-  site: "datadoghq.com",
-  subdomain: "api",
-});
+  "site":"datadoghq.com" | "us3.datadoghq.com" | "us5.datadoghq.com" | "ap1.datadoghq.com" | "datadoghq.eu" | "ddog-gov.com",
+  "subdomain":string
+  }>("https://{subdomain}.{site}", {
+  "site": "datadoghq.com",
+  "subdomain": "api"
+})
 export const server2 = new ServerConfiguration<{
-  name: string;
-  protocol: string;
-}>("{protocol}://{name}", {
-  name: "api.datadoghq.com",
-  protocol: "https",
-});
+  "name":string,
+  "protocol":string
+  }>("{protocol}://{name}", {
+  "name": "api.datadoghq.com",
+  "protocol": "https"
+})
 export const server3 = new ServerConfiguration<{
-  site: string;
-  subdomain: string;
-}>("https://{subdomain}.{site}", {
-  site: "datadoghq.com",
-  subdomain: "api",
-});
+  "site":string,
+  "subdomain":string
+  }>("https://{subdomain}.{site}", {
+  "site": "datadoghq.com",
+  "subdomain": "api"
+})
 
 export const servers = [server1, server2, server3];
 
-export const operationServers: {
-  [endpoint: string]: BaseServerConfiguration[];
-} = {
+export const operationServers: { [endpoint: string]: BaseServerConfiguration[] } = {
   "v1.IPRangesApi.getIPRanges": [
     new ServerConfiguration<{
-      site:
-        | "datadoghq.com"
-        | "us3.datadoghq.com"
-        | "us5.datadoghq.com"
-        | "ap1.datadoghq.com"
-        | "datadoghq.eu"
-        | "ddog-gov.com";
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "ip-ranges",
+      "site":"datadoghq.com" | "us3.datadoghq.com" | "us5.datadoghq.com" | "ap1.datadoghq.com" | "datadoghq.eu" | "ddog-gov.com",
+      "subdomain":string }>("https://{subdomain}.{site}", {
+      "site": "datadoghq.com",
+      "subdomain": "ip-ranges"
     }),
     new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "ip-ranges.datadoghq.com",
-      protocol: "https",
+      "name":string,
+      "protocol":string }>("{protocol}://{name}", {
+      "name": "ip-ranges.datadoghq.com",
+      "protocol": "https"
     }),
     new ServerConfiguration<{
-      subdomain: string;
-    }>("https://{subdomain}.datadoghq.com", {
-      subdomain: "ip-ranges",
+      "subdomain":string }>("https://{subdomain}.datadoghq.com", {
+      "subdomain": "ip-ranges"
     }),
-  ],
+    ],
   "v1.LogsApi.submitLog": [
     new ServerConfiguration<{
-      site:
-        | "datadoghq.com"
-        | "us3.datadoghq.com"
-        | "us5.datadoghq.com"
-        | "ap1.datadoghq.com"
-        | "datadoghq.eu"
-        | "ddog-gov.com";
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "http-intake.logs",
+      "site":"datadoghq.com" | "us3.datadoghq.com" | "us5.datadoghq.com" | "ap1.datadoghq.com" | "datadoghq.eu" | "ddog-gov.com",
+      "subdomain":string }>("https://{subdomain}.{site}", {
+      "site": "datadoghq.com",
+      "subdomain": "http-intake.logs"
     }),
     new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "http-intake.logs.datadoghq.com",
-      protocol: "https",
+      "name":string,
+      "protocol":string }>("{protocol}://{name}", {
+      "name": "http-intake.logs.datadoghq.com",
+      "protocol": "https"
     }),
     new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "http-intake.logs",
+      "site":string,
+      "subdomain":string }>("https://{subdomain}.{site}", {
+      "site": "datadoghq.com",
+      "subdomain": "http-intake.logs"
     }),
-  ],
+    ],
   "v2.LogsApi.submitLog": [
     new ServerConfiguration<{
-      site:
-        | "datadoghq.com"
-        | "us3.datadoghq.com"
-        | "us5.datadoghq.com"
-        | "ap1.datadoghq.com"
-        | "datadoghq.eu"
-        | "ddog-gov.com";
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "http-intake.logs",
+      "site":"datadoghq.com" | "us3.datadoghq.com" | "us5.datadoghq.com" | "ap1.datadoghq.com" | "datadoghq.eu" | "ddog-gov.com",
+      "subdomain":string }>("https://{subdomain}.{site}", {
+      "site": "datadoghq.com",
+      "subdomain": "http-intake.logs"
     }),
     new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "http-intake.logs.datadoghq.com",
-      protocol: "https",
+      "name":string,
+      "protocol":string }>("{protocol}://{name}", {
+      "name": "http-intake.logs.datadoghq.com",
+      "protocol": "https"
     }),
     new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "http-intake.logs",
+      "site":string,
+      "subdomain":string }>("https://{subdomain}.{site}", {
+      "site": "datadoghq.com",
+      "subdomain": "http-intake.logs"
     }),
-  ],
+    ],
   "v2.On-CallPagingApi.acknowledgeOnCallPage": [
     new ServerConfiguration<{
-      site:
-        | "saffron.oncall.datadoghq.com"
-        | "navy.oncall.datadoghq.com"
-        | "coral.oncall.datadoghq.com"
-        | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
-    }>("https://{site}", {
-      site: "navy.oncall.datadoghq.com",
+      "site":"saffron.oncall.datadoghq.com" | "navy.oncall.datadoghq.com" | "coral.oncall.datadoghq.com" | "teal.oncall.datadoghq.com" | "beige.oncall.datadoghq.eu" }>("https://{site}", {
+      "site": "navy.oncall.datadoghq.com"
     }),
     new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
-      protocol: "https",
+      "name":string,
+      "protocol":string }>("{protocol}://{name}", {
+      "name": "api.datadoghq.com",
+      "protocol": "https"
     }),
     new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "api",
+      "site":string,
+      "subdomain":string }>("https://{subdomain}.{site}", {
+      "site": "datadoghq.com",
+      "subdomain": "api"
     }),
-  ],
+    ],
   "v2.On-CallPagingApi.createOnCallPage": [
     new ServerConfiguration<{
-      site:
-        | "saffron.oncall.datadoghq.com"
-        | "navy.oncall.datadoghq.com"
-        | "coral.oncall.datadoghq.com"
-        | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
-    }>("https://{site}", {
-      site: "navy.oncall.datadoghq.com",
+      "site":"saffron.oncall.datadoghq.com" | "navy.oncall.datadoghq.com" | "coral.oncall.datadoghq.com" | "teal.oncall.datadoghq.com" | "beige.oncall.datadoghq.eu" }>("https://{site}", {
+      "site": "navy.oncall.datadoghq.com"
     }),
     new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
-      protocol: "https",
+      "name":string,
+      "protocol":string }>("{protocol}://{name}", {
+      "name": "api.datadoghq.com",
+      "protocol": "https"
     }),
     new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "api",
+      "site":string,
+      "subdomain":string }>("https://{subdomain}.{site}", {
+      "site": "datadoghq.com",
+      "subdomain": "api"
     }),
-  ],
+    ],
   "v2.On-CallPagingApi.escalateOnCallPage": [
     new ServerConfiguration<{
-      site:
-        | "saffron.oncall.datadoghq.com"
-        | "navy.oncall.datadoghq.com"
-        | "coral.oncall.datadoghq.com"
-        | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
-    }>("https://{site}", {
-      site: "navy.oncall.datadoghq.com",
+      "site":"saffron.oncall.datadoghq.com" | "navy.oncall.datadoghq.com" | "coral.oncall.datadoghq.com" | "teal.oncall.datadoghq.com" | "beige.oncall.datadoghq.eu" }>("https://{site}", {
+      "site": "navy.oncall.datadoghq.com"
     }),
     new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
-      protocol: "https",
+      "name":string,
+      "protocol":string }>("{protocol}://{name}", {
+      "name": "api.datadoghq.com",
+      "protocol": "https"
     }),
     new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "api",
+      "site":string,
+      "subdomain":string }>("https://{subdomain}.{site}", {
+      "site": "datadoghq.com",
+      "subdomain": "api"
     }),
-  ],
+    ],
   "v2.On-CallPagingApi.resolveOnCallPage": [
     new ServerConfiguration<{
-      site:
-        | "saffron.oncall.datadoghq.com"
-        | "navy.oncall.datadoghq.com"
-        | "coral.oncall.datadoghq.com"
-        | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
-    }>("https://{site}", {
-      site: "navy.oncall.datadoghq.com",
+      "site":"saffron.oncall.datadoghq.com" | "navy.oncall.datadoghq.com" | "coral.oncall.datadoghq.com" | "teal.oncall.datadoghq.com" | "beige.oncall.datadoghq.eu" }>("https://{site}", {
+      "site": "navy.oncall.datadoghq.com"
     }),
     new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
-      protocol: "https",
+      "name":string,
+      "protocol":string }>("{protocol}://{name}", {
+      "name": "api.datadoghq.com",
+      "protocol": "https"
     }),
     new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "api",
+      "site":string,
+      "subdomain":string }>("https://{subdomain}.{site}", {
+      "site": "datadoghq.com",
+      "subdomain": "api"
     }),
-  ],
-};
+    ],
+}

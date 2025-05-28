@@ -12,133 +12,138 @@ import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertifi
 import { SyntheticsTestRequestPort } from "./SyntheticsTestRequestPort";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing the Synthetic test request.
- */
+*/
 export class SyntheticsTestRequest {
   /**
    * Allows loading insecure content for an HTTP request in a multistep test step.
-   */
+  */
   "allowInsecure"?: boolean;
   /**
    * Object to handle basic authentication when performing the test.
-   */
+  */
   "basicAuth"?: SyntheticsBasicAuth;
   /**
    * Body to include in the test.
-   */
+  */
   "body"?: string;
   /**
    * Type of the request body.
-   */
+  */
   "bodyType"?: SyntheticsTestRequestBodyType;
   /**
    * The type of gRPC call to perform.
-   */
+  */
   "callType"?: SyntheticsTestCallType;
   /**
    * Client certificate to use when performing the test request.
-   */
+  */
   "certificate"?: SyntheticsTestRequestCertificate;
   /**
    * By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
-   */
+  */
   "certificateDomains"?: Array<string>;
   /**
    * A protobuf JSON descriptor that needs to be gzipped first then base64 encoded.
-   */
+  */
   "compressedJsonDescriptor"?: string;
   /**
    * A protobuf file that needs to be gzipped first then base64 encoded.
-   */
+  */
   "compressedProtoFile"?: string;
   /**
    * DNS server to use for DNS tests.
-   */
+  */
   "dnsServer"?: string;
   /**
    * DNS server port to use for DNS tests.
-   */
+  */
   "dnsServerPort"?: string;
   /**
    * Files to be used as part of the request in the test.
-   */
+  */
   "files"?: Array<SyntheticsTestRequestBodyFile>;
   /**
    * Specifies whether or not the request follows redirects.
-   */
+  */
   "followRedirects"?: boolean;
   /**
    * Headers to include when performing the test.
-   */
-  "headers"?: { [key: string]: string };
+  */
+  "headers"?: { [key: string]: string; };
   /**
    * Host name to perform the test with.
-   */
+  */
   "host"?: string;
   /**
    * HTTP version to use for a Synthetic test.
-   */
+  */
   "httpVersion"?: SyntheticsTestOptionsHTTPVersion;
   /**
    * Message to send for UDP or WebSocket tests.
-   */
+  */
   "message"?: string;
   /**
    * Metadata to include when performing the gRPC test.
-   */
-  "metadata"?: { [key: string]: string };
+  */
+  "metadata"?: { [key: string]: string; };
   /**
    * Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
-   */
+  */
   "method"?: string;
   /**
    * Determines whether or not to save the response body.
-   */
+  */
   "noSavingResponseBody"?: boolean;
   /**
    * Number of pings to use per test.
-   */
+  */
   "numberOfPackets"?: number;
   /**
    * Persist cookies across redirects.
-   */
+  */
   "persistCookies"?: boolean;
   /**
    * Port to use when performing the test.
-   */
+  */
   "port"?: SyntheticsTestRequestPort;
   /**
    * The proxy to perform the test.
-   */
+  */
   "proxy"?: SyntheticsTestRequestProxy;
   /**
    * Query to use for the test.
-   */
+  */
   "query"?: any;
   /**
    * For SSL tests, it specifies on which server you want to initiate the TLS handshake,
    * allowing the server to present one of multiple possible certificates on
    * the same IP address and TCP port number.
-   */
+  */
   "servername"?: string;
   /**
    * The gRPC service on which you want to perform the gRPC call.
-   */
+  */
   "service"?: string;
   /**
    * Turns on a traceroute probe to discover all gateways along the path to the host destination.
-   */
+  */
   "shouldTrackHops"?: boolean;
   /**
    * Timeout in seconds for the test.
-   */
+  */
   "timeout"?: number;
   /**
    * URL to perform the test with.
-   */
+  */
   "url"?: string;
 
   /**
@@ -157,140 +162,166 @@ export class SyntheticsTestRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    allowInsecure: {
-      baseName: "allow_insecure",
-      type: "boolean",
+    "allowInsecure": {
+      "baseName": "allow_insecure",
+      "type": "boolean",
     },
-    basicAuth: {
-      baseName: "basicAuth",
-      type: "SyntheticsBasicAuth",
+    "basicAuth": {
+      "baseName": "basicAuth",
+      "type": "SyntheticsBasicAuth",
     },
-    body: {
-      baseName: "body",
-      type: "string",
+    "body": {
+      "baseName": "body",
+      "type": "string",
     },
-    bodyType: {
-      baseName: "bodyType",
-      type: "SyntheticsTestRequestBodyType",
+    "bodyType": {
+      "baseName": "bodyType",
+      "type": "SyntheticsTestRequestBodyType",
     },
-    callType: {
-      baseName: "callType",
-      type: "SyntheticsTestCallType",
+    "callType": {
+      "baseName": "callType",
+      "type": "SyntheticsTestCallType",
     },
-    certificate: {
-      baseName: "certificate",
-      type: "SyntheticsTestRequestCertificate",
+    "certificate": {
+      "baseName": "certificate",
+      "type": "SyntheticsTestRequestCertificate",
     },
-    certificateDomains: {
-      baseName: "certificateDomains",
-      type: "Array<string>",
+    "certificateDomains": {
+      "baseName": "certificateDomains",
+      "type": "Array<string>",
     },
-    compressedJsonDescriptor: {
-      baseName: "compressedJsonDescriptor",
-      type: "string",
+    "compressedJsonDescriptor": {
+      "baseName": "compressedJsonDescriptor",
+      "type": "string",
     },
-    compressedProtoFile: {
-      baseName: "compressedProtoFile",
-      type: "string",
+    "compressedProtoFile": {
+      "baseName": "compressedProtoFile",
+      "type": "string",
     },
-    dnsServer: {
-      baseName: "dnsServer",
-      type: "string",
+    "dnsServer": {
+      "baseName": "dnsServer",
+      "type": "string",
     },
-    dnsServerPort: {
-      baseName: "dnsServerPort",
-      type: "string",
+    "dnsServerPort": {
+      "baseName": "dnsServerPort",
+      "type": "string",
     },
-    files: {
-      baseName: "files",
-      type: "Array<SyntheticsTestRequestBodyFile>",
+    "files": {
+      "baseName": "files",
+      "type": "Array<SyntheticsTestRequestBodyFile>",
     },
-    followRedirects: {
-      baseName: "follow_redirects",
-      type: "boolean",
+    "followRedirects": {
+      "baseName": "follow_redirects",
+      "type": "boolean",
     },
-    headers: {
-      baseName: "headers",
-      type: "{ [key: string]: string; }",
+    "headers": {
+      "baseName": "headers",
+      "type": "{ [key: string]: string; }",
     },
-    host: {
-      baseName: "host",
-      type: "string",
+    "host": {
+      "baseName": "host",
+      "type": "string",
     },
-    httpVersion: {
-      baseName: "httpVersion",
-      type: "SyntheticsTestOptionsHTTPVersion",
+    "httpVersion": {
+      "baseName": "httpVersion",
+      "type": "SyntheticsTestOptionsHTTPVersion",
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "{ [key: string]: string; }",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "{ [key: string]: string; }",
     },
-    method: {
-      baseName: "method",
-      type: "string",
+    "method": {
+      "baseName": "method",
+      "type": "string",
     },
-    noSavingResponseBody: {
-      baseName: "noSavingResponseBody",
-      type: "boolean",
+    "noSavingResponseBody": {
+      "baseName": "noSavingResponseBody",
+      "type": "boolean",
     },
-    numberOfPackets: {
-      baseName: "numberOfPackets",
-      type: "number",
-      format: "int32",
+    "numberOfPackets": {
+      "baseName": "numberOfPackets",
+      "type": "number",
+      "format": "int32",
     },
-    persistCookies: {
-      baseName: "persistCookies",
-      type: "boolean",
+    "persistCookies": {
+      "baseName": "persistCookies",
+      "type": "boolean",
     },
-    port: {
-      baseName: "port",
-      type: "SyntheticsTestRequestPort",
+    "port": {
+      "baseName": "port",
+      "type": "SyntheticsTestRequestPort",
     },
-    proxy: {
-      baseName: "proxy",
-      type: "SyntheticsTestRequestProxy",
+    "proxy": {
+      "baseName": "proxy",
+      "type": "SyntheticsTestRequestProxy",
     },
-    query: {
-      baseName: "query",
-      type: "any",
+    "query": {
+      "baseName": "query",
+      "type": "any",
     },
-    servername: {
-      baseName: "servername",
-      type: "string",
+    "servername": {
+      "baseName": "servername",
+      "type": "string",
     },
-    service: {
-      baseName: "service",
-      type: "string",
+    "service": {
+      "baseName": "service",
+      "type": "string",
     },
-    shouldTrackHops: {
-      baseName: "shouldTrackHops",
-      type: "boolean",
+    "shouldTrackHops": {
+      "baseName": "shouldTrackHops",
+      "type": "boolean",
     },
-    timeout: {
-      baseName: "timeout",
-      type: "number",
-      format: "double",
+    "timeout": {
+      "baseName": "timeout",
+      "type": "number",
+      "format": "double",
     },
-    url: {
-      baseName: "url",
-      type: "string",
+    "url": {
+      "baseName": "url",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

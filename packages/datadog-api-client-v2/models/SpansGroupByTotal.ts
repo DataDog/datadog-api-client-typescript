@@ -4,10 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A resulting object to put the given computes in over all the matching records.
- */
+*/
 
 export type SpansGroupByTotal = boolean | string | number | UnparsedObject;

@@ -5,12 +5,15 @@
  */
 import { MonitorNotificationRuleFilterTags } from "./MonitorNotificationRuleFilterTags";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Filter used to associate the notification rule with monitors.
- */
+*/
 
-export type MonitorNotificationRuleFilter =
-  | MonitorNotificationRuleFilterTags
-  | UnparsedObject;
+export type MonitorNotificationRuleFilter = MonitorNotificationRuleFilterTags | UnparsedObject;

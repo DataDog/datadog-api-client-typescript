@@ -5,15 +5,20 @@
  */
 import { SyntheticsGlobalVariableTOTPParameters } from "./SyntheticsGlobalVariableTOTPParameters";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for the Global Variable for MFA.
- */
+*/
 export class SyntheticsGlobalVariableOptions {
   /**
    * Parameters for the TOTP/MFA variable
-   */
+  */
   "totpParameters"?: SyntheticsGlobalVariableTOTPParameters;
 
   /**
@@ -32,22 +37,48 @@ export class SyntheticsGlobalVariableOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    totpParameters: {
-      baseName: "totp_parameters",
-      type: "SyntheticsGlobalVariableTOTPParameters",
+    "totpParameters": {
+      "baseName": "totp_parameters",
+      "type": "SyntheticsGlobalVariableTOTPParameters",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsGlobalVariableOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

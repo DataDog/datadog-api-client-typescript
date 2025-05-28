@@ -5,15 +5,20 @@
  */
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Dashboard bulk delete request body.
- */
+*/
 export class DashboardBulkDeleteRequest {
   /**
    * List of dashboard bulk action request data objects.
-   */
+  */
   "data": Array<DashboardBulkActionData>;
 
   /**
@@ -32,23 +37,49 @@ export class DashboardBulkDeleteRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<DashboardBulkActionData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<DashboardBulkActionData>",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardBulkDeleteRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Unit for quota enforcement in bytes for data size or events for count.
- */
+*/
 
-export type ObservabilityPipelineQuotaProcessorLimitEnforceType =
-  | typeof BYTES
-  | typeof EVENTS
-  | UnparsedObject;
-export const BYTES = "bytes";
-export const EVENTS = "events";
+export type ObservabilityPipelineQuotaProcessorLimitEnforceType = typeof BYTES| typeof EVENTS | UnparsedObject;
+export const BYTES = 'bytes';
+export const EVENTS = 'events';

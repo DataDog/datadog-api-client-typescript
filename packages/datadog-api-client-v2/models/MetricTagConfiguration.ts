@@ -6,23 +6,28 @@
 import { MetricTagConfigurationAttributes } from "./MetricTagConfigurationAttributes";
 import { MetricTagConfigurationType } from "./MetricTagConfigurationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single metric tag configuration.
- */
+*/
 export class MetricTagConfiguration {
   /**
    * Object containing the definition of a metric tag configuration attributes.
-   */
+  */
   "attributes"?: MetricTagConfigurationAttributes;
   /**
    * The metric name for this resource.
-   */
+  */
   "id"?: string;
   /**
    * The metric tag configuration resource type.
-   */
+  */
   "type"?: MetricTagConfigurationType;
 
   /**
@@ -41,30 +46,56 @@ export class MetricTagConfiguration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MetricTagConfigurationAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MetricTagConfigurationAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "MetricTagConfigurationType",
+    "type": {
+      "baseName": "type",
+      "type": "MetricTagConfigurationType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricTagConfiguration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

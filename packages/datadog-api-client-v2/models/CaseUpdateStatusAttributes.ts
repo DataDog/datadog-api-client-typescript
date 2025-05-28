@@ -5,15 +5,20 @@
  */
 import { CaseStatus } from "./CaseStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case update status attributes
- */
+*/
 export class CaseUpdateStatusAttributes {
   /**
    * Case status
-   */
+  */
   "status": CaseStatus;
 
   /**
@@ -32,23 +37,49 @@ export class CaseUpdateStatusAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    status: {
-      baseName: "status",
-      type: "CaseStatus",
-      required: true,
+    "status": {
+      "baseName": "status",
+      "type": "CaseStatus",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseUpdateStatusAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

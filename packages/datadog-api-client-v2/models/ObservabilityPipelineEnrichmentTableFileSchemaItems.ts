@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineEnrichmentTableFileSchemaItemsType } from "./ObservabilityPipelineEnrichmentTableFileSchemaItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Describes a single column and its type in an enrichment table schema.
- */
+*/
 export class ObservabilityPipelineEnrichmentTableFileSchemaItems {
   /**
    * The `items` `column`.
-   */
+  */
   "column": string;
   /**
    * Declares allowed data types for enrichment table columns.
-   */
+  */
   "type": ObservabilityPipelineEnrichmentTableFileSchemaItemsType;
 
   /**
@@ -36,28 +41,54 @@ export class ObservabilityPipelineEnrichmentTableFileSchemaItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    column: {
-      baseName: "column",
-      type: "string",
-      required: true,
+    "column": {
+      "baseName": "column",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineEnrichmentTableFileSchemaItemsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineEnrichmentTableFileSchemaItemsType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineEnrichmentTableFileSchemaItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

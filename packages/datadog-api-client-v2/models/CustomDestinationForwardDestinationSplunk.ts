@@ -5,24 +5,29 @@
  */
 import { CustomDestinationForwardDestinationSplunkType } from "./CustomDestinationForwardDestinationSplunkType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Splunk HTTP Event Collector (HEC) destination.
- */
+*/
 export class CustomDestinationForwardDestinationSplunk {
   /**
    * Access token of the Splunk HTTP Event Collector. This field is not returned by the API.
-   */
+  */
   "accessToken": string;
   /**
    * The destination for which logs will be forwarded to.
    * Must have HTTPS scheme and forwarding back to Datadog is not allowed.
-   */
+  */
   "endpoint": string;
   /**
    * Type of the Splunk HTTP Event Collector (HEC) destination.
-   */
+  */
   "type": CustomDestinationForwardDestinationSplunkType;
 
   /**
@@ -41,33 +46,59 @@ export class CustomDestinationForwardDestinationSplunk {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accessToken: {
-      baseName: "access_token",
-      type: "string",
-      required: true,
+    "accessToken": {
+      "baseName": "access_token",
+      "type": "string",
+      "required": true,
     },
-    endpoint: {
-      baseName: "endpoint",
-      type: "string",
-      required: true,
+    "endpoint": {
+      "baseName": "endpoint",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomDestinationForwardDestinationSplunkType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomDestinationForwardDestinationSplunkType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationForwardDestinationSplunk.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

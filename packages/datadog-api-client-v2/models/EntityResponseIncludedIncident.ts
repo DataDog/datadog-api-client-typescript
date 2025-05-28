@@ -6,23 +6,28 @@
 import { EntityResponseIncludedIncidentType } from "./EntityResponseIncludedIncidentType";
 import { EntityResponseIncludedRelatedIncidentAttributes } from "./EntityResponseIncludedRelatedIncidentAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Included incident.
- */
+*/
 export class EntityResponseIncludedIncident {
   /**
    * Incident attributes.
-   */
+  */
   "attributes"?: EntityResponseIncludedRelatedIncidentAttributes;
   /**
    * Incident ID.
-   */
+  */
   "id"?: string;
   /**
    * Incident description.
-   */
+  */
   "type"?: EntityResponseIncludedIncidentType;
 
   /**
@@ -41,30 +46,56 @@ export class EntityResponseIncludedIncident {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "EntityResponseIncludedRelatedIncidentAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "EntityResponseIncludedRelatedIncidentAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "EntityResponseIncludedIncidentType",
+    "type": {
+      "baseName": "type",
+      "type": "EntityResponseIncludedIncidentType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseIncludedIncident.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

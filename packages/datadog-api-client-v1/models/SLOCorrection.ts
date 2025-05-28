@@ -6,23 +6,28 @@
 import { SLOCorrectionResponseAttributes } from "./SLOCorrectionResponseAttributes";
 import { SLOCorrectionType } from "./SLOCorrectionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response object of a list of SLO corrections.
- */
+*/
 export class SLOCorrection {
   /**
    * The attribute object associated with the SLO correction.
-   */
+  */
   "attributes"?: SLOCorrectionResponseAttributes;
   /**
    * The ID of the SLO correction.
-   */
+  */
   "id"?: string;
   /**
    * SLO correction resource type.
-   */
+  */
   "type"?: SLOCorrectionType;
 
   /**
@@ -41,30 +46,56 @@ export class SLOCorrection {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SLOCorrectionResponseAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SLOCorrectionResponseAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SLOCorrectionType",
+    "type": {
+      "baseName": "type",
+      "type": "SLOCorrectionType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOCorrection.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

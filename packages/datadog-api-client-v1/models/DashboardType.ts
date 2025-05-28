@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the associated private dashboard.
- */
+*/
 
-export type DashboardType =
-  | typeof CUSTOM_TIMEBOARD
-  | typeof CUSTOM_SCREENBOARD
-  | UnparsedObject;
-export const CUSTOM_TIMEBOARD = "custom_timeboard";
-export const CUSTOM_SCREENBOARD = "custom_screenboard";
+export type DashboardType = typeof CUSTOM_TIMEBOARD| typeof CUSTOM_SCREENBOARD | UnparsedObject;
+export const CUSTOM_TIMEBOARD = 'custom_timeboard';
+export const CUSTOM_SCREENBOARD = 'custom_screenboard';

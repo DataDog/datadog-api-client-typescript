@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A warning message indicating something that went wrong with the query.
- */
+*/
 export class RUMWarning {
   /**
    * A unique code for this type of warning.
-   */
+  */
   "code"?: string;
   /**
    * A detailed explanation of this specific warning.
-   */
+  */
   "detail"?: string;
   /**
    * A short human-readable summary of the warning.
-   */
+  */
   "title"?: string;
 
   /**
@@ -39,30 +44,56 @@ export class RUMWarning {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "string",
+    "code": {
+      "baseName": "code",
+      "type": "string",
     },
-    detail: {
-      baseName: "detail",
-      type: "string",
+    "detail": {
+      "baseName": "detail",
+      "type": "string",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RUMWarning.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

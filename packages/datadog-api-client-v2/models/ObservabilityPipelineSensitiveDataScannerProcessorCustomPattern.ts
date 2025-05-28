@@ -6,19 +6,24 @@
 import { ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions";
 import { ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternType } from "./ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines a custom regex-based pattern for identifying sensitive data in logs.
- */
+*/
 export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern {
   /**
    * Options for defining a custom regex pattern.
-   */
+  */
   "options": ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions;
   /**
    * Indicates a custom regular expression is used for matching.
-   */
+  */
   "type": ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternType;
 
   /**
@@ -37,28 +42,54 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    options: {
-      baseName: "options",
-      type: "ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions",
-      required: true,
+    "options": {
+      "baseName": "options",
+      "type": "ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternOptions",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineSensitiveDataScannerProcessorCustomPatternType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSensitiveDataScannerProcessorCustomPattern.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

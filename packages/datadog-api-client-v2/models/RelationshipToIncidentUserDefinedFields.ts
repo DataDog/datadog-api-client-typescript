@@ -5,15 +5,20 @@
  */
 import { RelationshipToIncidentUserDefinedFieldData } from "./RelationshipToIncidentUserDefinedFieldData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to incident user defined fields.
- */
+*/
 export class RelationshipToIncidentUserDefinedFields {
   /**
    * An array of user defined fields.
-   */
+  */
   "data": Array<RelationshipToIncidentUserDefinedFieldData>;
 
   /**
@@ -32,23 +37,49 @@ export class RelationshipToIncidentUserDefinedFields {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RelationshipToIncidentUserDefinedFieldData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<RelationshipToIncidentUserDefinedFieldData>",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToIncidentUserDefinedFields.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

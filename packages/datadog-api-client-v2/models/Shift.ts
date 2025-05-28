@@ -6,19 +6,24 @@
 import { ShiftData } from "./ShiftData";
 import { ShiftIncluded } from "./ShiftIncluded";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `Shift` object.
- */
+*/
 export class Shift {
   /**
    * The definition of `ShiftData` object.
-   */
+  */
   "data"?: ShiftData;
   /**
    * The `Shift` `included`.
-   */
+  */
   "included"?: Array<ShiftIncluded>;
 
   /**
@@ -37,26 +42,52 @@ export class Shift {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ShiftData",
+    "data": {
+      "baseName": "data",
+      "type": "ShiftData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<ShiftIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<ShiftIncluded>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Shift.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

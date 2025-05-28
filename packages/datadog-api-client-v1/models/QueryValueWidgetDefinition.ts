@@ -10,59 +10,64 @@ import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Query values display the current value of a given metric, APM, or log query.
- */
+*/
 export class QueryValueWidgetDefinition {
   /**
    * Whether to use auto-scaling or not.
-   */
+  */
   "autoscale"?: boolean;
   /**
    * List of custom links.
-   */
+  */
   "customLinks"?: Array<WidgetCustomLink>;
   /**
    * Display a unit of your choice on the widget.
-   */
+  */
   "customUnit"?: string;
   /**
    * Number of decimals to show. If not defined, the widget uses the raw value.
-   */
+  */
   "precision"?: number;
   /**
    * Widget definition.
-   */
+  */
   "requests": [QueryValueWidgetRequest];
   /**
    * How to align the text on the widget.
-   */
+  */
   "textAlign"?: WidgetTextAlign;
   /**
    * Time setting for the widget.
-   */
+  */
   "time"?: WidgetTime;
   /**
    * Set a timeseries on the widget background.
-   */
+  */
   "timeseriesBackground"?: TimeseriesBackground;
   /**
    * Title of your widget.
-   */
+  */
   "title"?: string;
   /**
    * How to align the text on the widget.
-   */
+  */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-   */
+  */
   "titleSize"?: string;
   /**
    * Type of the query value widget.
-   */
+  */
   "type": QueryValueWidgetDefinitionType;
 
   /**
@@ -81,69 +86,95 @@ export class QueryValueWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    autoscale: {
-      baseName: "autoscale",
-      type: "boolean",
+    "autoscale": {
+      "baseName": "autoscale",
+      "type": "boolean",
     },
-    customLinks: {
-      baseName: "custom_links",
-      type: "Array<WidgetCustomLink>",
+    "customLinks": {
+      "baseName": "custom_links",
+      "type": "Array<WidgetCustomLink>",
     },
-    customUnit: {
-      baseName: "custom_unit",
-      type: "string",
+    "customUnit": {
+      "baseName": "custom_unit",
+      "type": "string",
     },
-    precision: {
-      baseName: "precision",
-      type: "number",
-      format: "int64",
+    "precision": {
+      "baseName": "precision",
+      "type": "number",
+      "format": "int64",
     },
-    requests: {
-      baseName: "requests",
-      type: "[QueryValueWidgetRequest]",
-      required: true,
+    "requests": {
+      "baseName": "requests",
+      "type": "[QueryValueWidgetRequest]",
+      "required": true,
     },
-    textAlign: {
-      baseName: "text_align",
-      type: "WidgetTextAlign",
+    "textAlign": {
+      "baseName": "text_align",
+      "type": "WidgetTextAlign",
     },
-    time: {
-      baseName: "time",
-      type: "WidgetTime",
+    "time": {
+      "baseName": "time",
+      "type": "WidgetTime",
     },
-    timeseriesBackground: {
-      baseName: "timeseries_background",
-      type: "TimeseriesBackground",
+    "timeseriesBackground": {
+      "baseName": "timeseries_background",
+      "type": "TimeseriesBackground",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
+    "titleAlign": {
+      "baseName": "title_align",
+      "type": "WidgetTextAlign",
     },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
+    "titleSize": {
+      "baseName": "title_size",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "QueryValueWidgetDefinitionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "QueryValueWidgetDefinitionType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return QueryValueWidgetDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

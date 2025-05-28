@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The subtype of the Synthetic multi-step API test step.
- */
+*/
 
-export type SyntheticsAPITestStepSubtype =
-  | typeof HTTP
-  | typeof GRPC
-  | UnparsedObject;
-export const HTTP = "http";
-export const GRPC = "grpc";
+export type SyntheticsAPITestStepSubtype = typeof HTTP| typeof GRPC | UnparsedObject;
+export const HTTP = 'http';
+export const GRPC = 'grpc';

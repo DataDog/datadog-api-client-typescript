@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of account.
- */
+*/
 
 export type GCPServiceAccountType = typeof GCP_SERVICE_ACCOUNT | UnparsedObject;
-export const GCP_SERVICE_ACCOUNT = "gcp_service_account";
+export const GCP_SERVICE_ACCOUNT = 'gcp_service_account';

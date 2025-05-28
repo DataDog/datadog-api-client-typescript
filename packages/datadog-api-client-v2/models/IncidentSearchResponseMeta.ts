@@ -5,15 +5,20 @@
  */
 import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The metadata object containing pagination metadata.
- */
+*/
 export class IncidentSearchResponseMeta {
   /**
    * Pagination properties.
-   */
+  */
   "pagination"?: IncidentResponseMetaPagination;
 
   /**
@@ -32,22 +37,48 @@ export class IncidentSearchResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pagination: {
-      baseName: "pagination",
-      type: "IncidentResponseMetaPagination",
+    "pagination": {
+      "baseName": "pagination",
+      "type": "IncidentResponseMetaPagination",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentSearchResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

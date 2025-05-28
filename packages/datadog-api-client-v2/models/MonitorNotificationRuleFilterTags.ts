@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Filter monitors by tags. Monitors must match all tags.
- */
+*/
 export class MonitorNotificationRuleFilterTags {
   /**
    * A list of monitor tags.
-   */
+  */
   "tags": Array<string>;
 
   /**
@@ -24,19 +29,45 @@ export class MonitorNotificationRuleFilterTags {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
-      required: true,
-    },
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorNotificationRuleFilterTags.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

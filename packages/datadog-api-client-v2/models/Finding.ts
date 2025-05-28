@@ -6,23 +6,28 @@
 import { FindingAttributes } from "./FindingAttributes";
 import { FindingType } from "./FindingType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single finding without the message and resource configuration.
- */
+*/
 export class Finding {
   /**
    * The JSON:API attributes of the finding.
-   */
+  */
   "attributes"?: FindingAttributes;
   /**
    * The unique ID for this finding.
-   */
+  */
   "id"?: string;
   /**
    * The JSON:API type for findings.
-   */
+  */
   "type"?: FindingType;
 
   /**
@@ -41,30 +46,56 @@ export class Finding {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FindingAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "FindingAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "FindingType",
+    "type": {
+      "baseName": "type",
+      "type": "FindingType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Finding.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

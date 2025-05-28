@@ -7,39 +7,44 @@ import { ObservabilityPipelineGcpAuth } from "./ObservabilityPipelineGcpAuth";
 import { ObservabilityPipelineGoogleChronicleDestinationEncoding } from "./ObservabilityPipelineGoogleChronicleDestinationEncoding";
 import { ObservabilityPipelineGoogleChronicleDestinationType } from "./ObservabilityPipelineGoogleChronicleDestinationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `google_chronicle` destination sends logs to Google Chronicle.
- */
+*/
 export class ObservabilityPipelineGoogleChronicleDestination {
   /**
    * GCP credentials used to authenticate with Google Cloud Storage.
-   */
+  */
   "auth": ObservabilityPipelineGcpAuth;
   /**
    * The Google Chronicle customer ID.
-   */
+  */
   "customerId": string;
   /**
    * The encoding format for the logs sent to Chronicle.
-   */
+  */
   "encoding"?: ObservabilityPipelineGoogleChronicleDestinationEncoding;
   /**
    * The unique identifier for this component.
-   */
+  */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * The log type metadata associated with the Chronicle destination.
-   */
+  */
   "logType"?: string;
   /**
    * The destination type. The value should always be `google_chronicle`.
-   */
+  */
   "type": ObservabilityPipelineGoogleChronicleDestinationType;
 
   /**
@@ -58,51 +63,77 @@ export class ObservabilityPipelineGoogleChronicleDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    auth: {
-      baseName: "auth",
-      type: "ObservabilityPipelineGcpAuth",
-      required: true,
+    "auth": {
+      "baseName": "auth",
+      "type": "ObservabilityPipelineGcpAuth",
+      "required": true,
     },
-    customerId: {
-      baseName: "customer_id",
-      type: "string",
-      required: true,
+    "customerId": {
+      "baseName": "customer_id",
+      "type": "string",
+      "required": true,
     },
-    encoding: {
-      baseName: "encoding",
-      type: "ObservabilityPipelineGoogleChronicleDestinationEncoding",
+    "encoding": {
+      "baseName": "encoding",
+      "type": "ObservabilityPipelineGoogleChronicleDestinationEncoding",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    logType: {
-      baseName: "log_type",
-      type: "string",
+    "logType": {
+      "baseName": "log_type",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineGoogleChronicleDestinationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineGoogleChronicleDestinationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineGoogleChronicleDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

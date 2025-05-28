@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Encoding format for log events.
- */
+*/
 
-export type ObservabilityPipelineSplunkHecDestinationEncoding =
-  | typeof JSON
-  | typeof RAW_MESSAGE
-  | UnparsedObject;
-export const JSON = "json";
-export const RAW_MESSAGE = "raw_message";
+export type ObservabilityPipelineSplunkHecDestinationEncoding = typeof JSON| typeof RAW_MESSAGE | UnparsedObject;
+export const JSON = 'json';
+export const RAW_MESSAGE = 'raw_message';

@@ -5,19 +5,24 @@
  */
 import { ChangeEventCustomAttributesImpactedResourcesItemsType } from "./ChangeEventCustomAttributesImpactedResourcesItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object representing a uniquely identified resource. Only the resource type `service` is supported.
- */
+*/
 export class ChangeEventCustomAttributesImpactedResourcesItems {
   /**
    * Resource's name.
-   */
+  */
   "name": string;
   /**
    * Resource's type.
-   */
+  */
   "type": ChangeEventCustomAttributesImpactedResourcesItemsType;
 
   /**
@@ -36,28 +41,54 @@ export class ChangeEventCustomAttributesImpactedResourcesItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ChangeEventCustomAttributesImpactedResourcesItemsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ChangeEventCustomAttributesImpactedResourcesItemsType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ChangeEventCustomAttributesImpactedResourcesItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

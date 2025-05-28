@@ -6,23 +6,28 @@
 import { SecurityMonitoringSuppressionAttributes } from "./SecurityMonitoringSuppressionAttributes";
 import { SecurityMonitoringSuppressionType } from "./SecurityMonitoringSuppressionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The suppression rule's properties.
- */
+*/
 export class SecurityMonitoringSuppression {
   /**
    * The attributes of the suppression rule.
-   */
+  */
   "attributes"?: SecurityMonitoringSuppressionAttributes;
   /**
    * The ID of the suppression rule.
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource. The value should always be `suppressions`.
-   */
+  */
   "type"?: SecurityMonitoringSuppressionType;
 
   /**
@@ -41,30 +46,56 @@ export class SecurityMonitoringSuppression {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SecurityMonitoringSuppressionAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SecurityMonitoringSuppressionAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SecurityMonitoringSuppressionType",
+    "type": {
+      "baseName": "type",
+      "type": "SecurityMonitoringSuppressionType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSuppression.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

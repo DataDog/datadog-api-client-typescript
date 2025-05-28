@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of account.
- */
+*/
 
-export type GCPSTSDelegateAccountType =
-  | typeof GCP_STS_DELEGATE
-  | UnparsedObject;
-export const GCP_STS_DELEGATE = "gcp_sts_delegate";
+export type GCPSTSDelegateAccountType = typeof GCP_STS_DELEGATE | UnparsedObject;
+export const GCP_STS_DELEGATE = 'gcp_sts_delegate';

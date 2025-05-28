@@ -5,15 +5,20 @@
  */
 import { DashboardListItemRequest } from "./DashboardListItemRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request containing a list of dashboards to add.
- */
+*/
 export class DashboardListAddItemsRequest {
   /**
    * List of dashboards to add the dashboard list.
-   */
+  */
   "dashboards"?: Array<DashboardListItemRequest>;
 
   /**
@@ -32,22 +37,48 @@ export class DashboardListAddItemsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dashboards: {
-      baseName: "dashboards",
-      type: "Array<DashboardListItemRequest>",
+    "dashboards": {
+      "baseName": "dashboards",
+      "type": "Array<DashboardListItemRequest>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardListAddItemsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { ListStreamColumnWidth } from "./ListStreamColumnWidth";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Widget column.
- */
+*/
 export class ListStreamColumn {
   /**
    * Widget column field.
-   */
+  */
   "field": string;
   /**
    * Widget column width.
-   */
+  */
   "width": ListStreamColumnWidth;
 
   /**
@@ -36,28 +41,54 @@ export class ListStreamColumn {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    field: {
-      baseName: "field",
-      type: "string",
-      required: true,
+    "field": {
+      "baseName": "field",
+      "type": "string",
+      "required": true,
     },
-    width: {
-      baseName: "width",
-      type: "ListStreamColumnWidth",
-      required: true,
+    "width": {
+      "baseName": "width",
+      "type": "ListStreamColumnWidth",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListStreamColumn.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

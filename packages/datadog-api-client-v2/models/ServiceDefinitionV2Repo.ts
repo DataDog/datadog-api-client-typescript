@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Service code repositories.
- */
+*/
 export class ServiceDefinitionV2Repo {
   /**
    * Repository name.
-   */
+  */
   "name": string;
   /**
    * Repository provider.
-   */
+  */
   "provider"?: string;
   /**
    * Repository URL.
-   */
+  */
   "url": string;
 
   /**
@@ -39,32 +44,58 @@ export class ServiceDefinitionV2Repo {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    provider: {
-      baseName: "provider",
-      type: "string",
+    "provider": {
+      "baseName": "provider",
+      "type": "string",
     },
-    url: {
-      baseName: "url",
-      type: "string",
-      required: true,
+    "url": {
+      "baseName": "url",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionV2Repo.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+
