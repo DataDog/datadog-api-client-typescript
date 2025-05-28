@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 1.35.0/2025-05-28
+
+### Fixed
+* add `include` parameter to On-Call team rules test [#2270](https://github.com/DataDog/datadog-api-client-typescript/pull/2270)
+* fix On-Call spec [#2262](https://github.com/DataDog/datadog-api-client-typescript/pull/2262)
+* Fix incorrect pattern for url [#2223](https://github.com/DataDog/datadog-api-client-typescript/pull/2223)
+
+### Added
+* Add support for Datadog Events as a data source for rules [#2267](https://github.com/DataDog/datadog-api-client-typescript/pull/2267)
+* Add public APIs to search DORA events [#2263](https://github.com/DataDog/datadog-api-client-typescript/pull/2263)
+* Adding endpoints to manage Resource Evaluation Filters [#2236](https://github.com/DataDog/datadog-api-client-typescript/pull/2236)
+* Add Sev0 as a supported incident severity [#2225](https://github.com/DataDog/datadog-api-client-typescript/pull/2225)
+* Share timerestriction object [#2222](https://github.com/DataDog/datadog-api-client-typescript/pull/2222)
+* add On-Call Paging spec [#2216](https://github.com/DataDog/datadog-api-client-typescript/pull/2216)
+
 ## 1.34.1 / 2025-04-14
 
 ### Fixed
