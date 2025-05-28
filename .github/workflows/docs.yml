@@ -24,6 +24,11 @@ jobs:
           node-version: 16
           cache: 'yarn'
 
+      - name: Enable Corepack
+        run: corepack enable
+        env:
+          COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
+
       - name: Build documentation
         run: |
           yarn install

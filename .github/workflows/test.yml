@@ -97,6 +97,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
+      - name: Enable Corepack
+        run: corepack enable
+        env:
+          COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
       - name: Test
         run: ./run-tests.sh
         shell: bash
