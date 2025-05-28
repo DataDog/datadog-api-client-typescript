@@ -20,7 +20,7 @@ jobs:
           node-version: 18
       - name: Releasing tag ${{ github.event.release.tag_name }}
         run: |
-          corepack enable; yarn
+          corepack enable; yarn set version 4.9.1
 
           # Get tag name from event
           tag_name="${{ github.event.release.tag_name }}"
