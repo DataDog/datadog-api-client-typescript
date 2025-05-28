@@ -5,8 +5,8 @@ function finish {
 }
 trap finish EXIT
 
-# Docker setup
-yarn install --ignore-scripts
+COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable
+yarn install
 set -e
 yarn run build
 set +e
