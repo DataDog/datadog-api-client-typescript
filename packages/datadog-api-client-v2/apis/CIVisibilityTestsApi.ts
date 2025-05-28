@@ -509,13 +509,11 @@ export class CIVisibilityTestsApi {
         param.pageLimit,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listCIAppTestEvents(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listCIAppTestEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -591,13 +589,11 @@ export class CIVisibilityTestsApi {
         param.body,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchCIAppTestEvents(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.searchCIAppTestEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

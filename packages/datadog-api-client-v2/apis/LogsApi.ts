@@ -676,9 +676,8 @@ export class LogsApi {
         param.body,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listLogs(responseContext);
       const responseData = response.data;
@@ -771,13 +770,11 @@ export class LogsApi {
         param.pageLimit,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listLogsGet(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listLogsGet(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

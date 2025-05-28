@@ -724,13 +724,11 @@ export class NetworkDeviceMonitoringApi {
         param.filterTag,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listDevices(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listDevices(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

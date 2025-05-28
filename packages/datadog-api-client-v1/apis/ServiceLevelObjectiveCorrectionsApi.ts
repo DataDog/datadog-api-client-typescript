@@ -702,13 +702,11 @@ export class ServiceLevelObjectiveCorrectionsApi {
         param.limit,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listSLOCorrection(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listSLOCorrection(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

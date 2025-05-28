@@ -1259,9 +1259,8 @@ export class UsersApi {
         param.filterStatus,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listUsers(responseContext);
       const responseData = response.data;

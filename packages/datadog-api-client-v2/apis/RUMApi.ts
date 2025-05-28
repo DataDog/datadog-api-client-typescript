@@ -1101,13 +1101,11 @@ export class RUMApi {
         param.pageLimit,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listRUMEvents(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listRUMEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -1183,13 +1181,11 @@ export class RUMApi {
         param.body,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.searchRUMEvents(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.searchRUMEvents(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

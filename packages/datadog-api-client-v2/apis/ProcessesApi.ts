@@ -261,13 +261,11 @@ export class ProcessesApi {
         param.pageCursor,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listProcesses(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listProcesses(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

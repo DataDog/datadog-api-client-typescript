@@ -1556,9 +1556,8 @@ export class ServiceLevelObjectivesApi {
         param.offset,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.listSLOs(responseContext);
       const responseData = response.data;

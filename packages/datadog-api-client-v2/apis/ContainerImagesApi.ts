@@ -242,13 +242,11 @@ export class ContainerImagesApi {
         param.pageCursor,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listContainerImages(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listContainerImages(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

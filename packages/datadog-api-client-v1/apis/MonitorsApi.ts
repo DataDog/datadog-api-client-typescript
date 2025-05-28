@@ -1744,13 +1744,11 @@ export class MonitorsApi {
         param.pageSize,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listMonitors(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listMonitors(responseContext);
       const results = response;
       for (const item of results) {
         yield item;

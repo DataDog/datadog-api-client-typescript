@@ -626,13 +626,11 @@ export class ServiceDefinitionApi {
         param.schemaVersion,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listServiceDefinitions(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listServiceDefinitions(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;

@@ -884,13 +884,11 @@ export class DowntimesApi {
         param.pageLimit,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listDowntimes(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listDowntimes(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -952,13 +950,11 @@ export class DowntimesApi {
         param.pageLimit,
         options
       );
-      const responseContext = await this.configuration.httpApi.send(
-        requestContext
-      );
+      const responseContext =
+        await this.configuration.httpApi.send(requestContext);
 
-      const response = await this.responseProcessor.listMonitorDowntimes(
-        responseContext
-      );
+      const response =
+        await this.responseProcessor.listMonitorDowntimes(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
