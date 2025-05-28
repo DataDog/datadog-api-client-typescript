@@ -30,7 +30,7 @@ jobs:
           fi
 
           yarn_major_version=$(yarn --version | cut -d'.' -f1)
-          if [ "$yarn_major_version" -ge 4 ]; then
+          if [ "$yarn_major_version" -ge 2 ] && [ "$yarn_major_version" -le 4 ]; then
             cmd="yarn npm publish --access public"
           elif [ "$yarn_major_version" -eq 1 ]; then
             cmd="yarn publish --access public"
