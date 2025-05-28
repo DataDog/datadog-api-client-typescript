@@ -47,5 +47,6 @@ jobs:
 
           eval $cmd
         env:
+          NPM_AUTH_TOKEN: ${{ secrets.YARN_NPM_AUTH_TOKEN }}
           YARN_NPM_AUTH_TOKEN: ${{ secrets.YARN_NPM_AUTH_TOKEN }}
           COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
