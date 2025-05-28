@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 1.35.0/2025-05-28
+
+### Fixed
+* add `include` parameter to On-Call team rules test [#2270](https://github.com/DataDog/datadog-api-client-typescript/pull/2270)
+* fix On-Call spec [#2262](https://github.com/DataDog/datadog-api-client-typescript/pull/2262)
+* Fix incorrect pattern for url [#2223](https://github.com/DataDog/datadog-api-client-typescript/pull/2223)
+* Make metadata optional for GCS destination [#2213](https://github.com/DataDog/datadog-api-client-typescript/pull/2213)
+* Remove isReadOnly default when creating dashboards [#2212](https://github.com/DataDog/datadog-api-client-typescript/pull/2212)
+* Make assertion target be int or string [#2209](https://github.com/DataDog/datadog-api-client-typescript/pull/2209)
+
+### Added
+* Add support for Datadog Events as a data source for rules [#2267](https://github.com/DataDog/datadog-api-client-typescript/pull/2267)
+* Add public APIs to search DORA events [#2263](https://github.com/DataDog/datadog-api-client-typescript/pull/2263)
+* Adding endpoints to manage Resource Evaluation Filters [#2236](https://github.com/DataDog/datadog-api-client-typescript/pull/2236)
+* Add Sev0 as a supported incident severity [#2225](https://github.com/DataDog/datadog-api-client-typescript/pull/2225)
+* Share timerestriction object [#2222](https://github.com/DataDog/datadog-api-client-typescript/pull/2222)
+* add On-Call Paging spec [#2216](https://github.com/DataDog/datadog-api-client-typescript/pull/2216)
+* Add pagination method for NDM ListDevices. [#2211](https://github.com/DataDog/datadog-api-client-typescript/pull/2211)
+* Add a new endpoint for listing Software Catalog relations  [#2200](https://github.com/DataDog/datadog-api-client-typescript/pull/2200)
+
 ## 1.34.1 / 2025-04-14
 
 ### Fixed
