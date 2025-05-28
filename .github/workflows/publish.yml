@@ -29,7 +29,16 @@ jobs:
             cd $(echo $tag_name | rev | cut -d'/' -f2- | rev)
           fi
 
-          cmd="yarn npm publish --access public"
+          yarn_major_version=$(yarn --version | cut -d'.' -f1)
+          if [ "$yarn_major_version" -eq 4 ]; then
+            cmd="yarn npm publish --access public"
+          elif [ "$yarn_major_version" -eq 1 ]; then
+            cmd="yarn publish --access public"
+          else
+            echo "Unsupported Yarn version: $yarn_major_version"
+            exit 1
+          fi
+
           if [ "${{ github.event.release.prerelease }}" == "true" ]; then
             cmd+=" --tag=beta"
           else
