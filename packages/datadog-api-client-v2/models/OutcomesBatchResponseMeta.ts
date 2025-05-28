@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata pertaining to the bulk operation.
- */
+*/
 export class OutcomesBatchResponseMeta {
   /**
    * Total number of scorecard results received during the bulk operation.
-   */
+  */
   "totalReceived"?: number;
   /**
    * Total number of scorecard results modified during the bulk operation.
-   */
+  */
   "totalUpdated"?: number;
 
   /**
@@ -35,28 +40,54 @@ export class OutcomesBatchResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    totalReceived: {
-      baseName: "total_received",
-      type: "number",
-      format: "int64",
+    "totalReceived": {
+      "baseName": "total_received",
+      "type": "number",
+      "format": "int64",
     },
-    totalUpdated: {
-      baseName: "total_updated",
-      type: "number",
-      format: "int64",
+    "totalUpdated": {
+      "baseName": "total_updated",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OutcomesBatchResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

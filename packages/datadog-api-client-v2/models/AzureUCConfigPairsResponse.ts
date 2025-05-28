@@ -5,15 +5,20 @@
  */
 import { AzureUCConfigPair } from "./AzureUCConfigPair";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response of Azure config pair.
- */
+*/
 export class AzureUCConfigPairsResponse {
   /**
    * Azure config pair.
-   */
+  */
   "data"?: AzureUCConfigPair;
 
   /**
@@ -32,22 +37,48 @@ export class AzureUCConfigPairsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "AzureUCConfigPair",
+    "data": {
+      "baseName": "data",
+      "type": "AzureUCConfigPair",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AzureUCConfigPairsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

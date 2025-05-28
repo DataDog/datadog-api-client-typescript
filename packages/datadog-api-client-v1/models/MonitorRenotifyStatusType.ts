@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The different statuses for which renotification is supported.
- */
+*/
 
-export type MonitorRenotifyStatusType =
-  | typeof ALERT
-  | typeof WARN
-  | typeof NO_DATA
-  | UnparsedObject;
-export const ALERT = "alert";
-export const WARN = "warn";
-export const NO_DATA = "no data";
+export type MonitorRenotifyStatusType = typeof ALERT| typeof WARN| typeof NO_DATA | UnparsedObject;
+export const ALERT = 'alert';
+export const WARN = 'warn';
+export const NO_DATA = 'no data';

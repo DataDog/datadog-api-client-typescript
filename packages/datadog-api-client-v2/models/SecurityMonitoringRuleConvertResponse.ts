@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Result of the convert rule request containing Terraform content.
- */
+*/
 export class SecurityMonitoringRuleConvertResponse {
   /**
    * Terraform string as a result of converting the rule from JSON.
-   */
+  */
   "terraformContent"?: string;
 
   /**
@@ -31,22 +36,48 @@ export class SecurityMonitoringRuleConvertResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    terraformContent: {
-      baseName: "terraformContent",
-      type: "string",
+    "terraformContent": {
+      "baseName": "terraformContent",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringRuleConvertResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

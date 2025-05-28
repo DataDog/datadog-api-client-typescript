@@ -4,21 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The asset type
- */
+*/
 
-export type AssetType =
-  | typeof REPOSITORY
-  | typeof SERVICE
-  | typeof HOST
-  | typeof HOSTIMAGE
-  | typeof IMAGE
-  | UnparsedObject;
-export const REPOSITORY = "Repository";
-export const SERVICE = "Service";
-export const HOST = "Host";
-export const HOSTIMAGE = "HostImage";
-export const IMAGE = "Image";
+export type AssetType = typeof REPOSITORY| typeof SERVICE| typeof HOST| typeof HOSTIMAGE| typeof IMAGE | UnparsedObject;
+export const REPOSITORY = 'Repository';
+export const SERVICE = 'Service';
+export const HOST = 'Host';
+export const HOSTIMAGE = 'HostImage';
+export const IMAGE = 'Image';

@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Deleted dashboard details.
- */
+*/
 export class DashboardListDeleteResponse {
   /**
    * ID of the deleted dashboard list.
-   */
+  */
   "deletedDashboardListId"?: number;
 
   /**
@@ -31,23 +36,49 @@ export class DashboardListDeleteResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    deletedDashboardListId: {
-      baseName: "deleted_dashboard_list_id",
-      type: "number",
-      format: "int64",
+    "deletedDashboardListId": {
+      "baseName": "deleted_dashboard_list_id",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardListDeleteResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

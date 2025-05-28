@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case assign attributes
- */
+*/
 export class CaseAssignAttributes {
   /**
    * Assignee's UUID
-   */
+  */
   "assigneeId": string;
 
   /**
@@ -31,23 +36,49 @@ export class CaseAssignAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assigneeId: {
-      baseName: "assignee_id",
-      type: "string",
-      required: true,
+    "assigneeId": {
+      "baseName": "assignee_id",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseAssignAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { MonitorFormulaAndFunctionEventAggregation } from "./MonitorFormulaAndFunctionEventAggregation";
 import { QuerySortOrder } from "./QuerySortOrder";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Options for sorting group by results.
- */
+*/
 export class MonitorFormulaAndFunctionEventQueryGroupBySort {
   /**
    * Aggregation methods for event platform queries.
-   */
+  */
   "aggregation": MonitorFormulaAndFunctionEventAggregation;
   /**
    * Metric used for sorting group by results.
-   */
+  */
   "metric"?: string;
   /**
    * Direction of sort.
-   */
+  */
   "order"?: QuerySortOrder;
 
   /**
@@ -41,31 +46,57 @@ export class MonitorFormulaAndFunctionEventQueryGroupBySort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "MonitorFormulaAndFunctionEventAggregation",
-      required: true,
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "MonitorFormulaAndFunctionEventAggregation",
+      "required": true,
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
     },
-    order: {
-      baseName: "order",
-      type: "QuerySortOrder",
+    "order": {
+      "baseName": "order",
+      "type": "QuerySortOrder",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorFormulaAndFunctionEventQueryGroupBySort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

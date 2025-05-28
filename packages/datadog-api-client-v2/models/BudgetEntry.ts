@@ -5,23 +5,28 @@
  */
 import { TagFilter } from "./TagFilter";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The entry of a budget.
- */
+*/
 export class BudgetEntry {
   /**
    * The `amount` of the budget entry.
-   */
+  */
   "amount"?: number;
   /**
    * The `month` of the budget entry.
-   */
+  */
   "month"?: number;
   /**
    * The `tag_filters` of the budget entry.
-   */
+  */
   "tagFilters"?: Array<TagFilter>;
 
   /**
@@ -40,32 +45,58 @@ export class BudgetEntry {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    amount: {
-      baseName: "amount",
-      type: "number",
-      format: "double",
+    "amount": {
+      "baseName": "amount",
+      "type": "number",
+      "format": "double",
     },
-    month: {
-      baseName: "month",
-      type: "number",
-      format: "int64",
+    "month": {
+      "baseName": "month",
+      "type": "number",
+      "format": "int64",
     },
-    tagFilters: {
-      baseName: "tag_filters",
-      type: "Array<TagFilter>",
+    "tagFilters": {
+      "baseName": "tag_filters",
+      "type": "Array<TagFilter>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BudgetEntry.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

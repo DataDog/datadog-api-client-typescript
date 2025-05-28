@@ -4,10 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Whether to prompt the user to confirm this query before it runs.
- */
+*/
 
 export type ActionQueryRequiresConfirmation = boolean | string | UnparsedObject;

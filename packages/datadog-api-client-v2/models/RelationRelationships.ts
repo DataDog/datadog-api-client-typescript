@@ -5,19 +5,24 @@
  */
 import { RelationToEntity } from "./RelationToEntity";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relation relationships.
- */
+*/
 export class RelationRelationships {
   /**
    * Relation to entity.
-   */
+  */
   "fromEntity"?: RelationToEntity;
   /**
    * Relation to entity.
-   */
+  */
   "toEntity"?: RelationToEntity;
 
   /**
@@ -36,26 +41,52 @@ export class RelationRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fromEntity: {
-      baseName: "fromEntity",
-      type: "RelationToEntity",
+    "fromEntity": {
+      "baseName": "fromEntity",
+      "type": "RelationToEntity",
     },
-    toEntity: {
-      baseName: "toEntity",
-      type: "RelationToEntity",
+    "toEntity": {
+      "baseName": "toEntity",
+      "type": "RelationToEntity",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

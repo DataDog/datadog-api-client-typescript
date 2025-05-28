@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Invalid query performed.
- */
+*/
 export class HTTPLogError {
   /**
    * Error code.
-   */
+  */
   "code": number;
   /**
    * Error message.
-   */
+  */
   "message": string;
 
   /**
@@ -35,29 +40,55 @@ export class HTTPLogError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "number",
-      required: true,
-      format: "int32",
+    "code": {
+      "baseName": "code",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    message: {
-      baseName: "message",
-      type: "string",
-      required: true,
+    "message": {
+      "baseName": "message",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HTTPLogError.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

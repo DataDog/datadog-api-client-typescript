@@ -6,23 +6,28 @@
 import { TeamRoutingRulesDataRelationships } from "./TeamRoutingRulesDataRelationships";
 import { TeamRoutingRulesDataType } from "./TeamRoutingRulesDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents the top-level data object for team routing rules, containing the ID, relationships, and resource type.
- */
+*/
 export class TeamRoutingRulesData {
   /**
    * Specifies the unique identifier of this team routing rules record.
-   */
+  */
   "id"?: string;
   /**
    * Specifies relationships for team routing rules, including rule references.
-   */
+  */
   "relationships"?: TeamRoutingRulesDataRelationships;
   /**
    * Team routing rules resource type.
-   */
+  */
   "type": TeamRoutingRulesDataType;
 
   /**
@@ -41,31 +46,57 @@ export class TeamRoutingRulesData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "TeamRoutingRulesDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "TeamRoutingRulesDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "TeamRoutingRulesDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamRoutingRulesDataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamRoutingRulesData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

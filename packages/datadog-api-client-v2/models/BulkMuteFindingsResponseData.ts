@@ -5,19 +5,24 @@
  */
 import { FindingType } from "./FindingType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object containing the ID of the request that was updated.
- */
+*/
 export class BulkMuteFindingsResponseData {
   /**
    * UUID used to identify the request
-   */
+  */
   "id"?: string;
   /**
    * The JSON:API type for findings.
-   */
+  */
   "type"?: FindingType;
 
   /**
@@ -36,26 +41,52 @@ export class BulkMuteFindingsResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "FindingType",
+    "type": {
+      "baseName": "type",
+      "type": "FindingType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BulkMuteFindingsResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

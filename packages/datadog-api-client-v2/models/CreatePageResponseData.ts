@@ -5,19 +5,24 @@
  */
 import { CreatePageResponseDataType } from "./CreatePageResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The information returned after successfully creating a page.
- */
+*/
 export class CreatePageResponseData {
   /**
    * The unique ID of the created page.
-   */
+  */
   "id"?: string;
   /**
    * The type of resource used when creating an On-Call Page.
-   */
+  */
   "type": CreatePageResponseDataType;
 
   /**
@@ -36,27 +41,53 @@ export class CreatePageResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CreatePageResponseDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CreatePageResponseDataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreatePageResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

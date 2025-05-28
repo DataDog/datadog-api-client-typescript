@@ -5,23 +5,28 @@
  */
 import { DataDeletionResponseItemAttributes } from "./DataDeletionResponseItemAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The created data deletion request information.
- */
+*/
 export class DataDeletionResponseItem {
   /**
    * Deletion attribute for data deletion response.
-   */
+  */
   "attributes": DataDeletionResponseItemAttributes;
   /**
    * The ID of the created data deletion request.
-   */
+  */
   "id": string;
   /**
    * The type of the request created.
-   */
+  */
   "type": string;
 
   /**
@@ -40,33 +45,59 @@ export class DataDeletionResponseItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DataDeletionResponseItemAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DataDeletionResponseItemAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DataDeletionResponseItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

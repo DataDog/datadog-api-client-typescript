@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The postmortem attachment.
- */
+*/
 export class IncidentAttachmentsPostmortemAttributesAttachmentObject {
   /**
    * The URL of this notebook attachment.
-   */
+  */
   "documentUrl": string;
   /**
    * The title of this postmortem attachment.
-   */
+  */
   "title": string;
 
   /**
@@ -35,28 +40,54 @@ export class IncidentAttachmentsPostmortemAttributesAttachmentObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    documentUrl: {
-      baseName: "documentUrl",
-      type: "string",
-      required: true,
+    "documentUrl": {
+      "baseName": "documentUrl",
+      "type": "string",
+      "required": true,
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentAttachmentsPostmortemAttributesAttachmentObject.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

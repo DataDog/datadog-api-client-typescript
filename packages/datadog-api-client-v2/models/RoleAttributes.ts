@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the role.
- */
+*/
 export class RoleAttributes {
   /**
    * Creation time of the role.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Time of last role modification.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * The name of the role. The name is neither unique nor a stable identifier of the role.
-   */
+  */
   "name"?: string;
   /**
    * Number of users with that role.
-   */
+  */
   "userCount"?: number;
 
   /**
@@ -43,37 +48,63 @@ export class RoleAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modified_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    userCount: {
-      baseName: "user_count",
-      type: "number",
-      format: "int64",
+    "userCount": {
+      "baseName": "user_count",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RoleAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

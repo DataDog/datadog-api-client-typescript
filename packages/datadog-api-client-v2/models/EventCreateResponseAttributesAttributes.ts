@@ -5,15 +5,20 @@
  */
 import { EventCreateResponseAttributesAttributesEvt } from "./EventCreateResponseAttributesAttributesEvt";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON object of attributes from your events.
- */
+*/
 export class EventCreateResponseAttributesAttributes {
   /**
    * JSON object of event system attributes.
-   */
+  */
   "evt"?: EventCreateResponseAttributesAttributesEvt;
 
   /**
@@ -32,22 +37,48 @@ export class EventCreateResponseAttributesAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    evt: {
-      baseName: "evt",
-      type: "EventCreateResponseAttributesAttributesEvt",
+    "evt": {
+      "baseName": "evt",
+      "type": "EventCreateResponseAttributesAttributesEvt",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventCreateResponseAttributesAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationMarkdownTextAnnotation } from "./AnnotationMarkdownTextAnnotation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A list of annotations used in the workflow. These are like sticky notes for your workflow!
- */
+*/
 export class Annotation {
   /**
    * The definition of `AnnotationDisplay` object.
-   */
+  */
   "display": AnnotationDisplay;
   /**
    * The `Annotation` `id`.
-   */
+  */
   "id": string;
   /**
    * The definition of `AnnotationMarkdownTextAnnotation` object.
-   */
+  */
   "markdownTextAnnotation": AnnotationMarkdownTextAnnotation;
 
   /**
@@ -41,33 +46,59 @@ export class Annotation {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    display: {
-      baseName: "display",
-      type: "AnnotationDisplay",
-      required: true,
+    "display": {
+      "baseName": "display",
+      "type": "AnnotationDisplay",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    markdownTextAnnotation: {
-      baseName: "markdownTextAnnotation",
-      type: "AnnotationMarkdownTextAnnotation",
-      required: true,
+    "markdownTextAnnotation": {
+      "baseName": "markdownTextAnnotation",
+      "type": "AnnotationMarkdownTextAnnotation",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Annotation.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

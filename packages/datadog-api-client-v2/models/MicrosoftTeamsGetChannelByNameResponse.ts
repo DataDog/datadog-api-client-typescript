@@ -5,15 +5,20 @@
  */
 import { MicrosoftTeamsChannelInfoResponseData } from "./MicrosoftTeamsChannelInfoResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with channel, team, and tenant ID information.
- */
+*/
 export class MicrosoftTeamsGetChannelByNameResponse {
   /**
    * Channel data from a response.
-   */
+  */
   "data"?: MicrosoftTeamsChannelInfoResponseData;
 
   /**
@@ -32,22 +37,48 @@ export class MicrosoftTeamsGetChannelByNameResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MicrosoftTeamsChannelInfoResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "MicrosoftTeamsChannelInfoResponseData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MicrosoftTeamsGetChannelByNameResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

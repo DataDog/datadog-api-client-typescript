@@ -5,15 +5,20 @@
  */
 import { MonitorNotificationRuleRelationshipsCreatedByData } from "./MonitorNotificationRuleRelationshipsCreatedByData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The user who created the monitor notification rule.
- */
+*/
 export class MonitorNotificationRuleRelationshipsCreatedBy {
   /**
    * Data for the user who created the monitor notification rule.
-   */
+  */
   "data"?: MonitorNotificationRuleRelationshipsCreatedByData;
 
   /**
@@ -32,22 +37,48 @@ export class MonitorNotificationRuleRelationshipsCreatedBy {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MonitorNotificationRuleRelationshipsCreatedByData",
+    "data": {
+      "baseName": "data",
+      "type": "MonitorNotificationRuleRelationshipsCreatedByData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorNotificationRuleRelationshipsCreatedBy.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

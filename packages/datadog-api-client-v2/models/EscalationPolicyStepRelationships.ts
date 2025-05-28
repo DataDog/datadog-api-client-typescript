@@ -5,15 +5,20 @@
  */
 import { EscalationTargets } from "./EscalationTargets";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents the relationship of an escalation policy step to its targets.
- */
+*/
 export class EscalationPolicyStepRelationships {
   /**
    * A list of escalation targets for a step
-   */
+  */
   "targets"?: EscalationTargets;
 
   /**
@@ -32,22 +37,48 @@ export class EscalationPolicyStepRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    targets: {
-      baseName: "targets",
-      type: "EscalationTargets",
+    "targets": {
+      "baseName": "targets",
+      "type": "EscalationTargets",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EscalationPolicyStepRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

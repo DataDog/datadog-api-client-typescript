@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Finding object containing the finding information.
- */
+*/
 export class BulkMuteFindingsRequestMetaFindings {
   /**
    * The unique ID for this finding.
-   */
+  */
   "findingId"?: string;
 
   /**
@@ -31,22 +36,48 @@ export class BulkMuteFindingsRequestMetaFindings {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    findingId: {
-      baseName: "finding_id",
-      type: "string",
+    "findingId": {
+      "baseName": "finding_id",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BulkMuteFindingsRequestMetaFindings.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -9,48 +9,53 @@ import { ObservabilityPipelineGoogleCloudStorageDestinationStorageClass } from "
 import { ObservabilityPipelineGoogleCloudStorageDestinationType } from "./ObservabilityPipelineGoogleCloudStorageDestinationType";
 import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
  * It requires a bucket name, GCP authentication, and metadata fields.
- */
+*/
 export class ObservabilityPipelineGoogleCloudStorageDestination {
   /**
    * Access control list setting for objects written to the bucket.
-   */
+  */
   "acl": ObservabilityPipelineGoogleCloudStorageDestinationAcl;
   /**
    * GCP credentials used to authenticate with Google Cloud Storage.
-   */
+  */
   "auth": ObservabilityPipelineGcpAuth;
   /**
    * Name of the GCS bucket.
-   */
+  */
   "bucket": string;
   /**
    * Unique identifier for the destination component.
-   */
+  */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * Optional prefix for object keys within the GCS bucket.
-   */
+  */
   "keyPrefix"?: string;
   /**
    * Custom metadata to attach to each object uploaded to the GCS bucket.
-   */
+  */
   "metadata"?: Array<ObservabilityPipelineMetadataEntry>;
   /**
    * Storage class used for objects stored in GCS.
-   */
+  */
   "storageClass": ObservabilityPipelineGoogleCloudStorageDestinationStorageClass;
   /**
    * The destination type. Always `google_cloud_storage`.
-   */
+  */
   "type": ObservabilityPipelineGoogleCloudStorageDestinationType;
 
   /**
@@ -69,61 +74,87 @@ export class ObservabilityPipelineGoogleCloudStorageDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    acl: {
-      baseName: "acl",
-      type: "ObservabilityPipelineGoogleCloudStorageDestinationAcl",
-      required: true,
+    "acl": {
+      "baseName": "acl",
+      "type": "ObservabilityPipelineGoogleCloudStorageDestinationAcl",
+      "required": true,
     },
-    auth: {
-      baseName: "auth",
-      type: "ObservabilityPipelineGcpAuth",
-      required: true,
+    "auth": {
+      "baseName": "auth",
+      "type": "ObservabilityPipelineGcpAuth",
+      "required": true,
     },
-    bucket: {
-      baseName: "bucket",
-      type: "string",
-      required: true,
+    "bucket": {
+      "baseName": "bucket",
+      "type": "string",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    keyPrefix: {
-      baseName: "key_prefix",
-      type: "string",
+    "keyPrefix": {
+      "baseName": "key_prefix",
+      "type": "string",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "Array<ObservabilityPipelineMetadataEntry>",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "Array<ObservabilityPipelineMetadataEntry>",
     },
-    storageClass: {
-      baseName: "storage_class",
-      type: "ObservabilityPipelineGoogleCloudStorageDestinationStorageClass",
-      required: true,
+    "storageClass": {
+      "baseName": "storage_class",
+      "type": "ObservabilityPipelineGoogleCloudStorageDestinationStorageClass",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineGoogleCloudStorageDestinationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineGoogleCloudStorageDestinationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineGoogleCloudStorageDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

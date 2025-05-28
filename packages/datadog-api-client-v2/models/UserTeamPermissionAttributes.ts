@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * User team permission attributes
- */
+*/
 export class UserTeamPermissionAttributes {
   /**
    * Object of team permission actions and boolean values that a logged in user can perform on this team.
-   */
+  */
   "permissions"?: any;
 
   /**
@@ -31,22 +36,48 @@ export class UserTeamPermissionAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    permissions: {
-      baseName: "permissions",
-      type: "any",
+    "permissions": {
+      "baseName": "permissions",
+      "type": "any",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserTeamPermissionAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

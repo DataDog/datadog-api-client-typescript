@@ -7,23 +7,28 @@ import { CaseCreateAttributes } from "./CaseCreateAttributes";
 import { CaseCreateRelationships } from "./CaseCreateRelationships";
 import { CaseResourceType } from "./CaseResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case creation data
- */
+*/
 export class CaseCreate {
   /**
    * Case creation attributes
-   */
+  */
   "attributes": CaseCreateAttributes;
   /**
    * Relationships formed with the case on creation
-   */
+  */
   "relationships"?: CaseCreateRelationships;
   /**
    * Case resource type
-   */
+  */
   "type": CaseResourceType;
 
   /**
@@ -42,32 +47,58 @@ export class CaseCreate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseCreateAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "CaseCreateRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "CaseCreateRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "CaseResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseResourceType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseCreate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

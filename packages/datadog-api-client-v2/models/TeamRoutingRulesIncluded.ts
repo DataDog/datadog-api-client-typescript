@@ -5,10 +5,15 @@
  */
 import { RoutingRule } from "./RoutingRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Represents additional included resources for team routing rules, such as associated routing rules.
- */
+*/
 
 export type TeamRoutingRulesIncluded = RoutingRule | UnparsedObject;

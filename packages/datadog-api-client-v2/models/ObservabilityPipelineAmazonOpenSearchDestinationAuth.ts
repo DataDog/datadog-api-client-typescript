@@ -5,32 +5,37 @@
  */
 import { ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy } from "./ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Authentication settings for the Amazon OpenSearch destination.
  * The `strategy` field determines whether basic or AWS-based authentication is used.
- */
+*/
 export class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
   /**
    * The ARN of the role to assume (used with `aws` strategy).
-   */
+  */
   "assumeRole"?: string;
   /**
    * AWS region
-   */
+  */
   "awsRegion"?: string;
   /**
    * External ID for the assumed role (used with `aws` strategy).
-   */
+  */
   "externalId"?: string;
   /**
    * Session name for the assumed role (used with `aws` strategy).
-   */
+  */
   "sessionName"?: string;
   /**
    * The authentication strategy to use.
-   */
+  */
   "strategy": ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy;
 
   /**
@@ -49,39 +54,65 @@ export class ObservabilityPipelineAmazonOpenSearchDestinationAuth {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assumeRole: {
-      baseName: "assume_role",
-      type: "string",
+    "assumeRole": {
+      "baseName": "assume_role",
+      "type": "string",
     },
-    awsRegion: {
-      baseName: "aws_region",
-      type: "string",
+    "awsRegion": {
+      "baseName": "aws_region",
+      "type": "string",
     },
-    externalId: {
-      baseName: "external_id",
-      type: "string",
+    "externalId": {
+      "baseName": "external_id",
+      "type": "string",
     },
-    sessionName: {
-      baseName: "session_name",
-      type: "string",
+    "sessionName": {
+      "baseName": "session_name",
+      "type": "string",
     },
-    strategy: {
-      baseName: "strategy",
-      type: "ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy",
-      required: true,
+    "strategy": {
+      "baseName": "strategy",
+      "type": "ObservabilityPipelineAmazonOpenSearchDestinationAuthStrategy",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineAmazonOpenSearchDestinationAuth.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

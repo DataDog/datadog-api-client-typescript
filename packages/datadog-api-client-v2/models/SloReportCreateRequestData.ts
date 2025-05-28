@@ -5,15 +5,20 @@
  */
 import { SloReportCreateRequestAttributes } from "./SloReportCreateRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The data portion of the SLO report request.
- */
+*/
 export class SloReportCreateRequestData {
   /**
    * The attributes portion of the SLO report request.
-   */
+  */
   "attributes": SloReportCreateRequestAttributes;
 
   /**
@@ -32,23 +37,49 @@ export class SloReportCreateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SloReportCreateRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SloReportCreateRequestAttributes",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SloReportCreateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -7,27 +7,32 @@ import { ScheduleDataAttributes } from "./ScheduleDataAttributes";
 import { ScheduleDataRelationships } from "./ScheduleDataRelationships";
 import { ScheduleDataType } from "./ScheduleDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents the primary data object for a schedule, linking attributes and relationships.
- */
+*/
 export class ScheduleData {
   /**
    * Provides core properties of a schedule object such as its name and time zone.
-   */
+  */
   "attributes"?: ScheduleDataAttributes;
   /**
    * The schedule's unique identifier.
-   */
+  */
   "id"?: string;
   /**
    * Groups the relationships for a schedule object, referencing layers and teams.
-   */
+  */
   "relationships"?: ScheduleDataRelationships;
   /**
    * Schedules resource type.
-   */
+  */
   "type": ScheduleDataType;
 
   /**
@@ -46,35 +51,61 @@ export class ScheduleData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ScheduleDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ScheduleDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "ScheduleDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "ScheduleDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "ScheduleDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ScheduleDataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

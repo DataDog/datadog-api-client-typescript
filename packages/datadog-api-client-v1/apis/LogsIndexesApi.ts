@@ -1,20 +1,18 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+  HttpFile
+  } from "../../datadog-api-client-common/http/http";
+
+import FormData from "form-data";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { LogsAPIErrorResponse } from "../models/LogsAPIErrorResponse";
@@ -24,31 +22,26 @@ import { LogsIndexListResponse } from "../models/LogsIndexListResponse";
 import { LogsIndexUpdateRequest } from "../models/LogsIndexUpdateRequest";
 
 export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
-  public async createLogsIndex(
-    body: LogsIndex,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createLogsIndex(body: LogsIndex,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createLogsIndex");
+      throw new RequiredError('body', 'createLogsIndex');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/logs/config/indexes";
+    const localVarPath = '/api/v1/logs/config/indexes';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.createLogsIndex")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v1.LogsIndexesApi.createLogsIndex').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LogsIndex", ""),
@@ -57,163 +50,116 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async deleteLogsIndex(
-    name: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async deleteLogsIndex(name: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'name' is not null or undefined
     if (name === null || name === undefined) {
-      throw new RequiredError("name", "deleteLogsIndex");
+      throw new RequiredError('name', 'deleteLogsIndex');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/logs/config/indexes/{name}".replace(
-      "{name}",
-      encodeURIComponent(String(name))
-    );
+    const localVarPath = '/api/v1/logs/config/indexes/{name}'
+      .replace('{name}', encodeURIComponent(String(name)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.deleteLogsIndex")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v1.LogsIndexesApi.deleteLogsIndex').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async getLogsIndex(
-    name: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getLogsIndex(name: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'name' is not null or undefined
     if (name === null || name === undefined) {
-      throw new RequiredError("name", "getLogsIndex");
+      throw new RequiredError('name', 'getLogsIndex');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/logs/config/indexes/{name}".replace(
-      "{name}",
-      encodeURIComponent(String(name))
-    );
+    const localVarPath = '/api/v1/logs/config/indexes/{name}'
+      .replace('{name}', encodeURIComponent(String(name)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.getLogsIndex")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.LogsIndexesApi.getLogsIndex').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async getLogsIndexOrder(
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getLogsIndexOrder(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v1/logs/config/index-order";
+    const localVarPath = '/api/v1/logs/config/index-order';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.getLogsIndexOrder")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.LogsIndexesApi.getLogsIndexOrder').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async listLogIndexes(
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async listLogIndexes(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v1/logs/config/indexes";
+    const localVarPath = '/api/v1/logs/config/indexes';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.listLogIndexes")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.LogsIndexesApi.listLogIndexes').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async updateLogsIndex(
-    name: string,
-    body: LogsIndexUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async updateLogsIndex(name: string,body: LogsIndexUpdateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'name' is not null or undefined
     if (name === null || name === undefined) {
-      throw new RequiredError("name", "updateLogsIndex");
+      throw new RequiredError('name', 'updateLogsIndex');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateLogsIndex");
+      throw new RequiredError('body', 'updateLogsIndex');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/logs/config/indexes/{name}".replace(
-      "{name}",
-      encodeURIComponent(String(name))
-    );
+    const localVarPath = '/api/v1/logs/config/indexes/{name}'
+      .replace('{name}', encodeURIComponent(String(name)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.updateLogsIndex")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v1.LogsIndexesApi.updateLogsIndex').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LogsIndexUpdateRequest", ""),
@@ -222,39 +168,30 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async updateLogsIndexOrder(
-    body: LogsIndexesOrder,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async updateLogsIndexOrder(body: LogsIndexesOrder,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateLogsIndexOrder");
+      throw new RequiredError('body', 'updateLogsIndexOrder');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/logs/config/index-order";
+    const localVarPath = '/api/v1/logs/config/index-order';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.updateLogsIndexOrder")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v1.LogsIndexesApi.updateLogsIndexOrder').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LogsIndexesOrder", ""),
@@ -263,16 +200,14 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 }
 
 export class LogsIndexesApiResponseProcessor {
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -280,10 +215,8 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to createLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createLogsIndex(response: ResponseContext): Promise<LogsIndex> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createLogsIndex(response: ResponseContext): Promise<LogsIndex> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: LogsIndex = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -292,10 +225,7 @@ export class LogsIndexesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: LogsAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -304,21 +234,12 @@ export class LogsIndexesApiResponseProcessor {
         ) as LogsAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<LogsAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<LogsAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<LogsAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<LogsAPIErrorResponse>(response.httpStatusCode, body);
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -327,11 +248,8 @@ export class LogsIndexesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -339,17 +257,13 @@ export class LogsIndexesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndex = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsIndex",
-        ""
+        "LogsIndex", ""
       ) as LogsIndex;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -359,18 +273,13 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteLogsIndex(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteLogsIndex(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -379,18 +288,12 @@ export class LogsIndexesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: LogsAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -399,32 +302,22 @@ export class LogsIndexesApiResponseProcessor {
         ) as LogsAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<LogsAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<LogsAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<LogsAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<LogsAPIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
+        "void", ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -434,10 +327,8 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to getLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getLogsIndex(response: ResponseContext): Promise<LogsIndex> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getLogsIndex(response: ResponseContext): Promise<LogsIndex> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: LogsIndex = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -445,11 +336,8 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndex;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -458,18 +346,12 @@ export class LogsIndexesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 404) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: LogsAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -478,32 +360,22 @@ export class LogsIndexesApiResponseProcessor {
         ) as LogsAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<LogsAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<LogsAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<LogsAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<LogsAPIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndex = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsIndex",
-        ""
+        "LogsIndex", ""
       ) as LogsIndex;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -513,12 +385,8 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to getLogsIndexOrder
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getLogsIndexOrder(
-    response: ResponseContext
-  ): Promise<LogsIndexesOrder> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getLogsIndexOrder(response: ResponseContext): Promise<LogsIndexesOrder> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: LogsIndexesOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -526,11 +394,8 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndexesOrder;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -539,11 +404,8 @@ export class LogsIndexesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -551,17 +413,13 @@ export class LogsIndexesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndexesOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsIndexesOrder",
-        ""
+        "LogsIndexesOrder", ""
       ) as LogsIndexesOrder;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -571,12 +429,8 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to listLogIndexes
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listLogIndexes(
-    response: ResponseContext
-  ): Promise<LogsIndexListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listLogIndexes(response: ResponseContext): Promise<LogsIndexListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: LogsIndexListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -584,11 +438,8 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndexListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -597,11 +448,8 @@ export class LogsIndexesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -609,17 +457,13 @@ export class LogsIndexesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndexListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsIndexListResponse",
-        ""
+        "LogsIndexListResponse", ""
       ) as LogsIndexListResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -629,10 +473,8 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to updateLogsIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateLogsIndex(response: ResponseContext): Promise<LogsIndex> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateLogsIndex(response: ResponseContext): Promise<LogsIndex> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: LogsIndex = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -640,11 +482,8 @@ export class LogsIndexesApiResponseProcessor {
       ) as LogsIndex;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: LogsAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -653,21 +492,12 @@ export class LogsIndexesApiResponseProcessor {
         ) as LogsAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<LogsAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<LogsAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<LogsAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<LogsAPIErrorResponse>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode === 403) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -676,11 +506,8 @@ export class LogsIndexesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -688,17 +515,13 @@ export class LogsIndexesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndex = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsIndex",
-        ""
+        "LogsIndex", ""
       ) as LogsIndex;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -708,12 +531,8 @@ export class LogsIndexesApiResponseProcessor {
    * @params response Response returned by the server for a request to updateLogsIndexOrder
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateLogsIndexOrder(
-    response: ResponseContext
-  ): Promise<LogsIndexesOrder> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateLogsIndexOrder(response: ResponseContext): Promise<LogsIndexesOrder> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: LogsIndexesOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -722,10 +541,7 @@ export class LogsIndexesApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: LogsAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -734,21 +550,12 @@ export class LogsIndexesApiResponseProcessor {
         ) as LogsAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<LogsAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<LogsAPIErrorResponse>(
-        response.httpStatusCode,
-        body
-      );
+        throw new ApiException<LogsAPIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
+      throw new ApiException<LogsAPIErrorResponse>(response.httpStatusCode, body);
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -757,11 +564,8 @@ export class LogsIndexesApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -769,17 +573,13 @@ export class LogsIndexesApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndexesOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsIndexesOrder",
-        ""
+        "LogsIndexesOrder", ""
       ) as LogsIndexesOrder;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -788,7 +588,7 @@ export interface LogsIndexesApiCreateLogsIndexRequest {
    * Object containing the new index.
    * @type LogsIndex
    */
-  body: LogsIndex;
+  body: LogsIndex
 }
 
 export interface LogsIndexesApiDeleteLogsIndexRequest {
@@ -796,7 +596,7 @@ export interface LogsIndexesApiDeleteLogsIndexRequest {
    * Name of the log index.
    * @type string
    */
-  name: string;
+  name: string
 }
 
 export interface LogsIndexesApiGetLogsIndexRequest {
@@ -804,7 +604,7 @@ export interface LogsIndexesApiGetLogsIndexRequest {
    * Name of the log index.
    * @type string
    */
-  name: string;
+  name: string
 }
 
 export interface LogsIndexesApiUpdateLogsIndexRequest {
@@ -812,12 +612,12 @@ export interface LogsIndexesApiUpdateLogsIndexRequest {
    * Name of the log index.
    * @type string
    */
-  name: string;
+  name: string
   /**
    * Object containing the new `LogsIndexUpdateRequest`.
    * @type LogsIndexUpdateRequest
    */
-  body: LogsIndexUpdateRequest;
+  body: LogsIndexUpdateRequest
 }
 
 export interface LogsIndexesApiUpdateLogsIndexOrderRequest {
@@ -825,7 +625,7 @@ export interface LogsIndexesApiUpdateLogsIndexOrderRequest {
    * Object containing the new ordered list of index names
    * @type LogsIndexesOrder
    */
-  body: LogsIndexesOrder;
+  body: LogsIndexesOrder
 }
 
 export class LogsIndexesApi {
@@ -833,35 +633,21 @@ export class LogsIndexesApi {
   private responseProcessor: LogsIndexesApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: LogsIndexesApiRequestFactory,
-    responseProcessor?: LogsIndexesApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: LogsIndexesApiRequestFactory, responseProcessor?: LogsIndexesApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new LogsIndexesApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new LogsIndexesApiResponseProcessor();
+    this.requestFactory = requestFactory || new LogsIndexesApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new LogsIndexesApiResponseProcessor();
   }
 
   /**
    * Creates a new index. Returns the Index object passed in the request body when the request is successful.
    * @param param The request object
    */
-  public createLogsIndex(
-    param: LogsIndexesApiCreateLogsIndexRequest,
-    options?: Configuration
-  ): Promise<LogsIndex> {
-    const requestContextPromise = this.requestFactory.createLogsIndex(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createLogsIndex(responseContext);
+  public createLogsIndex(param: LogsIndexesApiCreateLogsIndexRequest, options?: Configuration): Promise<LogsIndex> {
+    const requestContextPromise = this.requestFactory.createLogsIndex(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createLogsIndex(responseContext);
         });
     });
   }
@@ -871,19 +657,11 @@ export class LogsIndexesApi {
    * You cannot recreate an index with the same name as deleted ones.
    * @param param The request object
    */
-  public deleteLogsIndex(
-    param: LogsIndexesApiDeleteLogsIndexRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteLogsIndex(
-      param.name,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteLogsIndex(responseContext);
+  public deleteLogsIndex(param: LogsIndexesApiDeleteLogsIndexRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteLogsIndex(param.name,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteLogsIndex(responseContext);
         });
     });
   }
@@ -892,19 +670,11 @@ export class LogsIndexesApi {
    * Get one log index from your organization. This endpoint takes no JSON arguments.
    * @param param The request object
    */
-  public getLogsIndex(
-    param: LogsIndexesApiGetLogsIndexRequest,
-    options?: Configuration
-  ): Promise<LogsIndex> {
-    const requestContextPromise = this.requestFactory.getLogsIndex(
-      param.name,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getLogsIndex(responseContext);
+  public getLogsIndex(param: LogsIndexesApiGetLogsIndexRequest, options?: Configuration): Promise<LogsIndex> {
+    const requestContextPromise = this.requestFactory.getLogsIndex(param.name,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getLogsIndex(responseContext);
         });
     });
   }
@@ -913,14 +683,11 @@ export class LogsIndexesApi {
    * Get the current order of your log indexes. This endpoint takes no JSON arguments.
    * @param param The request object
    */
-  public getLogsIndexOrder(options?: Configuration): Promise<LogsIndexesOrder> {
-    const requestContextPromise =
-      this.requestFactory.getLogsIndexOrder(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getLogsIndexOrder(responseContext);
+  public getLogsIndexOrder( options?: Configuration): Promise<LogsIndexesOrder> {
+    const requestContextPromise = this.requestFactory.getLogsIndexOrder(options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getLogsIndexOrder(responseContext);
         });
     });
   }
@@ -930,15 +697,11 @@ export class LogsIndexesApi {
    * This endpoint returns an array of the `LogIndex` objects of your organization.
    * @param param The request object
    */
-  public listLogIndexes(
-    options?: Configuration
-  ): Promise<LogsIndexListResponse> {
+  public listLogIndexes( options?: Configuration): Promise<LogsIndexListResponse> {
     const requestContextPromise = this.requestFactory.listLogIndexes(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listLogIndexes(responseContext);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listLogIndexes(responseContext);
         });
     });
   }
@@ -946,25 +709,16 @@ export class LogsIndexesApi {
   /**
    * Update an index as identified by its name.
    * Returns the Index object passed in the request body when the request is successful.
-   *
+   * 
    * Using the `PUT` method updates your index’s configuration by **replacing**
    * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object
    */
-  public updateLogsIndex(
-    param: LogsIndexesApiUpdateLogsIndexRequest,
-    options?: Configuration
-  ): Promise<LogsIndex> {
-    const requestContextPromise = this.requestFactory.updateLogsIndex(
-      param.name,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateLogsIndex(responseContext);
+  public updateLogsIndex(param: LogsIndexesApiUpdateLogsIndexRequest, options?: Configuration): Promise<LogsIndex> {
+    const requestContextPromise = this.requestFactory.updateLogsIndex(param.name,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateLogsIndex(responseContext);
         });
     });
   }
@@ -974,19 +728,11 @@ export class LogsIndexesApi {
    * It returns the index order object passed in the request body when the request is successful.
    * @param param The request object
    */
-  public updateLogsIndexOrder(
-    param: LogsIndexesApiUpdateLogsIndexOrderRequest,
-    options?: Configuration
-  ): Promise<LogsIndexesOrder> {
-    const requestContextPromise = this.requestFactory.updateLogsIndexOrder(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateLogsIndexOrder(responseContext);
+  public updateLogsIndexOrder(param: LogsIndexesApiUpdateLogsIndexOrderRequest, options?: Configuration): Promise<LogsIndexesOrder> {
+    const requestContextPromise = this.requestFactory.updateLogsIndexOrder(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateLogsIndexOrder(responseContext);
         });
     });
   }

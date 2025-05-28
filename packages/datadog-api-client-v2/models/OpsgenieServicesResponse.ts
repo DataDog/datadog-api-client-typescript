@@ -5,15 +5,20 @@
  */
 import { OpsgenieServiceResponseData } from "./OpsgenieServiceResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with a list of Opsgenie services.
- */
+*/
 export class OpsgenieServicesResponse {
   /**
    * An array of Opsgenie services.
-   */
+  */
   "data": Array<OpsgenieServiceResponseData>;
 
   /**
@@ -32,23 +37,49 @@ export class OpsgenieServicesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<OpsgenieServiceResponseData>",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "Array<OpsgenieServiceResponseData>",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpsgenieServicesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the resource. The value must be `custom_framework`.
- */
+*/
 
 export type CustomFrameworkType = typeof CUSTOM_FRAMEWORK | UnparsedObject;
-export const CUSTOM_FRAMEWORK = "custom_framework";
+export const CUSTOM_FRAMEWORK = 'custom_framework';

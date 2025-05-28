@@ -6,19 +6,24 @@
 import { AppBuilderEventName } from "./AppBuilderEventName";
 import { AppBuilderEventType } from "./AppBuilderEventType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An event on a UI component that triggers a response or action in an app.
- */
+*/
 export class AppBuilderEvent {
   /**
    * The triggering action for the event.
-   */
+  */
   "name"?: AppBuilderEventName;
   /**
    * The response to the event.
-   */
+  */
   "type"?: AppBuilderEventType;
 
   /**
@@ -37,26 +42,52 @@ export class AppBuilderEvent {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "AppBuilderEventName",
+    "name": {
+      "baseName": "name",
+      "type": "AppBuilderEventName",
     },
-    type: {
-      baseName: "type",
-      type: "AppBuilderEventType",
+    "type": {
+      "baseName": "type",
+      "type": "AppBuilderEventType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AppBuilderEvent.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

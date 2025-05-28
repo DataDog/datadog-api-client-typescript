@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Wrapper object with the list of monitor IDs.
- */
+*/
 export class CheckCanDeleteMonitorResponseData {
   /**
    * An array of Monitor IDs that can be safely deleted.
-   */
+  */
   "ok"?: Array<number>;
 
   /**
@@ -31,23 +36,49 @@ export class CheckCanDeleteMonitorResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ok: {
-      baseName: "ok",
-      type: "Array<number>",
-      format: "int64",
+    "ok": {
+      "baseName": "ok",
+      "type": "Array<number>",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CheckCanDeleteMonitorResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

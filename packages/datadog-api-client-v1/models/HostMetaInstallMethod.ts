@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Agent install method.
- */
+*/
 export class HostMetaInstallMethod {
   /**
    * The installer version.
-   */
+  */
   "installerVersion"?: string;
   /**
    * Tool used to install the agent.
-   */
+  */
   "tool"?: string;
   /**
    * The tool version.
-   */
+  */
   "toolVersion"?: string;
 
   /**
@@ -39,30 +44,56 @@ export class HostMetaInstallMethod {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    installerVersion: {
-      baseName: "installer_version",
-      type: "string",
+    "installerVersion": {
+      "baseName": "installer_version",
+      "type": "string",
     },
-    tool: {
-      baseName: "tool",
-      type: "string",
+    "tool": {
+      "baseName": "tool",
+      "type": "string",
     },
-    toolVersion: {
-      baseName: "tool_version",
-      type: "string",
+    "toolVersion": {
+      "baseName": "tool_version",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HostMetaInstallMethod.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of aggregated connections.
- */
+*/
 export class SingleAggregatedConnectionResponseArray {
   /**
    * Array of aggregated connection objects.
-   */
+  */
   "data"?: Array<SingleAggregatedConnectionResponseData>;
 
   /**
@@ -32,22 +37,48 @@ export class SingleAggregatedConnectionResponseArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SingleAggregatedConnectionResponseData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<SingleAggregatedConnectionResponseData>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SingleAggregatedConnectionResponseArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

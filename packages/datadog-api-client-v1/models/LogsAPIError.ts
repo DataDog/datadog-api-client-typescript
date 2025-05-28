@@ -4,23 +4,28 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Error returned by the Logs API
- */
+*/
 export class LogsAPIError {
   /**
    * Code identifying the error
-   */
+  */
   "code"?: string;
   /**
    * Additional error details
-   */
+  */
   "details"?: Array<LogsAPIError>;
   /**
    * Error message
-   */
+  */
   "message"?: string;
 
   /**
@@ -39,30 +44,56 @@ export class LogsAPIError {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    code: {
-      baseName: "code",
-      type: "string",
+    "code": {
+      "baseName": "code",
+      "type": "string",
     },
-    details: {
-      baseName: "details",
-      type: "Array<LogsAPIError>",
+    "details": {
+      "baseName": "details",
+      "type": "Array<LogsAPIError>",
     },
-    message: {
-      baseName: "message",
-      type: "string",
+    "message": {
+      "baseName": "message",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsAPIError.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

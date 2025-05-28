@@ -5,23 +5,28 @@
  */
 import { ObservabilityPipelineDatadogLogsDestinationType } from "./ObservabilityPipelineDatadogLogsDestinationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `datadog_logs` destination forwards logs to Datadog Log Management.
- */
+*/
 export class ObservabilityPipelineDatadogLogsDestination {
   /**
    * The unique identifier for this component.
-   */
+  */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * The destination type. The value should always be `datadog_logs`.
-   */
+  */
   "type": ObservabilityPipelineDatadogLogsDestinationType;
 
   /**
@@ -40,33 +45,59 @@ export class ObservabilityPipelineDatadogLogsDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineDatadogLogsDestinationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineDatadogLogsDestinationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineDatadogLogsDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

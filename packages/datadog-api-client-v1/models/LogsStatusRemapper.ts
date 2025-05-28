@@ -5,13 +5,18 @@
  */
 import { LogsStatusRemapperType } from "./LogsStatusRemapperType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Use this Processor if you want to assign some attributes as the official status.
- *
+ * 
  * Each incoming status value is mapped as follows.
- *
+ * 
  *   - Integers from 0 to 7 map to the Syslog severity standards
  *   - Strings beginning with `emerg` or f (case-insensitive) map to `emerg` (0)
  *   - Strings beginning with `a` (case-insensitive) map to `alert` (1)
@@ -23,26 +28,26 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  *   - Strings beginning with `d`, `trace` or `verbose` (case-insensitive) map to `debug` (7)
  *   - Strings beginning with `o` or matching `OK` or `Success` (case-insensitive) map to OK
  *   - All others map to `info` (6)
- *
+ * 
  *   **Note:** If multiple log status remapper processors can be applied to a given log,
  *   only the first one (according to the pipelines order) is taken into account.
- */
+*/
 export class LogsStatusRemapper {
   /**
    * Whether or not the processor is enabled.
-   */
+  */
   "isEnabled"?: boolean;
   /**
    * Name of the processor.
-   */
+  */
   "name"?: string;
   /**
    * Array of source attributes.
-   */
+  */
   "sources": Array<string>;
   /**
    * Type of logs status remapper.
-   */
+  */
   "type": LogsStatusRemapperType;
 
   /**
@@ -61,36 +66,62 @@ export class LogsStatusRemapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
+    "isEnabled": {
+      "baseName": "is_enabled",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    sources: {
-      baseName: "sources",
-      type: "Array<string>",
-      required: true,
+    "sources": {
+      "baseName": "sources",
+      "type": "Array<string>",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LogsStatusRemapperType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LogsStatusRemapperType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsStatusRemapper.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

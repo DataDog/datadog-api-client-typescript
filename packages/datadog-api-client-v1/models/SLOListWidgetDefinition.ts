@@ -7,31 +7,36 @@ import { SLOListWidgetDefinitionType } from "./SLOListWidgetDefinitionType";
 import { SLOListWidgetRequest } from "./SLOListWidgetRequest";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Use the SLO List widget to track your SLOs (Service Level Objectives) on dashboards.
- */
+*/
 export class SLOListWidgetDefinition {
   /**
    * Array of one request object to display in the widget.
-   */
+  */
   "requests": [SLOListWidgetRequest];
   /**
    * Title of the widget.
-   */
+  */
   "title"?: string;
   /**
    * How to align the text on the widget.
-   */
+  */
   "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
-   */
+  */
   "titleSize"?: string;
   /**
    * Type of the SLO List widget.
-   */
+  */
   "type": SLOListWidgetDefinitionType;
 
   /**
@@ -50,40 +55,66 @@ export class SLOListWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    requests: {
-      baseName: "requests",
-      type: "[SLOListWidgetRequest]",
-      required: true,
+    "requests": {
+      "baseName": "requests",
+      "type": "[SLOListWidgetRequest]",
+      "required": true,
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    titleAlign: {
-      baseName: "title_align",
-      type: "WidgetTextAlign",
+    "titleAlign": {
+      "baseName": "title_align",
+      "type": "WidgetTextAlign",
     },
-    titleSize: {
-      baseName: "title_size",
-      type: "string",
+    "titleSize": {
+      "baseName": "title_size",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SLOListWidgetDefinitionType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SLOListWidgetDefinitionType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOListWidgetDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

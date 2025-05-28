@@ -7,27 +7,32 @@ import { SensitiveDataScannerGroupAttributes } from "./SensitiveDataScannerGroup
 import { SensitiveDataScannerGroupRelationships } from "./SensitiveDataScannerGroupRelationships";
 import { SensitiveDataScannerGroupType } from "./SensitiveDataScannerGroupType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data related to the update of a group.
- */
+*/
 export class SensitiveDataScannerGroupUpdate {
   /**
    * Attributes of the Sensitive Data Scanner group.
-   */
+  */
   "attributes"?: SensitiveDataScannerGroupAttributes;
   /**
    * ID of the group.
-   */
+  */
   "id"?: string;
   /**
    * Relationships of the group.
-   */
+  */
   "relationships"?: SensitiveDataScannerGroupRelationships;
   /**
    * Sensitive Data Scanner group type.
-   */
+  */
   "type"?: SensitiveDataScannerGroupType;
 
   /**
@@ -46,34 +51,60 @@ export class SensitiveDataScannerGroupUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SensitiveDataScannerGroupAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SensitiveDataScannerGroupAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "SensitiveDataScannerGroupRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "SensitiveDataScannerGroupRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "SensitiveDataScannerGroupType",
+    "type": {
+      "baseName": "type",
+      "type": "SensitiveDataScannerGroupType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerGroupUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

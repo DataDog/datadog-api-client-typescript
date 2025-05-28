@@ -5,19 +5,24 @@
  */
 import { ScheduleTargetType } from "./ScheduleTargetType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a schedule target for an escalation policy step, including its ID and resource type.
- */
+*/
 export class ScheduleTarget {
   /**
    * Specifies the unique identifier of the schedule resource.
-   */
+  */
   "id": string;
   /**
    * Indicates that the resource is of type `schedules`.
-   */
+  */
   "type": ScheduleTargetType;
 
   /**
@@ -36,28 +41,54 @@ export class ScheduleTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ScheduleTargetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ScheduleTargetType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleTarget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

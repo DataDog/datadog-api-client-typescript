@@ -5,15 +5,20 @@
  */
 import { MonitorNotificationRuleCreateRequestData } from "./MonitorNotificationRuleCreateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request for creating a monitor notification rule.
- */
+*/
 export class MonitorNotificationRuleCreateRequest {
   /**
    * Object to create a monitor notification rule.
-   */
+  */
   "data": MonitorNotificationRuleCreateRequestData;
 
   /**
@@ -32,23 +37,49 @@ export class MonitorNotificationRuleCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MonitorNotificationRuleCreateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "MonitorNotificationRuleCreateRequestData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorNotificationRuleCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

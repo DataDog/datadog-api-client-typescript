@@ -5,15 +5,20 @@
  */
 import { HTTPCIAppError } from "./HTTPCIAppError";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Errors occurred.
- */
+*/
 export class HTTPCIAppErrors {
   /**
    * Structured errors.
-   */
+  */
   "errors"?: Array<HTTPCIAppError>;
 
   /**
@@ -32,22 +37,48 @@ export class HTTPCIAppErrors {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<HTTPCIAppError>",
+    "errors": {
+      "baseName": "errors",
+      "type": "Array<HTTPCIAppError>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HTTPCIAppErrors.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

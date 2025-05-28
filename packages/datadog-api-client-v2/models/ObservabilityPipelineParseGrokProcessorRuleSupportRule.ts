@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Grok helper rule referenced in the parsing rules.
- */
+*/
 export class ObservabilityPipelineParseGrokProcessorRuleSupportRule {
   /**
    * The name of the Grok helper rule.
-   */
+  */
   "name": string;
   /**
    * The definition of the Grok helper rule.
-   */
+  */
   "rule": string;
 
   /**
@@ -35,28 +40,54 @@ export class ObservabilityPipelineParseGrokProcessorRuleSupportRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    rule: {
-      baseName: "rule",
-      type: "string",
-      required: true,
+    "rule": {
+      "baseName": "rule",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineParseGrokProcessorRuleSupportRule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

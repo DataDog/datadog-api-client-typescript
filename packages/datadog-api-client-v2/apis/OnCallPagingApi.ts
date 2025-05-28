@@ -1,85 +1,67 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+  HttpFile
+  } from "../../datadog-api-client-common/http/http";
+
+import FormData from "form-data";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CreatePageRequest } from "../models/CreatePageRequest";
 import { CreatePageResponse } from "../models/CreatePageResponse";
 
 export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
-  public async acknowledgeOnCallPage(
-    pageId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async acknowledgeOnCallPage(pageId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'pageId' is not null or undefined
     if (pageId === null || pageId === undefined) {
-      throw new RequiredError("pageId", "acknowledgeOnCallPage");
+      throw new RequiredError('pageId', 'acknowledgeOnCallPage');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/on-call/pages/{page_id}/acknowledge".replace(
-      "{page_id}",
-      encodeURIComponent(String(pageId))
-    );
+    const localVarPath = '/api/v2/on-call/pages/{page_id}/acknowledge'
+      .replace('{page_id}', encodeURIComponent(String(pageId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OnCallPagingApi.acknowledgeOnCallPage")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.OnCallPagingApi.acknowledgeOnCallPage').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async createOnCallPage(
-    body: CreatePageRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async createOnCallPage(body: CreatePageRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createOnCallPage");
+      throw new RequiredError('body', 'createOnCallPage');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/on-call/pages";
+    const localVarPath = '/api/v2/on-call/pages';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OnCallPagingApi.createOnCallPage")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.OnCallPagingApi.createOnCallPage').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CreatePageRequest", ""),
@@ -88,85 +70,60 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async escalateOnCallPage(
-    pageId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async escalateOnCallPage(pageId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'pageId' is not null or undefined
     if (pageId === null || pageId === undefined) {
-      throw new RequiredError("pageId", "escalateOnCallPage");
+      throw new RequiredError('pageId', 'escalateOnCallPage');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/on-call/pages/{page_id}/escalate".replace(
-      "{page_id}",
-      encodeURIComponent(String(pageId))
-    );
+    const localVarPath = '/api/v2/on-call/pages/{page_id}/escalate'
+      .replace('{page_id}', encodeURIComponent(String(pageId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OnCallPagingApi.escalateOnCallPage")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.OnCallPagingApi.escalateOnCallPage').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async resolveOnCallPage(
-    pageId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async resolveOnCallPage(pageId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'pageId' is not null or undefined
     if (pageId === null || pageId === undefined) {
-      throw new RequiredError("pageId", "resolveOnCallPage");
+      throw new RequiredError('pageId', 'resolveOnCallPage');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/on-call/pages/{page_id}/resolve".replace(
-      "{page_id}",
-      encodeURIComponent(String(pageId))
-    );
+    const localVarPath = '/api/v2/on-call/pages/{page_id}/resolve'
+      .replace('{page_id}', encodeURIComponent(String(pageId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OnCallPagingApi.resolveOnCallPage")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.OnCallPagingApi.resolveOnCallPage').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 }
 
 export class OnCallPagingApiResponseProcessor {
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -174,18 +131,13 @@ export class OnCallPagingApiResponseProcessor {
    * @params response Response returned by the server for a request to acknowledgeOnCallPage
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async acknowledgeOnCallPage(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async acknowledgeOnCallPage(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -194,11 +146,8 @@ export class OnCallPagingApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -206,17 +155,13 @@ export class OnCallPagingApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
+        "void", ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -226,12 +171,8 @@ export class OnCallPagingApiResponseProcessor {
    * @params response Response returned by the server for a request to createOnCallPage
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createOnCallPage(
-    response: ResponseContext
-  ): Promise<CreatePageResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createOnCallPage(response: ResponseContext): Promise<CreatePageResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: CreatePageResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -240,10 +181,7 @@ export class OnCallPagingApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -252,11 +190,8 @@ export class OnCallPagingApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -264,17 +199,13 @@ export class OnCallPagingApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CreatePageResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "CreatePageResponse",
-        ""
+        "CreatePageResponse", ""
       ) as CreatePageResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -284,18 +215,13 @@ export class OnCallPagingApiResponseProcessor {
    * @params response Response returned by the server for a request to escalateOnCallPage
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async escalateOnCallPage(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async escalateOnCallPage(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -304,11 +230,8 @@ export class OnCallPagingApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -316,17 +239,13 @@ export class OnCallPagingApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
+        "void", ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -336,18 +255,13 @@ export class OnCallPagingApiResponseProcessor {
    * @params response Response returned by the server for a request to resolveOnCallPage
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async resolveOnCallPage(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async resolveOnCallPage(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 202) {
       return;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -356,11 +270,8 @@ export class OnCallPagingApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -368,17 +279,13 @@ export class OnCallPagingApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
+        "void", ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -387,14 +294,14 @@ export interface OnCallPagingApiAcknowledgeOnCallPageRequest {
    * The page ID.
    * @type string
    */
-  pageId: string;
+  pageId: string
 }
 
 export interface OnCallPagingApiCreateOnCallPageRequest {
   /**
    * @type CreatePageRequest
    */
-  body: CreatePageRequest;
+  body: CreatePageRequest
 }
 
 export interface OnCallPagingApiEscalateOnCallPageRequest {
@@ -402,7 +309,7 @@ export interface OnCallPagingApiEscalateOnCallPageRequest {
    * The page ID.
    * @type string
    */
-  pageId: string;
+  pageId: string
 }
 
 export interface OnCallPagingApiResolveOnCallPageRequest {
@@ -410,7 +317,7 @@ export interface OnCallPagingApiResolveOnCallPageRequest {
    * The page ID.
    * @type string
    */
-  pageId: string;
+  pageId: string
 }
 
 export class OnCallPagingApi {
@@ -418,35 +325,21 @@ export class OnCallPagingApi {
   private responseProcessor: OnCallPagingApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: OnCallPagingApiRequestFactory,
-    responseProcessor?: OnCallPagingApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: OnCallPagingApiRequestFactory, responseProcessor?: OnCallPagingApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new OnCallPagingApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new OnCallPagingApiResponseProcessor();
+    this.requestFactory = requestFactory || new OnCallPagingApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new OnCallPagingApiResponseProcessor();
   }
 
   /**
    * Acknowledges an On-Call Page.
    * @param param The request object
    */
-  public acknowledgeOnCallPage(
-    param: OnCallPagingApiAcknowledgeOnCallPageRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.acknowledgeOnCallPage(
-      param.pageId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.acknowledgeOnCallPage(responseContext);
+  public acknowledgeOnCallPage(param: OnCallPagingApiAcknowledgeOnCallPageRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.acknowledgeOnCallPage(param.pageId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.acknowledgeOnCallPage(responseContext);
         });
     });
   }
@@ -455,19 +348,11 @@ export class OnCallPagingApi {
    * Trigger a new On-Call Page.
    * @param param The request object
    */
-  public createOnCallPage(
-    param: OnCallPagingApiCreateOnCallPageRequest,
-    options?: Configuration
-  ): Promise<CreatePageResponse> {
-    const requestContextPromise = this.requestFactory.createOnCallPage(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createOnCallPage(responseContext);
+  public createOnCallPage(param: OnCallPagingApiCreateOnCallPageRequest, options?: Configuration): Promise<CreatePageResponse> {
+    const requestContextPromise = this.requestFactory.createOnCallPage(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createOnCallPage(responseContext);
         });
     });
   }
@@ -476,19 +361,11 @@ export class OnCallPagingApi {
    * Escalates an On-Call Page.
    * @param param The request object
    */
-  public escalateOnCallPage(
-    param: OnCallPagingApiEscalateOnCallPageRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.escalateOnCallPage(
-      param.pageId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.escalateOnCallPage(responseContext);
+  public escalateOnCallPage(param: OnCallPagingApiEscalateOnCallPageRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.escalateOnCallPage(param.pageId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.escalateOnCallPage(responseContext);
         });
     });
   }
@@ -497,19 +374,11 @@ export class OnCallPagingApi {
    * Resolves an On-Call Page.
    * @param param The request object
    */
-  public resolveOnCallPage(
-    param: OnCallPagingApiResolveOnCallPageRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.resolveOnCallPage(
-      param.pageId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.resolveOnCallPage(responseContext);
+  public resolveOnCallPage(param: OnCallPagingApiResolveOnCallPageRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.resolveOnCallPage(param.pageId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.resolveOnCallPage(responseContext);
         });
     });
   }

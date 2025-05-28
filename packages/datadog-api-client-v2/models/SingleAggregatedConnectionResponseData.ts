@@ -6,23 +6,28 @@
 import { SingleAggregatedConnectionResponseDataAttributes } from "./SingleAggregatedConnectionResponseDataAttributes";
 import { SingleAggregatedConnectionResponseDataType } from "./SingleAggregatedConnectionResponseDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object describing an aggregated connection.
- */
+*/
 export class SingleAggregatedConnectionResponseData {
   /**
    * Attributes for an aggregated connection.
-   */
+  */
   "attributes"?: SingleAggregatedConnectionResponseDataAttributes;
   /**
    * A unique identifier for the aggregated connection based on the group by values.
-   */
+  */
   "id"?: string;
   /**
    * Aggregated connection resource type.
-   */
+  */
   "type"?: SingleAggregatedConnectionResponseDataType;
 
   /**
@@ -41,30 +46,56 @@ export class SingleAggregatedConnectionResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SingleAggregatedConnectionResponseDataAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SingleAggregatedConnectionResponseDataAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SingleAggregatedConnectionResponseDataType",
+    "type": {
+      "baseName": "type",
+      "type": "SingleAggregatedConnectionResponseDataType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SingleAggregatedConnectionResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

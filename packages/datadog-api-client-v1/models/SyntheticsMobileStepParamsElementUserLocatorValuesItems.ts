@@ -5,19 +5,24 @@
  */
 import { SyntheticsMobileStepParamsElementUserLocatorValuesItemsType } from "./SyntheticsMobileStepParamsElementUserLocatorValuesItemsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A single user locator object.
- */
+*/
 export class SyntheticsMobileStepParamsElementUserLocatorValuesItems {
   /**
    * Type of a user locator.
-   */
+  */
   "type"?: SyntheticsMobileStepParamsElementUserLocatorValuesItemsType;
   /**
    * Value of a user locator.
-   */
+  */
   "value"?: string;
 
   /**
@@ -36,26 +41,52 @@ export class SyntheticsMobileStepParamsElementUserLocatorValuesItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    type: {
-      baseName: "type",
-      type: "SyntheticsMobileStepParamsElementUserLocatorValuesItemsType",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsMobileStepParamsElementUserLocatorValuesItemsType",
     },
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsMobileStepParamsElementUserLocatorValuesItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { SpansAttributes } from "./SpansAttributes";
 import { SpansType } from "./SpansType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object description of a spans after being processed and stored by Datadog.
- */
+*/
 export class Span {
   /**
    * JSON object containing all span attributes and their associated values.
-   */
+  */
   "attributes"?: SpansAttributes;
   /**
    * Unique ID of the Span.
-   */
+  */
   "id"?: string;
   /**
    * Type of the span.
-   */
+  */
   "type"?: SpansType;
 
   /**
@@ -41,30 +46,56 @@ export class Span {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SpansAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SpansAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SpansType",
+    "type": {
+      "baseName": "type",
+      "type": "SpansType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Span.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,24 +4,29 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * AWS authentication credentials used for accessing AWS services such as S3.
  * If omitted, the system’s default credentials are used (for example, the IAM role and environment variables).
- */
+*/
 export class ObservabilityPipelineAwsAuth {
   /**
    * The Amazon Resource Name (ARN) of the role to assume.
-   */
+  */
   "assumeRole"?: string;
   /**
    * A unique identifier for cross-account role assumption.
-   */
+  */
   "externalId"?: string;
   /**
    * A session identifier used for logging and tracing the assumed role session.
-   */
+  */
   "sessionName"?: string;
 
   /**
@@ -40,30 +45,56 @@ export class ObservabilityPipelineAwsAuth {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assumeRole: {
-      baseName: "assume_role",
-      type: "string",
+    "assumeRole": {
+      "baseName": "assume_role",
+      "type": "string",
     },
-    externalId: {
-      baseName: "external_id",
-      type: "string",
+    "externalId": {
+      "baseName": "external_id",
+      "type": "string",
     },
-    sessionName: {
-      baseName: "session_name",
-      type: "string",
+    "sessionName": {
+      "baseName": "session_name",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineAwsAuth.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

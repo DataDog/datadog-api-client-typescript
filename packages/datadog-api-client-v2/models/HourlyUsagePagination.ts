@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The metadata for the current pagination.
- */
+*/
 export class HourlyUsagePagination {
   /**
    * The cursor to get the next results (if any). To make the next request, use the same parameters and add `next_record_id`.
-   */
+  */
   "nextRecordId"?: string;
 
   /**
@@ -31,22 +36,48 @@ export class HourlyUsagePagination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    nextRecordId: {
-      baseName: "next_record_id",
-      type: "string",
+    "nextRecordId": {
+      "baseName": "next_record_id",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HourlyUsagePagination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

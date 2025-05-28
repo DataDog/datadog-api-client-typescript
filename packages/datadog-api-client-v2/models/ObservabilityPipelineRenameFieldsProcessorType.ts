@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The processor type. The value should always be `rename_fields`.
- */
+*/
 
-export type ObservabilityPipelineRenameFieldsProcessorType =
-  | typeof RENAME_FIELDS
-  | UnparsedObject;
-export const RENAME_FIELDS = "rename_fields";
+export type ObservabilityPipelineRenameFieldsProcessorType = typeof RENAME_FIELDS | UnparsedObject;
+export const RENAME_FIELDS = 'rename_fields';

@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The destination type. The value should always be `google_chronicle`.
- */
+*/
 
-export type ObservabilityPipelineGoogleChronicleDestinationType =
-  | typeof GOOGLE_CHRONICLE
-  | UnparsedObject;
-export const GOOGLE_CHRONICLE = "google_chronicle";
+export type ObservabilityPipelineGoogleChronicleDestinationType = typeof GOOGLE_CHRONICLE | UnparsedObject;
+export const GOOGLE_CHRONICLE = 'google_chronicle';

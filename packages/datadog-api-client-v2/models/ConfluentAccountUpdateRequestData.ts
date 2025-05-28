@@ -6,19 +6,24 @@
 import { ConfluentAccountType } from "./ConfluentAccountType";
 import { ConfluentAccountUpdateRequestAttributes } from "./ConfluentAccountUpdateRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data object for updating a Confluent account.
- */
+*/
 export class ConfluentAccountUpdateRequestData {
   /**
    * Attributes object for updating a Confluent account.
-   */
+  */
   "attributes": ConfluentAccountUpdateRequestAttributes;
   /**
    * The JSON:API type for this API. Should always be `confluent-cloud-accounts`.
-   */
+  */
   "type": ConfluentAccountType;
 
   /**
@@ -37,28 +42,54 @@ export class ConfluentAccountUpdateRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ConfluentAccountUpdateRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ConfluentAccountUpdateRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ConfluentAccountType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ConfluentAccountType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ConfluentAccountUpdateRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

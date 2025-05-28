@@ -1,20 +1,18 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+  HttpFile
+  } from "../../datadog-api-client-common/http/http";
+
+import FormData from "form-data";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ListPowerpacksResponse } from "../models/ListPowerpacksResponse";
@@ -23,31 +21,26 @@ import { PowerpackData } from "../models/PowerpackData";
 import { PowerpackResponse } from "../models/PowerpackResponse";
 
 export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
-  public async createPowerpack(
-    body: Powerpack,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createPowerpack(body: Powerpack,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createPowerpack");
+      throw new RequiredError('body', 'createPowerpack');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/powerpacks";
+    const localVarPath = '/api/v2/powerpacks';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.PowerpackApi.createPowerpack")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v2.PowerpackApi.createPowerpack').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Powerpack", ""),
@@ -56,160 +49,107 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async deletePowerpack(
-    powerpackId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async deletePowerpack(powerpackId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'powerpackId' is not null or undefined
     if (powerpackId === null || powerpackId === undefined) {
-      throw new RequiredError("powerpackId", "deletePowerpack");
+      throw new RequiredError('powerpackId', 'deletePowerpack');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/powerpacks/{powerpack_id}".replace(
-      "{powerpack_id}",
-      encodeURIComponent(String(powerpackId))
-    );
+    const localVarPath = '/api/v2/powerpacks/{powerpack_id}'
+      .replace('{powerpack_id}', encodeURIComponent(String(powerpackId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.PowerpackApi.deletePowerpack")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v2.PowerpackApi.deletePowerpack').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async getPowerpack(
-    powerpackId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getPowerpack(powerpackId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'powerpackId' is not null or undefined
     if (powerpackId === null || powerpackId === undefined) {
-      throw new RequiredError("powerpackId", "getPowerpack");
+      throw new RequiredError('powerpackId', 'getPowerpack');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/powerpacks/{powerpack_id}".replace(
-      "{powerpack_id}",
-      encodeURIComponent(String(powerpackId))
-    );
+    const localVarPath = '/api/v2/powerpacks/{powerpack_id}'
+      .replace('{powerpack_id}', encodeURIComponent(String(powerpackId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.PowerpackApi.getPowerpack")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.PowerpackApi.getPowerpack').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async listPowerpacks(
-    pageLimit?: number,
-    pageOffset?: number,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async listPowerpacks(pageLimit?: number,pageOffset?: number,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v2/powerpacks";
+    const localVarPath = '/api/v2/powerpacks';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.PowerpackApi.listPowerpacks")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v2.PowerpackApi.listPowerpacks').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (pageLimit !== undefined) {
-      requestContext.setQueryParam(
-        "page[limit]",
-        ObjectSerializer.serialize(pageLimit, "number", "int64"),
-        ""
-      );
+      requestContext.setQueryParam("page[limit]", ObjectSerializer.serialize(pageLimit, "number", "int64"), "");
     }
     if (pageOffset !== undefined) {
-      requestContext.setQueryParam(
-        "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64"),
-        ""
-      );
+      requestContext.setQueryParam("page[offset]", ObjectSerializer.serialize(pageOffset, "number", "int64"), "");
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async updatePowerpack(
-    powerpackId: string,
-    body: Powerpack,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async updatePowerpack(powerpackId: string,body: Powerpack,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'powerpackId' is not null or undefined
     if (powerpackId === null || powerpackId === undefined) {
-      throw new RequiredError("powerpackId", "updatePowerpack");
+      throw new RequiredError('powerpackId', 'updatePowerpack');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updatePowerpack");
+      throw new RequiredError('body', 'updatePowerpack');
     }
 
     // Path Params
-    const localVarPath = "/api/v2/powerpacks/{powerpack_id}".replace(
-      "{powerpack_id}",
-      encodeURIComponent(String(powerpackId))
-    );
+    const localVarPath = '/api/v2/powerpacks/{powerpack_id}'
+      .replace('{powerpack_id}', encodeURIComponent(String(powerpackId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.PowerpackApi.updatePowerpack")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config.getServer('v2.PowerpackApi.updatePowerpack').makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Powerpack", ""),
@@ -218,17 +158,14 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 }
 
 export class PowerpackApiResponseProcessor {
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -236,12 +173,8 @@ export class PowerpackApiResponseProcessor {
    * @params response Response returned by the server for a request to createPowerpack
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createPowerpack(
-    response: ResponseContext
-  ): Promise<PowerpackResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createPowerpack(response: ResponseContext): Promise<PowerpackResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -249,11 +182,8 @@ export class PowerpackApiResponseProcessor {
       ) as PowerpackResponse;
       return body;
     }
-    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -262,11 +192,8 @@ export class PowerpackApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -274,17 +201,13 @@ export class PowerpackApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "PowerpackResponse",
-        ""
+        "PowerpackResponse", ""
       ) as PowerpackResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -294,18 +217,13 @@ export class PowerpackApiResponseProcessor {
    * @params response Response returned by the server for a request to deletePowerpack
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deletePowerpack(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deletePowerpack(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -314,11 +232,8 @@ export class PowerpackApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -326,17 +241,13 @@ export class PowerpackApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
+        "void", ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -346,12 +257,8 @@ export class PowerpackApiResponseProcessor {
    * @params response Response returned by the server for a request to getPowerpack
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getPowerpack(
-    response: ResponseContext
-  ): Promise<PowerpackResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getPowerpack(response: ResponseContext): Promise<PowerpackResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -359,11 +266,8 @@ export class PowerpackApiResponseProcessor {
       ) as PowerpackResponse;
       return body;
     }
-    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -372,11 +276,8 @@ export class PowerpackApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -384,17 +285,13 @@ export class PowerpackApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "PowerpackResponse",
-        ""
+        "PowerpackResponse", ""
       ) as PowerpackResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -404,12 +301,8 @@ export class PowerpackApiResponseProcessor {
    * @params response Response returned by the server for a request to listPowerpacks
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listPowerpacks(
-    response: ResponseContext
-  ): Promise<ListPowerpacksResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listPowerpacks(response: ResponseContext): Promise<ListPowerpacksResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: ListPowerpacksResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -418,10 +311,7 @@ export class PowerpackApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -430,11 +320,8 @@ export class PowerpackApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -442,17 +329,13 @@ export class PowerpackApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListPowerpacksResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListPowerpacksResponse",
-        ""
+        "ListPowerpacksResponse", ""
       ) as ListPowerpacksResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -462,12 +345,8 @@ export class PowerpackApiResponseProcessor {
    * @params response Response returned by the server for a request to updatePowerpack
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updatePowerpack(
-    response: ResponseContext
-  ): Promise<PowerpackResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updatePowerpack(response: ResponseContext): Promise<PowerpackResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -475,15 +354,8 @@ export class PowerpackApiResponseProcessor {
       ) as PowerpackResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -492,11 +364,8 @@ export class PowerpackApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -504,17 +373,13 @@ export class PowerpackApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PowerpackResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "PowerpackResponse",
-        ""
+        "PowerpackResponse", ""
       ) as PowerpackResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -523,7 +388,7 @@ export interface PowerpackApiCreatePowerpackRequest {
    * Create a powerpack request body.
    * @type Powerpack
    */
-  body: Powerpack;
+  body: Powerpack
 }
 
 export interface PowerpackApiDeletePowerpackRequest {
@@ -531,7 +396,7 @@ export interface PowerpackApiDeletePowerpackRequest {
    * Powerpack id
    * @type string
    */
-  powerpackId: string;
+  powerpackId: string
 }
 
 export interface PowerpackApiGetPowerpackRequest {
@@ -539,7 +404,7 @@ export interface PowerpackApiGetPowerpackRequest {
    * ID of the powerpack.
    * @type string
    */
-  powerpackId: string;
+  powerpackId: string
 }
 
 export interface PowerpackApiListPowerpacksRequest {
@@ -547,12 +412,12 @@ export interface PowerpackApiListPowerpacksRequest {
    * Maximum number of powerpacks in the response.
    * @type number
    */
-  pageLimit?: number;
+  pageLimit?: number
   /**
    * Specific offset to use as the beginning of the returned page.
    * @type number
    */
-  pageOffset?: number;
+  pageOffset?: number
 }
 
 export interface PowerpackApiUpdatePowerpackRequest {
@@ -560,12 +425,12 @@ export interface PowerpackApiUpdatePowerpackRequest {
    * ID of the powerpack.
    * @type string
    */
-  powerpackId: string;
+  powerpackId: string
   /**
    * Update a powerpack request body.
    * @type Powerpack
    */
-  body: Powerpack;
+  body: Powerpack
 }
 
 export class PowerpackApi {
@@ -573,35 +438,21 @@ export class PowerpackApi {
   private responseProcessor: PowerpackApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: PowerpackApiRequestFactory,
-    responseProcessor?: PowerpackApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: PowerpackApiRequestFactory, responseProcessor?: PowerpackApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new PowerpackApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new PowerpackApiResponseProcessor();
+    this.requestFactory = requestFactory || new PowerpackApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new PowerpackApiResponseProcessor();
   }
 
   /**
    * Create a powerpack.
    * @param param The request object
    */
-  public createPowerpack(
-    param: PowerpackApiCreatePowerpackRequest,
-    options?: Configuration
-  ): Promise<PowerpackResponse> {
-    const requestContextPromise = this.requestFactory.createPowerpack(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createPowerpack(responseContext);
+  public createPowerpack(param: PowerpackApiCreatePowerpackRequest, options?: Configuration): Promise<PowerpackResponse> {
+    const requestContextPromise = this.requestFactory.createPowerpack(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createPowerpack(responseContext);
         });
     });
   }
@@ -610,19 +461,11 @@ export class PowerpackApi {
    * Delete a powerpack.
    * @param param The request object
    */
-  public deletePowerpack(
-    param: PowerpackApiDeletePowerpackRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deletePowerpack(
-      param.powerpackId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deletePowerpack(responseContext);
+  public deletePowerpack(param: PowerpackApiDeletePowerpackRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deletePowerpack(param.powerpackId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deletePowerpack(responseContext);
         });
     });
   }
@@ -631,19 +474,11 @@ export class PowerpackApi {
    * Get a powerpack.
    * @param param The request object
    */
-  public getPowerpack(
-    param: PowerpackApiGetPowerpackRequest,
-    options?: Configuration
-  ): Promise<PowerpackResponse> {
-    const requestContextPromise = this.requestFactory.getPowerpack(
-      param.powerpackId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getPowerpack(responseContext);
+  public getPowerpack(param: PowerpackApiGetPowerpackRequest, options?: Configuration): Promise<PowerpackResponse> {
+    const requestContextPromise = this.requestFactory.getPowerpack(param.powerpackId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getPowerpack(responseContext);
         });
     });
   }
@@ -652,20 +487,11 @@ export class PowerpackApi {
    * Get a list of all powerpacks.
    * @param param The request object
    */
-  public listPowerpacks(
-    param: PowerpackApiListPowerpacksRequest = {},
-    options?: Configuration
-  ): Promise<ListPowerpacksResponse> {
-    const requestContextPromise = this.requestFactory.listPowerpacks(
-      param.pageLimit,
-      param.pageOffset,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listPowerpacks(responseContext);
+  public listPowerpacks(param: PowerpackApiListPowerpacksRequest = {}, options?: Configuration): Promise<ListPowerpacksResponse> {
+    const requestContextPromise = this.requestFactory.listPowerpacks(param.pageLimit,param.pageOffset,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listPowerpacks(responseContext);
         });
     });
   }
@@ -673,26 +499,18 @@ export class PowerpackApi {
   /**
    * Provide a paginated version of listPowerpacks returning a generator with all the items.
    */
-  public async *listPowerpacksWithPagination(
-    param: PowerpackApiListPowerpacksRequest = {},
-    options?: Configuration
-  ): AsyncGenerator<PowerpackData> {
+  public async *listPowerpacksWithPagination(param: PowerpackApiListPowerpacksRequest = {}, options?: Configuration): AsyncGenerator<PowerpackData> {
+
     let pageSize = 25;
     if (param.pageLimit !== undefined) {
       pageSize = param.pageLimit;
     }
     param.pageLimit = pageSize;
     while (true) {
-      const requestContext = await this.requestFactory.listPowerpacks(
-        param.pageLimit,
-        param.pageOffset,
-        options
-      );
-      const responseContext =
-        await this.configuration.httpApi.send(requestContext);
+      const requestContext = await this.requestFactory.listPowerpacks(param.pageLimit,param.pageOffset,options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
 
-      const response =
-        await this.responseProcessor.listPowerpacks(responseContext);
+      const response = await this.responseProcessor.listPowerpacks(responseContext);
       const responseData = response.data;
       if (responseData === undefined) {
         break;
@@ -716,20 +534,11 @@ export class PowerpackApi {
    * Update a powerpack.
    * @param param The request object
    */
-  public updatePowerpack(
-    param: PowerpackApiUpdatePowerpackRequest,
-    options?: Configuration
-  ): Promise<PowerpackResponse> {
-    const requestContextPromise = this.requestFactory.updatePowerpack(
-      param.powerpackId,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updatePowerpack(responseContext);
+  public updatePowerpack(param: PowerpackApiUpdatePowerpackRequest, options?: Configuration): Promise<PowerpackResponse> {
+    const requestContextPromise = this.requestFactory.updatePowerpack(param.powerpackId,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updatePowerpack(responseContext);
         });
     });
   }

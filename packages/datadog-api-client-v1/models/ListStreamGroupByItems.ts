@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of facets on which to group.
- */
+*/
 export class ListStreamGroupByItems {
   /**
    * Facet name.
-   */
+  */
   "facet": string;
 
   /**
@@ -31,23 +36,49 @@ export class ListStreamGroupByItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facet: {
-      baseName: "facet",
-      type: "string",
-      required: true,
+    "facet": {
+      "baseName": "facet",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListStreamGroupByItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

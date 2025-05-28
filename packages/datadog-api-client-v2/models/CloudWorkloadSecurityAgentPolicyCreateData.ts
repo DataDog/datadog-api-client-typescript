@@ -6,19 +6,24 @@
 import { CloudWorkloadSecurityAgentPolicyCreateAttributes } from "./CloudWorkloadSecurityAgentPolicyCreateAttributes";
 import { CloudWorkloadSecurityAgentPolicyType } from "./CloudWorkloadSecurityAgentPolicyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single Agent rule
- */
+*/
 export class CloudWorkloadSecurityAgentPolicyCreateData {
   /**
    * Create a new Cloud Workload Security Agent policy
-   */
+  */
   "attributes": CloudWorkloadSecurityAgentPolicyCreateAttributes;
   /**
    * The type of the resource, must always be `policy`
-   */
+  */
   "type": CloudWorkloadSecurityAgentPolicyType;
 
   /**
@@ -37,28 +42,54 @@ export class CloudWorkloadSecurityAgentPolicyCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CloudWorkloadSecurityAgentPolicyCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CloudWorkloadSecurityAgentPolicyCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CloudWorkloadSecurityAgentPolicyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CloudWorkloadSecurityAgentPolicyType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentPolicyCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

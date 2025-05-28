@@ -5,19 +5,24 @@
  */
 import { ShiftDataRelationshipsUserDataType } from "./ShiftDataRelationshipsUserDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a reference to the user assigned to this shift, containing the user's ID and resource type.
- */
+*/
 export class ShiftDataRelationshipsUserData {
   /**
    * Specifies the unique identifier of the user.
-   */
+  */
   "id": string;
   /**
    * Indicates that the related resource is of type 'users'.
-   */
+  */
   "type": ShiftDataRelationshipsUserDataType;
 
   /**
@@ -36,28 +41,54 @@ export class ShiftDataRelationshipsUserData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ShiftDataRelationshipsUserDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ShiftDataRelationshipsUserDataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ShiftDataRelationshipsUserData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

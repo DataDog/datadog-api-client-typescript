@@ -5,10 +5,15 @@
  */
 import { SLOTimeSliceSpec } from "./SLOTimeSliceSpec";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A generic SLI specification. This is currently used for time-slice SLOs only.
- */
+*/
 
 export type SLOSliSpec = SLOTimeSliceSpec | UnparsedObject;

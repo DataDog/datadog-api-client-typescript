@@ -6,23 +6,28 @@
 import { TeamPermissionSettingAttributes } from "./TeamPermissionSettingAttributes";
 import { TeamPermissionSettingType } from "./TeamPermissionSettingType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team permission setting
- */
+*/
 export class TeamPermissionSetting {
   /**
    * Team permission setting attributes
-   */
+  */
   "attributes"?: TeamPermissionSettingAttributes;
   /**
    * The team permission setting's identifier
-   */
+  */
   "id": string;
   /**
    * Team permission setting type
-   */
+  */
   "type": TeamPermissionSettingType;
 
   /**
@@ -41,32 +46,58 @@ export class TeamPermissionSetting {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamPermissionSettingAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TeamPermissionSettingAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamPermissionSettingType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamPermissionSettingType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamPermissionSetting.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

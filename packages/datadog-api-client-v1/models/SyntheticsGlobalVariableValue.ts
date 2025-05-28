@@ -5,24 +5,29 @@
  */
 import { SyntheticsGlobalVariableOptions } from "./SyntheticsGlobalVariableOptions";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Value of the global variable.
- */
+*/
 export class SyntheticsGlobalVariableValue {
   /**
    * Options for the Global Variable for MFA.
-   */
+  */
   "options"?: SyntheticsGlobalVariableOptions;
   /**
    * Determines if the value of the variable is hidden.
-   */
+  */
   "secure"?: boolean;
   /**
    * Value of the global variable. When reading a global variable,
    * the value will not be present if the variable is hidden with the `secure` property.
-   */
+  */
   "value"?: string;
 
   /**
@@ -41,30 +46,56 @@ export class SyntheticsGlobalVariableValue {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    options: {
-      baseName: "options",
-      type: "SyntheticsGlobalVariableOptions",
+    "options": {
+      "baseName": "options",
+      "type": "SyntheticsGlobalVariableOptions",
     },
-    secure: {
-      baseName: "secure",
-      type: "boolean",
+    "secure": {
+      "baseName": "secure",
+      "type": "boolean",
     },
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsGlobalVariableValue.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

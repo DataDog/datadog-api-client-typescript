@@ -5,15 +5,20 @@
  */
 import { ValidationError } from "./ValidationError";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing validation errors.
- */
+*/
 export class ValidationResponse {
   /**
    * The `ValidationResponse` `errors`.
-   */
+  */
   "errors"?: Array<ValidationError>;
 
   /**
@@ -32,22 +37,48 @@ export class ValidationResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<ValidationError>",
+    "errors": {
+      "baseName": "errors",
+      "type": "Array<ValidationError>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ValidationResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { SyntheticsAPITestResultShort } from "./SyntheticsAPITestResultShort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object with the latest Synthetic API test run.
- */
+*/
 export class SyntheticsGetAPITestLatestResultsResponse {
   /**
    * Timestamp of the latest API test run.
-   */
+  */
   "lastTimestampFetched"?: number;
   /**
    * Result of the latest API test run.
-   */
+  */
   "results"?: Array<SyntheticsAPITestResultShort>;
 
   /**
@@ -36,27 +41,53 @@ export class SyntheticsGetAPITestLatestResultsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    lastTimestampFetched: {
-      baseName: "last_timestamp_fetched",
-      type: "number",
-      format: "int64",
+    "lastTimestampFetched": {
+      "baseName": "last_timestamp_fetched",
+      "type": "number",
+      "format": "int64",
     },
-    results: {
-      baseName: "results",
-      type: "Array<SyntheticsAPITestResultShort>",
+    "results": {
+      "baseName": "results",
+      "type": "Array<SyntheticsAPITestResultShort>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsGetAPITestLatestResultsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

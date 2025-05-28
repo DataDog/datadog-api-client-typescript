@@ -6,19 +6,24 @@
 import { ApplicationSecurityWafExclusionFilterCreateAttributes } from "./ApplicationSecurityWafExclusionFilterCreateAttributes";
 import { ApplicationSecurityWafExclusionFilterType } from "./ApplicationSecurityWafExclusionFilterType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for creating a single WAF exclusion filter.
- */
+*/
 export class ApplicationSecurityWafExclusionFilterCreateData {
   /**
    * Attributes for creating a WAF exclusion filter.
-   */
+  */
   "attributes": ApplicationSecurityWafExclusionFilterCreateAttributes;
   /**
    * Type of the resource. The value should always be `exclusion_filter`.
-   */
+  */
   "type": ApplicationSecurityWafExclusionFilterType;
 
   /**
@@ -37,28 +42,54 @@ export class ApplicationSecurityWafExclusionFilterCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ApplicationSecurityWafExclusionFilterCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "ApplicationSecurityWafExclusionFilterCreateAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "ApplicationSecurityWafExclusionFilterType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ApplicationSecurityWafExclusionFilterType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ApplicationSecurityWafExclusionFilterCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

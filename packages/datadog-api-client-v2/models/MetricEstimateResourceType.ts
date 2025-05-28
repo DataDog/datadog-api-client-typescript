@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The metric estimate resource type.
- */
+*/
 
-export type MetricEstimateResourceType =
-  | typeof METRIC_CARDINALITY_ESTIMATE
-  | UnparsedObject;
-export const METRIC_CARDINALITY_ESTIMATE = "metric_cardinality_estimate";
+export type MetricEstimateResourceType = typeof METRIC_CARDINALITY_ESTIMATE | UnparsedObject;
+export const METRIC_CARDINALITY_ESTIMATE = 'metric_cardinality_estimate';

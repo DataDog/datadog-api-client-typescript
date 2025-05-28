@@ -7,27 +7,32 @@ import { RUMAggregateSortType } from "./RUMAggregateSortType";
 import { RUMAggregationFunction } from "./RUMAggregationFunction";
 import { RUMSortOrder } from "./RUMSortOrder";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A sort rule.
- */
+*/
 export class RUMAggregateSort {
   /**
    * An aggregation function.
-   */
+  */
   "aggregation"?: RUMAggregationFunction;
   /**
    * The metric to sort by (only used for `type=measure`).
-   */
+  */
   "metric"?: string;
   /**
    * The order to use, ascending or descending.
-   */
+  */
   "order"?: RUMSortOrder;
   /**
    * The type of sorting algorithm.
-   */
+  */
   "type"?: RUMAggregateSortType;
 
   /**
@@ -46,34 +51,60 @@ export class RUMAggregateSort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "RUMAggregationFunction",
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "RUMAggregationFunction",
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
     },
-    order: {
-      baseName: "order",
-      type: "RUMSortOrder",
+    "order": {
+      "baseName": "order",
+      "type": "RUMSortOrder",
     },
-    type: {
-      baseName: "type",
-      type: "RUMAggregateSortType",
+    "type": {
+      "baseName": "type",
+      "type": "RUMAggregateSortType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RUMAggregateSort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

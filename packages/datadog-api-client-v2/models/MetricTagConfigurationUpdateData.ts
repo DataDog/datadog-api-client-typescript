@@ -6,23 +6,28 @@
 import { MetricTagConfigurationType } from "./MetricTagConfigurationType";
 import { MetricTagConfigurationUpdateAttributes } from "./MetricTagConfigurationUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single tag configuration to be edited.
- */
+*/
 export class MetricTagConfigurationUpdateData {
   /**
    * Object containing the definition of a metric tag configuration to be updated.
-   */
+  */
   "attributes"?: MetricTagConfigurationUpdateAttributes;
   /**
    * The metric name for this resource.
-   */
+  */
   "id": string;
   /**
    * The metric tag configuration resource type.
-   */
+  */
   "type": MetricTagConfigurationType;
 
   /**
@@ -41,32 +46,58 @@ export class MetricTagConfigurationUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MetricTagConfigurationUpdateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MetricTagConfigurationUpdateAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "MetricTagConfigurationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "MetricTagConfigurationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricTagConfigurationUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

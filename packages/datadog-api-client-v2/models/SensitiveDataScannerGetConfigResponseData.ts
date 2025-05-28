@@ -6,27 +6,32 @@
 import { SensitiveDataScannerConfigurationRelationships } from "./SensitiveDataScannerConfigurationRelationships";
 import { SensitiveDataScannerConfigurationType } from "./SensitiveDataScannerConfigurationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response data related to the scanning groups.
- */
+*/
 export class SensitiveDataScannerGetConfigResponseData {
   /**
    * Attributes of the Sensitive Data configuration.
-   */
-  "attributes"?: { [key: string]: any };
+  */
+  "attributes"?: { [key: string]: any; };
   /**
    * ID of the configuration.
-   */
+  */
   "id"?: string;
   /**
    * Relationships of the configuration.
-   */
+  */
   "relationships"?: SensitiveDataScannerConfigurationRelationships;
   /**
    * Sensitive Data Scanner configuration type.
-   */
+  */
   "type"?: SensitiveDataScannerConfigurationType;
 
   /**
@@ -45,34 +50,60 @@ export class SensitiveDataScannerGetConfigResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "{ [key: string]: any; }",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "{ [key: string]: any; }",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "SensitiveDataScannerConfigurationRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "SensitiveDataScannerConfigurationRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "SensitiveDataScannerConfigurationType",
+    "type": {
+      "baseName": "type",
+      "type": "SensitiveDataScannerConfigurationType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerGetConfigResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

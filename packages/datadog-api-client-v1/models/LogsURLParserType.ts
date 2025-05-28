@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type of logs URL parser.
- */
+*/
 
 export type LogsURLParserType = typeof URL_PARSER | UnparsedObject;
-export const URL_PARSER = "url-parser";
+export const URL_PARSER = 'url-parser';

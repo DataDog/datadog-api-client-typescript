@@ -7,43 +7,48 @@ import { OrganizationBilling } from "./OrganizationBilling";
 import { OrganizationSettings } from "./OrganizationSettings";
 import { OrganizationSubscription } from "./OrganizationSubscription";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Create, edit, and manage organizations.
- */
+*/
 export class Organization {
   /**
    * A JSON array of billing type.
-   */
+  */
   "billing"?: OrganizationBilling;
   /**
    * Date of the organization creation.
-   */
+  */
   "created"?: string;
   /**
    * Description of the organization.
-   */
+  */
   "description"?: string;
   /**
    * The name of the child organization, limited to 32 characters.
-   */
+  */
   "name"?: string;
   /**
    * The `public_id` of the organization you are operating within.
-   */
+  */
   "publicId"?: string;
   /**
    * A JSON array of settings.
-   */
+  */
   "settings"?: OrganizationSettings;
   /**
    * Subscription definition.
-   */
+  */
   "subscription"?: OrganizationSubscription;
   /**
    * Only available for MSP customers. Allows child organizations to be created on a trial plan.
-   */
+  */
   "trial"?: boolean;
 
   /**
@@ -62,50 +67,76 @@ export class Organization {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    billing: {
-      baseName: "billing",
-      type: "OrganizationBilling",
+    "billing": {
+      "baseName": "billing",
+      "type": "OrganizationBilling",
     },
-    created: {
-      baseName: "created",
-      type: "string",
+    "created": {
+      "baseName": "created",
+      "type": "string",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
     },
-    settings: {
-      baseName: "settings",
-      type: "OrganizationSettings",
+    "settings": {
+      "baseName": "settings",
+      "type": "OrganizationSettings",
     },
-    subscription: {
-      baseName: "subscription",
-      type: "OrganizationSubscription",
+    "subscription": {
+      "baseName": "subscription",
+      "type": "OrganizationSubscription",
     },
-    trial: {
-      baseName: "trial",
-      type: "boolean",
+    "trial": {
+      "baseName": "trial",
+      "type": "boolean",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Organization.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

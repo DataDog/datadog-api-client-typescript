@@ -5,23 +5,28 @@
  */
 import { ObservabilityPipelineEnrichmentTableFileKeyItemsComparison } from "./ObservabilityPipelineEnrichmentTableFileKeyItemsComparison";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines how to map log fields to enrichment table columns during lookups.
- */
+*/
 export class ObservabilityPipelineEnrichmentTableFileKeyItems {
   /**
    * The `items` `column`.
-   */
+  */
   "column": string;
   /**
    * Defines how to compare key fields for enrichment table lookups.
-   */
+  */
   "comparison": ObservabilityPipelineEnrichmentTableFileKeyItemsComparison;
   /**
    * The `items` `field`.
-   */
+  */
   "field": string;
 
   /**
@@ -40,33 +45,59 @@ export class ObservabilityPipelineEnrichmentTableFileKeyItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    column: {
-      baseName: "column",
-      type: "string",
-      required: true,
+    "column": {
+      "baseName": "column",
+      "type": "string",
+      "required": true,
     },
-    comparison: {
-      baseName: "comparison",
-      type: "ObservabilityPipelineEnrichmentTableFileKeyItemsComparison",
-      required: true,
+    "comparison": {
+      "baseName": "comparison",
+      "type": "ObservabilityPipelineEnrichmentTableFileKeyItemsComparison",
+      "required": true,
     },
-    field: {
-      baseName: "field",
-      type: "string",
-      required: true,
+    "field": {
+      "baseName": "field",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineEnrichmentTableFileKeyItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

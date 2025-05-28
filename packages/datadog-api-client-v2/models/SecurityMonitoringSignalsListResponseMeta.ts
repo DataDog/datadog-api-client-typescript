@@ -5,15 +5,20 @@
  */
 import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitoringSignalsListResponseMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Meta attributes.
- */
+*/
 export class SecurityMonitoringSignalsListResponseMeta {
   /**
    * Paging attributes.
-   */
+  */
   "page"?: SecurityMonitoringSignalsListResponseMetaPage;
 
   /**
@@ -32,22 +37,48 @@ export class SecurityMonitoringSignalsListResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "SecurityMonitoringSignalsListResponseMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "SecurityMonitoringSignalsListResponseMetaPage",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSignalsListResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

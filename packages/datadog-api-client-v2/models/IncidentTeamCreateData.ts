@@ -7,23 +7,28 @@ import { IncidentTeamCreateAttributes } from "./IncidentTeamCreateAttributes";
 import { IncidentTeamRelationships } from "./IncidentTeamRelationships";
 import { IncidentTeamType } from "./IncidentTeamType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident Team data for a create request.
- */
+*/
 export class IncidentTeamCreateData {
   /**
    * The incident team's attributes for a create request.
-   */
+  */
   "attributes"?: IncidentTeamCreateAttributes;
   /**
    * The incident team's relationships.
-   */
+  */
   "relationships"?: IncidentTeamRelationships;
   /**
    * Incident Team resource type.
-   */
+  */
   "type": IncidentTeamType;
 
   /**
@@ -42,31 +47,57 @@ export class IncidentTeamCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentTeamCreateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentTeamCreateAttributes",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentTeamRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "IncidentTeamRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "IncidentTeamType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentTeamType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentTeamCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

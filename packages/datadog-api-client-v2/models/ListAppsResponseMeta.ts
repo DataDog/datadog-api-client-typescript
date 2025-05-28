@@ -5,15 +5,20 @@
  */
 import { ListAppsResponseMetaPage } from "./ListAppsResponseMetaPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Pagination metadata.
- */
+*/
 export class ListAppsResponseMeta {
   /**
    * Information on the total number of apps, to be used for pagination.
-   */
+  */
   "page"?: ListAppsResponseMetaPage;
 
   /**
@@ -32,22 +37,48 @@ export class ListAppsResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "ListAppsResponseMetaPage",
+    "page": {
+      "baseName": "page",
+      "type": "ListAppsResponseMetaPage",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListAppsResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

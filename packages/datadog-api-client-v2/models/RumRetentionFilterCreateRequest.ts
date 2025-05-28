@@ -5,15 +5,20 @@
  */
 import { RumRetentionFilterCreateData } from "./RumRetentionFilterCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The RUM retention filter body to create.
- */
+*/
 export class RumRetentionFilterCreateRequest {
   /**
    * The new RUM retention filter properties to create.
-   */
+  */
   "data": RumRetentionFilterCreateData;
 
   /**
@@ -32,23 +37,49 @@ export class RumRetentionFilterCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RumRetentionFilterCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "RumRetentionFilterCreateData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RumRetentionFilterCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

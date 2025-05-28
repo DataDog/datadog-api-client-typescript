@@ -5,19 +5,24 @@
  */
 import { ObservabilityPipelineSensitiveDataScannerProcessorActionHashAction } from "./ObservabilityPipelineSensitiveDataScannerProcessorActionHashAction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration for hashing matched sensitive values.
- */
+*/
 export class ObservabilityPipelineSensitiveDataScannerProcessorActionHash {
   /**
    * Action type that replaces the matched sensitive data with a hashed representation, preserving structure while securing content.
-   */
+  */
   "action": ObservabilityPipelineSensitiveDataScannerProcessorActionHashAction;
   /**
    * The `ObservabilityPipelineSensitiveDataScannerProcessorActionHash` `options`.
-   */
+  */
   "options"?: any;
 
   /**
@@ -36,27 +41,53 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorActionHash {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    action: {
-      baseName: "action",
-      type: "ObservabilityPipelineSensitiveDataScannerProcessorActionHashAction",
-      required: true,
+    "action": {
+      "baseName": "action",
+      "type": "ObservabilityPipelineSensitiveDataScannerProcessorActionHashAction",
+      "required": true,
     },
-    options: {
-      baseName: "options",
-      type: "any",
+    "options": {
+      "baseName": "options",
+      "type": "any",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSensitiveDataScannerProcessorActionHash.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

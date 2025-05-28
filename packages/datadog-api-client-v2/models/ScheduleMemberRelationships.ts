@@ -5,15 +5,20 @@
  */
 import { ScheduleMemberRelationshipsUser } from "./ScheduleMemberRelationshipsUser";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines relationships for a schedule member, primarily referencing a single user.
- */
+*/
 export class ScheduleMemberRelationships {
   /**
    * Wraps the user data reference for a schedule member.
-   */
+  */
   "user"?: ScheduleMemberRelationshipsUser;
 
   /**
@@ -32,22 +37,48 @@ export class ScheduleMemberRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    user: {
-      baseName: "user",
-      type: "ScheduleMemberRelationshipsUser",
+    "user": {
+      "baseName": "user",
+      "type": "ScheduleMemberRelationshipsUser",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleMemberRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

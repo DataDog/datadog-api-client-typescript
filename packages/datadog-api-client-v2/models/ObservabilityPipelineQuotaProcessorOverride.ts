@@ -6,19 +6,24 @@
 import { ObservabilityPipelineFieldValue } from "./ObservabilityPipelineFieldValue";
 import { ObservabilityPipelineQuotaProcessorLimit } from "./ObservabilityPipelineQuotaProcessorLimit";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines a custom quota limit that applies to specific log events based on matching field values.
- */
+*/
 export class ObservabilityPipelineQuotaProcessorOverride {
   /**
    * A list of field matchers used to apply a specific override. If an event matches all listed key-value pairs, the corresponding override limit is enforced.
-   */
+  */
   "fields": Array<ObservabilityPipelineFieldValue>;
   /**
    * The maximum amount of data or number of events allowed before the quota is enforced. Can be specified in bytes or events.
-   */
+  */
   "limit": ObservabilityPipelineQuotaProcessorLimit;
 
   /**
@@ -37,28 +42,54 @@ export class ObservabilityPipelineQuotaProcessorOverride {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    fields: {
-      baseName: "fields",
-      type: "Array<ObservabilityPipelineFieldValue>",
-      required: true,
+    "fields": {
+      "baseName": "fields",
+      "type": "Array<ObservabilityPipelineFieldValue>",
+      "required": true,
     },
-    limit: {
-      baseName: "limit",
-      type: "ObservabilityPipelineQuotaProcessorLimit",
-      required: true,
+    "limit": {
+      "baseName": "limit",
+      "type": "ObservabilityPipelineQuotaProcessorLimit",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineQuotaProcessorOverride.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

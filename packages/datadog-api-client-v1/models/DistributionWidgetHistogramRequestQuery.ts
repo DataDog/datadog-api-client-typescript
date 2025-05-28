@@ -7,14 +7,15 @@ import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndF
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Query definition for Distribution Widget Histogram Request
- */
+*/
 
-export type DistributionWidgetHistogramRequestQuery =
-  | FormulaAndFunctionMetricQueryDefinition
-  | FormulaAndFunctionEventQueryDefinition
-  | FormulaAndFunctionApmResourceStatsQueryDefinition
-  | UnparsedObject;
+export type DistributionWidgetHistogramRequestQuery = FormulaAndFunctionMetricQueryDefinition | FormulaAndFunctionEventQueryDefinition | FormulaAndFunctionApmResourceStatsQueryDefinition | UnparsedObject;

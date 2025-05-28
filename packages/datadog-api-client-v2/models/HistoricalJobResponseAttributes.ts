@@ -5,43 +5,48 @@
  */
 import { JobDefinition } from "./JobDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Historical job attributes.
- */
+*/
 export class HistoricalJobResponseAttributes {
   /**
    * Time when the job was created.
-   */
+  */
   "createdAt"?: string;
   /**
    * The handle of the user who created the job.
-   */
+  */
   "createdByHandle"?: string;
   /**
    * The name of the user who created the job.
-   */
+  */
   "createdByName"?: string;
   /**
    * ID of the rule used to create the job (if it is created from a rule).
-   */
+  */
   "createdFromRuleId"?: string;
   /**
    * Definition of a historical job.
-   */
+  */
   "jobDefinition"?: JobDefinition;
   /**
    * Job name.
-   */
+  */
   "jobName"?: string;
   /**
    * Job status.
-   */
+  */
   "jobStatus"?: string;
   /**
    * Last modification time of the job.
-   */
+  */
   "modifiedAt"?: string;
 
   /**
@@ -60,50 +65,76 @@ export class HistoricalJobResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "createdAt",
-      type: "string",
+    "createdAt": {
+      "baseName": "createdAt",
+      "type": "string",
     },
-    createdByHandle: {
-      baseName: "createdByHandle",
-      type: "string",
+    "createdByHandle": {
+      "baseName": "createdByHandle",
+      "type": "string",
     },
-    createdByName: {
-      baseName: "createdByName",
-      type: "string",
+    "createdByName": {
+      "baseName": "createdByName",
+      "type": "string",
     },
-    createdFromRuleId: {
-      baseName: "createdFromRuleId",
-      type: "string",
+    "createdFromRuleId": {
+      "baseName": "createdFromRuleId",
+      "type": "string",
     },
-    jobDefinition: {
-      baseName: "jobDefinition",
-      type: "JobDefinition",
+    "jobDefinition": {
+      "baseName": "jobDefinition",
+      "type": "JobDefinition",
     },
-    jobName: {
-      baseName: "jobName",
-      type: "string",
+    "jobName": {
+      "baseName": "jobName",
+      "type": "string",
     },
-    jobStatus: {
-      baseName: "jobStatus",
-      type: "string",
+    "jobStatus": {
+      "baseName": "jobStatus",
+      "type": "string",
     },
-    modifiedAt: {
-      baseName: "modifiedAt",
-      type: "string",
+    "modifiedAt": {
+      "baseName": "modifiedAt",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return HistoricalJobResponseAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

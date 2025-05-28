@@ -7,23 +7,28 @@ import { Span } from "./Span";
 import { SpansListResponseLinks } from "./SpansListResponseLinks";
 import { SpansListResponseMetadata } from "./SpansListResponseMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object with all spans matching the request and pagination information.
- */
+*/
 export class SpansListResponse {
   /**
    * Array of spans matching the request.
-   */
+  */
   "data"?: Array<Span>;
   /**
    * Links attributes.
-   */
+  */
   "links"?: SpansListResponseLinks;
   /**
    * The metadata associated with a request.
-   */
+  */
   "meta"?: SpansListResponseMetadata;
 
   /**
@@ -42,30 +47,56 @@ export class SpansListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<Span>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<Span>",
     },
-    links: {
-      baseName: "links",
-      type: "SpansListResponseLinks",
+    "links": {
+      "baseName": "links",
+      "type": "SpansListResponseLinks",
     },
-    meta: {
-      baseName: "meta",
-      type: "SpansListResponseMetadata",
+    "meta": {
+      "baseName": "meta",
+      "type": "SpansListResponseMetadata",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SpansListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

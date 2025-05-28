@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The monitor configuration policy type.
- */
+*/
 
 export type MonitorConfigPolicyType = typeof TAG | UnparsedObject;
-export const TAG = "tag";
+export const TAG = 'tag';

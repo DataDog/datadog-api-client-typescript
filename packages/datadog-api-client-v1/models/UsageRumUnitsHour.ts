@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).
- */
+*/
 export class UsageRumUnitsHour {
   /**
    * The number of browser RUM units.
-   */
+  */
   "browserRumUnits"?: number;
   /**
    * The number of mobile RUM units.
-   */
+  */
   "mobileRumUnits"?: number;
   /**
    * The organization name.
-   */
+  */
   "orgName"?: string;
   /**
    * The organization public ID.
-   */
+  */
   "publicId"?: string;
   /**
    * Total RUM units across mobile and browser RUM.
-   */
+  */
   "rumUnits"?: number;
 
   /**
@@ -47,41 +52,67 @@ export class UsageRumUnitsHour {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    browserRumUnits: {
-      baseName: "browser_rum_units",
-      type: "number",
-      format: "int64",
+    "browserRumUnits": {
+      "baseName": "browser_rum_units",
+      "type": "number",
+      "format": "int64",
     },
-    mobileRumUnits: {
-      baseName: "mobile_rum_units",
-      type: "number",
-      format: "int64",
+    "mobileRumUnits": {
+      "baseName": "mobile_rum_units",
+      "type": "number",
+      "format": "int64",
     },
-    orgName: {
-      baseName: "org_name",
-      type: "string",
+    "orgName": {
+      "baseName": "org_name",
+      "type": "string",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
     },
-    rumUnits: {
-      baseName: "rum_units",
-      type: "number",
-      format: "int64",
+    "rumUnits": {
+      "baseName": "rum_units",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageRumUnitsHour.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

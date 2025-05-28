@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Configuration for keywords used to reinforce sensitive data pattern detection.
- */
+*/
 export class ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions {
   /**
    * A list of keywords to match near the sensitive pattern.
-   */
+  */
   "keywords": Array<string>;
   /**
    * Maximum number of tokens between a keyword and a sensitive value match.
-   */
+  */
   "proximity": number;
 
   /**
@@ -35,29 +40,55 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    keywords: {
-      baseName: "keywords",
-      type: "Array<string>",
-      required: true,
+    "keywords": {
+      "baseName": "keywords",
+      "type": "Array<string>",
+      "required": true,
     },
-    proximity: {
-      baseName: "proximity",
-      type: "number",
-      required: true,
-      format: "int64",
+    "proximity": {
+      "baseName": "proximity",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSensitiveDataScannerProcessorKeywordOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

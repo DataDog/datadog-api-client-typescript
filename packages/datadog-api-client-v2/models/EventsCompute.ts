@@ -5,23 +5,28 @@
  */
 import { EventsAggregation } from "./EventsAggregation";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The instructions for what to compute for this query.
- */
+*/
 export class EventsCompute {
   /**
    * The type of aggregation that can be performed on events-based queries.
-   */
+  */
   "aggregation": EventsAggregation;
   /**
    * Interval for compute in milliseconds.
-   */
+  */
   "interval"?: number;
   /**
    * The "measure" attribute on which to perform the computation.
-   */
+  */
   "metric"?: string;
 
   /**
@@ -40,32 +45,58 @@ export class EventsCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "EventsAggregation",
-      required: true,
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "EventsAggregation",
+      "required": true,
     },
-    interval: {
-      baseName: "interval",
-      type: "number",
-      format: "int64",
+    "interval": {
+      "baseName": "interval",
+      "type": "number",
+      "format": "int64",
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventsCompute.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

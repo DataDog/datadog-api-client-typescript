@@ -7,27 +7,32 @@ import { AuthNMappingAttributes } from "./AuthNMappingAttributes";
 import { AuthNMappingRelationships } from "./AuthNMappingRelationships";
 import { AuthNMappingsType } from "./AuthNMappingsType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The AuthN Mapping object returned by API.
- */
+*/
 export class AuthNMapping {
   /**
    * Attributes of AuthN Mapping.
-   */
+  */
   "attributes"?: AuthNMappingAttributes;
   /**
    * ID of the AuthN Mapping.
-   */
+  */
   "id": string;
   /**
    * All relationships associated with AuthN Mapping.
-   */
+  */
   "relationships"?: AuthNMappingRelationships;
   /**
    * AuthN Mappings resource type.
-   */
+  */
   "type": AuthNMappingsType;
 
   /**
@@ -46,36 +51,62 @@ export class AuthNMapping {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AuthNMappingAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AuthNMappingAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "AuthNMappingRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "AuthNMappingRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "AuthNMappingsType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AuthNMappingsType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AuthNMapping.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

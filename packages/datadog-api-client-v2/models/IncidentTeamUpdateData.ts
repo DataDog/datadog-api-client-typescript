@@ -7,27 +7,32 @@ import { IncidentTeamRelationships } from "./IncidentTeamRelationships";
 import { IncidentTeamType } from "./IncidentTeamType";
 import { IncidentTeamUpdateAttributes } from "./IncidentTeamUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident Team data for an update request.
- */
+*/
 export class IncidentTeamUpdateData {
   /**
    * The incident team's attributes for an update request.
-   */
+  */
   "attributes"?: IncidentTeamUpdateAttributes;
   /**
    * The incident team's ID.
-   */
+  */
   "id"?: string;
   /**
    * The incident team's relationships.
-   */
+  */
   "relationships"?: IncidentTeamRelationships;
   /**
    * Incident Team resource type.
-   */
+  */
   "type": IncidentTeamType;
 
   /**
@@ -46,35 +51,61 @@ export class IncidentTeamUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "IncidentTeamUpdateAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "IncidentTeamUpdateAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentTeamRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "IncidentTeamRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "IncidentTeamType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentTeamType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentTeamUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

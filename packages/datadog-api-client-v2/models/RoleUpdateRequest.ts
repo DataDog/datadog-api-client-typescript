@@ -5,15 +5,20 @@
  */
 import { RoleUpdateData } from "./RoleUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Update a role.
- */
+*/
 export class RoleUpdateRequest {
   /**
    * Data related to the update of a role.
-   */
+  */
   "data": RoleUpdateData;
 
   /**
@@ -32,23 +37,49 @@ export class RoleUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RoleUpdateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "RoleUpdateData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RoleUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

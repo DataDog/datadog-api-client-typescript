@@ -13,20 +13,15 @@ import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The original widget we are splitting on.
- */
+*/
 
-export type SplitGraphSourceWidgetDefinition =
-  | ChangeWidgetDefinition
-  | GeomapWidgetDefinition
-  | QueryValueWidgetDefinition
-  | ScatterPlotWidgetDefinition
-  | SunburstWidgetDefinition
-  | TableWidgetDefinition
-  | TimeseriesWidgetDefinition
-  | ToplistWidgetDefinition
-  | TreeMapWidgetDefinition
-  | UnparsedObject;
+export type SplitGraphSourceWidgetDefinition = ChangeWidgetDefinition | GeomapWidgetDefinition | QueryValueWidgetDefinition | ScatterPlotWidgetDefinition | SunburstWidgetDefinition | TableWidgetDefinition | TimeseriesWidgetDefinition | ToplistWidgetDefinition | TreeMapWidgetDefinition | UnparsedObject;
