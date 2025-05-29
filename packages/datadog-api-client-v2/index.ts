@@ -446,6 +446,7 @@ export {
   OnCallApiGetOnCallScheduleRequest,
   OnCallApiGetOnCallTeamRoutingRulesRequest,
   OnCallApiGetScheduleOnCallUserRequest,
+  OnCallApiGetTeamOnCallUsersRequest,
   OnCallApiSetOnCallTeamRoutingRulesRequest,
   OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
@@ -1526,6 +1527,7 @@ export { EntityV3SystemKind } from "./models/EntityV3SystemKind";
 export { EntityV3SystemSpec } from "./models/EntityV3SystemSpec";
 export { EPSS } from "./models/EPSS";
 export { ErrorHandler } from "./models/ErrorHandler";
+export { Escalation } from "./models/Escalation";
 export { EscalationPolicy } from "./models/EscalationPolicy";
 export { EscalationPolicyCreateRequest } from "./models/EscalationPolicyCreateRequest";
 export { EscalationPolicyCreateRequestData } from "./models/EscalationPolicyCreateRequestData";
@@ -1557,8 +1559,13 @@ export { EscalationPolicyUpdateRequestDataType } from "./models/EscalationPolicy
 export { EscalationPolicyUser } from "./models/EscalationPolicyUser";
 export { EscalationPolicyUserAttributes } from "./models/EscalationPolicyUserAttributes";
 export { EscalationPolicyUserType } from "./models/EscalationPolicyUserType";
+export { EscalationRelationships } from "./models/EscalationRelationships";
+export { EscalationRelationshipsResponders } from "./models/EscalationRelationshipsResponders";
+export { EscalationRelationshipsRespondersDataItems } from "./models/EscalationRelationshipsRespondersDataItems";
+export { EscalationRelationshipsRespondersDataItemsType } from "./models/EscalationRelationshipsRespondersDataItemsType";
 export { EscalationTarget } from "./models/EscalationTarget";
 export { EscalationTargets } from "./models/EscalationTargets";
+export { EscalationType } from "./models/EscalationType";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
 export { EventCategory } from "./models/EventCategory";
@@ -3069,6 +3076,17 @@ export { TeamLinkCreateRequest } from "./models/TeamLinkCreateRequest";
 export { TeamLinkResponse } from "./models/TeamLinkResponse";
 export { TeamLinksResponse } from "./models/TeamLinksResponse";
 export { TeamLinkType } from "./models/TeamLinkType";
+export { TeamOnCallResponders } from "./models/TeamOnCallResponders";
+export { TeamOnCallRespondersData } from "./models/TeamOnCallRespondersData";
+export { TeamOnCallRespondersDataRelationships } from "./models/TeamOnCallRespondersDataRelationships";
+export { TeamOnCallRespondersDataRelationshipsEscalations } from "./models/TeamOnCallRespondersDataRelationshipsEscalations";
+export { TeamOnCallRespondersDataRelationshipsEscalationsDataItems } from "./models/TeamOnCallRespondersDataRelationshipsEscalationsDataItems";
+export { TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType } from "./models/TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType";
+export { TeamOnCallRespondersDataRelationshipsResponders } from "./models/TeamOnCallRespondersDataRelationshipsResponders";
+export { TeamOnCallRespondersDataRelationshipsRespondersDataItems } from "./models/TeamOnCallRespondersDataRelationshipsRespondersDataItems";
+export { TeamOnCallRespondersDataRelationshipsRespondersDataItemsType } from "./models/TeamOnCallRespondersDataRelationshipsRespondersDataItemsType";
+export { TeamOnCallRespondersDataType } from "./models/TeamOnCallRespondersDataType";
+export { TeamOnCallRespondersIncluded } from "./models/TeamOnCallRespondersIncluded";
 export { TeamPermissionSetting } from "./models/TeamPermissionSetting";
 export { TeamPermissionSettingAttributes } from "./models/TeamPermissionSettingAttributes";
 export { TeamPermissionSettingResponse } from "./models/TeamPermissionSettingResponse";
