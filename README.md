@@ -1,32 +1,23 @@
-# Node.js Datadog API Client
+# Node.js Datadog API Client V2
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-This repository contains a Node.js API client for the [Datadog API](https://docs.datadoghq.com/api/).
+This repository contains the V2 rewrite of the TypeScript API client for the [Datadog API](https://docs.datadoghq.com/api/). The client is organized into logical API groups for better maintainability and usability.
 
 ## How to install
 
-The package is under [@datadog/datadog-api-client](https://www.npmjs.com/package/@datadog/datadog-api-client) and can be installed through NPM or Yarn:
-
-```sh
-# NPM
-npm install @datadog/datadog-api-client
-
-# Yarn
-yarn add @datadog/datadog-api-client
-```
+For detailed installation instructions, please refer to the README.md file in each client's directory under `services/{client}/`.
 
 ## Getting Started
 
 Here's an example getting a monitor:
 
 ```typescript
-import { client, v1 } from '@datadog/datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client-monitors';
 
-const configuration = client.createConfiguration();
-const apiInstance = new v1.MonitorsApi(configuration);
+const apiInstance = new v1.MonitorsApiV1();
 
-let params:v1.MonitorsApiGetMonitorRequest = {
+let params: v1.MonitorsApiGetMonitorRequest = {
   // number | The ID of the monitor
   monitorId: 1,
 };
@@ -43,7 +34,8 @@ By default the library will use the `DD_API_KEY` and `DD_APP_KEY` environment va
 To provide your own set of credentials, you need to set the appropriate keys on the configuration:
 
 ```typescript
-import { client } from '@datadog/datadog-api-client';
+import { createConfiguration } from '@datadog/datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client-monitors';
 
 const configurationOpts = {
   authMethods: {
@@ -52,7 +44,8 @@ const configurationOpts = {
   },
 };
 
-const configuration = client.createConfiguration(configurationOpts);
+const configuration = createConfiguration(configurationOpts);
+const apiInstance = new v1.MonitorsApiV1(configuration);
 ```
 
 ### Unstable Endpoints
@@ -70,9 +63,9 @@ where `<operationName>` is the name of the method used to interact with that end
 When talking to a different server, like the `eu` instance, change the server variables:
 
 ```typescript
-import { client } from '@datadog/datadog-api-client';
+import { createConfiguration } from '@datadog/datadog-api-client';
 
-const configuration = client.createConfiguration();
+const configuration = createConfiguration();
 
 configuration.setServerVariables({
   site: "datadoghq.eu"
@@ -85,14 +78,14 @@ If you want to disable GZIP compressed responses, set the `compress` flag
 on your configuration options:
 
 ```typescript
-import { client } from '@datadog/datadog-api-client';
+import { createConfiguration } from '@datadog/datadog-api-client';
 const configurationOpts = {
   httpConfig: {
     compress: false
   },
 };
 
-const configuration = client.createConfiguration(configurationOpts);
+const configuration = createConfiguration(configurationOpts);
 ```
 
 ### Enable requests logging
@@ -100,12 +93,12 @@ const configuration = client.createConfiguration(configurationOpts);
 If you want to enable requests logging, set the `debug` flag on your configuration object:
 
 ```typescript
-import { client } from '@datadog/datadog-api-client';
+import { createConfiguration } from '@datadog/datadog-api-client';
 const configurationOpts = {
   debug: true
 };
 
-const configuration = client.createConfiguration(configurationOpts);
+const configuration = createConfiguration(configurationOpts);
 ```
 
 ### Enable retry 
@@ -113,12 +106,12 @@ const configuration = client.createConfiguration(configurationOpts);
 To enable the client to retry when rate limited (status 429) or status 500 and above:
 
 ```typescript
-import { client } from '@datadog/datadog-api-client';
+import { createConfiguration } from '@datadog/datadog-api-client';
 const configurationOpts = {
   enableRetry: true
 };
 
-const configuration = client.createConfiguration(configurationOpts);
+const configuration = createConfiguration(configurationOpts);
 ```
 The interval between 2 retry attempts will be the value of the x-ratelimit-reset response header when available. If not, it will be :
 
@@ -139,7 +132,9 @@ controller, for example the one implemented by
 then pass the `signal method to the HTTP configuration options:
 
 ```typescript
-import { client, v1 } from '@datadog/datadog-api-client';
+import { createConfiguration } from '@datadog/datadog-api-client';
+import { v1 } from '@datadog/datadog-api-client-monitors'
+
 import AbortController from 'abort-controller';
 
 const controller = new AbortController();
@@ -153,7 +148,7 @@ const configurationOpts = {
   },
 };
 
-const configuration = client.createConfiguration(configurationOpts);
+const configuration = createConfiguration(configurationOpts);
 
 const apiInstance = new v1.MonitorsApi(configuration);
 apiInstance.listMonitors().then((data: v1.Monitor[]) => {
@@ -167,10 +162,11 @@ Several listing operations have a pagination method to help consume all the item
 For example, to retrieve all your incidents:
 
 ```typescript
-import { client, v2 } from "@datadog/datadog-api-client";
+import { createConfiguration } from "@datadog/datadog-api-client";
+import { v2 } from "@datadog/datadog-api-client-incidents";
 
 async function main() {
-  const configuration = client.createConfiguration();
+  const configuration = createConfiguration();
   configuration.unstableOperations["v2.listIncidents"] = true;
   const apiInstance = new v2.IncidentsApi(configuration);
 
@@ -191,13 +187,14 @@ For example, using `zstd.ts` package:
 
 ```typescript
 import { compressSync } from 'zstd.ts'
-import { client, v2 } from "@datadog/datadog-api-client";
+import { createConfiguration } from "@datadog/datadog-api-client";
+import { v2 } from "@datadog/datadog-api-client-metrics";
 
 async function main() {
   const configurationOpts = {
     zstdCompressorCallback: (body: string) => compressSync({input: Buffer.from(body, "utf8")})
   }
-  const configuration = client.createConfiguration(configurationOpts);
+  const configuration = createConfiguration(configurationOpts);
   const apiInstance = new v2.MetricsApi(configuration);
   const params: v2.MetricsApiSubmitMetricsRequest = {
       body: {
@@ -236,14 +233,16 @@ import pako from "pako";
 import bufferFrom from "buffer-from";
 import fetch from "node-fetch";
 import { HttpsProxyAgent } from "https-proxy-agent";
-import { v1, client } from "@datadog/datadog-api-client";
+
+import { createConfiguration, ResponseContext, RequestContext, HttpLibrary } from "@datadog/datadog-api-client";
+import { v1 } from "@datadog/datadog-api-client";
 
 const proxyAgent = new HttpsProxyAgent('http://127.0.0.11:3128');
 
-class HttpLibraryWithProxy implements client.HttpLibrary {
+class HttpLibraryWithProxy implements HttpLibrary {
     public debug = false;
 
-    public send(request: client.RequestContext): Promise<client.ResponseContext> {
+    public send(request: RequestContext): Promise<ResponseContext> {
         const method = request.getHttpMethod().toString();
         let body = request.getBody();
 
@@ -278,7 +277,7 @@ class HttpLibraryWithProxy implements client.HttpLibrary {
                 text: () => resp.text(),
                 binary: () => resp.buffer(),
             };
-            const response = new client.ResponseContext(resp.status, headers, body);
+            const response = new ResponseContext(resp.status, headers, body);
             return response;
         });
 
@@ -286,7 +285,7 @@ class HttpLibraryWithProxy implements client.HttpLibrary {
     }
 }
 
-const configuration = client.createConfiguration({httpApi: new HttpLibraryWithProxy()});
+const configuration = createConfiguration({httpApi: new HttpLibraryWithProxy()});
 const apiInstance = new v1.DashboardsApi(configuration);
 
 apiInstance

@@ -2,7 +2,7 @@
 
 ## Setup
 
-Developing on this project requires Node 10+, and the Yarn.
+Developing on this project requires Node 18+, and the Yarn.
 
 ## Testing
 
@@ -33,11 +33,11 @@ All test scenarios as automatically generated and located in `features/v*/` fold
 
 ### Step definitions
 
-Implement new steps in `features/step_definitions/request_steps.ts`.
+Implement new steps in `private/bdd_runner/src/step_definitions/request_steps.ts`.
 
 ### Support files
 
-Various support files are located in `features/support` directory:
+Various support files are located in `private/bdd_runner/src/support` directory:
 
 - `given.ts`: implementation for `x-given` extension;
 - `hooks.ts`: logic for skipping tests based on tags and other `Before` and `After` hooks;
