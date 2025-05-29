@@ -5,11 +5,11 @@ import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestD
 import { ScheduleUpdateRequestDataType } from "./ScheduleUpdateRequestDataType";
 
 /**
- * Contains all data needed to update an existing schedule, including its attributes (such as name, layers, or tags) and any relationships to teams.
+ * Contains all data needed to update an existing schedule, including its attributes (such as name and time zone) and any relationships to teams.
  */
 export class ScheduleUpdateRequestData {
   /**
-   * Defines the updatable attributes for a schedule, such as name, time zone, tags, and layers.
+   * Defines the updatable attributes for a schedule, such as name, time zone, and layers.
    */
   "attributes": ScheduleUpdateRequestDataAttributes;
   /**

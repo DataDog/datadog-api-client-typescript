@@ -25,6 +25,7 @@ import { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./Escalat
 import { EscalationPolicyUpdateRequestDataRelationships } from "./EscalationPolicyUpdateRequestDataRelationships";
 import { EscalationPolicyUser } from "./EscalationPolicyUser";
 import { EscalationPolicyUserAttributes } from "./EscalationPolicyUserAttributes";
+import { EscalationTargets } from "./EscalationTargets";
 import { Layer } from "./Layer";
 import { LayerAttributes } from "./LayerAttributes";
 import { LayerAttributesInterval } from "./LayerAttributesInterval";
@@ -61,18 +62,16 @@ import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdate
 import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestDataRelationships";
 import { ScheduleUser } from "./ScheduleUser";
 import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
+import { SendSlackMessageAction } from "./SendSlackMessageAction";
+import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 import { Shift } from "./Shift";
 import { ShiftData } from "./ShiftData";
 import { ShiftDataAttributes } from "./ShiftDataAttributes";
 import { ShiftDataRelationships } from "./ShiftDataRelationships";
 import { ShiftDataRelationshipsUser } from "./ShiftDataRelationshipsUser";
 import { ShiftDataRelationshipsUserData } from "./ShiftDataRelationshipsUserData";
-import { SlackAction } from "./SlackAction";
 import { TeamReference } from "./TeamReference";
 import { TeamReferenceAttributes } from "./TeamReferenceAttributes";
-import { TeamReferenceRelationships } from "./TeamReferenceRelationships";
-import { TeamReferenceRelationshipsOncallUsers } from "./TeamReferenceRelationshipsOncallUsers";
-import { TeamReferenceRelationshipsOncallUsersDataItems } from "./TeamReferenceRelationshipsOncallUsersDataItems";
 import { TeamRoutingRules } from "./TeamRoutingRules";
 import { TeamRoutingRulesData } from "./TeamRoutingRulesData";
 import { TeamRoutingRulesDataRelationships } from "./TeamRoutingRulesDataRelationships";
@@ -83,7 +82,6 @@ import { TeamRoutingRulesRequestData } from "./TeamRoutingRulesRequestData";
 import { TeamRoutingRulesRequestDataAttributes } from "./TeamRoutingRulesRequestDataAttributes";
 import { TeamRoutingRulesRequestRule } from "./TeamRoutingRulesRequestRule";
 import { TeamTarget } from "./TeamTarget";
-import { TeamsAction } from "./TeamsAction";
 import { TimeRestriction } from "./TimeRestriction";
 import { TimeRestrictions } from "./TimeRestrictions";
 import { UserTarget } from "./UserTarget";
@@ -111,9 +109,10 @@ export const TypingInfo: ModelTypingInfo = {
     ScheduleTargetType: ["schedules"],
     ScheduleUpdateRequestDataType: ["schedules"],
     ScheduleUserType: ["users"],
+    SendSlackMessageActionType: ["send_slack_message"],
+    SendTeamsMessageActionType: ["send_teams_message"],
     ShiftDataRelationshipsUserDataType: ["users"],
     ShiftDataType: ["shifts"],
-    TeamReferenceRelationshipsOncallUsersDataItemsType: ["users"],
     TeamReferenceType: ["teams"],
     TeamRoutingRulesDataRelationshipsRulesDataItemsType: ["team_routing_rules"],
     TeamRoutingRulesDataType: ["team_routing_rules"],
@@ -140,7 +139,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ScheduleData",
     ],
     EscalationTarget: ["TeamTarget", "UserTarget", "ScheduleTarget"],
-    RoutingRuleAction: ["SlackAction", "TeamsAction"],
+    RoutingRuleAction: ["SendSlackMessageAction", "SendTeamsMessageAction"],
     ScheduleDataIncludedItem: [
       "TeamReference",
       "Layer",
@@ -184,6 +183,7 @@ export const TypingInfo: ModelTypingInfo = {
       EscalationPolicyUpdateRequestDataRelationships,
     EscalationPolicyUser: EscalationPolicyUser,
     EscalationPolicyUserAttributes: EscalationPolicyUserAttributes,
+    EscalationTargets: EscalationTargets,
     Layer: Layer,
     LayerAttributes: LayerAttributes,
     LayerAttributesInterval: LayerAttributesInterval,
@@ -227,20 +227,16 @@ export const TypingInfo: ModelTypingInfo = {
       ScheduleUpdateRequestDataRelationships,
     ScheduleUser: ScheduleUser,
     ScheduleUserAttributes: ScheduleUserAttributes,
+    SendSlackMessageAction: SendSlackMessageAction,
+    SendTeamsMessageAction: SendTeamsMessageAction,
     Shift: Shift,
     ShiftData: ShiftData,
     ShiftDataAttributes: ShiftDataAttributes,
     ShiftDataRelationships: ShiftDataRelationships,
     ShiftDataRelationshipsUser: ShiftDataRelationshipsUser,
     ShiftDataRelationshipsUserData: ShiftDataRelationshipsUserData,
-    SlackAction: SlackAction,
     TeamReference: TeamReference,
     TeamReferenceAttributes: TeamReferenceAttributes,
-    TeamReferenceRelationships: TeamReferenceRelationships,
-    TeamReferenceRelationshipsOncallUsers:
-      TeamReferenceRelationshipsOncallUsers,
-    TeamReferenceRelationshipsOncallUsersDataItems:
-      TeamReferenceRelationshipsOncallUsersDataItems,
     TeamRoutingRules: TeamRoutingRules,
     TeamRoutingRulesData: TeamRoutingRulesData,
     TeamRoutingRulesDataRelationships: TeamRoutingRulesDataRelationships,
@@ -254,7 +250,6 @@ export const TypingInfo: ModelTypingInfo = {
       TeamRoutingRulesRequestDataAttributes,
     TeamRoutingRulesRequestRule: TeamRoutingRulesRequestRule,
     TeamTarget: TeamTarget,
-    TeamsAction: TeamsAction,
     TimeRestriction: TimeRestriction,
     TimeRestrictions: TimeRestrictions,
     UserTarget: UserTarget,

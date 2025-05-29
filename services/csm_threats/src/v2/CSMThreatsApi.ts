@@ -1670,7 +1670,7 @@ export class CSMThreatsApiResponseProcessor {
 
 export interface CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest {
   /**
-   * The definition of the new Agent rule
+   * The definition of the new agent rule
    * @type CloudWorkloadSecurityAgentRuleCreateRequest
    */
   body: CloudWorkloadSecurityAgentRuleCreateRequest;
@@ -1686,7 +1686,7 @@ export interface CSMThreatsApiCreateCSMThreatsAgentPolicyRequest {
 
 export interface CSMThreatsApiCreateCSMThreatsAgentRuleRequest {
   /**
-   * The definition of the new Agent rule
+   * The definition of the new agent rule
    * @type CloudWorkloadSecurityAgentRuleCreateRequest
    */
   body: CloudWorkloadSecurityAgentRuleCreateRequest;
@@ -1765,7 +1765,7 @@ export interface CSMThreatsApiUpdateCloudWorkloadSecurityAgentRuleRequest {
    */
   agentRuleId: string;
   /**
-   * New definition of the Agent rule
+   * New definition of the agent rule
    * @type CloudWorkloadSecurityAgentRuleUpdateRequest
    */
   body: CloudWorkloadSecurityAgentRuleUpdateRequest;
@@ -1791,7 +1791,7 @@ export interface CSMThreatsApiUpdateCSMThreatsAgentRuleRequest {
    */
   agentRuleId: string;
   /**
-   * New definition of the Agent rule
+   * New definition of the agent rule
    * @type CloudWorkloadSecurityAgentRuleUpdateRequest
    */
   body: CloudWorkloadSecurityAgentRuleUpdateRequest;
@@ -1820,7 +1820,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Create a new Agent rule with the given parameters.
+   * Create a new agent rule with the given parameters.
+   *
+   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
    * @param param The request object
    */
   public createCloudWorkloadSecurityAgentRule(
@@ -1844,7 +1846,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Create a new Cloud Security Management Threats Agent policy with the given parameters
+   * Create a new Workload Protection policy with the given parameters.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public createCSMThreatsAgentPolicy(
@@ -1865,7 +1869,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Create a new Cloud Security Management Threats Agent rule with the given parameters
+   * Create a new Workload Protection agent rule with the given parameters.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public createCSMThreatsAgentRule(
@@ -1888,7 +1894,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Delete a specific Agent rule
+   * Delete a specific agent rule.
+   *
+   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
    * @param param The request object
    */
   public deleteCloudWorkloadSecurityAgentRule(
@@ -1912,7 +1920,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Delete a specific Cloud Security Management Threats Agent policy
+   * Delete a specific Workload Protection policy.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public deleteCSMThreatsAgentPolicy(
@@ -1933,7 +1943,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Delete a specific Cloud Security Management Threats Agent rule
+   * Delete a specific Workload Protection agent rule.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public deleteCSMThreatsAgentRule(
@@ -1957,9 +1969,11 @@ export class CSMThreatsApi {
   }
 
   /**
-   * The download endpoint generates a Cloud Workload Security policy file from your currently active
-   * Cloud Workload Security rules, and downloads them as a .policy file. This file can then be deployed to
-   * your Agents to update the policy running in your environment.
+   * The download endpoint generates a Workload Protection policy file from your currently active
+   * Workload Protection agent rules, and downloads them as a `.policy` file. This file can then be deployed to
+   * your agents to update the policy running in your environment.
+   *
+   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
    * @param param The request object
    */
   public downloadCloudWorkloadPolicyFile(
@@ -1979,9 +1993,11 @@ export class CSMThreatsApi {
   }
 
   /**
-   * The download endpoint generates a CSM Threats policy file from your currently active
-   * CSM Threats rules, and downloads them as a `.policy` file. This file can then be deployed to
-   * your Agents to update the policy running in your environment.
+   * The download endpoint generates a Workload Protection policy file from your currently active
+   * Workload Protection agent rules, and downloads them as a `.policy` file. This file can then be deployed to
+   * your agents to update the policy running in your environment.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public downloadCSMThreatsPolicy(options?: Configuration): Promise<HttpFile> {
@@ -1999,7 +2015,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the details of a specific Agent rule
+   * Get the details of a specific agent rule.
+   *
+   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
    * @param param The request object
    */
   public getCloudWorkloadSecurityAgentRule(
@@ -2023,7 +2041,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the details of a specific Cloud Security Management Threats Agent policy
+   * Get the details of a specific Workload Protection policy.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public getCSMThreatsAgentPolicy(
@@ -2046,7 +2066,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the details of a specific Cloud Security Management Threats Agent rule
+   * Get the details of a specific Workload Protection agent rule.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public getCSMThreatsAgentRule(
@@ -2068,7 +2090,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the list of Agent rules
+   * Get the list of agent rules.
+   *
+   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
    * @param param The request object
    */
   public listCloudWorkloadSecurityAgentRules(
@@ -2088,7 +2112,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the list of Cloud Security Management Threats Agent policies
+   * Get the list of Workload Protection policies.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public listCSMThreatsAgentPolicies(
@@ -2108,7 +2134,9 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Get the list of Cloud Security Management Threats Agent rules
+   * Get the list of Workload Protection agent rules.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public listCSMThreatsAgentRules(
@@ -2131,8 +2159,10 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Update a specific Agent rule.
-   * Returns the Agent rule object when the request is successful.
+   * Update a specific agent rule.
+   * Returns the agent rule object when the request is successful.
+   *
+   * **Note**: This endpoint should only be used for the Government (US1-FED) site.
    * @param param The request object
    */
   public updateCloudWorkloadSecurityAgentRule(
@@ -2157,8 +2187,10 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Update a specific Cloud Security Management Threats Agent policy.
-   * Returns the Agent policy object when the request is successful.
+   * Update a specific Workload Protection policy.
+   * Returns the policy object when the request is successful.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public updateCSMThreatsAgentPolicy(
@@ -2183,8 +2215,10 @@ export class CSMThreatsApi {
   }
 
   /**
-   * Update a specific Cloud Security Management Threats Agent rule.
-   * Returns the Agent rule object when the request is successful.
+   * Update a specific Workload Protection Agent rule.
+   * Returns the agent rule object when the request is successful.
+   *
+   * **Note**: This endpoint is not available for the Government (US1-FED) site. Please reference the (US1-FED) specific resource below.
    * @param param The request object
    */
   public updateCSMThreatsAgentRule(

@@ -1,9 +1,12 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
-import { SlackAction } from "./SlackAction";
-import { TeamsAction } from "./TeamsAction";
+import { SendSlackMessageAction } from "./SendSlackMessageAction";
+import { SendTeamsMessageAction } from "./SendTeamsMessageAction";
 
 /**
  * Defines an action that is executed when a routing rule matches certain criteria.
  */
-export type RoutingRuleAction = SlackAction | TeamsAction | UnparsedObject;
+export type RoutingRuleAction =
+  | SendSlackMessageAction
+  | SendTeamsMessageAction
+  | UnparsedObject;

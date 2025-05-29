@@ -61,7 +61,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     return this.executeRequest(request, body, 0, headers);
   }
 
-  private async executeRequest(
+  public async executeRequest(
     request: RequestContext,
     body: any,
     currentAttempt: number,
@@ -131,13 +131,13 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     }
   }
 
-  private sleep(milliseconds: number): Promise<void> {
+  public sleep(milliseconds: number): Promise<void> {
     return new Promise((resolve) => {
       setTimeout(resolve, milliseconds);
     });
   }
 
-  private shouldRetry(
+  public shouldRetry(
     enableRetry: boolean,
     currentAttempt: number,
     maxRetries: number,
@@ -150,7 +150,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     );
   }
 
-  private calculateRetryInterval(
+  public calculateRetryInterval(
     currentAttempt: number,
     backoffBase: number,
     backoffMultiplier: number,
@@ -165,7 +165,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     }
   }
 
-  private logRequest(request: RequestContext): void {
+  public logRequest(request: RequestContext): void {
     const headers: { [key: string]: string } = {};
     const originalHeaders = request.getHeaders();
     for (const header in originalHeaders) {
@@ -199,7 +199,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     );
   }
 
-  private logResponse(response: ResponseContext): void {
+  public logResponse(response: ResponseContext): void {
     const httpStatusCode = response.httpStatusCode;
     const headers = JSON.stringify(response.headers, null, 2).replace(
       /\n/g,

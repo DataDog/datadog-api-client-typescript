@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Once a signal is generated, the signal will remain “open” if a case is matched at least once within
+ * Once a signal is generated, the signal will remain "open" if a case is matched at least once within
  * this keep alive window. For third party detection method, this field is not used.
  */
 export type SecurityMonitoringRuleKeepAlive =

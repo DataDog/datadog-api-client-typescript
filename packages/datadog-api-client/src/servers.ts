@@ -7,8 +7,8 @@ import { RequestContext, HttpMethod } from "./http/http";
  */
 export class BaseServerConfiguration {
   public constructor(
-    private url: string,
-    private variableConfiguration: { [key: string]: string },
+    public url: string,
+    public variableConfiguration: { [key: string]: string },
   ) {}
 
   /**
@@ -30,7 +30,7 @@ export class BaseServerConfiguration {
     });
   }
 
-  private getUrl() {
+  public getUrl(): string {
     let replacedUrl = this.url;
     for (const key in this.variableConfiguration) {
       var re = new RegExp("{" + key + "}", "g");

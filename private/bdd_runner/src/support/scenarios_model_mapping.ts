@@ -3107,6 +3107,33 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "SoftwareCatalogApi.V2.ListCatalogRelation": {
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    filterType: {
+      type: "RelationType",
+      format: "",
+    },
+    filterFromRef: {
+      type: "string",
+      format: "",
+    },
+    filterToRef: {
+      type: "string",
+      format: "",
+    },
+    include: {
+      type: "RelationIncludeType",
+      format: "",
+    },
+    operationResponseType: "ListRelationCatalogResponse",
+  },
   "CIVisibilityPipelinesApi.V2.CreateCIAppPipelineEvent": {
     body: {
       type: "CIAppCreatePipelineEventRequest",
@@ -3239,6 +3266,28 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "DeleteCustomFrameworkResponse",
+  },
+  "SecurityMonitoringApi.V2.GetResourceEvaluationFilters": {
+    cloudProvider: {
+      type: "string",
+      format: "",
+    },
+    accountId: {
+      type: "string",
+      format: "",
+    },
+    skipCache: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "GetResourceEvaluationFiltersResponse",
+  },
+  "SecurityMonitoringApi.V2.UpdateResourceEvaluationFilters": {
+    body: {
+      type: "UpdateResourceEvaluationFiltersRequest",
+      format: "",
+    },
+    operationResponseType: "UpdateResourceEvaluationFiltersResponse",
   },
   "SecurityMonitoringApi.V2.ListFindings": {
     pageLimit: {
@@ -4406,6 +4455,34 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "DORADeploymentResponse",
+  },
+  "DORAMetricsApi.V2.ListDORADeployments": {
+    body: {
+      type: "DORAListDeploymentsRequest",
+      format: "",
+    },
+    operationResponseType: "DORAListResponse",
+  },
+  "DORAMetricsApi.V2.GetDORADeployment": {
+    deploymentId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DORAFetchResponse",
+  },
+  "DORAMetricsApi.V2.ListDORAFailures": {
+    body: {
+      type: "DORAListFailuresRequest",
+      format: "",
+    },
+    operationResponseType: "DORAListResponse",
+  },
+  "DORAMetricsApi.V2.GetDORAFailure": {
+    failureId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DORAFetchResponse",
   },
   "DORAMetricsApi.V2.CreateDORAIncident": {
     body: {

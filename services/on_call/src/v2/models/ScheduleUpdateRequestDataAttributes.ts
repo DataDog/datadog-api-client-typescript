@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdateRequestDataAttributesLayersItems";
 
 /**
- * Defines the updatable attributes for a schedule, such as name, time zone, tags, and layers.
+ * Defines the updatable attributes for a schedule, such as name, time zone, and layers.
  */
 export class ScheduleUpdateRequestDataAttributes {
   /**
@@ -14,10 +14,6 @@ export class ScheduleUpdateRequestDataAttributes {
    * A short name for the schedule.
    */
   "name": string;
-  /**
-   * A list of tags that you can associate with this schedule.
-   */
-  "tags"?: Array<string>;
   /**
    * The time zone used when interpreting rotation times.
    */
@@ -46,10 +42,6 @@ export class ScheduleUpdateRequestDataAttributes {
       baseName: "name",
       type: "string",
       required: true,
-    },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
     },
     timeZone: {
       baseName: "time_zone",

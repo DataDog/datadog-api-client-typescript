@@ -54,6 +54,15 @@ import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
 import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
 import { ListEntityCatalogResponse } from "./ListEntityCatalogResponse";
 import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks";
+import { ListRelationCatalogResponse } from "./ListRelationCatalogResponse";
+import { ListRelationCatalogResponseLinks } from "./ListRelationCatalogResponseLinks";
+import { RelationAttributes } from "./RelationAttributes";
+import { RelationEntity } from "./RelationEntity";
+import { RelationMeta } from "./RelationMeta";
+import { RelationRelationships } from "./RelationRelationships";
+import { RelationResponse } from "./RelationResponse";
+import { RelationResponseMeta } from "./RelationResponseMeta";
+import { RelationToEntity } from "./RelationToEntity";
 import { RelationshipItem } from "./RelationshipItem";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
 
@@ -71,6 +80,8 @@ export const TypingInfo: ModelTypingInfo = {
     EntityV3ServiceKind: ["service"],
     EntityV3SystemKind: ["system"],
     IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
+    RelationIncludeType: ["entity", "schema"],
+    RelationResponseType: ["relation"],
     RelationType: [
       "RelationTypeOwns",
       "RelationTypeOwnedBy",
@@ -169,6 +180,15 @@ export const TypingInfo: ModelTypingInfo = {
     EntityV3SystemSpec: EntityV3SystemSpec,
     ListEntityCatalogResponse: ListEntityCatalogResponse,
     ListEntityCatalogResponseLinks: ListEntityCatalogResponseLinks,
+    ListRelationCatalogResponse: ListRelationCatalogResponse,
+    ListRelationCatalogResponseLinks: ListRelationCatalogResponseLinks,
+    RelationAttributes: RelationAttributes,
+    RelationEntity: RelationEntity,
+    RelationMeta: RelationMeta,
+    RelationRelationships: RelationRelationships,
+    RelationResponse: RelationResponse,
+    RelationResponseMeta: RelationResponseMeta,
+    RelationToEntity: RelationToEntity,
     RelationshipItem: RelationshipItem,
     UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
   },

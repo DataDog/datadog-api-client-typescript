@@ -54,6 +54,8 @@ import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
 import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
 import { GetCustomFrameworkResponse } from "./GetCustomFrameworkResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
+import { GetResourceEvaluationFiltersResponse } from "./GetResourceEvaluationFiltersResponse";
+import { GetResourceEvaluationFiltersResponseData } from "./GetResourceEvaluationFiltersResponseData";
 import { GetRuleVersionHistoryData } from "./GetRuleVersionHistoryData";
 import { GetRuleVersionHistoryResponse } from "./GetRuleVersionHistoryResponse";
 import { GetSBOMResponse } from "./GetSBOMResponse";
@@ -88,6 +90,7 @@ import { PatchNotificationRuleParameters } from "./PatchNotificationRuleParamete
 import { PatchNotificationRuleParametersData } from "./PatchNotificationRuleParametersData";
 import { PatchNotificationRuleParametersDataAttributes } from "./PatchNotificationRuleParametersDataAttributes";
 import { Remediation } from "./Remediation";
+import { ResourceFilterAttributes } from "./ResourceFilterAttributes";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RuleUser } from "./RuleUser";
 import { RuleVersionHistory } from "./RuleVersionHistory";
@@ -181,6 +184,10 @@ import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 import { Selectors } from "./Selectors";
 import { UpdateCustomFrameworkRequest } from "./UpdateCustomFrameworkRequest";
 import { UpdateCustomFrameworkResponse } from "./UpdateCustomFrameworkResponse";
+import { UpdateResourceEvaluationFiltersRequest } from "./UpdateResourceEvaluationFiltersRequest";
+import { UpdateResourceEvaluationFiltersRequestData } from "./UpdateResourceEvaluationFiltersRequestData";
+import { UpdateResourceEvaluationFiltersResponse } from "./UpdateResourceEvaluationFiltersResponse";
+import { UpdateResourceEvaluationFiltersResponseData } from "./UpdateResourceEvaluationFiltersResponseData";
 import { Vulnerability } from "./Vulnerability";
 import { VulnerabilityAttributes } from "./VulnerabilityAttributes";
 import { VulnerabilityCvss } from "./VulnerabilityCvss";
@@ -221,6 +228,7 @@ export const TypingInfo: ModelTypingInfo = {
     GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
     HistoricalJobDataType: ["historicalDetectionsJob"],
     NotificationRulesType: ["notification_rules"],
+    ResourceFilterRequestType: ["csm_resource_filter"],
     RuleSeverity: ["critical", "high", "medium", "low", "unknown", "info"],
     RuleTypesItems: [
       "application_security",
@@ -337,6 +345,7 @@ export const TypingInfo: ModelTypingInfo = {
       "spans",
       "security_runtime",
       "network",
+      "events",
     ],
     SecurityMonitoringSuppressionType: ["suppressions"],
     SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
@@ -502,6 +511,9 @@ export const TypingInfo: ModelTypingInfo = {
     FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
     GetCustomFrameworkResponse: GetCustomFrameworkResponse,
     GetFindingResponse: GetFindingResponse,
+    GetResourceEvaluationFiltersResponse: GetResourceEvaluationFiltersResponse,
+    GetResourceEvaluationFiltersResponseData:
+      GetResourceEvaluationFiltersResponseData,
     GetRuleVersionHistoryData: GetRuleVersionHistoryData,
     GetRuleVersionHistoryResponse: GetRuleVersionHistoryResponse,
     GetSBOMResponse: GetSBOMResponse,
@@ -537,6 +549,7 @@ export const TypingInfo: ModelTypingInfo = {
     PatchNotificationRuleParametersDataAttributes:
       PatchNotificationRuleParametersDataAttributes,
     Remediation: Remediation,
+    ResourceFilterAttributes: ResourceFilterAttributes,
     ResponseMetaAttributes: ResponseMetaAttributes,
     RuleUser: RuleUser,
     RuleVersionHistory: RuleVersionHistory,
@@ -672,6 +685,14 @@ export const TypingInfo: ModelTypingInfo = {
     Selectors: Selectors,
     UpdateCustomFrameworkRequest: UpdateCustomFrameworkRequest,
     UpdateCustomFrameworkResponse: UpdateCustomFrameworkResponse,
+    UpdateResourceEvaluationFiltersRequest:
+      UpdateResourceEvaluationFiltersRequest,
+    UpdateResourceEvaluationFiltersRequestData:
+      UpdateResourceEvaluationFiltersRequestData,
+    UpdateResourceEvaluationFiltersResponse:
+      UpdateResourceEvaluationFiltersResponse,
+    UpdateResourceEvaluationFiltersResponseData:
+      UpdateResourceEvaluationFiltersResponseData,
     Vulnerability: Vulnerability,
     VulnerabilityAttributes: VulnerabilityAttributes,
     VulnerabilityCvss: VulnerabilityCvss,

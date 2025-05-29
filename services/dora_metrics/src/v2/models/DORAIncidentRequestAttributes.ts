@@ -19,7 +19,7 @@ export class DORAIncidentRequestAttributes {
    */
   "git"?: DORAGitInfo;
   /**
-   * Incident ID. Required to update a previously sent incident.
+   * Incident ID. Must have at least 16 characters. Required to update a previously sent incident.
    */
   "id"?: string;
   /**
