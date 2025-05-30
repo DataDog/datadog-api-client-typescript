@@ -4460,6 +4460,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DORAFetchResponse",
     },
+    "v2.CreateDORAFailure": {
+        "body": {
+            "type": "DORAFailureRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORAFailureResponse",
+    },
     "v2.ListDORAFailures": {
         "body": {
             "type": "DORAListFailuresRequest",
@@ -4476,10 +4483,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v2.CreateDORAIncident": {
         "body": {
-            "type": "DORAIncidentRequest",
+            "type": "DORAFailureRequest",
             "format": "",
             },
-        "operationResponseType": "DORAIncidentResponse",
+        "operationResponseType": "DORAFailureResponse",
     },
     "v2.ListDowntimes": {
         "currentOnly": {
