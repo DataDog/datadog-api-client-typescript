@@ -76,7 +76,7 @@ export const operationServers: { [endpoint: string]: BaseServerConfiguration[] }
   {%- for _, _, operation in operations|sort(attribute="2.operationId") %}
   {%- for server in operation.servers %}
   {%- if loop.first %}
-  "{{ version }}.{{ operation.tags[0].replace(" ", "") }}Api.{{ operation.operationId|untitle_case }}": [
+  "{{ version }}.{{ operation.tags[0].replace(" ", "").replace("-", "") }}Api.{{ operation.operationId|untitle_case }}": [
   {%- endif %}
     new ServerConfiguration<{
     {%- for name, value in server.get("variables", {}).items() %}
