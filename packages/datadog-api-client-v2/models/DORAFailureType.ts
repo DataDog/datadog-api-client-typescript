@@ -7,8 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * JSON:API type for DORA incident events.
+ * JSON:API type for DORA failure events.
  */
 
-export type DORAIncidentType = typeof DORA_INCIDENT | UnparsedObject;
-export const DORA_INCIDENT = "dora_incident";
+export type DORAFailureType = typeof DORA_FAILURE | UnparsedObject;
+export const DORA_FAILURE = "dora_failure";

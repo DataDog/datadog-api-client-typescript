@@ -243,8 +243,6 @@ export function createConfiguration(
       "v2.cancelDataDeletionRequest": false,
       "v2.createDataDeletionRequest": false,
       "v2.getDataDeletionRequests": false,
-      "v2.createDORADeployment": false,
-      "v2.createDORAIncident": false,
       "v2.createIncident": false,
       "v2.createIncidentIntegration": false,
       "v2.createIncidentTodo": false,
