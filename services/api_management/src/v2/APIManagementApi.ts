@@ -71,11 +71,6 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
       // TODO: replace .append with .set
       localVarFormParams.append("openapi_spec_file", openapiSpecFile as any);
     }
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
     requestContext.setBody(localVarFormParams);
 
     // Apply auth methods
@@ -280,11 +275,6 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (openapiSpecFile !== undefined) {
       // TODO: replace .append with .set
       localVarFormParams.append("openapi_spec_file", openapiSpecFile as any);
-    }
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
     requestContext.setBody(localVarFormParams);
 

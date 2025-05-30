@@ -283,11 +283,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
       // TODO: replace .append with .set
       localVarFormParams.append("idp_file", idpFile as any);
     }
-
-    // Set User-Agent
-    if (this.userAgent) {
-      requestContext.setHeaderParam("User-Agent", this.userAgent);
-    }
     requestContext.setBody(localVarFormParams);
 
     // Apply auth methods
