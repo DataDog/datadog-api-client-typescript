@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -24,8 +26,17 @@ import { NotebookResponse } from "./models/NotebookResponse";
 import { NotebooksResponse } from "./models/NotebooksResponse";
 import { NotebooksResponseData } from "./models/NotebooksResponseData";
 import { NotebookUpdateRequest } from "./models/NotebookUpdateRequest";
+import { version } from "../version";
 
 export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("notebooks", version);
+    }
+  }
   public async createNotebook(
     body: NotebookCreateRequest,
     _options?: Configuration,

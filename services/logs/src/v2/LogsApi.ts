@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -30,8 +32,17 @@ import { LogsListRequestPage } from "./models/LogsListRequestPage";
 import { LogsListResponse } from "./models/LogsListResponse";
 import { LogsSort } from "./models/LogsSort";
 import { LogsStorageTier } from "./models/LogsStorageTier";
+import { version } from "../version";
 
 export class LogsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("logs", version);
+    }
+  }
   public async aggregateLogs(
     body: LogsAggregateRequest,
     _options?: Configuration,

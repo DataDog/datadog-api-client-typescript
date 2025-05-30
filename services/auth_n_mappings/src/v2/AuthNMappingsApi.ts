@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -25,8 +27,17 @@ import { AuthNMappingResponse } from "./models/AuthNMappingResponse";
 import { AuthNMappingsResponse } from "./models/AuthNMappingsResponse";
 import { AuthNMappingsSort } from "./models/AuthNMappingsSort";
 import { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
+import { version } from "../version";
 
 export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("auth-n-mappings", version);
+    }
+  }
   public async createAuthNMapping(
     body: AuthNMappingCreateRequest,
     _options?: Configuration,

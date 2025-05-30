@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
   HttpFile,
 } from "@datadog/datadog-api-client";
 
@@ -28,8 +30,17 @@ import { CloudWorkloadSecurityAgentRuleCreateRequest } from "./models/CloudWorkl
 import { CloudWorkloadSecurityAgentRuleResponse } from "./models/CloudWorkloadSecurityAgentRuleResponse";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "./models/CloudWorkloadSecurityAgentRulesListResponse";
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./models/CloudWorkloadSecurityAgentRuleUpdateRequest";
+import { version } from "../version";
 
 export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("csm-threats", version);
+    }
+  }
   public async createCloudWorkloadSecurityAgentRule(
     body: CloudWorkloadSecurityAgentRuleCreateRequest,
     _options?: Configuration,

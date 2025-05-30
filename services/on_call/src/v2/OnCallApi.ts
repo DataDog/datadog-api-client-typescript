@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -28,8 +30,17 @@ import { ScheduleUpdateRequest } from "./models/ScheduleUpdateRequest";
 import { Shift } from "./models/Shift";
 import { TeamRoutingRules } from "./models/TeamRoutingRules";
 import { TeamRoutingRulesRequest } from "./models/TeamRoutingRulesRequest";
+import { version } from "../version";
 
 export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("on-call", version);
+    }
+  }
   public async createOnCallEscalationPolicy(
     body: EscalationPolicyCreateRequest,
     include?: string,

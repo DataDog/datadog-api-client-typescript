@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -58,8 +60,17 @@ import { UsageSyntheticsBrowserResponse } from "./models/UsageSyntheticsBrowserR
 import { UsageSyntheticsResponse } from "./models/UsageSyntheticsResponse";
 import { UsageTimeseriesResponse } from "./models/UsageTimeseriesResponse";
 import { UsageTopAvgMetricsResponse } from "./models/UsageTopAvgMetricsResponse";
+import { version } from "../version";
 
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("usage-metering", version);
+    }
+  }
   public async getDailyCustomReports(
     pageSize?: number,
     pageNumber?: number,

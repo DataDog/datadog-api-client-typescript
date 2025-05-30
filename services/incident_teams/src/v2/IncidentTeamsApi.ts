@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -24,8 +26,17 @@ import { IncidentTeamCreateRequest } from "./models/IncidentTeamCreateRequest";
 import { IncidentTeamResponse } from "./models/IncidentTeamResponse";
 import { IncidentTeamsResponse } from "./models/IncidentTeamsResponse";
 import { IncidentTeamUpdateRequest } from "./models/IncidentTeamUpdateRequest";
+import { version } from "../version";
 
 export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("incident-teams", version);
+    }
+  }
   public async createIncidentTeam(
     body: IncidentTeamCreateRequest,
     _options?: Configuration,

@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -28,8 +30,17 @@ import { MicrosoftTeamsUpdateTenantBasedHandleRequest } from "./models/Microsoft
 import { MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest } from "./models/MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest";
 import { MicrosoftTeamsWorkflowsWebhookHandleResponse } from "./models/MicrosoftTeamsWorkflowsWebhookHandleResponse";
 import { MicrosoftTeamsWorkflowsWebhookHandlesResponse } from "./models/MicrosoftTeamsWorkflowsWebhookHandlesResponse";
+import { version } from "../version";
 
 export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("microsoft-teams-integration", version);
+    }
+  }
   public async createTenantBasedHandle(
     body: MicrosoftTeamsCreateTenantBasedHandleRequest,
     _options?: Configuration,

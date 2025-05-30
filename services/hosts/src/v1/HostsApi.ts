@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -23,8 +25,17 @@ import { HostListResponse } from "./models/HostListResponse";
 import { HostMuteResponse } from "./models/HostMuteResponse";
 import { HostMuteSettings } from "./models/HostMuteSettings";
 import { HostTotals } from "./models/HostTotals";
+import { version } from "../version";
 
 export class HostsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("hosts", version);
+    }
+  }
   public async getHostTotals(
     from?: number,
     _options?: Configuration,

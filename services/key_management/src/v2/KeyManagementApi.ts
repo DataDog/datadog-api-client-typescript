@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -29,8 +31,17 @@ import { ApplicationKeyResponse } from "./models/ApplicationKeyResponse";
 import { ApplicationKeysSort } from "./models/ApplicationKeysSort";
 import { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
 import { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
+import { version } from "../version";
 
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("key-management", version);
+    }
+  }
   public async createAPIKey(
     body: APIKeyCreateRequest,
     _options?: Configuration,

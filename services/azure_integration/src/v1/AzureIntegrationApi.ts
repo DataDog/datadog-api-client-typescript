@@ -15,13 +15,24 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { AzureAccount } from "./models/AzureAccount";
+import { version } from "../version";
 
 export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("azure-integration", version);
+    }
+  }
   public async createAzureIntegration(
     body: AzureAccount,
     _options?: Configuration,

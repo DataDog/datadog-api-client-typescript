@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -24,8 +26,17 @@ import { LogsIndex } from "./models/LogsIndex";
 import { LogsIndexesOrder } from "./models/LogsIndexesOrder";
 import { LogsIndexListResponse } from "./models/LogsIndexListResponse";
 import { LogsIndexUpdateRequest } from "./models/LogsIndexUpdateRequest";
+import { version } from "../version";
 
 export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("logs-indexes", version);
+    }
+  }
   public async createLogsIndex(
     body: LogsIndex,
     _options?: Configuration,

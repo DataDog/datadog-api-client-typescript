@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -30,8 +32,17 @@ import { SLOHistoryResponse } from "./models/SLOHistoryResponse";
 import { SLOListResponse } from "./models/SLOListResponse";
 import { SLOResponse } from "./models/SLOResponse";
 import { SLOTimeframe } from "./models/SLOTimeframe";
+import { version } from "../version";
 
 export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("service-level-objectives", version);
+    }
+  }
   public async checkCanDeleteSLO(
     ids: string,
     _options?: Configuration,

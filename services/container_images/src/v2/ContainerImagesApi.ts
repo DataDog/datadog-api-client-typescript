@@ -15,14 +15,25 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { ContainerImageItem } from "./models/ContainerImageItem";
 import { ContainerImagesResponse } from "./models/ContainerImagesResponse";
+import { version } from "../version";
 
 export class ContainerImagesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("container-images", version);
+    }
+  }
   public async listContainerImages(
     filterTags?: string,
     groupBy?: string,

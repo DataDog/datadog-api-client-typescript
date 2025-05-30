@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -28,8 +30,17 @@ import { RelationResponse } from "./models/RelationResponse";
 import { RelationType } from "./models/RelationType";
 import { UpsertCatalogEntityRequest } from "./models/UpsertCatalogEntityRequest";
 import { UpsertCatalogEntityResponse } from "./models/UpsertCatalogEntityResponse";
+import { version } from "../version";
 
 export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("software-catalog", version);
+    }
+  }
   public async deleteCatalogEntity(
     entityId: string,
     _options?: Configuration,

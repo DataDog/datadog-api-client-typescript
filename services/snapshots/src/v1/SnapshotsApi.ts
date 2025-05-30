@@ -15,13 +15,24 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { GraphSnapshot } from "./models/GraphSnapshot";
+import { version } from "../version";
 
 export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("snapshots", version);
+    }
+  }
   public async getGraphSnapshot(
     start: number,
     end: number,

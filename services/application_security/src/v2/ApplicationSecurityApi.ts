@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -27,8 +29,17 @@ import { ApplicationSecurityWafExclusionFilterCreateRequest } from "./models/App
 import { ApplicationSecurityWafExclusionFilterResponse } from "./models/ApplicationSecurityWafExclusionFilterResponse";
 import { ApplicationSecurityWafExclusionFiltersResponse } from "./models/ApplicationSecurityWafExclusionFiltersResponse";
 import { ApplicationSecurityWafExclusionFilterUpdateRequest } from "./models/ApplicationSecurityWafExclusionFilterUpdateRequest";
+import { version } from "../version";
 
 export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("application-security", version);
+    }
+  }
   public async createApplicationSecurityWafCustomRule(
     body: ApplicationSecurityWafCustomRuleCreateRequest,
     _options?: Configuration,

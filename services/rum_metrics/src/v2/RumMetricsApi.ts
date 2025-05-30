@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -23,8 +25,17 @@ import { RumMetricCreateRequest } from "./models/RumMetricCreateRequest";
 import { RumMetricResponse } from "./models/RumMetricResponse";
 import { RumMetricsResponse } from "./models/RumMetricsResponse";
 import { RumMetricUpdateRequest } from "./models/RumMetricUpdateRequest";
+import { version } from "../version";
 
 export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("rum-metrics", version);
+    }
+  }
   public async createRumMetric(
     body: RumMetricCreateRequest,
     _options?: Configuration,

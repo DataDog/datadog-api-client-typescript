@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -26,8 +28,17 @@ import { AwsScanOptionsCreateRequest } from "./models/AwsScanOptionsCreateReques
 import { AwsScanOptionsListResponse } from "./models/AwsScanOptionsListResponse";
 import { AwsScanOptionsResponse } from "./models/AwsScanOptionsResponse";
 import { AwsScanOptionsUpdateRequest } from "./models/AwsScanOptionsUpdateRequest";
+import { version } from "../version";
 
 export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("agentless-scanning", version);
+    }
+  }
   public async createAwsOnDemandTask(
     body: AwsOnDemandCreateRequest,
     _options?: Configuration,

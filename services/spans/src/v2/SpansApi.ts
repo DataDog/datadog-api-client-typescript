@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -29,8 +31,17 @@ import { SpansListRequestData } from "./models/SpansListRequestData";
 import { SpansListRequestPage } from "./models/SpansListRequestPage";
 import { SpansListResponse } from "./models/SpansListResponse";
 import { SpansSort } from "./models/SpansSort";
+import { version } from "../version";
 
 export class SpansApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("spans", version);
+    }
+  }
   public async aggregateSpans(
     body: SpansAggregateRequest,
     _options?: Configuration,

@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -33,8 +35,17 @@ import { CustomCostsFileGetResponse } from "./models/CustomCostsFileGetResponse"
 import { CustomCostsFileLineItem } from "./models/CustomCostsFileLineItem";
 import { CustomCostsFileListResponse } from "./models/CustomCostsFileListResponse";
 import { CustomCostsFileUploadResponse } from "./models/CustomCostsFileUploadResponse";
+import { version } from "../version";
 
 export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("cloud-cost-management", version);
+    }
+  }
   public async createCostAWSCURConfig(
     body: AwsCURConfigPostRequest,
     _options?: Configuration,

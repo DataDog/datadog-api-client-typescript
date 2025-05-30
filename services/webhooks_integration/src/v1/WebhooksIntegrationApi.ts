@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -24,8 +26,17 @@ import { WebhooksIntegrationCustomVariable } from "./models/WebhooksIntegrationC
 import { WebhooksIntegrationCustomVariableResponse } from "./models/WebhooksIntegrationCustomVariableResponse";
 import { WebhooksIntegrationCustomVariableUpdateRequest } from "./models/WebhooksIntegrationCustomVariableUpdateRequest";
 import { WebhooksIntegrationUpdateRequest } from "./models/WebhooksIntegrationUpdateRequest";
+import { version } from "../version";
 
 export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("webhooks-integration", version);
+    }
+  }
   public async createWebhooksIntegration(
     body: WebhooksIntegration,
     _options?: Configuration,

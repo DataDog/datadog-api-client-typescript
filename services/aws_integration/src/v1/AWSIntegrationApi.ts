@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -31,8 +33,17 @@ import { AWSEventBridgeListResponse } from "./models/AWSEventBridgeListResponse"
 import { AWSTagFilterCreateRequest } from "./models/AWSTagFilterCreateRequest";
 import { AWSTagFilterDeleteRequest } from "./models/AWSTagFilterDeleteRequest";
 import { AWSTagFilterListResponse } from "./models/AWSTagFilterListResponse";
+import { version } from "../version";
 
 export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("aws-integration", version);
+    }
+  }
   public async createAWSAccount(
     body: AWSAccount,
     _options?: Configuration,

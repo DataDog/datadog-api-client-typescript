@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -23,8 +25,17 @@ import { ListPipelinesResponse } from "./models/ListPipelinesResponse";
 import { ObservabilityPipeline } from "./models/ObservabilityPipeline";
 import { ObservabilityPipelineSpec } from "./models/ObservabilityPipelineSpec";
 import { ValidationResponse } from "./models/ValidationResponse";
+import { version } from "../version";
 
 export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("observability-pipelines", version);
+    }
+  }
   public async createPipeline(
     body: ObservabilityPipelineSpec,
     _options?: Configuration,

@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -30,8 +32,17 @@ import { RUMEventsResponse } from "./models/RUMEventsResponse";
 import { RUMQueryPageOptions } from "./models/RUMQueryPageOptions";
 import { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 import { RUMSort } from "./models/RUMSort";
+import { version } from "../version";
 
 export class RUMApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("rum", version);
+    }
+  }
   public async aggregateRUMEvents(
     body: RUMAggregateRequest,
     _options?: Configuration,

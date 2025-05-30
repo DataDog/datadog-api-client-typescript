@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -24,8 +26,17 @@ import { GetActionConnectionResponse } from "./models/GetActionConnectionRespons
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { UpdateActionConnectionRequest } from "./models/UpdateActionConnectionRequest";
 import { UpdateActionConnectionResponse } from "./models/UpdateActionConnectionResponse";
+import { version } from "../version";
 
 export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("action-connection", version);
+    }
+  }
   public async createActionConnection(
     body: CreateActionConnectionRequest,
     _options?: Configuration,

@@ -15,14 +15,25 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
 import { ServiceCheck } from "./models/ServiceCheck";
+import { version } from "../version";
 
 export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("service-checks", version);
+    }
+  }
   public async submitServiceCheck(
     body: Array<ServiceCheck>,
     _options?: Configuration,

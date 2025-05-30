@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -45,8 +47,17 @@ import { IncidentTypeListResponse } from "./models/IncidentTypeListResponse";
 import { IncidentTypePatchRequest } from "./models/IncidentTypePatchRequest";
 import { IncidentTypeResponse } from "./models/IncidentTypeResponse";
 import { IncidentUpdateRequest } from "./models/IncidentUpdateRequest";
+import { version } from "../version";
 
 export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("incidents", version);
+    }
+  }
   public async createIncident(
     body: IncidentCreateRequest,
     _options?: Configuration,

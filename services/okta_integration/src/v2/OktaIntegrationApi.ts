@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -23,8 +25,17 @@ import { OktaAccountRequest } from "./models/OktaAccountRequest";
 import { OktaAccountResponse } from "./models/OktaAccountResponse";
 import { OktaAccountsResponse } from "./models/OktaAccountsResponse";
 import { OktaAccountUpdateRequest } from "./models/OktaAccountUpdateRequest";
+import { version } from "../version";
 
 export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("okta-integration", version);
+    }
+  }
   public async createOktaAccount(
     body: OktaAccountRequest,
     _options?: Configuration,

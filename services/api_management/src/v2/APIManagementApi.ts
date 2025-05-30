@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
   HttpFile,
 } from "@datadog/datadog-api-client";
 
@@ -26,8 +28,17 @@ import { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { ListAPIsResponse } from "./models/ListAPIsResponse";
 import { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";
+import { version } from "../version";
 
 export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("api-management", version);
+    }
+  }
   public async createOpenAPI(
     openapiSpecFile?: HttpFile,
     _options?: Configuration,
@@ -54,6 +65,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (openapiSpecFile !== undefined) {
       // TODO: replace .append with .set
       localVarFormParams.append("openapi_spec_file", openapiSpecFile as any);
+    }
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
     requestContext.setBody(localVarFormParams);
 
@@ -239,6 +255,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (openapiSpecFile !== undefined) {
       // TODO: replace .append with .set
       localVarFormParams.append("openapi_spec_file", openapiSpecFile as any);
+    }
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
     requestContext.setBody(localVarFormParams);
 

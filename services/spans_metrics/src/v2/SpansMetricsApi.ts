@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -23,8 +25,17 @@ import { SpansMetricCreateRequest } from "./models/SpansMetricCreateRequest";
 import { SpansMetricResponse } from "./models/SpansMetricResponse";
 import { SpansMetricsResponse } from "./models/SpansMetricsResponse";
 import { SpansMetricUpdateRequest } from "./models/SpansMetricUpdateRequest";
+import { version } from "../version";
 
 export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("spans-metrics", version);
+    }
+  }
   public async createSpansMetric(
     body: SpansMetricCreateRequest,
     _options?: Configuration,

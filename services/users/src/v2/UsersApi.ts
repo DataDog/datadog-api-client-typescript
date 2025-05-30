@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -29,8 +31,17 @@ import { UserInvitationsResponse } from "./models/UserInvitationsResponse";
 import { UserResponse } from "./models/UserResponse";
 import { UsersResponse } from "./models/UsersResponse";
 import { UserUpdateRequest } from "./models/UserUpdateRequest";
+import { version } from "../version";
 
 export class UsersApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("users", version);
+    }
+  }
   public async createUser(
     body: UserCreateRequest,
     _options?: Configuration,

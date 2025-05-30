@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -30,8 +32,17 @@ import { WorkflowInstanceCreateResponse } from "./models/WorkflowInstanceCreateR
 import { WorkflowListInstancesResponse } from "./models/WorkflowListInstancesResponse";
 import { WorklflowCancelInstanceResponse } from "./models/WorklflowCancelInstanceResponse";
 import { WorklflowGetInstanceResponse } from "./models/WorklflowGetInstanceResponse";
+import { version } from "../version";
 
 export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("workflow-automation", version);
+    }
+  }
   public async cancelWorkflowInstance(
     workflowId: string,
     instanceId: string,

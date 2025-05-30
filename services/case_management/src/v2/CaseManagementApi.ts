@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -31,8 +33,17 @@ import { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
 import { ProjectCreateRequest } from "./models/ProjectCreateRequest";
 import { ProjectResponse } from "./models/ProjectResponse";
 import { ProjectsResponse } from "./models/ProjectsResponse";
+import { version } from "../version";
 
 export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("case-management", version);
+    }
+  }
   public async archiveCase(
     caseId: string,
     body: CaseEmptyRequest,

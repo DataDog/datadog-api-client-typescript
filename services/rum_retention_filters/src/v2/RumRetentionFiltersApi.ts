@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -25,8 +27,17 @@ import { RumRetentionFiltersOrderRequest } from "./models/RumRetentionFiltersOrd
 import { RumRetentionFiltersOrderResponse } from "./models/RumRetentionFiltersOrderResponse";
 import { RumRetentionFiltersResponse } from "./models/RumRetentionFiltersResponse";
 import { RumRetentionFilterUpdateRequest } from "./models/RumRetentionFilterUpdateRequest";
+import { version } from "../version";
 
 export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("rum-retention-filters", version);
+    }
+  }
   public async createRetentionFilter(
     appId: string,
     body: RumRetentionFilterCreateRequest,

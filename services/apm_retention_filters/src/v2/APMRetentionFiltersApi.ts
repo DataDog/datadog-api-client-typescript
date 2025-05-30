@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -25,8 +27,17 @@ import { RetentionFilterCreateResponse } from "./models/RetentionFilterCreateRes
 import { RetentionFilterResponse } from "./models/RetentionFilterResponse";
 import { RetentionFiltersResponse } from "./models/RetentionFiltersResponse";
 import { RetentionFilterUpdateRequest } from "./models/RetentionFilterUpdateRequest";
+import { version } from "../version";
 
 export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("apm-retention-filters", version);
+    }
+  }
   public async createApmRetentionFilter(
     body: RetentionFilterCreateRequest,
     _options?: Configuration,

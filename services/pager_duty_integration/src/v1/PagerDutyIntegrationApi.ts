@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -22,8 +24,17 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { PagerDutyService } from "./models/PagerDutyService";
 import { PagerDutyServiceKey } from "./models/PagerDutyServiceKey";
 import { PagerDutyServiceName } from "./models/PagerDutyServiceName";
+import { version } from "../version";
 
 export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("pager-duty-integration", version);
+    }
+  }
   public async createPagerDutyIntegrationService(
     body: PagerDutyService,
     _options?: Configuration,

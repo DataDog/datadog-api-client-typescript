@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -27,8 +29,17 @@ import { ListApplicationKeysResponse } from "./models/ListApplicationKeysRespons
 import { PartialApplicationKeyResponse } from "./models/PartialApplicationKeyResponse";
 import { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";
 import { UserResponse } from "./models/UserResponse";
+import { version } from "../version";
 
 export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("service-accounts", version);
+    }
+  }
   public async createServiceAccount(
     body: ServiceAccountCreateRequest,
     _options?: Configuration,

@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -23,8 +25,17 @@ import { ListPowerpacksResponse } from "./models/ListPowerpacksResponse";
 import { Powerpack } from "./models/Powerpack";
 import { PowerpackData } from "./models/PowerpackData";
 import { PowerpackResponse } from "./models/PowerpackResponse";
+import { version } from "../version";
 
 export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("powerpack", version);
+    }
+  }
   public async createPowerpack(
     body: Powerpack,
     _options?: Configuration,

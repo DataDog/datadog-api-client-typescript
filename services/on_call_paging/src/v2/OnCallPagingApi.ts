@@ -15,14 +15,25 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CreatePageRequest } from "./models/CreatePageRequest";
 import { CreatePageResponse } from "./models/CreatePageResponse";
+import { version } from "../version";
 
 export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("on-call-paging", version);
+    }
+  }
   public async acknowledgeOnCallPage(
     pageId: string,
     _options?: Configuration,

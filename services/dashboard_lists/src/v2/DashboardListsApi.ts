@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -26,8 +28,17 @@ import { DashboardListDeleteItemsResponse } from "./models/DashboardListDeleteIt
 import { DashboardListItems } from "./models/DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./models/DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./models/DashboardListUpdateItemsResponse";
+import { version } from "../version";
 
 export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("dashboard-lists", version);
+    }
+  }
   public async createDashboardListItems(
     dashboardListId: number,
     body: DashboardListAddItemsRequest,

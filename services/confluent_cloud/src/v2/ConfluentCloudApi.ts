@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -26,8 +28,17 @@ import { ConfluentAccountUpdateRequest } from "./models/ConfluentAccountUpdateRe
 import { ConfluentResourceRequest } from "./models/ConfluentResourceRequest";
 import { ConfluentResourceResponse } from "./models/ConfluentResourceResponse";
 import { ConfluentResourcesResponse } from "./models/ConfluentResourcesResponse";
+import { version } from "../version";
 
 export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("confluent-cloud", version);
+    }
+  }
   public async createConfluentAccount(
     body: ConfluentAccountCreateRequest,
     _options?: Configuration,

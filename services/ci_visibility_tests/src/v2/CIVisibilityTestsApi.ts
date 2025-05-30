@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -26,8 +28,17 @@ import { CIAppTestEventsRequest } from "./models/CIAppTestEventsRequest";
 import { CIAppTestEventsResponse } from "./models/CIAppTestEventsResponse";
 import { CIAppTestsAggregateRequest } from "./models/CIAppTestsAggregateRequest";
 import { CIAppTestsAnalyticsAggregateResponse } from "./models/CIAppTestsAnalyticsAggregateResponse";
+import { version } from "../version";
 
 export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("ci-visibility-tests", version);
+    }
+  }
   public async aggregateCIAppTestEvents(
     body: CIAppTestsAggregateRequest,
     _options?: Configuration,

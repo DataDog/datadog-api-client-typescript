@@ -15,13 +15,24 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { IPRanges } from "./models/IPRanges";
+import { version } from "../version";
 
 export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("ip-ranges", version);
+    }
+  }
   public async getIPRanges(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 

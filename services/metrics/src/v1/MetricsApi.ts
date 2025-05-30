@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -28,8 +30,17 @@ import { MetricSearchResponse } from "./models/MetricSearchResponse";
 import { MetricsListResponse } from "./models/MetricsListResponse";
 import { MetricsPayload } from "./models/MetricsPayload";
 import { MetricsQueryResponse } from "./models/MetricsQueryResponse";
+import { version } from "../version";
 
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("metrics", version);
+    }
+  }
   public async getMetricMetadata(
     metricName: string,
     _options?: Configuration,

@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -24,8 +26,17 @@ import { AuditLogsEventsResponse } from "./models/AuditLogsEventsResponse";
 import { AuditLogsQueryPageOptions } from "./models/AuditLogsQueryPageOptions";
 import { AuditLogsSearchEventsRequest } from "./models/AuditLogsSearchEventsRequest";
 import { AuditLogsSort } from "./models/AuditLogsSort";
+import { version } from "../version";
 
 export class AuditApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("audit", version);
+    }
+  }
   public async listAuditLogs(
     filterQuery?: string,
     filterFrom?: Date,

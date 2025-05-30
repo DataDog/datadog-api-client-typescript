@@ -15,14 +15,25 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { OnDemandConcurrencyCapAttributes } from "./models/OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./models/OnDemandConcurrencyCapResponse";
+import { version } from "../version";
 
 export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("synthetics", version);
+    }
+  }
   public async getOnDemandConcurrencyCap(
     _options?: Configuration,
   ): Promise<RequestContext> {

@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -23,8 +25,17 @@ import { CancelDataDeletionResponseBody } from "./models/CancelDataDeletionRespo
 import { CreateDataDeletionRequestBody } from "./models/CreateDataDeletionRequestBody";
 import { CreateDataDeletionResponseBody } from "./models/CreateDataDeletionResponseBody";
 import { GetDataDeletionsResponseBody } from "./models/GetDataDeletionsResponseBody";
+import { version } from "../version";
 
 export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("data-deletion", version);
+    }
+  }
   public async cancelDataDeletionRequest(
     id: string,
     _options?: Configuration,

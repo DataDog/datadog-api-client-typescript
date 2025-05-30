@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -25,8 +27,17 @@ import { Monitor } from "./models/Monitor";
 import { MonitorGroupSearchResponse } from "./models/MonitorGroupSearchResponse";
 import { MonitorSearchResponse } from "./models/MonitorSearchResponse";
 import { MonitorUpdateRequest } from "./models/MonitorUpdateRequest";
+import { version } from "../version";
 
 export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("monitors", version);
+    }
+  }
   public async checkCanDeleteMonitor(
     monitorIds: Array<number>,
     _options?: Configuration,

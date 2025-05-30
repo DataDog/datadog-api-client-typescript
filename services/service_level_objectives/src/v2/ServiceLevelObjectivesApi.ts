@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -22,8 +24,17 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { SloReportCreateRequest } from "./models/SloReportCreateRequest";
 import { SLOReportPostResponse } from "./models/SLOReportPostResponse";
 import { SLOReportStatusGetResponse } from "./models/SLOReportStatusGetResponse";
+import { version } from "../version";
 
 export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("service-level-objectives", version);
+    }
+  }
   public async createSLOReportJob(
     body: SloReportCreateRequest,
     _options?: Configuration,

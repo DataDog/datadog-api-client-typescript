@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -28,8 +30,17 @@ import { DORAListDeploymentsRequest } from "./models/DORAListDeploymentsRequest"
 import { DORAListFailuresRequest } from "./models/DORAListFailuresRequest";
 import { DORAListResponse } from "./models/DORAListResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { version } from "../version";
 
 export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("dora-metrics", version);
+    }
+  }
   public async createDORADeployment(
     body: DORADeploymentRequest,
     _options?: Configuration,

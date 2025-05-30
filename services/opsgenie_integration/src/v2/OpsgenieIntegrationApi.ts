@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -23,8 +25,17 @@ import { OpsgenieServiceCreateRequest } from "./models/OpsgenieServiceCreateRequ
 import { OpsgenieServiceResponse } from "./models/OpsgenieServiceResponse";
 import { OpsgenieServicesResponse } from "./models/OpsgenieServicesResponse";
 import { OpsgenieServiceUpdateRequest } from "./models/OpsgenieServiceUpdateRequest";
+import { version } from "../version";
 
 export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("opsgenie-integration", version);
+    }
+  }
   public async createOpsgenieService(
     body: OpsgenieServiceCreateRequest,
     _options?: Configuration,

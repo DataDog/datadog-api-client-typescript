@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -25,8 +27,17 @@ import { ServiceDefinitionGetResponse } from "./models/ServiceDefinitionGetRespo
 import { ServiceDefinitionSchemaVersions } from "./models/ServiceDefinitionSchemaVersions";
 import { ServiceDefinitionsCreateRequest } from "./models/ServiceDefinitionsCreateRequest";
 import { ServiceDefinitionsListResponse } from "./models/ServiceDefinitionsListResponse";
+import { version } from "../version";
 
 export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("service-definition", version);
+    }
+  }
   public async createOrUpdateServiceDefinitions(
     body: ServiceDefinitionsCreateRequest,
     _options?: Configuration,

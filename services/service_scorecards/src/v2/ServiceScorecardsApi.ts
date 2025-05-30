@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -29,8 +31,17 @@ import { OutcomesResponse } from "./models/OutcomesResponse";
 import { OutcomesResponseDataItem } from "./models/OutcomesResponseDataItem";
 import { UpdateRuleRequest } from "./models/UpdateRuleRequest";
 import { UpdateRuleResponse } from "./models/UpdateRuleResponse";
+import { version } from "../version";
 
 export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("service-scorecards", version);
+    }
+  }
   public async createScorecardOutcomesBatch(
     body: OutcomesBatchRequest,
     _options?: Configuration,

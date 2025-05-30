@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -35,8 +37,17 @@ import { SensitiveDataScannerRuleDeleteResponse } from "./models/SensitiveDataSc
 import { SensitiveDataScannerRuleUpdateRequest } from "./models/SensitiveDataScannerRuleUpdateRequest";
 import { SensitiveDataScannerRuleUpdateResponse } from "./models/SensitiveDataScannerRuleUpdateResponse";
 import { SensitiveDataScannerStandardPatternsResponseData } from "./models/SensitiveDataScannerStandardPatternsResponseData";
+import { version } from "../version";
 
 export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("sensitive-data-scanner", version);
+    }
+  }
   public async createScanningGroup(
     body: SensitiveDataScannerGroupCreateRequest,
     _options?: Configuration,

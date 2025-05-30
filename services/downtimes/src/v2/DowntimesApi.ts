@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -26,8 +28,17 @@ import { DowntimeUpdateRequest } from "./models/DowntimeUpdateRequest";
 import { ListDowntimesResponse } from "./models/ListDowntimesResponse";
 import { MonitorDowntimeMatchResponse } from "./models/MonitorDowntimeMatchResponse";
 import { MonitorDowntimeMatchResponseData } from "./models/MonitorDowntimeMatchResponseData";
+import { version } from "../version";
 
 export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("downtimes", version);
+    }
+  }
   public async cancelDowntime(
     downtimeId: string,
     _options?: Configuration,

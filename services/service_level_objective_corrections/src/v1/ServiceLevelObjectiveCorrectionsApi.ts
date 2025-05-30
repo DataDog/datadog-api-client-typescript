@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -24,8 +26,20 @@ import { SLOCorrectionCreateRequest } from "./models/SLOCorrectionCreateRequest"
 import { SLOCorrectionListResponse } from "./models/SLOCorrectionListResponse";
 import { SLOCorrectionResponse } from "./models/SLOCorrectionResponse";
 import { SLOCorrectionUpdateRequest } from "./models/SLOCorrectionUpdateRequest";
+import { version } from "../version";
 
 export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent(
+        "service-level-objective-corrections",
+        version,
+      );
+    }
+  }
   public async createSLOCorrection(
     body: SLOCorrectionCreateRequest,
     _options?: Configuration,

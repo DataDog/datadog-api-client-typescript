@@ -1,3 +1,5 @@
+import { version } from "./version";
+
 export class UnparsedObject {
   _data: any;
   constructor(data: any) {
@@ -50,4 +52,21 @@ export function dateToRFC3339String(date: Date | DDate): string {
     return date.originalDate;
   }
   return date.toISOString().split(".")[0] + "Z";
+}
+
+export function buildUserAgent(
+  clientName: string,
+  clientVersion: string,
+): string {
+  let userAgent = `datadog-api-client-${clientName}/${clientVersion} (datadog-api-client ${version}; typescript; runtime unknown)`;
+
+  if (
+    typeof process !== "undefined" &&
+    process.release &&
+    process.release.name === "node"
+  ) {
+    userAgent = `datadog-api-client-typescript/${version} (datadog-api-client ${version}; typescript; node ${process.versions.node}; os ${process.platform}; arch ${process.arch})`;
+  }
+
+  return userAgent;
 }

@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -31,8 +33,17 @@ import { RolesSort } from "./models/RolesSort";
 import { RoleUpdateRequest } from "./models/RoleUpdateRequest";
 import { RoleUpdateResponse } from "./models/RoleUpdateResponse";
 import { UsersResponse } from "./models/UsersResponse";
+import { version } from "../version";
 
 export class RolesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("roles", version);
+    }
+  }
   public async addPermissionToRole(
     roleId: string,
     body: RelationshipToPermission,

@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -29,8 +31,17 @@ import { DeleteSharedDashboardResponse } from "./models/DeleteSharedDashboardRes
 import { SharedDashboard } from "./models/SharedDashboard";
 import { SharedDashboardInvites } from "./models/SharedDashboardInvites";
 import { SharedDashboardUpdateRequest } from "./models/SharedDashboardUpdateRequest";
+import { version } from "../version";
 
 export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("dashboards", version);
+    }
+  }
   public async createDashboard(
     body: Dashboard,
     _options?: Configuration,

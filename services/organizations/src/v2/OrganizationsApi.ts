@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
   HttpFile,
 } from "@datadog/datadog-api-client";
 
@@ -25,8 +27,17 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { OrgConfigGetResponse } from "./models/OrgConfigGetResponse";
 import { OrgConfigListResponse } from "./models/OrgConfigListResponse";
 import { OrgConfigWriteRequest } from "./models/OrgConfigWriteRequest";
+import { version } from "../version";
 
 export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("organizations", version);
+    }
+  }
   public async getOrgConfig(
     orgConfigName: string,
     _options?: Configuration,
@@ -153,6 +164,11 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     if (idpFile !== undefined) {
       // TODO: replace .append with .set
       localVarFormParams.append("idp_file", idpFile as any);
+    }
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
     requestContext.setBody(localVarFormParams);
 

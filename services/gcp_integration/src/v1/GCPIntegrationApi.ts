@@ -15,13 +15,24 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { GCPAccount } from "./models/GCPAccount";
+import { version } from "../version";
 
 export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("gcp-integration", version);
+    }
+  }
   public async createGCPIntegration(
     body: GCPAccount,
     _options?: Configuration,

@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -40,8 +42,17 @@ import { ScalarFormulaQueryRequest } from "./models/ScalarFormulaQueryRequest";
 import { ScalarFormulaQueryResponse } from "./models/ScalarFormulaQueryResponse";
 import { TimeseriesFormulaQueryRequest } from "./models/TimeseriesFormulaQueryRequest";
 import { TimeseriesFormulaQueryResponse } from "./models/TimeseriesFormulaQueryResponse";
+import { version } from "../version";
 
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("metrics", version);
+    }
+  }
   public async createBulkTagsMetricsConfiguration(
     body: MetricBulkTagConfigCreateRequest,
     _options?: Configuration,

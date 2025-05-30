@@ -15,14 +15,25 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { HostTags } from "./models/HostTags";
 import { TagToHosts } from "./models/TagToHosts";
+import { version } from "../version";
 
 export class TagsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("tags", version);
+    }
+  }
   public async createHostTags(
     hostName: string,
     body: HostTags,

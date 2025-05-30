@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -39,8 +41,17 @@ import { UserTeamRequest } from "./models/UserTeamRequest";
 import { UserTeamResponse } from "./models/UserTeamResponse";
 import { UserTeamsResponse } from "./models/UserTeamsResponse";
 import { UserTeamUpdateRequest } from "./models/UserTeamUpdateRequest";
+import { version } from "../version";
 
 export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("teams", version);
+    }
+  }
   public async createTeam(
     body: TeamCreateRequest,
     _options?: Configuration,

@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -29,8 +31,17 @@ import { SortDirection } from "./models/SortDirection";
 import { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 import { UsageLambdaTracedInvocationsResponse } from "./models/UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "./models/UsageObservabilityPipelinesResponse";
+import { version } from "../version";
 
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("usage-metering", version);
+    }
+  }
   public async getActiveBillingDimensions(
     _options?: Configuration,
   ): Promise<RequestContext> {

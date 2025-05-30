@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -32,8 +34,17 @@ import { PublishAppResponse } from "./models/PublishAppResponse";
 import { UnpublishAppResponse } from "./models/UnpublishAppResponse";
 import { UpdateAppRequest } from "./models/UpdateAppRequest";
 import { UpdateAppResponse } from "./models/UpdateAppResponse";
+import { version } from "../version";
 
 export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("app-builder", version);
+    }
+  }
   public async createApp(
     body: CreateAppRequest,
     _options?: Configuration,

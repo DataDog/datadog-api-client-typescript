@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -27,8 +29,17 @@ import { MonitorNotificationRuleCreateRequest } from "./models/MonitorNotificati
 import { MonitorNotificationRuleListResponse } from "./models/MonitorNotificationRuleListResponse";
 import { MonitorNotificationRuleResponse } from "./models/MonitorNotificationRuleResponse";
 import { MonitorNotificationRuleUpdateRequest } from "./models/MonitorNotificationRuleUpdateRequest";
+import { version } from "../version";
 
 export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("monitors", version);
+    }
+  }
   public async createMonitorConfigPolicy(
     body: MonitorConfigPolicyCreateRequest,
     _options?: Configuration,
