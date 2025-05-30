@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -22,8 +24,17 @@ import { APIErrorResponse } from "./models/APIErrorResponse";
 import { CsmCloudAccountsCoverageAnalysisResponse } from "./models/CsmCloudAccountsCoverageAnalysisResponse";
 import { CsmHostsAndContainersCoverageAnalysisResponse } from "./models/CsmHostsAndContainersCoverageAnalysisResponse";
 import { CsmServerlessCoverageAnalysisResponse } from "./models/CsmServerlessCoverageAnalysisResponse";
+import { version } from "../version";
 
 export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("csm-coverage-analysis", version);
+    }
+  }
   public async getCSMCloudAccountsCoverageAnalysis(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -41,6 +52,11 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -69,6 +85,11 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -92,6 +113,11 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [

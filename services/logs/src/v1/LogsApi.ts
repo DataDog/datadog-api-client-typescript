@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -25,8 +27,17 @@ import { HTTPLogItem } from "./models/HTTPLogItem";
 import { LogsAPIErrorResponse } from "./models/LogsAPIErrorResponse";
 import { LogsListRequest } from "./models/LogsListRequest";
 import { LogsListResponse } from "./models/LogsListResponse";
+import { version } from "../version";
 
 export class LogsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("logs", version);
+    }
+  }
   public async listLogs(
     body: LogsListRequest,
     _options?: Configuration,
@@ -47,6 +58,11 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
@@ -88,6 +104,11 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (ddtags !== undefined) {

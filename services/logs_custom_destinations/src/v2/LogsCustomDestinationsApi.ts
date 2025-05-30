@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -23,8 +25,17 @@ import { CustomDestinationCreateRequest } from "./models/CustomDestinationCreate
 import { CustomDestinationResponse } from "./models/CustomDestinationResponse";
 import { CustomDestinationsResponse } from "./models/CustomDestinationsResponse";
 import { CustomDestinationUpdateRequest } from "./models/CustomDestinationUpdateRequest";
+import { version } from "../version";
 
 export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("logs-custom-destinations", version);
+    }
+  }
   public async createLogsCustomDestination(
     body: CustomDestinationCreateRequest,
     _options?: Configuration,
@@ -45,6 +56,11 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
@@ -92,6 +108,11 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -129,6 +150,11 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -152,6 +178,11 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -195,6 +226,11 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);

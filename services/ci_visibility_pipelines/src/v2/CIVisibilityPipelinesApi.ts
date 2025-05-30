@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -28,8 +30,17 @@ import { CIAppPipelinesAnalyticsAggregateResponse } from "./models/CIAppPipeline
 import { CIAppQueryPageOptions } from "./models/CIAppQueryPageOptions";
 import { CIAppSort } from "./models/CIAppSort";
 import { HTTPCIAppErrors } from "./models/HTTPCIAppErrors";
+import { version } from "../version";
 
 export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("ci-visibility-pipelines", version);
+    }
+  }
   public async aggregateCIAppPipelineEvents(
     body: CIAppPipelinesAggregateRequest,
     _options?: Configuration,
@@ -50,6 +61,11 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
@@ -91,6 +107,11 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
@@ -126,6 +147,11 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (filterQuery !== undefined) {
@@ -196,6 +222,11 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);

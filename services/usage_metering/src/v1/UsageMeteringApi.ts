@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -58,8 +60,17 @@ import { UsageSyntheticsBrowserResponse } from "./models/UsageSyntheticsBrowserR
 import { UsageSyntheticsResponse } from "./models/UsageSyntheticsResponse";
 import { UsageTimeseriesResponse } from "./models/UsageTimeseriesResponse";
 import { UsageTopAvgMetricsResponse } from "./models/UsageTopAvgMetricsResponse";
+import { version } from "../version";
 
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("usage-metering", version);
+    }
+  }
   public async getDailyCustomReports(
     pageSize?: number,
     pageNumber?: number,
@@ -81,6 +92,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (pageSize !== undefined) {
@@ -154,6 +170,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -234,6 +255,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -285,6 +311,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -332,6 +363,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (pageSize !== undefined) {
@@ -407,6 +443,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startMonth !== undefined) {
@@ -513,6 +554,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -549,6 +595,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -582,6 +633,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -634,6 +690,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -679,6 +740,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (month !== undefined) {
@@ -730,6 +796,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -785,6 +856,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -835,6 +911,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -887,6 +968,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -937,6 +1023,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -989,6 +1080,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -1039,6 +1135,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -1091,6 +1192,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -1141,6 +1247,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -1193,6 +1304,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -1244,6 +1360,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -1303,6 +1424,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -1353,6 +1479,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -1405,6 +1536,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -1455,6 +1591,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -1507,6 +1648,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -1558,6 +1704,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -1617,6 +1768,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -1668,6 +1824,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -1718,6 +1879,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -1771,6 +1937,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startMonth !== undefined) {
@@ -1837,6 +2008,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -1887,6 +2063,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {
@@ -1939,6 +2120,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -1990,6 +2176,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -2038,6 +2229,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (month !== undefined) {

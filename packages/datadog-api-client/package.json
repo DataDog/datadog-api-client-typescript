@@ -24,8 +24,9 @@
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "prepack": "yarn build",
-    "build": "tsc"
+    "prepack": "yarn workspace @datadog/datadog-api-client build && yarn build",
+    "build": "yarn generate-version-files && tsc",
+    "generate-version-files": "node -p \"'export const version = ' + JSON.stringify(require('./package.json').version)\" > src/version.ts"
   },
   "dependencies": {
     "@types/buffer-from": "^1.1.0",

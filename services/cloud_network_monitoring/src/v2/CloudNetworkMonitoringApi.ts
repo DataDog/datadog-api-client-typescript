@@ -15,13 +15,24 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { SingleAggregatedConnectionResponseArray } from "./models/SingleAggregatedConnectionResponseArray";
+import { version } from "../version";
 
 export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent("cloud-network-monitoring", version);
+    }
+  }
   public async getAggregatedConnections(
     from?: number,
     to?: number,
@@ -48,6 +59,11 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (from !== undefined) {

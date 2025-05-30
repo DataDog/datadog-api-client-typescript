@@ -15,6 +15,9 @@ else
     yarn workspace @datadog/datadog-api-client build
 fi
 
+# Generate version files
+yarn workspaces foreach -Ap run generate-version-files
+
 # Check licenses
 yarn run check-licenses || exit 1
 

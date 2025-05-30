@@ -15,6 +15,8 @@ import {
   deserialize,
   parse,
   normalizeMediaType,
+  buildUserAgent,
+  isBrowser,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -24,8 +26,20 @@ import { SLOCorrectionCreateRequest } from "./models/SLOCorrectionCreateRequest"
 import { SLOCorrectionListResponse } from "./models/SLOCorrectionListResponse";
 import { SLOCorrectionResponse } from "./models/SLOCorrectionResponse";
 import { SLOCorrectionUpdateRequest } from "./models/SLOCorrectionUpdateRequest";
+import { version } from "../version";
 
 export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRequestFactory {
+  public userAgent: string | undefined;
+
+  public constructor(configuration: Configuration) {
+    super(configuration);
+    if (!isBrowser) {
+      this.userAgent = buildUserAgent(
+        "service-level-objective-corrections",
+        version,
+      );
+    }
+  }
   public async createSLOCorrection(
     body: SLOCorrectionCreateRequest,
     _options?: Configuration,
@@ -46,6 +60,11 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
@@ -90,6 +109,11 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -123,6 +147,11 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -148,6 +177,11 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (offset !== undefined) {
@@ -204,6 +238,11 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Body Params
     const contentType = getPreferredMediaType(["application/json"]);
