@@ -20,6 +20,7 @@ const params: v1.MonitorsApiCreateMonitorRequest = {
         critical: 1,
       },
     },
+    draftStatus: "draft",
   },
 };
 
