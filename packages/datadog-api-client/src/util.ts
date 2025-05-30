@@ -65,7 +65,7 @@ export function buildUserAgent(
     process.release &&
     process.release.name === "node"
   ) {
-    userAgent = `datadog-api-client-typescript/${version} (datadog-api-client ${version}; typescript; node ${process.versions.node}; os ${process.platform}; arch ${process.arch})`;
+    userAgent = `datadog-api-client-${clientName}/${clientVersion} (datadog-api-client ${version}; typescript; node ${process.versions.node}; os ${process.platform}; arch ${process.arch})`;
   }
 
   return userAgent;
