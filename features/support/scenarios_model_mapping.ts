@@ -3097,6 +3097,39 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "void",
     },
+    "v2.ListCatalogKind": {
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListKindCatalogResponse",
+    },
+    "v2.UpsertCatalogKind": {
+        "body": {
+            "type": "UpsertCatalogKindRequest",
+            "format": "",
+            },
+        "operationResponseType": "UpsertCatalogKindResponse",
+    },
+    "v2.DeleteCatalogKind": {
+        "kindId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
     "v2.ListCatalogRelation": {
         "pageOffset": {
             "type": "number",
