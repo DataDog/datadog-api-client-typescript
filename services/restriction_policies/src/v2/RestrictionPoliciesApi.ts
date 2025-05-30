@@ -58,6 +58,11 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "AuthZ",
@@ -91,6 +96,11 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -132,6 +142,11 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (allowSelfLockout !== undefined) {

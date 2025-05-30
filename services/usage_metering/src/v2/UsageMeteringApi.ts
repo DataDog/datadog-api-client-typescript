@@ -60,6 +60,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "AuthZ",
@@ -89,6 +94,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (filterMonth !== undefined) {
@@ -141,6 +151,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startMonth !== undefined) {
       requestContext.setQueryParam(
@@ -190,6 +205,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (view !== undefined) {
@@ -272,6 +292,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (view !== undefined) {
       requestContext.setQueryParam(
@@ -348,6 +373,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (filterTimestampStart !== undefined) {
@@ -460,6 +490,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startMonth !== undefined) {
       requestContext.setQueryParam(
@@ -548,6 +583,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (view !== undefined) {
       requestContext.setQueryParam(
@@ -602,6 +642,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -653,6 +698,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (startHr !== undefined) {
       requestContext.setQueryParam(
@@ -703,6 +753,11 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       "application/json;datetime-format=rfc3339",
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (startHr !== undefined) {

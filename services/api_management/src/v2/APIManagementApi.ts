@@ -60,6 +60,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Form Params
     const localVarFormParams = new FormData();
     if (openapiSpecFile !== undefined) {
@@ -112,6 +117,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "AuthZ",
@@ -154,6 +164,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "AuthZ",
@@ -186,6 +201,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Query Params
     if (query !== undefined) {
@@ -249,6 +269,11 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
 
     // Form Params
     const localVarFormParams = new FormData();

@@ -60,6 +60,11 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
     // Query Params
     if (from !== undefined) {
       requestContext.setQueryParam(
