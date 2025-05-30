@@ -182,7 +182,7 @@ export const operationServers: {
       subdomain: "http-intake.logs",
     }),
   ],
-  "v2.On-CallPagingApi.acknowledgeOnCallPage": [
+  "v2.OnCallPagingApi.acknowledgeOnCallPage": [
     new ServerConfiguration<{
       site:
         | "saffron.oncall.datadoghq.com"
@@ -208,7 +208,7 @@ export const operationServers: {
       subdomain: "api",
     }),
   ],
-  "v2.On-CallPagingApi.createOnCallPage": [
+  "v2.OnCallPagingApi.createOnCallPage": [
     new ServerConfiguration<{
       site:
         | "saffron.oncall.datadoghq.com"
@@ -234,7 +234,7 @@ export const operationServers: {
       subdomain: "api",
     }),
   ],
-  "v2.On-CallPagingApi.escalateOnCallPage": [
+  "v2.OnCallPagingApi.escalateOnCallPage": [
     new ServerConfiguration<{
       site:
         | "saffron.oncall.datadoghq.com"
@@ -260,7 +260,7 @@ export const operationServers: {
       subdomain: "api",
     }),
   ],
-  "v2.On-CallPagingApi.resolveOnCallPage": [
+  "v2.OnCallPagingApi.resolveOnCallPage": [
     new ServerConfiguration<{
       site:
         | "saffron.oncall.datadoghq.com"
