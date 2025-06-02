@@ -27,9 +27,17 @@ export class SensitiveDataScannerMeta {
    */
   "hasMultiPassEnabled"?: boolean;
   /**
+   * Whether or not the sampling rate for products can be set to a float point number (as opposed to an integer).
+   */
+  "isFloatSamplingRateEnabled"?: boolean;
+  /**
    * Whether or not the org is compliant to the payment card industry standard.
    */
   "isPciCompliant"?: boolean;
+  /**
+   * Global minimum sampling rate allowed for all product within the org.
+   */
+  "minSamplingRate"?: number;
   /**
    * Version of the API.
    */
@@ -69,9 +77,18 @@ export class SensitiveDataScannerMeta {
       baseName: "has_multi_pass_enabled",
       type: "boolean",
     },
+    isFloatSamplingRateEnabled: {
+      baseName: "is_float_sampling_rate_enabled",
+      type: "boolean",
+    },
     isPciCompliant: {
       baseName: "is_pci_compliant",
       type: "boolean",
+    },
+    minSamplingRate: {
+      baseName: "min_sampling_rate",
+      type: "number",
+      format: "double",
     },
     version: {
       baseName: "version",

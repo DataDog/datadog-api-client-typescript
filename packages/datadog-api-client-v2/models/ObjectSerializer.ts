@@ -1635,6 +1635,7 @@ import { SensitiveDataScannerRuleResponse } from "./SensitiveDataScannerRuleResp
 import { SensitiveDataScannerRuleUpdate } from "./SensitiveDataScannerRuleUpdate";
 import { SensitiveDataScannerRuleUpdateRequest } from "./SensitiveDataScannerRuleUpdateRequest";
 import { SensitiveDataScannerRuleUpdateResponse } from "./SensitiveDataScannerRuleUpdateResponse";
+import { SensitiveDataScannerSamplings } from "./SensitiveDataScannerSamplings";
 import { SensitiveDataScannerStandardPattern } from "./SensitiveDataScannerStandardPattern";
 import { SensitiveDataScannerStandardPatternAttributes } from "./SensitiveDataScannerStandardPatternAttributes";
 import { SensitiveDataScannerStandardPatternData } from "./SensitiveDataScannerStandardPatternData";
@@ -5065,6 +5066,7 @@ const typeMap: { [index: string]: any } = {
   SensitiveDataScannerRuleUpdateRequest: SensitiveDataScannerRuleUpdateRequest,
   SensitiveDataScannerRuleUpdateResponse:
     SensitiveDataScannerRuleUpdateResponse,
+  SensitiveDataScannerSamplings: SensitiveDataScannerSamplings,
   SensitiveDataScannerStandardPattern: SensitiveDataScannerStandardPattern,
   SensitiveDataScannerStandardPatternAttributes:
     SensitiveDataScannerStandardPatternAttributes,
