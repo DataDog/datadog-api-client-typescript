@@ -32,6 +32,10 @@ export class SensitiveDataScannerRuleAttributes {
    */
   "isEnabled"?: boolean;
   /**
+   * List of labels.
+   */
+  "labels"?: Array<string>;
+  /**
    * Name of the rule.
    */
   "name"?: string;
@@ -88,6 +92,10 @@ export class SensitiveDataScannerRuleAttributes {
     isEnabled: {
       baseName: "is_enabled",
       type: "boolean",
+    },
+    labels: {
+      baseName: "labels",
+      type: "Array<string>",
     },
     name: {
       baseName: "name",
