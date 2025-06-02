@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -52,7 +53,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.LogsCustomDestinationsApi.createLogsCustomDestination")
+      .getServer("LogsCustomDestinationsApi.v2.createLogsCustomDestination")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -103,7 +104,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.LogsCustomDestinationsApi.deleteLogsCustomDestination")
+      .getServer("LogsCustomDestinationsApi.v2.deleteLogsCustomDestination")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -145,7 +146,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.LogsCustomDestinationsApi.getLogsCustomDestination")
+      .getServer("LogsCustomDestinationsApi.v2.getLogsCustomDestination")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -174,7 +175,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.LogsCustomDestinationsApi.listLogsCustomDestinations")
+      .getServer("LogsCustomDestinationsApi.v2.listLogsCustomDestinations")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -222,7 +223,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.LogsCustomDestinationsApi.updateLogsCustomDestination")
+      .getServer("LogsCustomDestinationsApi.v2.updateLogsCustomDestination")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

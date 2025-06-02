@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -41,7 +42,7 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.IPRangesApi.getIPRanges")
+      .getServer("IPRangesApi.v1.getIPRanges")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -132,6 +133,34 @@ export class IPRangesApi {
       requestFactory || new IPRangesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IPRangesApiResponseProcessor();
+    // Add operation servers
+    this.configuration.addOperationServer("IPRangesApi.v1.getIPRanges", [
+      new ServerConfiguration<{
+        site:
+          | "datadoghq.com"
+          | "us3.datadoghq.com"
+          | "us5.datadoghq.com"
+          | "ap1.datadoghq.com"
+          | "datadoghq.eu"
+          | "ddog-gov.com";
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "ip-ranges",
+      }),
+      new ServerConfiguration<{
+        name: string;
+        protocol: string;
+      }>("{protocol}://{name}", {
+        name: "ip-ranges.datadoghq.com",
+        protocol: "https",
+      }),
+      new ServerConfiguration<{
+        subdomain: string;
+      }>("https://{subdomain}.datadoghq.com", {
+        subdomain: "ip-ranges",
+      }),
+    ]);
   }
 
   /**

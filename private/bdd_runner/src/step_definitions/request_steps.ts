@@ -110,15 +110,9 @@ When("the request is sent", async function (this: World) {
 
   const configuration = datadogCommon.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
-    if (
-      `${this.apiVersion}.${operationId}` in configuration.unstableOperations
-    ) {
-      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] =
-        this.unstableOperations[operationId];
-    } else {
-      // FIXME throw new Error(`Operation ${operationId} is not unstable`);
-      logger.warn(`Operation ${operationId} is not unstable`);
-    }
+    configuration.unstableOperations[
+      `${this.apiName}.${this.apiVersion}.${operationId}`
+    ] = this.unstableOperations[operationId];
   }
   const apiInstance = new api(configuration);
   const undoAction = UndoActions[this.apiVersion][this.operationId];
@@ -207,15 +201,9 @@ When("the request with pagination is sent", async function (this: World) {
   }
   const configuration = datadogCommon.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
-    if (
-      `${this.apiVersion}.${operationId}` in configuration.unstableOperations
-    ) {
-      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] =
-        this.unstableOperations[operationId];
-    } else {
-      // FIXME throw new Error(`Operation ${operationId} is not unstable`);
-      logger.warn(`Operation ${operationId} is not unstable`);
-    }
+    configuration.unstableOperations[
+      `${this.apiName}.${this.apiVersion}.${operationId}`
+    ] = this.unstableOperations[operationId];
   }
   const apiInstance = new api(configuration);
   // Deserialize obejcts into correct model types

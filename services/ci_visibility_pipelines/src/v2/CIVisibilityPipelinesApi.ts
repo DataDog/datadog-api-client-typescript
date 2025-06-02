@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -57,7 +58,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CIVisibilityPipelinesApi.aggregateCIAppPipelineEvents")
+      .getServer("CIVisibilityPipelinesApi.v2.aggregateCIAppPipelineEvents")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -102,7 +103,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CIVisibilityPipelinesApi.createCIAppPipelineEvent")
+      .getServer("CIVisibilityPipelinesApi.v2.createCIAppPipelineEvent")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -143,7 +144,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CIVisibilityPipelinesApi.listCIAppPipelineEvents")
+      .getServer("CIVisibilityPipelinesApi.v2.listCIAppPipelineEvents")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -218,7 +219,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CIVisibilityPipelinesApi.searchCIAppPipelineEvents")
+      .getServer("CIVisibilityPipelinesApi.v2.searchCIAppPipelineEvents")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

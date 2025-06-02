@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -52,7 +53,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getActiveBillingDimensions")
+      .getServer("UsageMeteringApi.v2.getActiveBillingDimensions")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -87,7 +88,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getBillingDimensionMapping")
+      .getServer("UsageMeteringApi.v2.getBillingDimensionMapping")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -143,7 +144,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getCostByOrg")
+      .getServer("UsageMeteringApi.v2.getCostByOrg")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -198,7 +199,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getEstimatedCostByOrg")
+      .getServer("UsageMeteringApi.v2.getEstimatedCostByOrg")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -284,7 +285,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getHistoricalCostByOrg")
+      .getServer("UsageMeteringApi.v2.getHistoricalCostByOrg")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -366,7 +367,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getHourlyUsage")
+      .getServer("UsageMeteringApi.v2.getHourlyUsage")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -482,7 +483,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getMonthlyCostAttribution")
+      .getServer("UsageMeteringApi.v2.getMonthlyCostAttribution")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -575,7 +576,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getProjectedCost")
+      .getServer("UsageMeteringApi.v2.getProjectedCost")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -634,7 +635,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getUsageApplicationSecurityMonitoring")
+      .getServer("UsageMeteringApi.v2.getUsageApplicationSecurityMonitoring")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -690,7 +691,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getUsageLambdaTracedInvocations")
+      .getServer("UsageMeteringApi.v2.getUsageLambdaTracedInvocations")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -746,7 +747,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getUsageObservabilityPipelines")
+      .getServer("UsageMeteringApi.v2.getUsageObservabilityPipelines")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",

@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -48,10 +49,13 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createScorecardOutcomesBatch'");
-    if (!_config.unstableOperations["v2.createScorecardOutcomesBatch"]) {
+    if (
+      !_config.unstableOperations[
+        "ServiceScorecardsApi.v2.createScorecardOutcomesBatch"
+      ]
+    ) {
       throw new Error(
-        "Unstable operation 'createScorecardOutcomesBatch' is disabled",
+        "Unstable operation 'createScorecardOutcomesBatch' is disabled. Enable it by setting `configuration.unstableOperations['ServiceScorecardsApi.v2.createScorecardOutcomesBatch'] = true`",
       );
     }
 
@@ -65,7 +69,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ServiceScorecardsApi.createScorecardOutcomesBatch")
+      .getServer("ServiceScorecardsApi.v2.createScorecardOutcomesBatch")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -100,9 +104,12 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createScorecardRule'");
-    if (!_config.unstableOperations["v2.createScorecardRule"]) {
-      throw new Error("Unstable operation 'createScorecardRule' is disabled");
+    if (
+      !_config.unstableOperations["ServiceScorecardsApi.v2.createScorecardRule"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createScorecardRule' is disabled. Enable it by setting `configuration.unstableOperations['ServiceScorecardsApi.v2.createScorecardRule'] = true`",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -115,7 +122,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ServiceScorecardsApi.createScorecardRule")
+      .getServer("ServiceScorecardsApi.v2.createScorecardRule")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -150,9 +157,12 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteScorecardRule'");
-    if (!_config.unstableOperations["v2.deleteScorecardRule"]) {
-      throw new Error("Unstable operation 'deleteScorecardRule' is disabled");
+    if (
+      !_config.unstableOperations["ServiceScorecardsApi.v2.deleteScorecardRule"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteScorecardRule' is disabled. Enable it by setting `configuration.unstableOperations['ServiceScorecardsApi.v2.deleteScorecardRule'] = true`",
+      );
     }
 
     // verify required parameter 'ruleId' is not null or undefined
@@ -168,7 +178,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ServiceScorecardsApi.deleteScorecardRule")
+      .getServer("ServiceScorecardsApi.v2.deleteScorecardRule")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -203,9 +213,14 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listScorecardOutcomes'");
-    if (!_config.unstableOperations["v2.listScorecardOutcomes"]) {
-      throw new Error("Unstable operation 'listScorecardOutcomes' is disabled");
+    if (
+      !_config.unstableOperations[
+        "ServiceScorecardsApi.v2.listScorecardOutcomes"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listScorecardOutcomes' is disabled. Enable it by setting `configuration.unstableOperations['ServiceScorecardsApi.v2.listScorecardOutcomes'] = true`",
+      );
     }
 
     // Path Params
@@ -213,7 +228,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ServiceScorecardsApi.listScorecardOutcomes")
+      .getServer("ServiceScorecardsApi.v2.listScorecardOutcomes")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -320,9 +335,12 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listScorecardRules'");
-    if (!_config.unstableOperations["v2.listScorecardRules"]) {
-      throw new Error("Unstable operation 'listScorecardRules' is disabled");
+    if (
+      !_config.unstableOperations["ServiceScorecardsApi.v2.listScorecardRules"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listScorecardRules' is disabled. Enable it by setting `configuration.unstableOperations['ServiceScorecardsApi.v2.listScorecardRules'] = true`",
+      );
     }
 
     // Path Params
@@ -330,7 +348,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ServiceScorecardsApi.listScorecardRules")
+      .getServer("ServiceScorecardsApi.v2.listScorecardRules")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -429,9 +447,12 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'updateScorecardRule'");
-    if (!_config.unstableOperations["v2.updateScorecardRule"]) {
-      throw new Error("Unstable operation 'updateScorecardRule' is disabled");
+    if (
+      !_config.unstableOperations["ServiceScorecardsApi.v2.updateScorecardRule"]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateScorecardRule' is disabled. Enable it by setting `configuration.unstableOperations['ServiceScorecardsApi.v2.updateScorecardRule'] = true`",
+      );
     }
 
     // verify required parameter 'ruleId' is not null or undefined
@@ -452,7 +473,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ServiceScorecardsApi.updateScorecardRule")
+      .getServer("ServiceScorecardsApi.v2.updateScorecardRule")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

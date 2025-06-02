@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -73,7 +74,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.createGlobalVariable")
+      .getServer("SyntheticsApi.v1.createGlobalVariable")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -118,7 +119,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.createPrivateLocation")
+      .getServer("SyntheticsApi.v1.createPrivateLocation")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -163,7 +164,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.createSyntheticsAPITest")
+      .getServer("SyntheticsApi.v1.createSyntheticsAPITest")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -208,7 +209,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.createSyntheticsBrowserTest")
+      .getServer("SyntheticsApi.v1.createSyntheticsBrowserTest")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -253,7 +254,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.createSyntheticsMobileTest")
+      .getServer("SyntheticsApi.v1.createSyntheticsMobileTest")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -301,7 +302,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.deleteGlobalVariable")
+      .getServer("SyntheticsApi.v1.deleteGlobalVariable")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -341,7 +342,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.deletePrivateLocation")
+      .getServer("SyntheticsApi.v1.deletePrivateLocation")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -377,7 +378,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.deleteTests")
+      .getServer("SyntheticsApi.v1.deleteTests")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -431,7 +432,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.editGlobalVariable")
+      .getServer("SyntheticsApi.v1.editGlobalVariable")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -476,7 +477,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.fetchUptimes")
+      .getServer("SyntheticsApi.v1.fetchUptimes")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -524,7 +525,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getAPITest")
+      .getServer("SyntheticsApi.v1.getAPITest")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -566,7 +567,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getAPITestLatestResults")
+      .getServer("SyntheticsApi.v1.getAPITestLatestResults")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -634,7 +635,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getAPITestResult")
+      .getServer("SyntheticsApi.v1.getAPITestResult")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -673,7 +674,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getBrowserTest")
+      .getServer("SyntheticsApi.v1.getBrowserTest")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -716,7 +717,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getBrowserTestLatestResults")
+      .getServer("SyntheticsApi.v1.getBrowserTestLatestResults")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -784,7 +785,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getBrowserTestResult")
+      .getServer("SyntheticsApi.v1.getBrowserTestResult")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -823,7 +824,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getGlobalVariable")
+      .getServer("SyntheticsApi.v1.getGlobalVariable")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -862,7 +863,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getMobileTest")
+      .getServer("SyntheticsApi.v1.getMobileTest")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -902,7 +903,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getPrivateLocation")
+      .getServer("SyntheticsApi.v1.getPrivateLocation")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -941,7 +942,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getSyntheticsCIBatch")
+      .getServer("SyntheticsApi.v1.getSyntheticsCIBatch")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -971,7 +972,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getSyntheticsDefaultLocations")
+      .getServer("SyntheticsApi.v1.getSyntheticsDefaultLocations")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1009,7 +1010,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.getTest")
+      .getServer("SyntheticsApi.v1.getTest")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1039,7 +1040,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.listGlobalVariables")
+      .getServer("SyntheticsApi.v1.listGlobalVariables")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1069,7 +1070,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.listLocations")
+      .getServer("SyntheticsApi.v1.listLocations")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1101,7 +1102,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.listTests")
+      .getServer("SyntheticsApi.v1.listTests")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1162,7 +1163,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.patchTest")
+      .getServer("SyntheticsApi.v1.patchTest")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1207,7 +1208,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.triggerCITests")
+      .getServer("SyntheticsApi.v1.triggerCITests")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1252,7 +1253,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.triggerTests")
+      .getServer("SyntheticsApi.v1.triggerTests")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1306,7 +1307,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.updateAPITest")
+      .getServer("SyntheticsApi.v1.updateAPITest")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1360,7 +1361,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.updateBrowserTest")
+      .getServer("SyntheticsApi.v1.updateBrowserTest")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1414,7 +1415,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.updateMobileTest")
+      .getServer("SyntheticsApi.v1.updateMobileTest")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1469,7 +1470,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.updatePrivateLocation")
+      .getServer("SyntheticsApi.v1.updatePrivateLocation")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1523,7 +1524,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.SyntheticsApi.updateTestPauseStatus")
+      .getServer("SyntheticsApi.v1.updateTestPauseStatus")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

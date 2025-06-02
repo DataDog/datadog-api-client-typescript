@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
   HttpFile,
 } from "@datadog/datadog-api-client";
 
@@ -45,9 +46,10 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createOpenAPI'");
-    if (!_config.unstableOperations["v2.createOpenAPI"]) {
-      throw new Error("Unstable operation 'createOpenAPI' is disabled");
+    if (!_config.unstableOperations["APIManagementApi.v2.createOpenAPI"]) {
+      throw new Error(
+        "Unstable operation 'createOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.createOpenAPI'] = true`",
+      );
     }
 
     // Path Params
@@ -55,7 +57,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.APIManagementApi.createOpenAPI")
+      .getServer("APIManagementApi.v2.createOpenAPI")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -89,9 +91,10 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteOpenAPI'");
-    if (!_config.unstableOperations["v2.deleteOpenAPI"]) {
-      throw new Error("Unstable operation 'deleteOpenAPI' is disabled");
+    if (!_config.unstableOperations["APIManagementApi.v2.deleteOpenAPI"]) {
+      throw new Error(
+        "Unstable operation 'deleteOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.deleteOpenAPI'] = true`",
+      );
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -107,7 +110,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.APIManagementApi.deleteOpenAPI")
+      .getServer("APIManagementApi.v2.deleteOpenAPI")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -133,9 +136,10 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getOpenAPI'");
-    if (!_config.unstableOperations["v2.getOpenAPI"]) {
-      throw new Error("Unstable operation 'getOpenAPI' is disabled");
+    if (!_config.unstableOperations["APIManagementApi.v2.getOpenAPI"]) {
+      throw new Error(
+        "Unstable operation 'getOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.getOpenAPI'] = true`",
+      );
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -151,7 +155,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.APIManagementApi.getOpenAPI")
+      .getServer("APIManagementApi.v2.getOpenAPI")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -182,9 +186,10 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listAPIs'");
-    if (!_config.unstableOperations["v2.listAPIs"]) {
-      throw new Error("Unstable operation 'listAPIs' is disabled");
+    if (!_config.unstableOperations["APIManagementApi.v2.listAPIs"]) {
+      throw new Error(
+        "Unstable operation 'listAPIs' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.listAPIs'] = true`",
+      );
     }
 
     // Path Params
@@ -192,7 +197,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.APIManagementApi.listAPIs")
+      .getServer("APIManagementApi.v2.listAPIs")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -242,9 +247,10 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'updateOpenAPI'");
-    if (!_config.unstableOperations["v2.updateOpenAPI"]) {
-      throw new Error("Unstable operation 'updateOpenAPI' is disabled");
+    if (!_config.unstableOperations["APIManagementApi.v2.updateOpenAPI"]) {
+      throw new Error(
+        "Unstable operation 'updateOpenAPI' is disabled. Enable it by setting `configuration.unstableOperations['APIManagementApi.v2.updateOpenAPI'] = true`",
+      );
     }
 
     // verify required parameter 'id' is not null or undefined
@@ -260,7 +266,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.APIManagementApi.updateOpenAPI")
+      .getServer("APIManagementApi.v2.updateOpenAPI")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

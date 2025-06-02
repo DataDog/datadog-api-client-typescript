@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -56,7 +57,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.NetworkDeviceMonitoringApi.getDevice")
+      .getServer("NetworkDeviceMonitoringApi.v2.getDevice")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -92,7 +93,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.NetworkDeviceMonitoringApi.getInterfaces")
+      .getServer("NetworkDeviceMonitoringApi.v2.getInterfaces")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -141,7 +142,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.NetworkDeviceMonitoringApi.listDevices")
+      .getServer("NetworkDeviceMonitoringApi.v2.listDevices")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -209,7 +210,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.NetworkDeviceMonitoringApi.listDeviceUserTags")
+      .getServer("NetworkDeviceMonitoringApi.v2.listDeviceUserTags")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -253,7 +254,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.NetworkDeviceMonitoringApi.updateDeviceUserTags")
+      .getServer("NetworkDeviceMonitoringApi.v2.updateDeviceUserTags")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

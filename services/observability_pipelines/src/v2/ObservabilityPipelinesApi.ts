@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -42,9 +43,12 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createPipeline'");
-    if (!_config.unstableOperations["v2.createPipeline"]) {
-      throw new Error("Unstable operation 'createPipeline' is disabled");
+    if (
+      !_config.unstableOperations["ObservabilityPipelinesApi.v2.createPipeline"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createPipeline' is disabled. Enable it by setting `configuration.unstableOperations['ObservabilityPipelinesApi.v2.createPipeline'] = true`",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -58,7 +62,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ObservabilityPipelinesApi.createPipeline")
+      .getServer("ObservabilityPipelinesApi.v2.createPipeline")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -92,9 +96,12 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deletePipeline'");
-    if (!_config.unstableOperations["v2.deletePipeline"]) {
-      throw new Error("Unstable operation 'deletePipeline' is disabled");
+    if (
+      !_config.unstableOperations["ObservabilityPipelinesApi.v2.deletePipeline"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deletePipeline' is disabled. Enable it by setting `configuration.unstableOperations['ObservabilityPipelinesApi.v2.deletePipeline'] = true`",
+      );
     }
 
     // verify required parameter 'pipelineId' is not null or undefined
@@ -111,7 +118,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ObservabilityPipelinesApi.deletePipeline")
+      .getServer("ObservabilityPipelinesApi.v2.deletePipeline")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -136,9 +143,12 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getPipeline'");
-    if (!_config.unstableOperations["v2.getPipeline"]) {
-      throw new Error("Unstable operation 'getPipeline' is disabled");
+    if (
+      !_config.unstableOperations["ObservabilityPipelinesApi.v2.getPipeline"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getPipeline' is disabled. Enable it by setting `configuration.unstableOperations['ObservabilityPipelinesApi.v2.getPipeline'] = true`",
+      );
     }
 
     // verify required parameter 'pipelineId' is not null or undefined
@@ -155,7 +165,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ObservabilityPipelinesApi.getPipeline")
+      .getServer("ObservabilityPipelinesApi.v2.getPipeline")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -181,9 +191,12 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listPipelines'");
-    if (!_config.unstableOperations["v2.listPipelines"]) {
-      throw new Error("Unstable operation 'listPipelines' is disabled");
+    if (
+      !_config.unstableOperations["ObservabilityPipelinesApi.v2.listPipelines"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listPipelines' is disabled. Enable it by setting `configuration.unstableOperations['ObservabilityPipelinesApi.v2.listPipelines'] = true`",
+      );
     }
 
     // Path Params
@@ -192,7 +205,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ObservabilityPipelinesApi.listPipelines")
+      .getServer("ObservabilityPipelinesApi.v2.listPipelines")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -234,9 +247,12 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'updatePipeline'");
-    if (!_config.unstableOperations["v2.updatePipeline"]) {
-      throw new Error("Unstable operation 'updatePipeline' is disabled");
+    if (
+      !_config.unstableOperations["ObservabilityPipelinesApi.v2.updatePipeline"]
+    ) {
+      throw new Error(
+        "Unstable operation 'updatePipeline' is disabled. Enable it by setting `configuration.unstableOperations['ObservabilityPipelinesApi.v2.updatePipeline'] = true`",
+      );
     }
 
     // verify required parameter 'pipelineId' is not null or undefined
@@ -258,7 +274,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ObservabilityPipelinesApi.updatePipeline")
+      .getServer("ObservabilityPipelinesApi.v2.updatePipeline")
       .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -292,9 +308,14 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'validatePipeline'");
-    if (!_config.unstableOperations["v2.validatePipeline"]) {
-      throw new Error("Unstable operation 'validatePipeline' is disabled");
+    if (
+      !_config.unstableOperations[
+        "ObservabilityPipelinesApi.v2.validatePipeline"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'validatePipeline' is disabled. Enable it by setting `configuration.unstableOperations['ObservabilityPipelinesApi.v2.validatePipeline'] = true`",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -308,7 +329,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.ObservabilityPipelinesApi.validatePipeline")
+      .getServer("ObservabilityPipelinesApi.v2.validatePipeline")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

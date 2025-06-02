@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -52,7 +53,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudflareIntegrationApi.createCloudflareAccount")
+      .getServer("CloudflareIntegrationApi.v2.createCloudflareAccount")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -100,7 +101,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudflareIntegrationApi.deleteCloudflareAccount")
+      .getServer("CloudflareIntegrationApi.v2.deleteCloudflareAccount")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -139,7 +140,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudflareIntegrationApi.getCloudflareAccount")
+      .getServer("CloudflareIntegrationApi.v2.getCloudflareAccount")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -168,7 +169,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudflareIntegrationApi.listCloudflareAccounts")
+      .getServer("CloudflareIntegrationApi.v2.listCloudflareAccounts")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -213,7 +214,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.CloudflareIntegrationApi.updateCloudflareAccount")
+      .getServer("CloudflareIntegrationApi.v2.updateCloudflareAccount")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

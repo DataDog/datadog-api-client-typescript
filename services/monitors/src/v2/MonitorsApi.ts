@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -56,7 +57,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MonitorsApi.createMonitorConfigPolicy")
+      .getServer("MonitorsApi.v2.createMonitorConfigPolicy")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -90,10 +91,13 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createMonitorNotificationRule'");
-    if (!_config.unstableOperations["v2.createMonitorNotificationRule"]) {
+    if (
+      !_config.unstableOperations[
+        "MonitorsApi.v2.createMonitorNotificationRule"
+      ]
+    ) {
       throw new Error(
-        "Unstable operation 'createMonitorNotificationRule' is disabled",
+        "Unstable operation 'createMonitorNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.createMonitorNotificationRule'] = true`",
       );
     }
 
@@ -107,7 +111,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MonitorsApi.createMonitorNotificationRule")
+      .getServer("MonitorsApi.v2.createMonitorNotificationRule")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -155,7 +159,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MonitorsApi.deleteMonitorConfigPolicy")
+      .getServer("MonitorsApi.v2.deleteMonitorConfigPolicy")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -180,10 +184,13 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteMonitorNotificationRule'");
-    if (!_config.unstableOperations["v2.deleteMonitorNotificationRule"]) {
+    if (
+      !_config.unstableOperations[
+        "MonitorsApi.v2.deleteMonitorNotificationRule"
+      ]
+    ) {
       throw new Error(
-        "Unstable operation 'deleteMonitorNotificationRule' is disabled",
+        "Unstable operation 'deleteMonitorNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.deleteMonitorNotificationRule'] = true`",
       );
     }
 
@@ -200,7 +207,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MonitorsApi.deleteMonitorNotificationRule")
+      .getServer("MonitorsApi.v2.deleteMonitorNotificationRule")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -239,7 +246,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MonitorsApi.getMonitorConfigPolicy")
+      .getServer("MonitorsApi.v2.getMonitorConfigPolicy")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -266,10 +273,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getMonitorNotificationRule'");
-    if (!_config.unstableOperations["v2.getMonitorNotificationRule"]) {
+    if (
+      !_config.unstableOperations["MonitorsApi.v2.getMonitorNotificationRule"]
+    ) {
       throw new Error(
-        "Unstable operation 'getMonitorNotificationRule' is disabled",
+        "Unstable operation 'getMonitorNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.getMonitorNotificationRule'] = true`",
       );
     }
 
@@ -286,7 +294,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MonitorsApi.getMonitorNotificationRule")
+      .getServer("MonitorsApi.v2.getMonitorNotificationRule")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -321,10 +329,11 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getMonitorNotificationRules'");
-    if (!_config.unstableOperations["v2.getMonitorNotificationRules"]) {
+    if (
+      !_config.unstableOperations["MonitorsApi.v2.getMonitorNotificationRules"]
+    ) {
       throw new Error(
-        "Unstable operation 'getMonitorNotificationRules' is disabled",
+        "Unstable operation 'getMonitorNotificationRules' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.getMonitorNotificationRules'] = true`",
       );
     }
 
@@ -333,7 +342,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MonitorsApi.getMonitorNotificationRules")
+      .getServer("MonitorsApi.v2.getMonitorNotificationRules")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -372,7 +381,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MonitorsApi.listMonitorConfigPolicies")
+      .getServer("MonitorsApi.v2.listMonitorConfigPolicies")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -417,7 +426,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MonitorsApi.updateMonitorConfigPolicy")
+      .getServer("MonitorsApi.v2.updateMonitorConfigPolicy")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -452,10 +461,13 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'updateMonitorNotificationRule'");
-    if (!_config.unstableOperations["v2.updateMonitorNotificationRule"]) {
+    if (
+      !_config.unstableOperations[
+        "MonitorsApi.v2.updateMonitorNotificationRule"
+      ]
+    ) {
       throw new Error(
-        "Unstable operation 'updateMonitorNotificationRule' is disabled",
+        "Unstable operation 'updateMonitorNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.updateMonitorNotificationRule'] = true`",
       );
     }
 
@@ -477,7 +489,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MonitorsApi.updateMonitorNotificationRule")
+      .getServer("MonitorsApi.v2.updateMonitorNotificationRule")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

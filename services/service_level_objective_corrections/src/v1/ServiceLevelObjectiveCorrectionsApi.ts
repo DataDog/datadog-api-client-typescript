@@ -1,22 +1,23 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -56,7 +57,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.createSLOCorrection")
+      .getServer("ServiceLevelObjectiveCorrectionsApi.v1.createSLOCorrection")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -104,7 +105,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.deleteSLOCorrection")
+      .getServer("ServiceLevelObjectiveCorrectionsApi.v1.deleteSLOCorrection")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -142,7 +143,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.getSLOCorrection")
+      .getServer("ServiceLevelObjectiveCorrectionsApi.v1.getSLOCorrection")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -173,7 +174,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.listSLOCorrection")
+      .getServer("ServiceLevelObjectiveCorrectionsApi.v1.listSLOCorrection")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -234,7 +235,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.updateSLOCorrection")
+      .getServer("ServiceLevelObjectiveCorrectionsApi.v1.updateSLOCorrection")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
