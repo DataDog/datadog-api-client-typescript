@@ -62,6 +62,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SlackIntegrationApi.v1.createSlackIntegrationChannel",
+      SlackIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -120,6 +121,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SlackIntegrationApi.v1.getSlackIntegrationChannel",
+      SlackIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -164,6 +166,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SlackIntegrationApi.v1.getSlackIntegrationChannels",
+      SlackIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -213,6 +216,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SlackIntegrationApi.v1.removeSlackIntegrationChannel",
+      SlackIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -268,6 +272,7 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SlackIntegrationApi.v1.updateSlackIntegrationChannel",
+      SlackIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -680,13 +685,6 @@ export class SlackIntegrationApi {
       new SlackIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SlackIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(SlackIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        SlackIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

@@ -64,6 +64,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ObservabilityPipelinesApi.v2.createPipeline",
+      ObservabilityPipelinesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -125,6 +126,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ObservabilityPipelinesApi.v2.deletePipeline",
+      ObservabilityPipelinesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -177,6 +179,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ObservabilityPipelinesApi.v2.getPipeline",
+      ObservabilityPipelinesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -222,6 +225,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ObservabilityPipelinesApi.v2.listPipelines",
+      ObservabilityPipelinesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -296,6 +300,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ObservabilityPipelinesApi.v2.updatePipeline",
+      ObservabilityPipelinesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -356,6 +361,7 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ObservabilityPipelinesApi.v2.validatePipeline",
+      ObservabilityPipelinesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -811,13 +817,6 @@ export class ObservabilityPipelinesApi {
       new ObservabilityPipelinesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ObservabilityPipelinesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ObservabilityPipelinesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        ObservabilityPipelinesApi.operationServers,
-      );
-    }
   }
 
   /**

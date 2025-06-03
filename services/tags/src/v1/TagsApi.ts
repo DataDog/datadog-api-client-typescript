@@ -63,6 +63,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TagsApi.v1.createHostTags",
+      TagsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -125,6 +126,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TagsApi.v1.deleteHostTags",
+      TagsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -178,6 +180,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TagsApi.v1.getHostTags",
+      TagsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -222,6 +225,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TagsApi.v1.listHostTags",
+      TagsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -282,6 +286,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TagsApi.v1.updateHostTags",
+      TagsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -695,11 +700,6 @@ export class TagsApi {
       requestFactory || new TagsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new TagsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(TagsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(TagsApi.operationServers);
-    }
   }
 
   /**

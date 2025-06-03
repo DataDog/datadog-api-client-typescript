@@ -62,6 +62,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentTeamsApi.v2.createIncidentTeam",
+      IncidentTeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -121,6 +122,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentTeamsApi.v2.deleteIncidentTeam",
+      IncidentTeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -172,6 +174,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentTeamsApi.v2.getIncidentTeam",
+      IncidentTeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -226,6 +229,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentTeamsApi.v2.listIncidentTeams",
+      IncidentTeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -312,6 +316,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentTeamsApi.v2.updateIncidentTeam",
+      IncidentTeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -727,11 +732,6 @@ export class IncidentTeamsApi {
       requestFactory || new IncidentTeamsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IncidentTeamsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(IncidentTeamsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(IncidentTeamsApi.operationServers);
-    }
   }
 
   /**

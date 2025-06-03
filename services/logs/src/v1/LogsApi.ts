@@ -57,6 +57,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsApi.v1.listLogs",
+      LogsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -108,6 +109,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsApi.v1.submitLog",
+      LogsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -379,11 +381,6 @@ export class LogsApi {
       requestFactory || new LogsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(LogsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(LogsApi.operationServers);
-    }
   }
 
   /**

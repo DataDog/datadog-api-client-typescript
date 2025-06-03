@@ -55,6 +55,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SpansMetricsApi.v2.createSpansMetric",
+      SpansMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -107,6 +108,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SpansMetricsApi.v2.deleteSpansMetric",
+      SpansMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -150,6 +152,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SpansMetricsApi.v2.getSpansMetric",
+      SpansMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -184,6 +187,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SpansMetricsApi.v2.listSpansMetrics",
+      SpansMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -233,6 +237,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SpansMetricsApi.v2.updateSpansMetric",
+      SpansMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -607,11 +612,6 @@ export class SpansMetricsApi {
       requestFactory || new SpansMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SpansMetricsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(SpansMetricsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(SpansMetricsApi.operationServers);
-    }
   }
 
   /**

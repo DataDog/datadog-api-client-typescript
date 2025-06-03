@@ -57,6 +57,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v1.checkCanDeleteMonitor",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -107,6 +108,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v1.createMonitor",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -161,6 +163,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v1.deleteMonitor",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -216,6 +219,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v1.getMonitor",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -275,6 +279,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v1.listMonitors",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -372,6 +377,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v1.searchMonitorGroups",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -441,6 +447,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v1.searchMonitors",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -521,6 +528,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v1.updateMonitor",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -580,6 +588,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v1.validateExistingMonitor",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -630,6 +639,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v1.validateMonitor",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1474,11 +1484,6 @@ export class MonitorsApi {
       requestFactory || new MonitorsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new MonitorsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(MonitorsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(MonitorsApi.operationServers);
-    }
   }
 
   /**

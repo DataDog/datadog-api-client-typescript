@@ -52,6 +52,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AzureIntegrationApi.v1.createAzureIntegration",
+      AzureIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -101,6 +102,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AzureIntegrationApi.v1.deleteAzureIntegration",
+      AzureIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -144,6 +146,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AzureIntegrationApi.v1.listAzureIntegration",
+      AzureIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -184,6 +187,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AzureIntegrationApi.v1.updateAzureHostFilters",
+      AzureIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -233,6 +237,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AzureIntegrationApi.v1.updateAzureIntegration",
+      AzureIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -610,13 +615,6 @@ export class AzureIntegrationApi {
       new AzureIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AzureIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(AzureIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        AzureIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

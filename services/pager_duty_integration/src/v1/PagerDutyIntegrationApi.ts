@@ -54,6 +54,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "PagerDutyIntegrationApi.v1.createPagerDutyIntegrationService",
+      PagerDutyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -110,6 +111,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "PagerDutyIntegrationApi.v1.deletePagerDutyIntegrationService",
+      PagerDutyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -154,6 +156,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "PagerDutyIntegrationApi.v1.getPagerDutyIntegrationService",
+      PagerDutyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -207,6 +210,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "PagerDutyIntegrationApi.v1.updatePagerDutyIntegrationService",
+      PagerDutyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -516,13 +520,6 @@ export class PagerDutyIntegrationApi {
       new PagerDutyIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new PagerDutyIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(PagerDutyIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        PagerDutyIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

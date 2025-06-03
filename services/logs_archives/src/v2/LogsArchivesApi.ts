@@ -67,6 +67,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsArchivesApi.v2.addReadRoleToArchive",
+      LogsArchivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -116,6 +117,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsArchivesApi.v2.createLogsArchive",
+      LogsArchivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -168,6 +170,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsArchivesApi.v2.deleteLogsArchive",
+      LogsArchivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -211,6 +214,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsArchivesApi.v2.getLogsArchive",
+      LogsArchivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -245,6 +249,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsArchivesApi.v2.getLogsArchiveOrder",
+      LogsArchivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -289,6 +294,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsArchivesApi.v2.listArchiveReadRoles",
+      LogsArchivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -323,6 +329,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsArchivesApi.v2.listLogsArchives",
+      LogsArchivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -373,6 +380,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsArchivesApi.v2.removeRoleFromArchive",
+      LogsArchivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -431,6 +439,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsArchivesApi.v2.updateLogsArchive",
+      LogsArchivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -480,6 +489,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsArchivesApi.v2.updateLogsArchiveOrder",
+      LogsArchivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1167,11 +1177,6 @@ export class LogsArchivesApi {
       requestFactory || new LogsArchivesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsArchivesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(LogsArchivesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(LogsArchivesApi.operationServers);
-    }
   }
 
   /**

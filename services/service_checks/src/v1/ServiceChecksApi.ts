@@ -53,6 +53,7 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceChecksApi.v1.submitServiceCheck",
+      ServiceChecksApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -172,11 +173,6 @@ export class ServiceChecksApi {
       requestFactory || new ServiceChecksApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceChecksApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ServiceChecksApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(ServiceChecksApi.operationServers);
-    }
   }
 
   /**

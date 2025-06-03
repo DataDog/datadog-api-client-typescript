@@ -55,6 +55,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsCustomDestinationsApi.v2.createLogsCustomDestination",
+      LogsCustomDestinationsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -111,6 +112,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsCustomDestinationsApi.v2.deleteLogsCustomDestination",
+      LogsCustomDestinationsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -158,6 +160,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsCustomDestinationsApi.v2.getLogsCustomDestination",
+      LogsCustomDestinationsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -192,6 +195,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsCustomDestinationsApi.v2.listLogsCustomDestinations",
+      LogsCustomDestinationsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -245,6 +249,7 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsCustomDestinationsApi.v2.updateLogsCustomDestination",
+      LogsCustomDestinationsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -625,13 +630,6 @@ export class LogsCustomDestinationsApi {
       new LogsCustomDestinationsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsCustomDestinationsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(LogsCustomDestinationsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        LogsCustomDestinationsApi.operationServers,
-      );
-    }
   }
 
   /**

@@ -59,6 +59,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.createApplicationSecurityWafCustomRule",
+      ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -117,6 +118,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.createApplicationSecurityWafExclusionFilter",
+      ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -178,6 +180,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.deleteApplicationSecurityWafCustomRule",
+      ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -225,6 +228,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.deleteApplicationSecurityWafExclusionFilter",
+      ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -272,6 +276,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.getApplicationSecurityWafCustomRule",
+      ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -319,6 +324,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.getApplicationSecurityWafExclusionFilter",
+      ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -353,6 +359,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.listApplicationSecurityWAFCustomRules",
+      ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -388,6 +395,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.listApplicationSecurityWafExclusionFilters",
+      ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -441,6 +449,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.updateApplicationSecurityWafCustomRule",
+      ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -511,6 +520,7 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ApplicationSecurityApi.v2.updateApplicationSecurityWafExclusionFilter",
+      ApplicationSecurityApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1217,13 +1227,6 @@ export class ApplicationSecurityApi {
       new ApplicationSecurityApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ApplicationSecurityApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ApplicationSecurityApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        ApplicationSecurityApi.operationServers,
-      );
-    }
   }
 
   /**

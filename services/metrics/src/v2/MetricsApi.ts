@@ -72,6 +72,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.createBulkTagsMetricsConfiguration",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -130,6 +131,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.createTagConfiguration",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -179,6 +181,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.deleteBulkTagsMetricsConfiguration",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -231,6 +234,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.deleteTagConfiguration",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -279,6 +283,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.estimateMetricsOutputSeries",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -361,6 +366,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.listActiveMetricConfigurations",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -413,6 +419,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.listMetricAssets",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -457,6 +464,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.listTagConfigurationByName",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -502,6 +510,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.listTagConfigurations",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -623,6 +632,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.listTagsByMetricName",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -667,6 +677,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.listVolumesByMetricName",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -707,6 +718,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.queryScalarData",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -757,6 +769,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.queryTimeseriesData",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -808,6 +821,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.submitMetrics",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -871,6 +885,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MetricsApi.v2.updateTagConfiguration",
+      MetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2035,11 +2050,6 @@ export class MetricsApi {
       requestFactory || new MetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new MetricsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(MetricsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(MetricsApi.operationServers);
-    }
   }
 
   /**

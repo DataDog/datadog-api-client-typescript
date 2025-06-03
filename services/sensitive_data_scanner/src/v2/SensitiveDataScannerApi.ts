@@ -67,6 +67,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SensitiveDataScannerApi.v2.createScanningGroup",
+      SensitiveDataScannerApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -116,6 +117,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SensitiveDataScannerApi.v2.createScanningRule",
+      SensitiveDataScannerApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -175,6 +177,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SensitiveDataScannerApi.v2.deleteScanningGroup",
+      SensitiveDataScannerApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -234,6 +237,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SensitiveDataScannerApi.v2.deleteScanningRule",
+      SensitiveDataScannerApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -277,6 +281,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SensitiveDataScannerApi.v2.listScanningGroups",
+      SensitiveDataScannerApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -312,6 +317,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SensitiveDataScannerApi.v2.listStandardPatterns",
+      SensitiveDataScannerApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -352,6 +358,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SensitiveDataScannerApi.v2.reorderScanningGroups",
+      SensitiveDataScannerApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -411,6 +418,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SensitiveDataScannerApi.v2.updateScanningGroup",
+      SensitiveDataScannerApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -470,6 +478,7 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SensitiveDataScannerApi.v2.updateScanningRule",
+      SensitiveDataScannerApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1138,13 +1147,6 @@ export class SensitiveDataScannerApi {
       new SensitiveDataScannerApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SensitiveDataScannerApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(SensitiveDataScannerApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        SensitiveDataScannerApi.operationServers,
-      );
-    }
   }
 
   /**

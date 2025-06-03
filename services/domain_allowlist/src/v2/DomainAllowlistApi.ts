@@ -47,6 +47,7 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DomainAllowlistApi.v2.getDomainAllowlist",
+      DomainAllowlistApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -88,6 +89,7 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DomainAllowlistApi.v2.patchDomainAllowlist",
+      DomainAllowlistApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -261,13 +263,6 @@ export class DomainAllowlistApi {
       new DomainAllowlistApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DomainAllowlistApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(DomainAllowlistApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        DomainAllowlistApi.operationServers,
-      );
-    }
   }
 
   /**

@@ -44,6 +44,7 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AuthenticationApi.v1.validate",
+      AuthenticationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -140,13 +141,6 @@ export class AuthenticationApi {
       requestFactory || new AuthenticationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuthenticationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(AuthenticationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        AuthenticationApi.operationServers,
-      );
-    }
   }
 
   /**

@@ -58,6 +58,7 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CIVisibilityTestsApi.v2.aggregateCIAppTestEvents",
+      CIVisibilityTestsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -108,6 +109,7 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CIVisibilityTestsApi.v2.listCIAppTestEvents",
+      CIVisibilityTestsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -188,6 +190,7 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CIVisibilityTestsApi.v2.searchCIAppTestEvents",
+      CIVisibilityTestsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -469,13 +472,6 @@ export class CIVisibilityTestsApi {
       new CIVisibilityTestsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CIVisibilityTestsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(CIVisibilityTestsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        CIVisibilityTestsApi.operationServers,
-      );
-    }
   }
 
   /**

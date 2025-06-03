@@ -61,6 +61,7 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SpansApi.v2.aggregateSpans",
+      SpansApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -111,6 +112,7 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SpansApi.v2.listSpans",
+      SpansApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -161,6 +163,7 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SpansApi.v2.listSpansGet",
+      SpansApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -484,11 +487,6 @@ export class SpansApi {
       requestFactory || new SpansApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SpansApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(SpansApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(SpansApi.operationServers);
-    }
   }
 
   /**

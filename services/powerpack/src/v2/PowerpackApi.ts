@@ -55,6 +55,7 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "PowerpackApi.v2.createPowerpack",
+      PowerpackApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -108,6 +109,7 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "PowerpackApi.v2.deletePowerpack",
+      PowerpackApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -152,6 +154,7 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "PowerpackApi.v2.getPowerpack",
+      PowerpackApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -189,6 +192,7 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "PowerpackApi.v2.listPowerpacks",
+      PowerpackApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -255,6 +259,7 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "PowerpackApi.v2.updatePowerpack",
+      PowerpackApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -629,11 +634,6 @@ export class PowerpackApi {
       requestFactory || new PowerpackApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new PowerpackApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(PowerpackApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(PowerpackApi.operationServers);
-    }
   }
 
   /**

@@ -88,6 +88,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getDailyCustomReports",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -171,6 +172,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getHourlyUsageAttribution",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -260,6 +262,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getIncidentManagement",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -321,6 +324,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getIngestedSpans",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -379,6 +383,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getMonthlyCustomReports",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -464,6 +469,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getMonthlyUsageAttribution",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -579,6 +585,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getSpecifiedDailyCustomReports",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -625,6 +632,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getSpecifiedMonthlyCustomReports",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -669,6 +677,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageAnalyzedLogs",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -730,6 +739,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageAuditLogs",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -786,6 +796,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageBillableSummary",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -847,6 +858,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageCIApp",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -911,6 +923,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageCloudSecurityPostureManagement",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -972,6 +985,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageCWS",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1033,6 +1047,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageDBM",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1094,6 +1109,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageFargate",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1155,6 +1171,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageHosts",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1216,6 +1233,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageIndexedSpans",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1277,6 +1295,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageInternetOfThings",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1338,6 +1357,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageLambda",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1399,6 +1419,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageLogs",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1461,6 +1482,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageLogsByIndex",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1529,6 +1551,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageLogsByRetention",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1590,6 +1613,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageNetworkFlows",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1651,6 +1675,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageNetworkHosts",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1712,6 +1737,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageOnlineArchive",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1773,6 +1799,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageProfiling",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1835,6 +1862,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageRumSessions",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1903,6 +1931,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageRumUnits",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1964,6 +1993,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageSDS",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2025,6 +2055,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageSNMP",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2088,6 +2119,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageSummary",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2163,6 +2195,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageSynthetics",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2224,6 +2257,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageSyntheticsAPI",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2285,6 +2319,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageSyntheticsBrowser",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2346,6 +2381,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageTimeseries",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2405,6 +2441,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsageMeteringApi.v1.getUsageTopAvgMetrics",
+      UsageMeteringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -5292,11 +5329,6 @@ export class UsageMeteringApi {
       requestFactory || new UsageMeteringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new UsageMeteringApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(UsageMeteringApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(UsageMeteringApi.operationServers);
-    }
   }
 
   /**

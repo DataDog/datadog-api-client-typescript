@@ -61,6 +61,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DowntimesApi.v2.cancelDowntime",
+      DowntimesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -102,6 +103,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DowntimesApi.v2.createDowntime",
+      DowntimesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -156,6 +158,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DowntimesApi.v2.getDowntime",
+      DowntimesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -204,6 +207,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DowntimesApi.v2.listDowntimes",
+      DowntimesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -281,6 +285,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DowntimesApi.v2.listMonitorDowntimes",
+      DowntimesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -347,6 +352,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DowntimesApi.v2.updateDowntime",
+      DowntimesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -826,11 +832,6 @@ export class DowntimesApi {
       requestFactory || new DowntimesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DowntimesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(DowntimesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(DowntimesApi.operationServers);
-    }
   }
 
   /**

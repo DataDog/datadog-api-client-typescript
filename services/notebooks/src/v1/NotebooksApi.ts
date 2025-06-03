@@ -56,6 +56,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "NotebooksApi.v1.createNotebook",
+      NotebooksApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -108,6 +109,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "NotebooksApi.v1.deleteNotebook",
+      NotebooksApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -151,6 +153,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "NotebooksApi.v1.getNotebook",
+      NotebooksApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -195,6 +198,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "NotebooksApi.v1.listNotebooks",
+      NotebooksApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -316,6 +320,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "NotebooksApi.v1.updateNotebook",
+      NotebooksApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -749,11 +754,6 @@ export class NotebooksApi {
       requestFactory || new NotebooksApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new NotebooksApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(NotebooksApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(NotebooksApi.operationServers);
-    }
   }
 
   /**

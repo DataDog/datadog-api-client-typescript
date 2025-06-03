@@ -59,6 +59,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceAccountsApi.v2.createServiceAccount",
+      ServiceAccountsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -121,6 +122,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceAccountsApi.v2.createServiceAccountApplicationKey",
+      ServiceAccountsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -185,6 +187,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceAccountsApi.v2.deleteServiceAccountApplicationKey",
+      ServiceAccountsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -240,6 +243,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceAccountsApi.v2.getServiceAccountApplicationKey",
+      ServiceAccountsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -293,6 +297,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceAccountsApi.v2.listServiceAccountApplicationKeys",
+      ServiceAccountsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -398,6 +403,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceAccountsApi.v2.updateServiceAccountApplicationKey",
+      ServiceAccountsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -904,13 +910,6 @@ export class ServiceAccountsApi {
       new ServiceAccountsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceAccountsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ServiceAccountsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        ServiceAccountsApi.operationServers,
-      );
-    }
   }
 
   /**

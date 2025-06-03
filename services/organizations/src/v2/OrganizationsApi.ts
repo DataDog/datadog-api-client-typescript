@@ -60,6 +60,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OrganizationsApi.v2.getOrgConfig",
+      OrganizationsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -94,6 +95,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OrganizationsApi.v2.listOrgConfigs",
+      OrganizationsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -143,6 +145,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OrganizationsApi.v2.updateOrgConfig",
+      OrganizationsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -187,6 +190,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OrganizationsApi.v2.uploadIdPMetadata",
+      OrganizationsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -498,11 +502,6 @@ export class OrganizationsApi {
       requestFactory || new OrganizationsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OrganizationsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(OrganizationsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(OrganizationsApi.operationServers);
-    }
   }
 
   /**

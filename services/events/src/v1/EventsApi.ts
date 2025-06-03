@@ -56,6 +56,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "EventsApi.v1.createEvent",
+      EventsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -105,6 +106,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "EventsApi.v1.getEvent",
+      EventsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -158,6 +160,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "EventsApi.v1.listEvents",
+      EventsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -497,11 +500,6 @@ export class EventsApi {
       requestFactory || new EventsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new EventsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(EventsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(EventsApi.operationServers);
-    }
   }
 
   /**

@@ -50,6 +50,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "HostsApi.v1.getHostTotals",
+      HostsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -102,6 +103,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "HostsApi.v1.listHosts",
+      HostsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -210,6 +212,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "HostsApi.v1.muteHost",
+      HostsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -262,6 +265,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "HostsApi.v1.unmuteHost",
+      HostsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -611,11 +615,6 @@ export class HostsApi {
       requestFactory || new HostsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new HostsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(HostsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(HostsApi.operationServers);
-    }
   }
 
   /**

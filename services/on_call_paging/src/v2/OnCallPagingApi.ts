@@ -56,6 +56,7 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallPagingApi.v2.acknowledgeOnCallPage",
+      OnCallPagingApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -97,6 +98,7 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallPagingApi.v2.createOnCallPage",
+      OnCallPagingApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -150,6 +152,7 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallPagingApi.v2.escalateOnCallPage",
+      OnCallPagingApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -194,6 +197,7 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallPagingApi.v2.resolveOnCallPage",
+      OnCallPagingApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -559,11 +563,6 @@ export class OnCallPagingApi {
       requestFactory || new OnCallPagingApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OnCallPagingApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(OnCallPagingApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(OnCallPagingApi.operationServers);
-    }
   }
 
   /**

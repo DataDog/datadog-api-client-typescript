@@ -51,6 +51,7 @@ export class CSMAgentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMAgentsApi.v2.listAllCSMAgents",
+      CSMAgentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -119,6 +120,7 @@ export class CSMAgentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMAgentsApi.v2.listAllCSMServerlessAgents",
+      CSMAgentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -350,11 +352,6 @@ export class CSMAgentsApi {
       requestFactory || new CSMAgentsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CSMAgentsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(CSMAgentsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(CSMAgentsApi.operationServers);
-    }
   }
 
   /**

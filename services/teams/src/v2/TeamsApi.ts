@@ -71,6 +71,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.createTeam",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -130,6 +131,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.createTeamLink",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -189,6 +191,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.createTeamMembership",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -242,6 +245,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.deleteTeam",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -291,6 +295,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.deleteTeamLink",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -340,6 +345,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.deleteTeamMembership",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -384,6 +390,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.getTeam",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -433,6 +440,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.getTeamLink",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -477,6 +485,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.getTeamLinks",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -525,6 +534,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.getTeamMemberships",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -599,6 +609,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.getTeamPermissionSettings",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -643,6 +654,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.getUserMemberships",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -685,6 +697,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.listTeams",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -786,6 +799,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.updateTeam",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -850,6 +864,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.updateTeamLink",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -914,6 +929,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.updateTeamMembership",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -978,6 +994,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "TeamsApi.v2.updateTeamPermissionSetting",
+      TeamsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2239,11 +2256,6 @@ export class TeamsApi {
       requestFactory || new TeamsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new TeamsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(TeamsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(TeamsApi.operationServers);
-    }
   }
 
   /**

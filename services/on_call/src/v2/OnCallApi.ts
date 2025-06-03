@@ -61,6 +61,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallApi.v2.createOnCallEscalationPolicy",
+      OnCallApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -121,6 +122,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallApi.v2.createOnCallSchedule",
+      OnCallApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -184,6 +186,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallApi.v2.deleteOnCallEscalationPolicy",
+      OnCallApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -228,6 +231,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallApi.v2.deleteOnCallSchedule",
+      OnCallApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -274,6 +278,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallApi.v2.getOnCallEscalationPolicy",
+      OnCallApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -328,6 +333,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallApi.v2.getOnCallSchedule",
+      OnCallApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -383,6 +389,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallApi.v2.getOnCallTeamRoutingRules",
+      OnCallApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -439,6 +446,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallApi.v2.getScheduleOnCallUser",
+      OnCallApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -507,6 +515,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallApi.v2.setOnCallTeamRoutingRules",
+      OnCallApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -577,6 +586,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallApi.v2.updateOnCallEscalationPolicy",
+      OnCallApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -646,6 +656,7 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OnCallApi.v2.updateOnCallSchedule",
+      OnCallApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1495,11 +1506,6 @@ export class OnCallApi {
       requestFactory || new OnCallApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OnCallApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(OnCallApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(OnCallApi.operationServers);
-    }
   }
 
   /**

@@ -68,6 +68,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v1.addSecurityMonitoringSignalToIncident",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -130,6 +131,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v1.editSecurityMonitoringSignalAssignee",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -189,6 +191,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v1.editSecurityMonitoringSignalState",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -464,13 +467,6 @@ export class SecurityMonitoringApi {
       new SecurityMonitoringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SecurityMonitoringApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(SecurityMonitoringApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        SecurityMonitoringApi.operationServers,
-      );
-    }
   }
 
   /**

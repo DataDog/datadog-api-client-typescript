@@ -56,6 +56,7 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RestrictionPoliciesApi.v2.deleteRestrictionPolicy",
+      RestrictionPoliciesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -100,6 +101,7 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RestrictionPoliciesApi.v2.getRestrictionPolicy",
+      RestrictionPoliciesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -151,6 +153,7 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RestrictionPoliciesApi.v2.updateRestrictionPolicy",
+      RestrictionPoliciesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -417,13 +420,6 @@ export class RestrictionPoliciesApi {
       new RestrictionPoliciesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RestrictionPoliciesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(RestrictionPoliciesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        RestrictionPoliciesApi.operationServers,
-      );
-    }
   }
 
   /**

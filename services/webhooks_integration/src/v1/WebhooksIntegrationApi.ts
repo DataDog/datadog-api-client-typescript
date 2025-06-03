@@ -56,6 +56,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WebhooksIntegrationApi.v1.createWebhooksIntegration",
+      WebhooksIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -110,6 +111,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WebhooksIntegrationApi.v1.createWebhooksIntegrationCustomVariable",
+      WebhooksIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -163,6 +165,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WebhooksIntegrationApi.v1.deleteWebhooksIntegration",
+      WebhooksIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -210,6 +213,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WebhooksIntegrationApi.v1.deleteWebhooksIntegrationCustomVariable",
+      WebhooksIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -254,6 +258,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WebhooksIntegrationApi.v1.getWebhooksIntegration",
+      WebhooksIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -301,6 +306,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WebhooksIntegrationApi.v1.getWebhooksIntegrationCustomVariable",
+      WebhooksIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -351,6 +357,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WebhooksIntegrationApi.v1.updateWebhooksIntegration",
+      WebhooksIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -416,6 +423,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WebhooksIntegrationApi.v1.updateWebhooksIntegrationCustomVariable",
+      WebhooksIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1010,13 +1018,6 @@ export class WebhooksIntegrationApi {
       new WebhooksIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new WebhooksIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(WebhooksIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        WebhooksIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

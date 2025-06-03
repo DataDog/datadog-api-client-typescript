@@ -56,6 +56,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "GCPIntegrationApi.v2.createGCPSTSAccount",
+      GCPIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -109,6 +110,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "GCPIntegrationApi.v2.deleteGCPSTSAccount",
+      GCPIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -143,6 +145,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "GCPIntegrationApi.v2.getGCPSTSDelegate",
+      GCPIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -177,6 +180,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "GCPIntegrationApi.v2.listGCPSTSAccounts",
+      GCPIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -212,6 +216,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "GCPIntegrationApi.v2.makeGCPSTSDelegate",
+      GCPIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -271,6 +276,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "GCPIntegrationApi.v2.updateGCPSTSAccount",
+      GCPIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -704,13 +710,6 @@ export class GCPIntegrationApi {
       requestFactory || new GCPIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new GCPIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(GCPIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        GCPIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

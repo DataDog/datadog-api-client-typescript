@@ -71,6 +71,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceScorecardsApi.v2.createScorecardOutcomesBatch",
+      ServiceScorecardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -129,6 +130,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceScorecardsApi.v2.createScorecardRule",
+      ServiceScorecardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -190,6 +192,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceScorecardsApi.v2.deleteScorecardRule",
+      ServiceScorecardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -245,6 +248,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceScorecardsApi.v2.listScorecardOutcomes",
+      ServiceScorecardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -370,6 +374,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceScorecardsApi.v2.listScorecardRules",
+      ServiceScorecardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -500,6 +505,7 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceScorecardsApi.v2.updateScorecardRule",
+      ServiceScorecardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1045,13 +1051,6 @@ export class ServiceScorecardsApi {
       new ServiceScorecardsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceScorecardsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ServiceScorecardsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        ServiceScorecardsApi.operationServers,
-      );
-    }
   }
 
   /**

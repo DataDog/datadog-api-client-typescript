@@ -60,6 +60,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CIVisibilityPipelinesApi.v2.aggregateCIAppPipelineEvents",
+      CIVisibilityPipelinesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -110,6 +111,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CIVisibilityPipelinesApi.v2.createCIAppPipelineEvent",
+      CIVisibilityPipelinesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -156,6 +158,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CIVisibilityPipelinesApi.v2.listCIAppPipelineEvents",
+      CIVisibilityPipelinesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -236,6 +239,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CIVisibilityPipelinesApi.v2.searchCIAppPipelineEvents",
+      CIVisibilityPipelinesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -589,13 +593,6 @@ export class CIVisibilityPipelinesApi {
       new CIVisibilityPipelinesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CIVisibilityPipelinesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(CIVisibilityPipelinesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        CIVisibilityPipelinesApi.operationServers,
-      );
-    }
   }
 
   /**

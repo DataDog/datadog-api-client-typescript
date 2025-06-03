@@ -56,6 +56,7 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ActionConnectionApi.v2.createActionConnection",
+      ActionConnectionApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -108,6 +109,7 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ActionConnectionApi.v2.deleteActionConnection",
+      ActionConnectionApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -151,6 +153,7 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ActionConnectionApi.v2.getActionConnection",
+      ActionConnectionApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -200,6 +203,7 @@ export class ActionConnectionApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ActionConnectionApi.v2.updateActionConnection",
+      ActionConnectionApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -532,13 +536,6 @@ export class ActionConnectionApi {
       new ActionConnectionApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ActionConnectionApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ActionConnectionApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        ActionConnectionApi.operationServers,
-      );
-    }
   }
 
   /**

@@ -55,6 +55,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsMetricsApi.v2.createLogsMetric",
+      LogsMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -107,6 +108,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsMetricsApi.v2.deleteLogsMetric",
+      LogsMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -150,6 +152,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsMetricsApi.v2.getLogsMetric",
+      LogsMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -184,6 +187,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsMetricsApi.v2.listLogsMetrics",
+      LogsMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -233,6 +237,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsMetricsApi.v2.updateLogsMetric",
+      LogsMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -607,11 +612,6 @@ export class LogsMetricsApi {
       requestFactory || new LogsMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsMetricsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(LogsMetricsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(LogsMetricsApi.operationServers);
-    }
   }
 
   /**

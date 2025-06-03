@@ -53,6 +53,7 @@ export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ProcessesApi.v2.listProcesses",
+      ProcessesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -239,11 +240,6 @@ export class ProcessesApi {
       requestFactory || new ProcessesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ProcessesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ProcessesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(ProcessesApi.operationServers);
-    }
   }
 
   /**

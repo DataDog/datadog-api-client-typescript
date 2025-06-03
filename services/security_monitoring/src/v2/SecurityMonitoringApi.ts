@@ -129,6 +129,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.cancelHistoricalJob",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -177,6 +178,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.convertExistingSecurityMonitoringRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -229,6 +231,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.convertJobResultToSignal",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -281,6 +284,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.convertSecurityMonitoringRuleFromJSONToTerraform",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -331,6 +335,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.createCustomFramework",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -382,6 +387,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.createSecurityFilter",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -432,6 +438,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.createSecurityMonitoringRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -483,6 +490,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.createSecurityMonitoringSuppression",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -538,6 +546,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.createSignalNotificationRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -588,6 +597,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.createVulnerabilityNotificationRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -647,6 +657,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.deleteCustomFramework",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -702,6 +713,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.deleteHistoricalJob",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -747,6 +759,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.deleteSecurityFilter",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -791,6 +804,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.deleteSecurityMonitoringRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -839,6 +853,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.deleteSecurityMonitoringSuppression",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -884,6 +899,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.deleteSignalNotificationRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -929,6 +945,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.deleteVulnerabilityNotificationRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -983,6 +1000,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.editSecurityMonitoringSignalAssignee",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1050,6 +1068,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.editSecurityMonitoringSignalIncidents",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1114,6 +1133,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.editSecurityMonitoringSignalState",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1177,6 +1197,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getCustomFramework",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1229,6 +1250,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getFinding",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1291,6 +1313,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getHistoricalJob",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1329,6 +1352,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getResourceEvaluationFilters",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1409,6 +1433,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getRuleVersionHistory",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1481,6 +1506,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getSBOM",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1542,6 +1568,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getSecurityFilter",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1586,6 +1613,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getSecurityMonitoringRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1631,6 +1659,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getSecurityMonitoringSignal",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1679,6 +1708,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getSecurityMonitoringSuppression",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1724,6 +1754,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getSignalNotificationRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1759,6 +1790,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getSignalNotificationRules",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1804,6 +1836,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getVulnerabilityNotificationRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1839,6 +1872,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.getVulnerabilityNotificationRules",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1893,6 +1927,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.listFindings",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2038,6 +2073,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.listHistoricalJobs",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2104,6 +2140,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.listSecurityFilters",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2141,6 +2178,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.listSecurityMonitoringRules",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2198,6 +2236,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.listSecurityMonitoringSignals",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2278,6 +2317,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.listSecurityMonitoringSuppressions",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2363,6 +2403,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.listVulnerabilities",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2741,6 +2782,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.listVulnerableAssets",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2907,6 +2949,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.muteFindings",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2966,6 +3009,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.patchSignalNotificationRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3026,6 +3070,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.patchVulnerabilityNotificationRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3084,6 +3129,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.runHistoricalJob",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3129,6 +3175,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.searchSecurityMonitoringSignals",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3189,6 +3236,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.testExistingSecurityMonitoringRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3239,6 +3287,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.testSecurityMonitoringRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3304,6 +3353,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.updateCustomFramework",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3354,6 +3404,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.updateResourceEvaluationFilters",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3414,6 +3465,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.updateSecurityFilter",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3473,6 +3525,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.updateSecurityMonitoringRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3536,6 +3589,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.updateSecurityMonitoringSuppression",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3591,6 +3645,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SecurityMonitoringApi.v2.validateSecurityMonitoringRule",
+      SecurityMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -7843,13 +7898,6 @@ export class SecurityMonitoringApi {
       new SecurityMonitoringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SecurityMonitoringApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(SecurityMonitoringApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        SecurityMonitoringApi.operationServers,
-      );
-    }
   }
 
   /**

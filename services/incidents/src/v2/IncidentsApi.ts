@@ -83,6 +83,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.createIncident",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -151,6 +152,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.createIncidentIntegration",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -222,6 +224,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.createIncidentTodo",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -278,6 +281,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.createIncidentType",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -337,6 +341,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.deleteIncident",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -401,6 +406,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.deleteIncidentIntegration",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -457,6 +463,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.deleteIncidentTodo",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -508,6 +515,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.deleteIncidentType",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -559,6 +567,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.getIncident",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -630,6 +639,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.getIncidentIntegration",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -686,6 +696,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.getIncidentTodo",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -737,6 +748,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.getIncidentType",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -791,6 +803,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.listIncidentAttachments",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -869,6 +882,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.listIncidentIntegrations",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -913,6 +927,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.listIncidents",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -987,6 +1002,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.listIncidentTodos",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1029,6 +1045,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.listIncidentTypes",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1089,6 +1106,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.searchIncidents",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1183,6 +1201,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.updateIncident",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1260,6 +1279,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.updateIncidentAttachments",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1352,6 +1372,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.updateIncidentIntegration",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1428,6 +1449,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.updateIncidentTodo",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1494,6 +1516,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentsApi.v2.updateIncidentType",
+      IncidentsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3228,11 +3251,6 @@ export class IncidentsApi {
       requestFactory || new IncidentsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IncidentsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(IncidentsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(IncidentsApi.operationServers);
-    }
   }
 
   /**

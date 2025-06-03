@@ -54,6 +54,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardListsApi.v1.createDashboardList",
+      DashboardListsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -107,6 +108,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardListsApi.v1.deleteDashboardList",
+      DashboardListsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -151,6 +153,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardListsApi.v1.getDashboardList",
+      DashboardListsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -186,6 +189,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardListsApi.v1.listDashboardLists",
+      DashboardListsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -236,6 +240,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardListsApi.v1.updateDashboardList",
+      DashboardListsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -623,13 +628,6 @@ export class DashboardListsApi {
       requestFactory || new DashboardListsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DashboardListsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(DashboardListsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        DashboardListsApi.operationServers,
-      );
-    }
   }
 
   /**

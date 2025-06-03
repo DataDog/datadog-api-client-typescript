@@ -57,6 +57,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "APMRetentionFiltersApi.v2.createApmRetentionFilter",
+      APMRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -110,6 +111,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "APMRetentionFiltersApi.v2.deleteApmRetentionFilter",
+      APMRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -154,6 +156,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "APMRetentionFiltersApi.v2.getApmRetentionFilter",
+      APMRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -188,6 +191,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "APMRetentionFiltersApi.v2.listApmRetentionFilters",
+      APMRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -228,6 +232,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "APMRetentionFiltersApi.v2.reorderApmRetentionFilters",
+      APMRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -287,6 +292,7 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "APMRetentionFiltersApi.v2.updateApmRetentionFilter",
+      APMRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -721,13 +727,6 @@ export class APMRetentionFiltersApi {
       new APMRetentionFiltersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new APMRetentionFiltersApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(APMRetentionFiltersApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        APMRetentionFiltersApi.operationServers,
-      );
-    }
   }
 
   /**

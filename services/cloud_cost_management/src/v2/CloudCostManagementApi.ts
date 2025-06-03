@@ -65,6 +65,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.createCostAWSCURConfig",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -115,6 +116,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.createCostAzureUCConfigs",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -168,6 +170,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.deleteBudget",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -213,6 +216,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.deleteCostAWSCURConfig",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -258,6 +262,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.deleteCostAzureUCConfig",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -302,6 +307,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.deleteCustomCostsFile",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -346,6 +352,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.getBudget",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -390,6 +397,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.getCustomCostsFile",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -423,6 +431,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.listBudgets",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -458,6 +467,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.listCostAWSCURConfigs",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -493,6 +503,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.listCostAzureUCConfigs",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -528,6 +539,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.listCustomCostsFiles",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -579,6 +591,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.updateCostAWSCURConfig",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -639,6 +652,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.updateCostAzureUCConfigs",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -689,6 +703,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.uploadCustomCostsFile",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -739,6 +754,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.upsertBudget",
+      CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1767,13 +1783,6 @@ export class CloudCostManagementApi {
       new CloudCostManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CloudCostManagementApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(CloudCostManagementApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        CloudCostManagementApi.operationServers,
-      );
-    }
   }
 
   /**

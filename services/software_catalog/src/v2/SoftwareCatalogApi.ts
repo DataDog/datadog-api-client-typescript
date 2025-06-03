@@ -63,6 +63,7 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SoftwareCatalogApi.v2.deleteCatalogEntity",
+      SoftwareCatalogApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -108,6 +109,7 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SoftwareCatalogApi.v2.listCatalogEntity",
+      SoftwareCatalogApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -221,6 +223,7 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SoftwareCatalogApi.v2.listCatalogRelation",
+      SoftwareCatalogApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -306,6 +309,7 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SoftwareCatalogApi.v2.upsertCatalogEntity",
+      SoftwareCatalogApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -682,13 +686,6 @@ export class SoftwareCatalogApi {
       new SoftwareCatalogApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SoftwareCatalogApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(SoftwareCatalogApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        SoftwareCatalogApi.operationServers,
-      );
-    }
   }
 
   /**

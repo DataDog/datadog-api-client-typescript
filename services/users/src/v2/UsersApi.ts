@@ -61,6 +61,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v2.createUser",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -114,6 +115,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v2.disableUser",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -159,6 +161,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v2.getInvitation",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -203,6 +206,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v2.getUser",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -247,6 +251,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v2.listUserOrganizations",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -291,6 +296,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v2.listUserPermissions",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -332,6 +338,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v2.listUsers",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -417,6 +424,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v2.sendInvitations",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -476,6 +484,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v2.updateUser",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1154,11 +1163,6 @@ export class UsersApi {
       requestFactory || new UsersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new UsersApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(UsersApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(UsersApi.operationServers);
-    }
   }
 
   /**

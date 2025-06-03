@@ -49,6 +49,7 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMCoverageAnalysisApi.v2.getCSMCloudAccountsCoverageAnalysis",
+      CSMCoverageAnalysisApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -84,6 +85,7 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMCoverageAnalysisApi.v2.getCSMHostsAndContainersCoverageAnalysis",
+      CSMCoverageAnalysisApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -118,6 +120,7 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMCoverageAnalysisApi.v2.getCSMServerlessCoverageAnalysis",
+      CSMCoverageAnalysisApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -330,13 +333,6 @@ export class CSMCoverageAnalysisApi {
       new CSMCoverageAnalysisApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CSMCoverageAnalysisApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(CSMCoverageAnalysisApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        CSMCoverageAnalysisApi.operationServers,
-      );
-    }
   }
 
   /**

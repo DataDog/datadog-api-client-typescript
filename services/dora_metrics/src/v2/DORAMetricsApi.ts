@@ -66,6 +66,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DORAMetricsApi.v2.createDORADeployment",
+      DORAMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -118,6 +119,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DORAMetricsApi.v2.createDORAIncident",
+      DORAMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -167,6 +169,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DORAMetricsApi.v2.getDORADeployment",
+      DORAMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -210,6 +213,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DORAMetricsApi.v2.getDORAFailure",
+      DORAMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -250,6 +254,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DORAMetricsApi.v2.listDORADeployments",
+      DORAMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -299,6 +304,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DORAMetricsApi.v2.listDORAFailures",
+      DORAMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -857,11 +863,6 @@ export class DORAMetricsApi {
       requestFactory || new DORAMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DORAMetricsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(DORAMetricsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(DORAMetricsApi.operationServers);
-    }
   }
 
   /**

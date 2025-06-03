@@ -52,6 +52,7 @@ export class ContainerImagesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ContainerImagesApi.v2.listContainerImages",
+      ContainerImagesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -223,13 +224,6 @@ export class ContainerImagesApi {
       new ContainerImagesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ContainerImagesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ContainerImagesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        ContainerImagesApi.operationServers,
-      );
-    }
   }
 
   /**

@@ -67,6 +67,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumRetentionFiltersApi.v2.createRetentionFilter",
+      RumRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -125,6 +126,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumRetentionFiltersApi.v2.deleteRetentionFilter",
+      RumRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -174,6 +176,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumRetentionFiltersApi.v2.getRetentionFilter",
+      RumRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -218,6 +221,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumRetentionFiltersApi.v2.listRetentionFilters",
+      RumRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -268,6 +272,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumRetentionFiltersApi.v2.orderRetentionFilters",
+      RumRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -332,6 +337,7 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumRetentionFiltersApi.v2.updateRetentionFilter",
+      RumRetentionFiltersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -807,13 +813,6 @@ export class RumRetentionFiltersApi {
       new RumRetentionFiltersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RumRetentionFiltersApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(RumRetentionFiltersApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        RumRetentionFiltersApi.operationServers,
-      );
-    }
   }
 
   /**

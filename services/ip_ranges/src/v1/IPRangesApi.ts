@@ -44,6 +44,7 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IPRangesApi.v1.getIPRanges",
+      IPRangesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -169,11 +170,6 @@ export class IPRangesApi {
       requestFactory || new IPRangesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IPRangesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(IPRangesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(IPRangesApi.operationServers);
-    }
   }
 
   /**

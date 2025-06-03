@@ -56,6 +56,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSLogsIntegrationApi.v2.listAWSLogsServices",
+      AWSLogsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -156,13 +157,6 @@ export class AWSLogsIntegrationApi {
       new AWSLogsIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AWSLogsIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(AWSLogsIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        AWSLogsIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

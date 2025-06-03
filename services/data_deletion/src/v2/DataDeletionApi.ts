@@ -68,6 +68,7 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DataDeletionApi.v2.cancelDataDeletionRequest",
+      DataDeletionApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -127,6 +128,7 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DataDeletionApi.v2.createDataDeletionRequest",
+      DataDeletionApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -183,6 +185,7 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DataDeletionApi.v2.getDataDeletionRequests",
+      DataDeletionApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -496,11 +499,6 @@ export class DataDeletionApi {
       requestFactory || new DataDeletionApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DataDeletionApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(DataDeletionApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(DataDeletionApi.operationServers);
-    }
   }
 
   /**

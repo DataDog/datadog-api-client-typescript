@@ -47,6 +47,7 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IPAllowlistApi.v2.getIPAllowlist",
+      IPAllowlistApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -88,6 +89,7 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IPAllowlistApi.v2.updateIPAllowlist",
+      IPAllowlistApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -269,11 +271,6 @@ export class IPAllowlistApi {
       requestFactory || new IPAllowlistApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IPAllowlistApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(IPAllowlistApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(IPAllowlistApi.operationServers);
-    }
   }
 
   /**
