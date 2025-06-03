@@ -337,7 +337,7 @@ export class RestrictionPoliciesApiResponseProcessor {
 
 export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`.
    * @type string
    */
   resourceId: string;
@@ -345,7 +345,7 @@ export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`.
    * @type string
    */
   resourceId: string;
@@ -353,7 +353,7 @@ export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiUpdateRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`.
    * @type string
    */
   resourceId: string;
@@ -452,6 +452,7 @@ export class RestrictionPoliciesApi {
    * - App Builder Apps: `app-builder-app`
    * - Connections: `connection`
    * - Connection Groups: `connection-group`
+   * - RUM Applications: `rum-application`
    *
    * #### Supported relations for resources
    * Resource Type               | Supported Relations
@@ -473,6 +474,7 @@ export class RestrictionPoliciesApi {
    * App Builder Apps            | `viewer`, `editor`
    * Connections                 | `viewer`, `resolver`, `editor`
    * Connection Groups           | `viewer`, `editor`
+   * RUM Application             | `viewer`, `editor`
    * @param param The request object
    */
   public updateRestrictionPolicy(
