@@ -76,6 +76,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.createGlobalVariable",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -126,6 +127,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.createPrivateLocation",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -176,6 +178,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.createSyntheticsAPITest",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -226,6 +229,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.createSyntheticsBrowserTest",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -276,6 +280,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.createSyntheticsMobileTest",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -329,6 +334,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.deleteGlobalVariable",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -374,6 +380,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.deletePrivateLocation",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -415,6 +422,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.deleteTests",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -474,6 +482,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.editGlobalVariable",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -524,6 +533,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.fetchUptimes",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -577,6 +587,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getAPITest",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -624,6 +635,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getAPITestLatestResults",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -697,6 +709,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getAPITestResult",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -741,6 +754,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getBrowserTest",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -789,6 +803,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getBrowserTestLatestResults",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -862,6 +877,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getBrowserTestResult",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -906,6 +922,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getGlobalVariable",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -950,6 +967,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getMobileTest",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -995,6 +1013,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getPrivateLocation",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1039,6 +1058,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getSyntheticsCIBatch",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1074,6 +1094,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getSyntheticsDefaultLocations",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1117,6 +1138,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.getTest",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1152,6 +1174,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.listGlobalVariables",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1187,6 +1210,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.listLocations",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1224,6 +1248,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.listTests",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1290,6 +1315,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.patchTest",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1340,6 +1366,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.triggerCITests",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1390,6 +1417,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.triggerTests",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1449,6 +1477,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.updateAPITest",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1508,6 +1537,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.updateBrowserTest",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1567,6 +1597,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.updateMobileTest",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1627,6 +1658,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.updatePrivateLocation",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1686,6 +1718,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v1.updateTestPauseStatus",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -3990,11 +4023,6 @@ export class SyntheticsApi {
       requestFactory || new SyntheticsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SyntheticsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(SyntheticsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(SyntheticsApi.operationServers);
-    }
   }
 
   /**

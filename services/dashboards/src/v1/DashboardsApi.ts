@@ -61,6 +61,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.createDashboard",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -111,6 +112,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.createPublicDashboard",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -164,6 +166,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.deleteDashboard",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -205,6 +208,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.deleteDashboards",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -258,6 +262,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.deletePublicDashboard",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -308,6 +313,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.deletePublicDashboardInvitation",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -361,6 +367,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.getDashboard",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -405,6 +412,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.getPublicDashboard",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -451,6 +459,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.getPublicDashboardInvitations",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -506,6 +515,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.listDashboards",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -577,6 +587,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.restoreDashboards",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -636,6 +647,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.sendPublicDashboardInvitation",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -695,6 +707,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.updateDashboard",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -754,6 +767,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardsApi.v1.updatePublicDashboard",
+      DashboardsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1765,11 +1779,6 @@ export class DashboardsApi {
       requestFactory || new DashboardsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DashboardsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(DashboardsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(DashboardsApi.operationServers);
-    }
   }
 
   /**

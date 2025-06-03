@@ -61,6 +61,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MicrosoftTeamsIntegrationApi.v2.createTenantBasedHandle",
+      MicrosoftTeamsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -116,6 +117,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MicrosoftTeamsIntegrationApi.v2.createWorkflowsWebhookHandle",
+      MicrosoftTeamsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -174,6 +176,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MicrosoftTeamsIntegrationApi.v2.deleteTenantBasedHandle",
+      MicrosoftTeamsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -218,6 +221,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MicrosoftTeamsIntegrationApi.v2.deleteWorkflowsWebhookHandle",
+      MicrosoftTeamsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -274,6 +278,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MicrosoftTeamsIntegrationApi.v2.getChannelByName",
+      MicrosoftTeamsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -318,6 +323,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MicrosoftTeamsIntegrationApi.v2.getTenantBasedHandle",
+      MicrosoftTeamsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -362,6 +368,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MicrosoftTeamsIntegrationApi.v2.getWorkflowsWebhookHandle",
+      MicrosoftTeamsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -399,6 +406,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MicrosoftTeamsIntegrationApi.v2.listTenantBasedHandles",
+      MicrosoftTeamsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -451,6 +459,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MicrosoftTeamsIntegrationApi.v2.listWorkflowsWebhookHandles",
+      MicrosoftTeamsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -510,6 +519,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MicrosoftTeamsIntegrationApi.v2.updateTenantBasedHandle",
+      MicrosoftTeamsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -574,6 +584,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MicrosoftTeamsIntegrationApi.v2.updateWorkflowsWebhookHandle",
+      MicrosoftTeamsIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1406,13 +1417,6 @@ export class MicrosoftTeamsIntegrationApi {
       new MicrosoftTeamsIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new MicrosoftTeamsIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(MicrosoftTeamsIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        MicrosoftTeamsIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

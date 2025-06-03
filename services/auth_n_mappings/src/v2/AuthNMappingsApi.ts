@@ -57,6 +57,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AuthNMappingsApi.v2.createAuthNMapping",
+      AuthNMappingsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -109,6 +110,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AuthNMappingsApi.v2.deleteAuthNMapping",
+      AuthNMappingsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -152,6 +154,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AuthNMappingsApi.v2.getAuthNMapping",
+      AuthNMappingsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -191,6 +194,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AuthNMappingsApi.v2.listAuthNMappings",
+      AuthNMappingsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -277,6 +281,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AuthNMappingsApi.v2.updateAuthNMapping",
+      AuthNMappingsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -679,11 +684,6 @@ export class AuthNMappingsApi {
       requestFactory || new AuthNMappingsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuthNMappingsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(AuthNMappingsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(AuthNMappingsApi.operationServers);
-    }
   }
 
   /**

@@ -63,6 +63,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.createAWSAccount",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -112,6 +113,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.createAWSEventBridgeSource",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -161,6 +163,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.createAWSTagFilter",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -210,6 +213,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.createNewAWSExternalID",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -259,6 +263,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.deleteAWSAccount",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -308,6 +313,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.deleteAWSEventBridgeSource",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -357,6 +363,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.deleteAWSTagFilter",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -400,6 +407,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.listAvailableAWSNamespaces",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -437,6 +445,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.listAWSAccounts",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -494,6 +503,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.listAWSEventBridgeSources",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -534,6 +544,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.listAWSTagFilters",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -586,6 +597,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v1.updateAWSAccount",
+      AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1482,13 +1494,6 @@ export class AWSIntegrationApi {
       requestFactory || new AWSIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AWSIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(AWSIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        AWSIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

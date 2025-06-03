@@ -48,6 +48,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v2.getOnDemandConcurrencyCap",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -89,6 +90,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SyntheticsApi.v2.setOnDemandConcurrencyCap",
+      SyntheticsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -261,11 +263,6 @@ export class SyntheticsApi {
       requestFactory || new SyntheticsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SyntheticsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(SyntheticsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(SyntheticsApi.operationServers);
-    }
   }
 
   /**

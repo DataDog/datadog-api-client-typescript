@@ -57,6 +57,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceDefinitionApi.v2.createOrUpdateServiceDefinitions",
+      ServiceDefinitionApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -110,6 +111,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceDefinitionApi.v2.deleteServiceDefinition",
+      ServiceDefinitionApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -155,6 +157,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceDefinitionApi.v2.getServiceDefinition",
+      ServiceDefinitionApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -207,6 +210,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceDefinitionApi.v2.listServiceDefinitions",
+      ServiceDefinitionApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -556,13 +560,6 @@ export class ServiceDefinitionApi {
       new ServiceDefinitionApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceDefinitionApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ServiceDefinitionApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        ServiceDefinitionApi.operationServers,
-      );
-    }
   }
 
   /**

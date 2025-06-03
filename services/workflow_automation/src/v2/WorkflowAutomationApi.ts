@@ -71,6 +71,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WorkflowAutomationApi.v2.cancelWorkflowInstance",
+      WorkflowAutomationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -111,6 +112,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WorkflowAutomationApi.v2.createWorkflow",
+      WorkflowAutomationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -169,6 +171,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WorkflowAutomationApi.v2.createWorkflowInstance",
+      WorkflowAutomationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -222,6 +225,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WorkflowAutomationApi.v2.deleteWorkflow",
+      WorkflowAutomationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -265,6 +269,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WorkflowAutomationApi.v2.getWorkflow",
+      WorkflowAutomationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -314,6 +319,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WorkflowAutomationApi.v2.getWorkflowInstance",
+      WorkflowAutomationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -360,6 +366,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WorkflowAutomationApi.v2.listWorkflowInstances",
+      WorkflowAutomationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -426,6 +433,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "WorkflowAutomationApi.v2.updateWorkflow",
+      WorkflowAutomationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1053,13 +1061,6 @@ export class WorkflowAutomationApi {
       new WorkflowAutomationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new WorkflowAutomationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(WorkflowAutomationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        WorkflowAutomationApi.operationServers,
-      );
-    }
   }
 
   /**

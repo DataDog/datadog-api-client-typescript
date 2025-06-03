@@ -61,6 +61,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.createCloudWorkloadSecurityAgentRule",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -115,6 +116,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.createCSMThreatsAgentPolicy",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -169,6 +171,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.createCSMThreatsAgentRule",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -230,6 +233,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.deleteCloudWorkloadSecurityAgentRule",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -274,6 +278,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.deleteCSMThreatsAgentPolicy",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -319,6 +324,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.deleteCSMThreatsAgentRule",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -362,6 +368,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.downloadCloudWorkloadPolicyFile",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -399,6 +406,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.downloadCSMThreatsPolicy",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -449,6 +457,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.getCloudWorkloadSecurityAgentRule",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -493,6 +502,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.getCSMThreatsAgentPolicy",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -538,6 +548,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.getCSMThreatsAgentRule",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -582,6 +593,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.listCloudWorkloadSecurityAgentRules",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -616,6 +628,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.listCSMThreatsAgentPolicies",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -651,6 +664,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.listCSMThreatsAgentRules",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -713,6 +727,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.updateCloudWorkloadSecurityAgentRule",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -777,6 +792,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.updateCSMThreatsAgentPolicy",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -842,6 +858,7 @@ export class CSMThreatsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CSMThreatsApi.v2.updateCSMThreatsAgentRule",
+      CSMThreatsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -2002,11 +2019,6 @@ export class CSMThreatsApi {
       requestFactory || new CSMThreatsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CSMThreatsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(CSMThreatsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(CSMThreatsApi.operationServers);
-    }
   }
 
   /**

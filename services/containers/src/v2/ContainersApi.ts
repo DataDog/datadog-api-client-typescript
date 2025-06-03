@@ -52,6 +52,7 @@ export class ContainersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ContainersApi.v2.listContainers",
+      ContainersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -222,11 +223,6 @@ export class ContainersApi {
       requestFactory || new ContainersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ContainersApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ContainersApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(ContainersApi.operationServers);
-    }
   }
 
   /**

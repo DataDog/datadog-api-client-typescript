@@ -64,6 +64,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v2.createSLOReportJob",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -125,6 +126,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v2.getSLOReport",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -179,6 +181,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v2.getSLOReportJobStatus",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -428,13 +431,6 @@ export class ServiceLevelObjectivesApi {
       new ServiceLevelObjectivesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceLevelObjectivesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ServiceLevelObjectivesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        ServiceLevelObjectivesApi.operationServers,
-      );
-    }
   }
 
   /**

@@ -55,6 +55,7 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OktaIntegrationApi.v2.createOktaAccount",
+      OktaIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -108,6 +109,7 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OktaIntegrationApi.v2.deleteOktaAccount",
+      OktaIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -152,6 +154,7 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OktaIntegrationApi.v2.getOktaAccount",
+      OktaIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -186,6 +189,7 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OktaIntegrationApi.v2.listOktaAccounts",
+      OktaIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -236,6 +240,7 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OktaIntegrationApi.v2.updateOktaAccount",
+      OktaIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -616,13 +621,6 @@ export class OktaIntegrationApi {
       new OktaIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OktaIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(OktaIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        OktaIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

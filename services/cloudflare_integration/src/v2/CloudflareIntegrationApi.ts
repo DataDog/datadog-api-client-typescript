@@ -55,6 +55,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudflareIntegrationApi.v2.createCloudflareAccount",
+      CloudflareIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -108,6 +109,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudflareIntegrationApi.v2.deleteCloudflareAccount",
+      CloudflareIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -152,6 +154,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudflareIntegrationApi.v2.getCloudflareAccount",
+      CloudflareIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -186,6 +189,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudflareIntegrationApi.v2.listCloudflareAccounts",
+      CloudflareIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -236,6 +240,7 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudflareIntegrationApi.v2.updateCloudflareAccount",
+      CloudflareIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -618,13 +623,6 @@ export class CloudflareIntegrationApi {
       new CloudflareIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CloudflareIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(CloudflareIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        CloudflareIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

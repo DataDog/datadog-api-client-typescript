@@ -68,6 +68,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardListsApi.v2.createDashboardListItems",
+      DashboardListsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -127,6 +128,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardListsApi.v2.deleteDashboardListItems",
+      DashboardListsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -180,6 +182,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardListsApi.v2.getDashboardListItems",
+      DashboardListsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -231,6 +234,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "DashboardListsApi.v2.updateDashboardListItems",
+      DashboardListsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -573,13 +577,6 @@ export class DashboardListsApi {
       requestFactory || new DashboardListsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DashboardListsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(DashboardListsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        DashboardListsApi.operationServers,
-      );
-    }
   }
 
   /**

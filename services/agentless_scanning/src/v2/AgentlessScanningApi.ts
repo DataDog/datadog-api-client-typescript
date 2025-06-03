@@ -58,6 +58,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AgentlessScanningApi.v2.createAwsOnDemandTask",
+      AgentlessScanningApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -107,6 +108,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AgentlessScanningApi.v2.createAwsScanOptions",
+      AgentlessScanningApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -160,6 +162,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AgentlessScanningApi.v2.deleteAwsScanOptions",
+      AgentlessScanningApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -204,6 +207,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AgentlessScanningApi.v2.getAwsOnDemandTask",
+      AgentlessScanningApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -238,6 +242,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AgentlessScanningApi.v2.listAwsOnDemandTasks",
+      AgentlessScanningApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -272,6 +277,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AgentlessScanningApi.v2.listAwsScanOptions",
+      AgentlessScanningApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -322,6 +328,7 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AgentlessScanningApi.v2.updateAwsScanOptions",
+      AgentlessScanningApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -810,13 +817,6 @@ export class AgentlessScanningApi {
       new AgentlessScanningApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AgentlessScanningApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(AgentlessScanningApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        AgentlessScanningApi.operationServers,
-      );
-    }
   }
 
   /**

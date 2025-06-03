@@ -52,6 +52,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "GCPIntegrationApi.v1.createGCPIntegration",
+      GCPIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -101,6 +102,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "GCPIntegrationApi.v1.deleteGCPIntegration",
+      GCPIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -144,6 +146,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "GCPIntegrationApi.v1.listGCPIntegration",
+      GCPIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -184,6 +187,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "GCPIntegrationApi.v1.updateGCPIntegration",
+      GCPIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -494,13 +498,6 @@ export class GCPIntegrationApi {
       requestFactory || new GCPIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new GCPIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(GCPIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        GCPIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

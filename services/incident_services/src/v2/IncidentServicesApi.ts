@@ -66,6 +66,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentServicesApi.v2.createIncidentService",
+      IncidentServicesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -129,6 +130,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentServicesApi.v2.deleteIncidentService",
+      IncidentServicesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -182,6 +184,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentServicesApi.v2.getIncidentService",
+      IncidentServicesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -238,6 +241,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentServicesApi.v2.listIncidentServices",
+      IncidentServicesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -328,6 +332,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "IncidentServicesApi.v2.updateIncidentService",
+      IncidentServicesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -744,13 +749,6 @@ export class IncidentServicesApi {
       new IncidentServicesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IncidentServicesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(IncidentServicesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        IncidentServicesApi.operationServers,
-      );
-    }
   }
 
   /**

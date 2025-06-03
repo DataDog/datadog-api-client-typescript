@@ -55,6 +55,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v1.createUser",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -107,6 +108,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v1.disableUser",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -150,6 +152,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v1.getUser",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -182,6 +185,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v1.listUsers",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -232,6 +236,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "UsersApi.v1.updateUser",
+      UsersApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -612,11 +617,6 @@ export class UsersApi {
       requestFactory || new UsersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new UsersApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(UsersApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(UsersApi.operationServers);
-    }
   }
 
   /**

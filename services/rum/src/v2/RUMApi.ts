@@ -62,6 +62,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RUMApi.v2.aggregateRUMEvents",
+      RUMApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -112,6 +113,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RUMApi.v2.createRUMApplication",
+      RUMApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -164,6 +166,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RUMApi.v2.deleteRUMApplication",
+      RUMApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -207,6 +210,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RUMApi.v2.getRUMApplication",
+      RUMApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -241,6 +245,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RUMApi.v2.getRUMApplications",
+      RUMApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -281,6 +286,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RUMApi.v2.listRUMEvents",
+      RUMApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -366,6 +372,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RUMApi.v2.searchRUMEvents",
+      RUMApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -425,6 +432,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RUMApi.v2.updateRUMApplication",
+      RUMApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1010,11 +1018,6 @@ export class RUMApi {
     this.requestFactory =
       requestFactory || new RUMApiRequestFactory(this.configuration);
     this.responseProcessor = responseProcessor || new RUMApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(RUMApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(RUMApi.operationServers);
-    }
   }
 
   /**

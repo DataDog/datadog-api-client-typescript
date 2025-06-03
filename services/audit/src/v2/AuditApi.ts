@@ -56,6 +56,7 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AuditApi.v2.listAuditLogs",
+      AuditApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -135,6 +136,7 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AuditApi.v2.searchAuditLogs",
+      AuditApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -347,11 +349,6 @@ export class AuditApi {
       requestFactory || new AuditApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuditApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(AuditApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(AuditApi.operationServers);
-    }
   }
 
   /**

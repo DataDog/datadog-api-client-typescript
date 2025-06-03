@@ -31,7 +31,6 @@ export class Configuration {
   readonly backoffMultiplier: number | undefined;
   unstableOperations: { [name: string]: boolean };
   servers: BaseServerConfiguration[];
-  operationServers: { [endpoint: string]: BaseServerConfiguration[] };
 
   public constructor(
     baseServer: BaseServerConfiguration | undefined,
@@ -67,13 +66,15 @@ export class Configuration {
     for (const server of servers) {
       this.servers.push(server.clone());
     }
-    this.operationServers = {};
     if (backoffBase && backoffBase < 2) {
       throw new Error("Backoff base must be at least 2");
     }
   }
 
-  getServerAndOverrides(key: string): {
+  getServerAndOverrides(
+    key: string,
+    operationServers?: { [key: string]: BaseServerConfiguration[] },
+  ): {
     server: BaseServerConfiguration;
     overrides?: { [key: string]: string };
   } {
@@ -83,9 +84,9 @@ export class Configuration {
 
     let server: BaseServerConfiguration;
     let overrides: { [key: string]: string } | undefined;
-    if (key in this.operationServers) {
+    if (operationServers && key in operationServers) {
       const index = this.operationServerIndices[key] || 0;
-      server = this.operationServers[key][index];
+      server = operationServers[key][index];
       overrides = this.operationServerVariables[key];
     } else {
       const index = this.serverIndex;
@@ -94,12 +95,6 @@ export class Configuration {
     }
 
     return { server, overrides };
-  }
-
-  addOperationServers(operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  }): void {
-    this.operationServers = { ...operationServers, ...this.operationServers };
   }
 }
 

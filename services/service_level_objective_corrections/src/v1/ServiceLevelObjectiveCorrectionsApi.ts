@@ -59,6 +59,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectiveCorrectionsApi.v1.createSLOCorrection",
+      ServiceLevelObjectiveCorrectionsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -112,6 +113,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectiveCorrectionsApi.v1.deleteSLOCorrection",
+      ServiceLevelObjectiveCorrectionsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -155,6 +157,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectiveCorrectionsApi.v1.getSLOCorrection",
+      ServiceLevelObjectiveCorrectionsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -191,6 +194,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectiveCorrectionsApi.v1.listSLOCorrection",
+      ServiceLevelObjectiveCorrectionsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -257,6 +261,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectiveCorrectionsApi.v1.updateSLOCorrection",
+      ServiceLevelObjectiveCorrectionsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -646,16 +651,6 @@ export class ServiceLevelObjectiveCorrectionsApi {
     this.responseProcessor =
       responseProcessor ||
       new ServiceLevelObjectiveCorrectionsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (
-      Object.keys(ServiceLevelObjectiveCorrectionsApi.operationServers).length >
-      0
-    ) {
-      this.configuration.addOperationServers(
-        ServiceLevelObjectiveCorrectionsApi.operationServers,
-      );
-    }
   }
 
   /**

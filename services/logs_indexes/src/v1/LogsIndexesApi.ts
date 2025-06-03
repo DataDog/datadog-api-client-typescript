@@ -56,6 +56,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsIndexesApi.v1.createLogsIndex",
+      LogsIndexesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -108,6 +109,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsIndexesApi.v1.deleteLogsIndex",
+      LogsIndexesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -151,6 +153,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsIndexesApi.v1.getLogsIndex",
+      LogsIndexesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -185,6 +188,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsIndexesApi.v1.getLogsIndexOrder",
+      LogsIndexesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -219,6 +223,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsIndexesApi.v1.listLogIndexes",
+      LogsIndexesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -269,6 +274,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsIndexesApi.v1.updateLogsIndex",
+      LogsIndexesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -318,6 +324,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "LogsIndexesApi.v1.updateLogsIndexOrder",
+      LogsIndexesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -893,11 +900,6 @@ export class LogsIndexesApi {
       requestFactory || new LogsIndexesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsIndexesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(LogsIndexesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(LogsIndexesApi.operationServers);
-    }
   }
 
   /**

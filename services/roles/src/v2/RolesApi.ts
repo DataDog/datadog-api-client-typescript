@@ -72,6 +72,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.addPermissionToRole",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -131,6 +132,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.addUserToRole",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -190,6 +192,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.cloneRole",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -240,6 +243,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.createRole",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -293,6 +297,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.deleteRole",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -337,6 +342,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.getRole",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -372,6 +378,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.listPermissions",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -416,6 +423,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.listRolePermissions",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -456,6 +464,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.listRoles",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -541,6 +550,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.listRoleUsers",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -621,6 +631,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.removePermissionFromRole",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -680,6 +691,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.removeUserFromRole",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -739,6 +751,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RolesApi.v2.updateRole",
+      RolesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1720,11 +1733,6 @@ export class RolesApi {
       requestFactory || new RolesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RolesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(RolesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(RolesApi.operationServers);
-    }
   }
 
   /**

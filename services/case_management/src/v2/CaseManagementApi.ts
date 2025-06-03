@@ -72,6 +72,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.archiveCase",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -131,6 +132,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.assignCase",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -181,6 +183,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.createCase",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -231,6 +234,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.createProject",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -284,6 +288,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.deleteProject",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -328,6 +333,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.getCase",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -372,6 +378,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.getProject",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -405,6 +412,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.getProjects",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -445,6 +453,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.searchCases",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -532,6 +541,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.unarchiveCase",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -591,6 +601,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.unassignCase",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -650,6 +661,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.updatePriority",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -709,6 +721,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CaseManagementApi.v2.updateStatus",
+      CaseManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1681,13 +1694,6 @@ export class CaseManagementApi {
       requestFactory || new CaseManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CaseManagementApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(CaseManagementApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        CaseManagementApi.operationServers,
-      );
-    }
   }
 
   /**

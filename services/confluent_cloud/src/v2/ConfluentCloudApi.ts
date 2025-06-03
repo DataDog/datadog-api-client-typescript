@@ -58,6 +58,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ConfluentCloudApi.v2.createConfluentAccount",
+      ConfluentCloudApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -117,6 +118,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ConfluentCloudApi.v2.createConfluentResource",
+      ConfluentCloudApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -170,6 +172,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ConfluentCloudApi.v2.deleteConfluentAccount",
+      ConfluentCloudApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -219,6 +222,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ConfluentCloudApi.v2.deleteConfluentResource",
+      ConfluentCloudApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -263,6 +267,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ConfluentCloudApi.v2.getConfluentAccount",
+      ConfluentCloudApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -312,6 +317,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ConfluentCloudApi.v2.getConfluentResource",
+      ConfluentCloudApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -346,6 +352,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ConfluentCloudApi.v2.listConfluentAccount",
+      ConfluentCloudApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -390,6 +397,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ConfluentCloudApi.v2.listConfluentResource",
+      ConfluentCloudApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -440,6 +448,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ConfluentCloudApi.v2.updateConfluentAccount",
+      ConfluentCloudApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -504,6 +513,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ConfluentCloudApi.v2.updateConfluentResource",
+      ConfluentCloudApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1246,13 +1256,6 @@ export class ConfluentCloudApi {
       requestFactory || new ConfluentCloudApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ConfluentCloudApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ConfluentCloudApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        ConfluentCloudApi.operationServers,
-      );
-    }
   }
 
   /**

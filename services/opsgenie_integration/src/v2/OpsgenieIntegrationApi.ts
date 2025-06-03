@@ -55,6 +55,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OpsgenieIntegrationApi.v2.createOpsgenieService",
+      OpsgenieIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -108,6 +109,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OpsgenieIntegrationApi.v2.deleteOpsgenieService",
+      OpsgenieIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -152,6 +154,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OpsgenieIntegrationApi.v2.getOpsgenieService",
+      OpsgenieIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -186,6 +189,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OpsgenieIntegrationApi.v2.listOpsgenieServices",
+      OpsgenieIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -236,6 +240,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "OpsgenieIntegrationApi.v2.updateOpsgenieService",
+      OpsgenieIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -615,13 +620,6 @@ export class OpsgenieIntegrationApi {
       new OpsgenieIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OpsgenieIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(OpsgenieIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        OpsgenieIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

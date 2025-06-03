@@ -64,6 +64,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AppBuilderApi.v2.createApp",
+      AppBuilderApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -116,6 +117,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AppBuilderApi.v2.deleteApp",
+      AppBuilderApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -156,6 +158,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AppBuilderApi.v2.deleteApps",
+      AppBuilderApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -209,6 +212,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AppBuilderApi.v2.getApp",
+      AppBuilderApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -263,6 +267,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AppBuilderApi.v2.listApps",
+      AppBuilderApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -385,6 +390,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AppBuilderApi.v2.publishApp",
+      AppBuilderApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -428,6 +434,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AppBuilderApi.v2.unpublishApp",
+      AppBuilderApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -477,6 +484,7 @@ export class AppBuilderApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AppBuilderApi.v2.updateApp",
+      AppBuilderApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1284,11 +1292,6 @@ export class AppBuilderApi {
       requestFactory || new AppBuilderApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AppBuilderApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(AppBuilderApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(AppBuilderApi.operationServers);
-    }
   }
 
   /**

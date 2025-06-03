@@ -61,6 +61,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.createAPIKey",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -110,6 +111,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.createCurrentUserApplicationKey",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -162,6 +164,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.deleteAPIKey",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -205,6 +208,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.deleteApplicationKey",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -249,6 +253,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.deleteCurrentUserApplicationKey",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -293,6 +298,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.getAPIKey",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -346,6 +352,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.getApplicationKey",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -399,6 +406,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.getCurrentUserApplicationKey",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -444,6 +452,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.listAPIKeys",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -564,6 +573,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.listApplicationKeys",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -656,6 +666,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.listCurrentUserApplicationKeys",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -756,6 +767,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.updateAPIKey",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -814,6 +826,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.updateApplicationKey",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -873,6 +886,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "KeyManagementApi.v2.updateCurrentUserApplicationKey",
+      KeyManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1980,11 +1994,6 @@ export class KeyManagementApi {
       requestFactory || new KeyManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new KeyManagementApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(KeyManagementApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(KeyManagementApi.operationServers);
-    }
   }
 
   /**

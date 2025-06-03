@@ -59,6 +59,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "APIManagementApi.v2.createOpenAPI",
+      APIManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -117,6 +118,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "APIManagementApi.v2.deleteOpenAPI",
+      APIManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -167,6 +169,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "APIManagementApi.v2.getOpenAPI",
+      APIManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -214,6 +217,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "APIManagementApi.v2.listAPIs",
+      APIManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -288,6 +292,7 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "APIManagementApi.v2.updateOpenAPI",
+      APIManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -767,11 +772,6 @@ export class APIManagementApi {
       requestFactory || new APIManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new APIManagementApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(APIManagementApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(APIManagementApi.operationServers);
-    }
   }
 
   /**

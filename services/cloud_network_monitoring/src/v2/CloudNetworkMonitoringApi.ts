@@ -61,6 +61,7 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudNetworkMonitoringApi.v2.getAggregatedConnections",
+      CloudNetworkMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -226,13 +227,6 @@ export class CloudNetworkMonitoringApi {
       new CloudNetworkMonitoringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CloudNetworkMonitoringApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(CloudNetworkMonitoringApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        CloudNetworkMonitoringApi.operationServers,
-      );
-    }
   }
 
   /**

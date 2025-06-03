@@ -64,6 +64,7 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "SnapshotsApi.v1.getGraphSnapshot",
+      SnapshotsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -271,11 +272,6 @@ export class SnapshotsApi {
       requestFactory || new SnapshotsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SnapshotsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(SnapshotsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(SnapshotsApi.operationServers);
-    }
   }
 
   /**

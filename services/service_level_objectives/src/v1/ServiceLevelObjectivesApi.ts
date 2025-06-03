@@ -62,6 +62,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v1.checkCanDeleteSLO",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -112,6 +113,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v1.createSLO",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -166,6 +168,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v1.deleteSLO",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -216,6 +219,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v1.deleteSLOTimeframeInBulk",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -275,6 +279,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v1.getSLO",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -328,6 +333,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v1.getSLOCorrections",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -386,6 +392,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v1.getSLOHistory",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -457,6 +464,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v1.listSLOs",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -540,6 +548,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v1.searchSLO",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -620,6 +629,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "ServiceLevelObjectivesApi.v1.updateSLO",
+      ServiceLevelObjectivesApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1428,13 +1438,6 @@ export class ServiceLevelObjectivesApi {
       new ServiceLevelObjectivesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceLevelObjectivesApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(ServiceLevelObjectivesApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        ServiceLevelObjectivesApi.operationServers,
-      );
-    }
   }
 
   /**

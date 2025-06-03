@@ -59,6 +59,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "NetworkDeviceMonitoringApi.v2.getDevice",
+      NetworkDeviceMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -100,6 +101,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "NetworkDeviceMonitoringApi.v2.getInterfaces",
+      NetworkDeviceMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -154,6 +156,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "NetworkDeviceMonitoringApi.v2.listDevices",
+      NetworkDeviceMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -227,6 +230,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "NetworkDeviceMonitoringApi.v2.listDeviceUserTags",
+      NetworkDeviceMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -276,6 +280,7 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "NetworkDeviceMonitoringApi.v2.updateDeviceUserTags",
+      NetworkDeviceMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -689,13 +694,6 @@ export class NetworkDeviceMonitoringApi {
       new NetworkDeviceMonitoringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new NetworkDeviceMonitoringApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(NetworkDeviceMonitoringApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        NetworkDeviceMonitoringApi.operationServers,
-      );
-    }
   }
 
   /**

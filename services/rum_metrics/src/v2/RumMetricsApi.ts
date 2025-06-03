@@ -55,6 +55,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumMetricsApi.v2.createRumMetric",
+      RumMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -107,6 +108,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumMetricsApi.v2.deleteRumMetric",
+      RumMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -150,6 +152,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumMetricsApi.v2.getRumMetric",
+      RumMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -184,6 +187,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumMetricsApi.v2.listRumMetrics",
+      RumMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -233,6 +237,7 @@ export class RumMetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "RumMetricsApi.v2.updateRumMetric",
+      RumMetricsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -608,11 +613,6 @@ export class RumMetricsApi {
       requestFactory || new RumMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RumMetricsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(RumMetricsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(RumMetricsApi.operationServers);
-    }
   }
 
   /**

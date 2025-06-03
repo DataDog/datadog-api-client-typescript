@@ -58,6 +58,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FastlyIntegrationApi.v2.createFastlyAccount",
+      FastlyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -117,6 +118,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FastlyIntegrationApi.v2.createFastlyService",
+      FastlyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -170,6 +172,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FastlyIntegrationApi.v2.deleteFastlyAccount",
+      FastlyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -219,6 +222,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FastlyIntegrationApi.v2.deleteFastlyService",
+      FastlyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -263,6 +267,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FastlyIntegrationApi.v2.getFastlyAccount",
+      FastlyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -312,6 +317,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FastlyIntegrationApi.v2.getFastlyService",
+      FastlyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -346,6 +352,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FastlyIntegrationApi.v2.listFastlyAccounts",
+      FastlyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -390,6 +397,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FastlyIntegrationApi.v2.listFastlyServices",
+      FastlyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -440,6 +448,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FastlyIntegrationApi.v2.updateFastlyAccount",
+      FastlyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -504,6 +513,7 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "FastlyIntegrationApi.v2.updateFastlyService",
+      FastlyIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1239,13 +1249,6 @@ export class FastlyIntegrationApi {
       new FastlyIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new FastlyIntegrationApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(FastlyIntegrationApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(
-        FastlyIntegrationApi.operationServers,
-      );
-    }
   }
 
   /**

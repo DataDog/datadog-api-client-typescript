@@ -59,6 +59,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.createMonitorConfigPolicy",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -118,6 +119,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.createMonitorNotificationRule",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -171,6 +173,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.deleteMonitorConfigPolicy",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -224,6 +227,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.deleteMonitorNotificationRule",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -268,6 +272,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.getMonitorConfigPolicy",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -321,6 +326,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.getMonitorNotificationRule",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -374,6 +380,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.getMonitorNotificationRules",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -418,6 +425,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.listMonitorConfigPolicies",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -468,6 +476,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.updateMonitorConfigPolicy",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -536,6 +545,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.updateMonitorNotificationRule",
+      MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
       localVarPath,
@@ -1251,11 +1261,6 @@ export class MonitorsApi {
       requestFactory || new MonitorsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new MonitorsApiResponseProcessor();
-
-    // Add operation servers to the configuration
-    if (Object.keys(MonitorsApi.operationServers).length > 0) {
-      this.configuration.addOperationServers(MonitorsApi.operationServers);
-    }
   }
 
   /**
