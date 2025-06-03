@@ -456,9 +456,7 @@ export class CIVisibilityTestsApi {
   private responseProcessor: CIVisibilityTestsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -473,8 +471,10 @@ export class CIVisibilityTestsApi {
       responseProcessor || new CIVisibilityTestsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(CIVisibilityTestsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        CIVisibilityTestsApi.operationServers,
+      );
     }
   }
 

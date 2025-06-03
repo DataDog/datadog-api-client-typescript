@@ -797,9 +797,7 @@ export class AgentlessScanningApi {
   private responseProcessor: AgentlessScanningApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -814,8 +812,10 @@ export class AgentlessScanningApi {
       responseProcessor || new AgentlessScanningApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(AgentlessScanningApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        AgentlessScanningApi.operationServers,
+      );
     }
   }
 

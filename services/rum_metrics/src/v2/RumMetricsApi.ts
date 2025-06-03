@@ -596,9 +596,7 @@ export class RumMetricsApi {
   private responseProcessor: RumMetricsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -612,8 +610,8 @@ export class RumMetricsApi {
       responseProcessor || new RumMetricsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(RumMetricsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(RumMetricsApi.operationServers);
     }
   }
 

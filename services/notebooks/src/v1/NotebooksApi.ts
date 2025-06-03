@@ -737,9 +737,7 @@ export class NotebooksApi {
   private responseProcessor: NotebooksApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -753,8 +751,8 @@ export class NotebooksApi {
       responseProcessor || new NotebooksApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(NotebooksApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(NotebooksApi.operationServers);
     }
   }
 

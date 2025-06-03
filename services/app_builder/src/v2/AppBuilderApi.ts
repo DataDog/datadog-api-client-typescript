@@ -1272,9 +1272,7 @@ export class AppBuilderApi {
   private responseProcessor: AppBuilderApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1288,8 +1286,8 @@ export class AppBuilderApi {
       responseProcessor || new AppBuilderApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(AppBuilderApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(AppBuilderApi.operationServers);
     }
   }
 

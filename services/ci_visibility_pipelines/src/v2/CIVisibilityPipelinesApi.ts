@@ -576,9 +576,7 @@ export class CIVisibilityPipelinesApi {
   private responseProcessor: CIVisibilityPipelinesApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -593,8 +591,10 @@ export class CIVisibilityPipelinesApi {
       responseProcessor || new CIVisibilityPipelinesApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(CIVisibilityPipelinesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        CIVisibilityPipelinesApi.operationServers,
+      );
     }
   }
 

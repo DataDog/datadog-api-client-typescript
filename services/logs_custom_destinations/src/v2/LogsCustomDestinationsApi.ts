@@ -612,9 +612,7 @@ export class LogsCustomDestinationsApi {
   private responseProcessor: LogsCustomDestinationsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -629,8 +627,10 @@ export class LogsCustomDestinationsApi {
       responseProcessor || new LogsCustomDestinationsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(LogsCustomDestinationsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        LogsCustomDestinationsApi.operationServers,
+      );
     }
   }
 

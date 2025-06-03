@@ -845,9 +845,7 @@ export class DORAMetricsApi {
   private responseProcessor: DORAMetricsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -861,8 +859,8 @@ export class DORAMetricsApi {
       responseProcessor || new DORAMetricsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(DORAMetricsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(DORAMetricsApi.operationServers);
     }
   }
 

@@ -1483,9 +1483,7 @@ export class OnCallApi {
   private responseProcessor: OnCallApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1499,8 +1497,8 @@ export class OnCallApi {
       responseProcessor || new OnCallApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(OnCallApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(OnCallApi.operationServers);
     }
   }
 

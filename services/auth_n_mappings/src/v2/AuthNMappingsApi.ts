@@ -667,9 +667,7 @@ export class AuthNMappingsApi {
   private responseProcessor: AuthNMappingsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -683,8 +681,8 @@ export class AuthNMappingsApi {
       responseProcessor || new AuthNMappingsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(AuthNMappingsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(AuthNMappingsApi.operationServers);
     }
   }
 

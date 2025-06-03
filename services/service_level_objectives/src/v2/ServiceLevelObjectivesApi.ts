@@ -415,9 +415,7 @@ export class ServiceLevelObjectivesApi {
   private responseProcessor: ServiceLevelObjectivesApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -432,8 +430,10 @@ export class ServiceLevelObjectivesApi {
       responseProcessor || new ServiceLevelObjectivesApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(ServiceLevelObjectivesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        ServiceLevelObjectivesApi.operationServers,
+      );
     }
   }
 

@@ -1040,9 +1040,7 @@ export class WorkflowAutomationApi {
   private responseProcessor: WorkflowAutomationApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1057,8 +1055,10 @@ export class WorkflowAutomationApi {
       responseProcessor || new WorkflowAutomationApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(WorkflowAutomationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        WorkflowAutomationApi.operationServers,
+      );
     }
   }
 

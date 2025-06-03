@@ -676,9 +676,7 @@ export class NetworkDeviceMonitoringApi {
   private responseProcessor: NetworkDeviceMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -693,8 +691,10 @@ export class NetworkDeviceMonitoringApi {
       responseProcessor || new NetworkDeviceMonitoringApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(NetworkDeviceMonitoringApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        NetworkDeviceMonitoringApi.operationServers,
+      );
     }
   }
 

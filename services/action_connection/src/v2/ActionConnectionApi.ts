@@ -519,9 +519,7 @@ export class ActionConnectionApi {
   private responseProcessor: ActionConnectionApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -536,8 +534,10 @@ export class ActionConnectionApi {
       responseProcessor || new ActionConnectionApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(ActionConnectionApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        ActionConnectionApi.operationServers,
+      );
     }
   }
 

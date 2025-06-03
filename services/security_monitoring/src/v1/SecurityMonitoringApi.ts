@@ -451,9 +451,7 @@ export class SecurityMonitoringApi {
   private responseProcessor: SecurityMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -468,8 +466,10 @@ export class SecurityMonitoringApi {
       responseProcessor || new SecurityMonitoringApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(SecurityMonitoringApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        SecurityMonitoringApi.operationServers,
+      );
     }
   }
 

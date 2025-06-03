@@ -740,9 +740,7 @@ export class OrganizationsApi {
   private responseProcessor: OrganizationsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -756,8 +754,8 @@ export class OrganizationsApi {
       responseProcessor || new OrganizationsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(OrganizationsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(OrganizationsApi.operationServers);
     }
   }
 

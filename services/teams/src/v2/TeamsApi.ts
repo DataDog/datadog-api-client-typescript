@@ -2227,9 +2227,7 @@ export class TeamsApi {
   private responseProcessor: TeamsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -2243,8 +2241,8 @@ export class TeamsApi {
       responseProcessor || new TeamsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(TeamsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(TeamsApi.operationServers);
     }
   }
 

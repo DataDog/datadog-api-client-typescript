@@ -485,9 +485,7 @@ export class EventsApi {
   private responseProcessor: EventsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -501,8 +499,8 @@ export class EventsApi {
       responseProcessor || new EventsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(EventsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(EventsApi.operationServers);
     }
   }
 

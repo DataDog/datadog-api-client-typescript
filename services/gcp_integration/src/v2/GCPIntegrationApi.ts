@@ -692,9 +692,7 @@ export class GCPIntegrationApi {
   private responseProcessor: GCPIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -708,8 +706,10 @@ export class GCPIntegrationApi {
       responseProcessor || new GCPIntegrationApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(GCPIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        GCPIntegrationApi.operationServers,
+      );
     }
   }
 

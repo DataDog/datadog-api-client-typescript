@@ -1753,9 +1753,7 @@ export class UsageMeteringApi {
   private responseProcessor: UsageMeteringApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1769,8 +1767,8 @@ export class UsageMeteringApi {
       responseProcessor || new UsageMeteringApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(UsageMeteringApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(UsageMeteringApi.operationServers);
     }
   }
 

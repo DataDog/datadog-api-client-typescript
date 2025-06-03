@@ -891,9 +891,7 @@ export class ServiceAccountsApi {
   private responseProcessor: ServiceAccountsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -908,8 +906,10 @@ export class ServiceAccountsApi {
       responseProcessor || new ServiceAccountsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(ServiceAccountsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        ServiceAccountsApi.operationServers,
+      );
     }
   }
 

@@ -484,9 +484,7 @@ export class DataDeletionApi {
   private responseProcessor: DataDeletionApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -500,8 +498,8 @@ export class DataDeletionApi {
       responseProcessor || new DataDeletionApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(DataDeletionApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(DataDeletionApi.operationServers);
     }
   }
 

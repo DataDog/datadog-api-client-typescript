@@ -794,9 +794,7 @@ export class RumRetentionFiltersApi {
   private responseProcessor: RumRetentionFiltersApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -811,8 +809,10 @@ export class RumRetentionFiltersApi {
       responseProcessor || new RumRetentionFiltersApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(RumRetentionFiltersApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        RumRetentionFiltersApi.operationServers,
+      );
     }
   }
 

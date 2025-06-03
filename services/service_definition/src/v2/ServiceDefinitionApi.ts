@@ -543,9 +543,7 @@ export class ServiceDefinitionApi {
   private responseProcessor: ServiceDefinitionApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -560,8 +558,10 @@ export class ServiceDefinitionApi {
       responseProcessor || new ServiceDefinitionApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(ServiceDefinitionApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        ServiceDefinitionApi.operationServers,
+      );
     }
   }
 

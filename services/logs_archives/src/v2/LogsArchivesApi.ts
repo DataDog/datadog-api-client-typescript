@@ -1155,9 +1155,7 @@ export class LogsArchivesApi {
   private responseProcessor: LogsArchivesApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1171,8 +1169,8 @@ export class LogsArchivesApi {
       responseProcessor || new LogsArchivesApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(LogsArchivesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(LogsArchivesApi.operationServers);
     }
   }
 

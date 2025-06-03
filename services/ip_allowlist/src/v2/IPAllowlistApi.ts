@@ -257,9 +257,7 @@ export class IPAllowlistApi {
   private responseProcessor: IPAllowlistApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -273,8 +271,8 @@ export class IPAllowlistApi {
       responseProcessor || new IPAllowlistApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(IPAllowlistApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(IPAllowlistApi.operationServers);
     }
   }
 

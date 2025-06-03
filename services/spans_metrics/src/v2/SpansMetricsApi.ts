@@ -595,9 +595,7 @@ export class SpansMetricsApi {
   private responseProcessor: SpansMetricsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -611,8 +609,8 @@ export class SpansMetricsApi {
       responseProcessor || new SpansMetricsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(SpansMetricsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(SpansMetricsApi.operationServers);
     }
   }
 

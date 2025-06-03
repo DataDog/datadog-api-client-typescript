@@ -755,9 +755,7 @@ export class APIManagementApi {
   private responseProcessor: APIManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -771,8 +769,8 @@ export class APIManagementApi {
       responseProcessor || new APIManagementApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(APIManagementApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(APIManagementApi.operationServers);
     }
   }
 

@@ -1669,9 +1669,7 @@ export class CaseManagementApi {
   private responseProcessor: CaseManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1685,8 +1683,10 @@ export class CaseManagementApi {
       responseProcessor || new CaseManagementApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(CaseManagementApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        CaseManagementApi.operationServers,
+      );
     }
   }
 

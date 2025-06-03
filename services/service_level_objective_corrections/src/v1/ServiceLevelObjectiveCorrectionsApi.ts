@@ -632,9 +632,7 @@ export class ServiceLevelObjectiveCorrectionsApi {
   private responseProcessor: ServiceLevelObjectiveCorrectionsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -650,8 +648,13 @@ export class ServiceLevelObjectiveCorrectionsApi {
       new ServiceLevelObjectiveCorrectionsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (
+      Object.keys(ServiceLevelObjectiveCorrectionsApi.operationServers).length >
+      0
+    ) {
+      this.configuration.addOperationServers(
+        ServiceLevelObjectiveCorrectionsApi.operationServers,
+      );
     }
   }
 

@@ -597,9 +597,7 @@ export class AzureIntegrationApi {
   private responseProcessor: AzureIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -614,8 +612,10 @@ export class AzureIntegrationApi {
       responseProcessor || new AzureIntegrationApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(AzureIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        AzureIntegrationApi.operationServers,
+      );
     }
   }
 

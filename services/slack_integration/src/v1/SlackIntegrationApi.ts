@@ -667,9 +667,7 @@ export class SlackIntegrationApi {
   private responseProcessor: SlackIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -684,8 +682,10 @@ export class SlackIntegrationApi {
       responseProcessor || new SlackIntegrationApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(SlackIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        SlackIntegrationApi.operationServers,
+      );
     }
   }
 

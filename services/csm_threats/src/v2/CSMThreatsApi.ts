@@ -1990,9 +1990,7 @@ export class CSMThreatsApi {
   private responseProcessor: CSMThreatsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -2006,8 +2004,8 @@ export class CSMThreatsApi {
       responseProcessor || new CSMThreatsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(CSMThreatsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(CSMThreatsApi.operationServers);
     }
   }
 

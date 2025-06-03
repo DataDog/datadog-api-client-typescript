@@ -884,9 +884,7 @@ export class LogsPipelinesApi {
   private responseProcessor: LogsPipelinesApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -900,8 +898,8 @@ export class LogsPipelinesApi {
       responseProcessor || new LogsPipelinesApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(LogsPipelinesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(LogsPipelinesApi.operationServers);
     }
   }
 

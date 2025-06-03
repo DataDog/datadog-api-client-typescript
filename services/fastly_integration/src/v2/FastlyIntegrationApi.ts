@@ -1226,9 +1226,7 @@ export class FastlyIntegrationApi {
   private responseProcessor: FastlyIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1243,8 +1241,10 @@ export class FastlyIntegrationApi {
       responseProcessor || new FastlyIntegrationApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(FastlyIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        FastlyIntegrationApi.operationServers,
+      );
     }
   }
 

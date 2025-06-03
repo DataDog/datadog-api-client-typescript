@@ -1754,9 +1754,7 @@ export class CloudCostManagementApi {
   private responseProcessor: CloudCostManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1771,8 +1769,10 @@ export class CloudCostManagementApi {
       responseProcessor || new CloudCostManagementApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(CloudCostManagementApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        CloudCostManagementApi.operationServers,
+      );
     }
   }
 

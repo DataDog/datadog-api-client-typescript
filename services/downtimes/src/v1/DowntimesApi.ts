@@ -854,9 +854,7 @@ export class DowntimesApi {
   private responseProcessor: DowntimesApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -870,8 +868,8 @@ export class DowntimesApi {
       responseProcessor || new DowntimesApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(DowntimesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(DowntimesApi.operationServers);
     }
   }
 

@@ -632,9 +632,7 @@ export class LogsApi {
   private responseProcessor: LogsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
     "LogsApi.v2.submitLog": [
       new ServerConfiguration<{
         site:
@@ -678,8 +676,8 @@ export class LogsApi {
       responseProcessor || new LogsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(LogsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(LogsApi.operationServers);
     }
   }
 

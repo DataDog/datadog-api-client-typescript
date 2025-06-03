@@ -1032,9 +1032,7 @@ export class ServiceScorecardsApi {
   private responseProcessor: ServiceScorecardsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1049,8 +1047,10 @@ export class ServiceScorecardsApi {
       responseProcessor || new ServiceScorecardsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(ServiceScorecardsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        ServiceScorecardsApi.operationServers,
+      );
     }
   }
 

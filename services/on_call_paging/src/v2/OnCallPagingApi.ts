@@ -442,9 +442,7 @@ export class OnCallPagingApi {
   private responseProcessor: OnCallPagingApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
     "OnCallPagingApi.v2.acknowledgeOnCallPage": [
       new ServerConfiguration<{
         site:
@@ -563,8 +561,8 @@ export class OnCallPagingApi {
       responseProcessor || new OnCallPagingApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(OnCallPagingApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(OnCallPagingApi.operationServers);
     }
   }
 

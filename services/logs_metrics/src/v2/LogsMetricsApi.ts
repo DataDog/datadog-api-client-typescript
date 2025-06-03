@@ -595,9 +595,7 @@ export class LogsMetricsApi {
   private responseProcessor: LogsMetricsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -611,8 +609,8 @@ export class LogsMetricsApi {
       responseProcessor || new LogsMetricsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(LogsMetricsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(LogsMetricsApi.operationServers);
     }
   }
 

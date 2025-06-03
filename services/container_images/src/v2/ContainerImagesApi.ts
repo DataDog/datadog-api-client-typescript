@@ -210,9 +210,7 @@ export class ContainerImagesApi {
   private responseProcessor: ContainerImagesApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -227,8 +225,10 @@ export class ContainerImagesApi {
       responseProcessor || new ContainerImagesApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(ContainerImagesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        ContainerImagesApi.operationServers,
+      );
     }
   }
 

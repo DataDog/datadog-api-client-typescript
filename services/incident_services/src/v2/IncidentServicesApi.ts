@@ -731,9 +731,7 @@ export class IncidentServicesApi {
   private responseProcessor: IncidentServicesApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -748,8 +746,10 @@ export class IncidentServicesApi {
       responseProcessor || new IncidentServicesApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(IncidentServicesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        IncidentServicesApi.operationServers,
+      );
     }
   }
 

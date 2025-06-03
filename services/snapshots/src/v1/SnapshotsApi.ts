@@ -259,9 +259,7 @@ export class SnapshotsApi {
   private responseProcessor: SnapshotsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -275,8 +273,8 @@ export class SnapshotsApi {
       responseProcessor || new SnapshotsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(SnapshotsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(SnapshotsApi.operationServers);
     }
   }
 

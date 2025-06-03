@@ -3978,9 +3978,7 @@ export class SyntheticsApi {
   private responseProcessor: SyntheticsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -3994,8 +3992,8 @@ export class SyntheticsApi {
       responseProcessor || new SyntheticsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(SyntheticsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(SyntheticsApi.operationServers);
     }
   }
 

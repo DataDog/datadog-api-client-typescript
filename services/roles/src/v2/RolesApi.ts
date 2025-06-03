@@ -1708,9 +1708,7 @@ export class RolesApi {
   private responseProcessor: RolesApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1724,8 +1722,8 @@ export class RolesApi {
       responseProcessor || new RolesApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(RolesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(RolesApi.operationServers);
     }
   }
 

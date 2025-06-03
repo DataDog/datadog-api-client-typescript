@@ -1125,9 +1125,7 @@ export class SensitiveDataScannerApi {
   private responseProcessor: SensitiveDataScannerApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1142,8 +1140,10 @@ export class SensitiveDataScannerApi {
       responseProcessor || new SensitiveDataScannerApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(SensitiveDataScannerApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        SensitiveDataScannerApi.operationServers,
+      );
     }
   }
 

@@ -603,9 +603,7 @@ export class OktaIntegrationApi {
   private responseProcessor: OktaIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -620,8 +618,10 @@ export class OktaIntegrationApi {
       responseProcessor || new OktaIntegrationApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(OktaIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        OktaIntegrationApi.operationServers,
+      );
     }
   }
 

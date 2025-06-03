@@ -708,9 +708,7 @@ export class APMRetentionFiltersApi {
   private responseProcessor: APMRetentionFiltersApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -725,8 +723,10 @@ export class APMRetentionFiltersApi {
       responseProcessor || new APMRetentionFiltersApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(APMRetentionFiltersApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        APMRetentionFiltersApi.operationServers,
+      );
     }
   }
 

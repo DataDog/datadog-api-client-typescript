@@ -213,9 +213,7 @@ export class CloudNetworkMonitoringApi {
   private responseProcessor: CloudNetworkMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -230,8 +228,10 @@ export class CloudNetworkMonitoringApi {
       responseProcessor || new CloudNetworkMonitoringApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(CloudNetworkMonitoringApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        CloudNetworkMonitoringApi.operationServers,
+      );
     }
   }
 

@@ -683,9 +683,7 @@ export class TagsApi {
   private responseProcessor: TagsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -699,8 +697,8 @@ export class TagsApi {
       responseProcessor || new TagsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(TagsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(TagsApi.operationServers);
     }
   }
 

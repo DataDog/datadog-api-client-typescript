@@ -1204,9 +1204,7 @@ export class ApplicationSecurityApi {
   private responseProcessor: ApplicationSecurityApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1221,8 +1219,10 @@ export class ApplicationSecurityApi {
       responseProcessor || new ApplicationSecurityApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(ApplicationSecurityApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        ApplicationSecurityApi.operationServers,
+      );
     }
   }
 

@@ -1462,9 +1462,7 @@ export class MonitorsApi {
   private responseProcessor: MonitorsApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
 
   public constructor(
     configuration?: Configuration,
@@ -1478,8 +1476,8 @@ export class MonitorsApi {
       responseProcessor || new MonitorsApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(MonitorsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(MonitorsApi.operationServers);
     }
   }
 

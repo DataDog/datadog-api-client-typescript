@@ -129,9 +129,7 @@ export class IPRangesApi {
   private responseProcessor: IPRangesApiResponseProcessor;
   private configuration: Configuration;
 
-  private static operationServers: {
-    [key: string]: BaseServerConfiguration[];
-  } = {
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
     "IPRangesApi.v1.getIPRanges": [
       new ServerConfiguration<{
         site:
@@ -173,8 +171,8 @@ export class IPRangesApi {
       responseProcessor || new IPRangesApiResponseProcessor();
 
     // Add operation servers to the configuration
-    if (Object.keys(this.operationServers).length > 0) {
-      this.configuration.addOperationServers(this.operationServers);
+    if (Object.keys(IPRangesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(IPRangesApi.operationServers);
     }
   }
 
