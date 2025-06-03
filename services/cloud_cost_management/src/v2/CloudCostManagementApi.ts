@@ -1754,7 +1754,9 @@ export class CloudCostManagementApi {
   private responseProcessor: CloudCostManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  private static operationServers: {
+    [key: string]: BaseServerConfiguration[];
+  } = {};
 
   public constructor(
     configuration?: Configuration,

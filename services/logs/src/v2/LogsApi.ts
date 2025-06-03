@@ -632,7 +632,9 @@ export class LogsApi {
   private responseProcessor: LogsApiResponseProcessor;
   private configuration: Configuration;
 
-  private operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  private static operationServers: {
+    [key: string]: BaseServerConfiguration[];
+  } = {
     "LogsApi.v2.submitLog": [
       new ServerConfiguration<{
         site:

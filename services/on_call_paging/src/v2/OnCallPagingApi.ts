@@ -442,7 +442,9 @@ export class OnCallPagingApi {
   private responseProcessor: OnCallPagingApiResponseProcessor;
   private configuration: Configuration;
 
-  private operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  private static operationServers: {
+    [key: string]: BaseServerConfiguration[];
+  } = {
     "OnCallPagingApi.v2.acknowledgeOnCallPage": [
       new ServerConfiguration<{
         site:

@@ -1204,7 +1204,9 @@ export class ApplicationSecurityApi {
   private responseProcessor: ApplicationSecurityApiResponseProcessor;
   private configuration: Configuration;
 
-  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  private static operationServers: {
+    [key: string]: BaseServerConfiguration[];
+  } = {};
 
   public constructor(
     configuration?: Configuration,

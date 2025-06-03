@@ -99,7 +99,7 @@ export class Configuration {
   addOperationServers(operationServers: {
     [key: string]: BaseServerConfiguration[];
   }): void {
-    this.operationServers = { ...this.operationServers, ...operationServers };
+    this.operationServers = { ...operationServers, ...this.operationServers };
   }
 }
 

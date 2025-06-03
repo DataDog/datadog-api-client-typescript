@@ -1272,7 +1272,9 @@ export class AppBuilderApi {
   private responseProcessor: AppBuilderApiResponseProcessor;
   private configuration: Configuration;
 
-  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  private static operationServers: {
+    [key: string]: BaseServerConfiguration[];
+  } = {};
 
   public constructor(
     configuration?: Configuration,

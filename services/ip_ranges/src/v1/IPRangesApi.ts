@@ -129,7 +129,9 @@ export class IPRangesApi {
   private responseProcessor: IPRangesApiResponseProcessor;
   private configuration: Configuration;
 
-  private operationServers: { [key: string]: BaseServerConfiguration[] } = {
+  private static operationServers: {
+    [key: string]: BaseServerConfiguration[];
+  } = {
     "IPRangesApi.v1.getIPRanges": [
       new ServerConfiguration<{
         site:

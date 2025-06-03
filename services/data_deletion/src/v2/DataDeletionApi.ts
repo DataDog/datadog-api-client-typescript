@@ -484,7 +484,9 @@ export class DataDeletionApi {
   private responseProcessor: DataDeletionApiResponseProcessor;
   private configuration: Configuration;
 
-  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  private static operationServers: {
+    [key: string]: BaseServerConfiguration[];
+  } = {};
 
   public constructor(
     configuration?: Configuration,
