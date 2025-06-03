@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -61,9 +63,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/aws_cur_config";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.createCostAWSCURConfig")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.createCostAWSCURConfig",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -106,9 +113,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/azure_uc_config";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.createCostAzureUCConfigs")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.createCostAzureUCConfigs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -154,9 +166,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.deleteBudget")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.deleteBudget",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -194,9 +211,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.deleteCostAWSCURConfig")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.deleteCostAWSCURConfig",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -234,9 +256,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.deleteCostAzureUCConfig")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.deleteCostAzureUCConfig",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -273,9 +300,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.deleteCustomCostsFile")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.deleteCustomCostsFile",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -312,9 +344,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.getBudget")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.getBudget",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -351,9 +388,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.getCustomCostsFile")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.getCustomCostsFile",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -379,9 +421,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/budgets";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.listBudgets")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listBudgets",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -409,9 +456,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/aws_cur_config";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.listCostAWSCURConfigs")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostAWSCURConfigs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -439,9 +491,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/azure_uc_config";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.listCostAzureUCConfigs")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostAzureUCConfigs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -469,9 +526,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/custom_costs";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.listCustomCostsFiles")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCustomCostsFiles",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -515,9 +577,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.updateCostAWSCURConfig")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.updateCostAWSCURConfig",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -570,9 +637,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.updateCostAzureUCConfigs")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.updateCostAzureUCConfigs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -615,9 +687,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/custom_costs";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.uploadCustomCostsFile")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.uploadCustomCostsFile",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -660,9 +737,14 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/cost/budget";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudCostManagementApi.upsertBudget")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.upsertBudget",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1672,6 +1754,8 @@ export class CloudCostManagementApi {
   private responseProcessor: CloudCostManagementApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: CloudCostManagementApiRequestFactory,
@@ -1683,6 +1767,13 @@ export class CloudCostManagementApi {
       new CloudCostManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CloudCostManagementApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(CloudCostManagementApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        CloudCostManagementApi.operationServers,
+      );
+    }
   }
 
   /**

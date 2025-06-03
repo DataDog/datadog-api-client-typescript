@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,9 +55,14 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DowntimesApi.cancelDowntime")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DowntimesApi.v1.cancelDowntime",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -89,9 +96,14 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/downtime/cancel/by_scope";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DowntimesApi.cancelDowntimesByScope")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DowntimesApi.v1.cancelDowntimesByScope",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -134,9 +146,14 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/downtime";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DowntimesApi.createDowntime")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DowntimesApi.v1.createDowntime",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -182,9 +199,14 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DowntimesApi.getDowntime")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DowntimesApi.v1.getDowntime",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -214,9 +236,14 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/downtime";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DowntimesApi.listDowntimes")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DowntimesApi.v1.listDowntimes",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -269,9 +296,14 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DowntimesApi.listMonitorDowntimes")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DowntimesApi.v1.listMonitorDowntimes",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -314,9 +346,14 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DowntimesApi.updateDowntime")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DowntimesApi.v1.updateDowntime",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -817,6 +854,8 @@ export class DowntimesApi {
   private responseProcessor: DowntimesApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: DowntimesApiRequestFactory,
@@ -827,6 +866,11 @@ export class DowntimesApi {
       requestFactory || new DowntimesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DowntimesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(DowntimesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(DowntimesApi.operationServers);
+    }
   }
 
   /**

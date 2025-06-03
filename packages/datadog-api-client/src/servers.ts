@@ -30,11 +30,16 @@ export class BaseServerConfiguration {
     });
   }
 
-  public getUrl(): string {
+  public getUrl(overrides?: { [key: string]: string }): string {
     let replacedUrl = this.url;
     for (const key in this.variableConfiguration) {
-      var re = new RegExp("{" + key + "}", "g");
-      replacedUrl = replacedUrl.replace(re, this.variableConfiguration[key]);
+      let value = this.variableConfiguration[key];
+      if (overrides && key in overrides) {
+        value = overrides[key];
+      }
+
+      const re = new RegExp("{" + key + "}", "g");
+      replacedUrl = replacedUrl.replace(re, value);
     }
     return replacedUrl;
   }
@@ -50,8 +55,9 @@ export class BaseServerConfiguration {
   public makeRequestContext(
     endpoint: string,
     httpMethod: HttpMethod,
+    overrides?: { [key: string]: string },
   ): RequestContext {
-    return new RequestContext(this.getUrl() + endpoint, httpMethod);
+    return new RequestContext(this.getUrl(overrides) + endpoint, httpMethod);
   }
 }
 
@@ -93,197 +99,3 @@ export const server3 = new ServerConfiguration<{
 });
 
 export const servers = [server1, server2, server3];
-
-export const operationServers: {
-  [endpoint: string]: BaseServerConfiguration[];
-} = {
-  "v1.IPRangesApi.getIPRanges": [
-    new ServerConfiguration<{
-      site:
-        | "datadoghq.com"
-        | "us3.datadoghq.com"
-        | "us5.datadoghq.com"
-        | "ap1.datadoghq.com"
-        | "datadoghq.eu"
-        | "ddog-gov.com";
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "ip-ranges",
-    }),
-    new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "ip-ranges.datadoghq.com",
-      protocol: "https",
-    }),
-    new ServerConfiguration<{
-      subdomain: string;
-    }>("https://{subdomain}.datadoghq.com", {
-      subdomain: "ip-ranges",
-    }),
-  ],
-  "v1.LogsApi.submitLog": [
-    new ServerConfiguration<{
-      site:
-        | "datadoghq.com"
-        | "us3.datadoghq.com"
-        | "us5.datadoghq.com"
-        | "ap1.datadoghq.com"
-        | "datadoghq.eu"
-        | "ddog-gov.com";
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "http-intake.logs",
-    }),
-    new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "http-intake.logs.datadoghq.com",
-      protocol: "https",
-    }),
-    new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "http-intake.logs",
-    }),
-  ],
-  "v2.LogsApi.submitLog": [
-    new ServerConfiguration<{
-      site:
-        | "datadoghq.com"
-        | "us3.datadoghq.com"
-        | "us5.datadoghq.com"
-        | "ap1.datadoghq.com"
-        | "datadoghq.eu"
-        | "ddog-gov.com";
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "http-intake.logs",
-    }),
-    new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "http-intake.logs.datadoghq.com",
-      protocol: "https",
-    }),
-    new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "http-intake.logs",
-    }),
-  ],
-  "v2.OnCallPagingApi.acknowledgeOnCallPage": [
-    new ServerConfiguration<{
-      site:
-        | "saffron.oncall.datadoghq.com"
-        | "navy.oncall.datadoghq.com"
-        | "coral.oncall.datadoghq.com"
-        | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
-    }>("https://{site}", {
-      site: "navy.oncall.datadoghq.com",
-    }),
-    new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
-      protocol: "https",
-    }),
-    new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "api",
-    }),
-  ],
-  "v2.OnCallPagingApi.createOnCallPage": [
-    new ServerConfiguration<{
-      site:
-        | "saffron.oncall.datadoghq.com"
-        | "navy.oncall.datadoghq.com"
-        | "coral.oncall.datadoghq.com"
-        | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
-    }>("https://{site}", {
-      site: "navy.oncall.datadoghq.com",
-    }),
-    new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
-      protocol: "https",
-    }),
-    new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "api",
-    }),
-  ],
-  "v2.OnCallPagingApi.escalateOnCallPage": [
-    new ServerConfiguration<{
-      site:
-        | "saffron.oncall.datadoghq.com"
-        | "navy.oncall.datadoghq.com"
-        | "coral.oncall.datadoghq.com"
-        | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
-    }>("https://{site}", {
-      site: "navy.oncall.datadoghq.com",
-    }),
-    new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
-      protocol: "https",
-    }),
-    new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "api",
-    }),
-  ],
-  "v2.OnCallPagingApi.resolveOnCallPage": [
-    new ServerConfiguration<{
-      site:
-        | "saffron.oncall.datadoghq.com"
-        | "navy.oncall.datadoghq.com"
-        | "coral.oncall.datadoghq.com"
-        | "teal.oncall.datadoghq.com"
-        | "beige.oncall.datadoghq.eu";
-    }>("https://{site}", {
-      site: "navy.oncall.datadoghq.com",
-    }),
-    new ServerConfiguration<{
-      name: string;
-      protocol: string;
-    }>("{protocol}://{name}", {
-      name: "api.datadoghq.com",
-      protocol: "https",
-    }),
-    new ServerConfiguration<{
-      site: string;
-      subdomain: string;
-    }>("https://{subdomain}.{site}", {
-      site: "datadoghq.com",
-      subdomain: "api",
-    }),
-  ],
-};

@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -51,9 +53,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cost_by_tag/active_billing_dimensions";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getActiveBillingDimensions")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getActiveBillingDimensions",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "application/json;datetime-format=rfc3339",
@@ -86,9 +93,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/billing_dimension_mapping";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getBillingDimensionMapping")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getBillingDimensionMapping",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "application/json;datetime-format=rfc3339",
@@ -142,9 +154,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/cost_by_org";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getCostByOrg")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getCostByOrg",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "application/json;datetime-format=rfc3339",
@@ -197,9 +214,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/estimated_cost";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getEstimatedCostByOrg")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getEstimatedCostByOrg",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "application/json;datetime-format=rfc3339",
@@ -283,9 +305,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/historical_cost";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getHistoricalCostByOrg")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getHistoricalCostByOrg",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "application/json;datetime-format=rfc3339",
@@ -365,9 +392,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/hourly_usage";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getHourlyUsage")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getHourlyUsage",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "application/json;datetime-format=rfc3339",
@@ -481,9 +513,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cost_by_tag/monthly_cost_attribution";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getMonthlyCostAttribution")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getMonthlyCostAttribution",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "application/json;datetime-format=rfc3339",
@@ -574,9 +611,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/projected_cost";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getProjectedCost")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getProjectedCost",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "application/json;datetime-format=rfc3339",
@@ -633,9 +675,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/application_security";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getUsageApplicationSecurityMonitoring")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getUsageApplicationSecurityMonitoring",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "application/json;datetime-format=rfc3339",
@@ -689,9 +736,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/lambda_traced_invocations";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getUsageLambdaTracedInvocations")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getUsageLambdaTracedInvocations",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "application/json;datetime-format=rfc3339",
@@ -745,9 +797,14 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/usage/observability_pipelines";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.UsageMeteringApi.getUsageObservabilityPipelines")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "UsageMeteringApi.v2.getUsageObservabilityPipelines",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "application/json;datetime-format=rfc3339",
@@ -1696,6 +1753,8 @@ export class UsageMeteringApi {
   private responseProcessor: UsageMeteringApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: UsageMeteringApiRequestFactory,
@@ -1706,6 +1765,11 @@ export class UsageMeteringApi {
       requestFactory || new UsageMeteringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new UsageMeteringApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(UsageMeteringApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(UsageMeteringApi.operationServers);
+    }
   }
 
   /**

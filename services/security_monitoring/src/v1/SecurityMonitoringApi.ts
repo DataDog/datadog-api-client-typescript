@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -64,11 +66,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v1.SecurityMonitoringApi.addSecurityMonitoringSignalToIncident",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v1.addSecurityMonitoringSignalToIncident",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -123,11 +128,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v1.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v1.editSecurityMonitoringSignalAssignee",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -179,9 +187,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.SecurityMonitoringApi.editSecurityMonitoringSignalState")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v1.editSecurityMonitoringSignalState",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -438,6 +451,8 @@ export class SecurityMonitoringApi {
   private responseProcessor: SecurityMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: SecurityMonitoringApiRequestFactory,
@@ -449,6 +464,13 @@ export class SecurityMonitoringApi {
       new SecurityMonitoringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SecurityMonitoringApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(SecurityMonitoringApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        SecurityMonitoringApi.operationServers,
+      );
+    }
   }
 
   /**

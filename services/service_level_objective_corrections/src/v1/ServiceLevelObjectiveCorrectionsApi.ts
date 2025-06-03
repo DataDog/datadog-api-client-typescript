@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -55,9 +57,14 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     const localVarPath = "/api/v1/slo/correction";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.createSLOCorrection")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectiveCorrectionsApi.v1.createSLOCorrection",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -103,9 +110,14 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.deleteSLOCorrection")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectiveCorrectionsApi.v1.deleteSLOCorrection",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -141,9 +153,14 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.getSLOCorrection")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectiveCorrectionsApi.v1.getSLOCorrection",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -172,9 +189,14 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     const localVarPath = "/api/v1/slo/correction";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.listSLOCorrection")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectiveCorrectionsApi.v1.listSLOCorrection",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -233,9 +255,14 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectiveCorrectionsApi.updateSLOCorrection")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectiveCorrectionsApi.v1.updateSLOCorrection",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -605,6 +632,8 @@ export class ServiceLevelObjectiveCorrectionsApi {
   private responseProcessor: ServiceLevelObjectiveCorrectionsApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ServiceLevelObjectiveCorrectionsApiRequestFactory,
@@ -617,6 +646,16 @@ export class ServiceLevelObjectiveCorrectionsApi {
     this.responseProcessor =
       responseProcessor ||
       new ServiceLevelObjectiveCorrectionsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (
+      Object.keys(ServiceLevelObjectiveCorrectionsApi.operationServers).length >
+      0
+    ) {
+      this.configuration.addOperationServers(
+        ServiceLevelObjectiveCorrectionsApi.operationServers,
+      );
+    }
   }
 
   /**

@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -43,9 +45,14 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/domain_allowlist";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DomainAllowlistApi.getDomainAllowlist")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DomainAllowlistApi.v2.getDomainAllowlist",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -79,9 +86,14 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/domain_allowlist";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DomainAllowlistApi.patchDomainAllowlist")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DomainAllowlistApi.v2.patchDomainAllowlist",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -236,6 +248,8 @@ export class DomainAllowlistApi {
   private responseProcessor: DomainAllowlistApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: DomainAllowlistApiRequestFactory,
@@ -247,6 +261,13 @@ export class DomainAllowlistApi {
       new DomainAllowlistApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DomainAllowlistApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(DomainAllowlistApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        DomainAllowlistApi.operationServers,
+      );
+    }
   }
 
   /**

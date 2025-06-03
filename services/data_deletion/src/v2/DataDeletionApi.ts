@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -42,10 +44,13 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'cancelDataDeletionRequest'");
-    if (!_config.unstableOperations["v2.cancelDataDeletionRequest"]) {
+    if (
+      !_config.unstableOperations[
+        "DataDeletionApi.v2.cancelDataDeletionRequest"
+      ]
+    ) {
       throw new Error(
-        "Unstable operation 'cancelDataDeletionRequest' is disabled",
+        "Unstable operation 'cancelDataDeletionRequest' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.cancelDataDeletionRequest'] = true`",
       );
     }
 
@@ -61,9 +66,14 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DataDeletionApi.cancelDataDeletionRequest")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DataDeletionApi.v2.cancelDataDeletionRequest",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -88,10 +98,13 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createDataDeletionRequest'");
-    if (!_config.unstableOperations["v2.createDataDeletionRequest"]) {
+    if (
+      !_config.unstableOperations[
+        "DataDeletionApi.v2.createDataDeletionRequest"
+      ]
+    ) {
       throw new Error(
-        "Unstable operation 'createDataDeletionRequest' is disabled",
+        "Unstable operation 'createDataDeletionRequest' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.createDataDeletionRequest'] = true`",
       );
     }
 
@@ -112,9 +125,14 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DataDeletionApi.createDataDeletionRequest")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DataDeletionApi.v2.createDataDeletionRequest",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -151,10 +169,11 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getDataDeletionRequests'");
-    if (!_config.unstableOperations["v2.getDataDeletionRequests"]) {
+    if (
+      !_config.unstableOperations["DataDeletionApi.v2.getDataDeletionRequests"]
+    ) {
       throw new Error(
-        "Unstable operation 'getDataDeletionRequests' is disabled",
+        "Unstable operation 'getDataDeletionRequests' is disabled. Enable it by setting `configuration.unstableOperations['DataDeletionApi.v2.getDataDeletionRequests'] = true`",
       );
     }
 
@@ -162,9 +181,14 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/deletion/requests";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DataDeletionApi.getDataDeletionRequests")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DataDeletionApi.v2.getDataDeletionRequests",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -460,6 +484,8 @@ export class DataDeletionApi {
   private responseProcessor: DataDeletionApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: DataDeletionApiRequestFactory,
@@ -470,6 +496,11 @@ export class DataDeletionApi {
       requestFactory || new DataDeletionApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DataDeletionApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(DataDeletionApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(DataDeletionApi.operationServers);
+    }
   }
 
   /**

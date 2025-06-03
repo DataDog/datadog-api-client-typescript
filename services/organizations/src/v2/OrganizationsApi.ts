@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
   HttpFile,
 } from "@datadog/datadog-api-client";
 
@@ -56,9 +58,14 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OrganizationsApi.getOrgConfig")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OrganizationsApi.v2.getOrgConfig",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -85,9 +92,14 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/org_configs";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OrganizationsApi.listOrgConfigs")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OrganizationsApi.v2.listOrgConfigs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -129,9 +141,14 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OrganizationsApi.updateOrgConfig")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OrganizationsApi.v2.updateOrgConfig",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -168,9 +185,14 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/saml_configurations/idp_metadata";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OrganizationsApi.uploadIdPMetadata")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OrganizationsApi.v2.uploadIdPMetadata",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -464,6 +486,8 @@ export class OrganizationsApi {
   private responseProcessor: OrganizationsApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: OrganizationsApiRequestFactory,
@@ -474,6 +498,11 @@ export class OrganizationsApi {
       requestFactory || new OrganizationsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OrganizationsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(OrganizationsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(OrganizationsApi.operationServers);
+    }
   }
 
   /**

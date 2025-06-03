@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -43,9 +45,14 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ip_allowlist";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.IPAllowlistApi.getIPAllowlist")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IPAllowlistApi.v2.getIPAllowlist",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -79,9 +86,14 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ip_allowlist";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.IPAllowlistApi.updateIPAllowlist")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IPAllowlistApi.v2.updateIPAllowlist",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -245,6 +257,8 @@ export class IPAllowlistApi {
   private responseProcessor: IPAllowlistApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: IPAllowlistApiRequestFactory,
@@ -255,6 +269,11 @@ export class IPAllowlistApi {
       requestFactory || new IPAllowlistApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IPAllowlistApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(IPAllowlistApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(IPAllowlistApi.operationServers);
+    }
   }
 
   /**

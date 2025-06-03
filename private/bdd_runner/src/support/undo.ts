@@ -76,9 +76,9 @@ function buildUndoFor(
       (configurationOpts as any)["serverIndex"] = 1;
     }
     const configuration = datadogCommon.createConfiguration(configurationOpts);
-    if (`${apiVersion}.${operationName}` in configuration.unstableOperations) {
-      configuration.unstableOperations[`${apiVersion}.${operationName}`] = true;
-    }
+    configuration.unstableOperations[
+      `${apiName}.${apiVersion}.${operationName}`
+    ] = true;
     const apiInstance = new api(configuration);
     // perform operation
     const opts: { [key: string]: any } = {};

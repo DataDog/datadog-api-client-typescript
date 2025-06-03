@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -45,11 +47,14 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
       "/api/v2/csm/onboarding/coverage_analysis/cloud_accounts";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v2.CSMCoverageAnalysisApi.getCSMCloudAccountsCoverageAnalysis",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CSMCoverageAnalysisApi.v2.getCSMCloudAccountsCoverageAnalysis",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -77,11 +82,14 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
       "/api/v2/csm/onboarding/coverage_analysis/hosts_and_containers";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v2.CSMCoverageAnalysisApi.getCSMHostsAndContainersCoverageAnalysis",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CSMCoverageAnalysisApi.v2.getCSMHostsAndContainersCoverageAnalysis",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -108,9 +116,14 @@ export class CSMCoverageAnalysisApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/csm/onboarding/coverage_analysis/serverless";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CSMCoverageAnalysisApi.getCSMServerlessCoverageAnalysis")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CSMCoverageAnalysisApi.v2.getCSMServerlessCoverageAnalysis",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -304,6 +317,8 @@ export class CSMCoverageAnalysisApi {
   private responseProcessor: CSMCoverageAnalysisApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: CSMCoverageAnalysisApiRequestFactory,
@@ -315,6 +330,13 @@ export class CSMCoverageAnalysisApi {
       new CSMCoverageAnalysisApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CSMCoverageAnalysisApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(CSMCoverageAnalysisApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        CSMCoverageAnalysisApi.operationServers,
+      );
+    }
   }
 
   /**

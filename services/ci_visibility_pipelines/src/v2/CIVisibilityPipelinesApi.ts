@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -56,9 +58,14 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/ci/pipelines/analytics/aggregate";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CIVisibilityPipelinesApi.aggregateCIAppPipelineEvents")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CIVisibilityPipelinesApi.v2.aggregateCIAppPipelineEvents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -101,9 +108,14 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/ci/pipeline";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CIVisibilityPipelinesApi.createCIAppPipelineEvent")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CIVisibilityPipelinesApi.v2.createCIAppPipelineEvent",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -142,9 +154,14 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/ci/pipelines/events";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CIVisibilityPipelinesApi.listCIAppPipelineEvents")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CIVisibilityPipelinesApi.v2.listCIAppPipelineEvents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -217,9 +234,14 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/ci/pipelines/events/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CIVisibilityPipelinesApi.searchCIAppPipelineEvents")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CIVisibilityPipelinesApi.v2.searchCIAppPipelineEvents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -554,6 +576,8 @@ export class CIVisibilityPipelinesApi {
   private responseProcessor: CIVisibilityPipelinesApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: CIVisibilityPipelinesApiRequestFactory,
@@ -565,6 +589,13 @@ export class CIVisibilityPipelinesApi {
       new CIVisibilityPipelinesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CIVisibilityPipelinesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(CIVisibilityPipelinesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        CIVisibilityPipelinesApi.operationServers,
+      );
+    }
   }
 
   /**

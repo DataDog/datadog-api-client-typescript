@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -67,9 +69,14 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{instance_id}", encodeURIComponent(String(instanceId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.WorkflowAutomationApi.cancelWorkflowInstance")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.cancelWorkflowInstance",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -102,9 +109,14 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/workflows";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.WorkflowAutomationApi.createWorkflow")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.createWorkflow",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -155,9 +167,14 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.WorkflowAutomationApi.createWorkflowInstance")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.createWorkflowInstance",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -203,9 +220,14 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.WorkflowAutomationApi.deleteWorkflow")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.deleteWorkflow",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -241,9 +263,14 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.WorkflowAutomationApi.getWorkflow")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.getWorkflow",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -285,9 +312,14 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{instance_id}", encodeURIComponent(String(instanceId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.WorkflowAutomationApi.getWorkflowInstance")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.getWorkflowInstance",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -326,9 +358,14 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.WorkflowAutomationApi.listWorkflowInstances")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.listWorkflowInstances",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -387,9 +424,14 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.WorkflowAutomationApi.updateWorkflow")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WorkflowAutomationApi.v2.updateWorkflow",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -998,6 +1040,8 @@ export class WorkflowAutomationApi {
   private responseProcessor: WorkflowAutomationApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: WorkflowAutomationApiRequestFactory,
@@ -1009,6 +1053,13 @@ export class WorkflowAutomationApi {
       new WorkflowAutomationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new WorkflowAutomationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(WorkflowAutomationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        WorkflowAutomationApi.operationServers,
+      );
+    }
   }
 
   /**

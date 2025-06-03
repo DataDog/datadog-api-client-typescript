@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -43,10 +45,13 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getAggregatedConnections'");
-    if (!_config.unstableOperations["v2.getAggregatedConnections"]) {
+    if (
+      !_config.unstableOperations[
+        "CloudNetworkMonitoringApi.v2.getAggregatedConnections"
+      ]
+    ) {
       throw new Error(
-        "Unstable operation 'getAggregatedConnections' is disabled",
+        "Unstable operation 'getAggregatedConnections' is disabled. Enable it by setting `configuration.unstableOperations['CloudNetworkMonitoringApi.v2.getAggregatedConnections'] = true`",
       );
     }
 
@@ -54,9 +59,14 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/network/connections/aggregate";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.CloudNetworkMonitoringApi.getAggregatedConnections")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudNetworkMonitoringApi.v2.getAggregatedConnections",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -203,6 +213,8 @@ export class CloudNetworkMonitoringApi {
   private responseProcessor: CloudNetworkMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: CloudNetworkMonitoringApiRequestFactory,
@@ -214,6 +226,13 @@ export class CloudNetworkMonitoringApi {
       new CloudNetworkMonitoringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CloudNetworkMonitoringApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(CloudNetworkMonitoringApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        CloudNetworkMonitoringApi.operationServers,
+      );
+    }
   }
 
   /**

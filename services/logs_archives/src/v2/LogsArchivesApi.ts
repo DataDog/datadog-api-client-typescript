@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -63,9 +65,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.LogsArchivesApi.addReadRoleToArchive")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsArchivesApi.v2.addReadRoleToArchive",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -107,9 +114,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archives";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.LogsArchivesApi.createLogsArchive")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsArchivesApi.v2.createLogsArchive",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -154,9 +166,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.LogsArchivesApi.deleteLogsArchive")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsArchivesApi.v2.deleteLogsArchive",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -192,9 +209,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.LogsArchivesApi.getLogsArchive")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsArchivesApi.v2.getLogsArchive",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -221,9 +243,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archive-order";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.LogsArchivesApi.getLogsArchiveOrder")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsArchivesApi.v2.getLogsArchiveOrder",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -260,9 +287,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.LogsArchivesApi.listArchiveReadRoles")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsArchivesApi.v2.listArchiveReadRoles",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -289,9 +321,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archives";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.LogsArchivesApi.listLogsArchives")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsArchivesApi.v2.listLogsArchives",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -334,9 +371,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.LogsArchivesApi.removeRoleFromArchive")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsArchivesApi.v2.removeRoleFromArchive",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -387,9 +429,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.LogsArchivesApi.updateLogsArchive")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsArchivesApi.v2.updateLogsArchive",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -431,9 +478,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archive-order";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.LogsArchivesApi.updateLogsArchiveOrder")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsArchivesApi.v2.updateLogsArchiveOrder",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1103,6 +1155,8 @@ export class LogsArchivesApi {
   private responseProcessor: LogsArchivesApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: LogsArchivesApiRequestFactory,
@@ -1113,6 +1167,11 @@ export class LogsArchivesApi {
       requestFactory || new LogsArchivesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsArchivesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(LogsArchivesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(LogsArchivesApi.operationServers);
+    }
   }
 
   /**

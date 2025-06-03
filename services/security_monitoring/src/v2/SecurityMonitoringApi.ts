@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -102,9 +104,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'cancelHistoricalJob'");
-    if (!_config.unstableOperations["v2.cancelHistoricalJob"]) {
-      throw new Error("Unstable operation 'cancelHistoricalJob' is disabled");
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.cancelHistoricalJob"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'cancelHistoricalJob' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.cancelHistoricalJob'] = true`",
+      );
     }
 
     // verify required parameter 'jobId' is not null or undefined
@@ -120,9 +127,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.cancelHistoricalJob")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.cancelHistoricalJob",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -163,11 +175,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v2.SecurityMonitoringApi.convertExistingSecurityMonitoringRule",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.convertExistingSecurityMonitoringRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -192,10 +207,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'convertJobResultToSignal'");
-    if (!_config.unstableOperations["v2.convertJobResultToSignal"]) {
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.convertJobResultToSignal"
+      ]
+    ) {
       throw new Error(
-        "Unstable operation 'convertJobResultToSignal' is disabled",
+        "Unstable operation 'convertJobResultToSignal' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.convertJobResultToSignal'] = true`",
       );
     }
 
@@ -209,9 +227,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/siem-historical-detections/jobs/signal_convert";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.convertJobResultToSignal")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.convertJobResultToSignal",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -256,11 +279,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security_monitoring/rules/convert";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v2.SecurityMonitoringApi.convertSecurityMonitoringRuleFromJSONToTerraform",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.convertSecurityMonitoringRuleFromJSONToTerraform",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -303,9 +329,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cloud_security_management/custom_frameworks";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.createCustomFramework")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createCustomFramework",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -349,9 +380,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/security_monitoring/configuration/security_filters";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.createSecurityFilter")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createSecurityFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -394,9 +430,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security_monitoring/rules";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.createSecurityMonitoringRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createSecurityMonitoringRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -440,9 +481,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/security_monitoring/configuration/suppressions";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.createSecurityMonitoringSuppression")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createSecurityMonitoringSuppression",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -490,9 +536,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security/signals/notification_rules";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.createSignalNotificationRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createSignalNotificationRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -535,9 +586,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security/vulnerabilities/notification_rules";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.createVulnerabilityNotificationRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.createVulnerabilityNotificationRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -589,9 +645,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{version}", encodeURIComponent(String(version)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.deleteCustomFramework")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.deleteCustomFramework",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -616,9 +677,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteHistoricalJob'");
-    if (!_config.unstableOperations["v2.deleteHistoricalJob"]) {
-      throw new Error("Unstable operation 'deleteHistoricalJob' is disabled");
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.deleteHistoricalJob"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteHistoricalJob' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.deleteHistoricalJob'] = true`",
+      );
     }
 
     // verify required parameter 'jobId' is not null or undefined
@@ -634,9 +700,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.deleteHistoricalJob")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.deleteHistoricalJob",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -674,9 +745,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.deleteSecurityFilter")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.deleteSecurityFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -713,9 +789,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.deleteSecurityMonitoringRule")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.deleteSecurityMonitoringRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -756,9 +837,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.deleteSecurityMonitoringSuppression")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.deleteSecurityMonitoringSuppression",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -796,9 +882,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.deleteSignalNotificationRule")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.deleteSignalNotificationRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -836,9 +927,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.deleteVulnerabilityNotificationRule")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.deleteVulnerabilityNotificationRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -885,11 +981,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v2.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.editSecurityMonitoringSignalAssignee",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -949,11 +1048,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v2.SecurityMonitoringApi.editSecurityMonitoringSignalIncidents",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.editSecurityMonitoringSignalIncidents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1010,9 +1112,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.editSecurityMonitoringSignalState")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.editSecurityMonitoringSignalState",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1068,9 +1175,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{version}", encodeURIComponent(String(version)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getCustomFramework")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getCustomFramework",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1096,9 +1208,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getFinding'");
-    if (!_config.unstableOperations["v2.getFinding"]) {
-      throw new Error("Unstable operation 'getFinding' is disabled");
+    if (!_config.unstableOperations["SecurityMonitoringApi.v2.getFinding"]) {
+      throw new Error(
+        "Unstable operation 'getFinding' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getFinding'] = true`",
+      );
     }
 
     // verify required parameter 'findingId' is not null or undefined
@@ -1114,9 +1227,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getFinding")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getFinding",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1150,9 +1268,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getHistoricalJob'");
-    if (!_config.unstableOperations["v2.getHistoricalJob"]) {
-      throw new Error("Unstable operation 'getHistoricalJob' is disabled");
+    if (
+      !_config.unstableOperations["SecurityMonitoringApi.v2.getHistoricalJob"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getHistoricalJob' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getHistoricalJob'] = true`",
+      );
     }
 
     // verify required parameter 'jobId' is not null or undefined
@@ -1168,9 +1289,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getHistoricalJob")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getHistoricalJob",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1201,9 +1327,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cloud_security_management/resource_filters";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getResourceEvaluationFilters")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getResourceEvaluationFilters",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1253,9 +1384,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getRuleVersionHistory'");
-    if (!_config.unstableOperations["v2.getRuleVersionHistory"]) {
-      throw new Error("Unstable operation 'getRuleVersionHistory' is disabled");
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.getRuleVersionHistory"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getRuleVersionHistory' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getRuleVersionHistory'] = true`",
+      );
     }
 
     // verify required parameter 'ruleId' is not null or undefined
@@ -1271,9 +1407,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getRuleVersionHistory")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getRuleVersionHistory",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1315,9 +1456,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getSBOM'");
-    if (!_config.unstableOperations["v2.getSBOM"]) {
-      throw new Error("Unstable operation 'getSBOM' is disabled");
+    if (!_config.unstableOperations["SecurityMonitoringApi.v2.getSBOM"]) {
+      throw new Error(
+        "Unstable operation 'getSBOM' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.getSBOM'] = true`",
+      );
     }
 
     // verify required parameter 'assetType' is not null or undefined
@@ -1337,9 +1479,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getSBOM")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSBOM",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1393,9 +1540,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getSecurityFilter")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSecurityFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1432,9 +1584,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getSecurityMonitoringRule")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSecurityMonitoringRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1472,9 +1629,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getSecurityMonitoringSignal")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSecurityMonitoringSignal",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1515,9 +1677,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getSecurityMonitoringSuppression")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSecurityMonitoringSuppression",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1555,9 +1722,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getSignalNotificationRule")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSignalNotificationRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1585,9 +1757,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security/signals/notification_rules";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getSignalNotificationRules")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getSignalNotificationRules",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1625,9 +1802,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getVulnerabilityNotificationRule")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getVulnerabilityNotificationRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1655,9 +1837,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security/vulnerabilities/notification_rules";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.getVulnerabilityNotificationRules")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.getVulnerabilityNotificationRules",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1694,18 +1881,24 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listFindings'");
-    if (!_config.unstableOperations["v2.listFindings"]) {
-      throw new Error("Unstable operation 'listFindings' is disabled");
+    if (!_config.unstableOperations["SecurityMonitoringApi.v2.listFindings"]) {
+      throw new Error(
+        "Unstable operation 'listFindings' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listFindings'] = true`",
+      );
     }
 
     // Path Params
     const localVarPath = "/api/v2/posture_management/findings";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.listFindings")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listFindings",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1831,18 +2024,26 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listHistoricalJobs'");
-    if (!_config.unstableOperations["v2.listHistoricalJobs"]) {
-      throw new Error("Unstable operation 'listHistoricalJobs' is disabled");
+    if (
+      !_config.unstableOperations["SecurityMonitoringApi.v2.listHistoricalJobs"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listHistoricalJobs' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listHistoricalJobs'] = true`",
+      );
     }
 
     // Path Params
     const localVarPath = "/api/v2/siem-historical-detections/jobs";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.listHistoricalJobs")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listHistoricalJobs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1901,9 +2102,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/security_monitoring/configuration/security_filters";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.listSecurityFilters")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listSecurityFilters",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1933,9 +2139,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security_monitoring/rules";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.listSecurityMonitoringRules")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listSecurityMonitoringRules",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1985,9 +2196,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security_monitoring/signals";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.listSecurityMonitoringSignals")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listSecurityMonitoringSignals",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2060,9 +2276,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/security_monitoring/configuration/suppressions";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.listSecurityMonitoringSuppressions")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listSecurityMonitoringSuppressions",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2126,18 +2347,28 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listVulnerabilities'");
-    if (!_config.unstableOperations["v2.listVulnerabilities"]) {
-      throw new Error("Unstable operation 'listVulnerabilities' is disabled");
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.listVulnerabilities"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listVulnerabilities' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listVulnerabilities'] = true`",
+      );
     }
 
     // Path Params
     const localVarPath = "/api/v2/security/vulnerabilities";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.listVulnerabilities")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listVulnerabilities",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2494,18 +2725,28 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listVulnerableAssets'");
-    if (!_config.unstableOperations["v2.listVulnerableAssets"]) {
-      throw new Error("Unstable operation 'listVulnerableAssets' is disabled");
+    if (
+      !_config.unstableOperations[
+        "SecurityMonitoringApi.v2.listVulnerableAssets"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listVulnerableAssets' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listVulnerableAssets'] = true`",
+      );
     }
 
     // Path Params
     const localVarPath = "/api/v2/security/assets";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.listVulnerableAssets")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listVulnerableAssets",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2649,9 +2890,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'muteFindings'");
-    if (!_config.unstableOperations["v2.muteFindings"]) {
-      throw new Error("Unstable operation 'muteFindings' is disabled");
+    if (!_config.unstableOperations["SecurityMonitoringApi.v2.muteFindings"]) {
+      throw new Error(
+        "Unstable operation 'muteFindings' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.muteFindings'] = true`",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -2663,9 +2905,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/posture_management/findings";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.muteFindings")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.muteFindings",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2717,9 +2964,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.patchSignalNotificationRule")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.patchSignalNotificationRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2772,9 +3024,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.patchVulnerabilityNotificationRule")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.patchVulnerabilityNotificationRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2808,9 +3065,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'runHistoricalJob'");
-    if (!_config.unstableOperations["v2.runHistoricalJob"]) {
-      throw new Error("Unstable operation 'runHistoricalJob' is disabled");
+    if (
+      !_config.unstableOperations["SecurityMonitoringApi.v2.runHistoricalJob"]
+    ) {
+      throw new Error(
+        "Unstable operation 'runHistoricalJob' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.runHistoricalJob'] = true`",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -2822,9 +3082,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/siem-historical-detections/jobs";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.runHistoricalJob")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.runHistoricalJob",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2862,9 +3127,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security_monitoring/signals/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.searchSecurityMonitoringSignals")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.searchSecurityMonitoringSignals",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2917,9 +3187,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.testExistingSecurityMonitoringRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.testExistingSecurityMonitoringRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2962,9 +3237,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security_monitoring/rules/test";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.testSecurityMonitoringRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.testSecurityMonitoringRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3022,9 +3302,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{version}", encodeURIComponent(String(version)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.updateCustomFramework")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.updateCustomFramework",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3067,9 +3352,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/cloud_security_management/resource_filters";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.updateResourceEvaluationFilters")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.updateResourceEvaluationFilters",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3122,9 +3412,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.updateSecurityFilter")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.updateSecurityFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3176,9 +3471,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.updateSecurityMonitoringRule")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.updateSecurityMonitoringRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3234,9 +3534,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.updateSecurityMonitoringSuppression")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.updateSecurityMonitoringSuppression",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -3284,9 +3589,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security_monitoring/rules/validation";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SecurityMonitoringApi.validateSecurityMonitoringRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.validateSecurityMonitoringRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -7520,6 +7830,8 @@ export class SecurityMonitoringApi {
   private responseProcessor: SecurityMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: SecurityMonitoringApiRequestFactory,
@@ -7531,6 +7843,13 @@ export class SecurityMonitoringApi {
       new SecurityMonitoringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SecurityMonitoringApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(SecurityMonitoringApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        SecurityMonitoringApi.operationServers,
+      );
+    }
   }
 
   /**

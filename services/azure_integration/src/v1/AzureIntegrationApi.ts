@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -48,9 +50,14 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AzureIntegrationApi.createAzureIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AzureIntegrationApi.v1.createAzureIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -92,9 +99,14 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AzureIntegrationApi.deleteAzureIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AzureIntegrationApi.v1.deleteAzureIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -130,9 +142,14 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AzureIntegrationApi.listAzureIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AzureIntegrationApi.v1.listAzureIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -165,9 +182,14 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/azure/host_filters";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AzureIntegrationApi.updateAzureHostFilters")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AzureIntegrationApi.v1.updateAzureHostFilters",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -209,9 +231,14 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AzureIntegrationApi.updateAzureIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AzureIntegrationApi.v1.updateAzureIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -570,6 +597,8 @@ export class AzureIntegrationApi {
   private responseProcessor: AzureIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: AzureIntegrationApiRequestFactory,
@@ -581,6 +610,13 @@ export class AzureIntegrationApi {
       new AzureIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AzureIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(AzureIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        AzureIntegrationApi.operationServers,
+      );
+    }
   }
 
   /**

@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -59,9 +61,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.getMetricMetadata")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MetricsApi.v1.getMetricMetadata",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -97,9 +104,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/metrics";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.listActiveMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MetricsApi.v1.listActiveMetrics",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -156,9 +168,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.listMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MetricsApi.v1.listMetrics",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -213,9 +230,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/query";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.queryMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MetricsApi.v1.queryMetrics",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -273,9 +295,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/distribution_points";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.submitDistributionPoints")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MetricsApi.v1.submitDistributionPoints",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -328,9 +355,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/series";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.submitMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MetricsApi.v1.submitMetrics",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -386,9 +418,14 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MetricsApi.updateMetricMetadata")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MetricsApi.v1.updateMetricMetadata",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -939,6 +976,8 @@ export class MetricsApi {
   private responseProcessor: MetricsApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: MetricsApiRequestFactory,
@@ -949,6 +988,11 @@ export class MetricsApi {
       requestFactory || new MetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new MetricsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(MetricsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(MetricsApi.operationServers);
+    }
   }
 
   /**

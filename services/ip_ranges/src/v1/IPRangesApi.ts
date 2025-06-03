@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -40,9 +42,14 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.IPRangesApi.getIPRanges")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IPRangesApi.v1.getIPRanges",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -122,6 +129,36 @@ export class IPRangesApi {
   private responseProcessor: IPRangesApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+    "IPRangesApi.v1.getIPRanges": [
+      new ServerConfiguration<{
+        site:
+          | "datadoghq.com"
+          | "us3.datadoghq.com"
+          | "us5.datadoghq.com"
+          | "ap1.datadoghq.com"
+          | "datadoghq.eu"
+          | "ddog-gov.com";
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "ip-ranges",
+      }),
+      new ServerConfiguration<{
+        name: string;
+        protocol: string;
+      }>("{protocol}://{name}", {
+        name: "ip-ranges.datadoghq.com",
+        protocol: "https",
+      }),
+      new ServerConfiguration<{
+        subdomain: string;
+      }>("https://{subdomain}.datadoghq.com", {
+        subdomain: "ip-ranges",
+      }),
+    ],
+  };
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: IPRangesApiRequestFactory,
@@ -132,6 +169,11 @@ export class IPRangesApi {
       requestFactory || new IPRangesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IPRangesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(IPRangesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(IPRangesApi.operationServers);
+    }
   }
 
   /**

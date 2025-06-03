@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -49,9 +51,14 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/check_run";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceChecksApi.submitServiceCheck")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceChecksApi.v1.submitServiceCheck",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -153,6 +160,8 @@ export class ServiceChecksApi {
   private responseProcessor: ServiceChecksApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ServiceChecksApiRequestFactory,
@@ -163,6 +172,11 @@ export class ServiceChecksApi {
       requestFactory || new ServiceChecksApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceChecksApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(ServiceChecksApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(ServiceChecksApi.operationServers);
+    }
   }
 
   /**

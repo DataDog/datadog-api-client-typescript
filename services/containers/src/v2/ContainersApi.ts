@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -48,9 +50,14 @@ export class ContainersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/containers";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ContainersApi.listContainers")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ContainersApi.v2.listContainers",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -203,6 +210,8 @@ export class ContainersApi {
   private responseProcessor: ContainersApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ContainersApiRequestFactory,
@@ -213,6 +222,11 @@ export class ContainersApi {
       requestFactory || new ContainersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ContainersApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(ContainersApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(ContainersApi.operationServers);
+    }
   }
 
   /**

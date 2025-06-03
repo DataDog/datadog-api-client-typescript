@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -48,9 +50,14 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.GCPIntegrationApi.createGCPIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "GCPIntegrationApi.v1.createGCPIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -92,9 +99,14 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.GCPIntegrationApi.deleteGCPIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "GCPIntegrationApi.v1.deleteGCPIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -130,9 +142,14 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.GCPIntegrationApi.listGCPIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "GCPIntegrationApi.v1.listGCPIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -165,9 +182,14 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.GCPIntegrationApi.updateGCPIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "GCPIntegrationApi.v1.updateGCPIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -460,6 +482,8 @@ export class GCPIntegrationApi {
   private responseProcessor: GCPIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: GCPIntegrationApiRequestFactory,
@@ -470,6 +494,13 @@ export class GCPIntegrationApi {
       requestFactory || new GCPIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new GCPIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(GCPIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        GCPIntegrationApi.operationServers,
+      );
+    }
   }
 
   /**

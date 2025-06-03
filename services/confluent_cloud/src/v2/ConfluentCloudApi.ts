@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -54,9 +56,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integrations/confluent-cloud/accounts";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ConfluentCloudApi.createConfluentAccount")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ConfluentCloudApi.v2.createConfluentAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -108,9 +115,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ConfluentCloudApi.createConfluentResource")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ConfluentCloudApi.v2.createConfluentResource",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -156,9 +168,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ConfluentCloudApi.deleteConfluentAccount")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ConfluentCloudApi.v2.deleteConfluentAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -200,9 +217,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{resource_id}", encodeURIComponent(String(resourceId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ConfluentCloudApi.deleteConfluentResource")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ConfluentCloudApi.v2.deleteConfluentResource",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -239,9 +261,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ConfluentCloudApi.getConfluentAccount")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ConfluentCloudApi.v2.getConfluentAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -283,9 +310,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{resource_id}", encodeURIComponent(String(resourceId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ConfluentCloudApi.getConfluentResource")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ConfluentCloudApi.v2.getConfluentResource",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -312,9 +344,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integrations/confluent-cloud/accounts";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ConfluentCloudApi.listConfluentAccount")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ConfluentCloudApi.v2.listConfluentAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -351,9 +388,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ConfluentCloudApi.listConfluentResource")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ConfluentCloudApi.v2.listConfluentResource",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -396,9 +438,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ConfluentCloudApi.updateConfluentAccount")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ConfluentCloudApi.v2.updateConfluentAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -455,9 +502,14 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{resource_id}", encodeURIComponent(String(resourceId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ConfluentCloudApi.updateConfluentResource")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ConfluentCloudApi.v2.updateConfluentResource",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1182,6 +1234,8 @@ export class ConfluentCloudApi {
   private responseProcessor: ConfluentCloudApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ConfluentCloudApiRequestFactory,
@@ -1192,6 +1246,13 @@ export class ConfluentCloudApi {
       requestFactory || new ConfluentCloudApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ConfluentCloudApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(ConfluentCloudApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        ConfluentCloudApi.operationServers,
+      );
+    }
   }
 
   /**

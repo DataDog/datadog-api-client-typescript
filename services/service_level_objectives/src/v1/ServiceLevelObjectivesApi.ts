@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -58,9 +60,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo/can_delete";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectivesApi.checkCanDeleteSLO")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v1.checkCanDeleteSLO",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -103,9 +110,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectivesApi.createSLO")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v1.createSLO",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -152,9 +164,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectivesApi.deleteSLO")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v1.deleteSLO",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -197,9 +214,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo/bulk_delete";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v1.deleteSLOTimeframeInBulk",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -251,9 +273,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectivesApi.getSLO")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v1.getSLO",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -299,9 +326,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectivesApi.getSLOCorrections")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v1.getSLOCorrections",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -352,9 +384,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectivesApi.getSLOHistory")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v1.getSLOHistory",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -418,9 +455,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectivesApi.listSLOs")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v1.listSLOs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -496,9 +538,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectivesApi.searchSLO")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v1.searchSLO",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -571,9 +618,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.ServiceLevelObjectivesApi.updateSLO")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v1.updateSLO",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1363,6 +1415,8 @@ export class ServiceLevelObjectivesApi {
   private responseProcessor: ServiceLevelObjectivesApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ServiceLevelObjectivesApiRequestFactory,
@@ -1374,6 +1428,13 @@ export class ServiceLevelObjectivesApi {
       new ServiceLevelObjectivesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceLevelObjectivesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(ServiceLevelObjectivesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        ServiceLevelObjectivesApi.operationServers,
+      );
+    }
   }
 
   /**

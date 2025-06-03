@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,9 +46,10 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createAWSAccount'");
-    if (!_config.unstableOperations["v2.createAWSAccount"]) {
-      throw new Error("Unstable operation 'createAWSAccount' is disabled");
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.createAWSAccount"]) {
+      throw new Error(
+        "Unstable operation 'createAWSAccount' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.createAWSAccount'] = true`",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -58,9 +61,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/accounts";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AWSIntegrationApi.createAWSAccount")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v2.createAWSAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -92,10 +100,11 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createNewAWSExternalID'");
-    if (!_config.unstableOperations["v2.createNewAWSExternalID"]) {
+    if (
+      !_config.unstableOperations["AWSIntegrationApi.v2.createNewAWSExternalID"]
+    ) {
       throw new Error(
-        "Unstable operation 'createNewAWSExternalID' is disabled",
+        "Unstable operation 'createNewAWSExternalID' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.createNewAWSExternalID'] = true`",
       );
     }
 
@@ -103,9 +112,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integration/aws/generate_new_external_id";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AWSIntegrationApi.createNewAWSExternalID")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v2.createNewAWSExternalID",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -129,9 +143,10 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteAWSAccount'");
-    if (!_config.unstableOperations["v2.deleteAWSAccount"]) {
-      throw new Error("Unstable operation 'deleteAWSAccount' is disabled");
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.deleteAWSAccount"]) {
+      throw new Error(
+        "Unstable operation 'deleteAWSAccount' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.deleteAWSAccount'] = true`",
+      );
     }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
@@ -147,9 +162,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AWSIntegrationApi.deleteAWSAccount")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v2.deleteAWSAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -173,9 +193,10 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getAWSAccount'");
-    if (!_config.unstableOperations["v2.getAWSAccount"]) {
-      throw new Error("Unstable operation 'getAWSAccount' is disabled");
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.getAWSAccount"]) {
+      throw new Error(
+        "Unstable operation 'getAWSAccount' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.getAWSAccount'] = true`",
+      );
     }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
@@ -191,9 +212,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AWSIntegrationApi.getAWSAccount")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v2.getAWSAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -217,18 +243,24 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listAWSAccounts'");
-    if (!_config.unstableOperations["v2.listAWSAccounts"]) {
-      throw new Error("Unstable operation 'listAWSAccounts' is disabled");
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.listAWSAccounts"]) {
+      throw new Error(
+        "Unstable operation 'listAWSAccounts' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.listAWSAccounts'] = true`",
+      );
     }
 
     // Path Params
     const localVarPath = "/api/v2/integration/aws/accounts";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AWSIntegrationApi.listAWSAccounts")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v2.listAWSAccounts",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -260,18 +292,24 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listAWSNamespaces'");
-    if (!_config.unstableOperations["v2.listAWSNamespaces"]) {
-      throw new Error("Unstable operation 'listAWSNamespaces' is disabled");
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.listAWSNamespaces"]) {
+      throw new Error(
+        "Unstable operation 'listAWSNamespaces' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.listAWSNamespaces'] = true`",
+      );
     }
 
     // Path Params
     const localVarPath = "/api/v2/integration/aws/available_namespaces";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AWSIntegrationApi.listAWSNamespaces")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v2.listAWSNamespaces",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -296,9 +334,10 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'updateAWSAccount'");
-    if (!_config.unstableOperations["v2.updateAWSAccount"]) {
-      throw new Error("Unstable operation 'updateAWSAccount' is disabled");
+    if (!_config.unstableOperations["AWSIntegrationApi.v2.updateAWSAccount"]) {
+      throw new Error(
+        "Unstable operation 'updateAWSAccount' is disabled. Enable it by setting `configuration.unstableOperations['AWSIntegrationApi.v2.updateAWSAccount'] = true`",
+      );
     }
 
     // verify required parameter 'awsAccountConfigId' is not null or undefined
@@ -319,9 +358,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AWSIntegrationApi.updateAWSAccount")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v2.updateAWSAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -801,6 +845,8 @@ export class AWSIntegrationApi {
   private responseProcessor: AWSIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: AWSIntegrationApiRequestFactory,
@@ -811,6 +857,13 @@ export class AWSIntegrationApi {
       requestFactory || new AWSIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AWSIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(AWSIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        AWSIntegrationApi.operationServers,
+      );
+    }
   }
 
   /**

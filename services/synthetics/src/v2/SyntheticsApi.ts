@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -44,9 +46,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/synthetics/settings/on_demand_concurrency_cap";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SyntheticsApi.getOnDemandConcurrencyCap")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SyntheticsApi.v2.getOnDemandConcurrencyCap",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -80,9 +87,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/synthetics/settings/on_demand_concurrency_cap";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SyntheticsApi.setOnDemandConcurrencyCap")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SyntheticsApi.v2.setOnDemandConcurrencyCap",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -237,6 +249,8 @@ export class SyntheticsApi {
   private responseProcessor: SyntheticsApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: SyntheticsApiRequestFactory,
@@ -247,6 +261,11 @@ export class SyntheticsApi {
       requestFactory || new SyntheticsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SyntheticsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(SyntheticsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(SyntheticsApi.operationServers);
+    }
   }
 
   /**

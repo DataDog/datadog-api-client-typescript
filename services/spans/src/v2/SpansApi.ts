@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -57,9 +59,14 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/spans/analytics/aggregate";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SpansApi.aggregateSpans")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansApi.v2.aggregateSpans",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -102,9 +109,14 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/spans/events/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SpansApi.listSpans")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansApi.v2.listSpans",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -147,9 +159,14 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/spans/events";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SpansApi.listSpansGet")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansApi.v2.listSpansGet",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -455,6 +472,8 @@ export class SpansApi {
   private responseProcessor: SpansApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: SpansApiRequestFactory,
@@ -465,6 +484,11 @@ export class SpansApi {
       requestFactory || new SpansApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SpansApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(SpansApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(SpansApi.operationServers);
+    }
   }
 
   /**

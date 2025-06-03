@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -47,9 +49,10 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createDORADeployment'");
-    if (!_config.unstableOperations["v2.createDORADeployment"]) {
-      throw new Error("Unstable operation 'createDORADeployment' is disabled");
+    if (!_config.unstableOperations["DORAMetricsApi.v2.createDORADeployment"]) {
+      throw new Error(
+        "Unstable operation 'createDORADeployment' is disabled. Enable it by setting `configuration.unstableOperations['DORAMetricsApi.v2.createDORADeployment'] = true`",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -61,9 +64,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/dora/deployment";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DORAMetricsApi.createDORADeployment")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.createDORADeployment",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -93,9 +101,10 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createDORAIncident'");
-    if (!_config.unstableOperations["v2.createDORAIncident"]) {
-      throw new Error("Unstable operation 'createDORAIncident' is disabled");
+    if (!_config.unstableOperations["DORAMetricsApi.v2.createDORAIncident"]) {
+      throw new Error(
+        "Unstable operation 'createDORAIncident' is disabled. Enable it by setting `configuration.unstableOperations['DORAMetricsApi.v2.createDORAIncident'] = true`",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -107,9 +116,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/dora/incident";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DORAMetricsApi.createDORAIncident")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.createDORAIncident",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -151,9 +165,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DORAMetricsApi.getDORADeployment")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.getDORADeployment",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -189,9 +208,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DORAMetricsApi.getDORAFailure")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.getDORAFailure",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -224,9 +248,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/dora/deployments";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DORAMetricsApi.listDORADeployments")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.listDORADeployments",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -268,9 +297,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/dora/failures";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.DORAMetricsApi.listDORAFailures")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.listDORAFailures",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -811,6 +845,8 @@ export class DORAMetricsApi {
   private responseProcessor: DORAMetricsApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: DORAMetricsApiRequestFactory,
@@ -821,6 +857,11 @@ export class DORAMetricsApi {
       requestFactory || new DORAMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DORAMetricsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(DORAMetricsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(DORAMetricsApi.operationServers);
+    }
   }
 
   /**

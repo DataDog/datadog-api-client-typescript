@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -51,9 +53,14 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/apm/config/metrics";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SpansMetricsApi.createSpansMetric")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansMetricsApi.v2.createSpansMetric",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -98,9 +105,14 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SpansMetricsApi.deleteSpansMetric")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansMetricsApi.v2.deleteSpansMetric",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -136,9 +148,14 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SpansMetricsApi.getSpansMetric")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansMetricsApi.v2.getSpansMetric",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -165,9 +182,14 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/apm/config/metrics";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SpansMetricsApi.listSpansMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansMetricsApi.v2.listSpansMetrics",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -209,9 +231,14 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.SpansMetricsApi.updateSpansMetric")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansMetricsApi.v2.updateSpansMetric",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -568,6 +595,8 @@ export class SpansMetricsApi {
   private responseProcessor: SpansMetricsApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: SpansMetricsApiRequestFactory,
@@ -578,6 +607,11 @@ export class SpansMetricsApi {
       requestFactory || new SpansMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SpansMetricsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(SpansMetricsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(SpansMetricsApi.operationServers);
+    }
   }
 
   /**

@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -50,9 +52,14 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/dashboard/lists/manual";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DashboardListsApi.createDashboardList")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DashboardListsApi.v1.createDashboardList",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -98,9 +105,14 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DashboardListsApi.deleteDashboardList")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DashboardListsApi.v1.deleteDashboardList",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -137,9 +149,14 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DashboardListsApi.getDashboardList")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DashboardListsApi.v1.getDashboardList",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -167,9 +184,14 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/dashboard/lists/manual";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DashboardListsApi.listDashboardLists")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DashboardListsApi.v1.listDashboardLists",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -212,9 +234,14 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.DashboardListsApi.updateDashboardList")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DashboardListsApi.v1.updateDashboardList",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -584,6 +611,8 @@ export class DashboardListsApi {
   private responseProcessor: DashboardListsApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: DashboardListsApiRequestFactory,
@@ -594,6 +623,13 @@ export class DashboardListsApi {
       requestFactory || new DashboardListsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DashboardListsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(DashboardListsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        DashboardListsApi.operationServers,
+      );
+    }
   }
 
   /**

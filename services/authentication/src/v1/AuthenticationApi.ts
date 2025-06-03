@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -40,9 +42,14 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/validate";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AuthenticationApi.validate")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AuthenticationApi.v1.validate",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -121,6 +128,8 @@ export class AuthenticationApi {
   private responseProcessor: AuthenticationApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: AuthenticationApiRequestFactory,
@@ -131,6 +140,13 @@ export class AuthenticationApi {
       requestFactory || new AuthenticationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuthenticationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(AuthenticationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        AuthenticationApi.operationServers,
+      );
+    }
   }
 
   /**

@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -50,9 +52,14 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/pipelines";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsPipelinesApi.createLogsPipeline")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsPipelinesApi.v1.createLogsPipeline",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -97,9 +104,14 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsPipelinesApi.deleteLogsPipeline")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsPipelinesApi.v1.deleteLogsPipeline",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -135,9 +147,14 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsPipelinesApi.getLogsPipeline")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsPipelinesApi.v1.getLogsPipeline",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -164,9 +181,14 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/pipeline-order";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsPipelinesApi.getLogsPipelineOrder")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsPipelinesApi.v1.getLogsPipelineOrder",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -193,9 +215,14 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/pipelines";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsPipelinesApi.listLogsPipelines")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsPipelinesApi.v1.listLogsPipelines",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -237,9 +264,14 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsPipelinesApi.updateLogsPipeline")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsPipelinesApi.v1.updateLogsPipeline",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -281,9 +313,14 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/pipeline-order";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsPipelinesApi.updateLogsPipelineOrder")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsPipelinesApi.v1.updateLogsPipelineOrder",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -847,6 +884,8 @@ export class LogsPipelinesApi {
   private responseProcessor: LogsPipelinesApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: LogsPipelinesApiRequestFactory,
@@ -857,6 +896,11 @@ export class LogsPipelinesApi {
       requestFactory || new LogsPipelinesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsPipelinesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(LogsPipelinesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(LogsPipelinesApi.operationServers);
+    }
   }
 
   /**

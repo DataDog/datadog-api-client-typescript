@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -54,9 +56,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/ondemand/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AgentlessScanningApi.createAwsOnDemandTask")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.createAwsOnDemandTask",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -98,9 +105,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/accounts/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AgentlessScanningApi.createAwsScanOptions")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.createAwsScanOptions",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -146,9 +158,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AgentlessScanningApi.deleteAwsScanOptions")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.deleteAwsScanOptions",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -185,9 +202,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AgentlessScanningApi.getAwsOnDemandTask")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.getAwsOnDemandTask",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -214,9 +236,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/ondemand/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AgentlessScanningApi.listAwsOnDemandTasks")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.listAwsOnDemandTasks",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -243,9 +270,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/accounts/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AgentlessScanningApi.listAwsScanOptions")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.listAwsScanOptions",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -288,9 +320,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AgentlessScanningApi.updateAwsScanOptions")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.updateAwsScanOptions",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -760,6 +797,8 @@ export class AgentlessScanningApi {
   private responseProcessor: AgentlessScanningApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: AgentlessScanningApiRequestFactory,
@@ -771,6 +810,13 @@ export class AgentlessScanningApi {
       new AgentlessScanningApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AgentlessScanningApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(AgentlessScanningApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        AgentlessScanningApi.operationServers,
+      );
+    }
   }
 
   /**

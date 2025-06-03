@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -55,9 +57,14 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/events";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.EventsApi.createEvent")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "EventsApi.v2.createEvent",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -99,9 +106,14 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/events";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.EventsApi.listEvents")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "EventsApi.v2.listEvents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -174,9 +186,14 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/events/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.EventsApi.searchEvents")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "EventsApi.v2.searchEvents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -456,6 +473,8 @@ export class EventsApi {
   private responseProcessor: EventsApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: EventsApiRequestFactory,
@@ -466,6 +485,11 @@ export class EventsApi {
       requestFactory || new EventsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new EventsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(EventsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(EventsApi.operationServers);
+    }
   }
 
   /**

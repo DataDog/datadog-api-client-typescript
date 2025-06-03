@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -52,9 +54,14 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/indexes";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.createLogsIndex")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsIndexesApi.v1.createLogsIndex",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -99,9 +106,14 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.deleteLogsIndex")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsIndexesApi.v1.deleteLogsIndex",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -137,9 +149,14 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.getLogsIndex")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsIndexesApi.v1.getLogsIndex",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -166,9 +183,14 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/index-order";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.getLogsIndexOrder")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsIndexesApi.v1.getLogsIndexOrder",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -195,9 +217,14 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/indexes";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.listLogIndexes")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsIndexesApi.v1.listLogIndexes",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -240,9 +267,14 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.updateLogsIndex")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsIndexesApi.v1.updateLogsIndex",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -284,9 +316,14 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs/config/index-order";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsIndexesApi.updateLogsIndexOrder")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsIndexesApi.v1.updateLogsIndexOrder",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -844,6 +881,8 @@ export class LogsIndexesApi {
   private responseProcessor: LogsIndexesApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: LogsIndexesApiRequestFactory,
@@ -854,6 +893,11 @@ export class LogsIndexesApi {
       requestFactory || new LogsIndexesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsIndexesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(LogsIndexesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(LogsIndexesApi.operationServers);
+    }
   }
 
   /**

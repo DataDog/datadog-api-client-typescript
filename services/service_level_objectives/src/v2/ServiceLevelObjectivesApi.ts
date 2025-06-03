@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -41,9 +43,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createSLOReportJob'");
-    if (!_config.unstableOperations["v2.createSLOReportJob"]) {
-      throw new Error("Unstable operation 'createSLOReportJob' is disabled");
+    if (
+      !_config.unstableOperations[
+        "ServiceLevelObjectivesApi.v2.createSLOReportJob"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createSLOReportJob' is disabled. Enable it by setting `configuration.unstableOperations['ServiceLevelObjectivesApi.v2.createSLOReportJob'] = true`",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -55,9 +62,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/slo/report";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ServiceLevelObjectivesApi.createSLOReportJob")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v2.createSLOReportJob",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -91,9 +103,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getSLOReport'");
-    if (!_config.unstableOperations["v2.getSLOReport"]) {
-      throw new Error("Unstable operation 'getSLOReport' is disabled");
+    if (
+      !_config.unstableOperations["ServiceLevelObjectivesApi.v2.getSLOReport"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSLOReport' is disabled. Enable it by setting `configuration.unstableOperations['ServiceLevelObjectivesApi.v2.getSLOReport'] = true`",
+      );
     }
 
     // verify required parameter 'reportId' is not null or undefined
@@ -108,9 +123,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ServiceLevelObjectivesApi.getSLOReport")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v2.getSLOReport",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "text/csv, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -135,9 +155,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getSLOReportJobStatus'");
-    if (!_config.unstableOperations["v2.getSLOReportJobStatus"]) {
-      throw new Error("Unstable operation 'getSLOReportJobStatus' is disabled");
+    if (
+      !_config.unstableOperations[
+        "ServiceLevelObjectivesApi.v2.getSLOReportJobStatus"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getSLOReportJobStatus' is disabled. Enable it by setting `configuration.unstableOperations['ServiceLevelObjectivesApi.v2.getSLOReportJobStatus'] = true`",
+      );
     }
 
     // verify required parameter 'reportId' is not null or undefined
@@ -152,9 +177,14 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.ServiceLevelObjectivesApi.getSLOReportJobStatus")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectivesApi.v2.getSLOReportJobStatus",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -385,6 +415,8 @@ export class ServiceLevelObjectivesApi {
   private responseProcessor: ServiceLevelObjectivesApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ServiceLevelObjectivesApiRequestFactory,
@@ -396,6 +428,13 @@ export class ServiceLevelObjectivesApi {
       new ServiceLevelObjectivesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceLevelObjectivesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(ServiceLevelObjectivesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        ServiceLevelObjectivesApi.operationServers,
+      );
+    }
   }
 
   /**

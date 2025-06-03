@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -59,9 +61,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.createAWSAccount")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.createAWSAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -103,9 +110,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/event_bridge";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.createAWSEventBridgeSource")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.createAWSEventBridgeSource",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -147,9 +159,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/filtering";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.createAWSTagFilter")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.createAWSTagFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -191,9 +208,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/generate_new_external_id";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.createNewAWSExternalID")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.createNewAWSExternalID",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -235,9 +257,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.deleteAWSAccount")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.deleteAWSAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -279,9 +306,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/event_bridge";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.deleteAWSEventBridgeSource")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.deleteAWSEventBridgeSource",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -323,9 +355,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/filtering";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.deleteAWSTagFilter")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.deleteAWSTagFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -361,9 +398,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/available_namespace_rules";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.listAvailableAWSNamespaces")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.listAvailableAWSNamespaces",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -393,9 +435,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.listAWSAccounts")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.listAWSAccounts",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -445,9 +492,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/event_bridge";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.listAWSEventBridgeSources")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.listAWSEventBridgeSources",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -480,9 +532,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/filtering";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.listAWSTagFilters")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.listAWSTagFilters",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -527,9 +584,14 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.AWSIntegrationApi.updateAWSAccount")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v1.updateAWSAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1408,6 +1470,8 @@ export class AWSIntegrationApi {
   private responseProcessor: AWSIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: AWSIntegrationApiRequestFactory,
@@ -1418,6 +1482,13 @@ export class AWSIntegrationApi {
       requestFactory || new AWSIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AWSIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(AWSIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        AWSIntegrationApi.operationServers,
+      );
+    }
   }
 
   /**

@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,9 +55,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/monitor/can_delete";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MonitorsApi.checkCanDeleteMonitor")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v1.checkCanDeleteMonitor",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -98,9 +105,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/monitor";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MonitorsApi.createMonitor")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v1.createMonitor",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -147,9 +159,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MonitorsApi.deleteMonitor")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v1.deleteMonitor",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -197,9 +214,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MonitorsApi.getMonitor")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v1.getMonitor",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -251,9 +273,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/monitor";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MonitorsApi.listMonitors")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v1.listMonitors",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -343,9 +370,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/monitor/groups/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MonitorsApi.searchMonitorGroups")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v1.searchMonitorGroups",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -407,9 +439,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/monitor/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MonitorsApi.searchMonitors")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v1.searchMonitors",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -482,9 +519,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MonitorsApi.updateMonitor")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v1.updateMonitor",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -536,9 +578,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MonitorsApi.validateExistingMonitor")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v1.validateExistingMonitor",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -581,9 +628,14 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/monitor/validate";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.MonitorsApi.validateMonitor")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v1.validateMonitor",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1410,6 +1462,8 @@ export class MonitorsApi {
   private responseProcessor: MonitorsApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: MonitorsApiRequestFactory,
@@ -1420,6 +1474,11 @@ export class MonitorsApi {
       requestFactory || new MonitorsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new MonitorsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(MonitorsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(MonitorsApi.operationServers);
+    }
   }
 
   /**

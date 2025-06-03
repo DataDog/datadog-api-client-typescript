@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -43,9 +45,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createIncidentService'");
-    if (!_config.unstableOperations["v2.createIncidentService"]) {
-      throw new Error("Unstable operation 'createIncidentService' is disabled");
+    if (
+      !_config.unstableOperations[
+        "IncidentServicesApi.v2.createIncidentService"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'createIncidentService' is disabled. Enable it by setting `configuration.unstableOperations['IncidentServicesApi.v2.createIncidentService'] = true`",
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -57,9 +64,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/services";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.IncidentServicesApi.createIncidentService")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentServicesApi.v2.createIncidentService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -93,9 +105,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteIncidentService'");
-    if (!_config.unstableOperations["v2.deleteIncidentService"]) {
-      throw new Error("Unstable operation 'deleteIncidentService' is disabled");
+    if (
+      !_config.unstableOperations[
+        "IncidentServicesApi.v2.deleteIncidentService"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteIncidentService' is disabled. Enable it by setting `configuration.unstableOperations['IncidentServicesApi.v2.deleteIncidentService'] = true`",
+      );
     }
 
     // verify required parameter 'serviceId' is not null or undefined
@@ -110,9 +127,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.IncidentServicesApi.deleteIncidentService")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentServicesApi.v2.deleteIncidentService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -138,9 +160,12 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getIncidentService'");
-    if (!_config.unstableOperations["v2.getIncidentService"]) {
-      throw new Error("Unstable operation 'getIncidentService' is disabled");
+    if (
+      !_config.unstableOperations["IncidentServicesApi.v2.getIncidentService"]
+    ) {
+      throw new Error(
+        "Unstable operation 'getIncidentService' is disabled. Enable it by setting `configuration.unstableOperations['IncidentServicesApi.v2.getIncidentService'] = true`",
+      );
     }
 
     // verify required parameter 'serviceId' is not null or undefined
@@ -155,9 +180,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.IncidentServicesApi.getIncidentService")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentServicesApi.v2.getIncidentService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -194,18 +224,26 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listIncidentServices'");
-    if (!_config.unstableOperations["v2.listIncidentServices"]) {
-      throw new Error("Unstable operation 'listIncidentServices' is disabled");
+    if (
+      !_config.unstableOperations["IncidentServicesApi.v2.listIncidentServices"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listIncidentServices' is disabled. Enable it by setting `configuration.unstableOperations['IncidentServicesApi.v2.listIncidentServices'] = true`",
+      );
     }
 
     // Path Params
     const localVarPath = "/api/v2/services";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.IncidentServicesApi.listIncidentServices")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentServicesApi.v2.listIncidentServices",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -261,9 +299,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'updateIncidentService'");
-    if (!_config.unstableOperations["v2.updateIncidentService"]) {
-      throw new Error("Unstable operation 'updateIncidentService' is disabled");
+    if (
+      !_config.unstableOperations[
+        "IncidentServicesApi.v2.updateIncidentService"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateIncidentService' is disabled. Enable it by setting `configuration.unstableOperations['IncidentServicesApi.v2.updateIncidentService'] = true`",
+      );
     }
 
     // verify required parameter 'serviceId' is not null or undefined
@@ -283,9 +326,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.IncidentServicesApi.updateIncidentService")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentServicesApi.v2.updateIncidentService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -683,6 +731,8 @@ export class IncidentServicesApi {
   private responseProcessor: IncidentServicesApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: IncidentServicesApiRequestFactory,
@@ -694,6 +744,13 @@ export class IncidentServicesApi {
       new IncidentServicesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IncidentServicesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(IncidentServicesApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        IncidentServicesApi.operationServers,
+      );
+    }
   }
 
   /**

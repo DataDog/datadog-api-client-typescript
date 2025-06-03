@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -53,9 +55,14 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs-queries/list";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsApi.listLogs")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsApi.v1.listLogs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -99,9 +106,14 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/v1/input";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.LogsApi.submitLog")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsApi.v1.submitLog",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -325,6 +337,38 @@ export class LogsApi {
   private responseProcessor: LogsApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+    "LogsApi.v1.submitLog": [
+      new ServerConfiguration<{
+        site:
+          | "datadoghq.com"
+          | "us3.datadoghq.com"
+          | "us5.datadoghq.com"
+          | "ap1.datadoghq.com"
+          | "datadoghq.eu"
+          | "ddog-gov.com";
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "http-intake.logs",
+      }),
+      new ServerConfiguration<{
+        name: string;
+        protocol: string;
+      }>("{protocol}://{name}", {
+        name: "http-intake.logs.datadoghq.com",
+        protocol: "https",
+      }),
+      new ServerConfiguration<{
+        site: string;
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "http-intake.logs",
+      }),
+    ],
+  };
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: LogsApiRequestFactory,
@@ -335,6 +379,11 @@ export class LogsApi {
       requestFactory || new LogsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(LogsApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(LogsApi.operationServers);
+    }
   }
 
   /**

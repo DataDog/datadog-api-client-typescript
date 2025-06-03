@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -50,9 +52,14 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v1/integration/pagerduty/configuration/services";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.PagerDutyIntegrationApi.createPagerDutyIntegrationService")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "PagerDutyIntegrationApi.v1.createPagerDutyIntegrationService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -101,9 +108,14 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.PagerDutyIntegrationApi.deletePagerDutyIntegrationService")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "PagerDutyIntegrationApi.v1.deletePagerDutyIntegrationService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -140,9 +152,14 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.PagerDutyIntegrationApi.getPagerDutyIntegrationService")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "PagerDutyIntegrationApi.v1.getPagerDutyIntegrationService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -188,9 +205,14 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.PagerDutyIntegrationApi.updatePagerDutyIntegrationService")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "PagerDutyIntegrationApi.v1.updatePagerDutyIntegrationService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -481,6 +503,8 @@ export class PagerDutyIntegrationApi {
   private responseProcessor: PagerDutyIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: PagerDutyIntegrationApiRequestFactory,
@@ -492,6 +516,13 @@ export class PagerDutyIntegrationApi {
       new PagerDutyIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new PagerDutyIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(PagerDutyIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        PagerDutyIntegrationApi.operationServers,
+      );
+    }
   }
 
   /**

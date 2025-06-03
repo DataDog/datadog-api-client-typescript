@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -38,18 +40,28 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listAWSLogsServices'");
-    if (!_config.unstableOperations["v2.listAWSLogsServices"]) {
-      throw new Error("Unstable operation 'listAWSLogsServices' is disabled");
+    if (
+      !_config.unstableOperations[
+        "AWSLogsIntegrationApi.v2.listAWSLogsServices"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'listAWSLogsServices' is disabled. Enable it by setting `configuration.unstableOperations['AWSLogsIntegrationApi.v2.listAWSLogsServices'] = true`",
+      );
     }
 
     // Path Params
     const localVarPath = "/api/v2/integration/aws/logs/services";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.AWSLogsIntegrationApi.listAWSLogsServices")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSLogsIntegrationApi.v2.listAWSLogsServices",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -131,6 +143,8 @@ export class AWSLogsIntegrationApi {
   private responseProcessor: AWSLogsIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: AWSLogsIntegrationApiRequestFactory,
@@ -142,6 +156,13 @@ export class AWSLogsIntegrationApi {
       new AWSLogsIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AWSLogsIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(AWSLogsIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        AWSLogsIntegrationApi.operationServers,
+      );
+    }
   }
 
   /**

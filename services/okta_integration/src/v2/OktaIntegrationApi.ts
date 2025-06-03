@@ -1,22 +1,24 @@
 import {
-  BaseAPIRequestFactory,
-  Configuration,
-  applySecurityAuthentication,
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  logger,
-  RequiredError,
   ApiException,
-  createConfiguration,
-  getPreferredMediaType,
-  stringify,
-  serialize,
-  deserialize,
-  parse,
-  normalizeMediaType,
+  BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
+  Configuration,
+  createConfiguration,
+  deserialize,
+  getPreferredMediaType,
+  HttpMethod,
   isBrowser,
+  logger,
+  normalizeMediaType,
+  parse,
+  RequiredError,
+  RequestContext,
+  ResponseContext,
+  serialize,
+  ServerConfiguration,
+  stringify,
+  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -51,9 +53,14 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integrations/okta/accounts";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OktaIntegrationApi.createOktaAccount")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OktaIntegrationApi.v2.createOktaAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -99,9 +106,14 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OktaIntegrationApi.deleteOktaAccount")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OktaIntegrationApi.v2.deleteOktaAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -138,9 +150,14 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OktaIntegrationApi.getOktaAccount")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OktaIntegrationApi.v2.getOktaAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -167,9 +184,14 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/integrations/okta/accounts";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OktaIntegrationApi.listOktaAccounts")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OktaIntegrationApi.v2.listOktaAccounts",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -212,9 +234,14 @@ export class OktaIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v2.OktaIntegrationApi.updateOktaAccount")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OktaIntegrationApi.v2.updateOktaAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -576,6 +603,8 @@ export class OktaIntegrationApi {
   private responseProcessor: OktaIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: OktaIntegrationApiRequestFactory,
@@ -587,6 +616,13 @@ export class OktaIntegrationApi {
       new OktaIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OktaIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(OktaIntegrationApi.operationServers).length > 0) {
+      this.configuration.addOperationServers(
+        OktaIntegrationApi.operationServers,
+      );
+    }
   }
 
   /**

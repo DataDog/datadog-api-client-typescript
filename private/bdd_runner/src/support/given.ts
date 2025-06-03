@@ -67,12 +67,9 @@ for (const [apiVersion, givenFile] of Object.entries(
       }
       const configuration =
         datadogCommon.createConfiguration(configurationOpts);
-      if (
-        `${apiVersion}.${operationName}` in configuration.unstableOperations
-      ) {
-        configuration.unstableOperations[`${apiVersion}.${operationName}`] =
-          true;
-      }
+      configuration.unstableOperations[
+        `${apiName}.${apiVersion}.${operationName}`
+      ] = true;
 
       const apiInstance = new api(configuration);
       // find undo method
