@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -65,11 +66,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "SecurityMonitoringApi.v1.addSecurityMonitoringSignalToIncident",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v1.addSecurityMonitoringSignalToIncident",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -124,11 +128,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "SecurityMonitoringApi.v1.editSecurityMonitoringSignalAssignee",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v1.editSecurityMonitoringSignalAssignee",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -180,9 +187,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SecurityMonitoringApi.v1.editSecurityMonitoringSignalState")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v1.editSecurityMonitoringSignalState",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -439,6 +451,8 @@ export class SecurityMonitoringApi {
   private responseProcessor: SecurityMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: SecurityMonitoringApiRequestFactory,
@@ -450,6 +464,11 @@ export class SecurityMonitoringApi {
       new SecurityMonitoringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SecurityMonitoringApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

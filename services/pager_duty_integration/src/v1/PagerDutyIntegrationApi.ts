@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -51,9 +52,14 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v1/integration/pagerduty/configuration/services";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("PagerDutyIntegrationApi.v1.createPagerDutyIntegrationService")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "PagerDutyIntegrationApi.v1.createPagerDutyIntegrationService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -102,9 +108,14 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("PagerDutyIntegrationApi.v1.deletePagerDutyIntegrationService")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "PagerDutyIntegrationApi.v1.deletePagerDutyIntegrationService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -141,9 +152,14 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("PagerDutyIntegrationApi.v1.getPagerDutyIntegrationService")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "PagerDutyIntegrationApi.v1.getPagerDutyIntegrationService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -189,9 +205,14 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("PagerDutyIntegrationApi.v1.updatePagerDutyIntegrationService")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "PagerDutyIntegrationApi.v1.updatePagerDutyIntegrationService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -482,6 +503,8 @@ export class PagerDutyIntegrationApi {
   private responseProcessor: PagerDutyIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: PagerDutyIntegrationApiRequestFactory,
@@ -493,6 +516,11 @@ export class PagerDutyIntegrationApi {
       new PagerDutyIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new PagerDutyIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

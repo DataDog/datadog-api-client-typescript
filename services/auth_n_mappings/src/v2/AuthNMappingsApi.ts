@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -54,9 +55,14 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/authn_mappings";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AuthNMappingsApi.v2.createAuthNMapping")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AuthNMappingsApi.v2.createAuthNMapping",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -101,9 +107,14 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AuthNMappingsApi.v2.deleteAuthNMapping")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AuthNMappingsApi.v2.deleteAuthNMapping",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -139,9 +150,14 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AuthNMappingsApi.v2.getAuthNMapping")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AuthNMappingsApi.v2.getAuthNMapping",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -173,9 +189,14 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/authn_mappings";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AuthNMappingsApi.v2.listAuthNMappings")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AuthNMappingsApi.v2.listAuthNMappings",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -254,9 +275,14 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AuthNMappingsApi.v2.updateAuthNMapping")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AuthNMappingsApi.v2.updateAuthNMapping",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -641,6 +667,8 @@ export class AuthNMappingsApi {
   private responseProcessor: AuthNMappingsApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: AuthNMappingsApiRequestFactory,
@@ -651,6 +679,11 @@ export class AuthNMappingsApi {
       requestFactory || new AuthNMappingsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuthNMappingsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

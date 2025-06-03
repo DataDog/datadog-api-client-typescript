@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -64,9 +65,14 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RumRetentionFiltersApi.v2.createRetentionFilter")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RumRetentionFiltersApi.v2.createRetentionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -117,9 +123,14 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
         .replace("{rf_id}", encodeURIComponent(String(rfId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RumRetentionFiltersApi.v2.deleteRetentionFilter")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RumRetentionFiltersApi.v2.deleteRetentionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -161,9 +172,14 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
         .replace("{rf_id}", encodeURIComponent(String(rfId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RumRetentionFiltersApi.v2.getRetentionFilter")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RumRetentionFiltersApi.v2.getRetentionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -200,9 +216,14 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RumRetentionFiltersApi.v2.listRetentionFilters")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RumRetentionFiltersApi.v2.listRetentionFilters",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -245,9 +266,14 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RumRetentionFiltersApi.v2.orderRetentionFilters")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RumRetentionFiltersApi.v2.orderRetentionFilters",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -304,9 +330,14 @@ export class RumRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
         .replace("{rf_id}", encodeURIComponent(String(rfId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RumRetentionFiltersApi.v2.updateRetentionFilter")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RumRetentionFiltersApi.v2.updateRetentionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -763,6 +794,8 @@ export class RumRetentionFiltersApi {
   private responseProcessor: RumRetentionFiltersApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: RumRetentionFiltersApiRequestFactory,
@@ -774,6 +807,11 @@ export class RumRetentionFiltersApi {
       new RumRetentionFiltersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RumRetentionFiltersApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

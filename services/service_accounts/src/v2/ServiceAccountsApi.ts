@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -56,9 +57,14 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/service_accounts";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceAccountsApi.v2.createServiceAccount")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceAccountsApi.v2.createServiceAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -113,9 +119,14 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceAccountsApi.v2.createServiceAccountApplicationKey")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceAccountsApi.v2.createServiceAccountApplicationKey",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -172,9 +183,14 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceAccountsApi.v2.deleteServiceAccountApplicationKey")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceAccountsApi.v2.deleteServiceAccountApplicationKey",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -222,9 +238,14 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceAccountsApi.v2.getServiceAccountApplicationKey")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceAccountsApi.v2.getServiceAccountApplicationKey",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -270,9 +291,14 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceAccountsApi.v2.listServiceAccountApplicationKeys")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceAccountsApi.v2.listServiceAccountApplicationKeys",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -370,9 +396,14 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceAccountsApi.v2.updateServiceAccountApplicationKey")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceAccountsApi.v2.updateServiceAccountApplicationKey",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -860,6 +891,8 @@ export class ServiceAccountsApi {
   private responseProcessor: ServiceAccountsApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ServiceAccountsApiRequestFactory,
@@ -871,6 +904,11 @@ export class ServiceAccountsApi {
       new ServiceAccountsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceAccountsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

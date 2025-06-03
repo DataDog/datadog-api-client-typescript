@@ -16,7 +16,11 @@ import { logger } from "./logger";
 export class Configuration {
   readonly baseServer?: BaseServerConfiguration;
   readonly serverIndex: number;
+  readonly serverVariables: { [key: string]: string };
   readonly operationServerIndices: { [name: string]: number };
+  readonly operationServerVariables: {
+    [name: string]: { [key: string]: string };
+  };
   readonly httpApi: HttpLibrary;
   readonly authMethods: AuthMethods;
   readonly httpConfig: HttpConfiguration;
@@ -32,7 +36,9 @@ export class Configuration {
   public constructor(
     baseServer: BaseServerConfiguration | undefined,
     serverIndex: number,
+    serverVariables: { [key: string]: string },
     operationServerIndices: { [name: string]: number },
+    operationServerVariables: { [name: string]: { [key: string]: string } },
     httpApi: HttpLibrary,
     authMethods: AuthMethods,
     httpConfig: HttpConfiguration,
@@ -45,7 +51,9 @@ export class Configuration {
   ) {
     this.baseServer = baseServer;
     this.serverIndex = serverIndex;
+    this.serverVariables = serverVariables;
     this.operationServerIndices = operationServerIndices;
+    this.operationServerVariables = operationServerVariables;
     this.httpApi = httpApi;
     this.authMethods = authMethods;
     this.httpConfig = httpConfig;
@@ -65,39 +73,33 @@ export class Configuration {
     }
   }
 
-  setServerVariables(serverVariables: { [key: string]: string }): void {
+  getServerAndOverrides(key: string): {
+    server: BaseServerConfiguration;
+    overrides?: { [key: string]: string };
+  } {
     if (this.baseServer !== undefined) {
-      this.baseServer.setVariables(serverVariables);
-      return;
+      return { server: this.baseServer, overrides: this.serverVariables };
     }
 
-    const index = this.serverIndex;
-    this.servers[index].setVariables(serverVariables);
-
-    for (const op in this.operationServers) {
-      const index =
-        op in this.operationServerIndices
-          ? this.operationServerIndices[op]
-          : this.serverIndex;
-      this.operationServers[op][index].setVariables(serverVariables);
+    let server: BaseServerConfiguration;
+    let overrides: { [key: string]: string } | undefined;
+    if (key in this.operationServers) {
+      const index = this.operationServerIndices[key] || 0;
+      server = this.operationServers[key][index];
+      overrides = this.operationServerVariables[key];
+    } else {
+      const index = this.serverIndex;
+      server = this.servers[index];
+      overrides = this.serverVariables;
     }
+
+    return { server, overrides };
   }
 
-  getServer(endpoint: string): BaseServerConfiguration {
-    if (this.baseServer !== undefined) {
-      return this.baseServer;
-    }
-    const index =
-      endpoint in this.operationServerIndices
-        ? this.operationServerIndices[endpoint]
-        : this.serverIndex;
-    return endpoint in this.operationServers
-      ? this.operationServers[endpoint][index]
-      : this.servers[index];
-  }
-
-  addOperationServer(key: string, servers: BaseServerConfiguration[]): void {
-    this.operationServers[key] = servers;
+  addOperationServers(operationServers: {
+    [key: string]: BaseServerConfiguration[];
+  }): void {
+    this.operationServers = { ...this.operationServers, ...operationServers };
   }
 }
 
@@ -114,9 +116,31 @@ export interface ConfigurationParameters {
    */
   serverIndex?: number;
   /**
-   * Default index of a server to use for an operation from the predefined server operation map
+   * Default server variables to override the default server variables
+   * Example:
+   * ```
+   * {
+   *   "site": "datadoghq.com",
+   * }
+   */
+  serverVariables?: { [name: string]: string };
+  /**
+   * Default index of a server to use for an operation from the API server list
+   * Key is the `{ApiName}.{ApiVersion}.{OperationName}`, value is the index of the server to use. Example:
+   * ```
+   * {
+   *   "IPRangesApi.v1.getIPRanges": 0,
+   * }
    */
   operationServerIndices?: { [name: string]: number };
+  /**
+   * Operation servers. Key is the `{ApiName}.{ApiVersion}.{OperationName}`, value is the object of variables to use. Example:
+   * ```
+   * {
+   *   "IPRangesApi.v1.getIPRanges": { site: "datadoghq.com" },
+   * }
+   */
+  operationServerVariables?: { [name: string]: { [key: string]: string } };
   /**
    * Custom `fetch` function
    */
@@ -165,7 +189,9 @@ export interface ConfigurationParameters {
  * If a property is not included in conf, a default is used:
  *    - baseServer: null
  *    - serverIndex: 0
+ *    - serverVariables: {}
  *    - operationServerIndices: {}
+ *    - operationServerVariables: {}
  *    - httpApi: IsomorphicFetchHttpLibrary
  *    - authMethods: {}
  *    - httpConfig: {}
@@ -202,7 +228,9 @@ export function createConfiguration(
   const configuration = new Configuration(
     conf.baseServer,
     conf.serverIndex || 0,
+    conf.serverVariables || {},
     conf.operationServerIndices || {},
+    conf.operationServerVariables || {},
     conf.httpApi || new DefaultHttpLibrary(),
     configureAuthMethods(authMethods),
     conf.httpConfig || {},

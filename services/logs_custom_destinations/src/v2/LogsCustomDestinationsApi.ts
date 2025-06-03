@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -52,9 +53,14 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/logs/config/custom-destinations";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("LogsCustomDestinationsApi.v2.createLogsCustomDestination")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsCustomDestinationsApi.v2.createLogsCustomDestination",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -103,9 +109,14 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("LogsCustomDestinationsApi.v2.deleteLogsCustomDestination")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsCustomDestinationsApi.v2.deleteLogsCustomDestination",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -145,9 +156,14 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("LogsCustomDestinationsApi.v2.getLogsCustomDestination")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsCustomDestinationsApi.v2.getLogsCustomDestination",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -174,9 +190,14 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/logs/config/custom-destinations";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("LogsCustomDestinationsApi.v2.listLogsCustomDestinations")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsCustomDestinationsApi.v2.listLogsCustomDestinations",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -222,9 +243,14 @@ export class LogsCustomDestinationsApiRequestFactory extends BaseAPIRequestFacto
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("LogsCustomDestinationsApi.v2.updateLogsCustomDestination")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsCustomDestinationsApi.v2.updateLogsCustomDestination",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -586,6 +612,8 @@ export class LogsCustomDestinationsApi {
   private responseProcessor: LogsCustomDestinationsApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: LogsCustomDestinationsApiRequestFactory,
@@ -597,6 +625,11 @@ export class LogsCustomDestinationsApi {
       new LogsCustomDestinationsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new LogsCustomDestinationsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

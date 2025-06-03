@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -58,9 +59,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       "/api/v2/integration/ms-teams/configuration/tenant-based-handles";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("MicrosoftTeamsIntegrationApi.v2.createTenantBasedHandle")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MicrosoftTeamsIntegrationApi.v2.createTenantBasedHandle",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -108,9 +114,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("MicrosoftTeamsIntegrationApi.v2.createWorkflowsWebhookHandle")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MicrosoftTeamsIntegrationApi.v2.createWorkflowsWebhookHandle",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -161,9 +172,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("MicrosoftTeamsIntegrationApi.v2.deleteTenantBasedHandle")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MicrosoftTeamsIntegrationApi.v2.deleteTenantBasedHandle",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -200,9 +216,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("MicrosoftTeamsIntegrationApi.v2.deleteWorkflowsWebhookHandle")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MicrosoftTeamsIntegrationApi.v2.deleteWorkflowsWebhookHandle",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -251,9 +272,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
         .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("MicrosoftTeamsIntegrationApi.v2.getChannelByName")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MicrosoftTeamsIntegrationApi.v2.getChannelByName",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -290,9 +316,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("MicrosoftTeamsIntegrationApi.v2.getTenantBasedHandle")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MicrosoftTeamsIntegrationApi.v2.getTenantBasedHandle",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -329,9 +360,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("MicrosoftTeamsIntegrationApi.v2.getWorkflowsWebhookHandle")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MicrosoftTeamsIntegrationApi.v2.getWorkflowsWebhookHandle",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -361,9 +397,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       "/api/v2/integration/ms-teams/configuration/tenant-based-handles";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("MicrosoftTeamsIntegrationApi.v2.listTenantBasedHandles")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MicrosoftTeamsIntegrationApi.v2.listTenantBasedHandles",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -408,9 +449,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("MicrosoftTeamsIntegrationApi.v2.listWorkflowsWebhookHandles")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MicrosoftTeamsIntegrationApi.v2.listWorkflowsWebhookHandles",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -462,9 +508,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("MicrosoftTeamsIntegrationApi.v2.updateTenantBasedHandle")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MicrosoftTeamsIntegrationApi.v2.updateTenantBasedHandle",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -521,9 +572,14 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("MicrosoftTeamsIntegrationApi.v2.updateWorkflowsWebhookHandle")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MicrosoftTeamsIntegrationApi.v2.updateWorkflowsWebhookHandle",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1337,6 +1393,8 @@ export class MicrosoftTeamsIntegrationApi {
   private responseProcessor: MicrosoftTeamsIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: MicrosoftTeamsIntegrationApiRequestFactory,
@@ -1348,6 +1406,11 @@ export class MicrosoftTeamsIntegrationApi {
       new MicrosoftTeamsIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new MicrosoftTeamsIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

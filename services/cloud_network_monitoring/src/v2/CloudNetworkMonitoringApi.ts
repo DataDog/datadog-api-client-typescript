@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -58,9 +59,14 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v2/network/connections/aggregate";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("CloudNetworkMonitoringApi.v2.getAggregatedConnections")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudNetworkMonitoringApi.v2.getAggregatedConnections",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -207,6 +213,8 @@ export class CloudNetworkMonitoringApi {
   private responseProcessor: CloudNetworkMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: CloudNetworkMonitoringApiRequestFactory,
@@ -218,6 +226,11 @@ export class CloudNetworkMonitoringApi {
       new CloudNetworkMonitoringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CloudNetworkMonitoringApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

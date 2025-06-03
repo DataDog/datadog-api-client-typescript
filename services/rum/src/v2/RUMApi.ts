@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -59,9 +60,14 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/analytics/aggregate";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RUMApi.v2.aggregateRUMEvents")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RUMApi.v2.aggregateRUMEvents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -104,9 +110,14 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/applications";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RUMApi.v2.createRUMApplication")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RUMApi.v2.createRUMApplication",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -151,9 +162,14 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RUMApi.v2.deleteRUMApplication")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RUMApi.v2.deleteRUMApplication",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -189,9 +205,14 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RUMApi.v2.getRUMApplication")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RUMApi.v2.getRUMApplication",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -218,9 +239,14 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/applications";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RUMApi.v2.getRUMApplications")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RUMApi.v2.getRUMApplications",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -253,9 +279,14 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/events";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RUMApi.v2.listRUMEvents")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RUMApi.v2.listRUMEvents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -333,9 +364,14 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/events/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RUMApi.v2.searchRUMEvents")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RUMApi.v2.searchRUMEvents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -387,9 +423,14 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RUMApi.v2.updateRUMApplication")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RUMApi.v2.updateRUMApplication",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -958,6 +999,8 @@ export class RUMApi {
   private responseProcessor: RUMApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: RUMApiRequestFactory,
@@ -967,6 +1010,11 @@ export class RUMApi {
     this.requestFactory =
       requestFactory || new RUMApiRequestFactory(this.configuration);
     this.responseProcessor = responseProcessor || new RUMApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

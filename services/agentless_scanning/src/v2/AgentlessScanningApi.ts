@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -55,9 +56,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/ondemand/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AgentlessScanningApi.v2.createAwsOnDemandTask")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.createAwsOnDemandTask",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -99,9 +105,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/accounts/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AgentlessScanningApi.v2.createAwsScanOptions")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.createAwsScanOptions",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -147,9 +158,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AgentlessScanningApi.v2.deleteAwsScanOptions")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.deleteAwsScanOptions",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -186,9 +202,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AgentlessScanningApi.v2.getAwsOnDemandTask")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.getAwsOnDemandTask",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -215,9 +236,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/ondemand/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AgentlessScanningApi.v2.listAwsOnDemandTasks")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.listAwsOnDemandTasks",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -244,9 +270,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/agentless_scanning/accounts/aws";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AgentlessScanningApi.v2.listAwsScanOptions")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.listAwsScanOptions",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -289,9 +320,14 @@ export class AgentlessScanningApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AgentlessScanningApi.v2.updateAwsScanOptions")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AgentlessScanningApi.v2.updateAwsScanOptions",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -761,6 +797,8 @@ export class AgentlessScanningApi {
   private responseProcessor: AgentlessScanningApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: AgentlessScanningApiRequestFactory,
@@ -772,6 +810,11 @@ export class AgentlessScanningApi {
       new AgentlessScanningApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AgentlessScanningApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -54,9 +55,14 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/apm/config/retention-filters";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("APMRetentionFiltersApi.v2.createApmRetentionFilter")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "APMRetentionFiltersApi.v2.createApmRetentionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -102,9 +108,14 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("APMRetentionFiltersApi.v2.deleteApmRetentionFilter")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "APMRetentionFiltersApi.v2.deleteApmRetentionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -141,9 +152,14 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("APMRetentionFiltersApi.v2.getApmRetentionFilter")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "APMRetentionFiltersApi.v2.getApmRetentionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -170,9 +186,14 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/apm/config/retention-filters";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("APMRetentionFiltersApi.v2.listApmRetentionFilters")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "APMRetentionFiltersApi.v2.listApmRetentionFilters",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -205,9 +226,14 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/apm/config/retention-filters-execution-order";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("APMRetentionFiltersApi.v2.reorderApmRetentionFilters")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "APMRetentionFiltersApi.v2.reorderApmRetentionFilters",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -259,9 +285,14 @@ export class APMRetentionFiltersApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("APMRetentionFiltersApi.v2.updateApmRetentionFilter")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "APMRetentionFiltersApi.v2.updateApmRetentionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -677,6 +708,8 @@ export class APMRetentionFiltersApi {
   private responseProcessor: APMRetentionFiltersApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: APMRetentionFiltersApiRequestFactory,
@@ -688,6 +721,11 @@ export class APMRetentionFiltersApi {
       new APMRetentionFiltersApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new APMRetentionFiltersApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

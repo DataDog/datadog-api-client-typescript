@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -52,9 +53,14 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integrations/cloudflare/accounts";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("CloudflareIntegrationApi.v2.createCloudflareAccount")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudflareIntegrationApi.v2.createCloudflareAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -100,9 +106,14 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("CloudflareIntegrationApi.v2.deleteCloudflareAccount")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudflareIntegrationApi.v2.deleteCloudflareAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -139,9 +150,14 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("CloudflareIntegrationApi.v2.getCloudflareAccount")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudflareIntegrationApi.v2.getCloudflareAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -168,9 +184,14 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/integrations/cloudflare/accounts";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("CloudflareIntegrationApi.v2.listCloudflareAccounts")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudflareIntegrationApi.v2.listCloudflareAccounts",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -213,9 +234,14 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("CloudflareIntegrationApi.v2.updateCloudflareAccount")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudflareIntegrationApi.v2.updateCloudflareAccount",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -579,6 +605,8 @@ export class CloudflareIntegrationApi {
   private responseProcessor: CloudflareIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: CloudflareIntegrationApiRequestFactory,
@@ -590,6 +618,11 @@ export class CloudflareIntegrationApi {
       new CloudflareIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CloudflareIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -56,11 +57,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/remote_config/products/asm/waf/custom_rules";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "ApplicationSecurityApi.v2.createApplicationSecurityWafCustomRule",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.createApplicationSecurityWafCustomRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -111,11 +115,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
       "/api/v2/remote_config/products/asm/waf/exclusion_filters";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "ApplicationSecurityApi.v2.createApplicationSecurityWafExclusionFilter",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.createApplicationSecurityWafExclusionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -169,11 +176,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "ApplicationSecurityApi.v2.deleteApplicationSecurityWafCustomRule",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.deleteApplicationSecurityWafCustomRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -213,11 +223,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "ApplicationSecurityApi.v2.deleteApplicationSecurityWafExclusionFilter",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.deleteApplicationSecurityWafExclusionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -257,11 +270,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "ApplicationSecurityApi.v2.getApplicationSecurityWafCustomRule",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.getApplicationSecurityWafCustomRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -301,11 +317,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "ApplicationSecurityApi.v2.getApplicationSecurityWafExclusionFilter",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.getApplicationSecurityWafExclusionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -332,11 +351,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v2/remote_config/products/asm/waf/custom_rules";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "ApplicationSecurityApi.v2.listApplicationSecurityWAFCustomRules",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.listApplicationSecurityWAFCustomRules",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -364,11 +386,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
       "/api/v2/remote_config/products/asm/waf/exclusion_filters";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "ApplicationSecurityApi.v2.listApplicationSecurityWafExclusionFilters",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.listApplicationSecurityWafExclusionFilters",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -414,11 +439,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "ApplicationSecurityApi.v2.updateApplicationSecurityWafCustomRule",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.updateApplicationSecurityWafCustomRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -481,11 +509,14 @@ export class ApplicationSecurityApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "ApplicationSecurityApi.v2.updateApplicationSecurityWafExclusionFilter",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ApplicationSecurityApi.v2.updateApplicationSecurityWafExclusionFilter",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1173,6 +1204,8 @@ export class ApplicationSecurityApi {
   private responseProcessor: ApplicationSecurityApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ApplicationSecurityApiRequestFactory,
@@ -1184,6 +1217,11 @@ export class ApplicationSecurityApi {
       new ApplicationSecurityApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ApplicationSecurityApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -44,9 +45,14 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ip_allowlist";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("IPAllowlistApi.v2.getIPAllowlist")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IPAllowlistApi.v2.getIPAllowlist",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -80,9 +86,14 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ip_allowlist";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("IPAllowlistApi.v2.updateIPAllowlist")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IPAllowlistApi.v2.updateIPAllowlist",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -246,6 +257,8 @@ export class IPAllowlistApi {
   private responseProcessor: IPAllowlistApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: IPAllowlistApiRequestFactory,
@@ -256,6 +269,11 @@ export class IPAllowlistApi {
       requestFactory || new IPAllowlistApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IPAllowlistApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

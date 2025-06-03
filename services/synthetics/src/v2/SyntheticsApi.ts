@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -45,9 +46,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/synthetics/settings/on_demand_concurrency_cap";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SyntheticsApi.v2.getOnDemandConcurrencyCap")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SyntheticsApi.v2.getOnDemandConcurrencyCap",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -81,9 +87,14 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/synthetics/settings/on_demand_concurrency_cap";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SyntheticsApi.v2.setOnDemandConcurrencyCap")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SyntheticsApi.v2.setOnDemandConcurrencyCap",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -238,6 +249,8 @@ export class SyntheticsApi {
   private responseProcessor: SyntheticsApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: SyntheticsApiRequestFactory,
@@ -248,6 +261,11 @@ export class SyntheticsApi {
       requestFactory || new SyntheticsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SyntheticsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

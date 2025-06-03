@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -59,9 +60,14 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SlackIntegrationApi.v1.createSlackIntegrationChannel")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SlackIntegrationApi.v1.createSlackIntegrationChannel",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -112,9 +118,14 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SlackIntegrationApi.v1.getSlackIntegrationChannel")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SlackIntegrationApi.v1.getSlackIntegrationChannel",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -151,9 +162,14 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SlackIntegrationApi.v1.getSlackIntegrationChannels")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SlackIntegrationApi.v1.getSlackIntegrationChannels",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -195,9 +211,14 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SlackIntegrationApi.v1.removeSlackIntegrationChannel")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SlackIntegrationApi.v1.removeSlackIntegrationChannel",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -245,9 +266,14 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SlackIntegrationApi.v1.updateSlackIntegrationChannel")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SlackIntegrationApi.v1.updateSlackIntegrationChannel",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -641,6 +667,8 @@ export class SlackIntegrationApi {
   private responseProcessor: SlackIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: SlackIntegrationApiRequestFactory,
@@ -652,6 +680,11 @@ export class SlackIntegrationApi {
       new SlackIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SlackIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

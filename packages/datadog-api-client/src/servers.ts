@@ -30,11 +30,16 @@ export class BaseServerConfiguration {
     });
   }
 
-  public getUrl(): string {
+  public getUrl(overrides?: { [key: string]: string }): string {
     let replacedUrl = this.url;
     for (const key in this.variableConfiguration) {
-      var re = new RegExp("{" + key + "}", "g");
-      replacedUrl = replacedUrl.replace(re, this.variableConfiguration[key]);
+      let value = this.variableConfiguration[key];
+      if (overrides && key in overrides) {
+        value = overrides[key];
+      }
+
+      const re = new RegExp("{" + key + "}", "g");
+      replacedUrl = replacedUrl.replace(re, value);
     }
     return replacedUrl;
   }
@@ -50,8 +55,9 @@ export class BaseServerConfiguration {
   public makeRequestContext(
     endpoint: string,
     httpMethod: HttpMethod,
+    overrides?: { [key: string]: string },
   ): RequestContext {
-    return new RequestContext(this.getUrl() + endpoint, httpMethod);
+    return new RequestContext(this.getUrl(overrides) + endpoint, httpMethod);
   }
 }
 

@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -56,9 +57,14 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     const localVarPath = "/api/v1/slo/correction";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceLevelObjectiveCorrectionsApi.v1.createSLOCorrection")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectiveCorrectionsApi.v1.createSLOCorrection",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -104,9 +110,14 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceLevelObjectiveCorrectionsApi.v1.deleteSLOCorrection")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectiveCorrectionsApi.v1.deleteSLOCorrection",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -142,9 +153,14 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceLevelObjectiveCorrectionsApi.v1.getSLOCorrection")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectiveCorrectionsApi.v1.getSLOCorrection",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -173,9 +189,14 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     const localVarPath = "/api/v1/slo/correction";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceLevelObjectiveCorrectionsApi.v1.listSLOCorrection")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectiveCorrectionsApi.v1.listSLOCorrection",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -234,9 +255,14 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceLevelObjectiveCorrectionsApi.v1.updateSLOCorrection")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceLevelObjectiveCorrectionsApi.v1.updateSLOCorrection",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -606,6 +632,8 @@ export class ServiceLevelObjectiveCorrectionsApi {
   private responseProcessor: ServiceLevelObjectiveCorrectionsApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ServiceLevelObjectiveCorrectionsApiRequestFactory,
@@ -618,6 +646,11 @@ export class ServiceLevelObjectiveCorrectionsApi {
     this.responseProcessor =
       responseProcessor ||
       new ServiceLevelObjectiveCorrectionsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -61,9 +62,14 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
       "/api/v2/remote_config/products/obs_pipelines/pipelines";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ObservabilityPipelinesApi.v2.createPipeline")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ObservabilityPipelinesApi.v2.createPipeline",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -117,9 +123,14 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ObservabilityPipelinesApi.v2.deletePipeline")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ObservabilityPipelinesApi.v2.deletePipeline",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -164,9 +175,14 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ObservabilityPipelinesApi.v2.getPipeline")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ObservabilityPipelinesApi.v2.getPipeline",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -204,9 +220,14 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
       "/api/v2/remote_config/products/obs_pipelines/pipelines";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ObservabilityPipelinesApi.v2.listPipelines")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ObservabilityPipelinesApi.v2.listPipelines",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -273,9 +294,14 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ObservabilityPipelinesApi.v2.updatePipeline")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ObservabilityPipelinesApi.v2.updatePipeline",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -328,9 +354,14 @@ export class ObservabilityPipelinesApiRequestFactory extends BaseAPIRequestFacto
       "/api/v2/remote_config/products/obs_pipelines/pipelines/validate";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ObservabilityPipelinesApi.v2.validatePipeline")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ObservabilityPipelinesApi.v2.validatePipeline",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -767,6 +798,8 @@ export class ObservabilityPipelinesApi {
   private responseProcessor: ObservabilityPipelinesApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ObservabilityPipelinesApiRequestFactory,
@@ -778,6 +811,11 @@ export class ObservabilityPipelinesApi {
       new ObservabilityPipelinesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ObservabilityPipelinesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -53,9 +54,14 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v1/integration/webhooks/configuration/webhooks";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("WebhooksIntegrationApi.v1.createWebhooksIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WebhooksIntegrationApi.v1.createWebhooksIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -102,11 +108,14 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       "/api/v1/integration/webhooks/configuration/custom-variables";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "WebhooksIntegrationApi.v1.createWebhooksIntegrationCustomVariable",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WebhooksIntegrationApi.v1.createWebhooksIntegrationCustomVariable",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -152,9 +161,14 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("WebhooksIntegrationApi.v1.deleteWebhooksIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WebhooksIntegrationApi.v1.deleteWebhooksIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -194,11 +208,14 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "WebhooksIntegrationApi.v1.deleteWebhooksIntegrationCustomVariable",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WebhooksIntegrationApi.v1.deleteWebhooksIntegrationCustomVariable",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -235,9 +252,14 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("WebhooksIntegrationApi.v1.getWebhooksIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WebhooksIntegrationApi.v1.getWebhooksIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -277,11 +299,14 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "WebhooksIntegrationApi.v1.getWebhooksIntegrationCustomVariable",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WebhooksIntegrationApi.v1.getWebhooksIntegrationCustomVariable",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -324,9 +349,14 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("WebhooksIntegrationApi.v1.updateWebhooksIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WebhooksIntegrationApi.v1.updateWebhooksIntegration",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -384,11 +414,14 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "WebhooksIntegrationApi.v1.updateWebhooksIntegrationCustomVariable",
-      )
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "WebhooksIntegrationApi.v1.updateWebhooksIntegrationCustomVariable",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -964,6 +997,8 @@ export class WebhooksIntegrationApi {
   private responseProcessor: WebhooksIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: WebhooksIntegrationApiRequestFactory,
@@ -975,6 +1010,11 @@ export class WebhooksIntegrationApi {
       new WebhooksIntegrationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new WebhooksIntegrationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

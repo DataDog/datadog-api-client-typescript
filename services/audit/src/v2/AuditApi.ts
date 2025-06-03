@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -53,9 +54,14 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/audit/events";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AuditApi.v2.listAuditLogs")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AuditApi.v2.listAuditLogs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -127,9 +133,14 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/audit/events/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AuditApi.v2.searchAuditLogs")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AuditApi.v2.searchAuditLogs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -324,6 +335,8 @@ export class AuditApi {
   private responseProcessor: AuditApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: AuditApiRequestFactory,
@@ -334,6 +347,11 @@ export class AuditApi {
       requestFactory || new AuditApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuditApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

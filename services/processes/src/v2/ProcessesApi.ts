@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -50,9 +51,14 @@ export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/processes";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ProcessesApi.v2.listProcesses")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ProcessesApi.v2.listProcesses",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -221,6 +227,8 @@ export class ProcessesApi {
   private responseProcessor: ProcessesApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ProcessesApiRequestFactory,
@@ -231,6 +239,11 @@ export class ProcessesApi {
       requestFactory || new ProcessesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ProcessesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -59,9 +60,14 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/analytics/aggregate";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("LogsApi.v2.aggregateLogs")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsApi.v2.aggregateLogs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -98,9 +104,14 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/events/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("LogsApi.v2.listLogs")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsApi.v2.listLogs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -144,9 +155,14 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/events";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("LogsApi.v2.listLogsGet")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsApi.v2.listLogsGet",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -239,9 +255,14 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("LogsApi.v2.submitLog")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "LogsApi.v2.submitLog",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -611,18 +632,8 @@ export class LogsApi {
   private responseProcessor: LogsApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration?: Configuration,
-    requestFactory?: LogsApiRequestFactory,
-    responseProcessor?: LogsApiResponseProcessor,
-  ) {
-    this.configuration = configuration || createConfiguration();
-    this.requestFactory =
-      requestFactory || new LogsApiRequestFactory(this.configuration);
-    this.responseProcessor =
-      responseProcessor || new LogsApiResponseProcessor();
-    // Add operation servers
-    this.configuration.addOperationServer("LogsApi.v2.submitLog", [
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {
+    "LogsApi.v2.submitLog": [
       new ServerConfiguration<{
         site:
           | "datadoghq.com"
@@ -650,7 +661,24 @@ export class LogsApi {
         site: "datadoghq.com",
         subdomain: "http-intake.logs",
       }),
-    ]);
+    ],
+  };
+
+  public constructor(
+    configuration?: Configuration,
+    requestFactory?: LogsApiRequestFactory,
+    responseProcessor?: LogsApiResponseProcessor,
+  ) {
+    this.configuration = configuration || createConfiguration();
+    this.requestFactory =
+      requestFactory || new LogsApiRequestFactory(this.configuration);
+    this.responseProcessor =
+      responseProcessor || new LogsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

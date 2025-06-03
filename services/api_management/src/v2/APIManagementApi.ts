@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -56,9 +57,14 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/apicatalog/openapi";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("APIManagementApi.v2.createOpenAPI")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "APIManagementApi.v2.createOpenAPI",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -109,9 +115,14 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("APIManagementApi.v2.deleteOpenAPI")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "APIManagementApi.v2.deleteOpenAPI",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -154,9 +165,14 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("APIManagementApi.v2.getOpenAPI")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "APIManagementApi.v2.getOpenAPI",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam(
       "Accept",
       "multipart/form-data, application/json",
@@ -196,9 +212,14 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/apicatalog/api";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("APIManagementApi.v2.listAPIs")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "APIManagementApi.v2.listAPIs",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -265,9 +286,14 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("APIManagementApi.v2.updateOpenAPI")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "APIManagementApi.v2.updateOpenAPI",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -729,6 +755,8 @@ export class APIManagementApi {
   private responseProcessor: APIManagementApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: APIManagementApiRequestFactory,
@@ -739,6 +767,11 @@ export class APIManagementApi {
       requestFactory || new APIManagementApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new APIManagementApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

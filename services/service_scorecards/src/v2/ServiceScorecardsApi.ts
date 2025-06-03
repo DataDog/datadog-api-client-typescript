@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -68,9 +69,14 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/outcomes/batch";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceScorecardsApi.v2.createScorecardOutcomesBatch")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceScorecardsApi.v2.createScorecardOutcomesBatch",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -121,9 +127,14 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/rules";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceScorecardsApi.v2.createScorecardRule")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceScorecardsApi.v2.createScorecardRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -177,9 +188,14 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceScorecardsApi.v2.deleteScorecardRule")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceScorecardsApi.v2.deleteScorecardRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -227,9 +243,14 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/outcomes";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceScorecardsApi.v2.listScorecardOutcomes")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceScorecardsApi.v2.listScorecardOutcomes",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -347,9 +368,14 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/scorecard/rules";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceScorecardsApi.v2.listScorecardRules")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceScorecardsApi.v2.listScorecardRules",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -472,9 +498,14 @@ export class ServiceScorecardsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceScorecardsApi.v2.updateScorecardRule")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceScorecardsApi.v2.updateScorecardRule",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1001,6 +1032,8 @@ export class ServiceScorecardsApi {
   private responseProcessor: ServiceScorecardsApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ServiceScorecardsApiRequestFactory,
@@ -1012,6 +1045,11 @@ export class ServiceScorecardsApi {
       new ServiceScorecardsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceScorecardsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

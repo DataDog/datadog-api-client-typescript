@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -49,9 +50,14 @@ export class ContainerImagesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/container_images";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ContainerImagesApi.v2.listContainerImages")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ContainerImagesApi.v2.listContainerImages",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -204,6 +210,8 @@ export class ContainerImagesApi {
   private responseProcessor: ContainerImagesApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ContainerImagesApiRequestFactory,
@@ -215,6 +223,11 @@ export class ContainerImagesApi {
       new ContainerImagesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ContainerImagesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

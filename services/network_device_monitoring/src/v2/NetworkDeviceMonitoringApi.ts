@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -56,9 +57,14 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("NetworkDeviceMonitoringApi.v2.getDevice")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "NetworkDeviceMonitoringApi.v2.getDevice",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -92,9 +98,14 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     const localVarPath = "/api/v2/ndm/interfaces";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("NetworkDeviceMonitoringApi.v2.getInterfaces")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "NetworkDeviceMonitoringApi.v2.getInterfaces",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -141,9 +152,14 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     const localVarPath = "/api/v2/ndm/devices";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("NetworkDeviceMonitoringApi.v2.listDevices")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "NetworkDeviceMonitoringApi.v2.listDevices",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -209,9 +225,14 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("NetworkDeviceMonitoringApi.v2.listDeviceUserTags")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "NetworkDeviceMonitoringApi.v2.listDeviceUserTags",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -253,9 +274,14 @@ export class NetworkDeviceMonitoringApiRequestFactory extends BaseAPIRequestFact
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("NetworkDeviceMonitoringApi.v2.updateDeviceUserTags")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "NetworkDeviceMonitoringApi.v2.updateDeviceUserTags",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -650,6 +676,8 @@ export class NetworkDeviceMonitoringApi {
   private responseProcessor: NetworkDeviceMonitoringApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: NetworkDeviceMonitoringApiRequestFactory,
@@ -661,6 +689,11 @@ export class NetworkDeviceMonitoringApi {
       new NetworkDeviceMonitoringApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new NetworkDeviceMonitoringApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

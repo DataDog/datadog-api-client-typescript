@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -50,9 +51,14 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/check_run";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("ServiceChecksApi.v1.submitServiceCheck")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "ServiceChecksApi.v1.submitServiceCheck",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -154,6 +160,8 @@ export class ServiceChecksApi {
   private responseProcessor: ServiceChecksApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: ServiceChecksApiRequestFactory,
@@ -164,6 +172,11 @@ export class ServiceChecksApi {
       requestFactory || new ServiceChecksApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new ServiceChecksApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

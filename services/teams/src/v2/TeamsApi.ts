@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -68,9 +69,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/team";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.createTeam")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.createTeam",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -122,9 +128,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.createTeamLink")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.createTeamLink",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -176,9 +187,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.createTeamMembership")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.createTeamMembership",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -224,9 +240,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.deleteTeam")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.deleteTeam",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -268,9 +289,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
       .replace("{link_id}", encodeURIComponent(String(linkId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.deleteTeamLink")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.deleteTeamLink",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -312,9 +338,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
       .replace("{user_id}", encodeURIComponent(String(userId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.deleteTeamMembership")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.deleteTeamMembership",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -351,9 +382,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.getTeam")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.getTeam",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -395,9 +431,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
       .replace("{link_id}", encodeURIComponent(String(linkId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.getTeamLink")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.getTeamLink",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -434,9 +475,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.getTeamLinks")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.getTeamLinks",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -477,9 +523,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.getTeamMemberships")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.getTeamMemberships",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -546,9 +597,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.getTeamPermissionSettings")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.getTeamPermissionSettings",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -585,9 +641,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.getUserMemberships")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.getUserMemberships",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -622,9 +683,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/team";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.listTeams")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.listTeams",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -718,9 +784,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.updateTeam")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.updateTeam",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -777,9 +848,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
       .replace("{link_id}", encodeURIComponent(String(linkId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.updateTeamLink")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.updateTeamLink",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -836,9 +912,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
       .replace("{user_id}", encodeURIComponent(String(userId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.updateTeamMembership")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.updateTeamMembership",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -895,9 +976,14 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
       .replace("{action}", encodeURIComponent(String(action)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("TeamsApi.v2.updateTeamPermissionSetting")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "TeamsApi.v2.updateTeamPermissionSetting",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -2141,6 +2227,8 @@ export class TeamsApi {
   private responseProcessor: TeamsApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: TeamsApiRequestFactory,
@@ -2151,6 +2239,11 @@ export class TeamsApi {
       requestFactory || new TeamsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new TeamsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

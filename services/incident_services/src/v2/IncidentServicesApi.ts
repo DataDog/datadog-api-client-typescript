@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -63,9 +64,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/services";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("IncidentServicesApi.v2.createIncidentService")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentServicesApi.v2.createIncidentService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -121,9 +127,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("IncidentServicesApi.v2.deleteIncidentService")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentServicesApi.v2.deleteIncidentService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -169,9 +180,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("IncidentServicesApi.v2.getIncidentService")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentServicesApi.v2.getIncidentService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -220,9 +236,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/services";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("IncidentServicesApi.v2.listIncidentServices")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentServicesApi.v2.listIncidentServices",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -305,9 +326,14 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("IncidentServicesApi.v2.updateIncidentService")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IncidentServicesApi.v2.updateIncidentService",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -705,6 +731,8 @@ export class IncidentServicesApi {
   private responseProcessor: IncidentServicesApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: IncidentServicesApiRequestFactory,
@@ -716,6 +744,11 @@ export class IncidentServicesApi {
       new IncidentServicesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new IncidentServicesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

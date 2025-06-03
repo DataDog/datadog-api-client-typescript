@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -65,9 +66,14 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("DataDeletionApi.v2.cancelDataDeletionRequest")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DataDeletionApi.v2.cancelDataDeletionRequest",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -119,9 +125,14 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("DataDeletionApi.v2.createDataDeletionRequest")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DataDeletionApi.v2.createDataDeletionRequest",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -170,9 +181,14 @@ export class DataDeletionApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/deletion/requests";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("DataDeletionApi.v2.getDataDeletionRequests")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DataDeletionApi.v2.getDataDeletionRequests",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -468,6 +484,8 @@ export class DataDeletionApi {
   private responseProcessor: DataDeletionApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: DataDeletionApiRequestFactory,
@@ -478,6 +496,11 @@ export class DataDeletionApi {
       requestFactory || new DataDeletionApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DataDeletionApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -41,9 +42,14 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/validate";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("AuthenticationApi.v1.validate")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AuthenticationApi.v1.validate",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -122,6 +128,8 @@ export class AuthenticationApi {
   private responseProcessor: AuthenticationApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: AuthenticationApiRequestFactory,
@@ -132,6 +140,11 @@ export class AuthenticationApi {
       requestFactory || new AuthenticationApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new AuthenticationApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

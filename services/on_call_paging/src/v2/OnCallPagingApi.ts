@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -53,9 +54,14 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("OnCallPagingApi.v2.acknowledgeOnCallPage")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OnCallPagingApi.v2.acknowledgeOnCallPage",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -89,9 +95,14 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/on-call/pages";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("OnCallPagingApi.v2.createOnCallPage")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OnCallPagingApi.v2.createOnCallPage",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -137,9 +148,14 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("OnCallPagingApi.v2.escalateOnCallPage")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OnCallPagingApi.v2.escalateOnCallPage",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -176,9 +192,14 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("OnCallPagingApi.v2.resolveOnCallPage")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OnCallPagingApi.v2.resolveOnCallPage",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -421,6 +442,113 @@ export class OnCallPagingApi {
   private responseProcessor: OnCallPagingApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {
+    "OnCallPagingApi.v2.acknowledgeOnCallPage": [
+      new ServerConfiguration<{
+        site:
+          | "saffron.oncall.datadoghq.com"
+          | "navy.oncall.datadoghq.com"
+          | "coral.oncall.datadoghq.com"
+          | "teal.oncall.datadoghq.com"
+          | "beige.oncall.datadoghq.eu";
+      }>("https://{site}", {
+        site: "navy.oncall.datadoghq.com",
+      }),
+      new ServerConfiguration<{
+        name: string;
+        protocol: string;
+      }>("{protocol}://{name}", {
+        name: "api.datadoghq.com",
+        protocol: "https",
+      }),
+      new ServerConfiguration<{
+        site: string;
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "api",
+      }),
+    ],
+    "OnCallPagingApi.v2.createOnCallPage": [
+      new ServerConfiguration<{
+        site:
+          | "saffron.oncall.datadoghq.com"
+          | "navy.oncall.datadoghq.com"
+          | "coral.oncall.datadoghq.com"
+          | "teal.oncall.datadoghq.com"
+          | "beige.oncall.datadoghq.eu";
+      }>("https://{site}", {
+        site: "navy.oncall.datadoghq.com",
+      }),
+      new ServerConfiguration<{
+        name: string;
+        protocol: string;
+      }>("{protocol}://{name}", {
+        name: "api.datadoghq.com",
+        protocol: "https",
+      }),
+      new ServerConfiguration<{
+        site: string;
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "api",
+      }),
+    ],
+    "OnCallPagingApi.v2.escalateOnCallPage": [
+      new ServerConfiguration<{
+        site:
+          | "saffron.oncall.datadoghq.com"
+          | "navy.oncall.datadoghq.com"
+          | "coral.oncall.datadoghq.com"
+          | "teal.oncall.datadoghq.com"
+          | "beige.oncall.datadoghq.eu";
+      }>("https://{site}", {
+        site: "navy.oncall.datadoghq.com",
+      }),
+      new ServerConfiguration<{
+        name: string;
+        protocol: string;
+      }>("{protocol}://{name}", {
+        name: "api.datadoghq.com",
+        protocol: "https",
+      }),
+      new ServerConfiguration<{
+        site: string;
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "api",
+      }),
+    ],
+    "OnCallPagingApi.v2.resolveOnCallPage": [
+      new ServerConfiguration<{
+        site:
+          | "saffron.oncall.datadoghq.com"
+          | "navy.oncall.datadoghq.com"
+          | "coral.oncall.datadoghq.com"
+          | "teal.oncall.datadoghq.com"
+          | "beige.oncall.datadoghq.eu";
+      }>("https://{site}", {
+        site: "navy.oncall.datadoghq.com",
+      }),
+      new ServerConfiguration<{
+        name: string;
+        protocol: string;
+      }>("{protocol}://{name}", {
+        name: "api.datadoghq.com",
+        protocol: "https",
+      }),
+      new ServerConfiguration<{
+        site: string;
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "api",
+      }),
+    ],
+  };
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: OnCallPagingApiRequestFactory,
@@ -431,126 +559,11 @@ export class OnCallPagingApi {
       requestFactory || new OnCallPagingApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new OnCallPagingApiResponseProcessor();
-    // Add operation servers
-    this.configuration.addOperationServer(
-      "OnCallPagingApi.v2.acknowledgeOnCallPage",
-      [
-        new ServerConfiguration<{
-          site:
-            | "saffron.oncall.datadoghq.com"
-            | "navy.oncall.datadoghq.com"
-            | "coral.oncall.datadoghq.com"
-            | "teal.oncall.datadoghq.com"
-            | "beige.oncall.datadoghq.eu";
-        }>("https://{site}", {
-          site: "navy.oncall.datadoghq.com",
-        }),
-        new ServerConfiguration<{
-          name: string;
-          protocol: string;
-        }>("{protocol}://{name}", {
-          name: "api.datadoghq.com",
-          protocol: "https",
-        }),
-        new ServerConfiguration<{
-          site: string;
-          subdomain: string;
-        }>("https://{subdomain}.{site}", {
-          site: "datadoghq.com",
-          subdomain: "api",
-        }),
-      ],
-    );
-    // Add operation servers
-    this.configuration.addOperationServer(
-      "OnCallPagingApi.v2.createOnCallPage",
-      [
-        new ServerConfiguration<{
-          site:
-            | "saffron.oncall.datadoghq.com"
-            | "navy.oncall.datadoghq.com"
-            | "coral.oncall.datadoghq.com"
-            | "teal.oncall.datadoghq.com"
-            | "beige.oncall.datadoghq.eu";
-        }>("https://{site}", {
-          site: "navy.oncall.datadoghq.com",
-        }),
-        new ServerConfiguration<{
-          name: string;
-          protocol: string;
-        }>("{protocol}://{name}", {
-          name: "api.datadoghq.com",
-          protocol: "https",
-        }),
-        new ServerConfiguration<{
-          site: string;
-          subdomain: string;
-        }>("https://{subdomain}.{site}", {
-          site: "datadoghq.com",
-          subdomain: "api",
-        }),
-      ],
-    );
-    // Add operation servers
-    this.configuration.addOperationServer(
-      "OnCallPagingApi.v2.escalateOnCallPage",
-      [
-        new ServerConfiguration<{
-          site:
-            | "saffron.oncall.datadoghq.com"
-            | "navy.oncall.datadoghq.com"
-            | "coral.oncall.datadoghq.com"
-            | "teal.oncall.datadoghq.com"
-            | "beige.oncall.datadoghq.eu";
-        }>("https://{site}", {
-          site: "navy.oncall.datadoghq.com",
-        }),
-        new ServerConfiguration<{
-          name: string;
-          protocol: string;
-        }>("{protocol}://{name}", {
-          name: "api.datadoghq.com",
-          protocol: "https",
-        }),
-        new ServerConfiguration<{
-          site: string;
-          subdomain: string;
-        }>("https://{subdomain}.{site}", {
-          site: "datadoghq.com",
-          subdomain: "api",
-        }),
-      ],
-    );
-    // Add operation servers
-    this.configuration.addOperationServer(
-      "OnCallPagingApi.v2.resolveOnCallPage",
-      [
-        new ServerConfiguration<{
-          site:
-            | "saffron.oncall.datadoghq.com"
-            | "navy.oncall.datadoghq.com"
-            | "coral.oncall.datadoghq.com"
-            | "teal.oncall.datadoghq.com"
-            | "beige.oncall.datadoghq.eu";
-        }>("https://{site}", {
-          site: "navy.oncall.datadoghq.com",
-        }),
-        new ServerConfiguration<{
-          name: string;
-          protocol: string;
-        }>("{protocol}://{name}", {
-          name: "api.datadoghq.com",
-          protocol: "https",
-        }),
-        new ServerConfiguration<{
-          site: string;
-          subdomain: string;
-        }>("https://{subdomain}.{site}", {
-          site: "datadoghq.com",
-          subdomain: "api",
-        }),
-      ],
-    );
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

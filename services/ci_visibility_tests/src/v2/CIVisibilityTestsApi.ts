@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -55,9 +56,14 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ci/tests/analytics/aggregate";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("CIVisibilityTestsApi.v2.aggregateCIAppTestEvents")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CIVisibilityTestsApi.v2.aggregateCIAppTestEvents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -100,9 +106,14 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ci/tests/events";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("CIVisibilityTestsApi.v2.listCIAppTestEvents")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CIVisibilityTestsApi.v2.listCIAppTestEvents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -175,9 +186,14 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/ci/tests/events/search";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("CIVisibilityTestsApi.v2.searchCIAppTestEvents")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CIVisibilityTestsApi.v2.searchCIAppTestEvents",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -440,6 +456,8 @@ export class CIVisibilityTestsApi {
   private responseProcessor: CIVisibilityTestsApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: CIVisibilityTestsApiRequestFactory,
@@ -451,6 +469,11 @@ export class CIVisibilityTestsApi {
       new CIVisibilityTestsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new CIVisibilityTestsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

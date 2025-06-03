@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -44,9 +45,14 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/domain_allowlist";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("DomainAllowlistApi.v2.getDomainAllowlist")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DomainAllowlistApi.v2.getDomainAllowlist",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -80,9 +86,14 @@ export class DomainAllowlistApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/domain_allowlist";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("DomainAllowlistApi.v2.patchDomainAllowlist")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DomainAllowlistApi.v2.patchDomainAllowlist",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -237,6 +248,8 @@ export class DomainAllowlistApi {
   private responseProcessor: DomainAllowlistApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: DomainAllowlistApiRequestFactory,
@@ -248,6 +261,11 @@ export class DomainAllowlistApi {
       new DomainAllowlistApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DomainAllowlistApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

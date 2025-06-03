@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -60,9 +61,14 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SoftwareCatalogApi.v2.deleteCatalogEntity")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SoftwareCatalogApi.v2.deleteCatalogEntity",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -100,9 +106,14 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/catalog/entity";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SoftwareCatalogApi.v2.listCatalogEntity")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SoftwareCatalogApi.v2.listCatalogEntity",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -208,9 +219,14 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/catalog/relation";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SoftwareCatalogApi.v2.listCatalogRelation")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SoftwareCatalogApi.v2.listCatalogRelation",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -288,9 +304,14 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/catalog/entity";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SoftwareCatalogApi.v2.upsertCatalogEntity")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SoftwareCatalogApi.v2.upsertCatalogEntity",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -648,6 +669,8 @@ export class SoftwareCatalogApi {
   private responseProcessor: SoftwareCatalogApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: SoftwareCatalogApiRequestFactory,
@@ -659,6 +682,11 @@ export class SoftwareCatalogApi {
       new SoftwareCatalogApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SoftwareCatalogApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

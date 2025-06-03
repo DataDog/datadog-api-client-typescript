@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -52,9 +53,14 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/apm/config/metrics";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SpansMetricsApi.v2.createSpansMetric")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansMetricsApi.v2.createSpansMetric",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -99,9 +105,14 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SpansMetricsApi.v2.deleteSpansMetric")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansMetricsApi.v2.deleteSpansMetric",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -137,9 +148,14 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SpansMetricsApi.v2.getSpansMetric")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansMetricsApi.v2.getSpansMetric",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -166,9 +182,14 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/apm/config/metrics";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SpansMetricsApi.v2.listSpansMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansMetricsApi.v2.listSpansMetrics",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -210,9 +231,14 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SpansMetricsApi.v2.updateSpansMetric")
-      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SpansMetricsApi.v2.updateSpansMetric",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -569,6 +595,8 @@ export class SpansMetricsApi {
   private responseProcessor: SpansMetricsApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: SpansMetricsApiRequestFactory,
@@ -579,6 +607,11 @@ export class SpansMetricsApi {
       requestFactory || new SpansMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SpansMetricsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

@@ -8,15 +8,14 @@
 COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable
 yarn install
 
-if [ "$USE_BUILT_PACKAGES" == "false" ]; then
+if [ "$USE_BUILT_PACKAGES" == "true" ]; then
     echo "Building packages"
     yarn build
 else
     yarn workspace @datadog/datadog-api-client build
+    # Generate version files
+    yarn workspaces foreach -Ap run generate-version-files
 fi
-
-# Generate version files
-yarn workspaces foreach -Ap run generate-version-files
 
 # Check licenses
 yarn run check-licenses || exit 1
@@ -33,10 +32,10 @@ yarn run check-licenses || exit 1
 
 
 # Run tests
-if [ "$USE_BUILT_PACKAGES" == "false" ]; then
-    yarn run bdd-test
-else
+if [ "$USE_BUILT_PACKAGES" == "true" ]; then
     yarn run bdd-test:built
+else
+    yarn run bdd-test
 fi
 # TEST_RESULT=$?
 # if [ "$RECORD" == "none" ] && [ "$TEST_RESULT" -ne "0" ]; then

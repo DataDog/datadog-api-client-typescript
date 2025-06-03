@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -63,9 +64,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/dora/deployment";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("DORAMetricsApi.v2.createDORADeployment")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.createDORADeployment",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -110,9 +116,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/dora/incident";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("DORAMetricsApi.v2.createDORAIncident")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.createDORAIncident",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -154,9 +165,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("DORAMetricsApi.v2.getDORADeployment")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.getDORADeployment",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -192,9 +208,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("DORAMetricsApi.v2.getDORAFailure")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.getDORAFailure",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -227,9 +248,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/dora/deployments";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("DORAMetricsApi.v2.listDORADeployments")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.listDORADeployments",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -271,9 +297,14 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/dora/failures";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("DORAMetricsApi.v2.listDORAFailures")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.listDORAFailures",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -814,6 +845,8 @@ export class DORAMetricsApi {
   private responseProcessor: DORAMetricsApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: DORAMetricsApiRequestFactory,
@@ -824,6 +857,11 @@ export class DORAMetricsApi {
       requestFactory || new DORAMetricsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new DORAMetricsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

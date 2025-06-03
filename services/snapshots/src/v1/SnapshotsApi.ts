@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -61,9 +62,14 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/graph/snapshot";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("SnapshotsApi.v1.getGraphSnapshot")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SnapshotsApi.v1.getGraphSnapshot",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -253,6 +259,8 @@ export class SnapshotsApi {
   private responseProcessor: SnapshotsApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: SnapshotsApiRequestFactory,
@@ -263,6 +271,11 @@ export class SnapshotsApi {
       requestFactory || new SnapshotsApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new SnapshotsApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -41,9 +42,14 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/";
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("IPRangesApi.v1.getIPRanges")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "IPRangesApi.v1.getIPRanges",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -123,18 +129,8 @@ export class IPRangesApi {
   private responseProcessor: IPRangesApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration?: Configuration,
-    requestFactory?: IPRangesApiRequestFactory,
-    responseProcessor?: IPRangesApiResponseProcessor,
-  ) {
-    this.configuration = configuration || createConfiguration();
-    this.requestFactory =
-      requestFactory || new IPRangesApiRequestFactory(this.configuration);
-    this.responseProcessor =
-      responseProcessor || new IPRangesApiResponseProcessor();
-    // Add operation servers
-    this.configuration.addOperationServer("IPRangesApi.v1.getIPRanges", [
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {
+    "IPRangesApi.v1.getIPRanges": [
       new ServerConfiguration<{
         site:
           | "datadoghq.com"
@@ -160,7 +156,24 @@ export class IPRangesApi {
       }>("https://{subdomain}.datadoghq.com", {
         subdomain: "ip-ranges",
       }),
-    ]);
+    ],
+  };
+
+  public constructor(
+    configuration?: Configuration,
+    requestFactory?: IPRangesApiRequestFactory,
+    responseProcessor?: IPRangesApiResponseProcessor,
+  ) {
+    this.configuration = configuration || createConfiguration();
+    this.requestFactory =
+      requestFactory || new IPRangesApiRequestFactory(this.configuration);
+    this.responseProcessor =
+      responseProcessor || new IPRangesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**

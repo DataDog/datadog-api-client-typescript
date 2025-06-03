@@ -1,6 +1,7 @@
 import {
   ApiException,
   BaseAPIRequestFactory,
+  BaseServerConfiguration,
   buildUserAgent,
   Configuration,
   createConfiguration,
@@ -53,9 +54,14 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RestrictionPoliciesApi.v2.deleteRestrictionPolicy")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RestrictionPoliciesApi.v2.deleteRestrictionPolicy",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -92,9 +98,14 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RestrictionPoliciesApi.v2.getRestrictionPolicy")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RestrictionPoliciesApi.v2.getRestrictionPolicy",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -138,9 +149,14 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("RestrictionPoliciesApi.v2.updateRestrictionPolicy")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const { server, overrides } = _config.getServerAndOverrides(
+      "RestrictionPoliciesApi.v2.updateRestrictionPolicy",
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -388,6 +404,8 @@ export class RestrictionPoliciesApi {
   private responseProcessor: RestrictionPoliciesApiResponseProcessor;
   private configuration: Configuration;
 
+  private operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+
   public constructor(
     configuration?: Configuration,
     requestFactory?: RestrictionPoliciesApiRequestFactory,
@@ -399,6 +417,11 @@ export class RestrictionPoliciesApi {
       new RestrictionPoliciesApiRequestFactory(this.configuration);
     this.responseProcessor =
       responseProcessor || new RestrictionPoliciesApiResponseProcessor();
+
+    // Add operation servers to the configuration
+    if (Object.keys(this.operationServers).length > 0) {
+      this.configuration.addOperationServers(this.operationServers);
+    }
   }
 
   /**
