@@ -112,7 +112,7 @@ export class MonitorOptions {
    * new `cluster` violating the alert conditions by setting `notify_by` to `["cluster"]`. Tags mentioned
    * in `notify_by` must be a subset of the grouping tags in the query.
    * For example, a query grouped by `cluster` and `namespace` cannot notify on `region`.
-   * Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+   * Setting `notify_by` to `["*"]` configures the monitor to notify as a simple-alert.
    */
   "notifyBy"?: Array<string>;
   /**

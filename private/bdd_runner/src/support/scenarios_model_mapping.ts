@@ -5981,6 +5981,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "Shift",
   },
+  "OnCallApi.V2.GetTeamOnCallUsers": {
+    include: {
+      type: "string",
+      format: "",
+    },
+    teamId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "TeamOnCallResponders",
+  },
   "OnCallApi.V2.GetOnCallTeamRoutingRules": {
     teamId: {
       type: "string",

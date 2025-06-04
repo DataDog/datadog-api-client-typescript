@@ -30,6 +30,7 @@ import { Schedule } from "./models/Schedule";
 import { ScheduleCreateRequest } from "./models/ScheduleCreateRequest";
 import { ScheduleUpdateRequest } from "./models/ScheduleUpdateRequest";
 import { Shift } from "./models/Shift";
+import { TeamOnCallResponders } from "./models/TeamOnCallResponders";
 import { TeamRoutingRules } from "./models/TeamRoutingRules";
 import { TeamRoutingRulesRequest } from "./models/TeamRoutingRulesRequest";
 import { version } from "../version";
@@ -473,6 +474,61 @@ export class OnCallApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[at_ts]",
         serialize(filterAtTs, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getTeamOnCallUsers(
+    teamId: string,
+    include?: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "getTeamOnCallUsers");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/on-call/teams/{team_id}/on-call".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "OnCallApi.v2.getTeamOnCallUsers",
+      OnCallApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        serialize(include, TypingInfo, "string", ""),
         "",
       );
     }
@@ -1164,6 +1220,68 @@ export class OnCallApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getTeamOnCallUsers
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getTeamOnCallUsers(
+    response: ResponseContext,
+  ): Promise<TeamOnCallResponders> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: TeamOnCallResponders = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TeamOnCallResponders",
+      ) as TeamOnCallResponders;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TeamOnCallResponders = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TeamOnCallResponders",
+        "",
+      ) as TeamOnCallResponders;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to setOnCallTeamRoutingRules
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1438,6 +1556,19 @@ export interface OnCallApiGetScheduleOnCallUserRequest {
   filterAtTs?: string;
 }
 
+export interface OnCallApiGetTeamOnCallUsersRequest {
+  /**
+   * The team ID
+   * @type string
+   */
+  teamId: string;
+  /**
+   * Comma-separated list of included relationships to be returned. Allowed values: `responders`, `escalations`, `escalations.responders`.
+   * @type string
+   */
+  include?: string;
+}
+
 export interface OnCallApiSetOnCallTeamRoutingRulesRequest {
   /**
    * The team ID
@@ -1686,6 +1817,28 @@ export class OnCallApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getScheduleOnCallUser(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a team's on-call users at a given time
+   * @param param The request object
+   */
+  public getTeamOnCallUsers(
+    param: OnCallApiGetTeamOnCallUsersRequest,
+    options?: Configuration,
+  ): Promise<TeamOnCallResponders> {
+    const requestContextPromise = this.requestFactory.getTeamOnCallUsers(
+      param.teamId,
+      param.include,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getTeamOnCallUsers(responseContext);
         });
     });
   }
