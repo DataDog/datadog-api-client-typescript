@@ -7,6 +7,7 @@ export {
   OnCallApiGetOnCallScheduleRequest,
   OnCallApiGetOnCallTeamRoutingRulesRequest,
   OnCallApiGetScheduleOnCallUserRequest,
+  OnCallApiGetTeamOnCallUsersRequest,
   OnCallApiSetOnCallTeamRoutingRulesRequest,
   OnCallApiUpdateOnCallEscalationPolicyRequest,
   OnCallApiUpdateOnCallScheduleRequest,
@@ -17,6 +18,7 @@ export { APIErrorResponse } from "./models/APIErrorResponse";
 export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
 export { DataRelationshipsTeamsDataItems } from "./models/DataRelationshipsTeamsDataItems";
 export { DataRelationshipsTeamsDataItemsType } from "./models/DataRelationshipsTeamsDataItemsType";
+export { Escalation } from "./models/Escalation";
 export { EscalationPolicy } from "./models/EscalationPolicy";
 export { EscalationPolicyCreateRequest } from "./models/EscalationPolicyCreateRequest";
 export { EscalationPolicyCreateRequestData } from "./models/EscalationPolicyCreateRequestData";
@@ -48,8 +50,13 @@ export { EscalationPolicyUpdateRequestDataType } from "./models/EscalationPolicy
 export { EscalationPolicyUser } from "./models/EscalationPolicyUser";
 export { EscalationPolicyUserAttributes } from "./models/EscalationPolicyUserAttributes";
 export { EscalationPolicyUserType } from "./models/EscalationPolicyUserType";
+export { EscalationRelationships } from "./models/EscalationRelationships";
+export { EscalationRelationshipsResponders } from "./models/EscalationRelationshipsResponders";
+export { EscalationRelationshipsRespondersDataItems } from "./models/EscalationRelationshipsRespondersDataItems";
+export { EscalationRelationshipsRespondersDataItemsType } from "./models/EscalationRelationshipsRespondersDataItemsType";
 export { EscalationTarget } from "./models/EscalationTarget";
 export { EscalationTargets } from "./models/EscalationTargets";
+export { EscalationType } from "./models/EscalationType";
 export { Layer } from "./models/Layer";
 export { LayerAttributes } from "./models/LayerAttributes";
 export { LayerAttributesInterval } from "./models/LayerAttributesInterval";
@@ -58,6 +65,15 @@ export { LayerRelationshipsMembers } from "./models/LayerRelationshipsMembers";
 export { LayerRelationshipsMembersDataItems } from "./models/LayerRelationshipsMembersDataItems";
 export { LayerRelationshipsMembersDataItemsType } from "./models/LayerRelationshipsMembersDataItemsType";
 export { LayerType } from "./models/LayerType";
+export { OrganizationsType } from "./models/OrganizationsType";
+export { RelationshipToOrganization } from "./models/RelationshipToOrganization";
+export { RelationshipToOrganizationData } from "./models/RelationshipToOrganizationData";
+export { RelationshipToOrganizations } from "./models/RelationshipToOrganizations";
+export { RelationshipToRoleData } from "./models/RelationshipToRoleData";
+export { RelationshipToRoles } from "./models/RelationshipToRoles";
+export { RelationshipToUserData } from "./models/RelationshipToUserData";
+export { RelationshipToUsers } from "./models/RelationshipToUsers";
+export { RolesType } from "./models/RolesType";
 export { RoutingRule } from "./models/RoutingRule";
 export { RoutingRuleAction } from "./models/RoutingRuleAction";
 export { RoutingRuleAttributes } from "./models/RoutingRuleAttributes";
@@ -113,6 +129,17 @@ export { ShiftDataRelationshipsUserData } from "./models/ShiftDataRelationshipsU
 export { ShiftDataRelationshipsUserDataType } from "./models/ShiftDataRelationshipsUserDataType";
 export { ShiftDataType } from "./models/ShiftDataType";
 export { ShiftIncluded } from "./models/ShiftIncluded";
+export { TeamOnCallResponders } from "./models/TeamOnCallResponders";
+export { TeamOnCallRespondersData } from "./models/TeamOnCallRespondersData";
+export { TeamOnCallRespondersDataRelationships } from "./models/TeamOnCallRespondersDataRelationships";
+export { TeamOnCallRespondersDataRelationshipsEscalations } from "./models/TeamOnCallRespondersDataRelationshipsEscalations";
+export { TeamOnCallRespondersDataRelationshipsEscalationsDataItems } from "./models/TeamOnCallRespondersDataRelationshipsEscalationsDataItems";
+export { TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType } from "./models/TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType";
+export { TeamOnCallRespondersDataRelationshipsResponders } from "./models/TeamOnCallRespondersDataRelationshipsResponders";
+export { TeamOnCallRespondersDataRelationshipsRespondersDataItems } from "./models/TeamOnCallRespondersDataRelationshipsRespondersDataItems";
+export { TeamOnCallRespondersDataRelationshipsRespondersDataItemsType } from "./models/TeamOnCallRespondersDataRelationshipsRespondersDataItemsType";
+export { TeamOnCallRespondersDataType } from "./models/TeamOnCallRespondersDataType";
+export { TeamOnCallRespondersIncluded } from "./models/TeamOnCallRespondersIncluded";
 export { TeamReference } from "./models/TeamReference";
 export { TeamReferenceAttributes } from "./models/TeamReferenceAttributes";
 export { TeamReferenceType } from "./models/TeamReferenceType";
@@ -134,7 +161,11 @@ export { TeamTargetType } from "./models/TeamTargetType";
 export { TimeRestriction } from "./models/TimeRestriction";
 export { TimeRestrictions } from "./models/TimeRestrictions";
 export { Urgency } from "./models/Urgency";
+export { User } from "./models/User";
+export { UserAttributes } from "./models/UserAttributes";
 export { UserAttributesStatus } from "./models/UserAttributesStatus";
+export { UserResponseRelationships } from "./models/UserResponseRelationships";
+export { UsersType } from "./models/UsersType";
 export { UserTarget } from "./models/UserTarget";
 export { UserTargetType } from "./models/UserTargetType";
 export { Weekday } from "./models/Weekday";

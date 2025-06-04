@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { CloudWorkloadSecurityAgentRuleActionMetadata } from "./CloudWorkloadSecurityAgentRuleActionMetadata";
+import { CloudWorkloadSecurityAgentRuleActionSet } from "./CloudWorkloadSecurityAgentRuleActionSet";
 import { CloudWorkloadSecurityAgentRuleKill } from "./CloudWorkloadSecurityAgentRuleKill";
 
 /**
@@ -14,6 +16,14 @@ export class CloudWorkloadSecurityAgentRuleAction {
    * Kill system call applied on the container matching the rule
    */
   "kill"?: CloudWorkloadSecurityAgentRuleKill;
+  /**
+   * The metadata action applied on the scope matching the rule
+   */
+  "metadata"?: CloudWorkloadSecurityAgentRuleActionMetadata;
+  /**
+   * The set action applied on the scope matching the rule
+   */
+  "set"?: CloudWorkloadSecurityAgentRuleActionSet;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -36,6 +46,14 @@ export class CloudWorkloadSecurityAgentRuleAction {
     kill: {
       baseName: "kill",
       type: "CloudWorkloadSecurityAgentRuleKill",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "CloudWorkloadSecurityAgentRuleActionMetadata",
+    },
+    set: {
+      baseName: "set",
+      type: "CloudWorkloadSecurityAgentRuleActionSet",
     },
     additionalProperties: {
       baseName: "additionalProperties",

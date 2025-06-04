@@ -3,6 +3,7 @@ import { ModelTypingInfo } from "@datadog/datadog-api-client";
 import { APIErrorResponse } from "./APIErrorResponse";
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { DataRelationshipsTeamsDataItems } from "./DataRelationshipsTeamsDataItems";
+import { Escalation } from "./Escalation";
 import { EscalationPolicy } from "./EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
 import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateRequestData";
@@ -25,6 +26,9 @@ import { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./Escalat
 import { EscalationPolicyUpdateRequestDataRelationships } from "./EscalationPolicyUpdateRequestDataRelationships";
 import { EscalationPolicyUser } from "./EscalationPolicyUser";
 import { EscalationPolicyUserAttributes } from "./EscalationPolicyUserAttributes";
+import { EscalationRelationships } from "./EscalationRelationships";
+import { EscalationRelationshipsResponders } from "./EscalationRelationshipsResponders";
+import { EscalationRelationshipsRespondersDataItems } from "./EscalationRelationshipsRespondersDataItems";
 import { EscalationTargets } from "./EscalationTargets";
 import { Layer } from "./Layer";
 import { LayerAttributes } from "./LayerAttributes";
@@ -32,6 +36,13 @@ import { LayerAttributesInterval } from "./LayerAttributesInterval";
 import { LayerRelationships } from "./LayerRelationships";
 import { LayerRelationshipsMembers } from "./LayerRelationshipsMembers";
 import { LayerRelationshipsMembersDataItems } from "./LayerRelationshipsMembersDataItems";
+import { RelationshipToOrganization } from "./RelationshipToOrganization";
+import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
+import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
+import { RelationshipToRoleData } from "./RelationshipToRoleData";
+import { RelationshipToRoles } from "./RelationshipToRoles";
+import { RelationshipToUserData } from "./RelationshipToUserData";
+import { RelationshipToUsers } from "./RelationshipToUsers";
 import { RoutingRule } from "./RoutingRule";
 import { RoutingRuleAttributes } from "./RoutingRuleAttributes";
 import { RoutingRuleRelationships } from "./RoutingRuleRelationships";
@@ -70,6 +81,13 @@ import { ShiftDataAttributes } from "./ShiftDataAttributes";
 import { ShiftDataRelationships } from "./ShiftDataRelationships";
 import { ShiftDataRelationshipsUser } from "./ShiftDataRelationshipsUser";
 import { ShiftDataRelationshipsUserData } from "./ShiftDataRelationshipsUserData";
+import { TeamOnCallResponders } from "./TeamOnCallResponders";
+import { TeamOnCallRespondersData } from "./TeamOnCallRespondersData";
+import { TeamOnCallRespondersDataRelationships } from "./TeamOnCallRespondersDataRelationships";
+import { TeamOnCallRespondersDataRelationshipsEscalations } from "./TeamOnCallRespondersDataRelationshipsEscalations";
+import { TeamOnCallRespondersDataRelationshipsEscalationsDataItems } from "./TeamOnCallRespondersDataRelationshipsEscalationsDataItems";
+import { TeamOnCallRespondersDataRelationshipsResponders } from "./TeamOnCallRespondersDataRelationshipsResponders";
+import { TeamOnCallRespondersDataRelationshipsRespondersDataItems } from "./TeamOnCallRespondersDataRelationshipsRespondersDataItems";
 import { TeamReference } from "./TeamReference";
 import { TeamReferenceAttributes } from "./TeamReferenceAttributes";
 import { TeamRoutingRules } from "./TeamRoutingRules";
@@ -84,6 +102,9 @@ import { TeamRoutingRulesRequestRule } from "./TeamRoutingRulesRequestRule";
 import { TeamTarget } from "./TeamTarget";
 import { TimeRestriction } from "./TimeRestriction";
 import { TimeRestrictions } from "./TimeRestrictions";
+import { User } from "./User";
+import { UserAttributes } from "./UserAttributes";
+import { UserResponseRelationships } from "./UserResponseRelationships";
 import { UserTarget } from "./UserTarget";
 
 export const TypingInfo: ModelTypingInfo = {
@@ -97,8 +118,12 @@ export const TypingInfo: ModelTypingInfo = {
     EscalationPolicyStepType: ["steps"],
     EscalationPolicyUpdateRequestDataType: ["policies"],
     EscalationPolicyUserType: ["users"],
+    EscalationRelationshipsRespondersDataItemsType: ["users"],
+    EscalationType: ["escalation_policy_steps"],
     LayerRelationshipsMembersDataItemsType: ["members"],
     LayerType: ["layers"],
+    OrganizationsType: ["orgs"],
+    RolesType: ["roles"],
     RoutingRuleRelationshipsPolicyDataType: ["policies"],
     RoutingRuleType: ["team_routing_rules"],
     ScheduleCreateRequestDataType: ["schedules"],
@@ -113,6 +138,11 @@ export const TypingInfo: ModelTypingInfo = {
     SendTeamsMessageActionType: ["send_teams_message"],
     ShiftDataRelationshipsUserDataType: ["users"],
     ShiftDataType: ["shifts"],
+    TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType: [
+      "escalation_policy_steps",
+    ],
+    TeamOnCallRespondersDataRelationshipsRespondersDataItemsType: ["users"],
+    TeamOnCallRespondersDataType: ["team_oncall_responders"],
     TeamReferenceType: ["teams"],
     TeamRoutingRulesDataRelationshipsRulesDataItemsType: ["team_routing_rules"],
     TeamRoutingRulesDataType: ["team_routing_rules"],
@@ -121,6 +151,7 @@ export const TypingInfo: ModelTypingInfo = {
     Urgency: ["low", "high", "dynamic"],
     UserAttributesStatus: ["active", "deactivated", "pending"],
     UserTargetType: ["users"],
+    UsersType: ["users"],
     Weekday: [
       "monday",
       "tuesday",
@@ -147,12 +178,14 @@ export const TypingInfo: ModelTypingInfo = {
       "ScheduleUser",
     ],
     ShiftIncluded: ["ScheduleUser"],
+    TeamOnCallRespondersIncluded: ["User", "Escalation"],
     TeamRoutingRulesIncluded: ["RoutingRule"],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     DataRelationshipsTeams: DataRelationshipsTeams,
     DataRelationshipsTeamsDataItems: DataRelationshipsTeamsDataItems,
+    Escalation: Escalation,
     EscalationPolicy: EscalationPolicy,
     EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,
     EscalationPolicyCreateRequestData: EscalationPolicyCreateRequestData,
@@ -183,6 +216,10 @@ export const TypingInfo: ModelTypingInfo = {
       EscalationPolicyUpdateRequestDataRelationships,
     EscalationPolicyUser: EscalationPolicyUser,
     EscalationPolicyUserAttributes: EscalationPolicyUserAttributes,
+    EscalationRelationships: EscalationRelationships,
+    EscalationRelationshipsResponders: EscalationRelationshipsResponders,
+    EscalationRelationshipsRespondersDataItems:
+      EscalationRelationshipsRespondersDataItems,
     EscalationTargets: EscalationTargets,
     Layer: Layer,
     LayerAttributes: LayerAttributes,
@@ -190,6 +227,13 @@ export const TypingInfo: ModelTypingInfo = {
     LayerRelationships: LayerRelationships,
     LayerRelationshipsMembers: LayerRelationshipsMembers,
     LayerRelationshipsMembersDataItems: LayerRelationshipsMembersDataItems,
+    RelationshipToOrganization: RelationshipToOrganization,
+    RelationshipToOrganizationData: RelationshipToOrganizationData,
+    RelationshipToOrganizations: RelationshipToOrganizations,
+    RelationshipToRoleData: RelationshipToRoleData,
+    RelationshipToRoles: RelationshipToRoles,
+    RelationshipToUserData: RelationshipToUserData,
+    RelationshipToUsers: RelationshipToUsers,
     RoutingRule: RoutingRule,
     RoutingRuleAttributes: RoutingRuleAttributes,
     RoutingRuleRelationships: RoutingRuleRelationships,
@@ -235,6 +279,18 @@ export const TypingInfo: ModelTypingInfo = {
     ShiftDataRelationships: ShiftDataRelationships,
     ShiftDataRelationshipsUser: ShiftDataRelationshipsUser,
     ShiftDataRelationshipsUserData: ShiftDataRelationshipsUserData,
+    TeamOnCallResponders: TeamOnCallResponders,
+    TeamOnCallRespondersData: TeamOnCallRespondersData,
+    TeamOnCallRespondersDataRelationships:
+      TeamOnCallRespondersDataRelationships,
+    TeamOnCallRespondersDataRelationshipsEscalations:
+      TeamOnCallRespondersDataRelationshipsEscalations,
+    TeamOnCallRespondersDataRelationshipsEscalationsDataItems:
+      TeamOnCallRespondersDataRelationshipsEscalationsDataItems,
+    TeamOnCallRespondersDataRelationshipsResponders:
+      TeamOnCallRespondersDataRelationshipsResponders,
+    TeamOnCallRespondersDataRelationshipsRespondersDataItems:
+      TeamOnCallRespondersDataRelationshipsRespondersDataItems,
     TeamReference: TeamReference,
     TeamReferenceAttributes: TeamReferenceAttributes,
     TeamRoutingRules: TeamRoutingRules,
@@ -252,6 +308,9 @@ export const TypingInfo: ModelTypingInfo = {
     TeamTarget: TeamTarget,
     TimeRestriction: TimeRestriction,
     TimeRestrictions: TimeRestrictions,
+    User: User,
+    UserAttributes: UserAttributes,
+    UserResponseRelationships: UserResponseRelationships,
     UserTarget: UserTarget,
   },
 };
