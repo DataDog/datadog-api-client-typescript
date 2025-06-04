@@ -616,6 +616,7 @@ import { EntityV3System } from "./EntityV3System";
 import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
 import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
 import { ErrorHandler } from "./ErrorHandler";
+import { Escalation } from "./Escalation";
 import { EscalationPolicy } from "./EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
 import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateRequestData";
@@ -638,6 +639,9 @@ import { EscalationPolicyUpdateRequestDataAttributesStepsItems } from "./Escalat
 import { EscalationPolicyUpdateRequestDataRelationships } from "./EscalationPolicyUpdateRequestDataRelationships";
 import { EscalationPolicyUser } from "./EscalationPolicyUser";
 import { EscalationPolicyUserAttributes } from "./EscalationPolicyUserAttributes";
+import { EscalationRelationships } from "./EscalationRelationships";
+import { EscalationRelationshipsResponders } from "./EscalationRelationshipsResponders";
+import { EscalationRelationshipsRespondersDataItems } from "./EscalationRelationshipsRespondersDataItems";
 import { EscalationTargets } from "./EscalationTargets";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
@@ -1763,6 +1767,13 @@ import { TeamLinkCreate } from "./TeamLinkCreate";
 import { TeamLinkCreateRequest } from "./TeamLinkCreateRequest";
 import { TeamLinkResponse } from "./TeamLinkResponse";
 import { TeamLinksResponse } from "./TeamLinksResponse";
+import { TeamOnCallResponders } from "./TeamOnCallResponders";
+import { TeamOnCallRespondersData } from "./TeamOnCallRespondersData";
+import { TeamOnCallRespondersDataRelationships } from "./TeamOnCallRespondersDataRelationships";
+import { TeamOnCallRespondersDataRelationshipsEscalations } from "./TeamOnCallRespondersDataRelationshipsEscalations";
+import { TeamOnCallRespondersDataRelationshipsEscalationsDataItems } from "./TeamOnCallRespondersDataRelationshipsEscalationsDataItems";
+import { TeamOnCallRespondersDataRelationshipsResponders } from "./TeamOnCallRespondersDataRelationshipsResponders";
+import { TeamOnCallRespondersDataRelationshipsRespondersDataItems } from "./TeamOnCallRespondersDataRelationshipsRespondersDataItems";
 import { TeamPermissionSetting } from "./TeamPermissionSetting";
 import { TeamPermissionSettingAttributes } from "./TeamPermissionSettingAttributes";
 import { TeamPermissionSettingResponse } from "./TeamPermissionSettingResponse";
@@ -2255,6 +2266,8 @@ const enumsMap: { [key: string]: any[] } = {
   EscalationPolicyStepType: ["steps"],
   EscalationPolicyUpdateRequestDataType: ["policies"],
   EscalationPolicyUserType: ["users"],
+  EscalationRelationshipsRespondersDataItemsType: ["users"],
+  EscalationType: ["escalation_policy_steps"],
   EventCategory: ["change"],
   EventCreateRequestType: ["event"],
   EventPriority: ["normal", "low"],
@@ -2988,6 +3001,11 @@ const enumsMap: { [key: string]: any[] } = {
   State: ["pass", "fail", "skip"],
   StateVariableType: ["stateVariable"],
   TeamLinkType: ["team_links"],
+  TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType: [
+    "escalation_policy_steps",
+  ],
+  TeamOnCallRespondersDataRelationshipsRespondersDataItemsType: ["users"],
+  TeamOnCallRespondersDataType: ["team_oncall_responders"],
   TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
   TeamPermissionSettingType: ["team_permission_settings"],
   TeamPermissionSettingValue: [
@@ -3864,6 +3882,7 @@ const typeMap: { [index: string]: any } = {
   EntityV3SystemDatadog: EntityV3SystemDatadog,
   EntityV3SystemSpec: EntityV3SystemSpec,
   ErrorHandler: ErrorHandler,
+  Escalation: Escalation,
   EscalationPolicy: EscalationPolicy,
   EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,
   EscalationPolicyCreateRequestData: EscalationPolicyCreateRequestData,
@@ -3894,6 +3913,10 @@ const typeMap: { [index: string]: any } = {
     EscalationPolicyUpdateRequestDataRelationships,
   EscalationPolicyUser: EscalationPolicyUser,
   EscalationPolicyUserAttributes: EscalationPolicyUserAttributes,
+  EscalationRelationships: EscalationRelationships,
+  EscalationRelationshipsResponders: EscalationRelationshipsResponders,
+  EscalationRelationshipsRespondersDataItems:
+    EscalationRelationshipsRespondersDataItems,
   EscalationTargets: EscalationTargets,
   Event: Event,
   EventAttributes: EventAttributes,
@@ -5205,6 +5228,17 @@ const typeMap: { [index: string]: any } = {
   TeamLinkCreateRequest: TeamLinkCreateRequest,
   TeamLinkResponse: TeamLinkResponse,
   TeamLinksResponse: TeamLinksResponse,
+  TeamOnCallResponders: TeamOnCallResponders,
+  TeamOnCallRespondersData: TeamOnCallRespondersData,
+  TeamOnCallRespondersDataRelationships: TeamOnCallRespondersDataRelationships,
+  TeamOnCallRespondersDataRelationshipsEscalations:
+    TeamOnCallRespondersDataRelationshipsEscalations,
+  TeamOnCallRespondersDataRelationshipsEscalationsDataItems:
+    TeamOnCallRespondersDataRelationshipsEscalationsDataItems,
+  TeamOnCallRespondersDataRelationshipsResponders:
+    TeamOnCallRespondersDataRelationshipsResponders,
+  TeamOnCallRespondersDataRelationshipsRespondersDataItems:
+    TeamOnCallRespondersDataRelationshipsRespondersDataItems,
   TeamPermissionSetting: TeamPermissionSetting,
   TeamPermissionSettingAttributes: TeamPermissionSettingAttributes,
   TeamPermissionSettingResponse: TeamPermissionSettingResponse,
@@ -5683,6 +5717,7 @@ const oneOfMap: { [index: string]: string[] } = {
   SpansGroupByMissing: ["string", "number"],
   SpansGroupByTotal: ["boolean", "string", "number"],
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
+  TeamOnCallRespondersIncluded: ["User", "Escalation"],
   TeamRoutingRulesIncluded: ["RoutingRule"],
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
   Trigger: [
