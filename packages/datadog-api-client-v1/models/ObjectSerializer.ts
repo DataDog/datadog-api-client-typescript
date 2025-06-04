@@ -945,6 +945,7 @@ const enumsMap: { [key: string]: any[] } = {
     "firefox.tablet",
     "firefox.mobile_small",
   ],
+  MonitorDraftStatus: ["draft", "published"],
   MonitorFormulaAndFunctionCostAggregator: [
     "avg",
     "sum",

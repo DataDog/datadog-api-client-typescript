@@ -36,6 +36,7 @@ const params: v1.MonitorsApiCreateMonitorRequest = {
       },
     },
     type: "query alert",
+    draftStatus: "published",
   },
 };
 

@@ -617,6 +617,7 @@ export { MetricsQueryResponse } from "./models/MetricsQueryResponse";
 export { MetricsQueryUnit } from "./models/MetricsQueryUnit";
 export { Monitor } from "./models/Monitor";
 export { MonitorDeviceID } from "./models/MonitorDeviceID";
+export { MonitorDraftStatus } from "./models/MonitorDraftStatus";
 export { MonitorFormulaAndFunctionCostAggregator } from "./models/MonitorFormulaAndFunctionCostAggregator";
 export { MonitorFormulaAndFunctionCostDataSource } from "./models/MonitorFormulaAndFunctionCostDataSource";
 export { MonitorFormulaAndFunctionCostQueryDefinition } from "./models/MonitorFormulaAndFunctionCostQueryDefinition";
