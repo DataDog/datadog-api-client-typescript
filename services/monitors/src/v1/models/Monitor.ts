@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { Creator } from "./Creator";
 import { MatchingDowntime } from "./MatchingDowntime";
+import { MonitorDraftStatus } from "./MonitorDraftStatus";
 import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorState } from "./MonitorState";
@@ -23,6 +24,15 @@ export class Monitor {
    * Whether or not the monitor is deleted. (Always `null`)
    */
   "deleted"?: Date;
+  /**
+   * Indicates whether the monitor is in a draft or published state.
+   *
+   * `draft`: The monitor appears as Draft and does not send notifications.
+   * `published`: The monitor is active and evaluates conditions and notify as configured.
+   *
+   * This field is in preview. The draft value is only available to customers with the feature enabled.
+   */
+  "draftStatus"?: MonitorDraftStatus;
   /**
    * ID of this monitor.
    */
@@ -107,6 +117,10 @@ export class Monitor {
       baseName: "deleted",
       type: "Date",
       format: "date-time",
+    },
+    draftStatus: {
+      baseName: "draft_status",
+      type: "MonitorDraftStatus",
     },
     id: {
       baseName: "id",

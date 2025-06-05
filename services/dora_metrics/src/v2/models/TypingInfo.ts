@@ -7,13 +7,13 @@ import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
 import { DORADeploymentResponse } from "./DORADeploymentResponse";
 import { DORADeploymentResponseData } from "./DORADeploymentResponseData";
 import { DORAEvent } from "./DORAEvent";
+import { DORAFailureRequest } from "./DORAFailureRequest";
+import { DORAFailureRequestAttributes } from "./DORAFailureRequestAttributes";
+import { DORAFailureRequestData } from "./DORAFailureRequestData";
+import { DORAFailureResponse } from "./DORAFailureResponse";
+import { DORAFailureResponseData } from "./DORAFailureResponseData";
 import { DORAFetchResponse } from "./DORAFetchResponse";
 import { DORAGitInfo } from "./DORAGitInfo";
-import { DORAIncidentRequest } from "./DORAIncidentRequest";
-import { DORAIncidentRequestAttributes } from "./DORAIncidentRequestAttributes";
-import { DORAIncidentRequestData } from "./DORAIncidentRequestData";
-import { DORAIncidentResponse } from "./DORAIncidentResponse";
-import { DORAIncidentResponseData } from "./DORAIncidentResponseData";
 import { DORAListDeploymentsRequest } from "./DORAListDeploymentsRequest";
 import { DORAListDeploymentsRequestAttributes } from "./DORAListDeploymentsRequestAttributes";
 import { DORAListDeploymentsRequestData } from "./DORAListDeploymentsRequestData";
@@ -28,7 +28,7 @@ import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     DORADeploymentType: ["dora_deployment"],
-    DORAIncidentType: ["dora_incident"],
+    DORAFailureType: ["dora_failure"],
     DORAListDeploymentsRequestDataType: ["dora_deployments_list_request"],
     DORAListFailuresRequestDataType: ["dora_failures_list_request"],
   },
@@ -41,13 +41,13 @@ export const TypingInfo: ModelTypingInfo = {
     DORADeploymentResponse: DORADeploymentResponse,
     DORADeploymentResponseData: DORADeploymentResponseData,
     DORAEvent: DORAEvent,
+    DORAFailureRequest: DORAFailureRequest,
+    DORAFailureRequestAttributes: DORAFailureRequestAttributes,
+    DORAFailureRequestData: DORAFailureRequestData,
+    DORAFailureResponse: DORAFailureResponse,
+    DORAFailureResponseData: DORAFailureResponseData,
     DORAFetchResponse: DORAFetchResponse,
     DORAGitInfo: DORAGitInfo,
-    DORAIncidentRequest: DORAIncidentRequest,
-    DORAIncidentRequestAttributes: DORAIncidentRequestAttributes,
-    DORAIncidentRequestData: DORAIncidentRequestData,
-    DORAIncidentResponse: DORAIncidentResponse,
-    DORAIncidentResponseData: DORAIncidentResponseData,
     DORAListDeploymentsRequest: DORAListDeploymentsRequest,
     DORAListDeploymentsRequestAttributes: DORAListDeploymentsRequestAttributes,
     DORAListDeploymentsRequestData: DORAListDeploymentsRequestData,

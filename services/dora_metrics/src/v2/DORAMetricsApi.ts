@@ -25,9 +25,9 @@ import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { DORADeploymentRequest } from "./models/DORADeploymentRequest";
 import { DORADeploymentResponse } from "./models/DORADeploymentResponse";
+import { DORAFailureRequest } from "./models/DORAFailureRequest";
+import { DORAFailureResponse } from "./models/DORAFailureResponse";
 import { DORAFetchResponse } from "./models/DORAFetchResponse";
-import { DORAIncidentRequest } from "./models/DORAIncidentRequest";
-import { DORAIncidentResponse } from "./models/DORAIncidentResponse";
 import { DORAListDeploymentsRequest } from "./models/DORAListDeploymentsRequest";
 import { DORAListFailuresRequest } from "./models/DORAListFailuresRequest";
 import { DORAListResponse } from "./models/DORAListResponse";
@@ -48,12 +48,6 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (!_config.unstableOperations["DORAMetricsApi.v2.createDORADeployment"]) {
-      throw new Error(
-        "Unstable operation 'createDORADeployment' is disabled. Enable it by setting `configuration.unstableOperations['DORAMetricsApi.v2.createDORADeployment'] = true`",
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -96,17 +90,58 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async createDORAIncident(
-    body: DORAIncidentRequest,
+  public async createDORAFailure(
+    body: DORAFailureRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (!_config.unstableOperations["DORAMetricsApi.v2.createDORAIncident"]) {
-      throw new Error(
-        "Unstable operation 'createDORAIncident' is disabled. Enable it by setting `configuration.unstableOperations['DORAMetricsApi.v2.createDORAIncident'] = true`",
-      );
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createDORAFailure");
     }
+
+    // Path Params
+    const localVarPath = "/api/v2/dora/failure";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "DORAMetricsApi.v2.createDORAFailure",
+      DORAMetricsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "DORAFailureRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
+
+    return requestContext;
+  }
+
+  public async createDORAIncident(
+    body: DORAFailureRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -138,7 +173,7 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = getPreferredMediaType(["application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
-      serialize(body, TypingInfo, "DORAIncidentRequest", ""),
+      serialize(body, TypingInfo, "DORAFailureRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -420,19 +455,19 @@ export class DORAMetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to createDORAIncident
+   * @params response Response returned by the server for a request to createDORAFailure
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createDORAIncident(
+  public async createDORAFailure(
     response: ResponseContext,
-  ): Promise<DORAIncidentResponse> {
+  ): Promise<DORAFailureResponse> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200 || response.httpStatusCode === 202) {
-      const body: DORAIncidentResponse = deserialize(
+      const body: DORAFailureResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DORAIncidentResponse",
-      ) as DORAIncidentResponse;
+        "DORAFailureResponse",
+      ) as DORAFailureResponse;
       return body;
     }
     if (response.httpStatusCode === 400) {
@@ -477,12 +512,89 @@ export class DORAMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DORAIncidentResponse = deserialize(
+      const body: DORAFailureResponse = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
-        "DORAIncidentResponse",
+        "DORAFailureResponse",
         "",
-      ) as DORAIncidentResponse;
+      ) as DORAFailureResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createDORAIncident
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createDORAIncident(
+    response: ResponseContext,
+  ): Promise<DORAFailureResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 202) {
+      const body: DORAFailureResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "DORAFailureResponse",
+      ) as DORAFailureResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DORAFailureResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "DORAFailureResponse",
+        "",
+      ) as DORAFailureResponse;
       return body;
     }
 
@@ -809,11 +921,18 @@ export interface DORAMetricsApiCreateDORADeploymentRequest {
   body: DORADeploymentRequest;
 }
 
+export interface DORAMetricsApiCreateDORAFailureRequest {
+  /**
+   * @type DORAFailureRequest
+   */
+  body: DORAFailureRequest;
+}
+
 export interface DORAMetricsApiCreateDORAIncidentRequest {
   /**
-   * @type DORAIncidentRequest
+   * @type DORAFailureRequest
    */
-  body: DORAIncidentRequest;
+  body: DORAFailureRequest;
 }
 
 export interface DORAMetricsApiGetDORADeploymentRequest {
@@ -899,10 +1018,37 @@ export class DORAMetricsApi {
    * - Time to Restore
    * @param param The request object
    */
+  public createDORAFailure(
+    param: DORAMetricsApiCreateDORAFailureRequest,
+    options?: Configuration,
+  ): Promise<DORAFailureResponse> {
+    const requestContextPromise = this.requestFactory.createDORAFailure(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createDORAFailure(responseContext);
+        });
+    });
+  }
+
+  /**
+   * **Note**: This endpoint is deprecated. Please use `/api/v2/dora/failure` instead.
+   *
+   * Use this API endpoint to provide failure data for DORA metrics.
+   *
+   * This is necessary for:
+   * - Change Failure Rate
+   * - Time to Restore
+   * @param param The request object
+   */
   public createDORAIncident(
     param: DORAMetricsApiCreateDORAIncidentRequest,
     options?: Configuration,
-  ): Promise<DORAIncidentResponse> {
+  ): Promise<DORAFailureResponse> {
     const requestContextPromise = this.requestFactory.createDORAIncident(
       param.body,
       options,

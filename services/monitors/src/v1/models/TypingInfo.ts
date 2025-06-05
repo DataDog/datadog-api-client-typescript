@@ -47,6 +47,7 @@ export const TypingInfo: ModelTypingInfo = {
       "firefox.tablet",
       "firefox.mobile_small",
     ],
+    MonitorDraftStatus: ["draft", "published"],
     MonitorFormulaAndFunctionCostAggregator: [
       "avg",
       "sum",

@@ -20,6 +20,7 @@ export { DeletedMonitor } from "./models/DeletedMonitor";
 export { MatchingDowntime } from "./models/MatchingDowntime";
 export { Monitor } from "./models/Monitor";
 export { MonitorDeviceID } from "./models/MonitorDeviceID";
+export { MonitorDraftStatus } from "./models/MonitorDraftStatus";
 export { MonitorFormulaAndFunctionCostAggregator } from "./models/MonitorFormulaAndFunctionCostAggregator";
 export { MonitorFormulaAndFunctionCostDataSource } from "./models/MonitorFormulaAndFunctionCostDataSource";
 export { MonitorFormulaAndFunctionCostQueryDefinition } from "./models/MonitorFormulaAndFunctionCostQueryDefinition";
