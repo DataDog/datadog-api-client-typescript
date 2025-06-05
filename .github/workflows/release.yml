@@ -13,7 +13,6 @@ on:
     types: [closed]
     branches:
       - master
-      - v2
 
 jobs:
   create_release:
