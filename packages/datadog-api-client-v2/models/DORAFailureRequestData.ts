@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DORAIncidentResponseData } from "./DORAIncidentResponseData";
+import { DORAFailureRequestAttributes } from "./DORAFailureRequestAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response after receiving a DORA incident event.
+ * The JSON:API data.
  */
-export class DORAIncidentResponse {
+export class DORAFailureRequestData {
   /**
-   * Response after receiving a DORA incident event.
+   * Attributes to create a DORA failure event.
    */
-  "data": DORAIncidentResponseData;
+  "attributes": DORAFailureRequestAttributes;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +32,9 @@ export class DORAIncidentResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DORAIncidentResponseData",
+    attributes: {
+      baseName: "attributes",
+      type: "DORAFailureRequestAttributes",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +47,7 @@ export class DORAIncidentResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAIncidentResponse.attributeTypeMap;
+    return DORAFailureRequestData.attributeTypeMap;
   }
 
   public constructor() {}
