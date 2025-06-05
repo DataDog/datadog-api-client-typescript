@@ -25,7 +25,7 @@ const configuration = createConfiguration();
 configuration.unstableOperations["v2.listAWSLogsServices"] = true;
 const apiInstance = new AWSLogsIntegrationApiV2(configuration);
 
-apiInstance.listAWSLogsServices(params).then((data: v2.AWSLogsServicesResponse) => {
+apiInstance.listAWSLogsServices().then((data: v2.AWSLogsServicesResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

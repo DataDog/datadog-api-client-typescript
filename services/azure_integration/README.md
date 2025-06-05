@@ -23,7 +23,7 @@ import { v1 } from "@datadog/datadog-api-client-azure-integration";
 const configuration = createConfiguration();
 const apiInstance = new AzureIntegrationApiV1(configuration);
 
-apiInstance.listAzureIntegration(params).then((data: v1.Array<AzureAccount>) => {
+apiInstance.listAzureIntegration().then((data: v1.Array<AzureAccount>) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

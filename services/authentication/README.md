@@ -30,7 +30,7 @@ import { v1 } from "@datadog/datadog-api-client-authentication";
 const configuration = createConfiguration();
 const apiInstance = new AuthenticationApiV1(configuration);
 
-apiInstance.validate(params).then((data: v1.AuthenticationValidationResponse) => {
+apiInstance.validate().then((data: v1.AuthenticationValidationResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

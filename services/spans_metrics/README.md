@@ -22,7 +22,7 @@ import { v2 } from "@datadog/datadog-api-client-spans-metrics";
 const configuration = createConfiguration();
 const apiInstance = new SpansMetricsApiV2(configuration);
 
-apiInstance.listSpansMetrics(params).then((data: v2.SpansMetricsResponse) => {
+apiInstance.listSpansMetrics().then((data: v2.SpansMetricsResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

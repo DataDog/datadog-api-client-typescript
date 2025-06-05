@@ -23,7 +23,7 @@ import { v2 } from "@datadog/datadog-api-client-gcp-integration";
 const configuration = createConfiguration();
 const apiInstance = new GCPIntegrationApiV2(configuration);
 
-apiInstance.listGCPSTSAccounts(params).then((data: v2.GCPSTSServiceAccountsResponse) => {
+apiInstance.listGCPSTSAccounts().then((data: v2.GCPSTSServiceAccountsResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

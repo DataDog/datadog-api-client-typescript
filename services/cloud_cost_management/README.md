@@ -22,7 +22,7 @@ import { v2 } from "@datadog/datadog-api-client-cloud-cost-management";
 const configuration = createConfiguration();
 const apiInstance = new CloudCostManagementApiV2(configuration);
 
-apiInstance.listCostAWSCURConfigs(params).then((data: v2.AwsCURConfigsResponse) => {
+apiInstance.listCostAWSCURConfigs().then((data: v2.AwsCURConfigsResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

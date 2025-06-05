@@ -27,7 +27,7 @@ import { v2 } from "@datadog/datadog-api-client-application-security";
 const configuration = createConfiguration();
 const apiInstance = new ApplicationSecurityApiV2(configuration);
 
-apiInstance.listApplicationSecurityWAFCustomRules(params).then((data: v2.ApplicationSecurityWafCustomRuleListResponse) => {
+apiInstance.listApplicationSecurityWAFCustomRules().then((data: v2.ApplicationSecurityWafCustomRuleListResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

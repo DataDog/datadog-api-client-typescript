@@ -25,7 +25,7 @@ import { v2 } from "@datadog/datadog-api-client-csm-coverage-analysis";
 const configuration = createConfiguration();
 const apiInstance = new CSMCoverageAnalysisApiV2(configuration);
 
-apiInstance.getCSMCloudAccountsCoverageAnalysis(params).then((data: v2.CsmCloudAccountsCoverageAnalysisResponse) => {
+apiInstance.getCSMCloudAccountsCoverageAnalysis().then((data: v2.CsmCloudAccountsCoverageAnalysisResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
