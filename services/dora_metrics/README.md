@@ -22,8 +22,6 @@ import { DORAMetricsApiV2 } from "@datadog/datadog-api-client-dora-metrics";
 import { v2 } from "@datadog/datadog-api-client-dora-metrics";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-configuration.unstableOperations["v2.createDORADeployment"] = true;
 const apiInstance = new DORAMetricsApiV2(configuration);
 const params = {/* parameters */};
 

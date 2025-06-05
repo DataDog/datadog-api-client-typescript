@@ -3342,6 +3342,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "Array<FindingVulnerabilityType>",
       format: "",
     },
+    detailedFindings: {
+      type: "boolean",
+      format: "",
+    },
     operationResponseType: "ListFindingsResponse",
   },
   "SecurityMonitoringApi.V2.MuteFindings": {
@@ -4470,6 +4474,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DORAFetchResponse",
   },
+  "DORAMetricsApi.V2.CreateDORAFailure": {
+    body: {
+      type: "DORAFailureRequest",
+      format: "",
+    },
+    operationResponseType: "DORAFailureResponse",
+  },
   "DORAMetricsApi.V2.ListDORAFailures": {
     body: {
       type: "DORAListFailuresRequest",
@@ -4486,10 +4497,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   },
   "DORAMetricsApi.V2.CreateDORAIncident": {
     body: {
-      type: "DORAIncidentRequest",
+      type: "DORAFailureRequest",
       format: "",
     },
-    operationResponseType: "DORAIncidentResponse",
+    operationResponseType: "DORAFailureResponse",
   },
   "DowntimesApi.V2.ListDowntimes": {
     currentOnly: {

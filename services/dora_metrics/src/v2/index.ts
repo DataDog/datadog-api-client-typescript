@@ -1,5 +1,6 @@
 export {
   DORAMetricsApiCreateDORADeploymentRequest,
+  DORAMetricsApiCreateDORAFailureRequest,
   DORAMetricsApiCreateDORAIncidentRequest,
   DORAMetricsApiGetDORADeploymentRequest,
   DORAMetricsApiGetDORAFailureRequest,
@@ -16,14 +17,14 @@ export { DORADeploymentResponse } from "./models/DORADeploymentResponse";
 export { DORADeploymentResponseData } from "./models/DORADeploymentResponseData";
 export { DORADeploymentType } from "./models/DORADeploymentType";
 export { DORAEvent } from "./models/DORAEvent";
+export { DORAFailureRequest } from "./models/DORAFailureRequest";
+export { DORAFailureRequestAttributes } from "./models/DORAFailureRequestAttributes";
+export { DORAFailureRequestData } from "./models/DORAFailureRequestData";
+export { DORAFailureResponse } from "./models/DORAFailureResponse";
+export { DORAFailureResponseData } from "./models/DORAFailureResponseData";
+export { DORAFailureType } from "./models/DORAFailureType";
 export { DORAFetchResponse } from "./models/DORAFetchResponse";
 export { DORAGitInfo } from "./models/DORAGitInfo";
-export { DORAIncidentRequest } from "./models/DORAIncidentRequest";
-export { DORAIncidentRequestAttributes } from "./models/DORAIncidentRequestAttributes";
-export { DORAIncidentRequestData } from "./models/DORAIncidentRequestData";
-export { DORAIncidentResponse } from "./models/DORAIncidentResponse";
-export { DORAIncidentResponseData } from "./models/DORAIncidentResponseData";
-export { DORAIncidentType } from "./models/DORAIncidentType";
 export { DORAListDeploymentsRequest } from "./models/DORAListDeploymentsRequest";
 export { DORAListDeploymentsRequestAttributes } from "./models/DORAListDeploymentsRequestAttributes";
 export { DORAListDeploymentsRequestData } from "./models/DORAListDeploymentsRequestData";

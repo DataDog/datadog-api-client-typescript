@@ -11,6 +11,14 @@ import { FindingVulnerabilityType } from "./FindingVulnerabilityType";
  */
 export class FindingAttributes {
   /**
+   * The Datadog relative link for this finding.
+   */
+  "datadogLink"?: string;
+  /**
+   * The description and remediation steps for this finding.
+   */
+  "description"?: string;
+  /**
    * The evaluation of the finding.
    */
   "evaluation"?: FindingEvaluation;
@@ -18,6 +26,10 @@ export class FindingAttributes {
    * The date on which the evaluation for this finding changed (Unix ms).
    */
   "evaluationChangedAt"?: number;
+  /**
+   * The cloud-based ID for the resource related to the finding.
+   */
+  "externalId"?: string;
   /**
    * Information about the mute status of this finding.
    */
@@ -65,6 +77,14 @@ export class FindingAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    datadogLink: {
+      baseName: "datadog_link",
+      type: "string",
+    },
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     evaluation: {
       baseName: "evaluation",
       type: "FindingEvaluation",
@@ -73,6 +93,10 @@ export class FindingAttributes {
       baseName: "evaluation_changed_at",
       type: "number",
       format: "int64",
+    },
+    externalId: {
+      baseName: "external_id",
+      type: "string",
     },
     mute: {
       baseName: "mute",

@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DORAIncidentRequestAttributes } from "./DORAIncidentRequestAttributes";
+import { DORAFailureRequestAttributes } from "./DORAFailureRequestAttributes";
 
 /**
  * The JSON:API data.
  */
-export class DORAIncidentRequestData {
+export class DORAFailureRequestData {
   /**
-   * Attributes to create a DORA incident event.
+   * Attributes to create a DORA failure event.
    */
-  "attributes": DORAIncidentRequestAttributes;
+  "attributes": DORAFailureRequestAttributes;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,7 +27,7 @@ export class DORAIncidentRequestData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "DORAIncidentRequestAttributes",
+      type: "DORAFailureRequestAttributes",
       required: true,
     },
     additionalProperties: {
@@ -40,7 +40,7 @@ export class DORAIncidentRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAIncidentRequestData.attributeTypeMap;
+    return DORAFailureRequestData.attributeTypeMap;
   }
 
   public constructor() {}

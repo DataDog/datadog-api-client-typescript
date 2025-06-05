@@ -3,15 +3,15 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { DORAGitInfo } from "./DORAGitInfo";
 
 /**
- * Attributes to create a DORA incident event.
+ * Attributes to create a DORA failure event.
  */
-export class DORAIncidentRequestAttributes {
+export class DORAFailureRequestAttributes {
   /**
-   * Environment name that was impacted by the incident.
+   * Environment name that was impacted by the failure.
    */
   "env"?: string;
   /**
-   * Unix timestamp when the incident finished. It must be in nanoseconds, milliseconds, or seconds, and it should not be older than 1 hour.
+   * Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds, and it should not be older than 1 hour.
    */
   "finishedAt"?: number;
   /**
@@ -19,23 +19,23 @@ export class DORAIncidentRequestAttributes {
    */
   "git"?: DORAGitInfo;
   /**
-   * Incident ID. Must have at least 16 characters. Required to update a previously sent incident.
+   * Failure ID. Must have at least 16 characters. Required to update a previously sent failure.
    */
   "id"?: string;
   /**
-   * Incident name.
+   * Failure name.
    */
   "name"?: string;
   /**
-   * Service names impacted by the incident. If possible, use names registered in the Service Catalog. Required when the team field is not provided.
+   * Service names impacted by the failure. If possible, use names registered in the Service Catalog. Required when the team field is not provided.
    */
   "services"?: Array<string>;
   /**
-   * Incident severity.
+   * Failure severity.
    */
   "severity"?: string;
   /**
-   * Unix timestamp when the incident started. It must be in nanoseconds, milliseconds, or seconds.
+   * Unix timestamp when the failure started. It must be in nanoseconds, milliseconds, or seconds.
    */
   "startedAt": number;
   /**
@@ -114,7 +114,7 @@ export class DORAIncidentRequestAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DORAIncidentRequestAttributes.attributeTypeMap;
+    return DORAFailureRequestAttributes.attributeTypeMap;
   }
 
   public constructor() {}

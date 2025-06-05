@@ -1911,6 +1911,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     filterEvaluation?: FindingEvaluation,
     filterStatus?: FindingStatus,
     filterVulnerabilityType?: Array<FindingVulnerabilityType>,
+    detailedFindings?: boolean,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -2037,6 +2038,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
           "",
         ),
         "multi",
+      );
+    }
+    if (detailedFindings !== undefined) {
+      requestContext.setQueryParam(
+        "detailed_findings",
+        serialize(detailedFindings, TypingInfo, "boolean", ""),
+        "",
       );
     }
 
@@ -7380,6 +7388,11 @@ export interface SecurityMonitoringApiListFindingsRequest {
    * @type Array<FindingVulnerabilityType>
    */
   filterVulnerabilityType?: Array<FindingVulnerabilityType>;
+  /**
+   * Return additional fields for some findings.
+   * @type boolean
+   */
+  detailedFindings?: boolean;
 }
 
 export interface SecurityMonitoringApiListHistoricalJobsRequest {
@@ -8694,6 +8707,17 @@ export class SecurityMonitoringApi {
    *
    * Query parameters must be only among the documented ones and with values of correct types. Duplicated query parameters (e.g. `filter[status]=low&filter[status]=info`) are not allowed.
    *
+   * ### Additional extension fields
+   *
+   * Additional extension fields are available for some findings.
+   *
+   * The data is available when you include the query parameter `?detailed_findings=true` in the request.
+   *
+   * The following fields are available for findings:
+   * - `external_id`: The resource external ID related to the finding.
+   * - `description`: The description and remediation steps for the finding.
+   * - `datadog_link`: The Datadog relative link for the finding.
+   *
    * ### Response
    *
    * The response includes an array of finding objects, pagination metadata, and a count of items that match the query.
@@ -8724,6 +8748,7 @@ export class SecurityMonitoringApi {
       param.filterEvaluation,
       param.filterStatus,
       param.filterVulnerabilityType,
+      param.detailedFindings,
       options,
     );
     return requestContextPromise.then((requestContext) => {
@@ -8762,6 +8787,7 @@ export class SecurityMonitoringApi {
         param.filterEvaluation,
         param.filterStatus,
         param.filterVulnerabilityType,
+        param.detailedFindings,
         options,
       );
       const responseContext =
