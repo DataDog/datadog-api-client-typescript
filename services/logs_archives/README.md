@@ -25,7 +25,7 @@ import { v2 } from "@datadog/datadog-api-client-logs-archives";
 const configuration = createConfiguration();
 const apiInstance = new LogsArchivesApiV2(configuration);
 
-apiInstance.getLogsArchiveOrder(params).then((data: v2.LogsArchiveOrder) => {
+apiInstance.getLogsArchiveOrder().then((data: v2.LogsArchiveOrder) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

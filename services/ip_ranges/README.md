@@ -22,7 +22,7 @@ import { v1 } from "@datadog/datadog-api-client-ip-ranges";
 const configuration = createConfiguration();
 const apiInstance = new IPRangesApiV1(configuration);
 
-apiInstance.getIPRanges(params).then((data: v1.IPRanges) => {
+apiInstance.getIPRanges().then((data: v1.IPRanges) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

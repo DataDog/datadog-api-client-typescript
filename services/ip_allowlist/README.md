@@ -27,7 +27,7 @@ import { v2 } from "@datadog/datadog-api-client-ip-allowlist";
 const configuration = createConfiguration();
 const apiInstance = new IPAllowlistApiV2(configuration);
 
-apiInstance.getIPAllowlist(params).then((data: v2.IPAllowlistResponse) => {
+apiInstance.getIPAllowlist().then((data: v2.IPAllowlistResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

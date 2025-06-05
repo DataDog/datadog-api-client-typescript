@@ -22,7 +22,7 @@ import { v2 } from "@datadog/datadog-api-client-apm-retention-filters";
 const configuration = createConfiguration();
 const apiInstance = new APMRetentionFiltersApiV2(configuration);
 
-apiInstance.listApmRetentionFilters(params).then((data: v2.RetentionFiltersResponse) => {
+apiInstance.listApmRetentionFilters().then((data: v2.RetentionFiltersResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

@@ -23,7 +23,7 @@ import { v2 } from "@datadog/datadog-api-client-opsgenie-integration";
 const configuration = createConfiguration();
 const apiInstance = new OpsgenieIntegrationApiV2(configuration);
 
-apiInstance.listOpsgenieServices(params).then((data: v2.OpsgenieServicesResponse) => {
+apiInstance.listOpsgenieServices().then((data: v2.OpsgenieServicesResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

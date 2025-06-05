@@ -31,7 +31,7 @@ import { v2 } from "@datadog/datadog-api-client-usage-metering";
 const configuration = createConfiguration();
 const apiInstance = new UsageMeteringApiV2(configuration);
 
-apiInstance.getActiveBillingDimensions(params).then((data: v2.ActiveBillingDimensionsResponse) => {
+apiInstance.getActiveBillingDimensions().then((data: v2.ActiveBillingDimensionsResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

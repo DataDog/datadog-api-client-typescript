@@ -22,7 +22,7 @@ import { v1 } from "@datadog/datadog-api-client-logs-indexes";
 const configuration = createConfiguration();
 const apiInstance = new LogsIndexesApiV1(configuration);
 
-apiInstance.getLogsIndexOrder(params).then((data: v1.LogsIndexesOrder) => {
+apiInstance.getLogsIndexOrder().then((data: v1.LogsIndexesOrder) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

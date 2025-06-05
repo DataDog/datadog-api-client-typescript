@@ -22,7 +22,7 @@ import { v2 } from "@datadog/datadog-api-client-fastly-integration";
 const configuration = createConfiguration();
 const apiInstance = new FastlyIntegrationApiV2(configuration);
 
-apiInstance.listFastlyAccounts(params).then((data: v2.FastlyAccountsResponse) => {
+apiInstance.listFastlyAccounts().then((data: v2.FastlyAccountsResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

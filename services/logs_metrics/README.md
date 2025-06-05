@@ -22,7 +22,7 @@ import { v2 } from "@datadog/datadog-api-client-logs-metrics";
 const configuration = createConfiguration();
 const apiInstance = new LogsMetricsApiV2(configuration);
 
-apiInstance.listLogsMetrics(params).then((data: v2.LogsMetricsResponse) => {
+apiInstance.listLogsMetrics().then((data: v2.LogsMetricsResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

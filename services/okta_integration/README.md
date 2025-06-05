@@ -22,7 +22,7 @@ import { v2 } from "@datadog/datadog-api-client-okta-integration";
 const configuration = createConfiguration();
 const apiInstance = new OktaIntegrationApiV2(configuration);
 
-apiInstance.listOktaAccounts(params).then((data: v2.OktaAccountsResponse) => {
+apiInstance.listOktaAccounts().then((data: v2.OktaAccountsResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

@@ -22,7 +22,7 @@ import { v2 } from "@datadog/datadog-api-client-confluent-cloud";
 const configuration = createConfiguration();
 const apiInstance = new ConfluentCloudApiV2(configuration);
 
-apiInstance.listConfluentAccount(params).then((data: v2.ConfluentAccountsResponse) => {
+apiInstance.listConfluentAccount().then((data: v2.ConfluentAccountsResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

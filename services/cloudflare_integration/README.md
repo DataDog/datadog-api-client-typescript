@@ -22,7 +22,7 @@ import { v2 } from "@datadog/datadog-api-client-cloudflare-integration";
 const configuration = createConfiguration();
 const apiInstance = new CloudflareIntegrationApiV2(configuration);
 
-apiInstance.listCloudflareAccounts(params).then((data: v2.CloudflareAccountsResponse) => {
+apiInstance.listCloudflareAccounts().then((data: v2.CloudflareAccountsResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

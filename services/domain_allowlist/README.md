@@ -24,7 +24,7 @@ import { v2 } from "@datadog/datadog-api-client-domain-allowlist";
 const configuration = createConfiguration();
 const apiInstance = new DomainAllowlistApiV2(configuration);
 
-apiInstance.getDomainAllowlist(params).then((data: v2.DomainAllowlistResponse) => {
+apiInstance.getDomainAllowlist().then((data: v2.DomainAllowlistResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
