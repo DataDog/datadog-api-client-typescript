@@ -3332,6 +3332,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "Array<FindingVulnerabilityType>",
             "format": "",
             },
+        "detailedFindings": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "ListFindingsResponse",
     },
     "v2.MuteFindings": {
