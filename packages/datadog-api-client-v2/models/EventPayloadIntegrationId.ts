@@ -7,9 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Event category to identify the type of event.
+ * Integration IDs sourced from integration manifests. Currently, only `custom-events` is supported.
  */
 
-export type EventCategory = typeof CHANGE | typeof ALERT | UnparsedObject;
-export const CHANGE = "change";
-export const ALERT = "alert";
+export type EventPayloadIntegrationId = typeof CUSTOM_EVENTS | UnparsedObject;
+export const CUSTOM_EVENTS = "custom-events";

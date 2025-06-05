@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { EventCreateResponse } from "./EventCreateResponse";
+import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLinks";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,6 +16,10 @@ export class EventCreateResponsePayload {
    * Object containing an event response.
    */
   "data"?: EventCreateResponse;
+  /**
+   * Links attributes.
+   */
+  "links"?: EventCreateResponsePayloadLinks;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +40,10 @@ export class EventCreateResponsePayload {
     data: {
       baseName: "data",
       type: "EventCreateResponse",
+    },
+    links: {
+      baseName: "links",
+      type: "EventCreateResponsePayloadLinks",
     },
     additionalProperties: {
       baseName: "additionalProperties",
