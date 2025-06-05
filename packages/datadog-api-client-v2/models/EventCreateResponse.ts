@@ -16,7 +16,7 @@ export class EventCreateResponse {
    */
   "attributes"?: EventCreateResponseAttributes;
   /**
-   * Event type
+   * Event type.
    */
   "type"?: string;
 
