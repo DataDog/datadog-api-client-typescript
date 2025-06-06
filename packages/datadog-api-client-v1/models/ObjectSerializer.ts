@@ -1235,7 +1235,16 @@ const enumsMap: { [key: string]: any[] } = {
   SunburstWidgetDefinitionType: ["sunburst"],
   SunburstWidgetLegendInlineAutomaticType: ["inline", "automatic"],
   SunburstWidgetLegendTableType: ["table", "none"],
-  SyntheticsAPITestStepSubtype: ["http", "grpc"],
+  SyntheticsAPITestStepSubtype: [
+    "http",
+    "grpc",
+    "ssl",
+    "dns",
+    "tcp",
+    "udp",
+    "icmp",
+    "websocket",
+  ],
   SyntheticsAPITestType: ["api"],
   SyntheticsAPIWaitStepSubtype: ["wait"],
   SyntheticsApiTestFailureCode: [

@@ -47,6 +47,10 @@ export class SyntheticsTestRequest {
    */
   "certificateDomains"?: Array<string>;
   /**
+   * Check for certificate revocation.
+   */
+  "checkCertificateRevocation"?: boolean;
+  /**
    * A protobuf JSON descriptor that needs to be gzipped first then base64 encoded.
    */
   "compressedJsonDescriptor"?: string;
@@ -82,6 +86,10 @@ export class SyntheticsTestRequest {
    * HTTP version to use for a Synthetic test.
    */
   "httpVersion"?: SyntheticsTestOptionsHTTPVersion;
+  /**
+   * Whether the message is base64 encoded.
+   */
+  "isMessageBase64Encoded"?: boolean;
   /**
    * Message to send for UDP or WebSocket tests.
    */
@@ -185,6 +193,10 @@ export class SyntheticsTestRequest {
       baseName: "certificateDomains",
       type: "Array<string>",
     },
+    checkCertificateRevocation: {
+      baseName: "checkCertificateRevocation",
+      type: "boolean",
+    },
     compressedJsonDescriptor: {
       baseName: "compressedJsonDescriptor",
       type: "string",
@@ -220,6 +232,10 @@ export class SyntheticsTestRequest {
     httpVersion: {
       baseName: "httpVersion",
       type: "SyntheticsTestOptionsHTTPVersion",
+    },
+    isMessageBase64Encoded: {
+      baseName: "isMessageBase64Encoded",
+      type: "boolean",
     },
     message: {
       baseName: "message",
