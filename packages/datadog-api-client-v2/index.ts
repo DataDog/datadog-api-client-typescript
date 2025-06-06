@@ -646,9 +646,12 @@ export {
 
 export {
   SoftwareCatalogApiDeleteCatalogEntityRequest,
+  SoftwareCatalogApiDeleteCatalogKindRequest,
   SoftwareCatalogApiListCatalogEntityRequest,
+  SoftwareCatalogApiListCatalogKindRequest,
   SoftwareCatalogApiListCatalogRelationRequest,
   SoftwareCatalogApiUpsertCatalogEntityRequest,
+  SoftwareCatalogApiUpsertCatalogKindRequest,
   SoftwareCatalogApi,
 } from "./apis/SoftwareCatalogApi";
 
@@ -1870,6 +1873,11 @@ export { JobDefinitionFromRule } from "./models/JobDefinitionFromRule";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+export { KindAttributes } from "./models/KindAttributes";
+export { KindData } from "./models/KindData";
+export { KindMetadata } from "./models/KindMetadata";
+export { KindObj } from "./models/KindObj";
+export { KindResponseMeta } from "./models/KindResponseMeta";
 export { Layer } from "./models/Layer";
 export { LayerAttributes } from "./models/LayerAttributes";
 export { LayerAttributesInterval } from "./models/LayerAttributesInterval";
@@ -1906,6 +1914,7 @@ export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
 export { ListHistoricalJobsResponse } from "./models/ListHistoricalJobsResponse";
+export { ListKindCatalogResponse } from "./models/ListKindCatalogResponse";
 export { ListPipelinesResponse } from "./models/ListPipelinesResponse";
 export { ListPipelinesResponseMeta } from "./models/ListPipelinesResponseMeta";
 export { ListPowerpacksResponse } from "./models/ListPowerpacksResponse";
@@ -3175,6 +3184,8 @@ export { UpdateWorkflowResponse } from "./models/UpdateWorkflowResponse";
 export { UpsertCatalogEntityRequest } from "./models/UpsertCatalogEntityRequest";
 export { UpsertCatalogEntityResponse } from "./models/UpsertCatalogEntityResponse";
 export { UpsertCatalogEntityResponseIncludedItem } from "./models/UpsertCatalogEntityResponseIncludedItem";
+export { UpsertCatalogKindRequest } from "./models/UpsertCatalogKindRequest";
+export { UpsertCatalogKindResponse } from "./models/UpsertCatalogKindResponse";
 export { Urgency } from "./models/Urgency";
 export { UrlParam } from "./models/UrlParam";
 export { UrlParamUpdate } from "./models/UrlParamUpdate";

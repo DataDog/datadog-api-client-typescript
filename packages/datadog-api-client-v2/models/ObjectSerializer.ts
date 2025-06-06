@@ -877,6 +877,11 @@ import { JobCreateResponse } from "./JobCreateResponse";
 import { JobCreateResponseData } from "./JobCreateResponseData";
 import { JobDefinition } from "./JobDefinition";
 import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
+import { KindAttributes } from "./KindAttributes";
+import { KindData } from "./KindData";
+import { KindMetadata } from "./KindMetadata";
+import { KindObj } from "./KindObj";
+import { KindResponseMeta } from "./KindResponseMeta";
 import { Layer } from "./Layer";
 import { LayerAttributes } from "./LayerAttributes";
 import { LayerAttributesInterval } from "./LayerAttributesInterval";
@@ -909,6 +914,7 @@ import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
 import { ListHistoricalJobsResponse } from "./ListHistoricalJobsResponse";
+import { ListKindCatalogResponse } from "./ListKindCatalogResponse";
 import { ListPipelinesResponse } from "./ListPipelinesResponse";
 import { ListPipelinesResponseMeta } from "./ListPipelinesResponseMeta";
 import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
@@ -1840,6 +1846,7 @@ import { UpdateRuleResponseData } from "./UpdateRuleResponseData";
 import { UpdateWorkflowRequest } from "./UpdateWorkflowRequest";
 import { UpdateWorkflowResponse } from "./UpdateWorkflowResponse";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
+import { UpsertCatalogKindResponse } from "./UpsertCatalogKindResponse";
 import { UrlParam } from "./UrlParam";
 import { UrlParamUpdate } from "./UrlParamUpdate";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
@@ -4167,6 +4174,11 @@ const typeMap: { [index: string]: any } = {
   JobCreateResponseData: JobCreateResponseData,
   JobDefinition: JobDefinition,
   JobDefinitionFromRule: JobDefinitionFromRule,
+  KindAttributes: KindAttributes,
+  KindData: KindData,
+  KindMetadata: KindMetadata,
+  KindObj: KindObj,
+  KindResponseMeta: KindResponseMeta,
   Layer: Layer,
   LayerAttributes: LayerAttributes,
   LayerAttributesInterval: LayerAttributesInterval,
@@ -4200,6 +4212,7 @@ const typeMap: { [index: string]: any } = {
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
   ListHistoricalJobsResponse: ListHistoricalJobsResponse,
+  ListKindCatalogResponse: ListKindCatalogResponse,
   ListPipelinesResponse: ListPipelinesResponse,
   ListPipelinesResponseMeta: ListPipelinesResponseMeta,
   ListPowerpacksResponse: ListPowerpacksResponse,
@@ -5311,6 +5324,7 @@ const typeMap: { [index: string]: any } = {
   UpdateWorkflowRequest: UpdateWorkflowRequest,
   UpdateWorkflowResponse: UpdateWorkflowResponse,
   UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
+  UpsertCatalogKindResponse: UpsertCatalogKindResponse,
   UrlParam: UrlParam,
   UrlParamUpdate: UrlParamUpdate,
   UsageApplicationSecurityMonitoringResponse:
@@ -5740,6 +5754,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   UpsertCatalogEntityRequest: ["EntityV3", "string"],
   UpsertCatalogEntityResponseIncludedItem: ["EntityResponseIncludedSchema"],
+  UpsertCatalogKindRequest: ["KindObj", "string"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
   UserTeamIncluded: ["User", "Team"],
   XRayServicesList: ["XRayServicesIncludeAll", "XRayServicesIncludeOnly"],
