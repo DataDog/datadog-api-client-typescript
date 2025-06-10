@@ -3,23 +3,32 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TeamOnCallRespondersData } from "./TeamOnCallRespondersData";
-import { TeamOnCallRespondersIncluded } from "./TeamOnCallRespondersIncluded";
+import { OverrideAttributes } from "./OverrideAttributes";
+import { OverrideRelationships } from "./OverrideRelationships";
+import { OverrideType } from "./OverrideType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Root object representing a team's on-call responder configuration.
+ * The definition of `Override` object.
  */
-export class TeamOnCallResponders {
+export class Override {
   /**
-   * Defines the main on-call responder object for a team, including relationships.
+   * The definition of `OverrideAttributes` object.
    */
-  "data"?: TeamOnCallRespondersData;
+  "attributes"?: OverrideAttributes;
   /**
-   * The `TeamOnCallResponders` `included`.
+   * The ID of the override.
    */
-  "included"?: Array<TeamOnCallRespondersIncluded>;
+  "id"?: string;
+  /**
+   * The definition of `OverrideRelationships` object.
+   */
+  "relationships"?: OverrideRelationships;
+  /**
+   * The definition of `OverrideType` object.
+   */
+  "type"?: OverrideType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +46,21 @@ export class TeamOnCallResponders {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TeamOnCallRespondersData",
+    attributes: {
+      baseName: "attributes",
+      type: "OverrideAttributes",
     },
-    included: {
-      baseName: "included",
-      type: "Array<TeamOnCallRespondersIncluded>",
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "OverrideRelationships",
+    },
+    type: {
+      baseName: "type",
+      type: "OverrideType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +72,7 @@ export class TeamOnCallResponders {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamOnCallResponders.attributeTypeMap;
+    return Override.attributeTypeMap;
   }
 
   public constructor() {}

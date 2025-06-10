@@ -3,23 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TeamOnCallRespondersData } from "./TeamOnCallRespondersData";
-import { TeamOnCallRespondersIncluded } from "./TeamOnCallRespondersIncluded";
+import { EscalationPolicyData } from "./EscalationPolicyData";
+import { EscalationPolicyIncluded } from "./EscalationPolicyIncluded";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Root object representing a team's on-call responder configuration.
+ * Response with a list of escalation policies.
  */
-export class TeamOnCallResponders {
+export class EscalationPoliciesResponse {
   /**
-   * Defines the main on-call responder object for a team, including relationships.
+   * A list of escalation policies.
    */
-  "data"?: TeamOnCallRespondersData;
+  "data"?: Array<EscalationPolicyData>;
   /**
-   * The `TeamOnCallResponders` `included`.
+   * Provides any included related resources, such as steps or targets, returned with the policy.
    */
-  "included"?: Array<TeamOnCallRespondersIncluded>;
+  "included"?: Array<EscalationPolicyIncluded>;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,11 +39,11 @@ export class TeamOnCallResponders {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "TeamOnCallRespondersData",
+      type: "Array<EscalationPolicyData>",
     },
     included: {
       baseName: "included",
-      type: "Array<TeamOnCallRespondersIncluded>",
+      type: "Array<EscalationPolicyIncluded>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +55,7 @@ export class TeamOnCallResponders {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamOnCallResponders.attributeTypeMap;
+    return EscalationPoliciesResponse.attributeTypeMap;
   }
 
   public constructor() {}

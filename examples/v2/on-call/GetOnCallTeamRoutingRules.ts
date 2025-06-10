@@ -7,8 +7,11 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.OnCallApi(configuration);
 
+// there is a valid "dd_team" in the system
+const DD_TEAM_DATA_ID = process.env.DD_TEAM_DATA_ID as string;
+
 const params: v2.OnCallApiGetOnCallTeamRoutingRulesRequest = {
-  teamId: "27590dae-47be-4a7d-9abf-8f4e45124020",
+  teamId: DD_TEAM_DATA_ID,
 };
 
 apiInstance

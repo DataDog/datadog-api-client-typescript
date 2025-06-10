@@ -3,23 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TeamOnCallRespondersData } from "./TeamOnCallRespondersData";
-import { TeamOnCallRespondersIncluded } from "./TeamOnCallRespondersIncluded";
+import { OnCallUserRelationshipType } from "./OnCallUserRelationshipType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Root object representing a team's on-call responder configuration.
+ * The definition of `OnCallUserRelationshipData` object.
  */
-export class TeamOnCallResponders {
+export class OnCallUserRelationshipData {
   /**
-   * Defines the main on-call responder object for a team, including relationships.
+   * The ID of the user.
    */
-  "data"?: TeamOnCallRespondersData;
+  "id"?: string;
   /**
-   * The `TeamOnCallResponders` `included`.
+   * The definition of `OnCallUserRelationshipType` object.
    */
-  "included"?: Array<TeamOnCallRespondersIncluded>;
+  "type"?: OnCallUserRelationshipType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +36,13 @@ export class TeamOnCallResponders {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TeamOnCallRespondersData",
+    id: {
+      baseName: "id",
+      type: "string",
     },
-    included: {
-      baseName: "included",
-      type: "Array<TeamOnCallRespondersIncluded>",
+    type: {
+      baseName: "type",
+      type: "OnCallUserRelationshipType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +54,7 @@ export class TeamOnCallResponders {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamOnCallResponders.attributeTypeMap;
+    return OnCallUserRelationshipData.attributeTypeMap;
   }
 
   public constructor() {}
