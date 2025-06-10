@@ -52,8 +52,14 @@ import { EntityV3ServiceSpec } from "./EntityV3ServiceSpec";
 import { EntityV3System } from "./EntityV3System";
 import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
 import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
+import { KindAttributes } from "./KindAttributes";
+import { KindData } from "./KindData";
+import { KindMetadata } from "./KindMetadata";
+import { KindObj } from "./KindObj";
+import { KindResponseMeta } from "./KindResponseMeta";
 import { ListEntityCatalogResponse } from "./ListEntityCatalogResponse";
 import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks";
+import { ListKindCatalogResponse } from "./ListKindCatalogResponse";
 import { ListRelationCatalogResponse } from "./ListRelationCatalogResponse";
 import { ListRelationCatalogResponseLinks } from "./ListRelationCatalogResponseLinks";
 import { RelationAttributes } from "./RelationAttributes";
@@ -65,6 +71,7 @@ import { RelationResponseMeta } from "./RelationResponseMeta";
 import { RelationToEntity } from "./RelationToEntity";
 import { RelationshipItem } from "./RelationshipItem";
 import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
+import { UpsertCatalogKindResponse } from "./UpsertCatalogKindResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
@@ -116,6 +123,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     UpsertCatalogEntityRequest: ["EntityV3", "string"],
     UpsertCatalogEntityResponseIncludedItem: ["EntityResponseIncludedSchema"],
+    UpsertCatalogKindRequest: ["KindObj", "string"],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
@@ -178,8 +186,14 @@ export const TypingInfo: ModelTypingInfo = {
     EntityV3System: EntityV3System,
     EntityV3SystemDatadog: EntityV3SystemDatadog,
     EntityV3SystemSpec: EntityV3SystemSpec,
+    KindAttributes: KindAttributes,
+    KindData: KindData,
+    KindMetadata: KindMetadata,
+    KindObj: KindObj,
+    KindResponseMeta: KindResponseMeta,
     ListEntityCatalogResponse: ListEntityCatalogResponse,
     ListEntityCatalogResponseLinks: ListEntityCatalogResponseLinks,
+    ListKindCatalogResponse: ListKindCatalogResponse,
     ListRelationCatalogResponse: ListRelationCatalogResponse,
     ListRelationCatalogResponseLinks: ListRelationCatalogResponseLinks,
     RelationAttributes: RelationAttributes,
@@ -191,5 +205,6 @@ export const TypingInfo: ModelTypingInfo = {
     RelationToEntity: RelationToEntity,
     RelationshipItem: RelationshipItem,
     UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
+    UpsertCatalogKindResponse: UpsertCatalogKindResponse,
   },
 };

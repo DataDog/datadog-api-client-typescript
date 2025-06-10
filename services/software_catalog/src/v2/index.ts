@@ -1,8 +1,11 @@
 export {
   SoftwareCatalogApiDeleteCatalogEntityRequest,
+  SoftwareCatalogApiDeleteCatalogKindRequest,
   SoftwareCatalogApiListCatalogEntityRequest,
+  SoftwareCatalogApiListCatalogKindRequest,
   SoftwareCatalogApiListCatalogRelationRequest,
   SoftwareCatalogApiUpsertCatalogEntityRequest,
+  SoftwareCatalogApiUpsertCatalogKindRequest,
   SoftwareCatalogApi,
 } from "./SoftwareCatalogApi";
 
@@ -72,9 +75,15 @@ export { EntityV3SystemDatadog } from "./models/EntityV3SystemDatadog";
 export { EntityV3SystemKind } from "./models/EntityV3SystemKind";
 export { EntityV3SystemSpec } from "./models/EntityV3SystemSpec";
 export { IncludeType } from "./models/IncludeType";
+export { KindAttributes } from "./models/KindAttributes";
+export { KindData } from "./models/KindData";
+export { KindMetadata } from "./models/KindMetadata";
+export { KindObj } from "./models/KindObj";
+export { KindResponseMeta } from "./models/KindResponseMeta";
 export { ListEntityCatalogResponse } from "./models/ListEntityCatalogResponse";
 export { ListEntityCatalogResponseIncludedItem } from "./models/ListEntityCatalogResponseIncludedItem";
 export { ListEntityCatalogResponseLinks } from "./models/ListEntityCatalogResponseLinks";
+export { ListKindCatalogResponse } from "./models/ListKindCatalogResponse";
 export { ListRelationCatalogResponse } from "./models/ListRelationCatalogResponse";
 export { ListRelationCatalogResponseLinks } from "./models/ListRelationCatalogResponseLinks";
 export { RelationAttributes } from "./models/RelationAttributes";
@@ -91,3 +100,5 @@ export { RelationType } from "./models/RelationType";
 export { UpsertCatalogEntityRequest } from "./models/UpsertCatalogEntityRequest";
 export { UpsertCatalogEntityResponse } from "./models/UpsertCatalogEntityResponse";
 export { UpsertCatalogEntityResponseIncludedItem } from "./models/UpsertCatalogEntityResponseIncludedItem";
+export { UpsertCatalogKindRequest } from "./models/UpsertCatalogKindRequest";
+export { UpsertCatalogKindResponse } from "./models/UpsertCatalogKindResponse";
