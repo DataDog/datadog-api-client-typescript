@@ -124,7 +124,16 @@ import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    SyntheticsAPITestStepSubtype: ["http", "grpc"],
+    SyntheticsAPITestStepSubtype: [
+      "http",
+      "grpc",
+      "ssl",
+      "dns",
+      "tcp",
+      "udp",
+      "icmp",
+      "websocket",
+    ],
     SyntheticsAPITestType: ["api"],
     SyntheticsAPIWaitStepSubtype: ["wait"],
     SyntheticsApiTestFailureCode: [
