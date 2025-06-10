@@ -5912,6 +5912,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SingleAggregatedConnectionResponseArray",
     },
+    "v2.ListOnCallEscalationPolicies": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "EscalationPoliciesResponse",
+    },
     "v2.CreateOnCallEscalationPolicy": {
         "include": {
             "type": "string",
@@ -5955,6 +5966,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "EscalationPolicy",
+    },
+    "v2.ListOnCallSchedules": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SchedulesResponse",
     },
     "v2.CreateOnCallSchedule": {
         "include": {
@@ -6014,6 +6036,51 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "Shift",
+    },
+    "v2.ListOnCallScheduleOverrides": {
+        "scheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterStart": {
+            "type": "string",
+            "format": "",
+            },
+        "filterEnd": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OverridesResponse",
+    },
+    "v2.CreateOnCallScheduleOverride": {
+        "scheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OverrideRequest",
+            "format": "",
+            },
+        "operationResponseType": "OverrideResponse",
+    },
+    "v2.DeleteOnCallScheduleOverride": {
+        "scheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "overrideId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetTeamOnCallUsers": {
         "include": {

@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TeamOnCallRespondersData } from "./TeamOnCallRespondersData";
-import { TeamOnCallRespondersIncluded } from "./TeamOnCallRespondersIncluded";
+import { OverrideCreateData } from "./OverrideCreateData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Root object representing a team's on-call responder configuration.
+ * The definition of `OverrideRequest` object.
  */
-export class TeamOnCallResponders {
+export class OverrideRequest {
   /**
-   * Defines the main on-call responder object for a team, including relationships.
+   * The `OverrideRequest` `data`.
    */
-  "data"?: TeamOnCallRespondersData;
-  /**
-   * The `TeamOnCallResponders` `included`.
-   */
-  "included"?: Array<TeamOnCallRespondersIncluded>;
+  "data": Array<OverrideCreateData>;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,11 +34,8 @@ export class TeamOnCallResponders {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "TeamOnCallRespondersData",
-    },
-    included: {
-      baseName: "included",
-      type: "Array<TeamOnCallRespondersIncluded>",
+      type: "Array<OverrideCreateData>",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +47,7 @@ export class TeamOnCallResponders {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamOnCallResponders.attributeTypeMap;
+    return OverrideRequest.attributeTypeMap;
   }
 
   public constructor() {}

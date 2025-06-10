@@ -3,27 +3,28 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TeamOnCallRespondersDataRelationships } from "./TeamOnCallRespondersDataRelationships";
-import { TeamOnCallRespondersDataType } from "./TeamOnCallRespondersDataType";
+import { OverrideCreateDataAttributes } from "./OverrideCreateDataAttributes";
+import { OverrideCreateDataRelationships } from "./OverrideCreateDataRelationships";
+import { OverrideCreateDataType } from "./OverrideCreateDataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Defines the main on-call responder object for a team, including relationships.
+ * The definition of `OverrideCreateData` object.
  */
-export class TeamOnCallRespondersData {
+export class OverrideCreateData {
   /**
-   * Unique identifier of the on-call responder configuration.
+   * The definition of `OverrideCreateDataAttributes` object.
    */
-  "id"?: string;
+  "attributes": OverrideCreateDataAttributes;
   /**
-   * Relationship objects linked to a team's on-call responder configuration, including escalations and responders.
+   * The definition of `OverrideCreateDataRelationships` object.
    */
-  "relationships"?: TeamOnCallRespondersDataRelationships;
+  "relationships"?: OverrideCreateDataRelationships;
   /**
-   * Represents the resource type for a group of users assigned to handle on-call duties within a team.
+   * The definition of `OverrideCreateDataType` object.
    */
-  "type": TeamOnCallRespondersDataType;
+  "type": OverrideCreateDataType;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,17 +42,18 @@ export class TeamOnCallRespondersData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    attributes: {
+      baseName: "attributes",
+      type: "OverrideCreateDataAttributes",
+      required: true,
     },
     relationships: {
       baseName: "relationships",
-      type: "TeamOnCallRespondersDataRelationships",
+      type: "OverrideCreateDataRelationships",
     },
     type: {
       baseName: "type",
-      type: "TeamOnCallRespondersDataType",
+      type: "OverrideCreateDataType",
       required: true,
     },
     additionalProperties: {
@@ -64,7 +66,7 @@ export class TeamOnCallRespondersData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamOnCallRespondersData.attributeTypeMap;
+    return OverrideCreateData.attributeTypeMap;
   }
 
   public constructor() {}

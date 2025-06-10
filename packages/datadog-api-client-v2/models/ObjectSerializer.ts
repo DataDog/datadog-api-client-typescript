@@ -617,6 +617,7 @@ import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
 import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
 import { ErrorHandler } from "./ErrorHandler";
 import { Escalation } from "./Escalation";
+import { EscalationPoliciesResponse } from "./EscalationPoliciesResponse";
 import { EscalationPolicy } from "./EscalationPolicy";
 import { EscalationPolicyCreateRequest } from "./EscalationPolicyCreateRequest";
 import { EscalationPolicyCreateRequestData } from "./EscalationPolicyCreateRequestData";
@@ -1218,6 +1219,8 @@ import { OktaAccountUpdateRequest } from "./OktaAccountUpdateRequest";
 import { OktaAccountUpdateRequestAttributes } from "./OktaAccountUpdateRequestAttributes";
 import { OktaAccountUpdateRequestData } from "./OktaAccountUpdateRequestData";
 import { OktaAccountsResponse } from "./OktaAccountsResponse";
+import { OnCallUserRelationship } from "./OnCallUserRelationship";
+import { OnCallUserRelationshipData } from "./OnCallUserRelationshipData";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
@@ -1257,6 +1260,15 @@ import { OutcomesResponseIncludedRuleAttributes } from "./OutcomesResponseInclud
 import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { OutputSchema } from "./OutputSchema";
 import { OutputSchemaParameters } from "./OutputSchemaParameters";
+import { Override } from "./Override";
+import { OverrideAttributes } from "./OverrideAttributes";
+import { OverrideCreateData } from "./OverrideCreateData";
+import { OverrideCreateDataAttributes } from "./OverrideCreateDataAttributes";
+import { OverrideCreateDataRelationships } from "./OverrideCreateDataRelationships";
+import { OverrideRelationships } from "./OverrideRelationships";
+import { OverrideRequest } from "./OverrideRequest";
+import { OverrideResponse } from "./OverrideResponse";
+import { OverridesResponse } from "./OverridesResponse";
 import { Pagination } from "./Pagination";
 import { Parameter } from "./Parameter";
 import { PartialAPIKey } from "./PartialAPIKey";
@@ -1522,6 +1534,7 @@ import { ScheduleUpdateRequestDataAttributesLayersItems } from "./ScheduleUpdate
 import { ScheduleUpdateRequestDataRelationships } from "./ScheduleUpdateRequestDataRelationships";
 import { ScheduleUser } from "./ScheduleUser";
 import { ScheduleUserAttributes } from "./ScheduleUserAttributes";
+import { SchedulesResponse } from "./SchedulesResponse";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -2674,6 +2687,7 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineThrottleProcessorType: ["throttle"],
   OktaAccountType: ["okta-accounts"],
   OnCallPageTargetType: ["team_id", "team_handle", "user_id"],
+  OnCallUserRelationshipType: ["users"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
@@ -2692,6 +2706,8 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_BOOLEAN",
     "ARRAY_OBJECT",
   ],
+  OverrideCreateDataType: ["overrides"],
+  OverrideType: ["overrides"],
   PageUrgency: ["low", "high"],
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
@@ -3890,6 +3906,7 @@ const typeMap: { [index: string]: any } = {
   EntityV3SystemSpec: EntityV3SystemSpec,
   ErrorHandler: ErrorHandler,
   Escalation: Escalation,
+  EscalationPoliciesResponse: EscalationPoliciesResponse,
   EscalationPolicy: EscalationPolicy,
   EscalationPolicyCreateRequest: EscalationPolicyCreateRequest,
   EscalationPolicyCreateRequestData: EscalationPolicyCreateRequestData,
@@ -4614,6 +4631,8 @@ const typeMap: { [index: string]: any } = {
   OktaAccountUpdateRequestAttributes: OktaAccountUpdateRequestAttributes,
   OktaAccountUpdateRequestData: OktaAccountUpdateRequestData,
   OktaAccountsResponse: OktaAccountsResponse,
+  OnCallUserRelationship: OnCallUserRelationship,
+  OnCallUserRelationshipData: OnCallUserRelationshipData,
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
   OnDemandConcurrencyCapAttributes: OnDemandConcurrencyCapAttributes,
   OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
@@ -4654,6 +4673,15 @@ const typeMap: { [index: string]: any } = {
   OutcomesResponseLinks: OutcomesResponseLinks,
   OutputSchema: OutputSchema,
   OutputSchemaParameters: OutputSchemaParameters,
+  Override: Override,
+  OverrideAttributes: OverrideAttributes,
+  OverrideCreateData: OverrideCreateData,
+  OverrideCreateDataAttributes: OverrideCreateDataAttributes,
+  OverrideCreateDataRelationships: OverrideCreateDataRelationships,
+  OverrideRelationships: OverrideRelationships,
+  OverrideRequest: OverrideRequest,
+  OverrideResponse: OverrideResponse,
+  OverridesResponse: OverridesResponse,
   Pagination: Pagination,
   Parameter: Parameter,
   PartialAPIKey: PartialAPIKey,
@@ -4933,6 +4961,7 @@ const typeMap: { [index: string]: any } = {
     ScheduleUpdateRequestDataRelationships,
   ScheduleUser: ScheduleUser,
   ScheduleUserAttributes: ScheduleUserAttributes,
+  SchedulesResponse: SchedulesResponse,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
   SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,

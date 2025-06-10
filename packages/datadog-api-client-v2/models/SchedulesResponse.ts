@@ -3,23 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TeamOnCallRespondersData } from "./TeamOnCallRespondersData";
-import { TeamOnCallRespondersIncluded } from "./TeamOnCallRespondersIncluded";
+import { ScheduleData } from "./ScheduleData";
+import { ScheduleDataIncludedItem } from "./ScheduleDataIncludedItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Root object representing a team's on-call responder configuration.
+ * Response with a list of on-call schedules.
  */
-export class TeamOnCallResponders {
+export class SchedulesResponse {
   /**
-   * Defines the main on-call responder object for a team, including relationships.
+   * A list of on-call schedules.
    */
-  "data"?: TeamOnCallRespondersData;
+  "data"?: Array<ScheduleData>;
   /**
-   * The `TeamOnCallResponders` `included`.
+   * Any additional resources related to this schedule, such as teams and layers.
    */
-  "included"?: Array<TeamOnCallRespondersIncluded>;
+  "included"?: Array<ScheduleDataIncludedItem>;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,11 +39,11 @@ export class TeamOnCallResponders {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "TeamOnCallRespondersData",
+      type: "Array<ScheduleData>",
     },
     included: {
       baseName: "included",
-      type: "Array<TeamOnCallRespondersIncluded>",
+      type: "Array<ScheduleDataIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +55,7 @@ export class TeamOnCallResponders {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamOnCallResponders.attributeTypeMap;
+    return SchedulesResponse.attributeTypeMap;
   }
 
   public constructor() {}
