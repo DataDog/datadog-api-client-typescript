@@ -11,6 +11,7 @@ const params: v2.DORAMetricsApiCreateDORAFailureRequest = {
   body: {
     data: {
       attributes: {
+        customTags: ["language:java", "department:engineering"],
         env: "staging",
         finishedAt: 1693491984000000000,
         git: {

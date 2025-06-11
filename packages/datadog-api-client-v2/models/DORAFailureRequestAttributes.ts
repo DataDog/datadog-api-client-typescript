@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DORAFailureRequestAttributes {
   /**
+   * A list of user-defined tags. The tags must follow the `key:value` pattern. Up to 100 may be added per event.
+   */
+  "customTags"?: Array<string>;
+  /**
    * Environment name that was impacted by the failure.
    */
   "env"?: string;
@@ -68,6 +72,10 @@ export class DORAFailureRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    customTags: {
+      baseName: "custom_tags",
+      type: "Array<string>",
+    },
     env: {
       baseName: "env",
       type: "string",
