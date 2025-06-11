@@ -14,7 +14,7 @@ export class EventCreateRequestPayload {
   /**
    * Object representing an event creation request.
    */
-  "data"?: EventCreateRequest;
+  "data": EventCreateRequest;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +35,7 @@ export class EventCreateRequestPayload {
     data: {
       baseName: "data",
       type: "EventCreateRequest",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

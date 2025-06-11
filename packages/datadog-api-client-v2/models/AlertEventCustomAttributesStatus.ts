@@ -7,9 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Event category to identify the type of event.
+ * The status of the alert.
  */
 
-export type EventCategory = typeof CHANGE | typeof ALERT | UnparsedObject;
-export const CHANGE = "change";
-export const ALERT = "alert";
+export type AlertEventCustomAttributesStatus =
+  | typeof WARN
+  | typeof ERROR
+  | typeof OK
+  | UnparsedObject;
+export const WARN = "warn";
+export const ERROR = "error";
+export const OK = "ok";
