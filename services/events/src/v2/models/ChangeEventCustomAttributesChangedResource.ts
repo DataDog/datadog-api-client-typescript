@@ -7,19 +7,13 @@ import { ChangeEventCustomAttributesChangedResourceType } from "./ChangeEventCus
  */
 export class ChangeEventCustomAttributesChangedResource {
   /**
-   * Resource's name.
+   * Resource's name. Limited to 128 characters.
    */
   "name": string;
   /**
    * Resource's type.
    */
   "type": ChangeEventCustomAttributesChangedResourceType;
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
   /**
    * @ignore
    */
@@ -38,10 +32,6 @@ export class ChangeEventCustomAttributesChangedResource {
       baseName: "type",
       type: "ChangeEventCustomAttributesChangedResourceType",
       required: true,
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 

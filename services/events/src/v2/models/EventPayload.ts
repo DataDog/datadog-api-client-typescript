@@ -2,29 +2,34 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { EventCategory } from "./EventCategory";
 import { EventPayloadAttributes } from "./EventPayloadAttributes";
+import { EventPayloadIntegrationId } from "./EventPayloadIntegrationId";
 
 /**
  * Event attributes.
  */
 export class EventPayload {
   /**
-   * An arbitrary string to use for aggregation when correlating events. Limited to 100 characters.
+   * An arbitrary string to use for aggregation when correlating events. If you specify a key, events are deduplicated to alerts based on this key. Limited to 100 characters.
    */
   "aggregationKey"?: string;
   /**
-   * JSON object for custom attributes. Schema are different per each event category.
+   * JSON object for custom attributes. Schema is different per event category.
    */
   "attributes": EventPayloadAttributes;
   /**
-   * Event category to identify the type of event. Only the value `change` is supported. Support for other categories are coming. please reach out to datadog support if you're interested.
+   * Event category to identify the type of event.
    */
   "category": EventCategory;
+  /**
+   * Integration IDs sourced from integration manifests. Only `custom-events` is supported.
+   */
+  "integrationId"?: EventPayloadIntegrationId;
   /**
    * The body of the event. Limited to 4000 characters.
    */
   "message"?: string;
   /**
-   * A list of tags to apply to the event.
+   * A list of tags to apply to the event. Maximum of 100 tags allowed.
    * Refer to [Tags docs](https://docs.datadoghq.com/getting_started/tagging/).
    */
   "tags"?: Array<string>;
@@ -38,12 +43,6 @@ export class EventPayload {
    * The event title. Limited to 500 characters.
    */
   "title": string;
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
   /**
    * @ignore
    */
@@ -67,6 +66,10 @@ export class EventPayload {
       type: "EventCategory",
       required: true,
     },
+    integrationId: {
+      baseName: "integration_id",
+      type: "EventPayloadIntegrationId",
+    },
     message: {
       baseName: "message",
       type: "string",
@@ -83,10 +86,6 @@ export class EventPayload {
       baseName: "title",
       type: "string",
       required: true,
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 
