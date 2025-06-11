@@ -7,17 +7,13 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * JSON object of event system attributes.
+ * Links to the event.
  */
-export class EventCreateResponseAttributesAttributesEvt {
+export class EventCreateResponsePayloadLinks {
   /**
-   * Event identifier. This field is deprecated and will be removed in a future version. Use the `uid` field instead.
+   * The URL of the event. This link is only functional when using the default subdomain.
    */
-  "id"?: string;
-  /**
-   * A unique identifier for the event. You can use this identifier to query or reference the event.
-   */
-  "uid"?: string;
+  "self"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,12 +31,8 @@ export class EventCreateResponseAttributesAttributesEvt {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-    },
-    uid: {
-      baseName: "uid",
+    self: {
+      baseName: "self",
       type: "string",
     },
     additionalProperties: {
@@ -53,7 +45,7 @@ export class EventCreateResponseAttributesAttributesEvt {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return EventCreateResponseAttributesAttributesEvt.attributeTypeMap;
+    return EventCreateResponsePayloadLinks.attributeTypeMap;
   }
 
   public constructor() {}
