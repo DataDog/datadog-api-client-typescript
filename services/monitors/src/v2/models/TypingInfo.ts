@@ -26,6 +26,19 @@ import { MonitorNotificationRuleResponse } from "./MonitorNotificationRuleRespon
 import { MonitorNotificationRuleResponseAttributes } from "./MonitorNotificationRuleResponseAttributes";
 import { MonitorNotificationRuleUpdateRequest } from "./MonitorNotificationRuleUpdateRequest";
 import { MonitorNotificationRuleUpdateRequestData } from "./MonitorNotificationRuleUpdateRequestData";
+import { MonitorUserTemplate } from "./MonitorUserTemplate";
+import { MonitorUserTemplateCreateData } from "./MonitorUserTemplateCreateData";
+import { MonitorUserTemplateCreateRequest } from "./MonitorUserTemplateCreateRequest";
+import { MonitorUserTemplateCreateResponse } from "./MonitorUserTemplateCreateResponse";
+import { MonitorUserTemplateListResponse } from "./MonitorUserTemplateListResponse";
+import { MonitorUserTemplateRequestAttributes } from "./MonitorUserTemplateRequestAttributes";
+import { MonitorUserTemplateResponse } from "./MonitorUserTemplateResponse";
+import { MonitorUserTemplateResponseAttributes } from "./MonitorUserTemplateResponseAttributes";
+import { MonitorUserTemplateResponseData } from "./MonitorUserTemplateResponseData";
+import { MonitorUserTemplateResponseDataWithVersions } from "./MonitorUserTemplateResponseDataWithVersions";
+import { MonitorUserTemplateTemplateVariablesItems } from "./MonitorUserTemplateTemplateVariablesItems";
+import { MonitorUserTemplateUpdateData } from "./MonitorUserTemplateUpdateData";
+import { MonitorUserTemplateUpdateRequest } from "./MonitorUserTemplateUpdateRequest";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -33,6 +46,7 @@ import { RelationshipToRoleData } from "./RelationshipToRoleData";
 import { RelationshipToRoles } from "./RelationshipToRoles";
 import { RelationshipToUserData } from "./RelationshipToUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
+import { SimpleMonitorUserTemplate } from "./SimpleMonitorUserTemplate";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
 import { UserResponseRelationships } from "./UserResponseRelationships";
@@ -42,6 +56,7 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorConfigPolicyResourceType: ["monitor-config-policy"],
     MonitorConfigPolicyType: ["tag"],
     MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
+    MonitorUserTemplateResourceType: ["monitor-user-template"],
     OrganizationsType: ["orgs"],
     RolesType: ["roles"],
     UsersType: ["users"],
@@ -89,6 +104,22 @@ export const TypingInfo: ModelTypingInfo = {
     MonitorNotificationRuleUpdateRequest: MonitorNotificationRuleUpdateRequest,
     MonitorNotificationRuleUpdateRequestData:
       MonitorNotificationRuleUpdateRequestData,
+    MonitorUserTemplate: MonitorUserTemplate,
+    MonitorUserTemplateCreateData: MonitorUserTemplateCreateData,
+    MonitorUserTemplateCreateRequest: MonitorUserTemplateCreateRequest,
+    MonitorUserTemplateCreateResponse: MonitorUserTemplateCreateResponse,
+    MonitorUserTemplateListResponse: MonitorUserTemplateListResponse,
+    MonitorUserTemplateRequestAttributes: MonitorUserTemplateRequestAttributes,
+    MonitorUserTemplateResponse: MonitorUserTemplateResponse,
+    MonitorUserTemplateResponseAttributes:
+      MonitorUserTemplateResponseAttributes,
+    MonitorUserTemplateResponseData: MonitorUserTemplateResponseData,
+    MonitorUserTemplateResponseDataWithVersions:
+      MonitorUserTemplateResponseDataWithVersions,
+    MonitorUserTemplateTemplateVariablesItems:
+      MonitorUserTemplateTemplateVariablesItems,
+    MonitorUserTemplateUpdateData: MonitorUserTemplateUpdateData,
+    MonitorUserTemplateUpdateRequest: MonitorUserTemplateUpdateRequest,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
     RelationshipToOrganizations: RelationshipToOrganizations,
@@ -96,6 +127,7 @@ export const TypingInfo: ModelTypingInfo = {
     RelationshipToRoles: RelationshipToRoles,
     RelationshipToUserData: RelationshipToUserData,
     RelationshipToUsers: RelationshipToUsers,
+    SimpleMonitorUserTemplate: SimpleMonitorUserTemplate,
     User: User,
     UserAttributes: UserAttributes,
     UserResponseRelationships: UserResponseRelationships,
