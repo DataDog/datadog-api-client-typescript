@@ -5844,6 +5844,63 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "MonitorConfigPolicyResponse",
   },
+  "MonitorsApi.V2.ListMonitorUserTemplates": {
+    operationResponseType: "MonitorUserTemplateListResponse",
+  },
+  "MonitorsApi.V2.CreateMonitorUserTemplate": {
+    body: {
+      type: "MonitorUserTemplateCreateRequest",
+      format: "",
+    },
+    operationResponseType: "MonitorUserTemplateCreateResponse",
+  },
+  "MonitorsApi.V2.ValidateMonitorUserTemplate": {
+    body: {
+      type: "MonitorUserTemplateCreateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "MonitorsApi.V2.GetMonitorUserTemplate": {
+    templateId: {
+      type: "string",
+      format: "",
+    },
+    withAllVersions: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "MonitorUserTemplateResponse",
+  },
+  "MonitorsApi.V2.UpdateMonitorUserTemplate": {
+    templateId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "MonitorUserTemplateUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "MonitorUserTemplateResponse",
+  },
+  "MonitorsApi.V2.DeleteMonitorUserTemplate": {
+    templateId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "MonitorsApi.V2.ValidateExistingMonitorUserTemplate": {
+    templateId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "MonitorUserTemplateUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "NetworkDeviceMonitoringApi.V2.ListDevices": {
     pageSize: {
       type: "number",
