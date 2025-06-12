@@ -2907,6 +2907,7 @@ export { SensitiveDataScannerRuleType } from "./models/SensitiveDataScannerRuleT
 export { SensitiveDataScannerRuleUpdate } from "./models/SensitiveDataScannerRuleUpdate";
 export { SensitiveDataScannerRuleUpdateRequest } from "./models/SensitiveDataScannerRuleUpdateRequest";
 export { SensitiveDataScannerRuleUpdateResponse } from "./models/SensitiveDataScannerRuleUpdateResponse";
+export { SensitiveDataScannerSamplings } from "./models/SensitiveDataScannerSamplings";
 export { SensitiveDataScannerStandardPattern } from "./models/SensitiveDataScannerStandardPattern";
 export { SensitiveDataScannerStandardPatternAttributes } from "./models/SensitiveDataScannerStandardPatternAttributes";
 export { SensitiveDataScannerStandardPatternData } from "./models/SensitiveDataScannerStandardPatternData";
