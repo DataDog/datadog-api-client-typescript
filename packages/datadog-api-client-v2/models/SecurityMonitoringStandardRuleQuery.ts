@@ -17,6 +17,10 @@ export class SecurityMonitoringStandardRuleQuery {
    */
   "aggregation"?: SecurityMonitoringRuleQueryAggregation;
   /**
+   * Query extension to append to the logs query.
+   */
+  "customQueryExtension"?: string;
+  /**
    * Source of events, either logs, audit trail, or Datadog events.
    */
   "dataSource"?: SecurityMonitoringStandardDataSource;
@@ -69,6 +73,10 @@ export class SecurityMonitoringStandardRuleQuery {
     aggregation: {
       baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
+    },
+    customQueryExtension: {
+      baseName: "customQueryExtension",
+      type: "string",
     },
     dataSource: {
       baseName: "dataSource",
