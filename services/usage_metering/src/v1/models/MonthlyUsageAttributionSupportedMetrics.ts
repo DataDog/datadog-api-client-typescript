@@ -130,6 +130,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof LOGS_INDEXED_3DAY_PERCENTAGE
   | typeof LOGS_INDEXED_1DAY_USAGE
   | typeof LOGS_INDEXED_1DAY_PERCENTAGE
+  | typeof PRODUCT_ANALYTICS_SESSION_USAGE
+  | typeof PRODUCT_ANALYTICS_SESSION_PERCENTAGE
   | typeof RUM_REPLAY_SESSIONS_USAGE
   | typeof RUM_REPLAY_SESSIONS_PERCENTAGE
   | typeof RUM_BROWSER_MOBILE_SESSIONS_USAGE
@@ -293,6 +295,10 @@ export const LOGS_INDEXED_3DAY_USAGE = "logs_indexed_3day_usage";
 export const LOGS_INDEXED_3DAY_PERCENTAGE = "logs_indexed_3day_percentage";
 export const LOGS_INDEXED_1DAY_USAGE = "logs_indexed_1day_usage";
 export const LOGS_INDEXED_1DAY_PERCENTAGE = "logs_indexed_1day_percentage";
+export const PRODUCT_ANALYTICS_SESSION_USAGE =
+  "product_analytics_session_usage";
+export const PRODUCT_ANALYTICS_SESSION_PERCENTAGE =
+  "product_analytics_session_percentage";
 export const RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage";
 export const RUM_REPLAY_SESSIONS_PERCENTAGE = "rum_replay_sessions_percentage";
 export const RUM_BROWSER_MOBILE_SESSIONS_USAGE =
