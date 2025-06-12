@@ -23,6 +23,14 @@ export class SecurityMonitoringSignalRuleResponse {
    */
   "creationAuthorId"?: number;
   /**
+   * Custom/Overridden message for generated signals (used in case of Default rule update).
+   */
+  "customMessage"?: string;
+  /**
+   * Custom/Overridden name of the rule (used in case of Default rule update).
+   */
+  "customName"?: string;
+  /**
    * When the rule will be deprecated, timestamp in milliseconds.
    */
   "deprecationDate"?: number;
@@ -110,6 +118,14 @@ export class SecurityMonitoringSignalRuleResponse {
       baseName: "creationAuthorId",
       type: "number",
       format: "int64",
+    },
+    customMessage: {
+      baseName: "customMessage",
+      type: "string",
+    },
+    customName: {
+      baseName: "customName",
+      type: "string",
     },
     deprecationDate: {
       baseName: "deprecationDate",

@@ -21,6 +21,14 @@ export class SecurityMonitoringRuleUpdatePayload {
    */
   "complianceSignalOptions"?: CloudConfigurationRuleComplianceSignalOptions;
   /**
+   * Custom/Overridden Message for generated signals (used in case of Default rule update).
+   */
+  "customMessage"?: string;
+  /**
+   * Custom/Overridden name (used in case of Default rule update).
+   */
+  "customName"?: string;
+  /**
    * Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
    */
   "filters"?: Array<SecurityMonitoringFilter>;
@@ -90,6 +98,14 @@ export class SecurityMonitoringRuleUpdatePayload {
     complianceSignalOptions: {
       baseName: "complianceSignalOptions",
       type: "CloudConfigurationRuleComplianceSignalOptions",
+    },
+    customMessage: {
+      baseName: "customMessage",
+      type: "string",
+    },
+    customName: {
+      baseName: "customName",
+      type: "string",
     },
     filters: {
       baseName: "filters",

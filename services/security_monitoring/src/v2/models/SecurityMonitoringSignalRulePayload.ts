@@ -15,6 +15,14 @@ export class SecurityMonitoringSignalRulePayload {
    */
   "cases": Array<SecurityMonitoringRuleCaseCreate>;
   /**
+   * Custom/Overridden message for generated signals (used in case of Default rule update).
+   */
+  "customMessage"?: string;
+  /**
+   * Custom/Overridden name of the rule (used in case of Default rule update).
+   */
+  "customName"?: string;
+  /**
    * Additional queries to filter matched events before they are processed. This field is deprecated for log detection, signal correlation, and workload security rules.
    */
   "filters"?: Array<SecurityMonitoringFilter>;
@@ -69,6 +77,14 @@ export class SecurityMonitoringSignalRulePayload {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCaseCreate>",
       required: true,
+    },
+    customMessage: {
+      baseName: "customMessage",
+      type: "string",
+    },
+    customName: {
+      baseName: "customName",
+      type: "string",
     },
     filters: {
       baseName: "filters",
