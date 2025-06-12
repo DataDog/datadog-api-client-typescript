@@ -17,6 +17,10 @@ export class SecurityMonitoringRuleCase {
    */
   "condition"?: string;
   /**
+   * Severity of the Security Signal.
+   */
+  "customStatus"?: SecurityMonitoringRuleSeverity;
+  /**
    * Name of the case.
    */
   "name"?: string;
@@ -50,6 +54,10 @@ export class SecurityMonitoringRuleCase {
     condition: {
       baseName: "condition",
       type: "string",
+    },
+    customStatus: {
+      baseName: "customStatus",
+      type: "SecurityMonitoringRuleSeverity",
     },
     name: {
       baseName: "name",
