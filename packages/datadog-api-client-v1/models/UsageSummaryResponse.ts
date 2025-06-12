@@ -497,6 +497,10 @@ export class UsageSummaryResponse {
    */
   "opentelemetryHostTop99pSum"?: number;
   /**
+   * Sum of all product analytics sessions for all hours in the current month for all organizations.
+   */
+  "productAnalyticsAggSum"?: number;
+  /**
    * Shows the 99th percentile of all profiled Azure app services over all hours in the current month for all organizations.
    */
   "profilingAasCountTop99pSum"?: number;
@@ -1326,6 +1330,11 @@ export class UsageSummaryResponse {
     },
     opentelemetryHostTop99pSum: {
       baseName: "opentelemetry_host_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    productAnalyticsAggSum: {
+      baseName: "product_analytics_agg_sum",
       type: "number",
       format: "int64",
     },
