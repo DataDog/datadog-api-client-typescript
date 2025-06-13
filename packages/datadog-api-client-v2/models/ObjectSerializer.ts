@@ -66,6 +66,7 @@ import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
 import { AnnotationMarkdownTextAnnotation } from "./AnnotationMarkdownTextAnnotation";
 import { AppBuilderEvent } from "./AppBuilderEvent";
+import { AppKeyRegistrationData } from "./AppKeyRegistrationData";
 import { AppMeta } from "./AppMeta";
 import { AppRelationship } from "./AppRelationship";
 import { AppTriggerWrapper } from "./AppTriggerWrapper";
@@ -712,6 +713,7 @@ import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpd
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
 import { GetActionConnectionResponse } from "./GetActionConnectionResponse";
+import { GetAppKeyRegistrationResponse } from "./GetAppKeyRegistrationResponse";
 import { GetAppResponse } from "./GetAppResponse";
 import { GetAppResponseData } from "./GetAppResponseData";
 import { GetAppResponseDataAttributes } from "./GetAppResponseDataAttributes";
@@ -897,6 +899,8 @@ import { ListAPIsResponseData } from "./ListAPIsResponseData";
 import { ListAPIsResponseDataAttributes } from "./ListAPIsResponseDataAttributes";
 import { ListAPIsResponseMeta } from "./ListAPIsResponseMeta";
 import { ListAPIsResponseMetaPagination } from "./ListAPIsResponseMetaPagination";
+import { ListAppKeyRegistrationsResponse } from "./ListAppKeyRegistrationsResponse";
+import { ListAppKeyRegistrationsResponseMeta } from "./ListAppKeyRegistrationsResponseMeta";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
 import { ListAppsResponse } from "./ListAppsResponse";
 import { ListAppsResponseDataItems } from "./ListAppsResponseDataItems";
@@ -1337,6 +1341,7 @@ import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
 import { ReadinessGate } from "./ReadinessGate";
+import { RegisterAppKeyResponse } from "./RegisterAppKeyResponse";
 import { RelationAttributes } from "./RelationAttributes";
 import { RelationEntity } from "./RelationEntity";
 import { RelationMeta } from "./RelationMeta";
@@ -1996,6 +2001,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   AppDefinitionType: ["appDefinitions"],
   AppDeploymentType: ["deployment"],
+  AppKeyRegistrationDataType: ["app_key_registration"],
   ApplicationKeysSort: [
     "created_at",
     "-created_at",
@@ -3234,6 +3240,7 @@ const typeMap: { [index: string]: any } = {
   AnnotationDisplayBounds: AnnotationDisplayBounds,
   AnnotationMarkdownTextAnnotation: AnnotationMarkdownTextAnnotation,
   AppBuilderEvent: AppBuilderEvent,
+  AppKeyRegistrationData: AppKeyRegistrationData,
   AppMeta: AppMeta,
   AppRelationship: AppRelationship,
   AppTriggerWrapper: AppTriggerWrapper,
@@ -3996,6 +4003,7 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
   GetActionConnectionResponse: GetActionConnectionResponse,
+  GetAppKeyRegistrationResponse: GetAppKeyRegistrationResponse,
   GetAppResponse: GetAppResponse,
   GetAppResponseData: GetAppResponseData,
   GetAppResponseDataAttributes: GetAppResponseDataAttributes,
@@ -4194,6 +4202,8 @@ const typeMap: { [index: string]: any } = {
   ListAPIsResponseDataAttributes: ListAPIsResponseDataAttributes,
   ListAPIsResponseMeta: ListAPIsResponseMeta,
   ListAPIsResponseMetaPagination: ListAPIsResponseMetaPagination,
+  ListAppKeyRegistrationsResponse: ListAppKeyRegistrationsResponse,
+  ListAppKeyRegistrationsResponseMeta: ListAppKeyRegistrationsResponseMeta,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
   ListAppsResponse: ListAppsResponse,
   ListAppsResponseDataItems: ListAppsResponseDataItems,
@@ -4736,6 +4746,7 @@ const typeMap: { [index: string]: any } = {
   RUMSearchEventsRequest: RUMSearchEventsRequest,
   RUMWarning: RUMWarning,
   ReadinessGate: ReadinessGate,
+  RegisterAppKeyResponse: RegisterAppKeyResponse,
   RelationAttributes: RelationAttributes,
   RelationEntity: RelationEntity,
   RelationMeta: RelationMeta,
