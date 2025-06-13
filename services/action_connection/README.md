@@ -30,7 +30,7 @@ const configuration = createConfiguration();
 const apiInstance = new ActionConnectionApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.createActionConnection(params).then((data: v2.CreateActionConnectionResponse) => {
+apiInstance.listAppKeyRegistrations(params).then((data: v2.ListAppKeyRegistrationsResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
