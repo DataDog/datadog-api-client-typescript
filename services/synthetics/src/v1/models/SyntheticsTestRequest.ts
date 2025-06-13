@@ -62,13 +62,17 @@ export class SyntheticsTestRequest {
    */
   "dnsServerPort"?: string;
   /**
-   * Files to be used as part of the request in the test.
+   * Files to be used as part of the request in the test. Only valid if `bodyType` is `multipart/form-data`.
    */
   "files"?: Array<SyntheticsTestRequestBodyFile>;
   /**
    * Specifies whether or not the request follows redirects.
    */
   "followRedirects"?: boolean;
+  /**
+   * Form to be used as part of the request in the test. Only valid if `bodyType` is `multipart/form-data`.
+   */
+  "form"?: { [key: string]: string };
   /**
    * Headers to include when performing the test.
    */
@@ -213,6 +217,10 @@ export class SyntheticsTestRequest {
     followRedirects: {
       baseName: "follow_redirects",
       type: "boolean",
+    },
+    form: {
+      baseName: "form",
+      type: "{ [key: string]: string; }",
     },
     headers: {
       baseName: "headers",
