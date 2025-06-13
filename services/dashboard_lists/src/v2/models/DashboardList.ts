@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { Creator } from "./Creator";
 
 /**
- * Your Datadog Dashboards.
+ * Your Datadog Dashboard List.
  */
 export class DashboardList {
   /**
-   * Object describing the creator of the shared element.
+   * Creator of the object.
    */
   "author"?: Creator;
   /**

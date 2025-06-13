@@ -706,41 +706,6 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DashboardDeleteResponse",
   },
-  "DashboardListsApi.V1.ListDashboardLists": {
-    operationResponseType: "DashboardListListResponse",
-  },
-  "DashboardListsApi.V1.CreateDashboardList": {
-    body: {
-      type: "DashboardList",
-      format: "",
-    },
-    operationResponseType: "DashboardList",
-  },
-  "DashboardListsApi.V1.GetDashboardList": {
-    listId: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "DashboardList",
-  },
-  "DashboardListsApi.V1.UpdateDashboardList": {
-    listId: {
-      type: "number",
-      format: "int64",
-    },
-    body: {
-      type: "DashboardList",
-      format: "",
-    },
-    operationResponseType: "DashboardList",
-  },
-  "DashboardListsApi.V1.DeleteDashboardList": {
-    listId: {
-      type: "number",
-      format: "int64",
-    },
-    operationResponseType: "DashboardListDeleteResponse",
-  },
   "MetricsApi.V1.SubmitDistributionPoints": {
     contentEncoding: {
       type: "DistributionPointsContentEncoding",
@@ -4394,6 +4359,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   },
   "CSMCoverageAnalysisApi.V2.GetCSMServerlessCoverageAnalysis": {
     operationResponseType: "CsmServerlessCoverageAnalysisResponse",
+  },
+  "DashboardListsApi.V2.ListDashboardLists": {
+    operationResponseType: "DashboardListListResponse",
+  },
+  "DashboardListsApi.V2.CreateDashboardList": {
+    body: {
+      type: "DashboardList",
+      format: "",
+    },
+    operationResponseType: "DashboardList",
+  },
+  "DashboardListsApi.V2.GetDashboardList": {
+    dashboardListId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "DashboardList",
+  },
+  "DashboardListsApi.V2.UpdateDashboardList": {
+    dashboardListId: {
+      type: "number",
+      format: "int64",
+    },
+    body: {
+      type: "DashboardList",
+      format: "",
+    },
+    operationResponseType: "DashboardList",
+  },
+  "DashboardListsApi.V2.DeleteDashboardList": {
+    dashboardListId: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "DashboardListDeleteResponse",
   },
   "DashboardListsApi.V2.GetDashboardListItems": {
     dashboardListId: {
