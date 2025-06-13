@@ -58,6 +58,39 @@ Feature: Dashboard Lists
     And the response "added_dashboards_to_list[0].id" is equal to "{{ dashboard.id }}"
     And the response "added_dashboards_to_list" has length 1
 
+  @generated @skip @team:DataDog/dashboards-backend
+  Scenario: Create a dashboard list returns "Bad Request" response
+    Given new "CreateDashboardList" request
+    And body with value {"author": {"name": null}, "name": "My Dashboard List"}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @team:DataDog/dashboards-backend
+  Scenario: Create a dashboard list returns "OK" response
+    Given there is a valid "dashboard_list" in the system
+    And new "CreateDashboardList" request
+    And body with value {"name": "{{ unique }}"}
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "type" is equal to "manual_dashboard_list"
+
+  @generated @skip @team:DataDog/dashboards-backend
+  Scenario: Delete a dashboard list returns "Not Found" response
+    Given new "DeleteDashboardList" request
+    And request contains "dashboard_list_id" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @team:DataDog/dashboards-backend
+  Scenario: Delete a dashboard list returns "OK" response
+    Given there is a valid "dashboard_list" in the system
+    And new "DeleteDashboardList" request
+    And request contains "dashboard_list_id" parameter from "dashboard_list.id"
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "deleted_dashboard_list_id" is equal to "{{ dashboard_list.id }}"
+
   @team:DataDog/dashboards-backend
   Scenario: Delete custom screenboard dashboard from an existing dashboard list returns "OK" response
     Given there is a valid "dashboard_list" in the system
@@ -111,6 +144,31 @@ Feature: Dashboard Lists
     Then the response status is 200 OK
 
   @generated @skip @team:DataDog/dashboards-backend
+  Scenario: Get a dashboard list returns "Not Found" response
+    Given new "GetDashboardList" request
+    And request contains "dashboard_list_id" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @team:DataDog/dashboards-backend
+  Scenario: Get a dashboard list returns "OK" response
+    Given there is a valid "dashboard_list" in the system
+    And new "GetDashboardList" request
+    And request contains "dashboard_list_id" parameter from "dashboard_list.id"
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "name" is equal to "{{ dashboard_list.name }}"
+    And the response "type" is equal to "manual_dashboard_list"
+
+  @team:DataDog/dashboards-backend
+  Scenario: Get all dashboard lists returns "OK" response
+    Given there is a valid "dashboard_list" in the system
+    And new "ListDashboardLists" request
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "dashboard_lists" has length 1
+
+  @generated @skip @team:DataDog/dashboards-backend
   Scenario: Get items of a Dashboard List returns "Not Found" response
     Given new "GetDashboardListItems" request
     And request contains "dashboard_list_id" parameter from "REPLACE.ME"
@@ -129,6 +187,33 @@ Feature: Dashboard Lists
     And the response "dashboards[0].id" is equal to "{{ dashboard.id }}"
     And the response "dashboards[0].type" is equal to "custom_timeboard"
     And the response "dashboards" has length 1
+
+  @generated @skip @team:DataDog/dashboards-backend
+  Scenario: Update a dashboard list returns "Bad Request" response
+    Given new "UpdateDashboardList" request
+    And request contains "dashboard_list_id" parameter from "REPLACE.ME"
+    And body with value {"author": {"name": null}, "name": "My Dashboard List"}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/dashboards-backend
+  Scenario: Update a dashboard list returns "Not Found" response
+    Given new "UpdateDashboardList" request
+    And request contains "dashboard_list_id" parameter from "REPLACE.ME"
+    And body with value {"author": {"name": null}, "name": "My Dashboard List"}
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @team:DataDog/dashboards-backend
+  Scenario: Update a dashboard list returns "OK" response
+    Given there is a valid "dashboard_list" in the system
+    And new "UpdateDashboardList" request
+    And request contains "dashboard_list_id" parameter from "dashboard_list.id"
+    And body with value {"name": "Updated {{ unique }}"}
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "name" is equal to "Updated {{ unique }}"
+    And the response "type" is equal to "manual_dashboard_list"
 
   @generated @skip @team:DataDog/dashboards-backend
   Scenario: Update items of a dashboard list returns "Bad Request" response

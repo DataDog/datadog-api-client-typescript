@@ -128,43 +128,6 @@
       "type": "unsafe"
     }
   },
-  "ListDashboardLists": {
-    "tag": "Dashboard Lists",
-    "undo": {
-      "type": "safe"
-    }
-  },
-  "CreateDashboardList": {
-    "tag": "Dashboard Lists",
-    "undo": {
-      "operationId": "DeleteDashboardList",
-      "parameters": [
-        {
-          "name": "list_id",
-          "source": "id"
-        }
-      ],
-      "type": "unsafe"
-    }
-  },
-  "DeleteDashboardList": {
-    "tag": "Dashboard Lists",
-    "undo": {
-      "type": "idempotent"
-    }
-  },
-  "GetDashboardList": {
-    "tag": "Dashboard Lists",
-    "undo": {
-      "type": "safe"
-    }
-  },
-  "UpdateDashboardList": {
-    "tag": "Dashboard Lists",
-    "undo": {
-      "type": "idempotent"
-    }
-  },
   "CreatePublicDashboard": {
     "tag": "Dashboards",
     "undo": {

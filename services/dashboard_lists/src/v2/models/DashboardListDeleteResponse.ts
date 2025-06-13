@@ -1,13 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Error response object.
+ * Deleted dashboard list details.
  */
-export class APIErrorResponse {
+export class DashboardListDeleteResponse {
   /**
-   * Array of errors returned by the API.
+   * ID of the deleted dashboard list.
    */
-  "errors": Array<string>;
+  "deletedDashboardListId"?: number;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -23,10 +23,10 @@ export class APIErrorResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<string>",
-      required: true,
+    deletedDashboardListId: {
+      baseName: "deleted_dashboard_list_id",
+      type: "number",
+      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -38,7 +38,7 @@ export class APIErrorResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return APIErrorResponse.attributeTypeMap;
+    return DashboardListDeleteResponse.attributeTypeMap;
   }
 
   public constructor() {}

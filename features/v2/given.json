@@ -147,6 +147,18 @@
   {
     "parameters": [
       {
+        "name": "body",
+        "value": "{\n  \"name\": \"{{ unique }}\"\n}"
+      }
+    ],
+    "step": "there is a valid \"dashboard_list\" in the system",
+    "key": "dashboard_list",
+    "tag": "Dashboard Lists",
+    "operationId": "CreateDashboardList"
+  },
+  {
+    "parameters": [
+      {
         "name": "dashboard_list_id",
         "source": "dashboard_list.id"
       },
