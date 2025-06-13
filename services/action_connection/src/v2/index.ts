@@ -2,6 +2,10 @@ export {
   ActionConnectionApiCreateActionConnectionRequest,
   ActionConnectionApiDeleteActionConnectionRequest,
   ActionConnectionApiGetActionConnectionRequest,
+  ActionConnectionApiGetAppKeyRegistrationRequest,
+  ActionConnectionApiListAppKeyRegistrationsRequest,
+  ActionConnectionApiRegisterAppKeyRequest,
+  ActionConnectionApiUnregisterAppKeyRequest,
   ActionConnectionApiUpdateActionConnectionRequest,
   ActionConnectionApi,
 } from "./ActionConnectionApi";
@@ -13,6 +17,8 @@ export { ActionConnectionDataType } from "./models/ActionConnectionDataType";
 export { ActionConnectionDataUpdate } from "./models/ActionConnectionDataUpdate";
 export { ActionConnectionIntegration } from "./models/ActionConnectionIntegration";
 export { ActionConnectionIntegrationUpdate } from "./models/ActionConnectionIntegrationUpdate";
+export { AppKeyRegistrationData } from "./models/AppKeyRegistrationData";
+export { AppKeyRegistrationDataType } from "./models/AppKeyRegistrationDataType";
 export { AWSAssumeRole } from "./models/AWSAssumeRole";
 export { AWSAssumeRoleType } from "./models/AWSAssumeRoleType";
 export { AWSAssumeRoleUpdate } from "./models/AWSAssumeRoleUpdate";
@@ -24,6 +30,7 @@ export { AWSIntegrationUpdate } from "./models/AWSIntegrationUpdate";
 export { CreateActionConnectionRequest } from "./models/CreateActionConnectionRequest";
 export { CreateActionConnectionResponse } from "./models/CreateActionConnectionResponse";
 export { GetActionConnectionResponse } from "./models/GetActionConnectionResponse";
+export { GetAppKeyRegistrationResponse } from "./models/GetAppKeyRegistrationResponse";
 export { HTTPBody } from "./models/HTTPBody";
 export { HTTPCredentials } from "./models/HTTPCredentials";
 export { HTTPCredentialsUpdate } from "./models/HTTPCredentialsUpdate";
@@ -40,6 +47,9 @@ export { HTTPTokenUpdate } from "./models/HTTPTokenUpdate";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+export { ListAppKeyRegistrationsResponse } from "./models/ListAppKeyRegistrationsResponse";
+export { ListAppKeyRegistrationsResponseMeta } from "./models/ListAppKeyRegistrationsResponseMeta";
+export { RegisterAppKeyResponse } from "./models/RegisterAppKeyResponse";
 export { TokenType } from "./models/TokenType";
 export { UpdateActionConnectionRequest } from "./models/UpdateActionConnectionRequest";
 export { UpdateActionConnectionResponse } from "./models/UpdateActionConnectionResponse";

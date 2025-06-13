@@ -2323,6 +2323,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "AuthenticationApi.V1.Validate": {
     operationResponseType: "AuthenticationValidationResponse",
   },
+  "ActionConnectionApi.V2.ListAppKeyRegistrations": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ListAppKeyRegistrationsResponse",
+  },
+  "ActionConnectionApi.V2.GetAppKeyRegistration": {
+    appKeyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GetAppKeyRegistrationResponse",
+  },
+  "ActionConnectionApi.V2.RegisterAppKey": {
+    appKeyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RegisterAppKeyResponse",
+  },
+  "ActionConnectionApi.V2.UnregisterAppKey": {
+    appKeyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "ActionConnectionApi.V2.CreateActionConnection": {
     body: {
       type: "CreateActionConnectionRequest",
