@@ -23,9 +23,8 @@ import { v2 } from "@datadog/datadog-api-client-dashboard-lists";
 
 const configuration = createConfiguration();
 const apiInstance = new DashboardListsApiV2(configuration);
-const params = {/* parameters */};
 
-apiInstance.getDashboardListItems(params).then((data: v2.DashboardListItems) => {
+apiInstance.listDashboardLists().then((data: v2.DashboardListListResponse) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

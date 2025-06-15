@@ -27,18 +27,6 @@
     "parameters": [
       {
         "name": "body",
-        "value": "{\n  \"name\": \"{{ unique }}\"\n}"
-      }
-    ],
-    "step": "there is a valid \"dashboard_list\" in the system",
-    "key": "dashboard_list",
-    "tag": "Dashboard Lists",
-    "operationId": "CreateDashboardList"
-  },
-  {
-    "parameters": [
-      {
-        "name": "body",
         "value": "{\n  \"dashboard_id\": \"{{ dashboard.id }}\",\n  \"dashboard_type\": \"custom_timeboard\",\n  \"share_type\": \"invite\",\n  \"share_list\": [\"{{unique_lower_alnum}}@datadoghq.com\"],\n  \"global_time\": {\n    \"live_span\": \"1h\"\n  }\n}"
       }
     ],
