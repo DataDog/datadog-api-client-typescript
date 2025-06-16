@@ -13,7 +13,7 @@ const params: v2.MicrosoftTeamsIntegrationApiCreateWorkflowsWebhookHandleRequest
       data: {
         attributes: {
           name: "Example-Microsoft-Teams-Integration",
-          url: "https://fake.url.com",
+          url: "https://example.logic.azure.com/workflows/123",
         },
         type: "workflows-webhook-handle",
       },
