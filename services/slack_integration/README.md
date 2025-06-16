@@ -5,6 +5,11 @@
 Configure your [Datadog-Slack integration](https://docs.datadoghq.com/integrations/slack)
 directly through the Datadog API.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -24,7 +29,7 @@ const configuration = createConfiguration();
 const apiInstance = new SlackIntegrationApiV1(configuration);
 const params = {/* parameters */};
 
-apiInstance.getSlackIntegrationChannels(params).then((data: v1.Array<SlackIntegrationChannel>) => {
+apiInstance.getSlackIntegrationChannels(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

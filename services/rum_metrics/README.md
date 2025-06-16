@@ -4,6 +4,11 @@
 
 Manage configuration of [rum-based metrics](https://app.datadoghq.com/rum/generate-metrics) for your organization.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -22,7 +27,7 @@ import { v2 } from "@datadog/datadog-api-client-rum-metrics";
 const configuration = createConfiguration();
 const apiInstance = new RumMetricsApiV2(configuration);
 
-apiInstance.listRumMetrics().then((data: v2.RumMetricsResponse) => {
+apiInstance.listRumMetrics().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

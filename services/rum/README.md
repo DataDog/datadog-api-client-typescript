@@ -4,6 +4,11 @@
 
 Manage your Real User Monitoring (RUM) applications, and search or aggregate your RUM events over HTTP. See the [RUM & Session Replay page](https://docs.datadoghq.com/real_user_monitoring/) for more information
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new RUMApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.aggregateRUMEvents(params).then((data: v2.RUMAnalyticsAggregateResponse) => {
+apiInstance.aggregateRUMEvents(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

@@ -11,6 +11,11 @@ Workflow Automation and App Builder.
 
 We offer granular access control for editing and resolving connections.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -30,7 +35,7 @@ const configuration = createConfiguration();
 const apiInstance = new ActionConnectionApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.createActionConnection(params).then((data: v2.CreateActionConnectionResponse) => {
+apiInstance.createActionConnection(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

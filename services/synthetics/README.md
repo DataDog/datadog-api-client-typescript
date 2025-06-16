@@ -10,6 +10,11 @@ manage both test types programmatically.
 
 For more information about Synthetics, see the [Synthetics overview](https://docs.datadoghq.com/synthetics/).
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -28,7 +33,7 @@ import { v2 } from "@datadog/datadog-api-client-synthetics";
 const configuration = createConfiguration();
 const apiInstance = new SyntheticsApiV2(configuration);
 
-apiInstance.getOnDemandConcurrencyCap().then((data: v2.OnDemandConcurrencyCapResponse) => {
+apiInstance.getOnDemandConcurrencyCap().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

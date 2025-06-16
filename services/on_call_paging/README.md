@@ -5,6 +5,11 @@
 Trigger and manage [Datadog On-Call](https://docs.datadoghq.com/service_management/on-call/)
 pages directly through the Datadog API.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -24,7 +29,7 @@ const configuration = createConfiguration();
 const apiInstance = new OnCallPagingApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.createOnCallPage(params).then((data: v2.CreatePageResponse) => {
+apiInstance.createOnCallPage(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

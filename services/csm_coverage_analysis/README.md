@@ -7,6 +7,11 @@ and continuous configuration audits across your entire cloud infrastructure,
 all in a unified view for seamless collaboration and faster remediation.
 Go to https://docs.datadoghq.com/security/cloud_security_management to learn more.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -25,7 +30,7 @@ import { v2 } from "@datadog/datadog-api-client-csm-coverage-analysis";
 const configuration = createConfiguration();
 const apiInstance = new CSMCoverageAnalysisApiV2(configuration);
 
-apiInstance.getCSMCloudAccountsCoverageAnalysis().then((data: v2.CsmCloudAccountsCoverageAnalysisResponse) => {
+apiInstance.getCSMCloudAccountsCoverageAnalysis().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

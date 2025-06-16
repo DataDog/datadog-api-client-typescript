@@ -6,6 +6,11 @@ Configure your Datadog Email Domain Allowlist directly through the Datadog API.
 The Email Domain Allowlist controls the domains that certain datadog emails can be sent to.
 For more information, see the [Domain Allowlist docs page](https://docs.datadoghq.com/account_management/org_settings/domain_allowlist)
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -24,7 +29,7 @@ import { v2 } from "@datadog/datadog-api-client-domain-allowlist";
 const configuration = createConfiguration();
 const apiInstance = new DomainAllowlistApiV2(configuration);
 
-apiInstance.getDomainAllowlist().then((data: v2.DomainAllowlistResponse) => {
+apiInstance.getDomainAllowlist().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

@@ -4,6 +4,11 @@
 
 Search or aggregate your CI Visibility test events over HTTP. See the [Test Visibility in Datadog page](https://docs.datadoghq.com/tests/) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new CIVisibilityTestsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.aggregateCIAppTestEvents(params).then((data: v2.CIAppTestsAnalyticsAggregateResponse) => {
+apiInstance.aggregateCIAppTestEvents(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

@@ -14,6 +14,11 @@ a user who has the powerpack create permission for that specific Powerpack.
 
 Read [Scale Graphing Expertise with Powerpacks](https://docs.datadoghq.com/dashboards/guide/powerpacks-best-practices/) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -33,7 +38,7 @@ const configuration = createConfiguration();
 const apiInstance = new PowerpackApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listPowerpacks(params).then((data: v2.ListPowerpacksResponse) => {
+apiInstance.listPowerpacks(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

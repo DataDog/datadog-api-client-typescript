@@ -4,6 +4,11 @@
 
 Manage retention filters through [Manage Applications](https://app.datadoghq.com/rum/list) of RUM for your organization.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new RumRetentionFiltersApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.orderRetentionFilters(params).then((data: v2.RumRetentionFiltersOrderResponse) => {
+apiInstance.orderRetentionFilters(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

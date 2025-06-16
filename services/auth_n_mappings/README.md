@@ -6,6 +6,11 @@
 is used to automatically map groups of users to roles in Datadog using attributes
 sent from Identity Providers. Use these endpoints to manage your AuthN Mappings.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -25,7 +30,7 @@ const configuration = createConfiguration();
 const apiInstance = new AuthNMappingsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listAuthNMappings(params).then((data: v2.AuthNMappingsResponse) => {
+apiInstance.listAuthNMappings(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

@@ -7,6 +7,11 @@ an application key for a user with the required permissions to interact
 with these endpoints. The full list of API and application keys can be
 seen on your [Datadog API page](https://app.datadoghq.com/account/settings#api).
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -26,7 +31,7 @@ const configuration = createConfiguration();
 const apiInstance = new KeyManagementApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listAPIKeys(params).then((data: v2.APIKeysResponse) => {
+apiInstance.listAPIKeys(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
