@@ -5,6 +5,11 @@
 Configure your Datadog-Google Cloud Platform (GCP) integration directly
 through the Datadog API. Read more about the [Datadog-Google Cloud Platform integration](https://docs.datadoghq.com/integrations/google_cloud_platform).
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ import { v2 } from "@datadog/datadog-api-client-gcp-integration";
 const configuration = createConfiguration();
 const apiInstance = new GCPIntegrationApiV2(configuration);
 
-apiInstance.listGCPSTSAccounts().then((data: v2.GCPSTSServiceAccountsResponse) => {
+apiInstance.listGCPSTSAccounts().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

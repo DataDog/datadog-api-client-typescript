@@ -4,6 +4,11 @@
 
 Get a list of IP prefixes belonging to Datadog.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -22,7 +27,7 @@ import { v1 } from "@datadog/datadog-api-client-ip-ranges";
 const configuration = createConfiguration();
 const apiInstance = new IPRangesApiV1(configuration);
 
-apiInstance.getIPRanges().then((data: v1.IPRanges) => {
+apiInstance.getIPRanges().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

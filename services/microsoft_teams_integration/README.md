@@ -5,6 +5,11 @@
 Configure your [Datadog Microsoft Teams integration](https://docs.datadoghq.com/integrations/microsoft_teams/)
 directly through the Datadog API. Note: These endpoints do not support legacy connector handles.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -24,7 +29,7 @@ const configuration = createConfiguration();
 const apiInstance = new MicrosoftTeamsIntegrationApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.getChannelByName(params).then((data: v2.MicrosoftTeamsGetChannelByNameResponse) => {
+apiInstance.getChannelByName(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

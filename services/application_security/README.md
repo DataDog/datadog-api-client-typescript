@@ -9,6 +9,11 @@ Reflected Cross-Site-Scripting (XSS). You can monitor and protect apps
 hosted directly on a server, Docker, Kubernetes, Amazon ECS, and (for
 supported languages) AWS Fargate.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -27,7 +32,7 @@ import { v2 } from "@datadog/datadog-api-client-application-security";
 const configuration = createConfiguration();
 const apiInstance = new ApplicationSecurityApiV2(configuration);
 
-apiInstance.listApplicationSecurityWAFCustomRules().then((data: v2.ApplicationSecurityWafCustomRuleListResponse) => {
+apiInstance.listApplicationSecurityWAFCustomRules().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

@@ -4,6 +4,11 @@
 
 Search your Audit Logs events over HTTP.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new AuditApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listAuditLogs(params).then((data: v2.AuditLogsEventsResponse) => {
+apiInstance.listAuditLogs(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

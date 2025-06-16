@@ -6,6 +6,11 @@ Interact with your notebooks through the API to make it easier to organize, find
 share all of your notebooks with your team and organization. For more information, see the
 [Notebooks documentation](https://docs.datadoghq.com/notebooks/).
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -25,7 +30,7 @@ const configuration = createConfiguration();
 const apiInstance = new NotebooksApiV1(configuration);
 const params = {/* parameters */};
 
-apiInstance.listNotebooks(params).then((data: v1.NotebooksResponse) => {
+apiInstance.listNotebooks(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

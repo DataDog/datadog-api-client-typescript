@@ -13,6 +13,11 @@ You can retrieve up to 24 hours of hourly usage data for multiple organizations,
 and up to two months of hourly usage data for a single organization in one request.
 Learn more on the [usage details documentation](https://docs.datadoghq.com/account_management/billing/usage_details/).
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -31,7 +36,7 @@ import { v2 } from "@datadog/datadog-api-client-usage-metering";
 const configuration = createConfiguration();
 const apiInstance = new UsageMeteringApiV2(configuration);
 
-apiInstance.getActiveBillingDimensions().then((data: v2.ActiveBillingDimensionsResponse) => {
+apiInstance.getActiveBillingDimensions().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

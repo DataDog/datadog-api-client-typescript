@@ -9,6 +9,11 @@ which ultimately help teams provide a consistent customer experience,
 balance feature development with platform stability,
 and improve communication with internal and external users.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -26,11 +31,17 @@ import { v2 } from "@datadog/datadog-api-client-service-level-objectives";
 
 const configuration = createConfiguration();
 // Enable unstable operations
-configuration.unstableOperations["v2.createSLOReportJob"] = true;
+const configurationOpts = {
+    unstableOperations: {
+        "ServiceLevelObjectivesApi.v2.createSLOReportJob": true
+    }
+}
+
+const configuration = createConfiguration(configurationOpts);
 const apiInstance = new ServiceLevelObjectivesApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.createSLOReportJob(params).then((data: v2.SLOReportPostResponse) => {
+apiInstance.createSLOReportJob(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

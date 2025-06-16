@@ -9,6 +9,11 @@ Custom Destinations forward all the logs ingested to an external destination.
 See the [Custom Destinations Page](https://app.datadoghq.com/logs/pipelines/log-forwarding/custom-destinations)
 for a list of the custom destinations currently configured in web UI.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -27,7 +32,7 @@ import { v2 } from "@datadog/datadog-api-client-logs-custom-destinations";
 const configuration = createConfiguration();
 const apiInstance = new LogsCustomDestinationsApiV2(configuration);
 
-apiInstance.listLogsCustomDestinations().then((data: v2.CustomDestinationsResponse) => {
+apiInstance.listLogsCustomDestinations().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

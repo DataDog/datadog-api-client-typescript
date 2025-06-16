@@ -18,6 +18,11 @@ a user who has the `Manage Tags for Metrics` permission.
 
 See the [Metrics page](https://docs.datadoghq.com/metrics/) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -37,7 +42,7 @@ const configuration = createConfiguration();
 const apiInstance = new MetricsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listTagConfigurations(params).then((data: v2.MetricsAndMetricTagConfigurationsResponse) => {
+apiInstance.listTagConfigurations(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

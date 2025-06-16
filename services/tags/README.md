@@ -14,6 +14,11 @@ users, feed, chef, puppet, git, bitbucket, fabric, capistrano, etc.
 
 Read more about tags on [Getting Started with Tags](https://docs.datadoghq.com/getting_started/tagging/).
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -33,7 +38,7 @@ const configuration = createConfiguration();
 const apiInstance = new TagsApiV1(configuration);
 const params = {/* parameters */};
 
-apiInstance.listHostTags(params).then((data: v1.TagToHosts) => {
+apiInstance.listHostTags(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

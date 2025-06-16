@@ -4,6 +4,11 @@
 
 Search and aggregate your spans from your Datadog platform over HTTP.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new SpansApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.aggregateSpans(params).then((data: v2.SpansAggregateResponse) => {
+apiInstance.aggregateSpans(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

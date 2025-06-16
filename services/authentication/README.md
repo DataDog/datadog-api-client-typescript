@@ -12,6 +12,11 @@ If you are on the Datadog EU site, set the environment variable `DATADOG_HOST` t
 
 [Manage your account’s API and application keys](https://app.datadoghq.com/organization-settings/) in Datadog, and see the [API and Application Keys page](https://docs.datadoghq.com/account_management/api-app-keys/) in the documentation.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -30,7 +35,7 @@ import { v1 } from "@datadog/datadog-api-client-authentication";
 const configuration = createConfiguration();
 const apiInstance = new AuthenticationApiV1(configuration);
 
-apiInstance.validate().then((data: v1.AuthenticationValidationResponse) => {
+apiInstance.validate().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

@@ -4,6 +4,11 @@
 
 View and manage cases and projects within Case Management. See the [Case Management page](https://docs.datadoghq.com/service_management/case_management/) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new CaseManagementApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.searchCases(params).then((data: v2.CasesResponse) => {
+apiInstance.searchCases(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

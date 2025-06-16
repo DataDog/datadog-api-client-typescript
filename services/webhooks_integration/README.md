@@ -5,6 +5,11 @@
 Configure your Datadog-Webhooks integration directly through the Datadog API.
 See the [Webhooks integration page](https://docs.datadoghq.com/integrations/webhooks) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -24,7 +29,7 @@ const configuration = createConfiguration();
 const apiInstance = new WebhooksIntegrationApiV1(configuration);
 const params = {/* parameters */};
 
-apiInstance.createWebhooksIntegrationCustomVariable(params).then((data: v1.WebhooksIntegrationCustomVariableResponse) => {
+apiInstance.createWebhooksIntegrationCustomVariable(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

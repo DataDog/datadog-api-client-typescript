@@ -4,6 +4,11 @@
 
 Get information about your infrastructure hosts in Datadog, and mute or unmute any notifications from your hosts. See the [Infrastructure page](https://docs.datadoghq.com/infrastructure/) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new HostsApiV1(configuration);
 const params = {/* parameters */};
 
-apiInstance.muteHost(params).then((data: v1.HostMuteResponse) => {
+apiInstance.muteHost(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

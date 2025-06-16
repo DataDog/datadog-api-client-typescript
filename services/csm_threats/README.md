@@ -6,6 +6,11 @@ Workload Protection monitors file, network, and process activity across your env
 
 **Note**: These endpoints are split based on whether you are using the US1-FED site or not. Please reference the specific resource for the site you are using.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -25,7 +30,7 @@ const configuration = createConfiguration();
 const apiInstance = new CSMThreatsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listCSMThreatsAgentRules(params).then((data: v2.CloudWorkloadSecurityAgentRulesListResponse) => {
+apiInstance.listCSMThreatsAgentRules(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

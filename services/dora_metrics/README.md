@@ -6,6 +6,11 @@ Search or send events for DORA Metrics to measure and improve your software deli
 
 **Note**: DORA Metrics are not available in the US1-FED site.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -25,7 +30,7 @@ const configuration = createConfiguration();
 const apiInstance = new DORAMetricsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.createDORADeployment(params).then((data: v2.DORADeploymentResponse) => {
+apiInstance.createDORADeployment(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

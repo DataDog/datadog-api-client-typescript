@@ -24,6 +24,11 @@ that uses a regex pattern like `\s` for spaces, you will
 need to configure all escaped spaces as `%{space}` to use
 in the body data.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -42,7 +47,7 @@ import { v1 } from "@datadog/datadog-api-client-logs-pipelines";
 const configuration = createConfiguration();
 const apiInstance = new LogsPipelinesApiV1(configuration);
 
-apiInstance.getLogsPipelineOrder().then((data: v1.LogsPipelinesOrder) => {
+apiInstance.getLogsPipelineOrder().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

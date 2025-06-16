@@ -5,6 +5,11 @@
 API to create, update, retrieve and delete service definitions.
 Note: Service Catalog [v3.0 schema](https://docs.datadoghq.com/service_catalog/service_definitions/v3-0/) has new API endpoints documented under [Software Catalog](https://docs.datadoghq.com/api/latest/software-catalog/). Use the following Service Definition endpoints for v2.2 and earlier.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -24,7 +29,7 @@ const configuration = createConfiguration();
 const apiInstance = new ServiceDefinitionApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listServiceDefinitions(params).then((data: v2.ServiceDefinitionsListResponse) => {
+apiInstance.listServiceDefinitions(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
