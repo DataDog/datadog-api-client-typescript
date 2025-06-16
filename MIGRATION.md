@@ -6,18 +6,40 @@ This guide will help you migrate your code from using the monolithic `@datadog/d
 
 ### Package Structure Changes
 - The `@datadog/datadog-api-client` package now only contains core components and configuration objects.
-- Service-specific code (e.g., `Monitor` API) has been moved to individual packages in `services/` directory
-  - Each service is its own dedicated package following the naming convention `@datadog/datadog-api-client-{service}`
+- Service-specific code (e.g., `Monitor`) has been moved to individual packages in `services/` directory
+  - Each Api grouping is in its own dedicated package following the naming convention `@datadog/datadog-api-client-{apiName}`
 
-### Configuration Object Updates
+### Configuration object Updates
 - `serverVariables`, `operationServerVariables` and `unstableOperation` keys in the configuration object now follow the same format:
+
   ```
   { apiName }.{ apiVersion }.{operation}
   ```
 
 ## Migration Steps
 
-### 1. Update core imports
+### 1. Package Installation
+
+Install the required packages:
+
+```bash
+# Service-specific packages (install only the ones you need)
+npm install @datadog/datadog-api-client-monitors
+# OR
+yarn add @datadog/datadog-api-client-monitors
+# ... and so on for other services
+```
+
+All of the clients directly depend on the `@datadog/datadog-api-client` package for core components such as `Configuration` object. 
+You can manually install it using:
+
+```bash
+npm install @datadog/datadog-api-client@^2.0.0-beta.1
+# OR
+yarn add @datadog/datadog-api-client@^2.0.0-beta.1
+```
+
+### 2. Update core imports
 Replace imports of core components from the main package:
 
 ```typescript
@@ -34,7 +56,7 @@ import { createConfiguration } from "@datadog/datadog-api-client";
 const configuration = createConfiguration()
 ```
 
-### 2. Update service specific imports
+### 3. Update service specific imports
 Update imports for service-specific models and APIs:
 
 ```typescript
@@ -42,14 +64,16 @@ Update imports for service-specific models and APIs:
 import { v1 } from "@datadog/datadog-api-client";
 
 const apiInstance = new v1.MonitorsApi();
+```
 
+```typescript
 // New
 import { v1 } from "@datadog/datadog-api-client-monitors";
 
 const apiInstance = new v1.MonitorsApi();
 ```
 
-### 3. Update Configuration
+### 4. Update Configuration
 Update your configuration object to use the new format `{ apiName }.{ apiVersion }.{ operation }`
 
 ```typescript
@@ -62,7 +86,9 @@ const configuration = createConfiguration({
     "v2.createOpenAPI": true
   }
 });
+```
 
+```typescript
 // New
 const configuration = createConfiguration({
   operationServerIndices: {
@@ -85,9 +111,9 @@ Here's a complete example showing how to migrate a typical use case:
 
 ```typescript
 // Old
-import { v1, createConfiguration } from "@datadog/datadog-api-client";
+import { v1, client } from "@datadog/datadog-api-client";
 
-const configuration = createConfiguration({
+const configuration = client.createConfiguration({
   authMethods: {
     apiKeyAuth: "YOUR_API_KEY",
     appKeyAuth: "YOUR_APP_KEY"
@@ -95,7 +121,9 @@ const configuration = createConfiguration({
 });
 
 const api = new v1.MonitorsApi(configuration);
+```
 
+```typescript
 // New
 import { Configuration, createConfiguration } from "@datadog/datadog-api-client";
 import { v1 } from "@datadog/datadog-api-client-monitors";
@@ -110,25 +138,9 @@ const configuration = createConfiguration({
 const api = new v1.MonitorsApi(configuration);
 ```
 
-## Package Installation
-
-Install the required packages:
-
-```bash
-# Core package
-npm install @datadog/datadog-api-client
-
-# Service-specific packages (install only the ones you need)
-npm install @datadog/datadog-api-client-monitors
-npm install @datadog/datadog-api-client-dashboards
-# ... and so on for other services
-```
-
 ## Available Service Packages
 
-The following service packages are available:
-
-- See [#Clients] section in the packages [README.md](./packages/datadog-api-client/README.md#clients)
+See [#Clients] section in the following [README.md](./packages/datadog-api-client/README.md#clients)
 
 ## Support
 

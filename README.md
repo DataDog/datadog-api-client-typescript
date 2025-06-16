@@ -12,21 +12,28 @@ For detailed installation instructions, please refer to the `README.md` file in 
 
 The shared package which contains the configuration object can be found in `packages/datadog-api-client` directory.
 
+## Migration
+
+See migration docs [MIGRATION.md](packages/datadog-api-client/README.md)
+
 ## Getting Started
+
+See individual `README.md` in `services/{api}/` and `packages/datadog-api-client/` directories.
 
 Here's an example getting a monitor:
 
+```bash
+yarn add @datadog/datadog-api-client-monitors
+```
+
 ```typescript
-// yarn add @datadog/datadog-api-client-monitors
 import { createConfiguration } from "@datadog/datadog-api-client";
 import { v1 } from '@datadog/datadog-api-client-monitors';
 
 const configuration = createConfiguration();
 const apiInstance = new v1.MonitorsApiV1(configuration);
 
-
 let params: v1.MonitorsApiGetMonitorRequest = {
-  // number | The ID of the monitor
   monitorId: 1,
 };
 
@@ -34,7 +41,3 @@ apiInstance.getMonitor(params).then((data: v1.Monitor) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
-
-## Migration
-
-See migration docs [MIGRATION.md](packages/datadog-api-client/README.md)
