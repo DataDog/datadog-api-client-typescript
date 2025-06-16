@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 1.36.0/2025-06-16
+
+### Changed
+* Add billing read permission [#2335](https://github.com/DataDog/datadog-api-client-typescript/pull/2335)
+* Update DORA endpoints [#2279](https://github.com/DataDog/datadog-api-client-typescript/pull/2279)
+
+### Added
+* Add `form` field for `multipart/form-data` HTTP API tests [#2320](https://github.com/DataDog/datadog-api-client-typescript/pull/2320)
+* Add new endpoint to upsert/list/delete custom kinds [#2311](https://github.com/DataDog/datadog-api-client-typescript/pull/2311)
+* Add spec for team on-call endpoint [#2308](https://github.com/DataDog/datadog-api-client-typescript/pull/2308)
+* Add support for all subtypes in multistep steps [#2259](https://github.com/DataDog/datadog-api-client-typescript/pull/2259)
+* Added new optional field definition to include more detail in findings for '/api/v2/posture_management/findings'  [#2245](https://github.com/DataDog/datadog-api-client-typescript/pull/2245)
+* Exposing set action on Terraform V2 [#2244](https://github.com/DataDog/datadog-api-client-typescript/pull/2244)
+* Add monitor draft status field [#2243](https://github.com/DataDog/datadog-api-client-typescript/pull/2243)
+* Add rum application to restriction policy [#2105](https://github.com/DataDog/datadog-api-client-typescript/pull/2105)
+
+### Fixed
+* Fix tags with special characters [#2315](https://github.com/DataDog/datadog-api-client-typescript/pull/2315)
+
 ## 1.35.0/2025-05-28
 
 ### Fixed
