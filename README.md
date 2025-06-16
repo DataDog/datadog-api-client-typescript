@@ -1,3 +1,8 @@
+> [!NOTE]
+> The next major version iteration of `@datadog/datadog-api-client`, `v2`, is now in beta.
+> The `v2` splits the monolithic client into new logically grouped api package structure.
+> See [`v2` branch](https://github.com/DataDog/datadog-api-client-typescript/tree/v2) branch for more details.
+
 # Node.js Datadog API Client
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
