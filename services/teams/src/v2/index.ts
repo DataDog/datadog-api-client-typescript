@@ -1,4 +1,5 @@
 export {
+  TeamsApiAddMemberTeamRequest,
   TeamsApiCreateTeamRequest,
   TeamsApiCreateTeamLinkRequest,
   TeamsApiCreateTeamMembershipRequest,
@@ -11,7 +12,9 @@ export {
   TeamsApiGetTeamMembershipsRequest,
   TeamsApiGetTeamPermissionSettingsRequest,
   TeamsApiGetUserMembershipsRequest,
+  TeamsApiListMemberTeamsRequest,
   TeamsApiListTeamsRequest,
+  TeamsApiRemoveMemberTeamRequest,
   TeamsApiUpdateTeamRequest,
   TeamsApiUpdateTeamLinkRequest,
   TeamsApiUpdateTeamMembershipRequest,
@@ -19,10 +22,13 @@ export {
   TeamsApi,
 } from "./TeamsApi";
 
+export { AddMemberTeamRequest } from "./models/AddMemberTeamRequest";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { ListTeamsInclude } from "./models/ListTeamsInclude";
 export { ListTeamsSort } from "./models/ListTeamsSort";
+export { MemberTeam } from "./models/MemberTeam";
+export { MemberTeamType } from "./models/MemberTeamType";
 export { OrganizationsType } from "./models/OrganizationsType";
 export { RelationshipToOrganization } from "./models/RelationshipToOrganization";
 export { RelationshipToOrganizationData } from "./models/RelationshipToOrganizationData";
