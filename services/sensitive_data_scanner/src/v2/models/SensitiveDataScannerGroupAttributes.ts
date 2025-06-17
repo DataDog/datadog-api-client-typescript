@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { SensitiveDataScannerFilter } from "./SensitiveDataScannerFilter";
 import { SensitiveDataScannerProduct } from "./SensitiveDataScannerProduct";
+import { SensitiveDataScannerSamplings } from "./SensitiveDataScannerSamplings";
 
 /**
  * Attributes of the Sensitive Data Scanner group.
@@ -27,6 +28,10 @@ export class SensitiveDataScannerGroupAttributes {
    * List of products the scanning group applies.
    */
   "productList"?: Array<SensitiveDataScannerProduct>;
+  /**
+   * List of sampling rates per product type.
+   */
+  "samplings"?: Array<SensitiveDataScannerSamplings>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -61,6 +66,10 @@ export class SensitiveDataScannerGroupAttributes {
     productList: {
       baseName: "product_list",
       type: "Array<SensitiveDataScannerProduct>",
+    },
+    samplings: {
+      baseName: "samplings",
+      type: "Array<SensitiveDataScannerSamplings>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
