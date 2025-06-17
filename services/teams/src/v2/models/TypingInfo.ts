@@ -1,6 +1,8 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { AddMemberTeamRequest } from "./AddMemberTeamRequest";
+import { MemberTeam } from "./MemberTeam";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -75,6 +77,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ListTeamsInclude: ["team_links", "user_team_permissions"],
     ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
+    MemberTeamType: ["member_teams"],
     OrganizationsType: ["orgs"],
     RolesType: ["roles"],
     TeamLinkType: ["team_links"],
@@ -118,6 +121,8 @@ export const TypingInfo: ModelTypingInfo = {
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    AddMemberTeamRequest: AddMemberTeamRequest,
+    MemberTeam: MemberTeam,
     RelationshipToOrganization: RelationshipToOrganization,
     RelationshipToOrganizationData: RelationshipToOrganizationData,
     RelationshipToOrganizations: RelationshipToOrganizations,
