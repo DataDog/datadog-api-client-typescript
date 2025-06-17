@@ -60,6 +60,7 @@ import { ActionQuerySpecObject } from "./ActionQuerySpecObject";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
+import { AddMemberTeamRequest } from "./AddMemberTeamRequest";
 import { Advisory } from "./Advisory";
 import { Annotation } from "./Annotation";
 import { AnnotationDisplay } from "./AnnotationDisplay";
@@ -985,6 +986,7 @@ import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
 import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
 import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
+import { MemberTeam } from "./MemberTeam";
 import { Metadata } from "./Metadata";
 import { Metric } from "./Metric";
 import { MetricAllTags } from "./MetricAllTags";
@@ -2438,6 +2440,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
   LogsStorageTier: ["indexes", "online-archives", "flex"],
+  MemberTeamType: ["member_teams"],
   MetricActiveConfigurationType: ["actively_queried_configurations"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
   MetricContentEncoding: ["deflate", "zstd1", "gzip"],
@@ -3228,6 +3231,7 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
+  AddMemberTeamRequest: AddMemberTeamRequest,
   Advisory: Advisory,
   Annotation: Annotation,
   AnnotationDisplay: AnnotationDisplay,
@@ -4284,6 +4288,7 @@ const typeMap: { [index: string]: any } = {
   LogsWarning: LogsWarning,
   MSTeamsIntegrationMetadata: MSTeamsIntegrationMetadata,
   MSTeamsIntegrationMetadataTeamsItem: MSTeamsIntegrationMetadataTeamsItem,
+  MemberTeam: MemberTeam,
   Metadata: Metadata,
   Metric: Metric,
   MetricAllTags: MetricAllTags,
