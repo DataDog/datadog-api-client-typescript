@@ -676,6 +676,7 @@ export {
 } from "./apis/SyntheticsApi";
 
 export {
+  TeamsApiAddMemberTeamRequest,
   TeamsApiCreateTeamRequest,
   TeamsApiCreateTeamLinkRequest,
   TeamsApiCreateTeamMembershipRequest,
@@ -688,7 +689,9 @@ export {
   TeamsApiGetTeamMembershipsRequest,
   TeamsApiGetTeamPermissionSettingsRequest,
   TeamsApiGetUserMembershipsRequest,
+  TeamsApiListMemberTeamsRequest,
   TeamsApiListTeamsRequest,
+  TeamsApiRemoveMemberTeamRequest,
   TeamsApiUpdateTeamRequest,
   TeamsApiUpdateTeamLinkRequest,
   TeamsApiUpdateTeamMembershipRequest,
@@ -763,6 +766,7 @@ export { ActiveBillingDimensionsAttributes } from "./models/ActiveBillingDimensi
 export { ActiveBillingDimensionsBody } from "./models/ActiveBillingDimensionsBody";
 export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimensionsResponse";
 export { ActiveBillingDimensionsType } from "./models/ActiveBillingDimensionsType";
+export { AddMemberTeamRequest } from "./models/AddMemberTeamRequest";
 export { Advisory } from "./models/Advisory";
 export { Annotation } from "./models/Annotation";
 export { AnnotationDisplay } from "./models/AnnotationDisplay";
@@ -2008,6 +2012,8 @@ export { LogsSortOrder } from "./models/LogsSortOrder";
 export { LogsStorageTier } from "./models/LogsStorageTier";
 export { LogsWarning } from "./models/LogsWarning";
 export { LogType } from "./models/LogType";
+export { MemberTeam } from "./models/MemberTeam";
+export { MemberTeamType } from "./models/MemberTeamType";
 export { Metadata } from "./models/Metadata";
 export { Metric } from "./models/Metric";
 export { MetricActiveConfigurationType } from "./models/MetricActiveConfigurationType";

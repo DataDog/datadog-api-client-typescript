@@ -7254,6 +7254,47 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TeamResponse",
     },
+    "v2.ListMemberTeams": {
+        "superTeamId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "fieldsTeam": {
+            "type": "Array<TeamsField>",
+            "format": "",
+            },
+        "operationResponseType": "TeamsResponse",
+    },
+    "v2.AddMemberTeam": {
+        "superTeamId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AddMemberTeamRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.RemoveMemberTeam": {
+        "superTeamId": {
+            "type": "string",
+            "format": "",
+            },
+        "memberTeamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
     "v2.DeleteTeam": {
         "teamId": {
             "type": "string",
