@@ -1064,7 +1064,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Cancels a specific execution of a given workflow. This API requires an application key scoped with the workflows_run permission.
+   * Cancels a specific execution of a given workflow. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
    * @param param The request object
    */
   public cancelWorkflowInstance(
@@ -1086,7 +1086,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Create a new workflow, returning the workflow ID. This API requires an application key scoped with the `workflows_write` permission.
+   * Create a new workflow, returning the workflow ID. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
    * @param param The request object
    */
   public createWorkflow(
@@ -1107,7 +1107,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Execute the given workflow. This API requires an application key scoped with the workflows_run permission.
+   * Execute the given workflow. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
    * @param param The request object
    */
   public createWorkflowInstance(
@@ -1129,7 +1129,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Delete a workflow by ID. This API requires an application key scoped with the `workflows_write` permission.
+   * Delete a workflow by ID. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
    * @param param The request object
    */
   public deleteWorkflow(
@@ -1150,7 +1150,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Get a workflow by ID.  This API requires an application key scoped with the `workflows_read` permission.
+   * Get a workflow by ID. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
    * @param param The request object
    */
   public getWorkflow(
@@ -1171,7 +1171,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Get a specific execution of a given workflow. This API requires an application key scoped with the workflows_read permission.
+   * Get a specific execution of a given workflow. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
    * @param param The request object
    */
   public getWorkflowInstance(
@@ -1193,7 +1193,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * List all instances of a given workflow. This API requires an application key scoped with the workflows_read permission.
+   * List all instances of a given workflow. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
    * @param param The request object
    */
   public listWorkflowInstances(
@@ -1216,7 +1216,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Update a workflow by ID. This API requires an application key scoped with the `workflows_write` permission.
+   * Update a workflow by ID. This API requires a [registered application key](https://docs.datadoghq.com/api/latest/action-connection/#register-a-new-app-key).
    * @param param The request object
    */
   public updateWorkflow(
