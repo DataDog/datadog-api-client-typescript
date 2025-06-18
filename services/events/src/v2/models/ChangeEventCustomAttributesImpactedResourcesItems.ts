@@ -3,23 +3,17 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { ChangeEventCustomAttributesImpactedResourcesItemsType } from "./ChangeEventCustomAttributesImpactedResourcesItemsType";
 
 /**
- * Object representing a uniquely identified resource. Only the resource type `service` is supported.
+ * Object representing a uniquely identified resource.
  */
 export class ChangeEventCustomAttributesImpactedResourcesItems {
   /**
-   * Resource's name.
+   * The name of the impacted resource. Limited to 128 characters.
    */
   "name": string;
   /**
-   * Resource's type.
+   * The type of the impacted resource.
    */
   "type": ChangeEventCustomAttributesImpactedResourcesItemsType;
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
   /**
    * @ignore
    */
@@ -38,10 +32,6 @@ export class ChangeEventCustomAttributesImpactedResourcesItems {
       baseName: "type",
       type: "ChangeEventCustomAttributesImpactedResourcesItemsType",
       required: true,
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "{ [key: string]: any; }",
     },
   };
 

@@ -3,11 +3,11 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { EventCreateResponseAttributesAttributes } from "./EventCreateResponseAttributesAttributes";
 
 /**
- * JSON object containing all events attributes and their associated values.
+ * Event attributes.
  */
 export class EventCreateResponseAttributes {
   /**
-   * JSON object of attributes from your events.
+   * JSON object for category-specific attributes.
    */
   "attributes"?: EventCreateResponseAttributesAttributes;
   /**
