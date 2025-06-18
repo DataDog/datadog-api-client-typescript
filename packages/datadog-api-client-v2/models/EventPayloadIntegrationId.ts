@@ -7,10 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of the impacted resource.
+ * Integration ID sourced from integration manifests.
  */
 
-export type ChangeEventCustomAttributesImpactedResourcesItemsType =
-  | typeof SERVICE
-  | UnparsedObject;
-export const SERVICE = "service";
+export type EventPayloadIntegrationId = typeof CUSTOM_EVENTS | UnparsedObject;
+export const CUSTOM_EVENTS = "custom-events";

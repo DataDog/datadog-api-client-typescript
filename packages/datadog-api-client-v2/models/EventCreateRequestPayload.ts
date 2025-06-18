@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EventCreateRequestPayload {
   /**
-   * Object representing an event creation request.
+   * An event object.
    */
-  "data"?: EventCreateRequest;
+  "data": EventCreateRequest;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +35,7 @@ export class EventCreateRequestPayload {
     data: {
       baseName: "data",
       type: "EventCreateRequest",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -62,6 +62,8 @@ import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
 import { AddMemberTeamRequest } from "./AddMemberTeamRequest";
 import { Advisory } from "./Advisory";
+import { AlertEventCustomAttributes } from "./AlertEventCustomAttributes";
+import { AlertEventCustomAttributesLinksItems } from "./AlertEventCustomAttributesLinksItems";
 import { Annotation } from "./Annotation";
 import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
@@ -653,6 +655,7 @@ import { EventCreateResponseAttributes } from "./EventCreateResponseAttributes";
 import { EventCreateResponseAttributesAttributes } from "./EventCreateResponseAttributesAttributes";
 import { EventCreateResponseAttributesAttributesEvt } from "./EventCreateResponseAttributesAttributesEvt";
 import { EventCreateResponsePayload } from "./EventCreateResponsePayload";
+import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLinks";
 import { EventPayload } from "./EventPayload";
 import { EventResponse } from "./EventResponse";
 import { EventResponseAttributes } from "./EventResponseAttributes";
@@ -1974,6 +1977,13 @@ const enumsMap: { [key: string]: any[] } = {
   ActionConnectionDataType: ["action_connection"],
   ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
+  AlertEventCustomAttributesLinksItemsCategory: [
+    "runbook",
+    "documentation",
+    "dashboard",
+  ],
+  AlertEventCustomAttributesPriority: ["1", "2", "3", "4", "5"],
+  AlertEventCustomAttributesStatus: ["warn", "error", "ok"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   AppBuilderEventName: [
     "pageChange",
@@ -2278,8 +2288,9 @@ const enumsMap: { [key: string]: any[] } = {
   EscalationPolicyUserType: ["users"],
   EscalationRelationshipsRespondersDataItemsType: ["users"],
   EscalationType: ["escalation_policy_steps"],
-  EventCategory: ["change"],
+  EventCategory: ["change", "alert"],
   EventCreateRequestType: ["event"],
+  EventPayloadIntegrationId: ["custom-events"],
   EventPriority: ["normal", "low"],
   EventStatusType: [
     "failure",
@@ -3234,6 +3245,8 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   AddMemberTeamRequest: AddMemberTeamRequest,
   Advisory: Advisory,
+  AlertEventCustomAttributes: AlertEventCustomAttributes,
+  AlertEventCustomAttributesLinksItems: AlertEventCustomAttributesLinksItems,
   Annotation: Annotation,
   AnnotationDisplay: AnnotationDisplay,
   AnnotationDisplayBounds: AnnotationDisplayBounds,
@@ -3941,6 +3954,7 @@ const typeMap: { [index: string]: any } = {
   EventCreateResponseAttributesAttributesEvt:
     EventCreateResponseAttributesAttributesEvt,
   EventCreateResponsePayload: EventCreateResponsePayload,
+  EventCreateResponsePayloadLinks: EventCreateResponsePayloadLinks,
   EventPayload: EventPayload,
   EventResponse: EventResponse,
   EventResponseAttributes: EventResponseAttributes,
@@ -5520,7 +5534,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "ScheduleData",
   ],
   EscalationTarget: ["TeamTarget", "UserTarget", "ScheduleTarget"],
-  EventPayloadAttributes: ["ChangeEventCustomAttributes"],
+  EventPayloadAttributes: [
+    "ChangeEventCustomAttributes",
+    "AlertEventCustomAttributes",
+  ],
   HTTPCredentials: ["HTTPTokenAuth"],
   HTTPCredentialsUpdate: ["HTTPTokenAuthUpdate"],
   IncidentAttachmentAttributes: [

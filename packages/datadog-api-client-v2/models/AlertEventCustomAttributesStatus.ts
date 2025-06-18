@@ -7,10 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of the impacted resource.
+ * The status of the alert.
  */
 
-export type ChangeEventCustomAttributesImpactedResourcesItemsType =
-  | typeof SERVICE
+export type AlertEventCustomAttributesStatus =
+  | typeof WARN
+  | typeof ERROR
+  | typeof OK
   | UnparsedObject;
-export const SERVICE = "service";
+export const WARN = "warn";
+export const ERROR = "error";
+export const OK = "ok";

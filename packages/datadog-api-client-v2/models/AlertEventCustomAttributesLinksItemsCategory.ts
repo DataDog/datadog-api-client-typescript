@@ -7,10 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of the impacted resource.
+ * The category of the link.
  */
 
-export type ChangeEventCustomAttributesImpactedResourcesItemsType =
-  | typeof SERVICE
+export type AlertEventCustomAttributesLinksItemsCategory =
+  | typeof RUNBOOK
+  | typeof DOCUMENTATION
+  | typeof DASHBOARD
   | UnparsedObject;
-export const SERVICE = "service";
+export const RUNBOOK = "runbook";
+export const DOCUMENTATION = "documentation";
+export const DASHBOARD = "dashboard";

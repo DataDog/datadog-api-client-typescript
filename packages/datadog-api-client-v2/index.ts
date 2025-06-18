@@ -768,6 +768,11 @@ export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimension
 export { ActiveBillingDimensionsType } from "./models/ActiveBillingDimensionsType";
 export { AddMemberTeamRequest } from "./models/AddMemberTeamRequest";
 export { Advisory } from "./models/Advisory";
+export { AlertEventCustomAttributes } from "./models/AlertEventCustomAttributes";
+export { AlertEventCustomAttributesLinksItems } from "./models/AlertEventCustomAttributesLinksItems";
+export { AlertEventCustomAttributesLinksItemsCategory } from "./models/AlertEventCustomAttributesLinksItemsCategory";
+export { AlertEventCustomAttributesPriority } from "./models/AlertEventCustomAttributesPriority";
+export { AlertEventCustomAttributesStatus } from "./models/AlertEventCustomAttributesStatus";
 export { Annotation } from "./models/Annotation";
 export { AnnotationDisplay } from "./models/AnnotationDisplay";
 export { AnnotationDisplayBounds } from "./models/AnnotationDisplayBounds";
@@ -1587,8 +1592,10 @@ export { EventCreateResponseAttributes } from "./models/EventCreateResponseAttri
 export { EventCreateResponseAttributesAttributes } from "./models/EventCreateResponseAttributesAttributes";
 export { EventCreateResponseAttributesAttributesEvt } from "./models/EventCreateResponseAttributesAttributesEvt";
 export { EventCreateResponsePayload } from "./models/EventCreateResponsePayload";
+export { EventCreateResponsePayloadLinks } from "./models/EventCreateResponsePayloadLinks";
 export { EventPayload } from "./models/EventPayload";
 export { EventPayloadAttributes } from "./models/EventPayloadAttributes";
+export { EventPayloadIntegrationId } from "./models/EventPayloadIntegrationId";
 export { EventPriority } from "./models/EventPriority";
 export { EventResponse } from "./models/EventResponse";
 export { EventResponseAttributes } from "./models/EventResponseAttributes";
