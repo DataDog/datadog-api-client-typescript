@@ -1,24 +1,24 @@
 # Migration Notes: Moving from v1 Client to Logically Grouped Packages
 
-This guide will help you migrate your code from using the monolithic `@datadog/datadog-api-client` package to the new logically grouped packages structure.
+This guide goes over how to migrate your code from using the monolithic `@datadog/datadog-api-client` package to the new logically grouped packages structure.
 
-## Major Changes
+## Major changes
 
-### Package Structure Changes
+### Package structure changes
 - The `@datadog/datadog-api-client` package now only contains core components and configuration objects.
 - Service-specific code (e.g., `Monitor`) has been moved to individual packages in `services/` directory
-  - Each Api grouping is in its own dedicated package following the naming convention `@datadog/datadog-api-client-{apiName}`
+  - Each API grouping is in its own dedicated package following the naming convention `@datadog/datadog-api-client-{apiName}`
 
-### Configuration object Updates
+### Configuration object updates
 - `serverVariables`, `operationServerVariables` and `unstableOperation` keys in the configuration object now follow the same format:
 
   ```
   { apiName }.{ apiVersion }.{operation}
   ```
 
-## Migration Steps
+## Migration steps
 
-### 1. Package Installation
+### 1. Package installation
 
 Install the required packages:
 
@@ -31,7 +31,7 @@ yarn add @datadog/datadog-api-client-monitors
 ```
 
 All of the clients directly depend on the `@datadog/datadog-api-client` package for core components such as `Configuration` object. 
-You can manually install it using:
+You can manually install the client using:
 
 ```bash
 npm install @datadog/datadog-api-client@^2.0.0-beta.1
@@ -73,7 +73,7 @@ import { v1 } from "@datadog/datadog-api-client-monitors";
 const apiInstance = new v1.MonitorsApi();
 ```
 
-### 4. Update Configuration
+### 4. Update configuration
 Update your configuration object to use the new format `{ apiName }.{ apiVersion }.{ operation }`
 
 ```typescript
@@ -105,7 +105,7 @@ const configuration = createConfiguration({
 });
 ```
 
-## Example Migration
+## Example migration
 
 Here's a complete example showing how to migrate a typical use case:
 
@@ -138,7 +138,7 @@ const configuration = createConfiguration({
 const api = new v1.MonitorsApi(configuration);
 ```
 
-## Available Service Packages
+## Available service packages
 
 See [#Clients] section in the following [README.md](./packages/datadog-api-client/README.md#clients)
 

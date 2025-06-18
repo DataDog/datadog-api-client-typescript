@@ -20,7 +20,7 @@ See migration docs [MIGRATION.md](packages/datadog-api-client/README.md)
 
 See individual `README.md` in `services/{api}/` and `packages/datadog-api-client/` directories.
 
-Here's an example getting a monitor:
+Here's an example of getting a monitor:
 
 ```bash
 yarn add @datadog/datadog-api-client-monitors
