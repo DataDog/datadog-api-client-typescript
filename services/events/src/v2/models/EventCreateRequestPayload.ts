@@ -7,9 +7,9 @@ import { EventCreateRequest } from "./EventCreateRequest";
  */
 export class EventCreateRequestPayload {
   /**
-   * Object representing an event creation request.
+   * An event object.
    */
-  "data"?: EventCreateRequest;
+  "data": EventCreateRequest;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -28,6 +28,7 @@ export class EventCreateRequestPayload {
     data: {
       baseName: "data",
       type: "EventCreateRequest",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
