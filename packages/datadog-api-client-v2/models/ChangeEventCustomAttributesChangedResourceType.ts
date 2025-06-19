@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Resource's type.
+ * The type of the resource that was changed.
  */
 
 export type ChangeEventCustomAttributesChangedResourceType =
