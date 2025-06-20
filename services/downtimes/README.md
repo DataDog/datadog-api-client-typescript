@@ -9,6 +9,11 @@ you greater control over monitor notifications by allowing you to globally exclu
 scopes from alerting. Downtime settings, which can be scheduled with start and
 end times, prevent all alerting related to specified Datadog tags.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -28,7 +33,7 @@ const configuration = createConfiguration();
 const apiInstance = new DowntimesApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listDowntimes(params).then((data: v2.ListDowntimesResponse) => {
+apiInstance.listDowntimes(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

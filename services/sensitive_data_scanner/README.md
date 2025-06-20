@@ -4,6 +4,11 @@
 
 Create, update, delete, and retrieve sensitive data scanner groups and rules. See the [Sensitive Data Scanner page](https://docs.datadoghq.com/sensitive_data_scanner/) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -22,7 +27,7 @@ import { v2 } from "@datadog/datadog-api-client-sensitive-data-scanner";
 const configuration = createConfiguration();
 const apiInstance = new SensitiveDataScannerApiV2(configuration);
 
-apiInstance.listScanningGroups().then((data: v2.SensitiveDataScannerGetConfigResponse) => {
+apiInstance.listScanningGroups().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

@@ -20,6 +20,11 @@ an OK status.
 [4]: https://docs.datadoghq.com/monitors/create/types/custom_check/?tab=checkalert
 [5]: https://docs.datadoghq.com/developers/service_checks/
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -39,7 +44,7 @@ const configuration = createConfiguration();
 const apiInstance = new ServiceChecksApiV1(configuration);
 const params = {/* parameters */};
 
-apiInstance.submitServiceCheck(params).then((data: v1.IntakePayloadAccepted) => {
+apiInstance.submitServiceCheck(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

@@ -6,6 +6,11 @@ Interact with your dashboard lists through the API to
 organize, find, and share all of your dashboards with your team and
 organization.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -25,7 +30,7 @@ const configuration = createConfiguration();
 const apiInstance = new DashboardListsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.getDashboardListItems(params).then((data: v2.DashboardListItems) => {
+apiInstance.getDashboardListItems(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

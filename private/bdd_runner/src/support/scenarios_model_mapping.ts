@@ -7264,6 +7264,47 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "TeamResponse",
   },
+  "TeamsApi.V2.ListMemberTeams": {
+    superTeamId: {
+      type: "string",
+      format: "",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    fieldsTeam: {
+      type: "Array<TeamsField>",
+      format: "",
+    },
+    operationResponseType: "TeamsResponse",
+  },
+  "TeamsApi.V2.AddMemberTeam": {
+    superTeamId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "AddMemberTeamRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "TeamsApi.V2.RemoveMemberTeam": {
+    superTeamId: {
+      type: "string",
+      format: "",
+    },
+    memberTeamId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "TeamsApi.V2.GetTeam": {
     teamId: {
       type: "string",

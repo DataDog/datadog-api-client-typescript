@@ -4,6 +4,11 @@
 
 The Network Device Monitoring API allows you to fetch devices and interfaces and their attributes. See the [Network Device Monitoring page](https://docs.datadoghq.com/network_monitoring/) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new NetworkDeviceMonitoringApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listDevices(params).then((data: v2.ListDevicesResponse) => {
+apiInstance.listDevices(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

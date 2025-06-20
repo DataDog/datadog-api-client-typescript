@@ -4,6 +4,11 @@
 
 The Containers API allows you to query container data for your organization. See the [Container Monitoring page](https://docs.datadoghq.com/containers/) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new ContainersApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listContainers(params).then((data: v2.ContainersResponse) => {
+apiInstance.listContainers(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

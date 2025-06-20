@@ -4,6 +4,11 @@
 
 The processes API allows you to query processes data for your organization. See the [Live Processes page](https://docs.datadoghq.com/infrastructure/process/) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new ProcessesApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listProcesses(params).then((data: v2.ProcessSummariesResponse) => {
+apiInstance.listProcesses(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

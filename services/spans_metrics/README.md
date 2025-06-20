@@ -4,6 +4,11 @@
 
 Manage configuration of [span-based metrics](https://app.datadoghq.com/apm/traces/generate-metrics) for your organization. See [Generate Metrics from Spans](https://docs.datadoghq.com/tracing/trace_pipeline/generate_metrics/) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -22,7 +27,7 @@ import { v2 } from "@datadog/datadog-api-client-spans-metrics";
 const configuration = createConfiguration();
 const apiInstance = new SpansMetricsApiV2(configuration);
 
-apiInstance.listSpansMetrics().then((data: v2.SpansMetricsResponse) => {
+apiInstance.listSpansMetrics().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

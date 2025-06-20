@@ -13,6 +13,10 @@ export class CloudWorkloadSecurityAgentRuleAction {
    */
   "filter"?: string;
   /**
+   * An empty object indicating the hash action
+   */
+  "hash"?: { [key: string]: any };
+  /**
    * Kill system call applied on the container matching the rule
    */
   "kill"?: CloudWorkloadSecurityAgentRuleKill;
@@ -42,6 +46,10 @@ export class CloudWorkloadSecurityAgentRuleAction {
     filter: {
       baseName: "filter",
       type: "string",
+    },
+    hash: {
+      baseName: "hash",
+      type: "{ [key: string]: any; }",
     },
     kill: {
       baseName: "kill",

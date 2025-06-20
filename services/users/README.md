@@ -4,6 +4,11 @@
 
 Create, edit, and disable users.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new UsersApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.sendInvitations(params).then((data: v2.UserInvitationsResponse) => {
+apiInstance.sendInvitations(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

@@ -4,6 +4,11 @@
 
 Create, edit, and disable service accounts. See the [Service Accounts page](https://docs.datadoghq.com/account_management/org_settings/service_accounts/) for more information.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new ServiceAccountsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.createServiceAccount(params).then((data: v2.UserResponse) => {
+apiInstance.createServiceAccount(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

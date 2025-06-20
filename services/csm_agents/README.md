@@ -7,6 +7,11 @@ and continuous configuration audits across your entire cloud infrastructure,
 all in a unified view for seamless collaboration and faster remediation.
 Go to https://docs.datadoghq.com/security/cloud_security_management to learn more
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -26,7 +31,7 @@ const configuration = createConfiguration();
 const apiInstance = new CSMAgentsApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listAllCSMAgents(params).then((data: v2.CsmAgentsResponse) => {
+apiInstance.listAllCSMAgents(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

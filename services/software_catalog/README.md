@@ -4,6 +4,11 @@
 
 API to create, update, retrieve, and delete Software Catalog entities.
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -23,7 +28,7 @@ const configuration = createConfiguration();
 const apiInstance = new SoftwareCatalogApiV2(configuration);
 const params = {/* parameters */};
 
-apiInstance.listCatalogEntity(params).then((data: v2.ListEntityCatalogResponse) => {
+apiInstance.listCatalogEntity(params).then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

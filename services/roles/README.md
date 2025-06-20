@@ -11,6 +11,11 @@ in the Datadog application without using this API. For example, granting
 read access on a specific log index to a role can be done in Datadog from the
 [Pipelines page](https://app.datadoghq.com/logs/pipelines).
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -29,7 +34,7 @@ import { v2 } from "@datadog/datadog-api-client-roles";
 const configuration = createConfiguration();
 const apiInstance = new RolesApiV2(configuration);
 
-apiInstance.listPermissions().then((data: v2.PermissionsResponse) => {
+apiInstance.listPermissions().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);

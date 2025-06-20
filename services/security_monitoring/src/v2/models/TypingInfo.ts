@@ -314,6 +314,7 @@ export const TypingInfo: ModelTypingInfo = {
       "critical",
     ],
     SecurityMonitoringRuleTypeCreate: [
+      "api_security",
       "application_security",
       "log_detection",
       "workload_security",
@@ -324,6 +325,7 @@ export const TypingInfo: ModelTypingInfo = {
       "workload_security",
       "cloud_configuration",
       "application_security",
+      "api_security",
     ],
     SecurityMonitoringRuleTypeTest: ["log_detection"],
     SecurityMonitoringSignalArchiveReason: [

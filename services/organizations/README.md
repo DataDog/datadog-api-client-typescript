@@ -4,6 +4,11 @@
 
 Create, edit, and manage your organizations. Read more about [multi-org accounts](https://docs.datadoghq.com/account_management/multi_organization).
 
+## Navigation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
 ## Installation
 
 ```sh
@@ -22,7 +27,7 @@ import { v2 } from "@datadog/datadog-api-client-organizations";
 const configuration = createConfiguration();
 const apiInstance = new OrganizationsApiV2(configuration);
 
-apiInstance.listOrgConfigs().then((data: v2.OrgConfigListResponse) => {
+apiInstance.listOrgConfigs().then((data) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
 }).catch((error) => {
     console.error("Error calling API: " + error);
