@@ -29,6 +29,9 @@ const params: v2.CSMThreatsApiCreateCSMThreatsAgentRuleRequest = {
               scope: "process",
             },
           },
+          {
+            hash: {},
+          },
         ],
       },
       type: "agent_rule",

@@ -60,7 +60,10 @@ import { ActionQuerySpecObject } from "./ActionQuerySpecObject";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
+import { AddMemberTeamRequest } from "./AddMemberTeamRequest";
 import { Advisory } from "./Advisory";
+import { AlertEventCustomAttributes } from "./AlertEventCustomAttributes";
+import { AlertEventCustomAttributesLinksItems } from "./AlertEventCustomAttributesLinksItems";
 import { Annotation } from "./Annotation";
 import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
@@ -652,6 +655,7 @@ import { EventCreateResponseAttributes } from "./EventCreateResponseAttributes";
 import { EventCreateResponseAttributesAttributes } from "./EventCreateResponseAttributesAttributes";
 import { EventCreateResponseAttributesAttributesEvt } from "./EventCreateResponseAttributesAttributesEvt";
 import { EventCreateResponsePayload } from "./EventCreateResponsePayload";
+import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLinks";
 import { EventPayload } from "./EventPayload";
 import { EventResponse } from "./EventResponse";
 import { EventResponseAttributes } from "./EventResponseAttributes";
@@ -985,6 +989,7 @@ import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
 import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
 import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
+import { MemberTeam } from "./MemberTeam";
 import { Metadata } from "./Metadata";
 import { Metric } from "./Metric";
 import { MetricAllTags } from "./MetricAllTags";
@@ -1647,6 +1652,7 @@ import { SensitiveDataScannerRuleResponse } from "./SensitiveDataScannerRuleResp
 import { SensitiveDataScannerRuleUpdate } from "./SensitiveDataScannerRuleUpdate";
 import { SensitiveDataScannerRuleUpdateRequest } from "./SensitiveDataScannerRuleUpdateRequest";
 import { SensitiveDataScannerRuleUpdateResponse } from "./SensitiveDataScannerRuleUpdateResponse";
+import { SensitiveDataScannerSamplings } from "./SensitiveDataScannerSamplings";
 import { SensitiveDataScannerStandardPattern } from "./SensitiveDataScannerStandardPattern";
 import { SensitiveDataScannerStandardPatternAttributes } from "./SensitiveDataScannerStandardPatternAttributes";
 import { SensitiveDataScannerStandardPatternData } from "./SensitiveDataScannerStandardPatternData";
@@ -1971,6 +1977,13 @@ const enumsMap: { [key: string]: any[] } = {
   ActionConnectionDataType: ["action_connection"],
   ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
+  AlertEventCustomAttributesLinksItemsCategory: [
+    "runbook",
+    "documentation",
+    "dashboard",
+  ],
+  AlertEventCustomAttributesPriority: ["1", "2", "3", "4", "5"],
+  AlertEventCustomAttributesStatus: ["warn", "error", "ok"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   AppBuilderEventName: [
     "pageChange",
@@ -2275,8 +2288,9 @@ const enumsMap: { [key: string]: any[] } = {
   EscalationPolicyUserType: ["users"],
   EscalationRelationshipsRespondersDataItemsType: ["users"],
   EscalationType: ["escalation_policy_steps"],
-  EventCategory: ["change"],
+  EventCategory: ["change", "alert"],
   EventCreateRequestType: ["event"],
+  EventPayloadIntegrationId: ["custom-events"],
   EventPriority: ["normal", "low"],
   EventStatusType: [
     "failure",
@@ -2438,6 +2452,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
   LogsStorageTier: ["indexes", "online-archives", "flex"],
+  MemberTeamType: ["member_teams"],
   MetricActiveConfigurationType: ["actively_queried_configurations"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
   MetricContentEncoding: ["deflate", "zstd1", "gzip"],
@@ -2880,6 +2895,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SecurityMonitoringRuleSeverity: ["info", "low", "medium", "high", "critical"],
   SecurityMonitoringRuleTypeCreate: [
+    "api_security",
     "application_security",
     "log_detection",
     "workload_security",
@@ -2890,6 +2906,7 @@ const enumsMap: { [key: string]: any[] } = {
     "workload_security",
     "cloud_configuration",
     "application_security",
+    "api_security",
   ],
   SecurityMonitoringRuleTypeTest: ["log_detection"],
   SecurityMonitoringSignalArchiveReason: [
@@ -3228,7 +3245,10 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
+  AddMemberTeamRequest: AddMemberTeamRequest,
   Advisory: Advisory,
+  AlertEventCustomAttributes: AlertEventCustomAttributes,
+  AlertEventCustomAttributesLinksItems: AlertEventCustomAttributesLinksItems,
   Annotation: Annotation,
   AnnotationDisplay: AnnotationDisplay,
   AnnotationDisplayBounds: AnnotationDisplayBounds,
@@ -3936,6 +3956,7 @@ const typeMap: { [index: string]: any } = {
   EventCreateResponseAttributesAttributesEvt:
     EventCreateResponseAttributesAttributesEvt,
   EventCreateResponsePayload: EventCreateResponsePayload,
+  EventCreateResponsePayloadLinks: EventCreateResponsePayloadLinks,
   EventPayload: EventPayload,
   EventResponse: EventResponse,
   EventResponseAttributes: EventResponseAttributes,
@@ -4284,6 +4305,7 @@ const typeMap: { [index: string]: any } = {
   LogsWarning: LogsWarning,
   MSTeamsIntegrationMetadata: MSTeamsIntegrationMetadata,
   MSTeamsIntegrationMetadataTeamsItem: MSTeamsIntegrationMetadataTeamsItem,
+  MemberTeam: MemberTeam,
   Metadata: Metadata,
   Metric: Metric,
   MetricAllTags: MetricAllTags,
@@ -5107,6 +5129,7 @@ const typeMap: { [index: string]: any } = {
   SensitiveDataScannerRuleUpdateRequest: SensitiveDataScannerRuleUpdateRequest,
   SensitiveDataScannerRuleUpdateResponse:
     SensitiveDataScannerRuleUpdateResponse,
+  SensitiveDataScannerSamplings: SensitiveDataScannerSamplings,
   SensitiveDataScannerStandardPattern: SensitiveDataScannerStandardPattern,
   SensitiveDataScannerStandardPatternAttributes:
     SensitiveDataScannerStandardPatternAttributes,
@@ -5513,7 +5536,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "ScheduleData",
   ],
   EscalationTarget: ["TeamTarget", "UserTarget", "ScheduleTarget"],
-  EventPayloadAttributes: ["ChangeEventCustomAttributes"],
+  EventPayloadAttributes: [
+    "ChangeEventCustomAttributes",
+    "AlertEventCustomAttributes",
+  ],
   HTTPCredentials: ["HTTPTokenAuth"],
   HTTPCredentialsUpdate: ["HTTPTokenAuthUpdate"],
   IncidentAttachmentAttributes: [

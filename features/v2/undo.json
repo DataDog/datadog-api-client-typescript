@@ -934,7 +934,7 @@
   "CreateEvent": {
     "tag": "Events",
     "undo": {
-      "type": "unsafe"
+      "type": "safe"
     }
   },
   "SearchEvents": {
@@ -3239,6 +3239,25 @@
         }
       ],
       "type": "unsafe"
+    }
+  },
+  "ListMemberTeams": {
+    "tag": "Teams",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "AddMemberTeam": {
+    "tag": "Teams",
+    "undo": {
+      "operationId": "RemoveMemberTeam",
+      "type": "unsafe"
+    }
+  },
+  "RemoveMemberTeam": {
+    "tag": "Teams",
+    "undo": {
+      "type": "idempotent"
     }
   },
   "DeleteTeam": {

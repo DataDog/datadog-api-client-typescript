@@ -676,6 +676,7 @@ export {
 } from "./apis/SyntheticsApi";
 
 export {
+  TeamsApiAddMemberTeamRequest,
   TeamsApiCreateTeamRequest,
   TeamsApiCreateTeamLinkRequest,
   TeamsApiCreateTeamMembershipRequest,
@@ -688,7 +689,9 @@ export {
   TeamsApiGetTeamMembershipsRequest,
   TeamsApiGetTeamPermissionSettingsRequest,
   TeamsApiGetUserMembershipsRequest,
+  TeamsApiListMemberTeamsRequest,
   TeamsApiListTeamsRequest,
+  TeamsApiRemoveMemberTeamRequest,
   TeamsApiUpdateTeamRequest,
   TeamsApiUpdateTeamLinkRequest,
   TeamsApiUpdateTeamMembershipRequest,
@@ -763,7 +766,13 @@ export { ActiveBillingDimensionsAttributes } from "./models/ActiveBillingDimensi
 export { ActiveBillingDimensionsBody } from "./models/ActiveBillingDimensionsBody";
 export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimensionsResponse";
 export { ActiveBillingDimensionsType } from "./models/ActiveBillingDimensionsType";
+export { AddMemberTeamRequest } from "./models/AddMemberTeamRequest";
 export { Advisory } from "./models/Advisory";
+export { AlertEventCustomAttributes } from "./models/AlertEventCustomAttributes";
+export { AlertEventCustomAttributesLinksItems } from "./models/AlertEventCustomAttributesLinksItems";
+export { AlertEventCustomAttributesLinksItemsCategory } from "./models/AlertEventCustomAttributesLinksItemsCategory";
+export { AlertEventCustomAttributesPriority } from "./models/AlertEventCustomAttributesPriority";
+export { AlertEventCustomAttributesStatus } from "./models/AlertEventCustomAttributesStatus";
 export { Annotation } from "./models/Annotation";
 export { AnnotationDisplay } from "./models/AnnotationDisplay";
 export { AnnotationDisplayBounds } from "./models/AnnotationDisplayBounds";
@@ -1583,8 +1592,10 @@ export { EventCreateResponseAttributes } from "./models/EventCreateResponseAttri
 export { EventCreateResponseAttributesAttributes } from "./models/EventCreateResponseAttributesAttributes";
 export { EventCreateResponseAttributesAttributesEvt } from "./models/EventCreateResponseAttributesAttributesEvt";
 export { EventCreateResponsePayload } from "./models/EventCreateResponsePayload";
+export { EventCreateResponsePayloadLinks } from "./models/EventCreateResponsePayloadLinks";
 export { EventPayload } from "./models/EventPayload";
 export { EventPayloadAttributes } from "./models/EventPayloadAttributes";
+export { EventPayloadIntegrationId } from "./models/EventPayloadIntegrationId";
 export { EventPriority } from "./models/EventPriority";
 export { EventResponse } from "./models/EventResponse";
 export { EventResponseAttributes } from "./models/EventResponseAttributes";
@@ -2008,6 +2019,8 @@ export { LogsSortOrder } from "./models/LogsSortOrder";
 export { LogsStorageTier } from "./models/LogsStorageTier";
 export { LogsWarning } from "./models/LogsWarning";
 export { LogType } from "./models/LogType";
+export { MemberTeam } from "./models/MemberTeam";
+export { MemberTeamType } from "./models/MemberTeamType";
 export { Metadata } from "./models/Metadata";
 export { Metric } from "./models/Metric";
 export { MetricActiveConfigurationType } from "./models/MetricActiveConfigurationType";
@@ -2907,6 +2920,7 @@ export { SensitiveDataScannerRuleType } from "./models/SensitiveDataScannerRuleT
 export { SensitiveDataScannerRuleUpdate } from "./models/SensitiveDataScannerRuleUpdate";
 export { SensitiveDataScannerRuleUpdateRequest } from "./models/SensitiveDataScannerRuleUpdateRequest";
 export { SensitiveDataScannerRuleUpdateResponse } from "./models/SensitiveDataScannerRuleUpdateResponse";
+export { SensitiveDataScannerSamplings } from "./models/SensitiveDataScannerSamplings";
 export { SensitiveDataScannerStandardPattern } from "./models/SensitiveDataScannerStandardPattern";
 export { SensitiveDataScannerStandardPatternAttributes } from "./models/SensitiveDataScannerStandardPatternAttributes";
 export { SensitiveDataScannerStandardPatternData } from "./models/SensitiveDataScannerStandardPatternData";
