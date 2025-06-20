@@ -1,8 +1,14 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
+import { AlertEventAttributes } from "./AlertEventAttributes";
+import { AlertEventAttributesLinksItem } from "./AlertEventAttributesLinksItem";
 import { AlertEventCustomAttributes } from "./AlertEventCustomAttributes";
 import { AlertEventCustomAttributesLinksItems } from "./AlertEventCustomAttributesLinksItems";
+import { ChangeEventAttributes } from "./ChangeEventAttributes";
+import { ChangeEventAttributesAuthor } from "./ChangeEventAttributesAuthor";
+import { ChangeEventAttributesChangedResource } from "./ChangeEventAttributesChangedResource";
+import { ChangeEventAttributesImpactedResourcesItem } from "./ChangeEventAttributesImpactedResourcesItem";
 import { ChangeEventCustomAttributes } from "./ChangeEventCustomAttributes";
 import { ChangeEventCustomAttributesAuthor } from "./ChangeEventCustomAttributesAuthor";
 import { ChangeEventCustomAttributesChangedResource } from "./ChangeEventCustomAttributesChangedResource";
@@ -20,6 +26,7 @@ import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLin
 import { EventPayload } from "./EventPayload";
 import { EventResponse } from "./EventResponse";
 import { EventResponseAttributes } from "./EventResponseAttributes";
+import { EventSystemAttributes } from "./EventSystemAttributes";
 import { EventsListRequest } from "./EventsListRequest";
 import { EventsListResponse } from "./EventsListResponse";
 import { EventsListResponseLinks } from "./EventsListResponseLinks";
@@ -33,9 +40,18 @@ import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { MonitorType } from "./MonitorType";
+import { V2Event } from "./V2Event";
+import { V2EventAttributes } from "./V2EventAttributes";
+import { V2EventResponse } from "./V2EventResponse";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
+    AlertEventAttributesLinksItemCategory: [
+      "runbook",
+      "documentation",
+      "dashboard",
+    ],
+    AlertEventAttributesPriority: ["1", "2", "3", "4", "5"],
     AlertEventCustomAttributesLinksItemsCategory: [
       "runbook",
       "documentation",
@@ -43,6 +59,9 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     AlertEventCustomAttributesPriority: ["1", "2", "3", "4", "5"],
     AlertEventCustomAttributesStatus: ["warn", "error", "ok"],
+    ChangeEventAttributesAuthorType: ["user", "system"],
+    ChangeEventAttributesChangedResourceType: ["feature_flag", "configuration"],
+    ChangeEventAttributesImpactedResourcesItemType: ["service"],
     ChangeEventCustomAttributesAuthorType: ["user", "system"],
     ChangeEventCustomAttributesChangedResourceType: [
       "feature_flag",
@@ -63,6 +82,8 @@ export const TypingInfo: ModelTypingInfo = {
       "recommendation",
       "snapshot",
     ],
+    EventSystemAttributesCategory: ["change", "alert"],
+    EventSystemAttributesIntegrationId: ["custom-events"],
     EventType: ["event"],
     EventsSort: ["timestamp", "-timestamp"],
   },
@@ -71,11 +92,22 @@ export const TypingInfo: ModelTypingInfo = {
       "ChangeEventCustomAttributes",
       "AlertEventCustomAttributes",
     ],
+    V2EventAttributesAttributes: [
+      "ChangeEventAttributes",
+      "AlertEventAttributes",
+    ],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
+    AlertEventAttributes: AlertEventAttributes,
+    AlertEventAttributesLinksItem: AlertEventAttributesLinksItem,
     AlertEventCustomAttributes: AlertEventCustomAttributes,
     AlertEventCustomAttributesLinksItems: AlertEventCustomAttributesLinksItems,
+    ChangeEventAttributes: ChangeEventAttributes,
+    ChangeEventAttributesAuthor: ChangeEventAttributesAuthor,
+    ChangeEventAttributesChangedResource: ChangeEventAttributesChangedResource,
+    ChangeEventAttributesImpactedResourcesItem:
+      ChangeEventAttributesImpactedResourcesItem,
     ChangeEventCustomAttributes: ChangeEventCustomAttributes,
     ChangeEventCustomAttributesAuthor: ChangeEventCustomAttributesAuthor,
     ChangeEventCustomAttributesChangedResource:
@@ -97,6 +129,7 @@ export const TypingInfo: ModelTypingInfo = {
     EventPayload: EventPayload,
     EventResponse: EventResponse,
     EventResponseAttributes: EventResponseAttributes,
+    EventSystemAttributes: EventSystemAttributes,
     EventsListRequest: EventsListRequest,
     EventsListResponse: EventsListResponse,
     EventsListResponseLinks: EventsListResponseLinks,
@@ -110,5 +143,8 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
     MonitorType: MonitorType,
+    V2Event: V2Event,
+    V2EventAttributes: V2EventAttributes,
+    V2EventResponse: V2EventResponse,
   },
 };
