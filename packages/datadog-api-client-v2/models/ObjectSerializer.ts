@@ -452,6 +452,7 @@ import { CustomDestinationCreateRequestDefinition } from "./CustomDestinationCre
 import { CustomDestinationElasticsearchDestinationAuth } from "./CustomDestinationElasticsearchDestinationAuth";
 import { CustomDestinationForwardDestinationElasticsearch } from "./CustomDestinationForwardDestinationElasticsearch";
 import { CustomDestinationForwardDestinationHttp } from "./CustomDestinationForwardDestinationHttp";
+import { CustomDestinationForwardDestinationMicrosoftSentinel } from "./CustomDestinationForwardDestinationMicrosoftSentinel";
 import { CustomDestinationForwardDestinationSplunk } from "./CustomDestinationForwardDestinationSplunk";
 import { CustomDestinationHttpDestinationAuthBasic } from "./CustomDestinationHttpDestinationAuthBasic";
 import { CustomDestinationHttpDestinationAuthCustomHeader } from "./CustomDestinationHttpDestinationAuthCustomHeader";
@@ -460,6 +461,7 @@ import { CustomDestinationResponseAttributes } from "./CustomDestinationResponse
 import { CustomDestinationResponseDefinition } from "./CustomDestinationResponseDefinition";
 import { CustomDestinationResponseForwardDestinationElasticsearch } from "./CustomDestinationResponseForwardDestinationElasticsearch";
 import { CustomDestinationResponseForwardDestinationHttp } from "./CustomDestinationResponseForwardDestinationHttp";
+import { CustomDestinationResponseForwardDestinationMicrosoftSentinel } from "./CustomDestinationResponseForwardDestinationMicrosoftSentinel";
 import { CustomDestinationResponseForwardDestinationSplunk } from "./CustomDestinationResponseForwardDestinationSplunk";
 import { CustomDestinationResponseHttpDestinationAuthBasic } from "./CustomDestinationResponseHttpDestinationAuthBasic";
 import { CustomDestinationResponseHttpDestinationAuthCustomHeader } from "./CustomDestinationResponseHttpDestinationAuthCustomHeader";
@@ -2238,6 +2240,9 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   CustomDestinationForwardDestinationElasticsearchType: ["elasticsearch"],
   CustomDestinationForwardDestinationHttpType: ["http"],
+  CustomDestinationForwardDestinationMicrosoftSentinelType: [
+    "microsoft_sentinel",
+  ],
   CustomDestinationForwardDestinationSplunkType: ["splunk_hec"],
   CustomDestinationHttpDestinationAuthBasicType: ["basic"],
   CustomDestinationHttpDestinationAuthCustomHeaderType: ["custom_header"],
@@ -2245,6 +2250,9 @@ const enumsMap: { [key: string]: any[] } = {
     "elasticsearch",
   ],
   CustomDestinationResponseForwardDestinationHttpType: ["http"],
+  CustomDestinationResponseForwardDestinationMicrosoftSentinelType: [
+    "microsoft_sentinel",
+  ],
   CustomDestinationResponseForwardDestinationSplunkType: ["splunk_hec"],
   CustomDestinationResponseHttpDestinationAuthBasicType: ["basic"],
   CustomDestinationResponseHttpDestinationAuthCustomHeaderType: [
@@ -3725,6 +3733,8 @@ const typeMap: { [index: string]: any } = {
     CustomDestinationForwardDestinationElasticsearch,
   CustomDestinationForwardDestinationHttp:
     CustomDestinationForwardDestinationHttp,
+  CustomDestinationForwardDestinationMicrosoftSentinel:
+    CustomDestinationForwardDestinationMicrosoftSentinel,
   CustomDestinationForwardDestinationSplunk:
     CustomDestinationForwardDestinationSplunk,
   CustomDestinationHttpDestinationAuthBasic:
@@ -3738,6 +3748,8 @@ const typeMap: { [index: string]: any } = {
     CustomDestinationResponseForwardDestinationElasticsearch,
   CustomDestinationResponseForwardDestinationHttp:
     CustomDestinationResponseForwardDestinationHttp,
+  CustomDestinationResponseForwardDestinationMicrosoftSentinel:
+    CustomDestinationResponseForwardDestinationMicrosoftSentinel,
   CustomDestinationResponseForwardDestinationSplunk:
     CustomDestinationResponseForwardDestinationSplunk,
   CustomDestinationResponseHttpDestinationAuthBasic:
@@ -5492,6 +5504,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "CustomDestinationForwardDestinationHttp",
     "CustomDestinationForwardDestinationSplunk",
     "CustomDestinationForwardDestinationElasticsearch",
+    "CustomDestinationForwardDestinationMicrosoftSentinel",
   ],
   CustomDestinationHttpDestinationAuth: [
     "CustomDestinationHttpDestinationAuthBasic",
@@ -5501,6 +5514,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "CustomDestinationResponseForwardDestinationHttp",
     "CustomDestinationResponseForwardDestinationSplunk",
     "CustomDestinationResponseForwardDestinationElasticsearch",
+    "CustomDestinationResponseForwardDestinationMicrosoftSentinel",
   ],
   CustomDestinationResponseHttpDestinationAuth: [
     "CustomDestinationResponseHttpDestinationAuthBasic",
