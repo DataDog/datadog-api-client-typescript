@@ -17,6 +17,8 @@ export { CustomDestinationForwardDestinationElasticsearch } from "./models/Custo
 export { CustomDestinationForwardDestinationElasticsearchType } from "./models/CustomDestinationForwardDestinationElasticsearchType";
 export { CustomDestinationForwardDestinationHttp } from "./models/CustomDestinationForwardDestinationHttp";
 export { CustomDestinationForwardDestinationHttpType } from "./models/CustomDestinationForwardDestinationHttpType";
+export { CustomDestinationForwardDestinationMicrosoftSentinel } from "./models/CustomDestinationForwardDestinationMicrosoftSentinel";
+export { CustomDestinationForwardDestinationMicrosoftSentinelType } from "./models/CustomDestinationForwardDestinationMicrosoftSentinelType";
 export { CustomDestinationForwardDestinationSplunk } from "./models/CustomDestinationForwardDestinationSplunk";
 export { CustomDestinationForwardDestinationSplunkType } from "./models/CustomDestinationForwardDestinationSplunkType";
 export { CustomDestinationHttpDestinationAuth } from "./models/CustomDestinationHttpDestinationAuth";
@@ -32,6 +34,8 @@ export { CustomDestinationResponseForwardDestinationElasticsearch } from "./mode
 export { CustomDestinationResponseForwardDestinationElasticsearchType } from "./models/CustomDestinationResponseForwardDestinationElasticsearchType";
 export { CustomDestinationResponseForwardDestinationHttp } from "./models/CustomDestinationResponseForwardDestinationHttp";
 export { CustomDestinationResponseForwardDestinationHttpType } from "./models/CustomDestinationResponseForwardDestinationHttpType";
+export { CustomDestinationResponseForwardDestinationMicrosoftSentinel } from "./models/CustomDestinationResponseForwardDestinationMicrosoftSentinel";
+export { CustomDestinationResponseForwardDestinationMicrosoftSentinelType } from "./models/CustomDestinationResponseForwardDestinationMicrosoftSentinelType";
 export { CustomDestinationResponseForwardDestinationSplunk } from "./models/CustomDestinationResponseForwardDestinationSplunk";
 export { CustomDestinationResponseForwardDestinationSplunkType } from "./models/CustomDestinationResponseForwardDestinationSplunkType";
 export { CustomDestinationResponseHttpDestinationAuth } from "./models/CustomDestinationResponseHttpDestinationAuth";
