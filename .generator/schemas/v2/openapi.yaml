@@ -7145,11 +7145,15 @@ components:
       enum:
       - user
       - system
+      - api
+      - automation
       example: user
       type: string
       x-enum-varnames:
       - USER
       - SYSTEM
+      - API
+      - AUTOMATION
     ChangeEventCustomAttributesChangedResource:
       additionalProperties: false
       description: A uniquely identified resource.
