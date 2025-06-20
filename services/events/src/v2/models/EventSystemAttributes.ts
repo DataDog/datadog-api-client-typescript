@@ -1,0 +1,80 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { EventSystemAttributesCategory } from "./EventSystemAttributesCategory";
+import { EventSystemAttributesIntegrationId } from "./EventSystemAttributesIntegrationId";
+
+/**
+ * JSON object of event system attributes.
+ */
+export class EventSystemAttributes {
+  /**
+   * Event category identifying the type of event.
+   */
+  "category"?: EventSystemAttributesCategory;
+  /**
+   * Event identifier. This field is deprecated and will be removed in a future version. Use the `uid` field instead.
+   */
+  "id"?: string;
+  /**
+   * Integration ID sourced from integration manifests.
+   */
+  "integrationId"?: EventSystemAttributesIntegrationId;
+  /**
+   * The source type ID of the event.
+   */
+  "sourceId"?: number;
+  /**
+   * A unique identifier for the event. You can use this identifier to query or reference the event.
+   */
+  "uid"?: string;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    category: {
+      baseName: "category",
+      type: "EventSystemAttributesCategory",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    integrationId: {
+      baseName: "integration_id",
+      type: "EventSystemAttributesIntegrationId",
+    },
+    sourceId: {
+      baseName: "source_id",
+      type: "number",
+      format: "int64",
+    },
+    uid: {
+      baseName: "uid",
+      type: "string",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return EventSystemAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
