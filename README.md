@@ -1,7 +1,7 @@
 > [!NOTE]
 > The next major version iteration of `@datadog/datadog-api-client`, `v2`, is now in Preview.
 > The `v2` splits the monolithic client into new logically grouped api package structure.
-> See [`v2` branch](https://github.com/DataDog/datadog-api-client-typescript/tree/v2) branch for more details.
+> See [MIGRATION.md](https://github.com/DataDog/datadog-api-client-typescript/blob/v2/MIGRATION.md) and the [`v2` branch](https://github.com/DataDog/datadog-api-client-typescript/tree/v2) branch for more details.
 
 # Node.js Datadog API Client
 
