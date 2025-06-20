@@ -2,6 +2,20 @@
 
 This guide goes over how to migrate your code from using the monolithic `@datadog/datadog-api-client` package to the new logically grouped packages structure.
 
+## Navigation
+
+- [Major changes](#major-changes)
+  - [Package structure changes](#package-structure-changes)
+  - [Configuration object updates](#configuration-object-updates)
+- [Migration steps](#migration-steps)
+  - [1. Package installation](#1-package-installation)
+  - [2. Update core imports](#2-update-core-imports)
+  - [3. Update service specific imports](#3-update-service-specific-imports)
+  - [4. Update configuration](#4-update-configuration)
+- [Example migration](#example-migration)
+- [Available service packages](#available-service-packages)
+- [Support](#support)
+
 ## Major changes
 
 ### Package structure changes
@@ -140,7 +154,7 @@ const api = new v1.MonitorsApi(configuration);
 
 ## Available service packages
 
-See [#Clients] section in the following [README.md](./packages/datadog-api-client/README.md#clients)
+See Clients section in the following [README.md](./packages/datadog-api-client/README.md#clients)
 
 ## Support
 
