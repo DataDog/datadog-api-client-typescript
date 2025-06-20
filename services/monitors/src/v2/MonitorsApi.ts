@@ -31,6 +31,11 @@ import { MonitorNotificationRuleCreateRequest } from "./models/MonitorNotificati
 import { MonitorNotificationRuleListResponse } from "./models/MonitorNotificationRuleListResponse";
 import { MonitorNotificationRuleResponse } from "./models/MonitorNotificationRuleResponse";
 import { MonitorNotificationRuleUpdateRequest } from "./models/MonitorNotificationRuleUpdateRequest";
+import { MonitorUserTemplateCreateRequest } from "./models/MonitorUserTemplateCreateRequest";
+import { MonitorUserTemplateCreateResponse } from "./models/MonitorUserTemplateCreateResponse";
+import { MonitorUserTemplateListResponse } from "./models/MonitorUserTemplateListResponse";
+import { MonitorUserTemplateResponse } from "./models/MonitorUserTemplateResponse";
+import { MonitorUserTemplateUpdateRequest } from "./models/MonitorUserTemplateUpdateRequest";
 import { version } from "../version";
 
 export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
@@ -153,6 +158,65 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async createMonitorUserTemplate(
+    body: MonitorUserTemplateCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["MonitorsApi.v2.createMonitorUserTemplate"]
+    ) {
+      throw new Error(
+        "Unstable operation 'createMonitorUserTemplate' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.createMonitorUserTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createMonitorUserTemplate");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/monitor/template";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v2.createMonitorUserTemplate",
+      MonitorsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "MonitorUserTemplateCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteMonitorConfigPolicy(
     policyId: string,
     _options?: Configuration,
@@ -227,6 +291,59 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.deleteMonitorNotificationRule",
+      MonitorsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteMonitorUserTemplate(
+    templateId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["MonitorsApi.v2.deleteMonitorUserTemplate"]
+    ) {
+      throw new Error(
+        "Unstable operation 'deleteMonitorUserTemplate' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.deleteMonitorUserTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'templateId' is not null or undefined
+    if (templateId === null || templateId === undefined) {
+      throw new RequiredError("templateId", "deleteMonitorUserTemplate");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/monitor/template/{template_id}".replace(
+      "{template_id}",
+      encodeURIComponent(String(templateId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v2.deleteMonitorUserTemplate",
       MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -414,6 +531,67 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getMonitorUserTemplate(
+    templateId: string,
+    withAllVersions?: boolean,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (!_config.unstableOperations["MonitorsApi.v2.getMonitorUserTemplate"]) {
+      throw new Error(
+        "Unstable operation 'getMonitorUserTemplate' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.getMonitorUserTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'templateId' is not null or undefined
+    if (templateId === null || templateId === undefined) {
+      throw new RequiredError("templateId", "getMonitorUserTemplate");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/monitor/template/{template_id}".replace(
+      "{template_id}",
+      encodeURIComponent(String(templateId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v2.getMonitorUserTemplate",
+      MonitorsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (withAllVersions !== undefined) {
+      requestContext.setQueryParam(
+        "with_all_versions",
+        serialize(withAllVersions, TypingInfo, "boolean", ""),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listMonitorConfigPolicies(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -425,6 +603,50 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "MonitorsApi.v2.listMonitorConfigPolicies",
+      MonitorsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listMonitorUserTemplates(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["MonitorsApi.v2.listMonitorUserTemplates"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listMonitorUserTemplates' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.listMonitorUserTemplates'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/monitor/template";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v2.listMonitorUserTemplates",
       MonitorsApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -578,6 +800,207 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updateMonitorUserTemplate(
+    templateId: string,
+    body: MonitorUserTemplateUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["MonitorsApi.v2.updateMonitorUserTemplate"]
+    ) {
+      throw new Error(
+        "Unstable operation 'updateMonitorUserTemplate' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.updateMonitorUserTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'templateId' is not null or undefined
+    if (templateId === null || templateId === undefined) {
+      throw new RequiredError("templateId", "updateMonitorUserTemplate");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateMonitorUserTemplate");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/monitor/template/{template_id}".replace(
+      "{template_id}",
+      encodeURIComponent(String(templateId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v2.updateMonitorUserTemplate",
+      MonitorsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PUT,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "MonitorUserTemplateUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async validateExistingMonitorUserTemplate(
+    templateId: string,
+    body: MonitorUserTemplateUpdateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "MonitorsApi.v2.validateExistingMonitorUserTemplate"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'validateExistingMonitorUserTemplate' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.validateExistingMonitorUserTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'templateId' is not null or undefined
+    if (templateId === null || templateId === undefined) {
+      throw new RequiredError(
+        "templateId",
+        "validateExistingMonitorUserTemplate",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "validateExistingMonitorUserTemplate");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/monitor/template/{template_id}/validate".replace(
+        "{template_id}",
+        encodeURIComponent(String(templateId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v2.validateExistingMonitorUserTemplate",
+      MonitorsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "MonitorUserTemplateUpdateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async validateMonitorUserTemplate(
+    body: MonitorUserTemplateCreateRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["MonitorsApi.v2.validateMonitorUserTemplate"]
+    ) {
+      throw new Error(
+        "Unstable operation 'validateMonitorUserTemplate' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.validateMonitorUserTemplate'] = true`",
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "validateMonitorUserTemplate");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/monitor/template/validate";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "MonitorsApi.v2.validateMonitorUserTemplate",
+      MonitorsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "MonitorUserTemplateCreateRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class MonitorsApiResponseProcessor {
@@ -705,6 +1128,62 @@ export class MonitorsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createMonitorUserTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createMonitorUserTemplate(
+    response: ResponseContext,
+  ): Promise<MonitorUserTemplateCreateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: MonitorUserTemplateCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MonitorUserTemplateCreateResponse",
+      ) as MonitorUserTemplateCreateResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonitorUserTemplateCreateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MonitorUserTemplateCreateResponse",
+        "",
+      ) as MonitorUserTemplateCreateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteMonitorConfigPolicy
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -770,6 +1249,51 @@ export class MonitorsApiResponseProcessor {
       response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteMonitorUserTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteMonitorUserTemplate(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -980,6 +1504,62 @@ export class MonitorsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getMonitorUserTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getMonitorUserTemplate(
+    response: ResponseContext,
+  ): Promise<MonitorUserTemplateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: MonitorUserTemplateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MonitorUserTemplateResponse",
+      ) as MonitorUserTemplateResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 404 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonitorUserTemplateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MonitorUserTemplateResponse",
+        "",
+      ) as MonitorUserTemplateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listMonitorConfigPolicies
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1022,6 +1602,62 @@ export class MonitorsApiResponseProcessor {
         "MonitorConfigPolicyListResponse",
         "",
       ) as MonitorConfigPolicyListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listMonitorUserTemplates
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listMonitorUserTemplates(
+    response: ResponseContext,
+  ): Promise<MonitorUserTemplateListResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: MonitorUserTemplateListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MonitorUserTemplateListResponse",
+      ) as MonitorUserTemplateListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonitorUserTemplateListResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MonitorUserTemplateListResponse",
+        "",
+      ) as MonitorUserTemplateListResponse;
       return body;
     }
 
@@ -1153,6 +1789,160 @@ export class MonitorsApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateMonitorUserTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateMonitorUserTemplate(
+    response: ResponseContext,
+  ): Promise<MonitorUserTemplateResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: MonitorUserTemplateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MonitorUserTemplateResponse",
+      ) as MonitorUserTemplateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonitorUserTemplateResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "MonitorUserTemplateResponse",
+        "",
+      ) as MonitorUserTemplateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to validateExistingMonitorUserTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validateExistingMonitorUserTemplate(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to validateMonitorUserTemplate
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async validateMonitorUserTemplate(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface MonitorsApiCreateMonitorConfigPolicyRequest {
@@ -1171,6 +1961,13 @@ export interface MonitorsApiCreateMonitorNotificationRuleRequest {
   body: MonitorNotificationRuleCreateRequest;
 }
 
+export interface MonitorsApiCreateMonitorUserTemplateRequest {
+  /**
+   * @type MonitorUserTemplateCreateRequest
+   */
+  body: MonitorUserTemplateCreateRequest;
+}
+
 export interface MonitorsApiDeleteMonitorConfigPolicyRequest {
   /**
    * ID of the monitor configuration policy.
@@ -1185,6 +1982,14 @@ export interface MonitorsApiDeleteMonitorNotificationRuleRequest {
    * @type string
    */
   ruleId: string;
+}
+
+export interface MonitorsApiDeleteMonitorUserTemplateRequest {
+  /**
+   * ID of the monitor user template.
+   * @type string
+   */
+  templateId: string;
 }
 
 export interface MonitorsApiGetMonitorConfigPolicyRequest {
@@ -1218,6 +2023,19 @@ export interface MonitorsApiGetMonitorNotificationRulesRequest {
   include?: string;
 }
 
+export interface MonitorsApiGetMonitorUserTemplateRequest {
+  /**
+   * ID of the monitor user template.
+   * @type string
+   */
+  templateId: string;
+  /**
+   * Whether to include all versions of the template in the response in the versions field.
+   * @type boolean
+   */
+  withAllVersions?: boolean;
+}
+
 export interface MonitorsApiUpdateMonitorConfigPolicyRequest {
   /**
    * ID of the monitor configuration policy.
@@ -1242,6 +2060,37 @@ export interface MonitorsApiUpdateMonitorNotificationRuleRequest {
    * @type MonitorNotificationRuleUpdateRequest
    */
   body: MonitorNotificationRuleUpdateRequest;
+}
+
+export interface MonitorsApiUpdateMonitorUserTemplateRequest {
+  /**
+   * ID of the monitor user template.
+   * @type string
+   */
+  templateId: string;
+  /**
+   * @type MonitorUserTemplateUpdateRequest
+   */
+  body: MonitorUserTemplateUpdateRequest;
+}
+
+export interface MonitorsApiValidateExistingMonitorUserTemplateRequest {
+  /**
+   * ID of the monitor user template.
+   * @type string
+   */
+  templateId: string;
+  /**
+   * @type MonitorUserTemplateUpdateRequest
+   */
+  body: MonitorUserTemplateUpdateRequest;
+}
+
+export interface MonitorsApiValidateMonitorUserTemplateRequest {
+  /**
+   * @type MonitorUserTemplateCreateRequest
+   */
+  body: MonitorUserTemplateCreateRequest;
 }
 
 export class MonitorsApi {
@@ -1308,6 +2157,29 @@ export class MonitorsApi {
   }
 
   /**
+   * Create a new monitor user template.
+   * @param param The request object
+   */
+  public createMonitorUserTemplate(
+    param: MonitorsApiCreateMonitorUserTemplateRequest,
+    options?: Configuration,
+  ): Promise<MonitorUserTemplateCreateResponse> {
+    const requestContextPromise = this.requestFactory.createMonitorUserTemplate(
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createMonitorUserTemplate(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Delete a monitor configuration policy.
    * @param param The request object
    */
@@ -1345,6 +2217,29 @@ export class MonitorsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteMonitorNotificationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an existing monitor user template by its ID.
+   * @param param The request object
+   */
+  public deleteMonitorUserTemplate(
+    param: MonitorsApiDeleteMonitorUserTemplateRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteMonitorUserTemplate(
+      param.templateId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteMonitorUserTemplate(
             responseContext,
           );
         });
@@ -1419,6 +2314,28 @@ export class MonitorsApi {
   }
 
   /**
+   * Retrieve a monitor user template by its ID.
+   * @param param The request object
+   */
+  public getMonitorUserTemplate(
+    param: MonitorsApiGetMonitorUserTemplateRequest,
+    options?: Configuration,
+  ): Promise<MonitorUserTemplateResponse> {
+    const requestContextPromise = this.requestFactory.getMonitorUserTemplate(
+      param.templateId,
+      param.withAllVersions,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMonitorUserTemplate(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get all monitor configuration policies.
    * @param param The request object
    */
@@ -1432,6 +2349,26 @@ export class MonitorsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listMonitorConfigPolicies(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Retrieve all monitor user templates.
+   * @param param The request object
+   */
+  public listMonitorUserTemplates(
+    options?: Configuration,
+  ): Promise<MonitorUserTemplateListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listMonitorUserTemplates(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listMonitorUserTemplates(
             responseContext,
           );
         });
@@ -1481,6 +2418,76 @@ export class MonitorsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateMonitorNotificationRule(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Creates a new version of an existing monitor user template.
+   * @param param The request object
+   */
+  public updateMonitorUserTemplate(
+    param: MonitorsApiUpdateMonitorUserTemplateRequest,
+    options?: Configuration,
+  ): Promise<MonitorUserTemplateResponse> {
+    const requestContextPromise = this.requestFactory.updateMonitorUserTemplate(
+      param.templateId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateMonitorUserTemplate(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Validate the structure and content of an existing monitor user template being updated to a new version.
+   * @param param The request object
+   */
+  public validateExistingMonitorUserTemplate(
+    param: MonitorsApiValidateExistingMonitorUserTemplateRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.validateExistingMonitorUserTemplate(
+        param.templateId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validateExistingMonitorUserTemplate(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Validate the structure and content of a monitor user template.
+   * @param param The request object
+   */
+  public validateMonitorUserTemplate(
+    param: MonitorsApiValidateMonitorUserTemplateRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.validateMonitorUserTemplate(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validateMonitorUserTemplate(
             responseContext,
           );
         });

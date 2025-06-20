@@ -1,13 +1,19 @@
 export {
   MonitorsApiCreateMonitorConfigPolicyRequest,
   MonitorsApiCreateMonitorNotificationRuleRequest,
+  MonitorsApiCreateMonitorUserTemplateRequest,
   MonitorsApiDeleteMonitorConfigPolicyRequest,
   MonitorsApiDeleteMonitorNotificationRuleRequest,
+  MonitorsApiDeleteMonitorUserTemplateRequest,
   MonitorsApiGetMonitorConfigPolicyRequest,
   MonitorsApiGetMonitorNotificationRuleRequest,
   MonitorsApiGetMonitorNotificationRulesRequest,
+  MonitorsApiGetMonitorUserTemplateRequest,
   MonitorsApiUpdateMonitorConfigPolicyRequest,
   MonitorsApiUpdateMonitorNotificationRuleRequest,
+  MonitorsApiUpdateMonitorUserTemplateRequest,
+  MonitorsApiValidateExistingMonitorUserTemplateRequest,
+  MonitorsApiValidateMonitorUserTemplateRequest,
   MonitorsApi,
 } from "./MonitorsApi";
 
@@ -44,6 +50,20 @@ export { MonitorNotificationRuleResponseAttributes } from "./models/MonitorNotif
 export { MonitorNotificationRuleResponseIncludedItem } from "./models/MonitorNotificationRuleResponseIncludedItem";
 export { MonitorNotificationRuleUpdateRequest } from "./models/MonitorNotificationRuleUpdateRequest";
 export { MonitorNotificationRuleUpdateRequestData } from "./models/MonitorNotificationRuleUpdateRequestData";
+export { MonitorUserTemplate } from "./models/MonitorUserTemplate";
+export { MonitorUserTemplateCreateData } from "./models/MonitorUserTemplateCreateData";
+export { MonitorUserTemplateCreateRequest } from "./models/MonitorUserTemplateCreateRequest";
+export { MonitorUserTemplateCreateResponse } from "./models/MonitorUserTemplateCreateResponse";
+export { MonitorUserTemplateListResponse } from "./models/MonitorUserTemplateListResponse";
+export { MonitorUserTemplateRequestAttributes } from "./models/MonitorUserTemplateRequestAttributes";
+export { MonitorUserTemplateResourceType } from "./models/MonitorUserTemplateResourceType";
+export { MonitorUserTemplateResponse } from "./models/MonitorUserTemplateResponse";
+export { MonitorUserTemplateResponseAttributes } from "./models/MonitorUserTemplateResponseAttributes";
+export { MonitorUserTemplateResponseData } from "./models/MonitorUserTemplateResponseData";
+export { MonitorUserTemplateResponseDataWithVersions } from "./models/MonitorUserTemplateResponseDataWithVersions";
+export { MonitorUserTemplateTemplateVariablesItems } from "./models/MonitorUserTemplateTemplateVariablesItems";
+export { MonitorUserTemplateUpdateData } from "./models/MonitorUserTemplateUpdateData";
+export { MonitorUserTemplateUpdateRequest } from "./models/MonitorUserTemplateUpdateRequest";
 export { OrganizationsType } from "./models/OrganizationsType";
 export { RelationshipToOrganization } from "./models/RelationshipToOrganization";
 export { RelationshipToOrganizationData } from "./models/RelationshipToOrganizationData";
@@ -53,6 +73,7 @@ export { RelationshipToRoles } from "./models/RelationshipToRoles";
 export { RelationshipToUserData } from "./models/RelationshipToUserData";
 export { RelationshipToUsers } from "./models/RelationshipToUsers";
 export { RolesType } from "./models/RolesType";
+export { SimpleMonitorUserTemplate } from "./models/SimpleMonitorUserTemplate";
 export { User } from "./models/User";
 export { UserAttributes } from "./models/UserAttributes";
 export { UserResponseRelationships } from "./models/UserResponseRelationships";
