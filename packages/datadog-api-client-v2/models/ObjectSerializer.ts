@@ -2161,7 +2161,12 @@ const enumsMap: { [key: string]: any[] } = {
   CaseSortableField: ["created_at", "priority", "status"],
   CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
   CaseType: ["STANDARD"],
-  ChangeEventCustomAttributesAuthorType: ["user", "system"],
+  ChangeEventCustomAttributesAuthorType: [
+    "user",
+    "system",
+    "api",
+    "automation",
+  ],
   ChangeEventCustomAttributesChangedResourceType: [
     "feature_flag",
     "configuration",
