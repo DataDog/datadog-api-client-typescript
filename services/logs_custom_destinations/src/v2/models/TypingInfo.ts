@@ -7,6 +7,7 @@ import { CustomDestinationCreateRequestDefinition } from "./CustomDestinationCre
 import { CustomDestinationElasticsearchDestinationAuth } from "./CustomDestinationElasticsearchDestinationAuth";
 import { CustomDestinationForwardDestinationElasticsearch } from "./CustomDestinationForwardDestinationElasticsearch";
 import { CustomDestinationForwardDestinationHttp } from "./CustomDestinationForwardDestinationHttp";
+import { CustomDestinationForwardDestinationMicrosoftSentinel } from "./CustomDestinationForwardDestinationMicrosoftSentinel";
 import { CustomDestinationForwardDestinationSplunk } from "./CustomDestinationForwardDestinationSplunk";
 import { CustomDestinationHttpDestinationAuthBasic } from "./CustomDestinationHttpDestinationAuthBasic";
 import { CustomDestinationHttpDestinationAuthCustomHeader } from "./CustomDestinationHttpDestinationAuthCustomHeader";
@@ -15,6 +16,7 @@ import { CustomDestinationResponseAttributes } from "./CustomDestinationResponse
 import { CustomDestinationResponseDefinition } from "./CustomDestinationResponseDefinition";
 import { CustomDestinationResponseForwardDestinationElasticsearch } from "./CustomDestinationResponseForwardDestinationElasticsearch";
 import { CustomDestinationResponseForwardDestinationHttp } from "./CustomDestinationResponseForwardDestinationHttp";
+import { CustomDestinationResponseForwardDestinationMicrosoftSentinel } from "./CustomDestinationResponseForwardDestinationMicrosoftSentinel";
 import { CustomDestinationResponseForwardDestinationSplunk } from "./CustomDestinationResponseForwardDestinationSplunk";
 import { CustomDestinationResponseHttpDestinationAuthBasic } from "./CustomDestinationResponseHttpDestinationAuthBasic";
 import { CustomDestinationResponseHttpDestinationAuthCustomHeader } from "./CustomDestinationResponseHttpDestinationAuthCustomHeader";
@@ -31,6 +33,9 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     CustomDestinationForwardDestinationElasticsearchType: ["elasticsearch"],
     CustomDestinationForwardDestinationHttpType: ["http"],
+    CustomDestinationForwardDestinationMicrosoftSentinelType: [
+      "microsoft_sentinel",
+    ],
     CustomDestinationForwardDestinationSplunkType: ["splunk_hec"],
     CustomDestinationHttpDestinationAuthBasicType: ["basic"],
     CustomDestinationHttpDestinationAuthCustomHeaderType: ["custom_header"],
@@ -38,6 +43,9 @@ export const TypingInfo: ModelTypingInfo = {
       "elasticsearch",
     ],
     CustomDestinationResponseForwardDestinationHttpType: ["http"],
+    CustomDestinationResponseForwardDestinationMicrosoftSentinelType: [
+      "microsoft_sentinel",
+    ],
     CustomDestinationResponseForwardDestinationSplunkType: ["splunk_hec"],
     CustomDestinationResponseHttpDestinationAuthBasicType: ["basic"],
     CustomDestinationResponseHttpDestinationAuthCustomHeaderType: [
@@ -50,6 +58,7 @@ export const TypingInfo: ModelTypingInfo = {
       "CustomDestinationForwardDestinationHttp",
       "CustomDestinationForwardDestinationSplunk",
       "CustomDestinationForwardDestinationElasticsearch",
+      "CustomDestinationForwardDestinationMicrosoftSentinel",
     ],
     CustomDestinationHttpDestinationAuth: [
       "CustomDestinationHttpDestinationAuthBasic",
@@ -59,6 +68,7 @@ export const TypingInfo: ModelTypingInfo = {
       "CustomDestinationResponseForwardDestinationHttp",
       "CustomDestinationResponseForwardDestinationSplunk",
       "CustomDestinationResponseForwardDestinationElasticsearch",
+      "CustomDestinationResponseForwardDestinationMicrosoftSentinel",
     ],
     CustomDestinationResponseHttpDestinationAuth: [
       "CustomDestinationResponseHttpDestinationAuthBasic",
@@ -78,6 +88,8 @@ export const TypingInfo: ModelTypingInfo = {
       CustomDestinationForwardDestinationElasticsearch,
     CustomDestinationForwardDestinationHttp:
       CustomDestinationForwardDestinationHttp,
+    CustomDestinationForwardDestinationMicrosoftSentinel:
+      CustomDestinationForwardDestinationMicrosoftSentinel,
     CustomDestinationForwardDestinationSplunk:
       CustomDestinationForwardDestinationSplunk,
     CustomDestinationHttpDestinationAuthBasic:
@@ -91,6 +103,8 @@ export const TypingInfo: ModelTypingInfo = {
       CustomDestinationResponseForwardDestinationElasticsearch,
     CustomDestinationResponseForwardDestinationHttp:
       CustomDestinationResponseForwardDestinationHttp,
+    CustomDestinationResponseForwardDestinationMicrosoftSentinel:
+      CustomDestinationResponseForwardDestinationMicrosoftSentinel,
     CustomDestinationResponseForwardDestinationSplunk:
       CustomDestinationResponseForwardDestinationSplunk,
     CustomDestinationResponseHttpDestinationAuthBasic:

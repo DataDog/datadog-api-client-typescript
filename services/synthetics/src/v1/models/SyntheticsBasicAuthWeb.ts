@@ -9,7 +9,7 @@ export class SyntheticsBasicAuthWeb {
   /**
    * Password to use for the basic authentication.
    */
-  "password": string;
+  "password"?: string;
   /**
    * The type of basic authentication to use when performing the test.
    */
@@ -17,7 +17,7 @@ export class SyntheticsBasicAuthWeb {
   /**
    * Username to use for the basic authentication.
    */
-  "username": string;
+  "username"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -36,7 +36,6 @@ export class SyntheticsBasicAuthWeb {
     password: {
       baseName: "password",
       type: "string",
-      required: true,
     },
     type: {
       baseName: "type",
@@ -45,7 +44,6 @@ export class SyntheticsBasicAuthWeb {
     username: {
       baseName: "username",
       type: "string",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
