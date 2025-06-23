@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 1.37.0/2025-06-23
+
+### Fixed
+* Fix basic auth requirements [#2397](https://github.com/DataDog/datadog-api-client-typescript/pull/2397)
+* Add support for the api_security detection rule type [#2378](https://github.com/DataDog/datadog-api-client-typescript/pull/2378)
+
+### Added
+* Microsoft Sentinel Public API support [#2392](https://github.com/DataDog/datadog-api-client-typescript/pull/2392)
+* Add custom fields to Rule update/validate API public documentation. [#2358](https://github.com/DataDog/datadog-api-client-typescript/pull/2358)
+* Add hash field to actions in CWS agent rules [#2351](https://github.com/DataDog/datadog-api-client-typescript/pull/2351)
+* Add App Key Registration API [#2338](https://github.com/DataDog/datadog-api-client-typescript/pull/2338)
+* SDCD-1142: adding `custom_tags` optional attribute to DORA API spec [#2319](https://github.com/DataDog/datadog-api-client-typescript/pull/2319)
+* Add sampling fields to SDS spec [#2312](https://github.com/DataDog/datadog-api-client-typescript/pull/2312)
+* Add API spec for team hierarchy APIs [#2266](https://github.com/DataDog/datadog-api-client-typescript/pull/2266)
+
+### Changed
+* Update events intake specs for v2 Events post endpoint [#2341](https://github.com/DataDog/datadog-api-client-typescript/pull/2341)
+
 ## 1.36.0/2025-06-16
 
 ### Changed
