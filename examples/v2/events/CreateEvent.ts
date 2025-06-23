@@ -11,10 +11,9 @@ const params: v2.EventsApiCreateEventRequest = {
   body: {
     data: {
       attributes: {
-        aggregationKey: "aggregation_key_123",
         attributes: {
           author: {
-            name: "example@datadog.com",
+            name: "datadog@datadog.com",
             type: "user",
           },
           changeMetadata: {
@@ -43,9 +42,8 @@ const params: v2.EventsApiCreateEventRequest = {
           },
         },
         category: "change",
-        integrationId: "custom-events",
         message: "payment_processed feature flag has been enabled",
-        tags: ["env:api_client_test"],
+        tags: ["env:test"],
         title: "payment_processed feature flag updated",
       },
       type: "event",

@@ -11,13 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EventCreateResponseAttributesAttributesEvt {
   /**
-   * Event identifier. This field is deprecated and will be removed in a future version. Use the `uid` field instead.
+   * Event id
    */
   "id"?: string;
-  /**
-   * A unique identifier for the event. You can use this identifier to query or reference the event.
-   */
-  "uid"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,10 +33,6 @@ export class EventCreateResponseAttributesAttributesEvt {
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
-      type: "string",
-    },
-    uid: {
-      baseName: "uid",
       type: "string",
     },
     additionalProperties: {
