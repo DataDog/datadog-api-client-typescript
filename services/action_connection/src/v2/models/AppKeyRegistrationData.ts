@@ -1,23 +1,19 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SyntheticsBasicAuthWebType } from "./SyntheticsBasicAuthWebType";
+import { AppKeyRegistrationDataType } from "./AppKeyRegistrationDataType";
 
 /**
- * Object to handle basic authentication when performing the test.
+ * Data related to the app key registration.
  */
-export class SyntheticsBasicAuthWeb {
+export class AppKeyRegistrationData {
   /**
-   * Password to use for the basic authentication.
+   * The app key registration identifier
    */
-  "password"?: string;
+  "id"?: string;
   /**
-   * The type of basic authentication to use when performing the test.
+   * The definition of `AppKeyRegistrationDataType` object.
    */
-  "type"?: SyntheticsBasicAuthWebType;
-  /**
-   * Username to use for the basic authentication.
-   */
-  "username"?: string;
+  "type": AppKeyRegistrationDataType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,17 +29,15 @@ export class SyntheticsBasicAuthWeb {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    password: {
-      baseName: "password",
+    id: {
+      baseName: "id",
       type: "string",
+      format: "uuid",
     },
     type: {
       baseName: "type",
-      type: "SyntheticsBasicAuthWebType",
-    },
-    username: {
-      baseName: "username",
-      type: "string",
+      type: "AppKeyRegistrationDataType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +49,7 @@ export class SyntheticsBasicAuthWeb {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBasicAuthWeb.attributeTypeMap;
+    return AppKeyRegistrationData.attributeTypeMap;
   }
 
   public constructor() {}
