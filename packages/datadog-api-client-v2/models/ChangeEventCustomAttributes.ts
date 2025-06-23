@@ -10,34 +10,41 @@ import { ChangeEventCustomAttributesImpactedResourcesItems } from "./ChangeEvent
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Change event attributes.
+ * Object representing custom change event attributes.
  */
 export class ChangeEventCustomAttributes {
   /**
-   * The entity that made the change. Optional, if provided it must include `type` and `name`.
+   * Object representing the entity which made the change. Optional field but if provided should include `type` and `name`.
    */
   "author"?: ChangeEventCustomAttributesAuthor;
   /**
-   * Free form JSON object with information related to the `change` event. Supports up to 100 properties per object and a maximum nesting depth of 10 levels.
+   * Free form object with information related to the `change` event. Can be arbitrarily nested and contain any valid JSON.
    */
   "changeMetadata"?: { [key: string]: any };
   /**
-   * A uniquely identified resource.
+   * Object representing a uniquely identified resource.
    */
   "changedResource": ChangeEventCustomAttributesChangedResource;
   /**
    * A list of resources impacted by this change. It is recommended to provide an impacted resource to display
-   * the change event at the correct location. Only resources of type `service` are supported. Maximum of 100 impacted resources allowed.
+   * the change event at the right location. Only resources of type `service` are supported.
    */
   "impactedResources"?: Array<ChangeEventCustomAttributesImpactedResourcesItems>;
   /**
-   * Free form JSON object representing the new state of the changed resource.
+   * Free form object to track new value of the changed resource.
    */
   "newValue"?: { [key: string]: any };
   /**
-   * Free form JSON object representing the previous state of the changed resource.
+   * Free form object to track previous value of the changed resource.
    */
   "prevValue"?: { [key: string]: any };
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
 
   /**
    * @ignore
@@ -72,6 +79,10 @@ export class ChangeEventCustomAttributes {
     prevValue: {
       baseName: "prev_value",
       type: "{ [key: string]: any; }",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 
