@@ -5698,6 +5698,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "MetricEstimateResponse",
   },
+  "MetricsApi.V2.GetTagKeyCardinalityDetails": {
+    metricName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "MetricTagCardinalitiesResponse",
+  },
   "MetricsApi.V2.ListTagConfigurationByName": {
     metricName: {
       type: "string",
