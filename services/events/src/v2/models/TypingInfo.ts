@@ -1,8 +1,6 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
-import { AlertEventCustomAttributes } from "./AlertEventCustomAttributes";
-import { AlertEventCustomAttributesLinksItems } from "./AlertEventCustomAttributesLinksItems";
 import { ChangeEventCustomAttributes } from "./ChangeEventCustomAttributes";
 import { ChangeEventCustomAttributesAuthor } from "./ChangeEventCustomAttributesAuthor";
 import { ChangeEventCustomAttributesChangedResource } from "./ChangeEventCustomAttributesChangedResource";
@@ -16,7 +14,6 @@ import { EventCreateResponseAttributes } from "./EventCreateResponseAttributes";
 import { EventCreateResponseAttributesAttributes } from "./EventCreateResponseAttributesAttributes";
 import { EventCreateResponseAttributesAttributesEvt } from "./EventCreateResponseAttributesAttributesEvt";
 import { EventCreateResponsePayload } from "./EventCreateResponsePayload";
-import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLinks";
 import { EventPayload } from "./EventPayload";
 import { EventResponse } from "./EventResponse";
 import { EventResponseAttributes } from "./EventResponseAttributes";
@@ -36,13 +33,6 @@ import { MonitorType } from "./MonitorType";
 
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
-    AlertEventCustomAttributesLinksItemsCategory: [
-      "runbook",
-      "documentation",
-      "dashboard",
-    ],
-    AlertEventCustomAttributesPriority: ["1", "2", "3", "4", "5"],
-    AlertEventCustomAttributesStatus: ["warn", "error", "ok"],
     ChangeEventCustomAttributesAuthorType: [
       "user",
       "system",
@@ -54,9 +44,8 @@ export const TypingInfo: ModelTypingInfo = {
       "configuration",
     ],
     ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
-    EventCategory: ["change", "alert"],
+    EventCategory: ["change"],
     EventCreateRequestType: ["event"],
-    EventPayloadIntegrationId: ["custom-events"],
     EventPriority: ["normal", "low"],
     EventStatusType: [
       "failure",
@@ -72,15 +61,10 @@ export const TypingInfo: ModelTypingInfo = {
     EventsSort: ["timestamp", "-timestamp"],
   },
   oneOfMap: {
-    EventPayloadAttributes: [
-      "ChangeEventCustomAttributes",
-      "AlertEventCustomAttributes",
-    ],
+    EventPayloadAttributes: ["ChangeEventCustomAttributes"],
   },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    AlertEventCustomAttributes: AlertEventCustomAttributes,
-    AlertEventCustomAttributesLinksItems: AlertEventCustomAttributesLinksItems,
     ChangeEventCustomAttributes: ChangeEventCustomAttributes,
     ChangeEventCustomAttributesAuthor: ChangeEventCustomAttributesAuthor,
     ChangeEventCustomAttributesChangedResource:
@@ -98,7 +82,6 @@ export const TypingInfo: ModelTypingInfo = {
     EventCreateResponseAttributesAttributesEvt:
       EventCreateResponseAttributesAttributesEvt,
     EventCreateResponsePayload: EventCreateResponsePayload,
-    EventCreateResponsePayloadLinks: EventCreateResponsePayloadLinks,
     EventPayload: EventPayload,
     EventResponse: EventResponse,
     EventResponseAttributes: EventResponseAttributes,

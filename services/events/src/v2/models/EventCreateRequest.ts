@@ -4,17 +4,17 @@ import { EventCreateRequestType } from "./EventCreateRequestType";
 import { EventPayload } from "./EventPayload";
 
 /**
- * An event object.
+ * Object representing an event creation request.
  */
 export class EventCreateRequest {
   /**
    * Event attributes.
    */
-  "attributes": EventPayload;
+  "attributes"?: EventPayload;
   /**
    * Entity type.
    */
-  "type": EventCreateRequestType;
+  "type"?: EventCreateRequestType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,12 +33,10 @@ export class EventCreateRequest {
     attributes: {
       baseName: "attributes",
       type: "EventPayload",
-      required: true,
     },
     type: {
       baseName: "type",
       type: "EventCreateRequestType",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
