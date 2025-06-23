@@ -31,10 +31,6 @@ export {
   ActionConnectionApiCreateActionConnectionRequest,
   ActionConnectionApiDeleteActionConnectionRequest,
   ActionConnectionApiGetActionConnectionRequest,
-  ActionConnectionApiGetAppKeyRegistrationRequest,
-  ActionConnectionApiListAppKeyRegistrationsRequest,
-  ActionConnectionApiRegisterAppKeyRequest,
-  ActionConnectionApiUnregisterAppKeyRequest,
   ActionConnectionApiUpdateActionConnectionRequest,
   ActionConnectionApi,
 } from "./apis/ActionConnectionApi";
@@ -804,8 +800,6 @@ export { AppBuilderEventName } from "./models/AppBuilderEventName";
 export { AppBuilderEventType } from "./models/AppBuilderEventType";
 export { AppDefinitionType } from "./models/AppDefinitionType";
 export { AppDeploymentType } from "./models/AppDeploymentType";
-export { AppKeyRegistrationData } from "./models/AppKeyRegistrationData";
-export { AppKeyRegistrationDataType } from "./models/AppKeyRegistrationDataType";
 export { ApplicationKeyCreateAttributes } from "./models/ApplicationKeyCreateAttributes";
 export { ApplicationKeyCreateData } from "./models/ApplicationKeyCreateData";
 export { ApplicationKeyCreateRequest } from "./models/ApplicationKeyCreateRequest";
@@ -1681,7 +1675,6 @@ export { GCPSTSServiceAccountsResponse } from "./models/GCPSTSServiceAccountsRes
 export { GCPSTSServiceAccountUpdateRequest } from "./models/GCPSTSServiceAccountUpdateRequest";
 export { GCPSTSServiceAccountUpdateRequestData } from "./models/GCPSTSServiceAccountUpdateRequestData";
 export { GetActionConnectionResponse } from "./models/GetActionConnectionResponse";
-export { GetAppKeyRegistrationResponse } from "./models/GetAppKeyRegistrationResponse";
 export { GetAppResponse } from "./models/GetAppResponse";
 export { GetAppResponseData } from "./models/GetAppResponseData";
 export { GetAppResponseDataAttributes } from "./models/GetAppResponseDataAttributes";
@@ -1918,8 +1911,6 @@ export { ListAPIsResponseData } from "./models/ListAPIsResponseData";
 export { ListAPIsResponseDataAttributes } from "./models/ListAPIsResponseDataAttributes";
 export { ListAPIsResponseMeta } from "./models/ListAPIsResponseMeta";
 export { ListAPIsResponseMetaPagination } from "./models/ListAPIsResponseMetaPagination";
-export { ListAppKeyRegistrationsResponse } from "./models/ListAppKeyRegistrationsResponse";
-export { ListAppKeyRegistrationsResponseMeta } from "./models/ListAppKeyRegistrationsResponseMeta";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
 export { ListAppsResponse } from "./models/ListAppsResponse";
 export { ListAppsResponseDataItems } from "./models/ListAppsResponseDataItems";
@@ -2500,7 +2491,6 @@ export { QueryFormula } from "./models/QueryFormula";
 export { QuerySortOrder } from "./models/QuerySortOrder";
 export { ReadinessGate } from "./models/ReadinessGate";
 export { ReadinessGateThresholdType } from "./models/ReadinessGateThresholdType";
-export { RegisterAppKeyResponse } from "./models/RegisterAppKeyResponse";
 export { RelationAttributes } from "./models/RelationAttributes";
 export { RelationEntity } from "./models/RelationEntity";
 export { RelationIncludeType } from "./models/RelationIncludeType";
