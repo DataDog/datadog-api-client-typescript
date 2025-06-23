@@ -1,23 +1,20 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SyntheticsBasicAuthWebType } from "./SyntheticsBasicAuthWebType";
+import { AppKeyRegistrationData } from "./AppKeyRegistrationData";
+import { ListAppKeyRegistrationsResponseMeta } from "./ListAppKeyRegistrationsResponseMeta";
 
 /**
- * Object to handle basic authentication when performing the test.
+ * A paginated list of app key registrations.
  */
-export class SyntheticsBasicAuthWeb {
+export class ListAppKeyRegistrationsResponse {
   /**
-   * Password to use for the basic authentication.
+   * An array of app key registrations.
    */
-  "password"?: string;
+  "data"?: Array<AppKeyRegistrationData>;
   /**
-   * The type of basic authentication to use when performing the test.
+   * The definition of `ListAppKeyRegistrationsResponseMeta` object.
    */
-  "type"?: SyntheticsBasicAuthWebType;
-  /**
-   * Username to use for the basic authentication.
-   */
-  "username"?: string;
+  "meta"?: ListAppKeyRegistrationsResponseMeta;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,17 +30,13 @@ export class SyntheticsBasicAuthWeb {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    password: {
-      baseName: "password",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "Array<AppKeyRegistrationData>",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsBasicAuthWebType",
-    },
-    username: {
-      baseName: "username",
-      type: "string",
+    meta: {
+      baseName: "meta",
+      type: "ListAppKeyRegistrationsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +48,7 @@ export class SyntheticsBasicAuthWeb {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBasicAuthWeb.attributeTypeMap;
+    return ListAppKeyRegistrationsResponse.attributeTypeMap;
   }
 
   public constructor() {}
