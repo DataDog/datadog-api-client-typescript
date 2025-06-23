@@ -8,11 +8,9 @@ import { ActionConnectionAttributes } from "./ActionConnectionAttributes";
 import { ActionConnectionAttributesUpdate } from "./ActionConnectionAttributesUpdate";
 import { ActionConnectionData } from "./ActionConnectionData";
 import { ActionConnectionDataUpdate } from "./ActionConnectionDataUpdate";
-import { AppKeyRegistrationData } from "./AppKeyRegistrationData";
 import { CreateActionConnectionRequest } from "./CreateActionConnectionRequest";
 import { CreateActionConnectionResponse } from "./CreateActionConnectionResponse";
 import { GetActionConnectionResponse } from "./GetActionConnectionResponse";
-import { GetAppKeyRegistrationResponse } from "./GetAppKeyRegistrationResponse";
 import { HTTPBody } from "./HTTPBody";
 import { HTTPHeader } from "./HTTPHeader";
 import { HTTPHeaderUpdate } from "./HTTPHeaderUpdate";
@@ -25,9 +23,6 @@ import { HTTPTokenUpdate } from "./HTTPTokenUpdate";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
-import { ListAppKeyRegistrationsResponse } from "./ListAppKeyRegistrationsResponse";
-import { ListAppKeyRegistrationsResponseMeta } from "./ListAppKeyRegistrationsResponseMeta";
-import { RegisterAppKeyResponse } from "./RegisterAppKeyResponse";
 import { UpdateActionConnectionRequest } from "./UpdateActionConnectionRequest";
 import { UpdateActionConnectionResponse } from "./UpdateActionConnectionResponse";
 import { UrlParam } from "./UrlParam";
@@ -38,7 +33,6 @@ export const TypingInfo: ModelTypingInfo = {
     AWSAssumeRoleType: ["AWSAssumeRole"],
     AWSIntegrationType: ["AWS"],
     ActionConnectionDataType: ["action_connection"],
-    AppKeyRegistrationDataType: ["app_key_registration"],
     HTTPIntegrationType: ["HTTP"],
     HTTPTokenAuthType: ["HTTPTokenAuth"],
     TokenType: ["SECRET"],
@@ -63,11 +57,9 @@ export const TypingInfo: ModelTypingInfo = {
     ActionConnectionAttributesUpdate: ActionConnectionAttributesUpdate,
     ActionConnectionData: ActionConnectionData,
     ActionConnectionDataUpdate: ActionConnectionDataUpdate,
-    AppKeyRegistrationData: AppKeyRegistrationData,
     CreateActionConnectionRequest: CreateActionConnectionRequest,
     CreateActionConnectionResponse: CreateActionConnectionResponse,
     GetActionConnectionResponse: GetActionConnectionResponse,
-    GetAppKeyRegistrationResponse: GetAppKeyRegistrationResponse,
     HTTPBody: HTTPBody,
     HTTPHeader: HTTPHeader,
     HTTPHeaderUpdate: HTTPHeaderUpdate,
@@ -80,9 +72,6 @@ export const TypingInfo: ModelTypingInfo = {
     JSONAPIErrorItem: JSONAPIErrorItem,
     JSONAPIErrorItemSource: JSONAPIErrorItemSource,
     JSONAPIErrorResponse: JSONAPIErrorResponse,
-    ListAppKeyRegistrationsResponse: ListAppKeyRegistrationsResponse,
-    ListAppKeyRegistrationsResponseMeta: ListAppKeyRegistrationsResponseMeta,
-    RegisterAppKeyResponse: RegisterAppKeyResponse,
     UpdateActionConnectionRequest: UpdateActionConnectionRequest,
     UpdateActionConnectionResponse: UpdateActionConnectionResponse,
     UrlParam: UrlParam,
