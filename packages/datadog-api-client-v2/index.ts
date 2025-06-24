@@ -401,13 +401,19 @@ export {
 export {
   MonitorsApiCreateMonitorConfigPolicyRequest,
   MonitorsApiCreateMonitorNotificationRuleRequest,
+  MonitorsApiCreateMonitorUserTemplateRequest,
   MonitorsApiDeleteMonitorConfigPolicyRequest,
   MonitorsApiDeleteMonitorNotificationRuleRequest,
+  MonitorsApiDeleteMonitorUserTemplateRequest,
   MonitorsApiGetMonitorConfigPolicyRequest,
   MonitorsApiGetMonitorNotificationRuleRequest,
   MonitorsApiGetMonitorNotificationRulesRequest,
+  MonitorsApiGetMonitorUserTemplateRequest,
   MonitorsApiUpdateMonitorConfigPolicyRequest,
   MonitorsApiUpdateMonitorNotificationRuleRequest,
+  MonitorsApiUpdateMonitorUserTemplateRequest,
+  MonitorsApiValidateExistingMonitorUserTemplateRequest,
+  MonitorsApiValidateMonitorUserTemplateRequest,
   MonitorsApi,
 } from "./apis/MonitorsApi";
 
@@ -2175,6 +2181,20 @@ export { MonitorNotificationRuleUpdateRequestData } from "./models/MonitorNotifi
 export { MonitorTrigger } from "./models/MonitorTrigger";
 export { MonitorTriggerWrapper } from "./models/MonitorTriggerWrapper";
 export { MonitorType } from "./models/MonitorType";
+export { MonitorUserTemplate } from "./models/MonitorUserTemplate";
+export { MonitorUserTemplateCreateData } from "./models/MonitorUserTemplateCreateData";
+export { MonitorUserTemplateCreateRequest } from "./models/MonitorUserTemplateCreateRequest";
+export { MonitorUserTemplateCreateResponse } from "./models/MonitorUserTemplateCreateResponse";
+export { MonitorUserTemplateListResponse } from "./models/MonitorUserTemplateListResponse";
+export { MonitorUserTemplateRequestAttributes } from "./models/MonitorUserTemplateRequestAttributes";
+export { MonitorUserTemplateResourceType } from "./models/MonitorUserTemplateResourceType";
+export { MonitorUserTemplateResponse } from "./models/MonitorUserTemplateResponse";
+export { MonitorUserTemplateResponseAttributes } from "./models/MonitorUserTemplateResponseAttributes";
+export { MonitorUserTemplateResponseData } from "./models/MonitorUserTemplateResponseData";
+export { MonitorUserTemplateResponseDataWithVersions } from "./models/MonitorUserTemplateResponseDataWithVersions";
+export { MonitorUserTemplateTemplateVariablesItems } from "./models/MonitorUserTemplateTemplateVariablesItems";
+export { MonitorUserTemplateUpdateData } from "./models/MonitorUserTemplateUpdateData";
+export { MonitorUserTemplateUpdateRequest } from "./models/MonitorUserTemplateUpdateRequest";
 export { MonthlyCostAttributionAttributes } from "./models/MonthlyCostAttributionAttributes";
 export { MonthlyCostAttributionBody } from "./models/MonthlyCostAttributionBody";
 export { MonthlyCostAttributionMeta } from "./models/MonthlyCostAttributionMeta";
@@ -2997,6 +3017,7 @@ export { ShiftDataRelationshipsUserData } from "./models/ShiftDataRelationshipsU
 export { ShiftDataRelationshipsUserDataType } from "./models/ShiftDataRelationshipsUserDataType";
 export { ShiftDataType } from "./models/ShiftDataType";
 export { ShiftIncluded } from "./models/ShiftIncluded";
+export { SimpleMonitorUserTemplate } from "./models/SimpleMonitorUserTemplate";
 export { SingleAggregatedConnectionResponseArray } from "./models/SingleAggregatedConnectionResponseArray";
 export { SingleAggregatedConnectionResponseData } from "./models/SingleAggregatedConnectionResponseData";
 export { SingleAggregatedConnectionResponseDataAttributes } from "./models/SingleAggregatedConnectionResponseDataAttributes";
