@@ -72,6 +72,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof PROFILED_CONTAINER_USAGE
   | typeof PROFILED_FARGATE_USAGE
   | typeof PROFILED_HOST_USAGE
+  | typeof PRODUCT_ANALYTICS_SESSION_USAGE
   | typeof RUM_BROWSER_MOBILE_SESSIONS_USAGE
   | typeof RUM_REPLAY_SESSIONS_USAGE
   | typeof SCA_FARGATE_USAGE
@@ -152,6 +153,8 @@ export const ONLINE_ARCHIVE_USAGE = "online_archive_usage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
+export const PRODUCT_ANALYTICS_SESSION_USAGE =
+  "product_analytics_session_usage";
 export const RUM_BROWSER_MOBILE_SESSIONS_USAGE =
   "rum_browser_mobile_sessions_usage";
 export const RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage";
