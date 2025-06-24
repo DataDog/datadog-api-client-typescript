@@ -1109,6 +1109,19 @@ import { MonitorNotificationRuleUpdateRequestData } from "./MonitorNotificationR
 import { MonitorTrigger } from "./MonitorTrigger";
 import { MonitorTriggerWrapper } from "./MonitorTriggerWrapper";
 import { MonitorType } from "./MonitorType";
+import { MonitorUserTemplate } from "./MonitorUserTemplate";
+import { MonitorUserTemplateCreateData } from "./MonitorUserTemplateCreateData";
+import { MonitorUserTemplateCreateRequest } from "./MonitorUserTemplateCreateRequest";
+import { MonitorUserTemplateCreateResponse } from "./MonitorUserTemplateCreateResponse";
+import { MonitorUserTemplateListResponse } from "./MonitorUserTemplateListResponse";
+import { MonitorUserTemplateRequestAttributes } from "./MonitorUserTemplateRequestAttributes";
+import { MonitorUserTemplateResponse } from "./MonitorUserTemplateResponse";
+import { MonitorUserTemplateResponseAttributes } from "./MonitorUserTemplateResponseAttributes";
+import { MonitorUserTemplateResponseData } from "./MonitorUserTemplateResponseData";
+import { MonitorUserTemplateResponseDataWithVersions } from "./MonitorUserTemplateResponseDataWithVersions";
+import { MonitorUserTemplateTemplateVariablesItems } from "./MonitorUserTemplateTemplateVariablesItems";
+import { MonitorUserTemplateUpdateData } from "./MonitorUserTemplateUpdateData";
+import { MonitorUserTemplateUpdateRequest } from "./MonitorUserTemplateUpdateRequest";
 import { MonthlyCostAttributionAttributes } from "./MonthlyCostAttributionAttributes";
 import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
 import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
@@ -1705,6 +1718,7 @@ import { ShiftDataAttributes } from "./ShiftDataAttributes";
 import { ShiftDataRelationships } from "./ShiftDataRelationships";
 import { ShiftDataRelationshipsUser } from "./ShiftDataRelationshipsUser";
 import { ShiftDataRelationshipsUserData } from "./ShiftDataRelationshipsUserData";
+import { SimpleMonitorUserTemplate } from "./SimpleMonitorUserTemplate";
 import { SingleAggregatedConnectionResponseArray } from "./SingleAggregatedConnectionResponseArray";
 import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
 import { SingleAggregatedConnectionResponseDataAttributes } from "./SingleAggregatedConnectionResponseDataAttributes";
@@ -2500,6 +2514,7 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
   MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
+  MonitorUserTemplateResourceType: ["monitor-user-template"],
   NotificationRulesType: ["notification_rules"],
   ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
@@ -4465,6 +4480,21 @@ const typeMap: { [index: string]: any } = {
   MonitorTrigger: MonitorTrigger,
   MonitorTriggerWrapper: MonitorTriggerWrapper,
   MonitorType: MonitorType,
+  MonitorUserTemplate: MonitorUserTemplate,
+  MonitorUserTemplateCreateData: MonitorUserTemplateCreateData,
+  MonitorUserTemplateCreateRequest: MonitorUserTemplateCreateRequest,
+  MonitorUserTemplateCreateResponse: MonitorUserTemplateCreateResponse,
+  MonitorUserTemplateListResponse: MonitorUserTemplateListResponse,
+  MonitorUserTemplateRequestAttributes: MonitorUserTemplateRequestAttributes,
+  MonitorUserTemplateResponse: MonitorUserTemplateResponse,
+  MonitorUserTemplateResponseAttributes: MonitorUserTemplateResponseAttributes,
+  MonitorUserTemplateResponseData: MonitorUserTemplateResponseData,
+  MonitorUserTemplateResponseDataWithVersions:
+    MonitorUserTemplateResponseDataWithVersions,
+  MonitorUserTemplateTemplateVariablesItems:
+    MonitorUserTemplateTemplateVariablesItems,
+  MonitorUserTemplateUpdateData: MonitorUserTemplateUpdateData,
+  MonitorUserTemplateUpdateRequest: MonitorUserTemplateUpdateRequest,
   MonthlyCostAttributionAttributes: MonthlyCostAttributionAttributes,
   MonthlyCostAttributionBody: MonthlyCostAttributionBody,
   MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
@@ -5190,6 +5220,7 @@ const typeMap: { [index: string]: any } = {
   ShiftDataRelationships: ShiftDataRelationships,
   ShiftDataRelationshipsUser: ShiftDataRelationshipsUser,
   ShiftDataRelationshipsUserData: ShiftDataRelationshipsUserData,
+  SimpleMonitorUserTemplate: SimpleMonitorUserTemplate,
   SingleAggregatedConnectionResponseArray:
     SingleAggregatedConnectionResponseArray,
   SingleAggregatedConnectionResponseData:

@@ -5834,6 +5834,63 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MonitorConfigPolicyResponse",
     },
+    "v2.ListMonitorUserTemplates": {
+        "operationResponseType": "MonitorUserTemplateListResponse",
+    },
+    "v2.CreateMonitorUserTemplate": {
+        "body": {
+            "type": "MonitorUserTemplateCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MonitorUserTemplateCreateResponse",
+    },
+    "v2.ValidateMonitorUserTemplate": {
+        "body": {
+            "type": "MonitorUserTemplateCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.DeleteMonitorUserTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetMonitorUserTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "",
+            },
+        "withAllVersions": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "MonitorUserTemplateResponse",
+    },
+    "v2.UpdateMonitorUserTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "MonitorUserTemplateUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MonitorUserTemplateResponse",
+    },
+    "v2.ValidateExistingMonitorUserTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "MonitorUserTemplateUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
     "v2.ListDevices": {
         "pageSize": {
             "type": "number",
