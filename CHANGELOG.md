@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 1.38.0/2025-06-24
+
+### Fixed
+* Fix basic auth requirements [#2397](https://github.com/DataDog/datadog-api-client-typescript/pull/2397)
+
+### Added
+* Microsoft Sentinel Public API support [#2392](https://github.com/DataDog/datadog-api-client-typescript/pull/2392)
+* Add the AP2 datacenter. [#2384](https://github.com/DataDog/datadog-api-client-typescript/pull/2384)
+* Add App Key Registration API [#2338](https://github.com/DataDog/datadog-api-client-typescript/pull/2338)
+
 ## 1.37.0/2025-06-23
 
 ### Fixed
