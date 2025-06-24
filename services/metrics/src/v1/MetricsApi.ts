@@ -1020,6 +1020,9 @@ export class MetricsApi {
 
   /**
    * Get the list of actively reporting metrics from a given time until now.
+   * The tag service resets daily at midnight UTC. This endpoint returns only
+   * metrics that have reported since the last reset, even if the `from`
+   * parameter specifies an earlier time.
    * @param param The request object
    */
   public listActiveMetrics(
