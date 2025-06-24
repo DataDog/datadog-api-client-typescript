@@ -445,6 +445,14 @@ export class MonthlyUsageAttributionValues {
    */
   "onlineArchiveUsage"?: number;
   /**
+   * The percentage of Product Analytics session usage by tag(s).
+   */
+  "productAnalyticsSessionPercentage"?: number;
+  /**
+   * The total Product Analytics session usage by tag(s).
+   */
+  "productAnalyticsSessionUsage"?: number;
+  /**
    * The percentage of profiled container usage by tag(s).
    */
   "profiledContainerPercentage"?: number;
@@ -1118,6 +1126,16 @@ export class MonthlyUsageAttributionValues {
     },
     onlineArchiveUsage: {
       baseName: "online_archive_usage",
+      type: "number",
+      format: "double",
+    },
+    productAnalyticsSessionPercentage: {
+      baseName: "product_analytics_session_percentage",
+      type: "number",
+      format: "double",
+    },
+    productAnalyticsSessionUsage: {
+      baseName: "product_analytics_session_usage",
       type: "number",
       format: "double",
     },
