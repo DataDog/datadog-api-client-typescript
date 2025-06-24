@@ -15,7 +15,7 @@ export class UsageSummaryDate {
    */
   "apmAzureAppServiceHostTop99P"?: number;
   /**
-   * Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for all organizations.
    */
   "apmDevsecopsHostTop99P"?: number;
   /**
@@ -79,55 +79,55 @@ export class UsageSummaryDate {
    */
   "browserRumUnitsSum"?: number;
   /**
-   * Shows the sum of all CI pipeline indexed spans over all hours in the current month for all organizations.
+   * Shows the sum of all CI pipeline indexed spans over all hours in the current date for all organizations.
    */
   "ciPipelineIndexedSpansSum"?: number;
   /**
-   * Shows the sum of all CI test indexed spans over all hours in the current month for all organizations.
+   * Shows the sum of all CI test indexed spans over all hours in the current date for all organizations.
    */
   "ciTestIndexedSpansSum"?: number;
   /**
-   * Shows the high-water mark of all CI visibility intelligent test runner committers over all hours in the current month for all organizations.
+   * Shows the high-water mark of all CI visibility intelligent test runner committers over all hours in the current date for all organizations.
    */
   "ciVisibilityItrCommittersHwm"?: number;
   /**
-   * Shows the high-water mark of all CI visibility pipeline committers over all hours in the current month for all organizations.
+   * Shows the high-water mark of all CI visibility pipeline committers over all hours in the current date for all organizations.
    */
   "ciVisibilityPipelineCommittersHwm"?: number;
   /**
-   * Shows the high-water mark of all CI visibility test committers over all hours in the current month for all organizations.
+   * Shows the high-water mark of all CI visibility test committers over all hours in the current date for all organizations.
    */
   "ciVisibilityTestCommittersHwm"?: number;
   /**
-   * Host count average of Cloud Cost Management for AWS for the given date and given organization.
+   * Host count average for Cloud Cost Management for AWS for the given date for all organizations.
    */
   "cloudCostManagementAwsHostCountAvg"?: number;
   /**
-   * Host count average of Cloud Cost Management for Azure for the given date and given organization.
+   * Host count average for Cloud Cost Management for Azure for the given date for all organizations.
    */
   "cloudCostManagementAzureHostCountAvg"?: number;
   /**
-   * Host count average of Cloud Cost Management for GCP for the given date and given organization.
+   * Host count average for Cloud Cost Management for GCP for the given date for all organizations.
    */
   "cloudCostManagementGcpHostCountAvg"?: number;
   /**
-   * Host count average of Cloud Cost Management for all cloud providers for the given date and given organization.
+   * Host count average for Cloud Cost Management for all cloud providers for the given date for all organizations.
    */
   "cloudCostManagementHostCountAvg"?: number;
   /**
-   * Shows the sum of all Cloud Security Information and Event Management events over all hours in the current date for the given org.
+   * Shows the sum of all Cloud Security Information and Event Management events over all hours in the current date for all organizations.
    */
   "cloudSiemEventsSum"?: number;
   /**
-   * Shows the high-water mark of all Static Analysis committers over all hours in the current date for the given org.
+   * Shows the high-water mark of all Static Analysis committers over all hours in the current date for all organizations.
    */
   "codeAnalysisSaCommittersHwm"?: number;
   /**
-   * Shows the high-water mark of all static Software Composition Analysis committers over all hours in the current date for the given org.
+   * Shows the high-water mark of all static Software Composition Analysis committers over all hours in the current date for all organizations.
    */
   "codeAnalysisScaCommittersHwm"?: number;
   /**
-   * Shows the 99th percentile of all Code Security hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Code Security hosts over all hours in the current date for all organizations.
    */
   "codeSecurityHostTop99P"?: number;
   /**
@@ -143,43 +143,43 @@ export class UsageSummaryDate {
    */
   "containerHwm"?: number;
   /**
-   * Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours in the current date for the given org.
+   * Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours in the current date for all organizations.
    */
   "csmContainerEnterpriseComplianceCountSum"?: number;
   /**
-   * Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers over all hours in the current date for the given org.
+   * Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers over all hours in the current date for all organizations.
    */
   "csmContainerEnterpriseCwsCountSum"?: number;
   /**
-   * Shows the sum of all Cloud Security Management Enterprise containers over all hours in the current date for the given org.
+   * Shows the sum of all Cloud Security Management Enterprise containers over all hours in the current date for all organizations.
    */
   "csmContainerEnterpriseTotalCountSum"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts over all hours in the current date for all organizations.
    */
   "csmHostEnterpriseAasHostCountTop99P"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours on the current date for all organizations.
    */
   "csmHostEnterpriseAwsHostCountTop99P"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all hours on the current date for all organizations.
    */
   "csmHostEnterpriseAzureHostCountTop99P"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all hours on the current date for all organizations.
    */
   "csmHostEnterpriseComplianceHostCountTop99P"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security hosts over all hours on the current date for all organizations.
    */
   "csmHostEnterpriseCwsHostCountTop99P"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours in the current date for all organizations.
    */
   "csmHostEnterpriseGcpHostCountTop99P"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current date for all organizations.
    */
   "csmHostEnterpriseTotalHostCountTop99P"?: number;
   /**
@@ -227,7 +227,7 @@ export class UsageSummaryDate {
    */
   "cwsHostTop99P"?: number;
   /**
-   * Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for the given org.
+   * Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for all organizations.
    */
   "dataJobsMonitoringHostHrSum"?: number;
   /**
@@ -243,71 +243,71 @@ export class UsageSummaryDate {
    */
   "dbmQueriesCountAvg"?: number;
   /**
-   * Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in the current date for all organizations.
    */
   "ephInfraHostAgentSum"?: number;
   /**
-   * Shows the sum of all ephemeral infrastructure hosts on Alibaba over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral infrastructure hosts on Alibaba over all hours in the current date for all organizations.
    */
   "ephInfraHostAlibabaSum"?: number;
   /**
-   * Shows the sum of all ephemeral infrastructure hosts on AWS over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral infrastructure hosts on AWS over all hours in the current date for all organizations.
    */
   "ephInfraHostAwsSum"?: number;
   /**
-   * Shows the sum of all ephemeral infrastructure hosts on Azure over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral infrastructure hosts on Azure over all hours in the current date for all organizations.
    */
   "ephInfraHostAzureSum"?: number;
   /**
-   * Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the current date for all organizations.
    */
   "ephInfraHostEntSum"?: number;
   /**
-   * Shows the sum of all ephemeral infrastructure hosts on GCP over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral infrastructure hosts on GCP over all hours in the current date for all organizations.
    */
   "ephInfraHostGcpSum"?: number;
   /**
-   * Shows the sum of all ephemeral infrastructure hosts on Heroku over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral infrastructure hosts on Heroku over all hours in the current date for all organizations.
    */
   "ephInfraHostHerokuSum"?: number;
   /**
-   * Shows the sum of all ephemeral infrastructure hosts with only Azure App Services over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral infrastructure hosts with only Azure App Services over all hours in the current date for all organizations.
    */
   "ephInfraHostOnlyAasSum"?: number;
   /**
-   * Shows the sum of all ephemeral infrastructure hosts with only vSphere over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral infrastructure hosts with only vSphere over all hours in the current date for all organizations.
    */
   "ephInfraHostOnlyVsphereSum"?: number;
   /**
-   * Shows the sum of all ephemeral APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
    */
   "ephInfraHostOpentelemetryApmSum"?: number;
   /**
-   * Shows the sum of all ephemeral hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
    */
   "ephInfraHostOpentelemetrySum"?: number;
   /**
-   * Shows the sum of all ephemeral infrastructure hosts for Pro over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral infrastructure hosts for Pro over all hours in the current date for all organizations.
    */
   "ephInfraHostProSum"?: number;
   /**
-   * Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current date for the given org.
+   * Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current date for all organizations.
    */
   "ephInfraHostProplusSum"?: number;
   /**
-   * Shows the sum of all Error Tracking APM error events over all hours in the current date for the given org.
+   * Shows the sum of all Error Tracking APM error events over all hours in the current date for all organizations.
    */
   "errorTrackingApmErrorEventsSum"?: number;
   /**
-   * Shows the sum of all Error Tracking error events over all hours in the current date for the given org.
+   * Shows the sum of all Error Tracking error events over all hours in the current date for all organizations.
    */
   "errorTrackingErrorEventsSum"?: number;
   /**
-   * Shows the sum of all Error Tracking events over all hours in the current date for the given org.
+   * Shows the sum of all Error Tracking events over all hours in the current date for all organizations.
    */
   "errorTrackingEventsSum"?: number;
   /**
-   * Shows the sum of all Error Tracking RUM error events over all hours in the current date for the given org.
+   * Shows the sum of all Error Tracking RUM error events over all hours in the current date for all organizations.
    */
   "errorTrackingRumErrorEventsSum"?: number;
   /**
@@ -327,35 +327,35 @@ export class UsageSummaryDate {
    */
   "fargateTasksCountHwm"?: number;
   /**
-   * Shows the average number of Flex Logs Compute Large Instances over all hours in the current date for the given org.
+   * Shows the average number of Flex Logs Compute Large Instances over all hours in the current date for all organizations.
    */
   "flexLogsComputeLargeAvg"?: number;
   /**
-   * Shows the average number of Flex Logs Compute Medium Instances over all hours in the current date for the given org.
+   * Shows the average number of Flex Logs Compute Medium Instances over all hours in the current date for all organizations.
    */
   "flexLogsComputeMediumAvg"?: number;
   /**
-   * Shows the average number of Flex Logs Compute Small Instances over all hours in the current date for the given org.
+   * Shows the average number of Flex Logs Compute Small Instances over all hours in the current date for all organizations.
    */
   "flexLogsComputeSmallAvg"?: number;
   /**
-   * Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the current date for the given org.
+   * Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the current date for all organizations.
    */
   "flexLogsComputeXsmallAvg"?: number;
   /**
-   * Shows the average number of Flex Logs Starter Instances over all hours in the current date for the given org.
+   * Shows the average number of Flex Logs Starter Instances over all hours in the current date for all organizations.
    */
   "flexLogsStarterAvg"?: number;
   /**
-   * Shows the average number of Flex Logs Starter Storage Index Instances over all hours in the current date for the given org.
+   * Shows the average number of Flex Logs Starter Storage Index Instances over all hours in the current date for all organizations.
    */
   "flexLogsStarterStorageIndexAvg"?: number;
   /**
-   * Shows the average number of Flex Logs Starter Storage Retention Adjustment Instances over all hours in the current date for the given org.
+   * Shows the average number of Flex Logs Starter Storage Retention Adjustment Instances over all hours in the current date for all organizations.
    */
   "flexLogsStarterStorageRetentionAdjustmentAvg"?: number;
   /**
-   * Shows the average of all Flex Stored Logs over all hours in the current date for the given org.
+   * Shows the average of all Flex Stored Logs over all hours in the current date for all organizations.
    */
   "flexStoredLogsAvg"?: number;
   /**
@@ -427,7 +427,7 @@ export class UsageSummaryDate {
    */
   "mobileRumUnitsSum"?: number;
   /**
-   * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current date for the given org.
+   * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current date for all organizations.
    */
   "ndmNetflowEventsSum"?: number;
   /**
@@ -439,15 +439,15 @@ export class UsageSummaryDate {
    */
   "npmHostTop99P"?: number;
   /**
-   * Sum of all observability pipelines bytes processed over all hours in the current date for the given org.
+   * Sum of all observability pipelines bytes processed over all hours in the current date for all organizations.
    */
   "observabilityPipelinesBytesProcessedSum"?: number;
   /**
-   * Shows the sum of all Oracle Cloud Infrastructure hosts over all hours in the current date for the given org.
+   * Shows the sum of all Oracle Cloud Infrastructure hosts over all hours in the current date for all organizations.
    */
   "ociHostSum"?: number;
   /**
-   * Shows the 99th percentile of all Oracle Cloud Infrastructure hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Oracle Cloud Infrastructure hosts over all hours in the current date for all organizations.
    */
   "ociHostTop99P"?: number;
   /**
@@ -467,6 +467,10 @@ export class UsageSummaryDate {
    */
   "orgs"?: Array<UsageSummaryDateOrg>;
   /**
+   * Sum of all product analytics sessions over all hours in the current date for all organizations.
+   */
+  "productAnalyticsSum"?: number;
+  /**
    * Shows the 99th percentile of all profiled Azure app services over all hours in the current date for all organizations.
    */
   "profilingAasCountTop99P"?: number;
@@ -475,7 +479,7 @@ export class UsageSummaryDate {
    */
   "profilingHostTop99P"?: number;
   /**
-   * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
+   * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).
    */
   "rumBrowserAndMobileSessionCount"?: number;
   /**
@@ -575,11 +579,11 @@ export class UsageSummaryDate {
    */
   "rumUnitsSum"?: number;
   /**
-   * Shows the average of all Software Composition Analysis Fargate tasks over all hours in the current date for the given org.
+   * Shows the average of all Software Composition Analysis Fargate tasks over all hours in the current date for all organizations.
    */
   "scaFargateCountAvg"?: number;
   /**
-   * Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over all hours in the current date for the given org.
+   * Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over all hours in the current date for all organizations.
    */
   "scaFargateCountHwm"?: number;
   /**
@@ -591,7 +595,7 @@ export class UsageSummaryDate {
    */
   "sdsEventsScannedBytesSum"?: number;
   /**
-   * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
+   * Shows the sum of all bytes scanned by the Sensitive Data Scanner for logs usage across all organizations over all hours on the current date.
    */
   "sdsLogsScannedBytesSum"?: number;
   /**
@@ -599,23 +603,23 @@ export class UsageSummaryDate {
    */
   "sdsRumScannedBytesSum"?: number;
   /**
-   * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
+   * Shows the sum of all bytes scanned by the Sensitive Data Scanner across all usage types over all hours of the current date for all organizations.
    */
   "sdsTotalScannedBytesSum"?: number;
   /**
-   * Shows the average of the number of Serverless Apps for Azure for the given date and given org.
+   * Shows the average number of Serverless Apps for Azure for the given date for all organizations.
    */
   "serverlessAppsAzureCountAvg"?: number;
   /**
-   * Shows the average of the number of Serverless Apps for Google Cloud for the given date and given org.
+   * Shows the average number of Serverless Apps for Google Cloud for the given date for all organizations.
    */
   "serverlessAppsGoogleCountAvg"?: number;
   /**
-   * Shows the average of the number of Serverless Apps for Azure and Google Cloud for the given date and given org.
+   * Shows the average number of Serverless Apps for Azure and Google Cloud for the given date for all organizations.
    */
   "serverlessAppsTotalCountAvg"?: number;
   /**
-   * Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for the given org.
+   * Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for all organizations.
    */
   "siemAnalyzedLogsAddOnCountSum"?: number;
   /**
@@ -643,7 +647,7 @@ export class UsageSummaryDate {
    */
   "twolIngestedEventsBytesSum"?: number;
   /**
-   * Shows the 99th percentile of all universal service management hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all universal service management hosts over all hours on the current date for all organizations.
    */
   "universalServiceMonitoringHostTop99P"?: number;
   /**
@@ -651,7 +655,7 @@ export class UsageSummaryDate {
    */
   "vsphereHostTop99P"?: number;
   /**
-   * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours on the current date for all organizations.
    */
   "vulnManagementHostCountTop99P"?: number;
   /**
@@ -1246,6 +1250,11 @@ export class UsageSummaryDate {
     orgs: {
       baseName: "orgs",
       type: "Array<UsageSummaryDateOrg>",
+    },
+    productAnalyticsSum: {
+      baseName: "product_analytics_sum",
+      type: "number",
+      format: "int64",
     },
     profilingAasCountTop99P: {
       baseName: "profiling_aas_count_top99p",
