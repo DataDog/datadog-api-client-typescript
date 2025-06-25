@@ -1,13 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { MonitorUserTemplateResponseData } from "./MonitorUserTemplateResponseData";
+
 /**
- * Links to the event.
+ * Response for retrieving all monitor user templates.
  */
-export class EventCreateResponsePayloadLinks {
+export class MonitorUserTemplateListResponse {
   /**
-   * The URL of the event. This link is only functional when using the default subdomain.
+   * An array of monitor user templates.
    */
-  "self"?: string;
+  "data"?: Array<MonitorUserTemplateResponseData>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -23,9 +25,9 @@ export class EventCreateResponsePayloadLinks {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    self: {
-      baseName: "self",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "Array<MonitorUserTemplateResponseData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -37,7 +39,7 @@ export class EventCreateResponsePayloadLinks {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return EventCreateResponsePayloadLinks.attributeTypeMap;
+    return MonitorUserTemplateListResponse.attributeTypeMap;
   }
 
   public constructor() {}

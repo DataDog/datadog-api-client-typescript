@@ -1,20 +1,15 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { EventCreateResponse } from "./EventCreateResponse";
-import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLinks";
 
 /**
- * Event creation response.
+ * Response containing information about created event.
  */
 export class EventCreateResponsePayload {
   /**
-   * Event object.
+   * Object containing an event response.
    */
   "data"?: EventCreateResponse;
-  /**
-   * Links to the event.
-   */
-  "links"?: EventCreateResponsePayloadLinks;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -33,10 +28,6 @@ export class EventCreateResponsePayload {
     data: {
       baseName: "data",
       type: "EventCreateResponse",
-    },
-    links: {
-      baseName: "links",
-      type: "EventCreateResponsePayloadLinks",
     },
     additionalProperties: {
       baseName: "additionalProperties",
