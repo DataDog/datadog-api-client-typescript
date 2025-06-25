@@ -196,6 +196,7 @@ export { SyntheticsTestRequestBodyFile } from "./models/SyntheticsTestRequestBod
 export { SyntheticsTestRequestBodyType } from "./models/SyntheticsTestRequestBodyType";
 export { SyntheticsTestRequestCertificate } from "./models/SyntheticsTestRequestCertificate";
 export { SyntheticsTestRequestCertificateItem } from "./models/SyntheticsTestRequestCertificateItem";
+export { SyntheticsTestRequestDNSServerPort } from "./models/SyntheticsTestRequestDNSServerPort";
 export { SyntheticsTestRequestPort } from "./models/SyntheticsTestRequestPort";
 export { SyntheticsTestRequestProxy } from "./models/SyntheticsTestRequestProxy";
 export { SyntheticsTestRestrictionPolicyBinding } from "./models/SyntheticsTestRestrictionPolicyBinding";

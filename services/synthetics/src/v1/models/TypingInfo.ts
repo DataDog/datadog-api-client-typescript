@@ -416,6 +416,7 @@ export const TypingInfo: ModelTypingInfo = {
       "SyntheticsBasicAuthOauthROP",
     ],
     SyntheticsMobileStepParamsValue: ["string", "number"],
+    SyntheticsTestRequestDNSServerPort: ["number", "string"],
     SyntheticsTestRequestPort: ["number", "string"],
   },
   typeMap: {
