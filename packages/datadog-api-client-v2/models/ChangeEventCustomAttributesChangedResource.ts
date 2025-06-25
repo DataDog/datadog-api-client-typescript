@@ -8,24 +8,17 @@ import { ChangeEventCustomAttributesChangedResourceType } from "./ChangeEventCus
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object representing a uniquely identified resource.
+ * A uniquely identified resource.
  */
 export class ChangeEventCustomAttributesChangedResource {
   /**
-   * Resource's name.
+   * The name of the resource that was changed. Limited to 128 characters.
    */
   "name": string;
   /**
-   * Resource's type.
+   * The type of the resource that was changed.
    */
   "type": ChangeEventCustomAttributesChangedResourceType;
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
 
   /**
    * @ignore
@@ -45,10 +38,6 @@ export class ChangeEventCustomAttributesChangedResource {
       baseName: "type",
       type: "ChangeEventCustomAttributesChangedResourceType",
       required: true,
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
     },
   };
 
