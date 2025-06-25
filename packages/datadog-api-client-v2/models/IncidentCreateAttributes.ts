@@ -34,6 +34,10 @@ export class IncidentCreateAttributes {
    */
   "initialCells"?: Array<IncidentTimelineCellCreateAttributes>;
   /**
+   * A flag indicating whether the incident is a test incident.
+   */
+  "isTest"?: boolean;
+  /**
    * Notification handles that will be notified of the incident at creation.
    */
   "notificationHandles"?: Array<IncidentNotificationHandle>;
@@ -78,6 +82,10 @@ export class IncidentCreateAttributes {
     initialCells: {
       baseName: "initial_cells",
       type: "Array<IncidentTimelineCellCreateAttributes>",
+    },
+    isTest: {
+      baseName: "is_test",
+      type: "boolean",
     },
     notificationHandles: {
       baseName: "notification_handles",
