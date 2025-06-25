@@ -156,6 +156,35 @@ export const operationServers: {
       subdomain: "http-intake.logs",
     }),
   ],
+  "v2.EventsApi.createEvent": [
+    new ServerConfiguration<{
+      site:
+        | "datadoghq.com"
+        | "us3.datadoghq.com"
+        | "us5.datadoghq.com"
+        | "ap1.datadoghq.com"
+        | "datadoghq.eu"
+        | "ddog-gov.com";
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "event-management-intake",
+    }),
+    new ServerConfiguration<{
+      name: string;
+      protocol: string;
+    }>("{protocol}://{name}", {
+      name: "event-management-intake.datadoghq.com",
+      protocol: "https",
+    }),
+    new ServerConfiguration<{
+      site: string;
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "event-management-intake",
+    }),
+  ],
   "v2.LogsApi.submitLog": [
     new ServerConfiguration<{
       site:

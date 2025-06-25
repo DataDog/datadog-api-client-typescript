@@ -8,24 +8,17 @@ import { ChangeEventCustomAttributesAuthorType } from "./ChangeEventCustomAttrib
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object representing the entity which made the change. Optional field but if provided should include `type` and `name`.
+ * The entity that made the change. Optional, if provided it must include `type` and `name`.
  */
 export class ChangeEventCustomAttributesAuthor {
   /**
-   * Author's name. Limited to 128 characters.
+   * The name of the user or system that made the change. Limited to 128 characters.
    */
   "name": string;
   /**
    * Author's type.
    */
   "type": ChangeEventCustomAttributesAuthorType;
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
 
   /**
    * @ignore
@@ -45,10 +38,6 @@ export class ChangeEventCustomAttributesAuthor {
       baseName: "type",
       type: "ChangeEventCustomAttributesAuthorType",
       required: true,
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
     },
   };
 
