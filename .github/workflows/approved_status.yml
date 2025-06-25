@@ -31,8 +31,7 @@ jobs:
           private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
           repositories: datadog-api-spec
       - name: Post PR review status check
-        uses: DataDog/github-actions/post-review-status@05c350fc18aedf60599afb7e3c623452fc5b5278
+        uses: DataDog/github-actions/post-review-status@db4b98a773662d0162dd81ed83907983c98b088a
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
-          check-name: typescript-${{ github.event.pull_request.base.ref }}

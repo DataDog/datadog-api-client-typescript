@@ -131,7 +131,7 @@ jobs:
           private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
           repositories: datadog-api-spec
       - name: Post status check
-        uses: DataDog/github-actions/post-status-check@v2
+        uses: DataDog/github-actions/post-status-check@db4b98a773662d0162dd81ed83907983c98b088a
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
