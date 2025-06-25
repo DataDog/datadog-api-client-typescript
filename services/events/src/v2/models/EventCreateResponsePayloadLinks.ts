@@ -1,20 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { EventCreateResponse } from "./EventCreateResponse";
-import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLinks";
-
 /**
- * Event creation response.
+ * Links to the event.
  */
-export class EventCreateResponsePayload {
+export class EventCreateResponsePayloadLinks {
   /**
-   * Event object.
+   * The URL of the event. This link is only functional when using the default subdomain.
    */
-  "data"?: EventCreateResponse;
-  /**
-   * Links to the event.
-   */
-  "links"?: EventCreateResponsePayloadLinks;
+  "self"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -30,13 +23,9 @@ export class EventCreateResponsePayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "EventCreateResponse",
-    },
-    links: {
-      baseName: "links",
-      type: "EventCreateResponsePayloadLinks",
+    self: {
+      baseName: "self",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -48,7 +37,7 @@ export class EventCreateResponsePayload {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return EventCreateResponsePayload.attributeTypeMap;
+    return EventCreateResponsePayloadLinks.attributeTypeMap;
   }
 
   public constructor() {}
