@@ -236,7 +236,7 @@ export class EventsApiResponseProcessor {
     response: ResponseContext,
   ): Promise<EventCreateResponsePayload> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
-    if (response.httpStatusCode === 200) {
+    if (response.httpStatusCode === 202) {
       const body: EventCreateResponsePayload = deserialize(
         parse(await response.body.text(), contentType),
         TypingInfo,
@@ -425,7 +425,7 @@ export class EventsApiResponseProcessor {
 
 export interface EventsApiCreateEventRequest {
   /**
-   * Event request object
+   * Event creation request payload.
    * @type EventCreateRequestPayload
    */
   body: EventCreateRequestPayload;
@@ -476,7 +476,37 @@ export class EventsApi {
   private responseProcessor: EventsApiResponseProcessor;
   private configuration: Configuration;
 
-  static operationServers: { [key: string]: BaseServerConfiguration[] } = {};
+  static operationServers: { [key: string]: BaseServerConfiguration[] } = {
+    "EventsApi.v2.createEvent": [
+      new ServerConfiguration<{
+        site:
+          | "datadoghq.com"
+          | "us3.datadoghq.com"
+          | "us5.datadoghq.com"
+          | "ap1.datadoghq.com"
+          | "datadoghq.eu"
+          | "ddog-gov.com";
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "event-management-intake",
+      }),
+      new ServerConfiguration<{
+        name: string;
+        protocol: string;
+      }>("{protocol}://{name}", {
+        name: "event-management-intake.datadoghq.com",
+        protocol: "https",
+      }),
+      new ServerConfiguration<{
+        site: string;
+        subdomain: string;
+      }>("https://{subdomain}.{site}", {
+        site: "datadoghq.com",
+        subdomain: "event-management-intake",
+      }),
+    ],
+  };
 
   public constructor(
     configuration?: Configuration,
@@ -491,11 +521,15 @@ export class EventsApi {
   }
 
   /**
-   * This endpoint allows you to post events.
+   * This endpoint allows you to publish events.
    *
-   * ✅ **Only events with the `change` category** are in General Availability. See [Change Tracking](https://docs.datadoghq.com/change_tracking) for more details.
+   * ✅ **Only events with the `change` or `alert` category** are in General Availability. For change events, see [Change Tracking](https://docs.datadoghq.com/change_tracking) for more details.
    *
-   * ❌ For use cases involving other event categories, please use the V1 endpoint.
+   * ❌ For use cases involving other event categories, use the V1 endpoint or reach out to [support](https://www.datadoghq.com/support/).
+   *
+   * ❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint for notification functionality.
+   *
+   * ❌ This endpoint is not available for the Government (US1-FED) site. Contact your account representative for more information.
    * @param param The request object
    */
   public createEvent(

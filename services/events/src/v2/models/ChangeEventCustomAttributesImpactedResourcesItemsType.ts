@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Resource's type.
+ * The type of the impacted resource.
  */
 export type ChangeEventCustomAttributesImpactedResourcesItemsType =
   | typeof SERVICE
