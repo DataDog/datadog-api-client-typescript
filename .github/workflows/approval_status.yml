@@ -7,7 +7,7 @@ permissions:
 on:
   pull_request:
     branches:
-      - master
+      - v2
     types: ["review_requested", "synchronize", "opened", "reopened"]
   pull_request_review:
     types:
