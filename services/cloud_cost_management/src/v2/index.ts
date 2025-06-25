@@ -1,14 +1,17 @@
 export {
   CloudCostManagementApiCreateCostAWSCURConfigRequest,
   CloudCostManagementApiCreateCostAzureUCConfigsRequest,
+  CloudCostManagementApiCreateCostGCPUsageCostConfigRequest,
   CloudCostManagementApiDeleteBudgetRequest,
   CloudCostManagementApiDeleteCostAWSCURConfigRequest,
   CloudCostManagementApiDeleteCostAzureUCConfigRequest,
+  CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest,
   CloudCostManagementApiDeleteCustomCostsFileRequest,
   CloudCostManagementApiGetBudgetRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
   CloudCostManagementApiUpdateCostAWSCURConfigRequest,
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
+  CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
   CloudCostManagementApiUploadCustomCostsFileRequest,
   CloudCostManagementApiUpsertBudgetRequest,
   CloudCostManagementApi,
@@ -63,4 +66,17 @@ export { CustomCostsFileUploadResponse } from "./models/CustomCostsFileUploadRes
 export { CustomCostsFileUsageChargePeriod } from "./models/CustomCostsFileUsageChargePeriod";
 export { CustomCostsUser } from "./models/CustomCostsUser";
 export { CustomCostUploadResponseMeta } from "./models/CustomCostUploadResponseMeta";
+export { GCPUsageCostConfig } from "./models/GCPUsageCostConfig";
+export { GCPUsageCostConfigAttributes } from "./models/GCPUsageCostConfigAttributes";
+export { GCPUsageCostConfigPatchData } from "./models/GCPUsageCostConfigPatchData";
+export { GCPUsageCostConfigPatchRequest } from "./models/GCPUsageCostConfigPatchRequest";
+export { GCPUsageCostConfigPatchRequestAttributes } from "./models/GCPUsageCostConfigPatchRequestAttributes";
+export { GCPUsageCostConfigPatchRequestType } from "./models/GCPUsageCostConfigPatchRequestType";
+export { GCPUsageCostConfigPostData } from "./models/GCPUsageCostConfigPostData";
+export { GCPUsageCostConfigPostRequest } from "./models/GCPUsageCostConfigPostRequest";
+export { GCPUsageCostConfigPostRequestAttributes } from "./models/GCPUsageCostConfigPostRequestAttributes";
+export { GCPUsageCostConfigPostRequestType } from "./models/GCPUsageCostConfigPostRequestType";
+export { GCPUsageCostConfigResponse } from "./models/GCPUsageCostConfigResponse";
+export { GCPUsageCostConfigsResponse } from "./models/GCPUsageCostConfigsResponse";
+export { GCPUsageCostConfigType } from "./models/GCPUsageCostConfigType";
 export { TagFilter } from "./models/TagFilter";
