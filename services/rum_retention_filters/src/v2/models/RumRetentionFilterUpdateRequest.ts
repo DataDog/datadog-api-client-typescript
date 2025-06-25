@@ -3,7 +3,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { RumRetentionFilterUpdateData } from "./RumRetentionFilterUpdateData";
 
 /**
- * The RUM retention filter body to update.
+ * The RUM retention filter body to update
  */
 export class RumRetentionFilterUpdateRequest {
   /**
