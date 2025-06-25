@@ -37,6 +37,10 @@ import { CustomCostsFileGetResponse } from "./models/CustomCostsFileGetResponse"
 import { CustomCostsFileLineItem } from "./models/CustomCostsFileLineItem";
 import { CustomCostsFileListResponse } from "./models/CustomCostsFileListResponse";
 import { CustomCostsFileUploadResponse } from "./models/CustomCostsFileUploadResponse";
+import { GCPUsageCostConfigPatchRequest } from "./models/GCPUsageCostConfigPatchRequest";
+import { GCPUsageCostConfigPostRequest } from "./models/GCPUsageCostConfigPostRequest";
+import { GCPUsageCostConfigResponse } from "./models/GCPUsageCostConfigResponse";
+import { GCPUsageCostConfigsResponse } from "./models/GCPUsageCostConfigsResponse";
 import { version } from "../version";
 
 export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory {
@@ -136,6 +140,57 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AzureUCConfigPostRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createCostGCPUsageCostConfig(
+    body: GCPUsageCostConfigPostRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createCostGCPUsageCostConfig");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/gcp_uc_config";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.createCostGCPUsageCostConfig",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "GCPUsageCostConfigPostRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -262,6 +317,52 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudCostManagementApi.v2.deleteCostAzureUCConfig",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.DELETE,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteCostGCPUsageCostConfig(
+    cloudAccountId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'cloudAccountId' is not null or undefined
+    if (cloudAccountId === null || cloudAccountId === undefined) {
+      throw new RequiredError("cloudAccountId", "deleteCostGCPUsageCostConfig");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/gcp_uc_config/{cloud_account_id}".replace(
+        "{cloud_account_id}",
+        encodeURIComponent(String(cloudAccountId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.deleteCostGCPUsageCostConfig",
       CloudCostManagementApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -528,6 +629,42 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async listCostGCPUsageCostConfigs(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/gcp_uc_config";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.listCostGCPUsageCostConfigs",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listCustomCostsFiles(
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -672,6 +809,67 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = stringify(
       serialize(body, TypingInfo, "AzureUCConfigPatchRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateCostGCPUsageCostConfig(
+    cloudAccountId: string,
+    body: GCPUsageCostConfigPatchRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'cloudAccountId' is not null or undefined
+    if (cloudAccountId === null || cloudAccountId === undefined) {
+      throw new RequiredError("cloudAccountId", "updateCostGCPUsageCostConfig");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateCostGCPUsageCostConfig");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/cost/gcp_uc_config/{cloud_account_id}".replace(
+        "{cloud_account_id}",
+        encodeURIComponent(String(cloudAccountId)),
+      );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudCostManagementApi.v2.updateCostGCPUsageCostConfig",
+      CloudCostManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.PATCH,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "GCPUsageCostConfigPatchRequest", ""),
       contentType,
     );
     requestContext.setBody(serializedBody);
@@ -914,6 +1112,66 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createCostGCPUsageCostConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createCostGCPUsageCostConfig(
+    response: ResponseContext,
+  ): Promise<GCPUsageCostConfigResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: GCPUsageCostConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GCPUsageCostConfigResponse",
+      ) as GCPUsageCostConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GCPUsageCostConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GCPUsageCostConfigResponse",
+        "",
+      ) as GCPUsageCostConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteBudget
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1010,6 +1268,55 @@ export class CloudCostManagementApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async deleteCostAzureUCConfig(
+    response: ResponseContext,
+  ): Promise<void> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      return;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteCostGCPUsageCostConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteCostGCPUsageCostConfig(
     response: ResponseContext,
   ): Promise<void> {
     const contentType = normalizeMediaType(response.headers["content-type"]);
@@ -1380,6 +1687,62 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listCostGCPUsageCostConfigs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCostGCPUsageCostConfigs(
+    response: ResponseContext,
+  ): Promise<GCPUsageCostConfigsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: GCPUsageCostConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GCPUsageCostConfigsResponse",
+      ) as GCPUsageCostConfigsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GCPUsageCostConfigsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GCPUsageCostConfigsResponse",
+        "",
+      ) as GCPUsageCostConfigsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listCustomCostsFiles
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1552,6 +1915,67 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateCostGCPUsageCostConfig
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateCostGCPUsageCostConfig(
+    response: ResponseContext,
+  ): Promise<GCPUsageCostConfigResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: GCPUsageCostConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GCPUsageCostConfigResponse",
+      ) as GCPUsageCostConfigResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GCPUsageCostConfigResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "GCPUsageCostConfigResponse",
+        "",
+      ) as GCPUsageCostConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to uploadCustomCostsFile
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1679,6 +2103,13 @@ export interface CloudCostManagementApiCreateCostAzureUCConfigsRequest {
   body: AzureUCConfigPostRequest;
 }
 
+export interface CloudCostManagementApiCreateCostGCPUsageCostConfigRequest {
+  /**
+   * @type GCPUsageCostConfigPostRequest
+   */
+  body: GCPUsageCostConfigPostRequest;
+}
+
 export interface CloudCostManagementApiDeleteBudgetRequest {
   /**
    * Budget id.
@@ -1696,6 +2127,14 @@ export interface CloudCostManagementApiDeleteCostAWSCURConfigRequest {
 }
 
 export interface CloudCostManagementApiDeleteCostAzureUCConfigRequest {
+  /**
+   * Cloud Account id.
+   * @type string
+   */
+  cloudAccountId: string;
+}
+
+export interface CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest {
   /**
    * Cloud Account id.
    * @type string
@@ -1749,6 +2188,18 @@ export interface CloudCostManagementApiUpdateCostAzureUCConfigsRequest {
    * @type AzureUCConfigPatchRequest
    */
   body: AzureUCConfigPatchRequest;
+}
+
+export interface CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest {
+  /**
+   * Cloud Account id.
+   * @type string
+   */
+  cloudAccountId: string;
+  /**
+   * @type GCPUsageCostConfigPatchRequest
+   */
+  body: GCPUsageCostConfigPatchRequest;
 }
 
 export interface CloudCostManagementApiUploadCustomCostsFileRequest {
@@ -1830,6 +2281,27 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Create a Cloud Cost Management account for an GCP Usage Cost config.
+   * @param param The request object
+   */
+  public createCostGCPUsageCostConfig(
+    param: CloudCostManagementApiCreateCostGCPUsageCostConfigRequest,
+    options?: Configuration,
+  ): Promise<GCPUsageCostConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.createCostGCPUsageCostConfig(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCostGCPUsageCostConfig(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * Delete a budget.
    * @param param The request object
    */
@@ -1888,6 +2360,30 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteCostAzureUCConfig(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Archive a Cloud Cost Management account.
+   * @param param The request object
+   */
+  public deleteCostGCPUsageCostConfig(
+    param: CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest,
+    options?: Configuration,
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteCostGCPUsageCostConfig(
+        param.cloudAccountId,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCostGCPUsageCostConfig(
             responseContext,
           );
         });
@@ -2009,6 +2505,26 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * List the GCP Usage Cost configs.
+   * @param param The request object
+   */
+  public listCostGCPUsageCostConfigs(
+    options?: Configuration,
+  ): Promise<GCPUsageCostConfigsResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCostGCPUsageCostConfigs(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCostGCPUsageCostConfigs(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
    * List the Custom Costs files.
    * @param param The request object
    */
@@ -2066,6 +2582,31 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateCostAzureUCConfigs(
+            responseContext,
+          );
+        });
+    });
+  }
+
+  /**
+   * Update the status of an GCP Usage Cost config (active/archived).
+   * @param param The request object
+   */
+  public updateCostGCPUsageCostConfig(
+    param: CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
+    options?: Configuration,
+  ): Promise<GCPUsageCostConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateCostGCPUsageCostConfig(
+        param.cloudAccountId,
+        param.body,
+        options,
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCostGCPUsageCostConfig(
             responseContext,
           );
         });
