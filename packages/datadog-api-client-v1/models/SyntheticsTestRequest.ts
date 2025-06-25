@@ -9,6 +9,7 @@ import { SyntheticsTestOptionsHTTPVersion } from "./SyntheticsTestOptionsHTTPVer
 import { SyntheticsTestRequestBodyFile } from "./SyntheticsTestRequestBodyFile";
 import { SyntheticsTestRequestBodyType } from "./SyntheticsTestRequestBodyType";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
+import { SyntheticsTestRequestDNSServerPort } from "./SyntheticsTestRequestDNSServerPort";
 import { SyntheticsTestRequestPort } from "./SyntheticsTestRequestPort";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
 
@@ -65,7 +66,7 @@ export class SyntheticsTestRequest {
   /**
    * DNS server port to use for DNS tests.
    */
-  "dnsServerPort"?: string;
+  "dnsServerPort"?: SyntheticsTestRequestDNSServerPort;
   /**
    * Files to be used as part of the request in the test. Only valid if `bodyType` is `multipart/form-data`.
    */
@@ -215,7 +216,7 @@ export class SyntheticsTestRequest {
     },
     dnsServerPort: {
       baseName: "dnsServerPort",
-      type: "string",
+      type: "SyntheticsTestRequestDNSServerPort",
     },
     files: {
       baseName: "files",
