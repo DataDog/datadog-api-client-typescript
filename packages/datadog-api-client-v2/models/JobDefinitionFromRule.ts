@@ -11,10 +11,6 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class JobDefinitionFromRule {
   /**
-   * Index of the rule case applied by the job.
-   */
-  "caseIndex": number;
-  /**
    * Starting time of data analyzed by the job.
    */
   "from": number;
@@ -51,12 +47,6 @@ export class JobDefinitionFromRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    caseIndex: {
-      baseName: "caseIndex",
-      type: "number",
-      required: true,
-      format: "int32",
-    },
     from: {
       baseName: "from",
       type: "number",
