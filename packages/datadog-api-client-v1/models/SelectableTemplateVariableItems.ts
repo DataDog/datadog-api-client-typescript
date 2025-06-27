@@ -23,6 +23,10 @@ export class SelectableTemplateVariableItems {
    */
   "prefix"?: string;
   /**
+   * The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+   */
+  "type"?: string;
+  /**
    * List of visible tag values on the shared dashboard.
    */
   "visibleTags"?: Array<string>;
@@ -53,6 +57,10 @@ export class SelectableTemplateVariableItems {
     },
     prefix: {
       baseName: "prefix",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
       type: "string",
     },
     visibleTags: {
