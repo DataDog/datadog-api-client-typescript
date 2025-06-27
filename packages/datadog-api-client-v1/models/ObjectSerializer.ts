@@ -154,6 +154,10 @@ import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { LogsAPIError } from "./LogsAPIError";
 import { LogsAPIErrorResponse } from "./LogsAPIErrorResponse";
 import { LogsArithmeticProcessor } from "./LogsArithmeticProcessor";
+import { LogsArrayProcessor } from "./LogsArrayProcessor";
+import { LogsArrayProcessorOperationAppend } from "./LogsArrayProcessorOperationAppend";
+import { LogsArrayProcessorOperationLength } from "./LogsArrayProcessorOperationLength";
+import { LogsArrayProcessorOperationSelect } from "./LogsArrayProcessorOperationSelect";
 import { LogsAttributeRemapper } from "./LogsAttributeRemapper";
 import { LogsByRetention } from "./LogsByRetention";
 import { LogsByRetentionMonthlyUsage } from "./LogsByRetentionMonthlyUsage";
@@ -917,6 +921,10 @@ const enumsMap: { [key: string]: any[] } = {
   ListStreamWidgetDefinitionType: ["list_stream"],
   LogStreamWidgetDefinitionType: ["log_stream"],
   LogsArithmeticProcessorType: ["arithmetic-processor"],
+  LogsArrayProcessorOperationAppendType: ["append"],
+  LogsArrayProcessorOperationLengthType: ["length"],
+  LogsArrayProcessorOperationSelectType: ["select"],
+  LogsArrayProcessorType: ["array-processor"],
   LogsAttributeRemapperType: ["attribute-remapper"],
   LogsCategoryProcessorType: ["category-processor"],
   LogsDateRemapperType: ["date-remapper"],
@@ -1837,6 +1845,10 @@ const typeMap: { [index: string]: any } = {
   LogsAPIError: LogsAPIError,
   LogsAPIErrorResponse: LogsAPIErrorResponse,
   LogsArithmeticProcessor: LogsArithmeticProcessor,
+  LogsArrayProcessor: LogsArrayProcessor,
+  LogsArrayProcessorOperationAppend: LogsArrayProcessorOperationAppend,
+  LogsArrayProcessorOperationLength: LogsArrayProcessorOperationLength,
+  LogsArrayProcessorOperationSelect: LogsArrayProcessorOperationSelect,
   LogsAttributeRemapper: LogsAttributeRemapper,
   LogsByRetention: LogsByRetention,
   LogsByRetentionMonthlyUsage: LogsByRetentionMonthlyUsage,
@@ -2376,6 +2388,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionSLOQueryDefinition",
     "FormulaAndFunctionCloudCostQueryDefinition",
   ],
+  LogsArrayProcessorOperation: [
+    "LogsArrayProcessorOperationAppend",
+    "LogsArrayProcessorOperationLength",
+    "LogsArrayProcessorOperationSelect",
+  ],
   LogsProcessor: [
     "LogsGrokParser",
     "LogsDateRemapper",
@@ -2394,6 +2411,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ReferenceTableLogsLookupProcessor",
     "LogsTraceRemapper",
     "LogsSpanRemapper",
+    "LogsArrayProcessor",
   ],
   MonitorFormulaAndFunctionQueryDefinition: [
     "MonitorFormulaAndFunctionEventQueryDefinition",
