@@ -30,6 +30,10 @@ export class DashboardTemplateVariable {
    * The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
    */
   "prefix"?: string;
+  /**
+   * The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+   */
+  "type"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -66,6 +70,10 @@ export class DashboardTemplateVariable {
     },
     prefix: {
       baseName: "prefix",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
       type: "string",
     },
     additionalProperties: {
