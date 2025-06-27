@@ -26,7 +26,7 @@ export class SyntheticsMobileTest {
   /**
    * Notification message associated with the test.
    */
-  "message"?: string;
+  "message": string;
   /**
    * The associated monitor ID.
    */
@@ -89,6 +89,7 @@ export class SyntheticsMobileTest {
     message: {
       baseName: "message",
       type: "string",
+      required: true,
     },
     monitorId: {
       baseName: "monitor_id",
