@@ -5771,6 +5771,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    windowSeconds: {
+      type: "number",
+      format: "int64",
+    },
     operationResponseType: "MetricVolumesResponse",
   },
   "MetricsApi.V2.QueryScalarData": {
