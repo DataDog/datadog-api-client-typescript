@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 1.39.0/2025-06-30
+
+### Fixed
+* Synthetics mobile test `message` field is now required [#2436](https://github.com/DataDog/datadog-api-client-typescript/pull/2436)
+* Make dns port be string and number [#2403](https://github.com/DataDog/datadog-api-client-typescript/pull/2403)
+
+### Security
+* Remove caseIndex from historical jobs api spec [#2434](https://github.com/DataDog/datadog-api-client-typescript/pull/2434)
+
+### Changed
+* Update events intake specs for v2 Events post endpoint [#2424](https://github.com/DataDog/datadog-api-client-typescript/pull/2424)
+
+### Added
+* Update Incident API specs to include `is_test` in `POST /incidents` and incidents response [#2422](https://github.com/DataDog/datadog-api-client-typescript/pull/2422)
+* Add App Key Registration API  [#2411](https://github.com/DataDog/datadog-api-client-typescript/pull/2411)
+* Add Monitor Template API [#2269](https://github.com/DataDog/datadog-api-client-typescript/pull/2269)
+
+### Deprecated
+* Deprecate SLO metadata fields in api spec [#2324](https://github.com/DataDog/datadog-api-client-typescript/pull/2324)
+
 ## 1.38.0/2025-06-24
 
 ### Fixed
