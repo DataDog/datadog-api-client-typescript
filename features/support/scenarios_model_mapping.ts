@@ -4181,6 +4181,34 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CustomCostsFileGetResponse",
     },
+    "v2.ListCostGCPUsageCostConfigs": {
+        "operationResponseType": "GCPUsageCostConfigsResponse",
+    },
+    "v2.CreateCostGCPUsageCostConfig": {
+        "body": {
+            "type": "GCPUsageCostConfigPostRequest",
+            "format": "",
+            },
+        "operationResponseType": "GCPUsageCostConfigResponse",
+    },
+    "v2.DeleteCostGCPUsageCostConfig": {
+        "cloudAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.UpdateCostGCPUsageCostConfig": {
+        "cloudAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "GCPUsageCostConfigPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "GCPUsageCostConfigResponse",
+    },
     "v2.GetActiveBillingDimensions": {
         "operationResponseType": "ActiveBillingDimensionsResponse",
     },
