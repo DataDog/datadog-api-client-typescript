@@ -4191,6 +4191,34 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "CloudCostManagementApi.V2.ListCostGCPUsageCostConfigs": {
+    operationResponseType: "GCPUsageCostConfigsResponse",
+  },
+  "CloudCostManagementApi.V2.CreateCostGCPUsageCostConfig": {
+    body: {
+      type: "GCPUsageCostConfigPostRequest",
+      format: "",
+    },
+    operationResponseType: "GCPUsageCostConfigResponse",
+  },
+  "CloudCostManagementApi.V2.DeleteCostGCPUsageCostConfig": {
+    cloudAccountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.UpdateCostGCPUsageCostConfig": {
+    cloudAccountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GCPUsageCostConfigPatchRequest",
+      format: "",
+    },
+    operationResponseType: "GCPUsageCostConfigResponse",
+  },
   "UsageMeteringApi.V2.GetActiveBillingDimensions": {
     operationResponseType: "ActiveBillingDimensionsResponse",
   },
