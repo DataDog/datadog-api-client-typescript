@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MetricNotebookAsset {
   /**
-   * Assets related to the object, including title and url.
+   * Assets related to the object, including title, url, and tags.
    */
   "attributes"?: MetricAssetAttributes;
   /**
