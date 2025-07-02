@@ -16,6 +16,7 @@ export type SyntheticsStepType =
   | typeof ASSERT_REQUESTS
   | typeof CLICK
   | typeof EXTRACT_FROM_JAVASCRIPT
+  | typeof EXTRACT_FROM_EMAIL_BODY
   | typeof EXTRACT_VARIABLE
   | typeof GO_TO_EMAIL_LINK
   | typeof GO_TO_URL
@@ -43,6 +44,7 @@ export const ASSERT_PAGE_LACKS = "assertPageLacks";
 export const ASSERT_REQUESTS = "assertRequests";
 export const CLICK = "click";
 export const EXTRACT_FROM_JAVASCRIPT = "extractFromJavascript";
+export const EXTRACT_FROM_EMAIL_BODY = "extractFromEmailBody";
 export const EXTRACT_VARIABLE = "extractVariable";
 export const GO_TO_EMAIL_LINK = "goToEmailLink";
 export const GO_TO_URL = "goToUrl";
