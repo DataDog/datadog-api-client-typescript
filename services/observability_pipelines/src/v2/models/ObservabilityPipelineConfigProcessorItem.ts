@@ -11,6 +11,7 @@ import { ObservabilityPipelineParseGrokProcessor } from "./ObservabilityPipeline
 import { ObservabilityPipelineParseJSONProcessor } from "./ObservabilityPipelineParseJSONProcessor";
 import { ObservabilityPipelineQuotaProcessor } from "./ObservabilityPipelineQuotaProcessor";
 import { ObservabilityPipelineReduceProcessor } from "./ObservabilityPipelineReduceProcessor";
+import { ObservabilityPipelineRemapVrlProcessor } from "./ObservabilityPipelineRemapVrlProcessor";
 import { ObservabilityPipelineRemoveFieldsProcessor } from "./ObservabilityPipelineRemoveFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessor } from "./ObservabilityPipelineRenameFieldsProcessor";
 import { ObservabilityPipelineSampleProcessor } from "./ObservabilityPipelineSampleProcessor";
@@ -37,4 +38,5 @@ export type ObservabilityPipelineConfigProcessorItem =
   | ObservabilityPipelineEnrichmentTableProcessor
   | ObservabilityPipelineReduceProcessor
   | ObservabilityPipelineThrottleProcessor
+  | ObservabilityPipelineRemapVrlProcessor
   | UnparsedObject;
