@@ -27,6 +27,9 @@ import { AWSAssumeRoleUpdate } from "./AWSAssumeRoleUpdate";
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
 import { AWSIntegration } from "./AWSIntegration";
+import { AWSIntegrationIamPermissionsResponse } from "./AWSIntegrationIamPermissionsResponse";
+import { AWSIntegrationIamPermissionsResponseAttributes } from "./AWSIntegrationIamPermissionsResponseAttributes";
+import { AWSIntegrationIamPermissionsResponseData } from "./AWSIntegrationIamPermissionsResponseData";
 import { AWSIntegrationUpdate } from "./AWSIntegrationUpdate";
 import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
 import { AWSLogsConfig } from "./AWSLogsConfig";
@@ -2001,6 +2004,7 @@ const enumsMap: { [key: string]: any[] } = {
   AWSAccountPartition: ["aws", "aws-cn", "aws-us-gov"],
   AWSAccountType: ["account"],
   AWSAssumeRoleType: ["AWSAssumeRole"],
+  AWSIntegrationIamPermissionsResponseDataType: ["permissions"],
   AWSIntegrationType: ["AWS"],
   AWSLogsServicesResponseDataType: ["logs_services"],
   AWSNamespacesResponseDataType: ["namespaces"],
@@ -3259,6 +3263,11 @@ const typeMap: { [index: string]: any } = {
   AWSAuthConfigKeys: AWSAuthConfigKeys,
   AWSAuthConfigRole: AWSAuthConfigRole,
   AWSIntegration: AWSIntegration,
+  AWSIntegrationIamPermissionsResponse: AWSIntegrationIamPermissionsResponse,
+  AWSIntegrationIamPermissionsResponseAttributes:
+    AWSIntegrationIamPermissionsResponseAttributes,
+  AWSIntegrationIamPermissionsResponseData:
+    AWSIntegrationIamPermissionsResponseData,
   AWSIntegrationUpdate: AWSIntegrationUpdate,
   AWSLambdaForwarderConfig: AWSLambdaForwarderConfig,
   AWSLogsConfig: AWSLogsConfig,
