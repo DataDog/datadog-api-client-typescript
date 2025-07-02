@@ -29,14 +29,6 @@ import { MonitorsApiV2 } from "@datadog/datadog-api-client-monitors";
 import { v2 } from "@datadog/datadog-api-client-monitors";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "MonitorsApi.v2.getMonitorNotificationRules": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new MonitorsApiV2(configuration);
 const params = {/* parameters */};
 
