@@ -5035,6 +5035,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "AWSIntegrationApi.V2.CreateNewAWSExternalID": {
     operationResponseType: "AWSNewExternalIDResponse",
   },
+  "AWSIntegrationApi.V2.GetAWSIntegrationIAMPermissions": {
+    operationResponseType: "AWSIntegrationIamPermissionsResponse",
+  },
   "AWSLogsIntegrationApi.V2.ListAWSLogsServices": {
     operationResponseType: "AWSLogsServicesResponse",
   },
