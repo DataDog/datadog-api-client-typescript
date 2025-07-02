@@ -13,6 +13,9 @@ import { AWSAccountUpdateRequestData } from "./AWSAccountUpdateRequestData";
 import { AWSAccountsResponse } from "./AWSAccountsResponse";
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
+import { AWSIntegrationIamPermissionsResponse } from "./AWSIntegrationIamPermissionsResponse";
+import { AWSIntegrationIamPermissionsResponseAttributes } from "./AWSIntegrationIamPermissionsResponseAttributes";
+import { AWSIntegrationIamPermissionsResponseData } from "./AWSIntegrationIamPermissionsResponseData";
 import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
 import { AWSLogsConfig } from "./AWSLogsConfig";
 import { AWSMetricsConfig } from "./AWSMetricsConfig";
@@ -36,6 +39,7 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     AWSAccountPartition: ["aws", "aws-cn", "aws-us-gov"],
     AWSAccountType: ["account"],
+    AWSIntegrationIamPermissionsResponseDataType: ["permissions"],
     AWSNamespacesResponseDataType: ["namespaces"],
     AWSNewExternalIDResponseDataType: ["external_id"],
   },
@@ -62,6 +66,11 @@ export const TypingInfo: ModelTypingInfo = {
     AWSAccountsResponse: AWSAccountsResponse,
     AWSAuthConfigKeys: AWSAuthConfigKeys,
     AWSAuthConfigRole: AWSAuthConfigRole,
+    AWSIntegrationIamPermissionsResponse: AWSIntegrationIamPermissionsResponse,
+    AWSIntegrationIamPermissionsResponseAttributes:
+      AWSIntegrationIamPermissionsResponseAttributes,
+    AWSIntegrationIamPermissionsResponseData:
+      AWSIntegrationIamPermissionsResponseData,
     AWSLambdaForwarderConfig: AWSLambdaForwarderConfig,
     AWSLogsConfig: AWSLogsConfig,
     AWSMetricsConfig: AWSMetricsConfig,

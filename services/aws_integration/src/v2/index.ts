@@ -23,6 +23,10 @@ export { AWSAccountUpdateRequestData } from "./models/AWSAccountUpdateRequestDat
 export { AWSAuthConfig } from "./models/AWSAuthConfig";
 export { AWSAuthConfigKeys } from "./models/AWSAuthConfigKeys";
 export { AWSAuthConfigRole } from "./models/AWSAuthConfigRole";
+export { AWSIntegrationIamPermissionsResponse } from "./models/AWSIntegrationIamPermissionsResponse";
+export { AWSIntegrationIamPermissionsResponseAttributes } from "./models/AWSIntegrationIamPermissionsResponseAttributes";
+export { AWSIntegrationIamPermissionsResponseData } from "./models/AWSIntegrationIamPermissionsResponseData";
+export { AWSIntegrationIamPermissionsResponseDataType } from "./models/AWSIntegrationIamPermissionsResponseDataType";
 export { AWSLambdaForwarderConfig } from "./models/AWSLambdaForwarderConfig";
 export { AWSLogsConfig } from "./models/AWSLogsConfig";
 export { AWSMetricsConfig } from "./models/AWSMetricsConfig";
