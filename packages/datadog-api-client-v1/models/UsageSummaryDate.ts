@@ -400,6 +400,14 @@ export class UsageSummaryDate {
    */
   "iotDeviceTop99p"?: number;
   /**
+   * Sum of all LLM observability minimum spend over all hours in the current date for all organizations.
+   */
+  "llmObservabilityMinSpendSum"?: number;
+  /**
+   * Sum of all LLM observability sessions over all hours in the current date for all organizations.
+   */
+  "llmObservabilitySum"?: number;
+  /**
    * Shows the sum of all mobile lite sessions over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).
    */
   "mobileRumLiteSessionCountSum"?: number;
@@ -440,6 +448,10 @@ export class UsageSummaryDate {
    */
   "netflowIndexedEventsCountSum"?: number;
   /**
+   * Shows the 99th percentile of all Network Device Monitoring wireless devices over all hours in the current date for all organizations.
+   */
+  "networkDeviceWirelessTop99p"?: number;
+  /**
    * Shows the 99th percentile of all distinct Cloud Network Monitoring hosts (formerly known as Network hosts) over all hours in the current date for all organizations.
    */
   "npmHostTop99p"?: number;
@@ -472,6 +484,10 @@ export class UsageSummaryDate {
    */
   "orgs"?: Array<UsageSummaryDateOrg>;
   /**
+   * Sum of all product analytics sessions over all hours in the current date for all organizations.
+   */
+  "productAnalyticsSum"?: number;
+  /**
    * Shows the 99th percentile of all profiled Azure app services over all hours in the current date for all organizations.
    */
   "profilingAasCountTop99p"?: number;
@@ -479,6 +495,10 @@ export class UsageSummaryDate {
    * Shows the 99th percentile of all profiled hosts over all hours within the current date for all organizations.
    */
   "profilingHostTop99p"?: number;
+  /**
+   * Shows the high-water mark of all published applications over all hours in the current date for all organizations.
+   */
+  "publishedAppHwm"?: number;
   /**
    * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current month for all organizations (To be deprecated on October 1st, 2024).
    */
@@ -495,6 +515,14 @@ export class UsageSummaryDate {
    * Shows the sum of all browser RUM Session Replay counts over all hours in the current date for all organizations (To be introduced on October 1st, 2024).
    */
   "rumBrowserReplaySessionCountSum"?: number;
+  /**
+   * Sum of all RUM indexed sessions over all hours in the current date for all organizations.
+   */
+  "rumIndexedSessionsSum"?: number;
+  /**
+   * Sum of all RUM ingested sessions over all hours in the current date for all organizations.
+   */
+  "rumIngestedSessionsSum"?: number;
   /**
    * Shows the sum of all RUM lite sessions (browser and mobile) over all hours in the current date for all organizations (To be introduced on October 1st, 2024).
    */
@@ -571,6 +599,10 @@ export class UsageSummaryDate {
    * Shows the sum of all browser RUM lite sessions over all hours in the current date for all organizations (To be deprecated on October 1st, 2024).
    */
   "rumSessionCountSum"?: number;
+  /**
+   * Sum of all RUM session replay add-on sessions over all hours in the current date for all organizations.
+   */
+  "rumSessionReplayAddOnSum"?: number;
   /**
    * Shows the sum of RUM sessions (browser and mobile) over all hours in the current date for all organizations.
    */
@@ -1165,6 +1197,16 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    llmObservabilityMinSpendSum: {
+      baseName: "llm_observability_min_spend_sum",
+      type: "number",
+      format: "int64",
+    },
+    llmObservabilitySum: {
+      baseName: "llm_observability_sum",
+      type: "number",
+      format: "int64",
+    },
     mobileRumLiteSessionCountSum: {
       baseName: "mobile_rum_lite_session_count_sum",
       type: "number",
@@ -1215,6 +1257,11 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    networkDeviceWirelessTop99p: {
+      baseName: "network_device_wireless_top99p",
+      type: "number",
+      format: "int64",
+    },
     npmHostTop99p: {
       baseName: "npm_host_top99p",
       type: "number",
@@ -1254,6 +1301,11 @@ export class UsageSummaryDate {
       baseName: "orgs",
       type: "Array<UsageSummaryDateOrg>",
     },
+    productAnalyticsSum: {
+      baseName: "product_analytics_sum",
+      type: "number",
+      format: "int64",
+    },
     profilingAasCountTop99p: {
       baseName: "profiling_aas_count_top99p",
       type: "number",
@@ -1261,6 +1313,11 @@ export class UsageSummaryDate {
     },
     profilingHostTop99p: {
       baseName: "profiling_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    publishedAppHwm: {
+      baseName: "published_app_hwm",
       type: "number",
       format: "int64",
     },
@@ -1281,6 +1338,16 @@ export class UsageSummaryDate {
     },
     rumBrowserReplaySessionCountSum: {
       baseName: "rum_browser_replay_session_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumIndexedSessionsSum: {
+      baseName: "rum_indexed_sessions_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumIngestedSessionsSum: {
+      baseName: "rum_ingested_sessions_sum",
       type: "number",
       format: "int64",
     },
@@ -1376,6 +1443,11 @@ export class UsageSummaryDate {
     },
     rumSessionCountSum: {
       baseName: "rum_session_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumSessionReplayAddOnSum: {
+      baseName: "rum_session_replay_add_on_sum",
       type: "number",
       format: "int64",
     },
