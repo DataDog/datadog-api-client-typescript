@@ -5025,6 +5025,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.CreateNewAWSExternalID": {
         "operationResponseType": "AWSNewExternalIDResponse",
     },
+    "v2.GetAWSIntegrationIAMPermissions": {
+        "operationResponseType": "AWSIntegrationIamPermissionsResponse",
+    },
     "v2.ListAWSLogsServices": {
         "operationResponseType": "AWSLogsServicesResponse",
     },
