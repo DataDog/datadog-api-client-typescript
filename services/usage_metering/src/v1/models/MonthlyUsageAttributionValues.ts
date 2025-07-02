@@ -309,6 +309,14 @@ export class MonthlyUsageAttributionValues {
    */
   "lambdaTracedInvocationsUsage"?: number;
   /**
+   * The percentage of LLM Observability usage by tag(s).
+   */
+  "llmObservabilityPercentage"?: number;
+  /**
+   * The LLM Observability usage by tag(s).
+   */
+  "llmObservabilityUsage"?: number;
+  /**
    * The percentage of Indexed Logs (15-day Retention) usage by tag(s).
    */
   "logsIndexed15DayPercentage"?: number;
@@ -413,6 +421,14 @@ export class MonthlyUsageAttributionValues {
    */
   "ndmNetflowUsage"?: number;
   /**
+   * The percentage of network device wireless usage by tag(s).
+   */
+  "networkDeviceWirelessPercentage"?: number;
+  /**
+   * The network device wireless usage by tag(s).
+   */
+  "networkDeviceWirelessUsage"?: number;
+  /**
    * The percentage of network host usage by tag(s).
    */
   "npmHostPercentage"?: number;
@@ -445,6 +461,14 @@ export class MonthlyUsageAttributionValues {
    */
   "onlineArchiveUsage"?: number;
   /**
+   * The percentage of Product Analytics session usage by tag(s).
+   */
+  "productAnalyticsSessionPercentage"?: number;
+  /**
+   * The Product Analytics session usage by tag(s).
+   */
+  "productAnalyticsSessionUsage"?: number;
+  /**
    * The percentage of profiled container usage by tag(s).
    */
   "profiledContainerPercentage"?: number;
@@ -469,6 +493,14 @@ export class MonthlyUsageAttributionValues {
    */
   "profiledHostUsage"?: number;
   /**
+   * The percentage of published application usage by tag(s).
+   */
+  "publishedAppPercentage"?: number;
+  /**
+   * The published application usage by tag(s).
+   */
+  "publishedAppUsage"?: number;
+  /**
    * The percentage of RUM Browser and Mobile usage by tag(s).
    */
   "rumBrowserMobileSessionsPercentage"?: number;
@@ -477,6 +509,22 @@ export class MonthlyUsageAttributionValues {
    */
   "rumBrowserMobileSessionsUsage"?: number;
   /**
+   * The percentage of RUM Ingested usage by tag(s).
+   */
+  "rumIngestedPercentage"?: number;
+  /**
+   * The total RUM Ingested usage by tag(s).
+   */
+  "rumIngestedUsage"?: number;
+  /**
+   * The percentage of RUM Investigate usage by tag(s).
+   */
+  "rumInvestigatePercentage"?: number;
+  /**
+   * The total RUM Investigate usage by tag(s).
+   */
+  "rumInvestigateUsage"?: number;
+  /**
    * The percentage of RUM Session Replay usage by tag(s).
    */
   "rumReplaySessionsPercentage"?: number;
@@ -484,6 +532,14 @@ export class MonthlyUsageAttributionValues {
    * The total RUM Session Replay usage by tag(s).
    */
   "rumReplaySessionsUsage"?: number;
+  /**
+   * The percentage of RUM Session Replay Add-On usage by tag(s).
+   */
+  "rumSessionReplayAddOnPercentage"?: number;
+  /**
+   * The total RUM Session Replay Add-On usage by tag(s).
+   */
+  "rumSessionReplayAddOnUsage"?: number;
   /**
    * The percentage of Software Composition Analysis Fargate task usage by tag(s).
    */
@@ -951,6 +1007,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    llmObservabilityPercentage: {
+      baseName: "llm_observability_percentage",
+      type: "number",
+      format: "double",
+    },
+    llmObservabilityUsage: {
+      baseName: "llm_observability_usage",
+      type: "number",
+      format: "double",
+    },
     logsIndexed15DayPercentage: {
       baseName: "logs_indexed_15day_percentage",
       type: "number",
@@ -1081,6 +1147,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    networkDeviceWirelessPercentage: {
+      baseName: "network_device_wireless_percentage",
+      type: "number",
+      format: "double",
+    },
+    networkDeviceWirelessUsage: {
+      baseName: "network_device_wireless_usage",
+      type: "number",
+      format: "double",
+    },
     npmHostPercentage: {
       baseName: "npm_host_percentage",
       type: "number",
@@ -1121,6 +1197,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    productAnalyticsSessionPercentage: {
+      baseName: "product_analytics_session_percentage",
+      type: "number",
+      format: "double",
+    },
+    productAnalyticsSessionUsage: {
+      baseName: "product_analytics_session_usage",
+      type: "number",
+      format: "double",
+    },
     profiledContainerPercentage: {
       baseName: "profiled_container_percentage",
       type: "number",
@@ -1151,6 +1237,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    publishedAppPercentage: {
+      baseName: "published_app_percentage",
+      type: "number",
+      format: "double",
+    },
+    publishedAppUsage: {
+      baseName: "published_app_usage",
+      type: "number",
+      format: "double",
+    },
     rumBrowserMobileSessionsPercentage: {
       baseName: "rum_browser_mobile_sessions_percentage",
       type: "number",
@@ -1161,6 +1257,26 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    rumIngestedPercentage: {
+      baseName: "rum_ingested_percentage",
+      type: "number",
+      format: "double",
+    },
+    rumIngestedUsage: {
+      baseName: "rum_ingested_usage",
+      type: "number",
+      format: "double",
+    },
+    rumInvestigatePercentage: {
+      baseName: "rum_investigate_percentage",
+      type: "number",
+      format: "double",
+    },
+    rumInvestigateUsage: {
+      baseName: "rum_investigate_usage",
+      type: "number",
+      format: "double",
+    },
     rumReplaySessionsPercentage: {
       baseName: "rum_replay_sessions_percentage",
       type: "number",
@@ -1168,6 +1284,16 @@ export class MonthlyUsageAttributionValues {
     },
     rumReplaySessionsUsage: {
       baseName: "rum_replay_sessions_usage",
+      type: "number",
+      format: "double",
+    },
+    rumSessionReplayAddOnPercentage: {
+      baseName: "rum_session_replay_add_on_percentage",
+      type: "number",
+      format: "double",
+    },
+    rumSessionReplayAddOnUsage: {
+      baseName: "rum_session_replay_add_on_usage",
       type: "number",
       format: "double",
     },
