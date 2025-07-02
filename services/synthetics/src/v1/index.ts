@@ -22,6 +22,7 @@ export {
   SyntheticsApiGetTestRequest,
   SyntheticsApiListTestsRequest,
   SyntheticsApiPatchTestRequest,
+  SyntheticsApiSearchTestsRequest,
   SyntheticsApiTriggerCITestsRequest,
   SyntheticsApiTriggerTestsRequest,
   SyntheticsApiUpdateAPITestRequest,

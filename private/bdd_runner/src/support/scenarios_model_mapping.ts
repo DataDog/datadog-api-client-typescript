@@ -2111,6 +2111,33 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SyntheticsMobileTest",
   },
+  "SyntheticsApi.V1.SearchTests": {
+    includeFullConfig: {
+      type: "boolean",
+      format: "",
+    },
+    searchSuites: {
+      type: "boolean",
+      format: "",
+    },
+    facetsOnly: {
+      type: "boolean",
+      format: "",
+    },
+    start: {
+      type: "number",
+      format: "int64",
+    },
+    count: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsListTestsResponse",
+  },
   "SyntheticsApi.V1.TriggerTests": {
     body: {
       type: "SyntheticsTriggerBody",
