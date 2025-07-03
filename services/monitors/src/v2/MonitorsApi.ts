@@ -103,16 +103,6 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "MonitorsApi.v2.createMonitorNotificationRule"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'createMonitorNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.createMonitorNotificationRule'] = true`",
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createMonitorNotificationRule");
@@ -267,16 +257,6 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "MonitorsApi.v2.deleteMonitorNotificationRule"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'deleteMonitorNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.deleteMonitorNotificationRule'] = true`",
-      );
-    }
-
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
       throw new RequiredError("ruleId", "deleteMonitorNotificationRule");
@@ -421,14 +401,6 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations["MonitorsApi.v2.getMonitorNotificationRule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getMonitorNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.getMonitorNotificationRule'] = true`",
-      );
-    }
-
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
       throw new RequiredError("ruleId", "getMonitorNotificationRule");
@@ -482,14 +454,6 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations["MonitorsApi.v2.getMonitorNotificationRules"]
-    ) {
-      throw new Error(
-        "Unstable operation 'getMonitorNotificationRules' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.getMonitorNotificationRules'] = true`",
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/monitor/notification_rule";
@@ -737,16 +701,6 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "MonitorsApi.v2.updateMonitorNotificationRule"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'updateMonitorNotificationRule' is disabled. Enable it by setting `configuration.unstableOperations['MonitorsApi.v2.updateMonitorNotificationRule'] = true`",
-      );
-    }
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
