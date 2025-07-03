@@ -4744,7 +4744,8 @@ export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
    */
   startHr: Date;
   /**
-   * Usage type to retrieve.
+   * Usage type to retrieve. The following values have been **deprecated**:
+   * `estimated_indexed_spans_usage`, `estimated_ingested_spans_usage`.
    * @type HourlyUsageAttributionUsageType
    */
   usageType: HourlyUsageAttributionUsageType;
@@ -4833,6 +4834,8 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
   startMonth: Date;
   /**
    * Comma-separated list of usage types to return, or `*` for all usage types.
+   * The following values have been **deprecated**:
+   * `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`.
    * @type MonthlyUsageAttributionSupportedMetrics
    */
   fields: MonthlyUsageAttributionSupportedMetrics;
@@ -4848,6 +4851,8 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
   sortDirection?: UsageSortDirection;
   /**
    * The field to sort by.
+   * The following values have been **deprecated**:
+   * `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`.
    * @type MonthlyUsageAttributionSupportedMetrics
    */
   sortName?: MonthlyUsageAttributionSupportedMetrics;
