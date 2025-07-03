@@ -27,7 +27,7 @@ export class ScheduleUpdateRequestDataAttributesLayersItems {
    */
   "id"?: string;
   /**
-   * Defines how often the rotation repeats, using a combination of days and optional seconds.
+   * Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
    */
   "interval": LayerAttributesInterval;
   /**

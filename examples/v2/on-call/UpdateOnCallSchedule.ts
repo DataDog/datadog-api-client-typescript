@@ -29,7 +29,7 @@ const params: v2.OnCallApiUpdateOnCallScheduleRequest = {
             effectiveDate: new Date(new Date().getTime() + -10 * 86400 * 1000),
             endDate: new Date(new Date().getTime() + 10 * 86400 * 1000),
             interval: {
-              seconds: 300,
+              seconds: 3600,
             },
             members: [
               {
