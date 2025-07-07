@@ -77,10 +77,14 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof INVOCATIONS_PERCENTAGE
   | typeof LAMBDA_TRACED_INVOCATIONS_USAGE
   | typeof LAMBDA_TRACED_INVOCATIONS_PERCENTAGE
+  | typeof LLM_OBSERVABILITY_USAGE
+  | typeof LLM_OBSERVABILITY_PERCENTAGE
   | typeof MOBILE_APP_TESTING_USAGE
   | typeof MOBILE_APP_TESTING_PERCENTAGE
   | typeof NDM_NETFLOW_USAGE
   | typeof NDM_NETFLOW_PERCENTAGE
+  | typeof NETWORK_DEVICE_WIRELESS_USAGE
+  | typeof NETWORK_DEVICE_WIRELESS_PERCENTAGE
   | typeof NPM_HOST_USAGE
   | typeof NPM_HOST_PERCENTAGE
   | typeof OBS_PIPELINE_BYTES_USAGE
@@ -89,12 +93,16 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof OBS_PIPELINES_VCPU_PERCENTAGE
   | typeof ONLINE_ARCHIVE_USAGE
   | typeof ONLINE_ARCHIVE_PERCENTAGE
+  | typeof PRODUCT_ANALYTICS_SESSION_USAGE
+  | typeof PRODUCT_ANALYTICS_SESSION_PERCENTAGE
   | typeof PROFILED_CONTAINER_USAGE
   | typeof PROFILED_CONTAINER_PERCENTAGE
   | typeof PROFILED_FARGATE_USAGE
   | typeof PROFILED_FARGATE_PERCENTAGE
   | typeof PROFILED_HOST_USAGE
   | typeof PROFILED_HOST_PERCENTAGE
+  | typeof PUBLISHED_APP_USAGE
+  | typeof PUBLISHED_APP_PERCENTAGE
   | typeof SERVERLESS_APPS_USAGE
   | typeof SERVERLESS_APPS_PERCENTAGE
   | typeof SNMP_USAGE
@@ -137,8 +145,14 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof LOGS_INDEXED_3DAY_PERCENTAGE
   | typeof LOGS_INDEXED_1DAY_USAGE
   | typeof LOGS_INDEXED_1DAY_PERCENTAGE
+  | typeof RUM_INGESTED_USAGE
+  | typeof RUM_INGESTED_PERCENTAGE
+  | typeof RUM_INVESTIGATE_USAGE
+  | typeof RUM_INVESTIGATE_PERCENTAGE
   | typeof RUM_REPLAY_SESSIONS_USAGE
   | typeof RUM_REPLAY_SESSIONS_PERCENTAGE
+  | typeof RUM_SESSION_REPLAY_ADD_ON_USAGE
+  | typeof RUM_SESSION_REPLAY_ADD_ON_PERCENTAGE
   | typeof RUM_BROWSER_MOBILE_SESSIONS_USAGE
   | typeof RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE
   | typeof INGESTED_SPANS_BYTES_USAGE
@@ -232,10 +246,15 @@ export const LAMBDA_TRACED_INVOCATIONS_USAGE =
   "lambda_traced_invocations_usage";
 export const LAMBDA_TRACED_INVOCATIONS_PERCENTAGE =
   "lambda_traced_invocations_percentage";
+export const LLM_OBSERVABILITY_USAGE = "llm_observability_usage";
+export const LLM_OBSERVABILITY_PERCENTAGE = "llm_observability_percentage";
 export const MOBILE_APP_TESTING_USAGE = "mobile_app_testing_percentage";
 export const MOBILE_APP_TESTING_PERCENTAGE = "mobile_app_testing_usage";
 export const NDM_NETFLOW_USAGE = "ndm_netflow_usage";
 export const NDM_NETFLOW_PERCENTAGE = "ndm_netflow_percentage";
+export const NETWORK_DEVICE_WIRELESS_USAGE = "network_device_wireless_usage";
+export const NETWORK_DEVICE_WIRELESS_PERCENTAGE =
+  "network_device_wireless_percentage";
 export const NPM_HOST_USAGE = "npm_host_usage";
 export const NPM_HOST_PERCENTAGE = "npm_host_percentage";
 export const OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
@@ -244,12 +263,18 @@ export const OBS_PIPELINES_VCPU_USAGE = "obs_pipelines_vcpu_usage";
 export const OBS_PIPELINES_VCPU_PERCENTAGE = "obs_pipelines_vcpu_percentage";
 export const ONLINE_ARCHIVE_USAGE = "online_archive_usage";
 export const ONLINE_ARCHIVE_PERCENTAGE = "online_archive_percentage";
+export const PRODUCT_ANALYTICS_SESSION_USAGE =
+  "product_analytics_session_usage";
+export const PRODUCT_ANALYTICS_SESSION_PERCENTAGE =
+  "product_analytics_session_percentage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_CONTAINER_PERCENTAGE = "profiled_container_percentage";
 export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
 export const PROFILED_FARGATE_PERCENTAGE = "profiled_fargate_percentage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
 export const PROFILED_HOST_PERCENTAGE = "profiled_host_percentage";
+export const PUBLISHED_APP_USAGE = "published_app_usage";
+export const PUBLISHED_APP_PERCENTAGE = "published_app_percentage";
 export const SERVERLESS_APPS_USAGE = "serverless_apps_usage";
 export const SERVERLESS_APPS_PERCENTAGE = "serverless_apps_percentage";
 export const SNMP_USAGE = "snmp_usage";
@@ -300,8 +325,16 @@ export const LOGS_INDEXED_3DAY_USAGE = "logs_indexed_3day_usage";
 export const LOGS_INDEXED_3DAY_PERCENTAGE = "logs_indexed_3day_percentage";
 export const LOGS_INDEXED_1DAY_USAGE = "logs_indexed_1day_usage";
 export const LOGS_INDEXED_1DAY_PERCENTAGE = "logs_indexed_1day_percentage";
+export const RUM_INGESTED_USAGE = "rum_ingested_usage";
+export const RUM_INGESTED_PERCENTAGE = "rum_ingested_percentage";
+export const RUM_INVESTIGATE_USAGE = "rum_investigate_usage";
+export const RUM_INVESTIGATE_PERCENTAGE = "rum_investigate_percentage";
 export const RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage";
 export const RUM_REPLAY_SESSIONS_PERCENTAGE = "rum_replay_sessions_percentage";
+export const RUM_SESSION_REPLAY_ADD_ON_USAGE =
+  "rum_session_replay_add_on_usage";
+export const RUM_SESSION_REPLAY_ADD_ON_PERCENTAGE =
+  "rum_session_replay_add_on_percentage";
 export const RUM_BROWSER_MOBILE_SESSIONS_USAGE =
   "rum_browser_mobile_sessions_usage";
 export const RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE =
