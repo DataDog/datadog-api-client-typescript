@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Defines how often the rotation repeats, using a combination of days and optional seconds.
+ * Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
  */
 export class LayerAttributesInterval {
   /**
