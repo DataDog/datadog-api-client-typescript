@@ -129,6 +129,11 @@ jobs:
           app-id: ${{ secrets.PIPELINE_GITHUB_APP_ID }}
           private-key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
           repositories: datadog-api-spec
+      - name: Get pull request number
+        id: get_pr_number
+        run: |
+          spec_pr=$(echo "${{ github.event.pull_request.head.ref }}" | sed 's/.*generated\/\([0-9]*\).*/\1/')
+          echo "spec_pr=${spec_pr}" >> $GITHUB_OUTPUT
       - name: Post status check
         uses: DataDog/github-actions/post-status-check@v2
         with:
@@ -137,3 +142,4 @@ jobs:
           # status: ${{ (needs.test.result == 'cancelled' || needs.examples.result == 'cancelled') && 'pending' || needs.test.result == 'success' && needs.examples.result == 'success' && 'success' || 'failure' }}
           status: ${{ needs.test.result == 'cancelled' && 'pending' || needs.test.result == 'success' && 'success' || 'failure' }}
           context: v2/unit
+          pull-request: ${{ steps.get_pr_number.outputs.spec_pr }}
