@@ -29,6 +29,7 @@ import { MetricPayload } from "../models/MetricPayload";
 import { MetricsAndMetricTagConfigurations } from "../models/MetricsAndMetricTagConfigurations";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
 import { MetricSuggestedTagsAndAggregationsResponse } from "../models/MetricSuggestedTagsAndAggregationsResponse";
+import { MetricTagCardinalitiesResponse } from "../models/MetricTagCardinalitiesResponse";
 import { MetricTagConfigurationCreateRequest } from "../models/MetricTagConfigurationCreateRequest";
 import { MetricTagConfigurationMetricTypeCategory } from "../models/MetricTagConfigurationMetricTypeCategory";
 import { MetricTagConfigurationResponse } from "../models/MetricTagConfigurationResponse";
@@ -274,6 +275,40 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         ""
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getMetricTagCardinalityDetails(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError("metricName", "getMetricTagCardinalityDetails");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/metrics/{metric_name}/tag-cardinalities".replace(
+        "{metric_name}",
+        encodeURIComponent(String(metricName))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.getMetricTagCardinalityDetails")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1075,6 +1110,69 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getMetricTagCardinalityDetails
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getMetricTagCardinalityDetails(
+    response: ResponseContext
+  ): Promise<MetricTagCardinalitiesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MetricTagCardinalitiesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricTagCardinalitiesResponse"
+      ) as MetricTagCardinalitiesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MetricTagCardinalitiesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricTagCardinalitiesResponse",
+        ""
+      ) as MetricTagCardinalitiesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listActiveMetricConfigurations
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1772,6 +1870,14 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
   filterTimespanH?: number;
 }
 
+export interface MetricsApiGetMetricTagCardinalityDetailsRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
 export interface MetricsApiListActiveMetricConfigurationsRequest {
   /**
    * The name of the metric.
@@ -2060,6 +2166,30 @@ export class MetricsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.estimateMetricsOutputSeries(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Returns the cardinality details of tags for a specific metric.
+   * @param param The request object
+   */
+  public getMetricTagCardinalityDetails(
+    param: MetricsApiGetMetricTagCardinalityDetailsRequest,
+    options?: Configuration
+  ): Promise<MetricTagCardinalitiesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getMetricTagCardinalityDetails(
+        param.metricName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMetricTagCardinalityDetails(
             responseContext
           );
         });
