@@ -264,6 +264,30 @@ Feature: Case Management
     Then the response status is 200 OK
 
   @team:DataDog/case-management
+  Scenario: Update case attributes returns "Bad Request" response
+    Given new "UpdateAttributes" request
+    And request contains "case_id" parameter from "case.id"
+    And body with value {"data": {"attributes": {}, "type": "case"}}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @team:DataDog/case-management
+  Scenario: Update case attributes returns "Not Found" response
+    Given new "UpdateAttributes" request
+    And request contains "case_id" parameter from "67d80aa3-36ff-44b9-a694-c501a7591737"
+    And body with value { "data": { "type": "case", "attributes": { "attributes": { "service": "web-store"}}}}
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @team:DataDog/case-management
+  Scenario: Update case attributes returns "OK" response
+    Given new "UpdateAttributes" request
+    And request contains "case_id" parameter from "case.id"
+    And body with value {"data": {"attributes": {"attributes": {"service": ["web-store", "web-api"], "env": ["test"], "team": ["engineer"]}}, "type": "case"}}
+    When the request is sent
+    Then the response status is 200 OK
+
+  @team:DataDog/case-management
   Scenario: Update case priority returns "Bad Request" response
     Given new "UpdatePriority" request
     And there is a valid "case" in the system
