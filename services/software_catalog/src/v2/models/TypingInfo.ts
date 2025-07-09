@@ -81,7 +81,7 @@ export const TypingInfo: ModelTypingInfo = {
     EntityResponseIncludedRelatedEntityType: ["relatedEntity"],
     EntityResponseIncludedSchemaType: ["schema"],
     EntityV3APIKind: ["api"],
-    EntityV3APIVersion: ["v3"],
+    EntityV3APIVersion: ["v3", "v2.2", "v2.1", "v2"],
     EntityV3DatastoreKind: ["datastore"],
     EntityV3QueueKind: ["queue"],
     EntityV3ServiceKind: ["service"],
