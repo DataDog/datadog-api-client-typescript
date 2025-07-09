@@ -2,6 +2,7 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
  * Supported products for hourly usage attribution requests.
+ * The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_ingested_spans_usage`.
  */
 export type HourlyUsageAttributionUsageType =
   | typeof API_USAGE
