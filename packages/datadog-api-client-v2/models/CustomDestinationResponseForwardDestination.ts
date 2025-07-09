@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CustomDestinationResponseForwardDestinationElasticsearch } from "./CustomDestinationResponseForwardDestinationElasticsearch";
+import { CustomDestinationResponseForwardDestinationGoogleSecurityOperations } from "./CustomDestinationResponseForwardDestinationGoogleSecurityOperations";
 import { CustomDestinationResponseForwardDestinationHttp } from "./CustomDestinationResponseForwardDestinationHttp";
 import { CustomDestinationResponseForwardDestinationMicrosoftSentinel } from "./CustomDestinationResponseForwardDestinationMicrosoftSentinel";
 import { CustomDestinationResponseForwardDestinationSplunk } from "./CustomDestinationResponseForwardDestinationSplunk";
@@ -19,4 +20,5 @@ export type CustomDestinationResponseForwardDestination =
   | CustomDestinationResponseForwardDestinationSplunk
   | CustomDestinationResponseForwardDestinationElasticsearch
   | CustomDestinationResponseForwardDestinationMicrosoftSentinel
+  | CustomDestinationResponseForwardDestinationGoogleSecurityOperations
   | UnparsedObject;
