@@ -1,25 +1,16 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { CaseRelationships } from "./CaseRelationships";
-import { CaseResourceAttributes } from "./CaseResourceAttributes";
 import { CaseResourceType } from "./CaseResourceType";
+import { CaseUpdateAttributesAttributes } from "./CaseUpdateAttributesAttributes";
 
 /**
- * A case
+ * Case update attributes
  */
-export class Case {
+export class CaseUpdateAttributes {
   /**
-   * Case attributes
+   * Case update attributes attributes
    */
-  "attributes": CaseResourceAttributes;
-  /**
-   * Case's identifier
-   */
-  "id": string;
-  /**
-   * Resources related to a case
-   */
-  "relationships"?: CaseRelationships;
+  "attributes": CaseUpdateAttributesAttributes;
   /**
    * Case resource type
    */
@@ -41,17 +32,8 @@ export class Case {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "CaseResourceAttributes",
+      type: "CaseUpdateAttributesAttributes",
       required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "CaseRelationships",
     },
     type: {
       baseName: "type",
@@ -68,7 +50,7 @@ export class Case {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return Case.attributeTypeMap;
+    return CaseUpdateAttributes.attributeTypeMap;
   }
 
   public constructor() {}

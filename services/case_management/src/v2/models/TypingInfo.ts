@@ -5,7 +5,6 @@ import { Case } from "./Case";
 import { CaseAssign } from "./CaseAssign";
 import { CaseAssignAttributes } from "./CaseAssignAttributes";
 import { CaseAssignRequest } from "./CaseAssignRequest";
-import { CaseAttributes } from "./CaseAttributes";
 import { CaseCreate } from "./CaseCreate";
 import { CaseCreateAttributes } from "./CaseCreateAttributes";
 import { CaseCreateRelationships } from "./CaseCreateRelationships";
@@ -13,7 +12,11 @@ import { CaseCreateRequest } from "./CaseCreateRequest";
 import { CaseEmpty } from "./CaseEmpty";
 import { CaseEmptyRequest } from "./CaseEmptyRequest";
 import { CaseRelationships } from "./CaseRelationships";
+import { CaseResourceAttributes } from "./CaseResourceAttributes";
 import { CaseResponse } from "./CaseResponse";
+import { CaseUpdateAttributes } from "./CaseUpdateAttributes";
+import { CaseUpdateAttributesAttributes } from "./CaseUpdateAttributesAttributes";
+import { CaseUpdateAttributesRequest } from "./CaseUpdateAttributesRequest";
 import { CaseUpdatePriority } from "./CaseUpdatePriority";
 import { CaseUpdatePriorityAttributes } from "./CaseUpdatePriorityAttributes";
 import { CaseUpdatePriorityRequest } from "./CaseUpdatePriorityRequest";
@@ -64,7 +67,6 @@ export const TypingInfo: ModelTypingInfo = {
     CaseAssign: CaseAssign,
     CaseAssignAttributes: CaseAssignAttributes,
     CaseAssignRequest: CaseAssignRequest,
-    CaseAttributes: CaseAttributes,
     CaseCreate: CaseCreate,
     CaseCreateAttributes: CaseCreateAttributes,
     CaseCreateRelationships: CaseCreateRelationships,
@@ -72,7 +74,11 @@ export const TypingInfo: ModelTypingInfo = {
     CaseEmpty: CaseEmpty,
     CaseEmptyRequest: CaseEmptyRequest,
     CaseRelationships: CaseRelationships,
+    CaseResourceAttributes: CaseResourceAttributes,
     CaseResponse: CaseResponse,
+    CaseUpdateAttributes: CaseUpdateAttributes,
+    CaseUpdateAttributesAttributes: CaseUpdateAttributesAttributes,
+    CaseUpdateAttributesRequest: CaseUpdateAttributesRequest,
     CaseUpdatePriority: CaseUpdatePriority,
     CaseUpdatePriorityAttributes: CaseUpdatePriorityAttributes,
     CaseUpdatePriorityRequest: CaseUpdatePriorityRequest,
