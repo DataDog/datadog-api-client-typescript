@@ -106,7 +106,7 @@ export const TypingInfo: ModelTypingInfo = {
       "max",
       "avg",
     ],
-    EventsDataSource: ["logs", "rum"],
+    EventsDataSource: ["logs", "rum", "dora"],
     EventsSortType: ["alphabetical", "measure"],
     MetricActiveConfigurationType: ["actively_queried_configurations"],
     MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
