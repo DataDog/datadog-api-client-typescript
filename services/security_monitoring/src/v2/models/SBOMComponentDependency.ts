@@ -1,24 +1,17 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SBOMMetadataAuthor } from "./SBOMMetadataAuthor";
-import { SBOMMetadataComponent } from "./SBOMMetadataComponent";
-
 /**
- * Provides additional information about a BOM.
+ * The dependencies of a component of the SBOM.
  */
-export class SBOMMetadata {
+export class SBOMComponentDependency {
   /**
-   * List of authors of the SBOM.
+   * The components that are dependencies of the ref component.
    */
-  "authors"?: Array<SBOMMetadataAuthor>;
+  "dependsOn"?: Array<string>;
   /**
-   * The component that the BOM describes.
+   * The identifier for the related component.
    */
-  "component"?: SBOMMetadataComponent;
-  /**
-   * The timestamp of the SBOM creation.
-   */
-  "timestamp"?: string;
+  "ref"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -34,16 +27,12 @@ export class SBOMMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    authors: {
-      baseName: "authors",
-      type: "Array<SBOMMetadataAuthor>",
+    dependsOn: {
+      baseName: "dependsOn",
+      type: "Array<string>",
     },
-    component: {
-      baseName: "component",
-      type: "SBOMMetadataComponent",
-    },
-    timestamp: {
-      baseName: "timestamp",
+    ref: {
+      baseName: "ref",
       type: "string",
     },
     additionalProperties: {
@@ -56,7 +45,7 @@ export class SBOMMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SBOMMetadata.attributeTypeMap;
+    return SBOMComponentDependency.attributeTypeMap;
   }
 
   public constructor() {}
