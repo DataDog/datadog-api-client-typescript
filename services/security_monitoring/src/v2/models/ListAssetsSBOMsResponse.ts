@@ -1,24 +1,25 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { SBOMMetadataAuthor } from "./SBOMMetadataAuthor";
-import { SBOMMetadataComponent } from "./SBOMMetadataComponent";
+import { Links } from "./Links";
+import { Metadata } from "./Metadata";
+import { SBOM } from "./SBOM";
 
 /**
- * Provides additional information about a BOM.
+ * The expected response schema when listing assets SBOMs.
  */
-export class SBOMMetadata {
+export class ListAssetsSBOMsResponse {
   /**
-   * List of authors of the SBOM.
+   * List of assets SBOMs.
    */
-  "authors"?: Array<SBOMMetadataAuthor>;
+  "data": Array<SBOM>;
   /**
-   * The component that the BOM describes.
+   * The JSON:API links related to pagination.
    */
-  "component"?: SBOMMetadataComponent;
+  "links"?: Links;
   /**
-   * The timestamp of the SBOM creation.
+   * The metadata related to this request.
    */
-  "timestamp"?: string;
+  "meta"?: Metadata;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -34,17 +35,18 @@ export class SBOMMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    authors: {
-      baseName: "authors",
-      type: "Array<SBOMMetadataAuthor>",
+    data: {
+      baseName: "data",
+      type: "Array<SBOM>",
+      required: true,
     },
-    component: {
-      baseName: "component",
-      type: "SBOMMetadataComponent",
+    links: {
+      baseName: "links",
+      type: "Links",
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "string",
+    meta: {
+      baseName: "meta",
+      type: "Metadata",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +58,7 @@ export class SBOMMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SBOMMetadata.attributeTypeMap;
+    return ListAssetsSBOMsResponse.attributeTypeMap;
   }
 
   public constructor() {}

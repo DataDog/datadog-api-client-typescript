@@ -3511,6 +3511,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterTeams: {
+      type: "string",
+      format: "",
+    },
     filterArch: {
       type: "string",
       format: "",
@@ -3524,6 +3528,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "ListVulnerableAssetsResponse",
+  },
+  "SecurityMonitoringApi.V2.ListAssetsSBOMs": {
+    pageToken: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterAssetType: {
+      type: "AssetType",
+      format: "",
+    },
+    filterAssetName: {
+      type: "string",
+      format: "",
+    },
+    filterPackageName: {
+      type: "string",
+      format: "",
+    },
+    filterPackageVersion: {
+      type: "string",
+      format: "",
+    },
+    filterLicenseName: {
+      type: "string",
+      format: "",
+    },
+    filterLicenseType: {
+      type: "SBOMComponentLicenseType",
+      format: "",
+    },
+    operationResponseType: "ListAssetsSBOMsResponse",
   },
   "SecurityMonitoringApi.V2.GetSBOM": {
     assetType: {
@@ -3680,6 +3719,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterOrigin: {
+      type: "string",
+      format: "",
+    },
     filterAssetName: {
       type: "string",
       format: "",
@@ -3721,6 +3764,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     filterAssetEnvironments: {
+      type: "string",
+      format: "",
+    },
+    filterAssetTeams: {
       type: "string",
       format: "",
     },

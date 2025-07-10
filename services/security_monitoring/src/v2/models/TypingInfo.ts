@@ -74,6 +74,7 @@ import { JobDefinition } from "./JobDefinition";
 import { JobDefinitionFromRule } from "./JobDefinitionFromRule";
 import { Library } from "./Library";
 import { Links } from "./Links";
+import { ListAssetsSBOMsResponse } from "./ListAssetsSBOMsResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
@@ -102,7 +103,13 @@ import { RunHistoricalJobRequestData } from "./RunHistoricalJobRequestData";
 import { SBOM } from "./SBOM";
 import { SBOMAttributes } from "./SBOMAttributes";
 import { SBOMComponent } from "./SBOMComponent";
+import { SBOMComponentDependency } from "./SBOMComponentDependency";
+import { SBOMComponentLicense } from "./SBOMComponentLicense";
+import { SBOMComponentLicenseLicense } from "./SBOMComponentLicenseLicense";
+import { SBOMComponentProperty } from "./SBOMComponentProperty";
+import { SBOMComponentSupplier } from "./SBOMComponentSupplier";
 import { SBOMMetadata } from "./SBOMMetadata";
+import { SBOMMetadataAuthor } from "./SBOMMetadataAuthor";
 import { SBOMMetadataComponent } from "./SBOMMetadataComponent";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
@@ -247,6 +254,16 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     RuleVersionUpdateType: ["create", "update", "delete"],
     RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
+    SBOMComponentLicenseType: [
+      "network_strong_copyleft",
+      "non_standard_copyleft",
+      "other_non_free",
+      "other_non_standard",
+      "permissive",
+      "public_domain",
+      "strong_copyleft",
+      "weak_copyleft",
+    ],
     SBOMComponentType: [
       "application",
       "container",
@@ -534,6 +551,7 @@ export const TypingInfo: ModelTypingInfo = {
     JobDefinitionFromRule: JobDefinitionFromRule,
     Library: Library,
     Links: Links,
+    ListAssetsSBOMsResponse: ListAssetsSBOMsResponse,
     ListFindingsMeta: ListFindingsMeta,
     ListFindingsPage: ListFindingsPage,
     ListFindingsResponse: ListFindingsResponse,
@@ -563,7 +581,13 @@ export const TypingInfo: ModelTypingInfo = {
     SBOM: SBOM,
     SBOMAttributes: SBOMAttributes,
     SBOMComponent: SBOMComponent,
+    SBOMComponentDependency: SBOMComponentDependency,
+    SBOMComponentLicense: SBOMComponentLicense,
+    SBOMComponentLicenseLicense: SBOMComponentLicenseLicense,
+    SBOMComponentProperty: SBOMComponentProperty,
+    SBOMComponentSupplier: SBOMComponentSupplier,
     SBOMMetadata: SBOMMetadata,
+    SBOMMetadataAuthor: SBOMMetadataAuthor,
     SBOMMetadataComponent: SBOMMetadataComponent,
     SecurityFilter: SecurityFilter,
     SecurityFilterAttributes: SecurityFilterAttributes,
