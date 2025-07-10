@@ -927,6 +927,7 @@ import { ListAppsResponseDataItemsAttributes } from "./ListAppsResponseDataItems
 import { ListAppsResponseDataItemsRelationships } from "./ListAppsResponseDataItemsRelationships";
 import { ListAppsResponseMeta } from "./ListAppsResponseMeta";
 import { ListAppsResponseMetaPage } from "./ListAppsResponseMetaPage";
+import { ListAssetsSBOMsResponse } from "./ListAssetsSBOMsResponse";
 import { ListDevicesResponse } from "./ListDevicesResponse";
 import { ListDevicesResponseMetadata } from "./ListDevicesResponseMetadata";
 import { ListDevicesResponseMetadataPage } from "./ListDevicesResponseMetadataPage";
@@ -1519,7 +1520,13 @@ import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttrib
 import { SBOM } from "./SBOM";
 import { SBOMAttributes } from "./SBOMAttributes";
 import { SBOMComponent } from "./SBOMComponent";
+import { SBOMComponentDependency } from "./SBOMComponentDependency";
+import { SBOMComponentLicense } from "./SBOMComponentLicense";
+import { SBOMComponentLicenseLicense } from "./SBOMComponentLicenseLicense";
+import { SBOMComponentProperty } from "./SBOMComponentProperty";
+import { SBOMComponentSupplier } from "./SBOMComponentSupplier";
 import { SBOMMetadata } from "./SBOMMetadata";
+import { SBOMMetadataAuthor } from "./SBOMMetadataAuthor";
 import { SBOMMetadataComponent } from "./SBOMMetadataComponent";
 import { SLOReportPostResponse } from "./SLOReportPostResponse";
 import { SLOReportPostResponseData } from "./SLOReportPostResponseData";
@@ -2865,6 +2872,16 @@ const enumsMap: { [key: string]: any[] } = {
   RumRetentionFilterType: ["retention_filters"],
   RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
+  SBOMComponentLicenseType: [
+    "network_strong_copyleft",
+    "non_standard_copyleft",
+    "other_non_free",
+    "other_non_standard",
+    "permissive",
+    "public_domain",
+    "strong_copyleft",
+    "weak_copyleft",
+  ],
   SBOMComponentType: [
     "application",
     "container",
@@ -4299,6 +4316,7 @@ const typeMap: { [index: string]: any } = {
     ListAppsResponseDataItemsRelationships,
   ListAppsResponseMeta: ListAppsResponseMeta,
   ListAppsResponseMetaPage: ListAppsResponseMetaPage,
+  ListAssetsSBOMsResponse: ListAssetsSBOMsResponse,
   ListDevicesResponse: ListDevicesResponse,
   ListDevicesResponseMetadata: ListDevicesResponseMetadata,
   ListDevicesResponseMetadataPage: ListDevicesResponseMetadataPage,
@@ -4999,7 +5017,13 @@ const typeMap: { [index: string]: any } = {
   SBOM: SBOM,
   SBOMAttributes: SBOMAttributes,
   SBOMComponent: SBOMComponent,
+  SBOMComponentDependency: SBOMComponentDependency,
+  SBOMComponentLicense: SBOMComponentLicense,
+  SBOMComponentLicenseLicense: SBOMComponentLicenseLicense,
+  SBOMComponentProperty: SBOMComponentProperty,
+  SBOMComponentSupplier: SBOMComponentSupplier,
   SBOMMetadata: SBOMMetadata,
+  SBOMMetadataAuthor: SBOMMetadataAuthor,
   SBOMMetadataComponent: SBOMMetadataComponent,
   SLOReportPostResponse: SLOReportPostResponse,
   SLOReportPostResponseData: SLOReportPostResponseData,

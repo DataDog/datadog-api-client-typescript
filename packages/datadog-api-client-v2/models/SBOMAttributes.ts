@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SBOMComponent } from "./SBOMComponent";
+import { SBOMComponentDependency } from "./SBOMComponentDependency";
 import { SBOMMetadata } from "./SBOMMetadata";
 import { SpecVersion } from "./SpecVersion";
 
@@ -21,6 +22,10 @@ export class SBOMAttributes {
    * A list of software and hardware components.
    */
   "components": Array<SBOMComponent>;
+  /**
+   * List of dependencies between components of the SBOM.
+   */
+  "dependencies": Array<SBOMComponentDependency>;
   /**
    * Provides additional information about a BOM.
    */
@@ -62,6 +67,11 @@ export class SBOMAttributes {
     components: {
       baseName: "components",
       type: "Array<SBOMComponent>",
+      required: true,
+    },
+    dependencies: {
+      baseName: "dependencies",
+      type: "Array<SBOMComponentDependency>",
       required: true,
     },
     metadata: {

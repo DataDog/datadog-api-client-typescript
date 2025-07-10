@@ -35,6 +35,10 @@ export class AssetAttributes {
    */
   "risks": AssetRisks;
   /**
+   * List of teams that own the asset.
+   */
+  "teams"?: Array<string>;
+  /**
    * The asset type
    */
   "type": AssetType;
@@ -81,6 +85,10 @@ export class AssetAttributes {
       baseName: "risks",
       type: "AssetRisks",
       required: true,
+    },
+    teams: {
+      baseName: "teams",
+      type: "Array<string>",
     },
     type: {
       baseName: "type",
