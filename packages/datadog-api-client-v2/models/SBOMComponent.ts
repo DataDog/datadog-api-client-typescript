@@ -3,6 +3,9 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SBOMComponentLicense } from "./SBOMComponentLicense";
+import { SBOMComponentProperty } from "./SBOMComponentProperty";
+import { SBOMComponentSupplier } from "./SBOMComponentSupplier";
 import { SBOMComponentType } from "./SBOMComponentType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -16,13 +19,25 @@ export class SBOMComponent {
    */
   "bomRef"?: string;
   /**
+   * The software licenses of the SBOM component.
+   */
+  "licenses"?: Array<SBOMComponentLicense>;
+  /**
    * The name of the component. This will often be a shortened, single name of the component.
    */
   "name": string;
   /**
+   * The custom properties of the component of the SBOM.
+   */
+  "properties"?: Array<SBOMComponentProperty>;
+  /**
    * Specifies the package-url (purl). The purl, if specified, MUST be valid and conform to the [specification](https://github.com/package-url/purl-spec).
    */
   "purl"?: string;
+  /**
+   * The supplier of the component.
+   */
+  "supplier": SBOMComponentSupplier;
   /**
    * The SBOM component type
    */
@@ -52,14 +67,27 @@ export class SBOMComponent {
       baseName: "bom-ref",
       type: "string",
     },
+    licenses: {
+      baseName: "licenses",
+      type: "Array<SBOMComponentLicense>",
+    },
     name: {
       baseName: "name",
       type: "string",
       required: true,
     },
+    properties: {
+      baseName: "properties",
+      type: "Array<SBOMComponentProperty>",
+    },
     purl: {
       baseName: "purl",
       type: "string",
+    },
+    supplier: {
+      baseName: "supplier",
+      type: "SBOMComponentSupplier",
+      required: true,
     },
     type: {
       baseName: "type",

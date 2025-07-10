@@ -3,27 +3,28 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SBOMMetadataAuthor } from "./SBOMMetadataAuthor";
-import { SBOMMetadataComponent } from "./SBOMMetadataComponent";
+import { Links } from "./Links";
+import { Metadata } from "./Metadata";
+import { SBOM } from "./SBOM";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Provides additional information about a BOM.
+ * The expected response schema when listing assets SBOMs.
  */
-export class SBOMMetadata {
+export class ListAssetsSBOMsResponse {
   /**
-   * List of authors of the SBOM.
+   * List of assets SBOMs.
    */
-  "authors"?: Array<SBOMMetadataAuthor>;
+  "data": Array<SBOM>;
   /**
-   * The component that the BOM describes.
+   * The JSON:API links related to pagination.
    */
-  "component"?: SBOMMetadataComponent;
+  "links"?: Links;
   /**
-   * The timestamp of the SBOM creation.
+   * The metadata related to this request.
    */
-  "timestamp"?: string;
+  "meta"?: Metadata;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,17 +42,18 @@ export class SBOMMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    authors: {
-      baseName: "authors",
-      type: "Array<SBOMMetadataAuthor>",
+    data: {
+      baseName: "data",
+      type: "Array<SBOM>",
+      required: true,
     },
-    component: {
-      baseName: "component",
-      type: "SBOMMetadataComponent",
+    links: {
+      baseName: "links",
+      type: "Links",
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "string",
+    meta: {
+      baseName: "meta",
+      type: "Metadata",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -63,7 +65,7 @@ export class SBOMMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SBOMMetadata.attributeTypeMap;
+    return ListAssetsSBOMsResponse.attributeTypeMap;
   }
 
   public constructor() {}

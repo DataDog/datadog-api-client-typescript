@@ -234,6 +234,7 @@ export function createConfiguration(
       "v2.getHistoricalJob": false,
       "v2.getRuleVersionHistory": false,
       "v2.getSBOM": false,
+      "v2.listAssetsSBOMs": false,
       "v2.listFindings": false,
       "v2.listHistoricalJobs": false,
       "v2.listVulnerabilities": false,

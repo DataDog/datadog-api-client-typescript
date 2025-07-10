@@ -589,6 +589,7 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiGetSignalNotificationRuleRequest,
   SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListHistoricalJobsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
@@ -1953,6 +1954,7 @@ export { ListAppsResponseDataItemsAttributes } from "./models/ListAppsResponseDa
 export { ListAppsResponseDataItemsRelationships } from "./models/ListAppsResponseDataItemsRelationships";
 export { ListAppsResponseMeta } from "./models/ListAppsResponseMeta";
 export { ListAppsResponseMetaPage } from "./models/ListAppsResponseMetaPage";
+export { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
 export { ListDevicesResponse } from "./models/ListDevicesResponse";
 export { ListDevicesResponseMetadata } from "./models/ListDevicesResponseMetadata";
 export { ListDevicesResponseMetadataPage } from "./models/ListDevicesResponseMetadataPage";
@@ -2756,8 +2758,15 @@ export { SAMLAssertionAttributesType } from "./models/SAMLAssertionAttributesTyp
 export { SBOM } from "./models/SBOM";
 export { SBOMAttributes } from "./models/SBOMAttributes";
 export { SBOMComponent } from "./models/SBOMComponent";
+export { SBOMComponentDependency } from "./models/SBOMComponentDependency";
+export { SBOMComponentLicense } from "./models/SBOMComponentLicense";
+export { SBOMComponentLicenseLicense } from "./models/SBOMComponentLicenseLicense";
+export { SBOMComponentLicenseType } from "./models/SBOMComponentLicenseType";
+export { SBOMComponentProperty } from "./models/SBOMComponentProperty";
+export { SBOMComponentSupplier } from "./models/SBOMComponentSupplier";
 export { SBOMComponentType } from "./models/SBOMComponentType";
 export { SBOMMetadata } from "./models/SBOMMetadata";
+export { SBOMMetadataAuthor } from "./models/SBOMMetadataAuthor";
 export { SBOMMetadataComponent } from "./models/SBOMMetadataComponent";
 export { SBOMType } from "./models/SBOMType";
 export { ScalarColumn } from "./models/ScalarColumn";
