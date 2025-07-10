@@ -3,27 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SBOMMetadataAuthor } from "./SBOMMetadataAuthor";
-import { SBOMMetadataComponent } from "./SBOMMetadataComponent";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Provides additional information about a BOM.
+ * Author of the SBOM.
  */
-export class SBOMMetadata {
+export class SBOMMetadataAuthor {
   /**
-   * List of authors of the SBOM.
+   * The identifier of the Author of the SBOM.
    */
-  "authors"?: Array<SBOMMetadataAuthor>;
-  /**
-   * The component that the BOM describes.
-   */
-  "component"?: SBOMMetadataComponent;
-  /**
-   * The timestamp of the SBOM creation.
-   */
-  "timestamp"?: string;
+  "name"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,16 +31,8 @@ export class SBOMMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    authors: {
-      baseName: "authors",
-      type: "Array<SBOMMetadataAuthor>",
-    },
-    component: {
-      baseName: "component",
-      type: "SBOMMetadataComponent",
-    },
-    timestamp: {
-      baseName: "timestamp",
+    name: {
+      baseName: "name",
       type: "string",
     },
     additionalProperties: {
@@ -63,7 +45,7 @@ export class SBOMMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SBOMMetadata.attributeTypeMap;
+    return SBOMMetadataAuthor.attributeTypeMap;
   }
 
   public constructor() {}
