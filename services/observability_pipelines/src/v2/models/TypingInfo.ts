@@ -61,6 +61,8 @@ import { ObservabilityPipelineQuotaProcessorLimit } from "./ObservabilityPipelin
 import { ObservabilityPipelineQuotaProcessorOverride } from "./ObservabilityPipelineQuotaProcessorOverride";
 import { ObservabilityPipelineReduceProcessor } from "./ObservabilityPipelineReduceProcessor";
 import { ObservabilityPipelineReduceProcessorMergeStrategy } from "./ObservabilityPipelineReduceProcessorMergeStrategy";
+import { ObservabilityPipelineRemapVrlProcessor } from "./ObservabilityPipelineRemapVrlProcessor";
+import { ObservabilityPipelineRemapVrlProcessorRemap } from "./ObservabilityPipelineRemapVrlProcessorRemap";
 import { ObservabilityPipelineRemoveFieldsProcessor } from "./ObservabilityPipelineRemoveFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessor } from "./ObservabilityPipelineRenameFieldsProcessor";
 import { ObservabilityPipelineRenameFieldsProcessorField } from "./ObservabilityPipelineRenameFieldsProcessorField";
@@ -84,6 +86,16 @@ import { ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude } from "
 import { ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude";
 import { ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions";
 import { ObservabilityPipelineSentinelOneDestination } from "./ObservabilityPipelineSentinelOneDestination";
+import { ObservabilityPipelineSocketDestination } from "./ObservabilityPipelineSocketDestination";
+import { ObservabilityPipelineSocketDestinationFramingBytes } from "./ObservabilityPipelineSocketDestinationFramingBytes";
+import { ObservabilityPipelineSocketDestinationFramingCharacterDelimited } from "./ObservabilityPipelineSocketDestinationFramingCharacterDelimited";
+import { ObservabilityPipelineSocketDestinationFramingNewlineDelimited } from "./ObservabilityPipelineSocketDestinationFramingNewlineDelimited";
+import { ObservabilityPipelineSocketSource } from "./ObservabilityPipelineSocketSource";
+import { ObservabilityPipelineSocketSourceFramingBytes } from "./ObservabilityPipelineSocketSourceFramingBytes";
+import { ObservabilityPipelineSocketSourceFramingCharacterDelimited } from "./ObservabilityPipelineSocketSourceFramingCharacterDelimited";
+import { ObservabilityPipelineSocketSourceFramingChunkedGelf } from "./ObservabilityPipelineSocketSourceFramingChunkedGelf";
+import { ObservabilityPipelineSocketSourceFramingNewlineDelimited } from "./ObservabilityPipelineSocketSourceFramingNewlineDelimited";
+import { ObservabilityPipelineSocketSourceFramingOctetCounting } from "./ObservabilityPipelineSocketSourceFramingOctetCounting";
 import { ObservabilityPipelineSpec } from "./ObservabilityPipelineSpec";
 import { ObservabilityPipelineSpecData } from "./ObservabilityPipelineSpecData";
 import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
@@ -240,6 +252,7 @@ export const TypingInfo: ModelTypingInfo = {
       "flat_unique",
     ],
     ObservabilityPipelineReduceProcessorType: ["reduce"],
+    ObservabilityPipelineRemapVrlProcessorType: ["remap_vrl"],
     ObservabilityPipelineRemoveFieldsProcessorType: ["remove_fields"],
     ObservabilityPipelineRenameFieldsProcessorType: ["rename_fields"],
     ObservabilityPipelineRsyslogDestinationType: ["rsyslog"],
@@ -278,6 +291,29 @@ export const TypingInfo: ModelTypingInfo = {
       "data_set_us",
     ],
     ObservabilityPipelineSentinelOneDestinationType: ["sentinel_one"],
+    ObservabilityPipelineSocketDestinationEncoding: ["json", "raw_message"],
+    ObservabilityPipelineSocketDestinationFramingBytesMethod: ["bytes"],
+    ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod: [
+      "character_delimited",
+    ],
+    ObservabilityPipelineSocketDestinationFramingNewlineDelimitedMethod: [
+      "newline_delimited",
+    ],
+    ObservabilityPipelineSocketDestinationMode: ["tcp", "udp"],
+    ObservabilityPipelineSocketDestinationType: ["socket"],
+    ObservabilityPipelineSocketSourceFramingBytesMethod: ["bytes"],
+    ObservabilityPipelineSocketSourceFramingCharacterDelimitedMethod: [
+      "character_delimited",
+    ],
+    ObservabilityPipelineSocketSourceFramingChunkedGelfMethod: ["chunked_gelf"],
+    ObservabilityPipelineSocketSourceFramingNewlineDelimitedMethod: [
+      "newline_delimited",
+    ],
+    ObservabilityPipelineSocketSourceFramingOctetCountingMethod: [
+      "octet_counting",
+    ],
+    ObservabilityPipelineSocketSourceMode: ["tcp", "udp"],
+    ObservabilityPipelineSocketSourceType: ["socket"],
     ObservabilityPipelineSplunkHecDestinationEncoding: ["json", "raw_message"],
     ObservabilityPipelineSplunkHecDestinationType: ["splunk_hec"],
     ObservabilityPipelineSplunkHecSourceType: ["splunk_hec"],
@@ -311,6 +347,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSentinelOneDestination",
       "ObservabilityPipelineOpenSearchDestination",
       "ObservabilityPipelineAmazonOpenSearchDestination",
+      "ObservabilityPipelineSocketDestination",
     ],
     ObservabilityPipelineConfigProcessorItem: [
       "ObservabilityPipelineFilterProcessor",
@@ -329,6 +366,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineEnrichmentTableProcessor",
       "ObservabilityPipelineReduceProcessor",
       "ObservabilityPipelineThrottleProcessor",
+      "ObservabilityPipelineRemapVrlProcessor",
     ],
     ObservabilityPipelineConfigSourceItem: [
       "ObservabilityPipelineKafkaSource",
@@ -346,6 +384,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineGooglePubSubSource",
       "ObservabilityPipelineHttpClientSource",
       "ObservabilityPipelineLogstashSource",
+      "ObservabilityPipelineSocketSource",
     ],
     ObservabilityPipelineMetricValue: [
       "ObservabilityPipelineGeneratedMetricIncrementByOne",
@@ -367,6 +406,18 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude",
       "ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude",
       "ObservabilityPipelineSensitiveDataScannerProcessorScopeAll",
+    ],
+    ObservabilityPipelineSocketDestinationFraming: [
+      "ObservabilityPipelineSocketDestinationFramingNewlineDelimited",
+      "ObservabilityPipelineSocketDestinationFramingBytes",
+      "ObservabilityPipelineSocketDestinationFramingCharacterDelimited",
+    ],
+    ObservabilityPipelineSocketSourceFraming: [
+      "ObservabilityPipelineSocketSourceFramingNewlineDelimited",
+      "ObservabilityPipelineSocketSourceFramingBytes",
+      "ObservabilityPipelineSocketSourceFramingCharacterDelimited",
+      "ObservabilityPipelineSocketSourceFramingOctetCounting",
+      "ObservabilityPipelineSocketSourceFramingChunkedGelf",
     ],
   },
   typeMap: {
@@ -468,6 +519,10 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineReduceProcessor: ObservabilityPipelineReduceProcessor,
     ObservabilityPipelineReduceProcessorMergeStrategy:
       ObservabilityPipelineReduceProcessorMergeStrategy,
+    ObservabilityPipelineRemapVrlProcessor:
+      ObservabilityPipelineRemapVrlProcessor,
+    ObservabilityPipelineRemapVrlProcessorRemap:
+      ObservabilityPipelineRemapVrlProcessorRemap,
     ObservabilityPipelineRemoveFieldsProcessor:
       ObservabilityPipelineRemoveFieldsProcessor,
     ObservabilityPipelineRenameFieldsProcessor:
@@ -512,6 +567,25 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions,
     ObservabilityPipelineSentinelOneDestination:
       ObservabilityPipelineSentinelOneDestination,
+    ObservabilityPipelineSocketDestination:
+      ObservabilityPipelineSocketDestination,
+    ObservabilityPipelineSocketDestinationFramingBytes:
+      ObservabilityPipelineSocketDestinationFramingBytes,
+    ObservabilityPipelineSocketDestinationFramingCharacterDelimited:
+      ObservabilityPipelineSocketDestinationFramingCharacterDelimited,
+    ObservabilityPipelineSocketDestinationFramingNewlineDelimited:
+      ObservabilityPipelineSocketDestinationFramingNewlineDelimited,
+    ObservabilityPipelineSocketSource: ObservabilityPipelineSocketSource,
+    ObservabilityPipelineSocketSourceFramingBytes:
+      ObservabilityPipelineSocketSourceFramingBytes,
+    ObservabilityPipelineSocketSourceFramingCharacterDelimited:
+      ObservabilityPipelineSocketSourceFramingCharacterDelimited,
+    ObservabilityPipelineSocketSourceFramingChunkedGelf:
+      ObservabilityPipelineSocketSourceFramingChunkedGelf,
+    ObservabilityPipelineSocketSourceFramingNewlineDelimited:
+      ObservabilityPipelineSocketSourceFramingNewlineDelimited,
+    ObservabilityPipelineSocketSourceFramingOctetCounting:
+      ObservabilityPipelineSocketSourceFramingOctetCounting,
     ObservabilityPipelineSpec: ObservabilityPipelineSpec,
     ObservabilityPipelineSpecData: ObservabilityPipelineSpecData,
     ObservabilityPipelineSplunkHecDestination:
