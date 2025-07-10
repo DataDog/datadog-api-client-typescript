@@ -31,6 +31,7 @@ export {
   SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiGetSignalNotificationRuleRequest,
   SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest,
+  SecurityMonitoringApiListAssetsSBOMsRequest,
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListHistoricalJobsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
@@ -140,6 +141,7 @@ export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { Library } from "./models/Library";
 export { Links } from "./models/Links";
+export { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
@@ -174,8 +176,15 @@ export { RunHistoricalJobRequestDataType } from "./models/RunHistoricalJobReques
 export { SBOM } from "./models/SBOM";
 export { SBOMAttributes } from "./models/SBOMAttributes";
 export { SBOMComponent } from "./models/SBOMComponent";
+export { SBOMComponentDependency } from "./models/SBOMComponentDependency";
+export { SBOMComponentLicense } from "./models/SBOMComponentLicense";
+export { SBOMComponentLicenseLicense } from "./models/SBOMComponentLicenseLicense";
+export { SBOMComponentLicenseType } from "./models/SBOMComponentLicenseType";
+export { SBOMComponentProperty } from "./models/SBOMComponentProperty";
+export { SBOMComponentSupplier } from "./models/SBOMComponentSupplier";
 export { SBOMComponentType } from "./models/SBOMComponentType";
 export { SBOMMetadata } from "./models/SBOMMetadata";
+export { SBOMMetadataAuthor } from "./models/SBOMMetadataAuthor";
 export { SBOMMetadataComponent } from "./models/SBOMMetadataComponent";
 export { SBOMType } from "./models/SBOMType";
 export { SecurityFilter } from "./models/SecurityFilter";
