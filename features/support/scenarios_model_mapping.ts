@@ -4559,6 +4559,30 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DashboardListUpdateItemsResponse",
     },
+    "v2.GetAllDatasets": {
+        "operationResponseType": "DatasetResponseMulti",
+    },
+    "v2.CreateDataset": {
+        "body": {
+            "type": "DatasetCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DatasetResponseSingle",
+    },
+    "v2.DeleteDataset": {
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetDataset": {
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DatasetResponseSingle",
+    },
     "v2.CreateDataDeletionRequest": {
         "product": {
             "type": "string",
