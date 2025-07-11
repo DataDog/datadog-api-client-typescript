@@ -520,6 +520,11 @@ import { DataScalarColumn } from "./DataScalarColumn";
 import { DataTransform } from "./DataTransform";
 import { DataTransformProperties } from "./DataTransformProperties";
 import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWrapper";
+import { Dataset } from "./Dataset";
+import { DatasetAttributes } from "./DatasetAttributes";
+import { DatasetCreateRequest } from "./DatasetCreateRequest";
+import { DatasetResponseMulti } from "./DatasetResponseMulti";
+import { DatasetResponseSingle } from "./DatasetResponseSingle";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
 import { DeleteAppsRequest } from "./DeleteAppsRequest";
@@ -696,6 +701,7 @@ import { FastlyServiceData } from "./FastlyServiceData";
 import { FastlyServiceRequest } from "./FastlyServiceRequest";
 import { FastlyServiceResponse } from "./FastlyServiceResponse";
 import { FastlyServicesResponse } from "./FastlyServicesResponse";
+import { FiltersPerProduct } from "./FiltersPerProduct";
 import { Finding } from "./Finding";
 import { FindingAttributes } from "./FindingAttributes";
 import { FindingMute } from "./FindingMute";
@@ -3870,6 +3876,11 @@ const typeMap: { [index: string]: any } = {
   DataTransform: DataTransform,
   DataTransformProperties: DataTransformProperties,
   DatabaseMonitoringTriggerWrapper: DatabaseMonitoringTriggerWrapper,
+  Dataset: Dataset,
+  DatasetAttributes: DatasetAttributes,
+  DatasetCreateRequest: DatasetCreateRequest,
+  DatasetResponseMulti: DatasetResponseMulti,
+  DatasetResponseSingle: DatasetResponseSingle,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
   DeleteAppsRequest: DeleteAppsRequest,
@@ -4069,6 +4080,7 @@ const typeMap: { [index: string]: any } = {
   FastlyServiceRequest: FastlyServiceRequest,
   FastlyServiceResponse: FastlyServiceResponse,
   FastlyServicesResponse: FastlyServicesResponse,
+  FiltersPerProduct: FiltersPerProduct,
   Finding: Finding,
   FindingAttributes: FindingAttributes,
   FindingMute: FindingMute,
