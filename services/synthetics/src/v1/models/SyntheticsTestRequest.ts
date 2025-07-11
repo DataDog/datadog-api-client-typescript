@@ -55,6 +55,10 @@ export class SyntheticsTestRequest {
    */
   "compressedProtoFile"?: string;
   /**
+   * Disable fetching intermediate certificates from AIA.
+   */
+  "disableAiaIntermediateFetching"?: boolean;
+  /**
    * DNS server to use for DNS tests.
    */
   "dnsServer"?: string;
@@ -202,6 +206,10 @@ export class SyntheticsTestRequest {
     compressedProtoFile: {
       baseName: "compressedProtoFile",
       type: "string",
+    },
+    disableAiaIntermediateFetching: {
+      baseName: "disableAiaIntermediateFetching",
+      type: "boolean",
     },
     dnsServer: {
       baseName: "dnsServer",
