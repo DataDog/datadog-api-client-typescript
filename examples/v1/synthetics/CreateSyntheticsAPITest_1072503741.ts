@@ -28,6 +28,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     options: {
       acceptSelfSigned: true,
       checkCertificateRevocation: true,
+      disableAiaIntermediateFetching: true,
       tickEvery: 60,
     },
     subtype: "ssl",

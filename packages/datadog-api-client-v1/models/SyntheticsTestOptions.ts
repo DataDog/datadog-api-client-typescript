@@ -38,6 +38,10 @@ export class SyntheticsTestOptions {
    */
   "deviceIds"?: Array<string>;
   /**
+   * For SSL test, whether or not the test should disable fetching intermediate certificates from AIA.
+   */
+  "disableAiaIntermediateFetching"?: boolean;
+  /**
    * Whether or not to disable CORS mechanism.
    */
   "disableCors"?: boolean;
@@ -161,6 +165,10 @@ export class SyntheticsTestOptions {
     deviceIds: {
       baseName: "device_ids",
       type: "Array<string>",
+    },
+    disableAiaIntermediateFetching: {
+      baseName: "disableAiaIntermediateFetching",
+      type: "boolean",
     },
     disableCors: {
       baseName: "disableCors",
