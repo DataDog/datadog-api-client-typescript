@@ -108,6 +108,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           ],
           request: {
             checkCertificateRevocation: true,
+            disableAiaIntermediateFetching: true,
             host: "example.org",
             port: 443,
           },
