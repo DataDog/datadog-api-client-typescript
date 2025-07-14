@@ -373,6 +373,7 @@ apiInstance
 | Dashboard Lists | @datadog/datadog-api-client-dashboard-lists | [README.md](../../services/dashboard-lists/README.md) |
 | Dashboards | @datadog/datadog-api-client-dashboards | [README.md](../../services/dashboards/README.md) |
 | Data Deletion | @datadog/datadog-api-client-data-deletion | [README.md](../../services/data-deletion/README.md) |
+| Datasets | @datadog/datadog-api-client-datasets | [README.md](../../services/datasets/README.md) |
 | Domain Allowlist | @datadog/datadog-api-client-domain-allowlist | [README.md](../../services/domain-allowlist/README.md) |
 | DORA Metrics | @datadog/datadog-api-client-dora-metrics | [README.md](../../services/dora-metrics/README.md) |
 | Downtimes | @datadog/datadog-api-client-downtimes | [README.md](../../services/downtimes/README.md) |
