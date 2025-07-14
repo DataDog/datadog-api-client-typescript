@@ -225,6 +225,13 @@ export {
 } from "./apis/DataDeletionApi";
 
 export {
+  DatasetsApiCreateDatasetRequest,
+  DatasetsApiDeleteDatasetRequest,
+  DatasetsApiGetDatasetRequest,
+  DatasetsApi,
+} from "./apis/DatasetsApi";
+
+export {
   DomainAllowlistApiPatchDomainAllowlistRequest,
   DomainAllowlistApi,
 } from "./apis/DomainAllowlistApi";
@@ -1409,6 +1416,11 @@ export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
 export { DataRelationshipsTeamsDataItems } from "./models/DataRelationshipsTeamsDataItems";
 export { DataRelationshipsTeamsDataItemsType } from "./models/DataRelationshipsTeamsDataItemsType";
 export { DataScalarColumn } from "./models/DataScalarColumn";
+export { Dataset } from "./models/Dataset";
+export { DatasetAttributes } from "./models/DatasetAttributes";
+export { DatasetCreateRequest } from "./models/DatasetCreateRequest";
+export { DatasetResponseMulti } from "./models/DatasetResponseMulti";
+export { DatasetResponseSingle } from "./models/DatasetResponseSingle";
 export { DataTransform } from "./models/DataTransform";
 export { DataTransformProperties } from "./models/DataTransformProperties";
 export { DataTransformType } from "./models/DataTransformType";
@@ -1662,6 +1674,7 @@ export { FastlyServiceRequest } from "./models/FastlyServiceRequest";
 export { FastlyServiceResponse } from "./models/FastlyServiceResponse";
 export { FastlyServicesResponse } from "./models/FastlyServicesResponse";
 export { FastlyServiceType } from "./models/FastlyServiceType";
+export { FiltersPerProduct } from "./models/FiltersPerProduct";
 export { Finding } from "./models/Finding";
 export { FindingAttributes } from "./models/FindingAttributes";
 export { FindingEvaluation } from "./models/FindingEvaluation";
