@@ -17,7 +17,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsTestOptions {
   /**
-   * For SSL test, whether or not the test should allow self signed
+   * For SSL tests, whether or not the test should allow self signed
    * certificates.
    */
   "acceptSelfSigned"?: boolean;
@@ -26,7 +26,7 @@ export class SyntheticsTestOptions {
    */
   "allowInsecure"?: boolean;
   /**
-   * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+   * For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
    */
   "checkCertificateRevocation"?: boolean;
   /**
@@ -37,6 +37,10 @@ export class SyntheticsTestOptions {
    * For browser test, array with the different device IDs used to run the test.
    */
   "deviceIds"?: Array<string>;
+  /**
+   * For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA.
+   */
+  "disableAiaIntermediateFetching"?: boolean;
   /**
    * Whether or not to disable CORS mechanism.
    */
@@ -161,6 +165,10 @@ export class SyntheticsTestOptions {
     deviceIds: {
       baseName: "device_ids",
       type: "Array<string>",
+    },
+    disableAiaIntermediateFetching: {
+      baseName: "disableAiaIntermediateFetching",
+      type: "boolean",
     },
     disableCors: {
       baseName: "disableCors",
