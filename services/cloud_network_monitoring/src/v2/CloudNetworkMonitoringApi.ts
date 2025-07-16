@@ -45,16 +45,6 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudNetworkMonitoringApi.v2.getAggregatedConnections"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getAggregatedConnections' is disabled. Enable it by setting `configuration.unstableOperations['CloudNetworkMonitoringApi.v2.getAggregatedConnections'] = true`",
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/network/connections/aggregate";
 
