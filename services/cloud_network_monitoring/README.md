@@ -25,14 +25,6 @@ import { CloudNetworkMonitoringApiV2 } from "@datadog/datadog-api-client-cloud-n
 import { v2 } from "@datadog/datadog-api-client-cloud-network-monitoring";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "CloudNetworkMonitoringApi.v2.getAggregatedConnections": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new CloudNetworkMonitoringApiV2(configuration);
 const params = {/* parameters */};
 
