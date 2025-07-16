@@ -203,7 +203,7 @@ export interface CloudNetworkMonitoringApiGetAggregatedConnectionsRequest {
    */
   tags?: string;
   /**
-   * The number of connections to be returned. The maximum value is 5000.
+   * The number of connections to be returned. The maximum value is 7500.
    * @type number
    */
   limit?: number;
