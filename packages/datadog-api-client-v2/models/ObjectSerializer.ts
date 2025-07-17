@@ -65,6 +65,8 @@ import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
 import { AddMemberTeamRequest } from "./AddMemberTeamRequest";
 import { Advisory } from "./Advisory";
+import { AlertEventAttributes } from "./AlertEventAttributes";
+import { AlertEventAttributesLinksItem } from "./AlertEventAttributesLinksItem";
 import { AlertEventCustomAttributes } from "./AlertEventCustomAttributes";
 import { AlertEventCustomAttributesLinksItems } from "./AlertEventCustomAttributesLinksItems";
 import { Annotation } from "./Annotation";
@@ -280,6 +282,10 @@ import { CaseUpdateStatusRequest } from "./CaseUpdateStatusRequest";
 import { CasesResponse } from "./CasesResponse";
 import { CasesResponseMeta } from "./CasesResponseMeta";
 import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
+import { ChangeEventAttributes } from "./ChangeEventAttributes";
+import { ChangeEventAttributesAuthor } from "./ChangeEventAttributesAuthor";
+import { ChangeEventAttributesChangedResource } from "./ChangeEventAttributesChangedResource";
+import { ChangeEventAttributesImpactedResourcesItem } from "./ChangeEventAttributesImpactedResourcesItem";
 import { ChangeEventCustomAttributes } from "./ChangeEventCustomAttributes";
 import { ChangeEventCustomAttributesAuthor } from "./ChangeEventCustomAttributesAuthor";
 import { ChangeEventCustomAttributesChangedResource } from "./ChangeEventCustomAttributesChangedResource";
@@ -670,6 +676,7 @@ import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLin
 import { EventPayload } from "./EventPayload";
 import { EventResponse } from "./EventResponse";
 import { EventResponseAttributes } from "./EventResponseAttributes";
+import { EventSystemAttributes } from "./EventSystemAttributes";
 import { EventsCompute } from "./EventsCompute";
 import { EventsGroupBy } from "./EventsGroupBy";
 import { EventsGroupBySort } from "./EventsGroupBySort";
@@ -1941,6 +1948,9 @@ import { UserUpdateData } from "./UserUpdateData";
 import { UserUpdateRequest } from "./UserUpdateRequest";
 import { UsersRelationship } from "./UsersRelationship";
 import { UsersResponse } from "./UsersResponse";
+import { V2Event } from "./V2Event";
+import { V2EventAttributes } from "./V2EventAttributes";
+import { V2EventResponse } from "./V2EventResponse";
 import { ValidationError } from "./ValidationError";
 import { ValidationErrorMeta } from "./ValidationErrorMeta";
 import { ValidationResponse } from "./ValidationResponse";
@@ -2025,6 +2035,13 @@ const enumsMap: { [key: string]: any[] } = {
   ActionConnectionDataType: ["action_connection"],
   ActionQueryType: ["action"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
+  AlertEventAttributesLinksItemCategory: [
+    "runbook",
+    "documentation",
+    "dashboard",
+  ],
+  AlertEventAttributesPriority: ["1", "2", "3", "4", "5"],
+  AlertEventAttributesStatus: ["warn", "error", "ok"],
   AlertEventCustomAttributesLinksItemsCategory: [
     "runbook",
     "documentation",
@@ -2210,6 +2227,9 @@ const enumsMap: { [key: string]: any[] } = {
   CaseSortableField: ["created_at", "priority", "status"],
   CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
   CaseType: ["STANDARD"],
+  ChangeEventAttributesAuthorType: ["user", "system", "api", "automation"],
+  ChangeEventAttributesChangedResourceType: ["feature_flag", "configuration"],
+  ChangeEventAttributesImpactedResourcesItemType: ["service"],
   ChangeEventCustomAttributesAuthorType: [
     "user",
     "system",
@@ -2362,6 +2382,8 @@ const enumsMap: { [key: string]: any[] } = {
     "recommendation",
     "snapshot",
   ],
+  EventSystemAttributesCategory: ["change", "alert"],
+  EventSystemAttributesIntegrationId: ["custom-events"],
   EventType: ["event"],
   EventsAggregation: [
     "count",
@@ -3326,6 +3348,8 @@ const typeMap: { [index: string]: any } = {
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   AddMemberTeamRequest: AddMemberTeamRequest,
   Advisory: Advisory,
+  AlertEventAttributes: AlertEventAttributes,
+  AlertEventAttributesLinksItem: AlertEventAttributesLinksItem,
   AlertEventCustomAttributes: AlertEventCustomAttributes,
   AlertEventCustomAttributesLinksItems: AlertEventCustomAttributesLinksItems,
   Annotation: Annotation,
@@ -3577,6 +3601,11 @@ const typeMap: { [index: string]: any } = {
   CasesResponse: CasesResponse,
   CasesResponseMeta: CasesResponseMeta,
   CasesResponseMetaPagination: CasesResponseMetaPagination,
+  ChangeEventAttributes: ChangeEventAttributes,
+  ChangeEventAttributesAuthor: ChangeEventAttributesAuthor,
+  ChangeEventAttributesChangedResource: ChangeEventAttributesChangedResource,
+  ChangeEventAttributesImpactedResourcesItem:
+    ChangeEventAttributesImpactedResourcesItem,
   ChangeEventCustomAttributes: ChangeEventCustomAttributes,
   ChangeEventCustomAttributesAuthor: ChangeEventCustomAttributesAuthor,
   ChangeEventCustomAttributesChangedResource:
@@ -4049,6 +4078,7 @@ const typeMap: { [index: string]: any } = {
   EventPayload: EventPayload,
   EventResponse: EventResponse,
   EventResponseAttributes: EventResponseAttributes,
+  EventSystemAttributes: EventSystemAttributes,
   EventsCompute: EventsCompute,
   EventsGroupBy: EventsGroupBy,
   EventsGroupBySort: EventsGroupBySort,
@@ -5519,6 +5549,9 @@ const typeMap: { [index: string]: any } = {
   UserUpdateRequest: UserUpdateRequest,
   UsersRelationship: UsersRelationship,
   UsersResponse: UsersResponse,
+  V2Event: V2Event,
+  V2EventAttributes: V2EventAttributes,
+  V2EventResponse: V2EventResponse,
   ValidationError: ValidationError,
   ValidationErrorMeta: ValidationErrorMeta,
   ValidationResponse: ValidationResponse,
@@ -5914,6 +5947,10 @@ const oneOfMap: { [index: string]: string[] } = {
   UpsertCatalogKindRequest: ["KindObj", "string"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
   UserTeamIncluded: ["User", "Team"],
+  V2EventAttributesAttributes: [
+    "ChangeEventAttributes",
+    "AlertEventAttributes",
+  ],
   XRayServicesList: ["XRayServicesIncludeAll", "XRayServicesIncludeOnly"],
 };
 

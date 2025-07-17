@@ -4794,6 +4794,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "EventsListResponse",
     },
+    "v2.GetEvent": {
+        "eventId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "V2EventResponse",
+    },
     "v2.ListIncidents": {
         "include": {
             "type": "Array<IncidentRelatedObject>",
