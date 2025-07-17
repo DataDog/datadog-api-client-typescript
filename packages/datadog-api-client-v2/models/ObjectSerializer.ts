@@ -2398,7 +2398,7 @@ const enumsMap: { [key: string]: any[] } = {
     "max",
     "avg",
   ],
-  EventsDataSource: ["logs", "rum"],
+  EventsDataSource: ["logs", "rum", "dora"],
   EventsSort: ["timestamp", "-timestamp"],
   EventsSortType: ["alphabetical", "measure"],
   FastlyAccountType: ["fastly-accounts"],
