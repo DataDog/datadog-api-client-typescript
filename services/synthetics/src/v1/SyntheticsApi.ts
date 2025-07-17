@@ -4098,7 +4098,7 @@ export interface SyntheticsApiSearchTestsRequest {
    */
   count?: number;
   /**
-   * The sort order for the results (e.g., 'name,asc' or 'name,desc').
+   * The sort order for the results (e.g., `name,asc` or `name,desc`).
    * @type string
    */
   sort?: string;
