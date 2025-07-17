@@ -1,16 +1,29 @@
 export {
   EventsApiCreateEventRequest,
+  EventsApiGetEventRequest,
   EventsApiListEventsRequest,
   EventsApiSearchEventsRequest,
   EventsApi,
 } from "./EventsApi";
 
+export { AlertEventAttributes } from "./models/AlertEventAttributes";
+export { AlertEventAttributesLinksItem } from "./models/AlertEventAttributesLinksItem";
+export { AlertEventAttributesLinksItemCategory } from "./models/AlertEventAttributesLinksItemCategory";
+export { AlertEventAttributesPriority } from "./models/AlertEventAttributesPriority";
+export { AlertEventAttributesStatus } from "./models/AlertEventAttributesStatus";
 export { AlertEventCustomAttributes } from "./models/AlertEventCustomAttributes";
 export { AlertEventCustomAttributesLinksItems } from "./models/AlertEventCustomAttributesLinksItems";
 export { AlertEventCustomAttributesLinksItemsCategory } from "./models/AlertEventCustomAttributesLinksItemsCategory";
 export { AlertEventCustomAttributesPriority } from "./models/AlertEventCustomAttributesPriority";
 export { AlertEventCustomAttributesStatus } from "./models/AlertEventCustomAttributesStatus";
 export { APIErrorResponse } from "./models/APIErrorResponse";
+export { ChangeEventAttributes } from "./models/ChangeEventAttributes";
+export { ChangeEventAttributesAuthor } from "./models/ChangeEventAttributesAuthor";
+export { ChangeEventAttributesAuthorType } from "./models/ChangeEventAttributesAuthorType";
+export { ChangeEventAttributesChangedResource } from "./models/ChangeEventAttributesChangedResource";
+export { ChangeEventAttributesChangedResourceType } from "./models/ChangeEventAttributesChangedResourceType";
+export { ChangeEventAttributesImpactedResourcesItem } from "./models/ChangeEventAttributesImpactedResourcesItem";
+export { ChangeEventAttributesImpactedResourcesItemType } from "./models/ChangeEventAttributesImpactedResourcesItemType";
 export { ChangeEventCustomAttributes } from "./models/ChangeEventCustomAttributes";
 export { ChangeEventCustomAttributesAuthor } from "./models/ChangeEventCustomAttributesAuthor";
 export { ChangeEventCustomAttributesAuthorType } from "./models/ChangeEventCustomAttributesAuthorType";
@@ -47,8 +60,15 @@ export { EventsResponseMetadataPage } from "./models/EventsResponseMetadataPage"
 export { EventsSort } from "./models/EventsSort";
 export { EventStatusType } from "./models/EventStatusType";
 export { EventsWarning } from "./models/EventsWarning";
+export { EventSystemAttributes } from "./models/EventSystemAttributes";
+export { EventSystemAttributesCategory } from "./models/EventSystemAttributesCategory";
+export { EventSystemAttributesIntegrationId } from "./models/EventSystemAttributesIntegrationId";
 export { EventType } from "./models/EventType";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorItemSource } from "./models/JSONAPIErrorItemSource";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { MonitorType } from "./models/MonitorType";
+export { V2Event } from "./models/V2Event";
+export { V2EventAttributes } from "./models/V2EventAttributes";
+export { V2EventAttributesAttributes } from "./models/V2EventAttributesAttributes";
+export { V2EventResponse } from "./models/V2EventResponse";
