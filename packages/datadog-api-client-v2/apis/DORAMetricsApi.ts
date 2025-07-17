@@ -168,8 +168,8 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "appKeyAuth",
       "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -201,8 +201,8 @@ export class DORAMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "appKeyAuth",
       "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;

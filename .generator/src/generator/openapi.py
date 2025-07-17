@@ -620,6 +620,18 @@ def generate_value(schema, use_random=False, prefix=None):
         raise TypeError(f"Unknown type: {spec['type']}")
 
 
+def get_security_names(security):
+    if security is None:
+        return []
+
+    auth_names = set()
+    for auth in security:
+        for key in auth.keys() if isinstance(auth, dict) else [auth]:
+            auth_names.add(key)
+
+    return list(auth_names)
+
+
 class Schema:
     def __init__(self, spec, value=None, keys=None):
         self.spec = spec

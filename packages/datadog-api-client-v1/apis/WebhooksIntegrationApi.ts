@@ -58,9 +58,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
