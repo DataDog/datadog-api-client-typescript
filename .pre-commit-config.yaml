@@ -9,14 +9,14 @@ repos:
       - id: lint
         name: Lint
         language: node
-        entry: bash -c "COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable && yarn install && yarn lint:fix"
+        entry: bash -c "COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable && yarn install --no-immutable && yarn lint:fix"
         stages: [manual]
         pass_filenames: false
         language_version: "22.15.0"
       - id: format
         name: Format code
         language: node
-        entry: bash -c "COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable && yarn install && yarn format"
+        entry: bash -c "COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable && yarn install --no-immutable && yarn format"
         stages: [manual]
         pass_filenames: false
         language_version: "22.15.0"

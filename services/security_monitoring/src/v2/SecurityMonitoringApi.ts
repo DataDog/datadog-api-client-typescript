@@ -43,6 +43,7 @@ import { GetSBOMResponse } from "./models/GetSBOMResponse";
 import { HistoricalJobResponse } from "./models/HistoricalJobResponse";
 import { JobCreateResponse } from "./models/JobCreateResponse";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { ListAssetsSBOMsResponse } from "./models/ListAssetsSBOMsResponse";
 import { ListFindingsResponse } from "./models/ListFindingsResponse";
 import { ListHistoricalJobsResponse } from "./models/ListHistoricalJobsResponse";
 import { ListVulnerabilitiesResponse } from "./models/ListVulnerabilitiesResponse";
@@ -51,6 +52,7 @@ import { NotificationRuleResponse } from "./models/NotificationRuleResponse";
 import { NotificationRulesList } from "./models/NotificationRulesList";
 import { PatchNotificationRuleParameters } from "./models/PatchNotificationRuleParameters";
 import { RunHistoricalJobRequest } from "./models/RunHistoricalJobRequest";
+import { SBOMComponentLicenseType } from "./models/SBOMComponentLicenseType";
 import { SecurityFilterCreateRequest } from "./models/SecurityFilterCreateRequest";
 import { SecurityFilterResponse } from "./models/SecurityFilterResponse";
 import { SecurityFiltersResponse } from "./models/SecurityFiltersResponse";
@@ -146,9 +148,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -195,9 +197,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -310,9 +312,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -361,9 +363,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -413,9 +415,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -464,9 +466,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -521,9 +523,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -572,7 +574,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -623,7 +624,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -674,9 +674,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -730,9 +730,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -776,9 +776,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -821,9 +821,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -870,9 +870,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -916,7 +916,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -962,7 +961,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -1214,9 +1212,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1276,9 +1274,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1330,9 +1328,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1392,9 +1390,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1539,7 +1537,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -1585,9 +1582,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1630,9 +1627,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1676,9 +1673,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1725,9 +1722,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1771,7 +1768,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -1807,7 +1803,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -1853,7 +1848,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -1889,7 +1883,120 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listAssetsSBOMs(
+    pageToken?: string,
+    pageNumber?: number,
+    filterAssetType?: AssetType,
+    filterAssetName?: string,
+    filterPackageName?: string,
+    filterPackageVersion?: string,
+    filterLicenseName?: string,
+    filterLicenseType?: SBOMComponentLicenseType,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations["SecurityMonitoringApi.v2.listAssetsSBOMs"]
+    ) {
+      throw new Error(
+        "Unstable operation 'listAssetsSBOMs' is disabled. Enable it by setting `configuration.unstableOperations['SecurityMonitoringApi.v2.listAssetsSBOMs'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security/sboms";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "SecurityMonitoringApi.v2.listAssetsSBOMs",
+      SecurityMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (pageToken !== undefined) {
+      requestContext.setQueryParam(
+        "page[token]",
+        serialize(pageToken, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (filterAssetType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset_type]",
+        serialize(filterAssetType, TypingInfo, "AssetType", ""),
+        "",
+      );
+    }
+    if (filterAssetName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset_name]",
+        serialize(filterAssetName, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterPackageName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[package_name]",
+        serialize(filterPackageName, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterPackageVersion !== undefined) {
+      requestContext.setQueryParam(
+        "filter[package_version]",
+        serialize(filterPackageVersion, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterLicenseName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[license_name]",
+        serialize(filterLicenseName, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (filterLicenseType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[license_type]",
+        serialize(
+          filterLicenseType,
+          TypingInfo,
+          "SBOMComponentLicenseType",
+          "",
+        ),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -2050,9 +2157,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -2128,9 +2235,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -2165,9 +2272,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -2219,9 +2326,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -2305,9 +2412,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -2342,9 +2449,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -2377,6 +2484,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     filterCodeLocationMethod?: string,
     filterFixAvailable?: boolean,
     filterRepoDigests?: string,
+    filterOrigin?: string,
     filterAssetName?: string,
     filterAssetType?: AssetType,
     filterAssetVersionFirst?: string,
@@ -2388,6 +2496,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     filterAssetRisksHasPrivilegedAccess?: boolean,
     filterAssetRisksHasAccessToSensitiveData?: boolean,
     filterAssetEnvironments?: string,
+    filterAssetTeams?: string,
     filterAssetArch?: string,
     filterAssetOperatingSystemName?: string,
     filterAssetOperatingSystemVersion?: string,
@@ -2629,6 +2738,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "",
       );
     }
+    if (filterOrigin !== undefined) {
+      requestContext.setQueryParam(
+        "filter[origin]",
+        serialize(filterOrigin, TypingInfo, "string", ""),
+        "",
+      );
+    }
     if (filterAssetName !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.name]",
@@ -2721,6 +2837,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "",
       );
     }
+    if (filterAssetTeams !== undefined) {
+      requestContext.setQueryParam(
+        "filter[asset.teams]",
+        serialize(filterAssetTeams, TypingInfo, "string", ""),
+        "",
+      );
+    }
     if (filterAssetArch !== undefined) {
       requestContext.setQueryParam(
         "filter[asset.arch]",
@@ -2745,7 +2868,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -2767,6 +2889,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     filterRisksHasPrivilegedAccess?: boolean,
     filterRisksHasAccessToSensitiveData?: boolean,
     filterEnvironments?: string,
+    filterTeams?: string,
     filterArch?: string,
     filterOperatingSystemName?: string,
     filterOperatingSystemVersion?: string,
@@ -2902,6 +3025,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
         "",
       );
     }
+    if (filterTeams !== undefined) {
+      requestContext.setQueryParam(
+        "filter[teams]",
+        serialize(filterTeams, TypingInfo, "string", ""),
+        "",
+      );
+    }
     if (filterArch !== undefined) {
       requestContext.setQueryParam(
         "filter[arch]",
@@ -2926,7 +3056,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -3043,7 +3172,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -3104,7 +3232,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -3163,9 +3290,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3209,9 +3336,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3270,9 +3397,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3321,9 +3448,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3387,9 +3514,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3438,9 +3565,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3499,9 +3626,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3559,9 +3686,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3628,9 +3755,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -3679,9 +3806,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -5667,6 +5794,87 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listAssetsSBOMs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listAssetsSBOMs(
+    response: ResponseContext,
+  ): Promise<ListAssetsSBOMsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: ListAssetsSBOMsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListAssetsSBOMsResponse",
+      ) as ListAssetsSBOMsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: JSONAPIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListAssetsSBOMsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "ListAssetsSBOMsResponse",
+        "",
+      ) as ListAssetsSBOMsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listFindings
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -7322,6 +7530,49 @@ export interface SecurityMonitoringApiGetVulnerabilityNotificationRuleRequest {
   id: string;
 }
 
+export interface SecurityMonitoringApiListAssetsSBOMsRequest {
+  /**
+   * Its value must come from the `links` section of the response of the first request. Do not manually edit it.
+   * @type string
+   */
+  pageToken?: string;
+  /**
+   * The page number to be retrieved. It should be equal to or greater than 1.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * The type of the assets for the SBOM request.
+   * @type AssetType
+   */
+  filterAssetType?: AssetType;
+  /**
+   * The name of the asset for the SBOM request.
+   * @type string
+   */
+  filterAssetName?: string;
+  /**
+   * The name of the component that is a dependency of an asset.
+   * @type string
+   */
+  filterPackageName?: string;
+  /**
+   * The version of the component that is a dependency of an asset.
+   * @type string
+   */
+  filterPackageVersion?: string;
+  /**
+   * The software license name of the component that is a dependency of an asset.
+   * @type string
+   */
+  filterLicenseName?: string;
+  /**
+   * The software license type of the component that is a dependency of an asset.
+   * @type SBOMComponentLicenseType
+   */
+  filterLicenseType?: SBOMComponentLicenseType;
+}
+
 export interface SecurityMonitoringApiListFindingsRequest {
   /**
    * Limit the number of findings returned. Must be <= 1000.
@@ -7596,6 +7847,11 @@ export interface SecurityMonitoringApiListVulnerabilitiesRequest {
    */
   filterRepoDigests?: string;
   /**
+   * Filter by origin.
+   * @type string
+   */
+  filterOrigin?: string;
+  /**
    * Filter by asset name.
    * @type string
    */
@@ -7650,6 +7906,11 @@ export interface SecurityMonitoringApiListVulnerabilitiesRequest {
    * @type string
    */
   filterAssetEnvironments?: string;
+  /**
+   * Filter by asset teams.
+   * @type string
+   */
+  filterAssetTeams?: string;
   /**
    * Filter by asset architecture.
    * @type string
@@ -7733,6 +7994,11 @@ export interface SecurityMonitoringApiListVulnerableAssetsRequest {
    * @type string
    */
   filterEnvironments?: string;
+  /**
+   * Filter by teams.
+   * @type string
+   */
+  filterTeams?: string;
   /**
    * Filter by architecture.
    * @type string
@@ -8685,6 +8951,46 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Get a list of assets SBOMs for an organization.
+   *
+   * ### Pagination
+   *
+   * Please review the [Pagination section](#pagination) for the "List Vulnerabilities" endpoint.
+   *
+   * ### Filtering
+   *
+   * Please review the [Filtering section](#filtering) for the "List Vulnerabilities" endpoint.
+   *
+   * ### Metadata
+   *
+   * Please review the [Metadata section](#metadata) for the "List Vulnerabilities" endpoint.
+   * @param param The request object
+   */
+  public listAssetsSBOMs(
+    param: SecurityMonitoringApiListAssetsSBOMsRequest = {},
+    options?: Configuration,
+  ): Promise<ListAssetsSBOMsResponse> {
+    const requestContextPromise = this.requestFactory.listAssetsSBOMs(
+      param.pageToken,
+      param.pageNumber,
+      param.filterAssetType,
+      param.filterAssetName,
+      param.filterPackageName,
+      param.filterPackageVersion,
+      param.filterLicenseName,
+      param.filterLicenseType,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAssetsSBOMs(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get a list of findings. These include both misconfigurations and identity risks.
    *
    * **Note**: To filter and return only identity risks, add the following query parameter: `?filter[tags]=dd_rule_type:ciem`
@@ -9113,6 +9419,7 @@ export class SecurityMonitoringApi {
       param.filterCodeLocationMethod,
       param.filterFixAvailable,
       param.filterRepoDigests,
+      param.filterOrigin,
       param.filterAssetName,
       param.filterAssetType,
       param.filterAssetVersionFirst,
@@ -9124,6 +9431,7 @@ export class SecurityMonitoringApi {
       param.filterAssetRisksHasPrivilegedAccess,
       param.filterAssetRisksHasAccessToSensitiveData,
       param.filterAssetEnvironments,
+      param.filterAssetTeams,
       param.filterAssetArch,
       param.filterAssetOperatingSystemName,
       param.filterAssetOperatingSystemVersion,
@@ -9172,6 +9480,7 @@ export class SecurityMonitoringApi {
       param.filterRisksHasPrivilegedAccess,
       param.filterRisksHasAccessToSensitiveData,
       param.filterEnvironments,
+      param.filterTeams,
       param.filterArch,
       param.filterOperatingSystemName,
       param.filterOperatingSystemVersion,

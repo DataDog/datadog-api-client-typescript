@@ -3511,6 +3511,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterTeams: {
+      type: "string",
+      format: "",
+    },
     filterArch: {
       type: "string",
       format: "",
@@ -3524,6 +3528,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "ListVulnerableAssetsResponse",
+  },
+  "SecurityMonitoringApi.V2.ListAssetsSBOMs": {
+    pageToken: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterAssetType: {
+      type: "AssetType",
+      format: "",
+    },
+    filterAssetName: {
+      type: "string",
+      format: "",
+    },
+    filterPackageName: {
+      type: "string",
+      format: "",
+    },
+    filterPackageVersion: {
+      type: "string",
+      format: "",
+    },
+    filterLicenseName: {
+      type: "string",
+      format: "",
+    },
+    filterLicenseType: {
+      type: "SBOMComponentLicenseType",
+      format: "",
+    },
+    operationResponseType: "ListAssetsSBOMsResponse",
   },
   "SecurityMonitoringApi.V2.GetSBOM": {
     assetType: {
@@ -3680,6 +3719,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterOrigin: {
+      type: "string",
+      format: "",
+    },
     filterAssetName: {
       type: "string",
       format: "",
@@ -3721,6 +3764,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     filterAssetEnvironments: {
+      type: "string",
+      format: "",
+    },
+    filterAssetTeams: {
       type: "string",
       format: "",
     },
@@ -4522,6 +4569,30 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "DashboardListDeleteItemsResponse",
   },
+  "DatasetsApi.V2.GetAllDatasets": {
+    operationResponseType: "DatasetResponseMulti",
+  },
+  "DatasetsApi.V2.CreateDataset": {
+    body: {
+      type: "DatasetCreateRequest",
+      format: "",
+    },
+    operationResponseType: "DatasetResponseSingle",
+  },
+  "DatasetsApi.V2.GetDataset": {
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DatasetResponseSingle",
+  },
+  "DatasetsApi.V2.DeleteDataset": {
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "DataDeletionApi.V2.CreateDataDeletionRequest": {
     product: {
       type: "string",
@@ -4732,6 +4803,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "EventsListResponse",
+  },
+  "EventsApi.V2.GetEvent": {
+    eventId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "V2EventResponse",
   },
   "IncidentsApi.V2.ListIncidents": {
     include: {

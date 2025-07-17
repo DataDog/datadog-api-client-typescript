@@ -31,6 +31,7 @@ import { EventsListResponse } from "./models/EventsListResponse";
 import { EventsRequestPage } from "./models/EventsRequestPage";
 import { EventsSort } from "./models/EventsSort";
 import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+import { V2EventResponse } from "./models/V2EventResponse";
 import { version } from "../version";
 
 export class EventsApiRequestFactory extends BaseAPIRequestFactory {
@@ -87,6 +88,51 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getEvent(
+    eventId: string,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'eventId' is not null or undefined
+    if (eventId === null || eventId === undefined) {
+      throw new RequiredError("eventId", "getEvent");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/events/{event_id}".replace(
+      "{event_id}",
+      encodeURIComponent(String(eventId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "EventsApi.v2.getEvent",
+      EventsApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -170,9 +216,9 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -292,6 +338,66 @@ export class EventsApiResponseProcessor {
         "EventCreateResponsePayload",
         "",
       ) as EventCreateResponsePayload;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getEvent
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getEvent(response: ResponseContext): Promise<V2EventResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: V2EventResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "V2EventResponse",
+      ) as V2EventResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: V2EventResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "V2EventResponse",
+        "",
+      ) as V2EventResponse;
       return body;
     }
 
@@ -431,6 +537,14 @@ export interface EventsApiCreateEventRequest {
   body: EventCreateRequestPayload;
 }
 
+export interface EventsApiGetEventRequest {
+  /**
+   * The UID of the event.
+   * @type string
+   */
+  eventId: string;
+}
+
 export interface EventsApiListEventsRequest {
   /**
    * Search query following events syntax.
@@ -523,13 +637,13 @@ export class EventsApi {
   /**
    * This endpoint allows you to publish events.
    *
+   * **Note:** To utilize this endpoint with our client libraries, please ensure you are using the latest version released on or after July 1, 2025. Earlier versions do not support this functionality.
+   *
    * ✅ **Only events with the `change` or `alert` category** are in General Availability. For change events, see [Change Tracking](https://docs.datadoghq.com/change_tracking) for more details.
    *
    * ❌ For use cases involving other event categories, use the V1 endpoint or reach out to [support](https://www.datadoghq.com/support/).
    *
    * ❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint for notification functionality.
-   *
-   * ❌ This endpoint is not available for the Government (US1-FED) site. Contact your account representative for more information.
    * @param param The request object
    */
   public createEvent(
@@ -545,6 +659,27 @@ export class EventsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createEvent(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the details of an event by `event_id`.
+   * @param param The request object
+   */
+  public getEvent(
+    param: EventsApiGetEventRequest,
+    options?: Configuration,
+  ): Promise<V2EventResponse> {
+    const requestContextPromise = this.requestFactory.getEvent(
+      param.eventId,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getEvent(responseContext);
         });
     });
   }

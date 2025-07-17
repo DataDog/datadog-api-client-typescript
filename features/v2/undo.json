@@ -857,6 +857,37 @@
       "type": "safe"
     }
   },
+  "GetAllDatasets": {
+    "tag": "Datasets",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateDataset": {
+    "tag": "Datasets",
+    "undo": {
+      "operationId": "DeleteDataset",
+      "parameters": [
+        {
+          "name": "id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteDataset": {
+    "tag": "Datasets",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetDataset": {
+    "tag": "Datasets",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "CreateDataDeletionRequest": {
     "tag": "Data Deletion",
     "undo": {
@@ -986,6 +1017,12 @@
     }
   },
   "SearchEvents": {
+    "tag": "Events",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetEvent": {
     "tag": "Events",
     "undo": {
       "type": "safe"
@@ -2726,6 +2763,12 @@
   },
   "DownloadCloudWorkloadPolicyFile": {
     "tag": "CSM Threats",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListAssetsSBOMs": {
+    "tag": "Security Monitoring",
     "undo": {
       "type": "safe"
     }
