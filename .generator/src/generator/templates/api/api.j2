@@ -138,7 +138,12 @@ export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
     {%- if authMethods %}
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [{% for authMethod in authMethods|reverse %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %}]);
+    {%- set authMethods = operation.security if "security" in operation else openapi.security %}
+    applySecurityAuthentication(_config, requestContext, [
+      {%- for name in get_security_names(authMethods)|sort %}
+      "{{ name }}",
+      {%- endfor %}
+    ]);
     {%- endif %}
 
     return requestContext;
