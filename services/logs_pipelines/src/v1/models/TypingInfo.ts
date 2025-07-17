@@ -12,6 +12,7 @@ import { LogsAttributeRemapper } from "./LogsAttributeRemapper";
 import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
 import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
 import { LogsDateRemapper } from "./LogsDateRemapper";
+import { LogsDecoderProcessor } from "./LogsDecoderProcessor";
 import { LogsFilter } from "./LogsFilter";
 import { LogsGeoIPParser } from "./LogsGeoIPParser";
 import { LogsGrokParser } from "./LogsGrokParser";
@@ -40,6 +41,9 @@ export const TypingInfo: ModelTypingInfo = {
     LogsAttributeRemapperType: ["attribute-remapper"],
     LogsCategoryProcessorType: ["category-processor"],
     LogsDateRemapperType: ["date-remapper"],
+    LogsDecoderProcessorBinaryToTextEncoding: ["base64", "base16"],
+    LogsDecoderProcessorInputRepresentation: ["utf_8", "integer"],
+    LogsDecoderProcessorType: ["decoder-processor"],
     LogsGeoIPParserType: ["geo-ip-parser"],
     LogsGrokParserType: ["grok-parser"],
     LogsLookupProcessorType: ["lookup-processor"],
@@ -79,6 +83,7 @@ export const TypingInfo: ModelTypingInfo = {
       "LogsTraceRemapper",
       "LogsSpanRemapper",
       "LogsArrayProcessor",
+      "LogsDecoderProcessor",
     ],
   },
   typeMap: {
@@ -94,6 +99,7 @@ export const TypingInfo: ModelTypingInfo = {
     LogsCategoryProcessor: LogsCategoryProcessor,
     LogsCategoryProcessorCategory: LogsCategoryProcessorCategory,
     LogsDateRemapper: LogsDateRemapper,
+    LogsDecoderProcessor: LogsDecoderProcessor,
     LogsFilter: LogsFilter,
     LogsGeoIPParser: LogsGeoIPParser,
     LogsGrokParser: LogsGrokParser,

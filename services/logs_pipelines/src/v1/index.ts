@@ -28,6 +28,10 @@ export { LogsCategoryProcessorCategory } from "./models/LogsCategoryProcessorCat
 export { LogsCategoryProcessorType } from "./models/LogsCategoryProcessorType";
 export { LogsDateRemapper } from "./models/LogsDateRemapper";
 export { LogsDateRemapperType } from "./models/LogsDateRemapperType";
+export { LogsDecoderProcessor } from "./models/LogsDecoderProcessor";
+export { LogsDecoderProcessorBinaryToTextEncoding } from "./models/LogsDecoderProcessorBinaryToTextEncoding";
+export { LogsDecoderProcessorInputRepresentation } from "./models/LogsDecoderProcessorInputRepresentation";
+export { LogsDecoderProcessorType } from "./models/LogsDecoderProcessorType";
 export { LogsFilter } from "./models/LogsFilter";
 export { LogsGeoIPParser } from "./models/LogsGeoIPParser";
 export { LogsGeoIPParserType } from "./models/LogsGeoIPParserType";
