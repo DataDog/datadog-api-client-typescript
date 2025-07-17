@@ -25,7 +25,7 @@ export class ObservabilityPipelineParseGrokProcessorRule {
   /**
    * A list of Grok helper rules that can be referenced by the parsing rules.
    */
-  "supportRules": Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>;
+  "supportRules"?: Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>;
 
   /**
    * A container for additional, undeclared properties.
@@ -56,7 +56,6 @@ export class ObservabilityPipelineParseGrokProcessorRule {
     supportRules: {
       baseName: "support_rules",
       type: "Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
