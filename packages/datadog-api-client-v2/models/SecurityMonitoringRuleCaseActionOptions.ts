@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SecurityMonitoringRuleCaseActionOptionsFlaggedIPType } from "./SecurityMonitoringRuleCaseActionOptionsFlaggedIPType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,6 +15,10 @@ export class SecurityMonitoringRuleCaseActionOptions {
    * Duration of the action in seconds. 0 indicates no expiration.
    */
   "duration"?: number;
+  /**
+   * Used with the case action of type 'flag_ip'. The value specified in this field is applied as a flag to the IP addresses.
+   */
+  "flaggedIpType"?: SecurityMonitoringRuleCaseActionOptionsFlaggedIPType;
   /**
    * Used with the case action of type 'user_behavior'. The value specified in this field is applied as a risk tag to all users affected by the rule.
    */
@@ -39,6 +44,10 @@ export class SecurityMonitoringRuleCaseActionOptions {
       baseName: "duration",
       type: "number",
       format: "int64",
+    },
+    flaggedIpType: {
+      baseName: "flaggedIPType",
+      type: "SecurityMonitoringRuleCaseActionOptionsFlaggedIPType",
     },
     userBehaviorName: {
       baseName: "userBehaviorName",
