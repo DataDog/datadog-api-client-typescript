@@ -66,7 +66,6 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
-      "AuthZ",
     ]);
 
     return requestContext;
@@ -272,7 +271,6 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
-      "AuthZ",
     ]);
 
     return requestContext;
@@ -314,7 +312,6 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
-      "AuthZ",
     ]);
 
     return requestContext;
