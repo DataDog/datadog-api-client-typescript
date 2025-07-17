@@ -218,6 +218,7 @@ export const operationServers: {
   "v2.OnCallPagingApi.acknowledgeOnCallPage": [
     new ServerConfiguration<{
       site:
+        | "lava.oncall.datadoghq.com"
         | "saffron.oncall.datadoghq.com"
         | "navy.oncall.datadoghq.com"
         | "coral.oncall.datadoghq.com"
@@ -244,6 +245,7 @@ export const operationServers: {
   "v2.OnCallPagingApi.createOnCallPage": [
     new ServerConfiguration<{
       site:
+        | "lava.oncall.datadoghq.com"
         | "saffron.oncall.datadoghq.com"
         | "navy.oncall.datadoghq.com"
         | "coral.oncall.datadoghq.com"
@@ -270,6 +272,7 @@ export const operationServers: {
   "v2.OnCallPagingApi.escalateOnCallPage": [
     new ServerConfiguration<{
       site:
+        | "lava.oncall.datadoghq.com"
         | "saffron.oncall.datadoghq.com"
         | "navy.oncall.datadoghq.com"
         | "coral.oncall.datadoghq.com"
@@ -296,6 +299,7 @@ export const operationServers: {
   "v2.OnCallPagingApi.resolveOnCallPage": [
     new ServerConfiguration<{
       site:
+        | "lava.oncall.datadoghq.com"
         | "saffron.oncall.datadoghq.com"
         | "navy.oncall.datadoghq.com"
         | "coral.oncall.datadoghq.com"
