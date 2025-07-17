@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { SecurityMonitoringRuleCaseActionOptionsFlaggedIPType } from "./SecurityMonitoringRuleCaseActionOptionsFlaggedIPType";
+
 /**
  * Options for the rule action
  */
@@ -8,6 +10,10 @@ export class SecurityMonitoringRuleCaseActionOptions {
    * Duration of the action in seconds. 0 indicates no expiration.
    */
   "duration"?: number;
+  /**
+   * Used with the case action of type 'flag_ip'. The value specified in this field is applied as a flag to the IPs addresses.
+   */
+  "flaggedIpType"?: SecurityMonitoringRuleCaseActionOptionsFlaggedIPType;
   /**
    * Used with the case action of type 'user_behavior'. The value specified in this field is applied as a risk tag to all users affected by the rule.
    */
@@ -31,6 +37,10 @@ export class SecurityMonitoringRuleCaseActionOptions {
       baseName: "duration",
       type: "number",
       format: "int64",
+    },
+    flaggedIpType: {
+      baseName: "flaggedIPType",
+      type: "SecurityMonitoringRuleCaseActionOptionsFlaggedIPType",
     },
     userBehaviorName: {
       baseName: "userBehaviorName",
