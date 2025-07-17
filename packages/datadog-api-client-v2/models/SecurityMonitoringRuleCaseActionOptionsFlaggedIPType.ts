@@ -7,16 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The action type.
+ * Used with the case action of type 'flag_ip'. The value specified in this field is applied as a flag to the IP addresses.
  */
 
-export type SecurityMonitoringRuleCaseActionType =
-  | typeof BLOCK_IP
-  | typeof BLOCK_USER
-  | typeof USER_BEHAVIOR
-  | typeof FLAG_IP
+export type SecurityMonitoringRuleCaseActionOptionsFlaggedIPType =
+  | typeof SUSPICIOUS
+  | typeof FLAGGED
   | UnparsedObject;
-export const BLOCK_IP = "block_ip";
-export const BLOCK_USER = "block_user";
-export const USER_BEHAVIOR = "user_behavior";
-export const FLAG_IP = "flag_ip";
+export const SUSPICIOUS = "SUSPICIOUS";
+export const FLAGGED = "FLAGGED";
