@@ -530,8 +530,6 @@ export class EventsApi {
    * ❌ For use cases involving other event categories, use the V1 endpoint or reach out to [support](https://www.datadoghq.com/support/).
    *
    * ❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint for notification functionality.
-   *
-   * ❌ This endpoint is not available for the Government (US1-FED) site. Contact your account representative for more information.
    * @param param The request object
    */
   public createEvent(
