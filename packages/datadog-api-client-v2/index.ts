@@ -2319,6 +2319,10 @@ export { ObservabilityPipelineDatadogAgentSource } from "./models/ObservabilityP
 export { ObservabilityPipelineDatadogAgentSourceType } from "./models/ObservabilityPipelineDatadogAgentSourceType";
 export { ObservabilityPipelineDatadogLogsDestination } from "./models/ObservabilityPipelineDatadogLogsDestination";
 export { ObservabilityPipelineDatadogLogsDestinationType } from "./models/ObservabilityPipelineDatadogLogsDestinationType";
+export { ObservabilityPipelineDatadogTagsProcessor } from "./models/ObservabilityPipelineDatadogTagsProcessor";
+export { ObservabilityPipelineDatadogTagsProcessorAction } from "./models/ObservabilityPipelineDatadogTagsProcessorAction";
+export { ObservabilityPipelineDatadogTagsProcessorMode } from "./models/ObservabilityPipelineDatadogTagsProcessorMode";
+export { ObservabilityPipelineDatadogTagsProcessorType } from "./models/ObservabilityPipelineDatadogTagsProcessorType";
 export { ObservabilityPipelineDecoding } from "./models/ObservabilityPipelineDecoding";
 export { ObservabilityPipelineDedupeProcessor } from "./models/ObservabilityPipelineDedupeProcessor";
 export { ObservabilityPipelineDedupeProcessorMode } from "./models/ObservabilityPipelineDedupeProcessorMode";

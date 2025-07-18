@@ -1192,6 +1192,7 @@ import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
 import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
@@ -2618,6 +2619,9 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineAmazonS3SourceType: ["amazon_s3"],
   ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
   ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
+  ObservabilityPipelineDatadogTagsProcessorAction: ["include", "exclude"],
+  ObservabilityPipelineDatadogTagsProcessorMode: ["filter"],
+  ObservabilityPipelineDatadogTagsProcessorType: ["datadog_tags"],
   ObservabilityPipelineDecoding: ["bytes", "gelf", "json", "syslog"],
   ObservabilityPipelineDedupeProcessorMode: ["match", "ignore"],
   ObservabilityPipelineDedupeProcessorType: ["dedupe"],
@@ -4668,6 +4672,8 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineDatadogAgentSource,
   ObservabilityPipelineDatadogLogsDestination:
     ObservabilityPipelineDatadogLogsDestination,
+  ObservabilityPipelineDatadogTagsProcessor:
+    ObservabilityPipelineDatadogTagsProcessor,
   ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
   ObservabilityPipelineElasticsearchDestination:
     ObservabilityPipelineElasticsearchDestination,
@@ -5830,6 +5836,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineEnrichmentTableProcessor",
     "ObservabilityPipelineReduceProcessor",
     "ObservabilityPipelineThrottleProcessor",
+    "ObservabilityPipelineDatadogTagsProcessor",
   ],
   ObservabilityPipelineConfigSourceItem: [
     "ObservabilityPipelineKafkaSource",
