@@ -11,6 +11,10 @@ import { ActionConnectionDataUpdate } from "./ActionConnectionDataUpdate";
 import { AppKeyRegistrationData } from "./AppKeyRegistrationData";
 import { CreateActionConnectionRequest } from "./CreateActionConnectionRequest";
 import { CreateActionConnectionResponse } from "./CreateActionConnectionResponse";
+import { DatadogAPIKey } from "./DatadogAPIKey";
+import { DatadogAPIKeyUpdate } from "./DatadogAPIKeyUpdate";
+import { DatadogIntegration } from "./DatadogIntegration";
+import { DatadogIntegrationUpdate } from "./DatadogIntegrationUpdate";
 import { GetActionConnectionResponse } from "./GetActionConnectionResponse";
 import { GetAppKeyRegistrationResponse } from "./GetAppKeyRegistrationResponse";
 import { HTTPBody } from "./HTTPBody";
@@ -39,6 +43,8 @@ export const TypingInfo: ModelTypingInfo = {
     AWSIntegrationType: ["AWS"],
     ActionConnectionDataType: ["action_connection"],
     AppKeyRegistrationDataType: ["app_key_registration"],
+    DatadogAPIKeyType: ["DatadogAPIKey"],
+    DatadogIntegrationType: ["Datadog"],
     HTTPIntegrationType: ["HTTP"],
     HTTPTokenAuthType: ["HTTPTokenAuth"],
     TokenType: ["SECRET"],
@@ -46,11 +52,18 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {
     AWSCredentials: ["AWSAssumeRole"],
     AWSCredentialsUpdate: ["AWSAssumeRoleUpdate"],
-    ActionConnectionIntegration: ["AWSIntegration", "HTTPIntegration"],
+    ActionConnectionIntegration: [
+      "AWSIntegration",
+      "DatadogIntegration",
+      "HTTPIntegration",
+    ],
     ActionConnectionIntegrationUpdate: [
       "AWSIntegrationUpdate",
+      "DatadogIntegrationUpdate",
       "HTTPIntegrationUpdate",
     ],
+    DatadogCredentials: ["DatadogAPIKey"],
+    DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],
     HTTPCredentials: ["HTTPTokenAuth"],
     HTTPCredentialsUpdate: ["HTTPTokenAuthUpdate"],
   },
@@ -66,6 +79,10 @@ export const TypingInfo: ModelTypingInfo = {
     AppKeyRegistrationData: AppKeyRegistrationData,
     CreateActionConnectionRequest: CreateActionConnectionRequest,
     CreateActionConnectionResponse: CreateActionConnectionResponse,
+    DatadogAPIKey: DatadogAPIKey,
+    DatadogAPIKeyUpdate: DatadogAPIKeyUpdate,
+    DatadogIntegration: DatadogIntegration,
+    DatadogIntegrationUpdate: DatadogIntegrationUpdate,
     GetActionConnectionResponse: GetActionConnectionResponse,
     GetAppKeyRegistrationResponse: GetAppKeyRegistrationResponse,
     HTTPBody: HTTPBody,
