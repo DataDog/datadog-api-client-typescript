@@ -12,7 +12,7 @@ import { EntityV3Metadata } from "./EntityV3Metadata";
  */
 export class EntityV3Datastore {
   /**
-   * The schema version of entity type. The field is known as schema-version in the previous version.
+   * The version of the schema data that was used to populate this entity's data. This could be via the API, Terraform, or YAML file in a repository. The field is known as schema-version in the previous version.
    */
   "apiVersion": EntityV3APIVersion;
   /**
