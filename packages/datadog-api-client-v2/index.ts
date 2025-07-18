@@ -385,6 +385,7 @@ export {
   MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
   MetricsApiEstimateMetricsOutputSeriesRequest,
+  MetricsApiGetMetricTagCardinalityDetailsRequest,
   MetricsApiListActiveMetricConfigurationsRequest,
   MetricsApiListMetricAssetsRequest,
   MetricsApiListTagConfigurationByNameRequest,
@@ -2164,6 +2165,10 @@ export { MetricsTimeseriesQuery } from "./models/MetricsTimeseriesQuery";
 export { MetricSuggestedTagsAndAggregations } from "./models/MetricSuggestedTagsAndAggregations";
 export { MetricSuggestedTagsAndAggregationsResponse } from "./models/MetricSuggestedTagsAndAggregationsResponse";
 export { MetricSuggestedTagsAttributes } from "./models/MetricSuggestedTagsAttributes";
+export { MetricTagCardinalitiesMeta } from "./models/MetricTagCardinalitiesMeta";
+export { MetricTagCardinalitiesResponse } from "./models/MetricTagCardinalitiesResponse";
+export { MetricTagCardinality } from "./models/MetricTagCardinality";
+export { MetricTagCardinalityAttributes } from "./models/MetricTagCardinalityAttributes";
 export { MetricTagConfiguration } from "./models/MetricTagConfiguration";
 export { MetricTagConfigurationAttributes } from "./models/MetricTagConfigurationAttributes";
 export { MetricTagConfigurationCreateAttributes } from "./models/MetricTagConfigurationCreateAttributes";
