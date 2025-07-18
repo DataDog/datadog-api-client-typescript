@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AWSIntegration } from "./AWSIntegration";
+import { DatadogIntegration } from "./DatadogIntegration";
 import { HTTPIntegration } from "./HTTPIntegration";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
@@ -14,5 +15,6 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type ActionConnectionIntegration =
   | AWSIntegration
+  | DatadogIntegration
   | HTTPIntegration
   | UnparsedObject;

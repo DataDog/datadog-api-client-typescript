@@ -1426,6 +1426,14 @@ export { DatabaseMonitoringTriggerWrapper } from "./models/DatabaseMonitoringTri
 export { DataDeletionResponseItem } from "./models/DataDeletionResponseItem";
 export { DataDeletionResponseItemAttributes } from "./models/DataDeletionResponseItemAttributes";
 export { DataDeletionResponseMeta } from "./models/DataDeletionResponseMeta";
+export { DatadogAPIKey } from "./models/DatadogAPIKey";
+export { DatadogAPIKeyType } from "./models/DatadogAPIKeyType";
+export { DatadogAPIKeyUpdate } from "./models/DatadogAPIKeyUpdate";
+export { DatadogCredentials } from "./models/DatadogCredentials";
+export { DatadogCredentialsUpdate } from "./models/DatadogCredentialsUpdate";
+export { DatadogIntegration } from "./models/DatadogIntegration";
+export { DatadogIntegrationType } from "./models/DatadogIntegrationType";
+export { DatadogIntegrationUpdate } from "./models/DatadogIntegrationUpdate";
 export { DataRelationshipsTeams } from "./models/DataRelationshipsTeams";
 export { DataRelationshipsTeamsDataItems } from "./models/DataRelationshipsTeamsDataItems";
 export { DataRelationshipsTeamsDataItemsType } from "./models/DataRelationshipsTeamsDataItemsType";

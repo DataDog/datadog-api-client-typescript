@@ -526,6 +526,10 @@ import { DataScalarColumn } from "./DataScalarColumn";
 import { DataTransform } from "./DataTransform";
 import { DataTransformProperties } from "./DataTransformProperties";
 import { DatabaseMonitoringTriggerWrapper } from "./DatabaseMonitoringTriggerWrapper";
+import { DatadogAPIKey } from "./DatadogAPIKey";
+import { DatadogAPIKeyUpdate } from "./DatadogAPIKeyUpdate";
+import { DatadogIntegration } from "./DatadogIntegration";
+import { DatadogIntegrationUpdate } from "./DatadogIntegrationUpdate";
 import { Dataset } from "./Dataset";
 import { DatasetAttributes } from "./DatasetAttributes";
 import { DatasetCreateRequest } from "./DatasetCreateRequest";
@@ -2344,6 +2348,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   DataRelationshipsTeamsDataItemsType: ["teams"],
   DataTransformType: ["dataTransform"],
+  DatadogAPIKeyType: ["DatadogAPIKey"],
+  DatadogIntegrationType: ["Datadog"],
   DetailedFindingType: ["detailed_finding"],
   DomainAllowlistType: ["domain_allowlist"],
   DowntimeIncludedMonitorType: ["monitors"],
@@ -3909,6 +3915,10 @@ const typeMap: { [index: string]: any } = {
   DataTransform: DataTransform,
   DataTransformProperties: DataTransformProperties,
   DatabaseMonitoringTriggerWrapper: DatabaseMonitoringTriggerWrapper,
+  DatadogAPIKey: DatadogAPIKey,
+  DatadogAPIKeyUpdate: DatadogAPIKeyUpdate,
+  DatadogIntegration: DatadogIntegration,
+  DatadogIntegrationUpdate: DatadogIntegrationUpdate,
   Dataset: Dataset,
   DatasetAttributes: DatasetAttributes,
   DatasetCreateRequest: DatasetCreateRequest,
@@ -5607,9 +5617,14 @@ const oneOfMap: { [index: string]: string[] } = {
     "AWSNamespaceFiltersIncludeOnly",
   ],
   AWSRegions: ["AWSRegionsIncludeAll", "AWSRegionsIncludeOnly"],
-  ActionConnectionIntegration: ["AWSIntegration", "HTTPIntegration"],
+  ActionConnectionIntegration: [
+    "AWSIntegration",
+    "DatadogIntegration",
+    "HTTPIntegration",
+  ],
   ActionConnectionIntegrationUpdate: [
     "AWSIntegrationUpdate",
+    "DatadogIntegrationUpdate",
     "HTTPIntegrationUpdate",
   ],
   ActionQueryCondition: ["boolean", "string"],
@@ -5673,6 +5688,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "CustomDestinationResponseHttpDestinationAuthBasic",
     "CustomDestinationResponseHttpDestinationAuthCustomHeader",
   ],
+  DatadogCredentials: ["DatadogAPIKey"],
+  DatadogCredentialsUpdate: ["DatadogAPIKeyUpdate"],
   DowntimeMonitorIdentifier: [
     "DowntimeMonitorIdentifierId",
     "DowntimeMonitorIdentifierTags",
