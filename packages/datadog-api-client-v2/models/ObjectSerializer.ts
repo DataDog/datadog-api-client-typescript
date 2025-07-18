@@ -1073,6 +1073,10 @@ import { MetricSeries } from "./MetricSeries";
 import { MetricSuggestedTagsAndAggregations } from "./MetricSuggestedTagsAndAggregations";
 import { MetricSuggestedTagsAndAggregationsResponse } from "./MetricSuggestedTagsAndAggregationsResponse";
 import { MetricSuggestedTagsAttributes } from "./MetricSuggestedTagsAttributes";
+import { MetricTagCardinalitiesMeta } from "./MetricTagCardinalitiesMeta";
+import { MetricTagCardinalitiesResponse } from "./MetricTagCardinalitiesResponse";
+import { MetricTagCardinality } from "./MetricTagCardinality";
+import { MetricTagCardinalityAttributes } from "./MetricTagCardinalityAttributes";
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
 import { MetricTagConfigurationAttributes } from "./MetricTagConfigurationAttributes";
 import { MetricTagConfigurationCreateAttributes } from "./MetricTagConfigurationCreateAttributes";
@@ -4493,6 +4497,10 @@ const typeMap: { [index: string]: any } = {
   MetricSuggestedTagsAndAggregationsResponse:
     MetricSuggestedTagsAndAggregationsResponse,
   MetricSuggestedTagsAttributes: MetricSuggestedTagsAttributes,
+  MetricTagCardinalitiesMeta: MetricTagCardinalitiesMeta,
+  MetricTagCardinalitiesResponse: MetricTagCardinalitiesResponse,
+  MetricTagCardinality: MetricTagCardinality,
+  MetricTagCardinalityAttributes: MetricTagCardinalityAttributes,
   MetricTagConfiguration: MetricTagConfiguration,
   MetricTagConfigurationAttributes: MetricTagConfigurationAttributes,
   MetricTagConfigurationCreateAttributes:
