@@ -1,6 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 import { AWSIntegration } from "./AWSIntegration";
+import { DatadogIntegration } from "./DatadogIntegration";
 import { HTTPIntegration } from "./HTTPIntegration";
 
 /**
@@ -8,5 +9,6 @@ import { HTTPIntegration } from "./HTTPIntegration";
  */
 export type ActionConnectionIntegration =
   | AWSIntegration
+  | DatadogIntegration
   | HTTPIntegration
   | UnparsedObject;
