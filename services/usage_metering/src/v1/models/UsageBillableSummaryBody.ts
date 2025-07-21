@@ -9,6 +9,14 @@ export class UsageBillableSummaryBody {
    */
   "accountBillableUsage"?: number;
   /**
+   * The total account committed usage.
+   */
+  "accountCommittedUsage"?: number;
+  /**
+   * The total account on-demand usage.
+   */
+  "accountOnDemandUsage"?: number;
+  /**
    * Elapsed usage hours for some billable product.
    */
   "elapsedUsageHours"?: number;
@@ -49,6 +57,16 @@ export class UsageBillableSummaryBody {
   static readonly attributeTypeMap: AttributeTypeMap = {
     accountBillableUsage: {
       baseName: "account_billable_usage",
+      type: "number",
+      format: "int64",
+    },
+    accountCommittedUsage: {
+      baseName: "account_committed_usage",
+      type: "number",
+      format: "int64",
+    },
+    accountOnDemandUsage: {
+      baseName: "account_on_demand_usage",
       type: "number",
       format: "int64",
     },
