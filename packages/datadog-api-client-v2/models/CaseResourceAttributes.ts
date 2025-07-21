@@ -12,13 +12,17 @@ import { ServiceNowTicket } from "./ServiceNowTicket";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Case attributes
+ * Case resource attributes
  */
-export class CaseAttributes {
+export class CaseResourceAttributes {
   /**
    * Timestamp of when the case was archived
    */
   "archivedAt"?: Date;
+  /**
+   * The definition of `CaseAttributes` object.
+   */
+  "attributes"?: { [key: string]: Array<string> };
   /**
    * Timestamp of when the case was closed
    */
@@ -85,6 +89,10 @@ export class CaseAttributes {
       type: "Date",
       format: "date-time",
     },
+    attributes: {
+      baseName: "attributes",
+      type: "{ [key: string]: Array<string>; }",
+    },
     closedAt: {
       baseName: "closed_at",
       type: "Date",
@@ -142,7 +150,7 @@ export class CaseAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CaseAttributes.attributeTypeMap;
+    return CaseResourceAttributes.attributeTypeMap;
   }
 
   public constructor() {}

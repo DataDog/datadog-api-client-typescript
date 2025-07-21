@@ -262,7 +262,6 @@ import { Case } from "./Case";
 import { CaseAssign } from "./CaseAssign";
 import { CaseAssignAttributes } from "./CaseAssignAttributes";
 import { CaseAssignRequest } from "./CaseAssignRequest";
-import { CaseAttributes } from "./CaseAttributes";
 import { CaseCreate } from "./CaseCreate";
 import { CaseCreateAttributes } from "./CaseCreateAttributes";
 import { CaseCreateRelationships } from "./CaseCreateRelationships";
@@ -270,9 +269,13 @@ import { CaseCreateRequest } from "./CaseCreateRequest";
 import { CaseEmpty } from "./CaseEmpty";
 import { CaseEmptyRequest } from "./CaseEmptyRequest";
 import { CaseRelationships } from "./CaseRelationships";
+import { CaseResourceAttributes } from "./CaseResourceAttributes";
 import { CaseResponse } from "./CaseResponse";
 import { CaseTrigger } from "./CaseTrigger";
 import { CaseTriggerWrapper } from "./CaseTriggerWrapper";
+import { CaseUpdateAttributes } from "./CaseUpdateAttributes";
+import { CaseUpdateAttributesAttributes } from "./CaseUpdateAttributesAttributes";
+import { CaseUpdateAttributesRequest } from "./CaseUpdateAttributesRequest";
 import { CaseUpdatePriority } from "./CaseUpdatePriority";
 import { CaseUpdatePriorityAttributes } from "./CaseUpdatePriorityAttributes";
 import { CaseUpdatePriorityRequest } from "./CaseUpdatePriorityRequest";
@@ -3591,7 +3594,6 @@ const typeMap: { [index: string]: any } = {
   CaseAssign: CaseAssign,
   CaseAssignAttributes: CaseAssignAttributes,
   CaseAssignRequest: CaseAssignRequest,
-  CaseAttributes: CaseAttributes,
   CaseCreate: CaseCreate,
   CaseCreateAttributes: CaseCreateAttributes,
   CaseCreateRelationships: CaseCreateRelationships,
@@ -3599,9 +3601,13 @@ const typeMap: { [index: string]: any } = {
   CaseEmpty: CaseEmpty,
   CaseEmptyRequest: CaseEmptyRequest,
   CaseRelationships: CaseRelationships,
+  CaseResourceAttributes: CaseResourceAttributes,
   CaseResponse: CaseResponse,
   CaseTrigger: CaseTrigger,
   CaseTriggerWrapper: CaseTriggerWrapper,
+  CaseUpdateAttributes: CaseUpdateAttributes,
+  CaseUpdateAttributesAttributes: CaseUpdateAttributesAttributes,
+  CaseUpdateAttributesRequest: CaseUpdateAttributesRequest,
   CaseUpdatePriority: CaseUpdatePriority,
   CaseUpdatePriorityAttributes: CaseUpdatePriorityAttributes,
   CaseUpdatePriorityRequest: CaseUpdatePriorityRequest,
