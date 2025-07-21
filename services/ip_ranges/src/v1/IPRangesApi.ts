@@ -18,7 +18,6 @@ import {
   serialize,
   ServerConfiguration,
   stringify,
-  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -58,12 +57,6 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
 
     return requestContext;
   }
