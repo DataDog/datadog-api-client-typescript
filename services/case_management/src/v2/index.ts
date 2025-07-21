@@ -9,6 +9,7 @@ export {
   CaseManagementApiSearchCasesRequest,
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUpdateAttributesRequest,
   CaseManagementApiUpdatePriorityRequest,
   CaseManagementApiUpdateStatusRequest,
   CaseManagementApi,
@@ -20,7 +21,6 @@ export { Case3rdPartyTicketStatus } from "./models/Case3rdPartyTicketStatus";
 export { CaseAssign } from "./models/CaseAssign";
 export { CaseAssignAttributes } from "./models/CaseAssignAttributes";
 export { CaseAssignRequest } from "./models/CaseAssignRequest";
-export { CaseAttributes } from "./models/CaseAttributes";
 export { CaseCreate } from "./models/CaseCreate";
 export { CaseCreateAttributes } from "./models/CaseCreateAttributes";
 export { CaseCreateRelationships } from "./models/CaseCreateRelationships";
@@ -29,6 +29,7 @@ export { CaseEmpty } from "./models/CaseEmpty";
 export { CaseEmptyRequest } from "./models/CaseEmptyRequest";
 export { CasePriority } from "./models/CasePriority";
 export { CaseRelationships } from "./models/CaseRelationships";
+export { CaseResourceAttributes } from "./models/CaseResourceAttributes";
 export { CaseResourceType } from "./models/CaseResourceType";
 export { CaseResponse } from "./models/CaseResponse";
 export { CaseSortableField } from "./models/CaseSortableField";
@@ -37,6 +38,9 @@ export { CasesResponseMeta } from "./models/CasesResponseMeta";
 export { CasesResponseMetaPagination } from "./models/CasesResponseMetaPagination";
 export { CaseStatus } from "./models/CaseStatus";
 export { CaseType } from "./models/CaseType";
+export { CaseUpdateAttributes } from "./models/CaseUpdateAttributes";
+export { CaseUpdateAttributesAttributes } from "./models/CaseUpdateAttributesAttributes";
+export { CaseUpdateAttributesRequest } from "./models/CaseUpdateAttributesRequest";
 export { CaseUpdatePriority } from "./models/CaseUpdatePriority";
 export { CaseUpdatePriorityAttributes } from "./models/CaseUpdatePriorityAttributes";
 export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
