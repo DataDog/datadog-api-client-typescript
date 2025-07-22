@@ -73,6 +73,10 @@ import { Annotation } from "./Annotation";
 import { AnnotationDisplay } from "./AnnotationDisplay";
 import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
 import { AnnotationMarkdownTextAnnotation } from "./AnnotationMarkdownTextAnnotation";
+import { AnthropicAPIKey } from "./AnthropicAPIKey";
+import { AnthropicAPIKeyUpdate } from "./AnthropicAPIKeyUpdate";
+import { AnthropicIntegration } from "./AnthropicIntegration";
+import { AnthropicIntegrationUpdate } from "./AnthropicIntegrationUpdate";
 import { AppBuilderEvent } from "./AppBuilderEvent";
 import { AppKeyRegistrationData } from "./AppKeyRegistrationData";
 import { AppMeta } from "./AppMeta";
@@ -121,6 +125,10 @@ import { ApplicationSecurityWafExclusionFilterUpdateAttributes } from "./Applica
 import { ApplicationSecurityWafExclusionFilterUpdateData } from "./ApplicationSecurityWafExclusionFilterUpdateData";
 import { ApplicationSecurityWafExclusionFilterUpdateRequest } from "./ApplicationSecurityWafExclusionFilterUpdateRequest";
 import { ApplicationSecurityWafExclusionFiltersResponse } from "./ApplicationSecurityWafExclusionFiltersResponse";
+import { AsanaAccessToken } from "./AsanaAccessToken";
+import { AsanaAccessTokenUpdate } from "./AsanaAccessTokenUpdate";
+import { AsanaIntegration } from "./AsanaIntegration";
+import { AsanaIntegrationUpdate } from "./AsanaIntegrationUpdate";
 import { Asset } from "./Asset";
 import { AssetAttributes } from "./AssetAttributes";
 import { AssetOperatingSystem } from "./AssetOperatingSystem";
@@ -179,7 +187,11 @@ import { AwsScanOptionsResponse } from "./AwsScanOptionsResponse";
 import { AwsScanOptionsUpdateAttributes } from "./AwsScanOptionsUpdateAttributes";
 import { AwsScanOptionsUpdateData } from "./AwsScanOptionsUpdateData";
 import { AwsScanOptionsUpdateRequest } from "./AwsScanOptionsUpdateRequest";
+import { AzureIntegration } from "./AzureIntegration";
+import { AzureIntegrationUpdate } from "./AzureIntegrationUpdate";
 import { AzureStorageDestination } from "./AzureStorageDestination";
+import { AzureTenant } from "./AzureTenant";
+import { AzureTenantUpdate } from "./AzureTenantUpdate";
 import { AzureUCConfig } from "./AzureUCConfig";
 import { AzureUCConfigPair } from "./AzureUCConfigPair";
 import { AzureUCConfigPairAttributes } from "./AzureUCConfigPairAttributes";
@@ -292,6 +304,14 @@ import { ChangeEventCustomAttributesChangedResource } from "./ChangeEventCustomA
 import { ChangeEventCustomAttributesImpactedResourcesItems } from "./ChangeEventCustomAttributesImpactedResourcesItems";
 import { ChangeEventTriggerWrapper } from "./ChangeEventTriggerWrapper";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
+import { CircleCIAPIKey } from "./CircleCIAPIKey";
+import { CircleCIAPIKeyUpdate } from "./CircleCIAPIKeyUpdate";
+import { CircleCIIntegration } from "./CircleCIIntegration";
+import { CircleCIIntegrationUpdate } from "./CircleCIIntegrationUpdate";
+import { ClickupAPIKey } from "./ClickupAPIKey";
+import { ClickupAPIKeyUpdate } from "./ClickupAPIKeyUpdate";
+import { ClickupIntegration } from "./ClickupIntegration";
+import { ClickupIntegrationUpdate } from "./ClickupIntegrationUpdate";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
 import { CloudConfigurationRuleCaseCreate } from "./CloudConfigurationRuleCaseCreate";
@@ -326,6 +346,8 @@ import { CloudWorkloadSecurityAgentRuleUpdateData } from "./CloudWorkloadSecurit
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./CloudWorkloadSecurityAgentRuleUpdateRequest";
 import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "./CloudWorkloadSecurityAgentRulesListResponse";
+import { CloudflareAPIToken } from "./CloudflareAPIToken";
+import { CloudflareAPITokenUpdate } from "./CloudflareAPITokenUpdate";
 import { CloudflareAccountCreateRequest } from "./CloudflareAccountCreateRequest";
 import { CloudflareAccountCreateRequestAttributes } from "./CloudflareAccountCreateRequestAttributes";
 import { CloudflareAccountCreateRequestData } from "./CloudflareAccountCreateRequestData";
@@ -336,6 +358,10 @@ import { CloudflareAccountUpdateRequest } from "./CloudflareAccountUpdateRequest
 import { CloudflareAccountUpdateRequestAttributes } from "./CloudflareAccountUpdateRequestAttributes";
 import { CloudflareAccountUpdateRequestData } from "./CloudflareAccountUpdateRequestData";
 import { CloudflareAccountsResponse } from "./CloudflareAccountsResponse";
+import { CloudflareGlobalAPIToken } from "./CloudflareGlobalAPIToken";
+import { CloudflareGlobalAPITokenUpdate } from "./CloudflareGlobalAPITokenUpdate";
+import { CloudflareIntegration } from "./CloudflareIntegration";
+import { CloudflareIntegrationUpdate } from "./CloudflareIntegrationUpdate";
 import { CodeLocation } from "./CodeLocation";
 import { CompletionCondition } from "./CompletionCondition";
 import { CompletionGate } from "./CompletionGate";
@@ -343,6 +369,10 @@ import { Component } from "./Component";
 import { ComponentGrid } from "./ComponentGrid";
 import { ComponentGridProperties } from "./ComponentGridProperties";
 import { ComponentProperties } from "./ComponentProperties";
+import { ConfigCatIntegration } from "./ConfigCatIntegration";
+import { ConfigCatIntegrationUpdate } from "./ConfigCatIntegrationUpdate";
+import { ConfigCatSDKKey } from "./ConfigCatSDKKey";
+import { ConfigCatSDKKeyUpdate } from "./ConfigCatSDKKeyUpdate";
 import { ConfluentAccountCreateRequest } from "./ConfluentAccountCreateRequest";
 import { ConfluentAccountCreateRequestAttributes } from "./ConfluentAccountCreateRequestAttributes";
 import { ConfluentAccountCreateRequestData } from "./ConfluentAccountCreateRequestData";
@@ -696,6 +726,8 @@ import { EventsScalarQuery } from "./EventsScalarQuery";
 import { EventsSearch } from "./EventsSearch";
 import { EventsTimeseriesQuery } from "./EventsTimeseriesQuery";
 import { EventsWarning } from "./EventsWarning";
+import { FastlyAPIKey } from "./FastlyAPIKey";
+import { FastlyAPIKeyUpdate } from "./FastlyAPIKeyUpdate";
 import { FastlyAccounResponseAttributes } from "./FastlyAccounResponseAttributes";
 import { FastlyAccountCreateRequest } from "./FastlyAccountCreateRequest";
 import { FastlyAccountCreateRequestAttributes } from "./FastlyAccountCreateRequestAttributes";
@@ -706,6 +738,8 @@ import { FastlyAccountUpdateRequest } from "./FastlyAccountUpdateRequest";
 import { FastlyAccountUpdateRequestAttributes } from "./FastlyAccountUpdateRequestAttributes";
 import { FastlyAccountUpdateRequestData } from "./FastlyAccountUpdateRequestData";
 import { FastlyAccountsResponse } from "./FastlyAccountsResponse";
+import { FastlyIntegration } from "./FastlyIntegration";
+import { FastlyIntegrationUpdate } from "./FastlyIntegrationUpdate";
 import { FastlyService } from "./FastlyService";
 import { FastlyServiceAttributes } from "./FastlyServiceAttributes";
 import { FastlyServiceData } from "./FastlyServiceData";
@@ -719,12 +753,18 @@ import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
 import { FormulaLimit } from "./FormulaLimit";
 import { FrameworkHandleAndVersionResponseData } from "./FrameworkHandleAndVersionResponseData";
+import { FreshserviceAPIKey } from "./FreshserviceAPIKey";
+import { FreshserviceAPIKeyUpdate } from "./FreshserviceAPIKeyUpdate";
+import { FreshserviceIntegration } from "./FreshserviceIntegration";
+import { FreshserviceIntegrationUpdate } from "./FreshserviceIntegrationUpdate";
 import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
 import { FullCustomFrameworkData } from "./FullCustomFrameworkData";
 import { FullCustomFrameworkDataAttributes } from "./FullCustomFrameworkDataAttributes";
+import { GCPIntegration } from "./GCPIntegration";
+import { GCPIntegrationUpdate } from "./GCPIntegrationUpdate";
 import { GCPMetricNamespaceConfig } from "./GCPMetricNamespaceConfig";
 import { GCPSTSDelegateAccount } from "./GCPSTSDelegateAccount";
 import { GCPSTSDelegateAccountAttributes } from "./GCPSTSDelegateAccountAttributes";
@@ -737,7 +777,9 @@ import { GCPSTSServiceAccountResponse } from "./GCPSTSServiceAccountResponse";
 import { GCPSTSServiceAccountUpdateRequest } from "./GCPSTSServiceAccountUpdateRequest";
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
+import { GCPServiceAccount } from "./GCPServiceAccount";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
+import { GCPServiceAccountUpdate } from "./GCPServiceAccountUpdate";
 import { GCPUsageCostConfig } from "./GCPUsageCostConfig";
 import { GCPUsageCostConfigAttributes } from "./GCPUsageCostConfigAttributes";
 import { GCPUsageCostConfigPatchData } from "./GCPUsageCostConfigPatchData";
@@ -748,6 +790,10 @@ import { GCPUsageCostConfigPostRequest } from "./GCPUsageCostConfigPostRequest";
 import { GCPUsageCostConfigPostRequestAttributes } from "./GCPUsageCostConfigPostRequestAttributes";
 import { GCPUsageCostConfigResponse } from "./GCPUsageCostConfigResponse";
 import { GCPUsageCostConfigsResponse } from "./GCPUsageCostConfigsResponse";
+import { GeminiAPIKey } from "./GeminiAPIKey";
+import { GeminiAPIKeyUpdate } from "./GeminiAPIKeyUpdate";
+import { GeminiIntegration } from "./GeminiIntegration";
+import { GeminiIntegrationUpdate } from "./GeminiIntegrationUpdate";
 import { GetActionConnectionResponse } from "./GetActionConnectionResponse";
 import { GetAppKeyRegistrationResponse } from "./GetAppKeyRegistrationResponse";
 import { GetAppResponse } from "./GetAppResponse";
@@ -769,6 +815,14 @@ import { GetSBOMResponse } from "./GetSBOMResponse";
 import { GetWorkflowResponse } from "./GetWorkflowResponse";
 import { GithubWebhookTrigger } from "./GithubWebhookTrigger";
 import { GithubWebhookTriggerWrapper } from "./GithubWebhookTriggerWrapper";
+import { GitlabAPIKey } from "./GitlabAPIKey";
+import { GitlabAPIKeyUpdate } from "./GitlabAPIKeyUpdate";
+import { GitlabIntegration } from "./GitlabIntegration";
+import { GitlabIntegrationUpdate } from "./GitlabIntegrationUpdate";
+import { GreyNoiseAPIKey } from "./GreyNoiseAPIKey";
+import { GreyNoiseAPIKeyUpdate } from "./GreyNoiseAPIKeyUpdate";
+import { GreyNoiseIntegration } from "./GreyNoiseIntegration";
+import { GreyNoiseIntegrationUpdate } from "./GreyNoiseIntegrationUpdate";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPBody } from "./HTTPBody";
 import { HTTPCIAppError } from "./HTTPCIAppError";
@@ -920,6 +974,10 @@ import { KindData } from "./KindData";
 import { KindMetadata } from "./KindMetadata";
 import { KindObj } from "./KindObj";
 import { KindResponseMeta } from "./KindResponseMeta";
+import { LaunchDarklyAPIKey } from "./LaunchDarklyAPIKey";
+import { LaunchDarklyAPIKeyUpdate } from "./LaunchDarklyAPIKeyUpdate";
+import { LaunchDarklyIntegration } from "./LaunchDarklyIntegration";
+import { LaunchDarklyIntegrationUpdate } from "./LaunchDarklyIntegrationUpdate";
 import { Layer } from "./Layer";
 import { LayerAttributes } from "./LayerAttributes";
 import { LayerAttributesInterval } from "./LayerAttributesInterval";
@@ -1173,6 +1231,10 @@ import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
+import { NotionAPIKey } from "./NotionAPIKey";
+import { NotionAPIKeyUpdate } from "./NotionAPIKeyUpdate";
+import { NotionIntegration } from "./NotionIntegration";
+import { NotionIntegrationUpdate } from "./NotionIntegrationUpdate";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { NullableUserRelationship } from "./NullableUserRelationship";
@@ -1268,6 +1330,8 @@ import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelin
 import { ObservabilityPipelineSyslogNgSource } from "./ObservabilityPipelineSyslogNgSource";
 import { ObservabilityPipelineThrottleProcessor } from "./ObservabilityPipelineThrottleProcessor";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
+import { OktaAPIToken } from "./OktaAPIToken";
+import { OktaAPITokenUpdate } from "./OktaAPITokenUpdate";
 import { OktaAccount } from "./OktaAccount";
 import { OktaAccountAttributes } from "./OktaAccountAttributes";
 import { OktaAccountRequest } from "./OktaAccountRequest";
@@ -1277,9 +1341,15 @@ import { OktaAccountUpdateRequest } from "./OktaAccountUpdateRequest";
 import { OktaAccountUpdateRequestAttributes } from "./OktaAccountUpdateRequestAttributes";
 import { OktaAccountUpdateRequestData } from "./OktaAccountUpdateRequestData";
 import { OktaAccountsResponse } from "./OktaAccountsResponse";
+import { OktaIntegration } from "./OktaIntegration";
+import { OktaIntegrationUpdate } from "./OktaIntegrationUpdate";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
+import { OpenAIAPIKey } from "./OpenAIAPIKey";
+import { OpenAIAPIKeyUpdate } from "./OpenAIAPIKeyUpdate";
+import { OpenAIIntegration } from "./OpenAIIntegration";
+import { OpenAIIntegrationUpdate } from "./OpenAIIntegrationUpdate";
 import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
 import { OpenAPIFile } from "./OpenAPIFile";
 import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
@@ -1759,6 +1829,10 @@ import { ServiceDefinitionV2Opsgenie } from "./ServiceDefinitionV2Opsgenie";
 import { ServiceDefinitionV2Repo } from "./ServiceDefinitionV2Repo";
 import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
+import { ServiceNowBasicAuth } from "./ServiceNowBasicAuth";
+import { ServiceNowBasicAuthUpdate } from "./ServiceNowBasicAuthUpdate";
+import { ServiceNowIntegration } from "./ServiceNowIntegration";
+import { ServiceNowIntegrationUpdate } from "./ServiceNowIntegrationUpdate";
 import { ServiceNowTicket } from "./ServiceNowTicket";
 import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 import { Shift } from "./Shift";
@@ -1823,8 +1897,16 @@ import { SpansQueryOptions } from "./SpansQueryOptions";
 import { SpansResponseMetadataPage } from "./SpansResponseMetadataPage";
 import { SpansWarning } from "./SpansWarning";
 import { Spec } from "./Spec";
+import { SplitAPIKey } from "./SplitAPIKey";
+import { SplitAPIKeyUpdate } from "./SplitAPIKeyUpdate";
+import { SplitIntegration } from "./SplitIntegration";
+import { SplitIntegrationUpdate } from "./SplitIntegrationUpdate";
 import { StateVariable } from "./StateVariable";
 import { StateVariableProperties } from "./StateVariableProperties";
+import { StatsigAPIKey } from "./StatsigAPIKey";
+import { StatsigAPIKeyUpdate } from "./StatsigAPIKeyUpdate";
+import { StatsigIntegration } from "./StatsigIntegration";
+import { StatsigIntegrationUpdate } from "./StatsigIntegrationUpdate";
 import { Step } from "./Step";
 import { StepDisplay } from "./StepDisplay";
 import { StepDisplayBounds } from "./StepDisplayBounds";
@@ -1962,6 +2044,10 @@ import { V2EventResponse } from "./V2EventResponse";
 import { ValidationError } from "./ValidationError";
 import { ValidationErrorMeta } from "./ValidationErrorMeta";
 import { ValidationResponse } from "./ValidationResponse";
+import { VirusTotalAPIKey } from "./VirusTotalAPIKey";
+import { VirusTotalAPIKeyUpdate } from "./VirusTotalAPIKeyUpdate";
+import { VirusTotalIntegration } from "./VirusTotalIntegration";
+import { VirusTotalIntegrationUpdate } from "./VirusTotalIntegrationUpdate";
 import { Vulnerability } from "./Vulnerability";
 import { VulnerabilityAttributes } from "./VulnerabilityAttributes";
 import { VulnerabilityCvss } from "./VulnerabilityCvss";
@@ -2057,6 +2143,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   AlertEventCustomAttributesPriority: ["1", "2", "3", "4", "5"],
   AlertEventCustomAttributesStatus: ["warn", "error", "ok"],
+  AnthropicAPIKeyType: ["AnthropicAPIKey"],
+  AnthropicIntegrationType: ["Anthropic"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   AppBuilderEventName: [
     "pageChange",
@@ -2150,6 +2238,8 @@ const enumsMap: { [key: string]: any[] } = {
     "-updated_at",
     "-user_name",
   ],
+  AsanaAccessTokenType: ["AsanaAccessToken"],
+  AsanaIntegrationType: ["Asana"],
   AssetEntityType: ["assets"],
   AssetType: ["Repository", "Service", "Host", "HostImage", "Image"],
   AuditLogsEventType: ["audit"],
@@ -2176,7 +2266,9 @@ const enumsMap: { [key: string]: any[] } = {
   AwsCURConfigType: ["aws_cur_config"],
   AwsOnDemandType: ["aws_resource"],
   AwsScanOptionsType: ["aws_scan_options"],
+  AzureIntegrationType: ["Azure"],
   AzureStorageDestinationType: ["azure_storage"],
+  AzureTenantType: ["AzureTenant"],
   AzureUCConfigPairType: ["azure_uc_configs"],
   AzureUCConfigPatchRequestType: ["azure_uc_config_patch_request"],
   AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
@@ -2249,10 +2341,17 @@ const enumsMap: { [key: string]: any[] } = {
     "configuration",
   ],
   ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
+  CircleCIAPIKeyType: ["CircleCIAPIKey"],
+  CircleCIIntegrationType: ["CircleCI"],
+  ClickupAPIKeyType: ["ClickupAPIKey"],
+  ClickupIntegrationType: ["Clickup"],
   CloudConfigurationRuleType: ["cloud_configuration"],
   CloudWorkloadSecurityAgentPolicyType: ["policy"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
+  CloudflareAPITokenType: ["CloudflareAPIToken"],
   CloudflareAccountType: ["cloudflare-accounts"],
+  CloudflareGlobalAPITokenType: ["CloudflareGlobalAPIToken"],
+  CloudflareIntegrationType: ["Cloudflare"],
   CompletionConditionOperator: [
     "OPERATOR_EQUAL",
     "OPERATOR_NOT_EQUAL",
@@ -2290,6 +2389,8 @@ const enumsMap: { [key: string]: any[] } = {
     "container",
     "calloutValue",
   ],
+  ConfigCatIntegrationType: ["ConfigCat"],
+  ConfigCatSDKKeyType: ["ConfigCatSDKKey"],
   ConfluentAccountType: ["confluent-cloud-accounts"],
   ConfluentResourceType: ["confluent-cloud-resources"],
   ConnectionEnvEnv: ["default"],
@@ -2411,7 +2512,9 @@ const enumsMap: { [key: string]: any[] } = {
   EventsDataSource: ["logs", "rum", "dora"],
   EventsSort: ["timestamp", "-timestamp"],
   EventsSortType: ["alphabetical", "measure"],
+  FastlyAPIKeyType: ["FastlyAPIKey"],
   FastlyAccountType: ["fastly-accounts"],
+  FastlyIntegrationType: ["Fastly"],
   FastlyServiceType: ["fastly-services"],
   FindingEvaluation: ["pass", "fail"],
   FindingMuteReason: [
@@ -2431,11 +2534,17 @@ const enumsMap: { [key: string]: any[] } = {
     "identity_risk",
     "api_security",
   ],
+  FreshserviceAPIKeyType: ["FreshserviceAPIKey"],
+  FreshserviceIntegrationType: ["Freshservice"],
+  GCPIntegrationType: ["GCP"],
   GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
+  GCPServiceAccountCredentialType: ["GCPServiceAccount"],
   GCPServiceAccountType: ["gcp_service_account"],
   GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
   GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
   GCPUsageCostConfigType: ["gcp_uc_config"],
+  GeminiAPIKeyType: ["GeminiAPIKey"],
+  GeminiIntegrationType: ["Gemini"],
   GetRuleVersionHistoryDataType: ["GetRuleVersionHistoryResponse"],
   GetTeamMembershipsSort: [
     "manager_name",
@@ -2447,6 +2556,10 @@ const enumsMap: { [key: string]: any[] } = {
     "email",
     "-email",
   ],
+  GitlabAPIKeyType: ["GitlabAPIKey"],
+  GitlabIntegrationType: ["Gitlab"],
+  GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
+  GreyNoiseIntegrationType: ["GreyNoise"],
   HTTPIntegrationType: ["HTTP"],
   HTTPTokenAuthType: ["HTTPTokenAuth"],
   HistoricalJobDataType: ["historicalDetectionsJob"],
@@ -2505,6 +2618,8 @@ const enumsMap: { [key: string]: any[] } = {
     "ARRAY_OBJECT",
   ],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
+  LaunchDarklyAPIKeyType: ["LaunchDarklyAPIKey"],
+  LaunchDarklyIntegrationType: ["LaunchDarkly"],
   LayerRelationshipsMembersDataItemsType: ["members"],
   LayerType: ["layers"],
   LeakedKeyType: ["leaked_keys"],
@@ -2595,6 +2710,8 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorNotificationRuleResourceType: ["monitor-notification-rule"],
   MonitorUserTemplateResourceType: ["monitor-user-template"],
   NotificationRulesType: ["notification_rules"],
+  NotionAPIKeyType: ["NotionAPIKey"],
+  NotionIntegrationType: ["Notion"],
   ObservabilityPipelineAddEnvVarsProcessorType: ["add_env_vars"],
   ObservabilityPipelineAddFieldsProcessorType: ["add_fields"],
   ObservabilityPipelineAmazonDataFirehoseSourceType: ["amazon_data_firehose"],
@@ -2783,9 +2900,13 @@ const enumsMap: { [key: string]: any[] } = {
   ObservabilityPipelineSyslogNgSourceType: ["syslog_ng"],
   ObservabilityPipelineSyslogSourceMode: ["tcp", "udp"],
   ObservabilityPipelineThrottleProcessorType: ["throttle"],
+  OktaAPITokenType: ["OktaAPIToken"],
   OktaAccountType: ["okta-accounts"],
+  OktaIntegrationType: ["Okta"],
   OnCallPageTargetType: ["team_id", "team_handle", "user_id"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
+  OpenAIAPIKeyType: ["OpenAIAPIKey"],
+  OpenAIIntegrationType: ["OpenAI"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
   OrderDirection: ["asc", "desc"],
@@ -3098,6 +3219,8 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  ServiceNowBasicAuthType: ["ServiceNowBasicAuth"],
+  ServiceNowIntegrationType: ["ServiceNow"],
   ShiftDataRelationshipsUserDataType: ["users"],
   ShiftDataType: ["shifts"],
   SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
@@ -3128,8 +3251,12 @@ const enumsMap: { [key: string]: any[] } = {
   SpansSortOrder: ["asc", "desc"],
   SpansType: ["spans"],
   SpecVersion: ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"],
+  SplitAPIKeyType: ["SplitAPIKey"],
+  SplitIntegrationType: ["Split"],
   State: ["pass", "fail", "skip"],
   StateVariableType: ["stateVariable"],
+  StatsigAPIKeyType: ["StatsigAPIKey"],
+  StatsigIntegrationType: ["Statsig"],
   TeamLinkType: ["team_links"],
   TeamOnCallRespondersDataRelationshipsEscalationsDataItemsType: [
     "escalation_policy_steps",
@@ -3184,6 +3311,8 @@ const enumsMap: { [key: string]: any[] } = {
   UserTeamType: ["team_memberships"],
   UserTeamUserType: ["users"],
   UsersType: ["users"],
+  VirusTotalAPIKeyType: ["VirusTotalAPIKey"],
+  VirusTotalIntegrationType: ["VirusTotal"],
   VulnerabilitiesType: ["vulnerabilities"],
   VulnerabilityEcosystem: [
     "PyPI",
@@ -3366,6 +3495,10 @@ const typeMap: { [index: string]: any } = {
   AnnotationDisplay: AnnotationDisplay,
   AnnotationDisplayBounds: AnnotationDisplayBounds,
   AnnotationMarkdownTextAnnotation: AnnotationMarkdownTextAnnotation,
+  AnthropicAPIKey: AnthropicAPIKey,
+  AnthropicAPIKeyUpdate: AnthropicAPIKeyUpdate,
+  AnthropicIntegration: AnthropicIntegration,
+  AnthropicIntegrationUpdate: AnthropicIntegrationUpdate,
   AppBuilderEvent: AppBuilderEvent,
   AppKeyRegistrationData: AppKeyRegistrationData,
   AppMeta: AppMeta,
@@ -3444,6 +3577,10 @@ const typeMap: { [index: string]: any } = {
     ApplicationSecurityWafExclusionFilterUpdateRequest,
   ApplicationSecurityWafExclusionFiltersResponse:
     ApplicationSecurityWafExclusionFiltersResponse,
+  AsanaAccessToken: AsanaAccessToken,
+  AsanaAccessTokenUpdate: AsanaAccessTokenUpdate,
+  AsanaIntegration: AsanaIntegration,
+  AsanaIntegrationUpdate: AsanaIntegrationUpdate,
   Asset: Asset,
   AssetAttributes: AssetAttributes,
   AssetOperatingSystem: AssetOperatingSystem,
@@ -3502,7 +3639,11 @@ const typeMap: { [index: string]: any } = {
   AwsScanOptionsUpdateAttributes: AwsScanOptionsUpdateAttributes,
   AwsScanOptionsUpdateData: AwsScanOptionsUpdateData,
   AwsScanOptionsUpdateRequest: AwsScanOptionsUpdateRequest,
+  AzureIntegration: AzureIntegration,
+  AzureIntegrationUpdate: AzureIntegrationUpdate,
   AzureStorageDestination: AzureStorageDestination,
+  AzureTenant: AzureTenant,
+  AzureTenantUpdate: AzureTenantUpdate,
   AzureUCConfig: AzureUCConfig,
   AzureUCConfigPair: AzureUCConfigPair,
   AzureUCConfigPairAttributes: AzureUCConfigPairAttributes,
@@ -3624,6 +3765,14 @@ const typeMap: { [index: string]: any } = {
     ChangeEventCustomAttributesImpactedResourcesItems,
   ChangeEventTriggerWrapper: ChangeEventTriggerWrapper,
   ChargebackBreakdown: ChargebackBreakdown,
+  CircleCIAPIKey: CircleCIAPIKey,
+  CircleCIAPIKeyUpdate: CircleCIAPIKeyUpdate,
+  CircleCIIntegration: CircleCIIntegration,
+  CircleCIIntegrationUpdate: CircleCIIntegrationUpdate,
+  ClickupAPIKey: ClickupAPIKey,
+  ClickupAPIKeyUpdate: ClickupAPIKeyUpdate,
+  ClickupIntegration: ClickupIntegration,
+  ClickupIntegrationUpdate: ClickupIntegrationUpdate,
   CloudConfigurationComplianceRuleOptions:
     CloudConfigurationComplianceRuleOptions,
   CloudConfigurationRegoRule: CloudConfigurationRegoRule,
@@ -3683,6 +3832,8 @@ const typeMap: { [index: string]: any } = {
     CloudWorkloadSecurityAgentRuleUpdaterAttributes,
   CloudWorkloadSecurityAgentRulesListResponse:
     CloudWorkloadSecurityAgentRulesListResponse,
+  CloudflareAPIToken: CloudflareAPIToken,
+  CloudflareAPITokenUpdate: CloudflareAPITokenUpdate,
   CloudflareAccountCreateRequest: CloudflareAccountCreateRequest,
   CloudflareAccountCreateRequestAttributes:
     CloudflareAccountCreateRequestAttributes,
@@ -3695,6 +3846,10 @@ const typeMap: { [index: string]: any } = {
     CloudflareAccountUpdateRequestAttributes,
   CloudflareAccountUpdateRequestData: CloudflareAccountUpdateRequestData,
   CloudflareAccountsResponse: CloudflareAccountsResponse,
+  CloudflareGlobalAPIToken: CloudflareGlobalAPIToken,
+  CloudflareGlobalAPITokenUpdate: CloudflareGlobalAPITokenUpdate,
+  CloudflareIntegration: CloudflareIntegration,
+  CloudflareIntegrationUpdate: CloudflareIntegrationUpdate,
   CodeLocation: CodeLocation,
   CompletionCondition: CompletionCondition,
   CompletionGate: CompletionGate,
@@ -3702,6 +3857,10 @@ const typeMap: { [index: string]: any } = {
   ComponentGrid: ComponentGrid,
   ComponentGridProperties: ComponentGridProperties,
   ComponentProperties: ComponentProperties,
+  ConfigCatIntegration: ConfigCatIntegration,
+  ConfigCatIntegrationUpdate: ConfigCatIntegrationUpdate,
+  ConfigCatSDKKey: ConfigCatSDKKey,
+  ConfigCatSDKKeyUpdate: ConfigCatSDKKeyUpdate,
   ConfluentAccountCreateRequest: ConfluentAccountCreateRequest,
   ConfluentAccountCreateRequestAttributes:
     ConfluentAccountCreateRequestAttributes,
@@ -4108,6 +4267,8 @@ const typeMap: { [index: string]: any } = {
   EventsSearch: EventsSearch,
   EventsTimeseriesQuery: EventsTimeseriesQuery,
   EventsWarning: EventsWarning,
+  FastlyAPIKey: FastlyAPIKey,
+  FastlyAPIKeyUpdate: FastlyAPIKeyUpdate,
   FastlyAccounResponseAttributes: FastlyAccounResponseAttributes,
   FastlyAccountCreateRequest: FastlyAccountCreateRequest,
   FastlyAccountCreateRequestAttributes: FastlyAccountCreateRequestAttributes,
@@ -4118,6 +4279,8 @@ const typeMap: { [index: string]: any } = {
   FastlyAccountUpdateRequestAttributes: FastlyAccountUpdateRequestAttributes,
   FastlyAccountUpdateRequestData: FastlyAccountUpdateRequestData,
   FastlyAccountsResponse: FastlyAccountsResponse,
+  FastlyIntegration: FastlyIntegration,
+  FastlyIntegrationUpdate: FastlyIntegrationUpdate,
   FastlyService: FastlyService,
   FastlyServiceAttributes: FastlyServiceAttributes,
   FastlyServiceData: FastlyServiceData,
@@ -4131,12 +4294,18 @@ const typeMap: { [index: string]: any } = {
   FindingRule: FindingRule,
   FormulaLimit: FormulaLimit,
   FrameworkHandleAndVersionResponseData: FrameworkHandleAndVersionResponseData,
+  FreshserviceAPIKey: FreshserviceAPIKey,
+  FreshserviceAPIKeyUpdate: FreshserviceAPIKeyUpdate,
+  FreshserviceIntegration: FreshserviceIntegration,
+  FreshserviceIntegrationUpdate: FreshserviceIntegrationUpdate,
   FullAPIKey: FullAPIKey,
   FullAPIKeyAttributes: FullAPIKeyAttributes,
   FullApplicationKey: FullApplicationKey,
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
   FullCustomFrameworkData: FullCustomFrameworkData,
   FullCustomFrameworkDataAttributes: FullCustomFrameworkDataAttributes,
+  GCPIntegration: GCPIntegration,
+  GCPIntegrationUpdate: GCPIntegrationUpdate,
   GCPMetricNamespaceConfig: GCPMetricNamespaceConfig,
   GCPSTSDelegateAccount: GCPSTSDelegateAccount,
   GCPSTSDelegateAccountAttributes: GCPSTSDelegateAccountAttributes,
@@ -4149,7 +4318,9 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountUpdateRequest: GCPSTSServiceAccountUpdateRequest,
   GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
+  GCPServiceAccount: GCPServiceAccount,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
+  GCPServiceAccountUpdate: GCPServiceAccountUpdate,
   GCPUsageCostConfig: GCPUsageCostConfig,
   GCPUsageCostConfigAttributes: GCPUsageCostConfigAttributes,
   GCPUsageCostConfigPatchData: GCPUsageCostConfigPatchData,
@@ -4162,6 +4333,10 @@ const typeMap: { [index: string]: any } = {
     GCPUsageCostConfigPostRequestAttributes,
   GCPUsageCostConfigResponse: GCPUsageCostConfigResponse,
   GCPUsageCostConfigsResponse: GCPUsageCostConfigsResponse,
+  GeminiAPIKey: GeminiAPIKey,
+  GeminiAPIKeyUpdate: GeminiAPIKeyUpdate,
+  GeminiIntegration: GeminiIntegration,
+  GeminiIntegrationUpdate: GeminiIntegrationUpdate,
   GetActionConnectionResponse: GetActionConnectionResponse,
   GetAppKeyRegistrationResponse: GetAppKeyRegistrationResponse,
   GetAppResponse: GetAppResponse,
@@ -4184,6 +4359,14 @@ const typeMap: { [index: string]: any } = {
   GetWorkflowResponse: GetWorkflowResponse,
   GithubWebhookTrigger: GithubWebhookTrigger,
   GithubWebhookTriggerWrapper: GithubWebhookTriggerWrapper,
+  GitlabAPIKey: GitlabAPIKey,
+  GitlabAPIKeyUpdate: GitlabAPIKeyUpdate,
+  GitlabIntegration: GitlabIntegration,
+  GitlabIntegrationUpdate: GitlabIntegrationUpdate,
+  GreyNoiseAPIKey: GreyNoiseAPIKey,
+  GreyNoiseAPIKeyUpdate: GreyNoiseAPIKeyUpdate,
+  GreyNoiseIntegration: GreyNoiseIntegration,
+  GreyNoiseIntegrationUpdate: GreyNoiseIntegrationUpdate,
   GroupScalarColumn: GroupScalarColumn,
   HTTPBody: HTTPBody,
   HTTPCIAppError: HTTPCIAppError,
@@ -4347,6 +4530,10 @@ const typeMap: { [index: string]: any } = {
   KindMetadata: KindMetadata,
   KindObj: KindObj,
   KindResponseMeta: KindResponseMeta,
+  LaunchDarklyAPIKey: LaunchDarklyAPIKey,
+  LaunchDarklyAPIKeyUpdate: LaunchDarklyAPIKeyUpdate,
+  LaunchDarklyIntegration: LaunchDarklyIntegration,
+  LaunchDarklyIntegrationUpdate: LaunchDarklyIntegrationUpdate,
   Layer: Layer,
   LayerAttributes: LayerAttributes,
   LayerAttributesInterval: LayerAttributesInterval,
@@ -4640,6 +4827,10 @@ const typeMap: { [index: string]: any } = {
   NotificationRule: NotificationRule,
   NotificationRuleAttributes: NotificationRuleAttributes,
   NotificationRuleResponse: NotificationRuleResponse,
+  NotionAPIKey: NotionAPIKey,
+  NotionAPIKeyUpdate: NotionAPIKeyUpdate,
+  NotionIntegration: NotionIntegration,
+  NotionIntegrationUpdate: NotionIntegrationUpdate,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   NullableUserRelationship: NullableUserRelationship,
@@ -4796,6 +4987,8 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineThrottleProcessor:
     ObservabilityPipelineThrottleProcessor,
   ObservabilityPipelineTls: ObservabilityPipelineTls,
+  OktaAPIToken: OktaAPIToken,
+  OktaAPITokenUpdate: OktaAPITokenUpdate,
   OktaAccount: OktaAccount,
   OktaAccountAttributes: OktaAccountAttributes,
   OktaAccountRequest: OktaAccountRequest,
@@ -4805,9 +4998,15 @@ const typeMap: { [index: string]: any } = {
   OktaAccountUpdateRequestAttributes: OktaAccountUpdateRequestAttributes,
   OktaAccountUpdateRequestData: OktaAccountUpdateRequestData,
   OktaAccountsResponse: OktaAccountsResponse,
+  OktaIntegration: OktaIntegration,
+  OktaIntegrationUpdate: OktaIntegrationUpdate,
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
   OnDemandConcurrencyCapAttributes: OnDemandConcurrencyCapAttributes,
   OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
+  OpenAIAPIKey: OpenAIAPIKey,
+  OpenAIAPIKeyUpdate: OpenAIAPIKeyUpdate,
+  OpenAIIntegration: OpenAIIntegration,
+  OpenAIIntegrationUpdate: OpenAIIntegrationUpdate,
   OpenAPIEndpoint: OpenAPIEndpoint,
   OpenAPIFile: OpenAPIFile,
   OpsgenieServiceCreateAttributes: OpsgenieServiceCreateAttributes,
@@ -5355,6 +5554,10 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionV2Repo: ServiceDefinitionV2Repo,
   ServiceDefinitionV2Slack: ServiceDefinitionV2Slack,
   ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
+  ServiceNowBasicAuth: ServiceNowBasicAuth,
+  ServiceNowBasicAuthUpdate: ServiceNowBasicAuthUpdate,
+  ServiceNowIntegration: ServiceNowIntegration,
+  ServiceNowIntegrationUpdate: ServiceNowIntegrationUpdate,
   ServiceNowTicket: ServiceNowTicket,
   ServiceNowTicketResult: ServiceNowTicketResult,
   Shift: Shift,
@@ -5423,8 +5626,16 @@ const typeMap: { [index: string]: any } = {
   SpansResponseMetadataPage: SpansResponseMetadataPage,
   SpansWarning: SpansWarning,
   Spec: Spec,
+  SplitAPIKey: SplitAPIKey,
+  SplitAPIKeyUpdate: SplitAPIKeyUpdate,
+  SplitIntegration: SplitIntegration,
+  SplitIntegrationUpdate: SplitIntegrationUpdate,
   StateVariable: StateVariable,
   StateVariableProperties: StateVariableProperties,
+  StatsigAPIKey: StatsigAPIKey,
+  StatsigAPIKeyUpdate: StatsigAPIKeyUpdate,
+  StatsigIntegration: StatsigIntegration,
+  StatsigIntegrationUpdate: StatsigIntegrationUpdate,
   Step: Step,
   StepDisplay: StepDisplay,
   StepDisplayBounds: StepDisplayBounds,
@@ -5573,6 +5784,10 @@ const typeMap: { [index: string]: any } = {
   ValidationError: ValidationError,
   ValidationErrorMeta: ValidationErrorMeta,
   ValidationResponse: ValidationResponse,
+  VirusTotalAPIKey: VirusTotalAPIKey,
+  VirusTotalAPIKeyUpdate: VirusTotalAPIKeyUpdate,
+  VirusTotalIntegration: VirusTotalIntegration,
+  VirusTotalIntegrationUpdate: VirusTotalIntegrationUpdate,
   Vulnerability: Vulnerability,
   VulnerabilityAttributes: VulnerabilityAttributes,
   VulnerabilityCvss: VulnerabilityCvss,
@@ -5619,13 +5834,55 @@ const oneOfMap: { [index: string]: string[] } = {
   AWSRegions: ["AWSRegionsIncludeAll", "AWSRegionsIncludeOnly"],
   ActionConnectionIntegration: [
     "AWSIntegration",
+    "AnthropicIntegration",
+    "AsanaIntegration",
+    "AzureIntegration",
+    "CircleCIIntegration",
+    "ClickupIntegration",
+    "CloudflareIntegration",
+    "ConfigCatIntegration",
     "DatadogIntegration",
+    "FastlyIntegration",
+    "FreshserviceIntegration",
+    "GCPIntegration",
+    "GeminiIntegration",
+    "GitlabIntegration",
+    "GreyNoiseIntegration",
     "HTTPIntegration",
+    "LaunchDarklyIntegration",
+    "NotionIntegration",
+    "OktaIntegration",
+    "OpenAIIntegration",
+    "ServiceNowIntegration",
+    "SplitIntegration",
+    "StatsigIntegration",
+    "VirusTotalIntegration",
   ],
   ActionConnectionIntegrationUpdate: [
     "AWSIntegrationUpdate",
+    "AnthropicIntegrationUpdate",
+    "AsanaIntegrationUpdate",
+    "AzureIntegrationUpdate",
+    "CircleCIIntegrationUpdate",
+    "ClickupIntegrationUpdate",
+    "CloudflareIntegrationUpdate",
+    "ConfigCatIntegrationUpdate",
     "DatadogIntegrationUpdate",
+    "FastlyIntegrationUpdate",
+    "FreshserviceIntegrationUpdate",
+    "GCPIntegrationUpdate",
+    "GeminiIntegrationUpdate",
+    "GitlabIntegrationUpdate",
+    "GreyNoiseIntegrationUpdate",
     "HTTPIntegrationUpdate",
+    "LaunchDarklyIntegrationUpdate",
+    "NotionIntegrationUpdate",
+    "OktaIntegrationUpdate",
+    "OpenAIIntegrationUpdate",
+    "ServiceNowIntegrationUpdate",
+    "SplitIntegrationUpdate",
+    "StatsigIntegrationUpdate",
+    "VirusTotalIntegrationUpdate",
   ],
   ActionQueryCondition: ["boolean", "string"],
   ActionQueryDebounceInMs: ["number", "string"],
@@ -5637,7 +5894,11 @@ const oneOfMap: { [index: string]: string[] } = {
   ActionQueryShowToastOnError: ["boolean", "string"],
   ActionQuerySpec: ["string", "ActionQuerySpecObject"],
   ActionQuerySpecInputs: ["string", "{ [key: string]: any; }"],
+  AnthropicCredentials: ["AnthropicAPIKey"],
+  AnthropicCredentialsUpdate: ["AnthropicAPIKeyUpdate"],
   ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
+  AsanaCredentials: ["AsanaAccessToken"],
+  AsanaCredentialsUpdate: ["AsanaAccessTokenUpdate"],
   AuthNMappingCreateRelationships: [
     "AuthNMappingRelationshipToRole",
     "AuthNMappingRelationshipToTeam",
@@ -5647,6 +5908,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "AuthNMappingRelationshipToRole",
     "AuthNMappingRelationshipToTeam",
   ],
+  AzureCredentials: ["AzureTenant"],
+  AzureCredentialsUpdate: ["AzureTenantUpdate"],
   CIAppAggregateBucketValue: [
     "string",
     "number",
@@ -5664,8 +5927,19 @@ const oneOfMap: { [index: string]: string[] } = {
     "CIAppPipelineEventFinishedPipeline",
     "CIAppPipelineEventInProgressPipeline",
   ],
+  CircleCICredentials: ["CircleCIAPIKey"],
+  CircleCICredentialsUpdate: ["CircleCIAPIKeyUpdate"],
+  ClickupCredentials: ["ClickupAPIKey"],
+  ClickupCredentialsUpdate: ["ClickupAPIKeyUpdate"],
+  CloudflareCredentials: ["CloudflareAPIToken", "CloudflareGlobalAPIToken"],
+  CloudflareCredentialsUpdate: [
+    "CloudflareAPITokenUpdate",
+    "CloudflareGlobalAPITokenUpdate",
+  ],
   ComponentGridPropertiesIsVisible: ["string", "boolean"],
   ComponentPropertiesIsVisible: ["boolean", "string"],
+  ConfigCatCredentials: ["ConfigCatSDKKey"],
+  ConfigCatCredentialsUpdate: ["ConfigCatSDKKeyUpdate"],
   ContainerImageItem: ["ContainerImage", "ContainerImageGroup"],
   ContainerItem: ["Container", "ContainerGroup"],
   CustomDestinationForwardDestination: [
@@ -5729,6 +6003,18 @@ const oneOfMap: { [index: string]: string[] } = {
     "ChangeEventCustomAttributes",
     "AlertEventCustomAttributes",
   ],
+  FastlyCredentials: ["FastlyAPIKey"],
+  FastlyCredentialsUpdate: ["FastlyAPIKeyUpdate"],
+  FreshserviceCredentials: ["FreshserviceAPIKey"],
+  FreshserviceCredentialsUpdate: ["FreshserviceAPIKeyUpdate"],
+  GCPCredentials: ["GCPServiceAccount"],
+  GCPCredentialsUpdate: ["GCPServiceAccountUpdate"],
+  GeminiCredentials: ["GeminiAPIKey"],
+  GeminiCredentialsUpdate: ["GeminiAPIKeyUpdate"],
+  GitlabCredentials: ["GitlabAPIKey"],
+  GitlabCredentialsUpdate: ["GitlabAPIKeyUpdate"],
+  GreyNoiseCredentials: ["GreyNoiseAPIKey"],
+  GreyNoiseCredentialsUpdate: ["GreyNoiseAPIKeyUpdate"],
   HTTPCredentials: ["HTTPTokenAuth"],
   HTTPCredentialsUpdate: ["HTTPTokenAuthUpdate"],
   IncidentAttachmentAttributes: [
@@ -5758,6 +6044,8 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   IncidentTodoAssignee: ["string", "IncidentTodoAnonymousAssignee"],
   IncidentTodoResponseIncludedItem: ["User"],
+  LaunchDarklyCredentials: ["LaunchDarklyAPIKey"],
+  LaunchDarklyCredentialsUpdate: ["LaunchDarklyAPIKeyUpdate"],
   ListEntityCatalogResponseIncludedItem: [
     "EntityResponseIncludedSchema",
     "EntityResponseIncludedRawSchema",
@@ -5796,6 +6084,8 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   MonitorNotificationRuleFilter: ["MonitorNotificationRuleFilterTags"],
   MonitorNotificationRuleResponseIncludedItem: ["User"],
+  NotionCredentials: ["NotionAPIKey"],
+  NotionCredentialsUpdate: ["NotionAPIKeyUpdate"],
   ObservabilityPipelineConfigDestinationItem: [
     "ObservabilityPipelineDatadogLogsDestination",
     "ObservabilityPipelineAmazonS3Destination",
@@ -5869,6 +6159,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude",
     "ObservabilityPipelineSensitiveDataScannerProcessorScopeAll",
   ],
+  OktaCredentials: ["OktaAPIToken"],
+  OktaCredentialsUpdate: ["OktaAPITokenUpdate"],
+  OpenAICredentials: ["OpenAIAPIKey"],
+  OpenAICredentialsUpdate: ["OpenAIAPIKeyUpdate"],
   Query: ["ActionQuery", "DataTransform", "StateVariable"],
   RUMAggregateBucketValue: [
     "string",
@@ -5937,6 +6231,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "ServiceDefinitionV2",
     "string",
   ],
+  ServiceNowCredentials: ["ServiceNowBasicAuth"],
+  ServiceNowCredentialsUpdate: ["ServiceNowBasicAuthUpdate"],
   ShiftIncluded: ["ScheduleUser"],
   SpansAggregateBucketValue: [
     "string",
@@ -5945,6 +6241,10 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   SpansGroupByMissing: ["string", "number"],
   SpansGroupByTotal: ["boolean", "string", "number"],
+  SplitCredentials: ["SplitAPIKey"],
+  SplitCredentialsUpdate: ["SplitAPIKeyUpdate"],
+  StatsigCredentials: ["StatsigAPIKey"],
+  StatsigCredentialsUpdate: ["StatsigAPIKeyUpdate"],
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
   TeamOnCallRespondersIncluded: ["User", "Escalation"],
   TeamRoutingRulesIncluded: ["RoutingRule"],
@@ -5976,6 +6276,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "ChangeEventAttributes",
     "AlertEventAttributes",
   ],
+  VirusTotalCredentials: ["VirusTotalAPIKey"],
+  VirusTotalCredentialsUpdate: ["VirusTotalAPIKeyUpdate"],
   XRayServicesList: ["XRayServicesIncludeAll", "XRayServicesIncludeOnly"],
 };
 
