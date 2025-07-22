@@ -2958,10 +2958,15 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
+  SecurityMonitoringRuleCaseActionOptionsFlaggedIPType: [
+    "SUSPICIOUS",
+    "FLAGGED",
+  ],
   SecurityMonitoringRuleCaseActionType: [
     "block_ip",
     "block_user",
     "user_behavior",
+    "flag_ip",
   ],
   SecurityMonitoringRuleDetectionMethod: [
     "threshold",
