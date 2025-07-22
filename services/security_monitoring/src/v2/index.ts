@@ -209,6 +209,7 @@ export { SecurityMonitoringReferenceTable } from "./models/SecurityMonitoringRef
 export { SecurityMonitoringRuleCase } from "./models/SecurityMonitoringRuleCase";
 export { SecurityMonitoringRuleCaseAction } from "./models/SecurityMonitoringRuleCaseAction";
 export { SecurityMonitoringRuleCaseActionOptions } from "./models/SecurityMonitoringRuleCaseActionOptions";
+export { SecurityMonitoringRuleCaseActionOptionsFlaggedIPType } from "./models/SecurityMonitoringRuleCaseActionOptionsFlaggedIPType";
 export { SecurityMonitoringRuleCaseActionType } from "./models/SecurityMonitoringRuleCaseActionType";
 export { SecurityMonitoringRuleCaseCreate } from "./models/SecurityMonitoringRuleCaseCreate";
 export { SecurityMonitoringRuleConvertPayload } from "./models/SecurityMonitoringRuleConvertPayload";
