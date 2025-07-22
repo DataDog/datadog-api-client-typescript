@@ -39,6 +39,12 @@ const params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
               userBehaviorName: "behavior",
             },
           },
+          {
+            type: "flag_ip",
+            options: {
+              flaggedIpType: "FLAGGED",
+            },
+          },
         ],
       },
     ],
