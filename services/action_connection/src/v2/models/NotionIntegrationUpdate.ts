@@ -1,0 +1,56 @@
+import { AttributeTypeMap } from "@datadog/datadog-api-client";
+
+import { NotionCredentialsUpdate } from "./NotionCredentialsUpdate";
+import { NotionIntegrationType } from "./NotionIntegrationType";
+
+/**
+ * The definition of the `NotionIntegrationUpdate` object.
+ */
+export class NotionIntegrationUpdate {
+  /**
+   * The definition of the `NotionCredentialsUpdate` object.
+   */
+  "credentials"?: NotionCredentialsUpdate;
+  /**
+   * The definition of the `NotionIntegrationType` object.
+   */
+  "type": NotionIntegrationType;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    credentials: {
+      baseName: "credentials",
+      type: "NotionCredentialsUpdate",
+    },
+    type: {
+      baseName: "type",
+      type: "NotionIntegrationType",
+      required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "{ [key: string]: any; }",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return NotionIntegrationUpdate.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
