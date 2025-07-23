@@ -1188,10 +1188,13 @@ import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelin
 import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
+import { ObservabilityPipelineCustomProcessor } from "./ObservabilityPipelineCustomProcessor";
+import { ObservabilityPipelineCustomProcessorRemap } from "./ObservabilityPipelineCustomProcessorRemap";
 import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
 import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
+import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
@@ -1256,6 +1259,16 @@ import { ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude } from "
 import { ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude";
 import { ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions } from "./ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions";
 import { ObservabilityPipelineSentinelOneDestination } from "./ObservabilityPipelineSentinelOneDestination";
+import { ObservabilityPipelineSocketDestination } from "./ObservabilityPipelineSocketDestination";
+import { ObservabilityPipelineSocketDestinationFramingBytes } from "./ObservabilityPipelineSocketDestinationFramingBytes";
+import { ObservabilityPipelineSocketDestinationFramingCharacterDelimited } from "./ObservabilityPipelineSocketDestinationFramingCharacterDelimited";
+import { ObservabilityPipelineSocketDestinationFramingNewlineDelimited } from "./ObservabilityPipelineSocketDestinationFramingNewlineDelimited";
+import { ObservabilityPipelineSocketSource } from "./ObservabilityPipelineSocketSource";
+import { ObservabilityPipelineSocketSourceFramingBytes } from "./ObservabilityPipelineSocketSourceFramingBytes";
+import { ObservabilityPipelineSocketSourceFramingCharacterDelimited } from "./ObservabilityPipelineSocketSourceFramingCharacterDelimited";
+import { ObservabilityPipelineSocketSourceFramingChunkedGelf } from "./ObservabilityPipelineSocketSourceFramingChunkedGelf";
+import { ObservabilityPipelineSocketSourceFramingNewlineDelimited } from "./ObservabilityPipelineSocketSourceFramingNewlineDelimited";
+import { ObservabilityPipelineSocketSourceFramingOctetCounting } from "./ObservabilityPipelineSocketSourceFramingOctetCounting";
 import { ObservabilityPipelineSpec } from "./ObservabilityPipelineSpec";
 import { ObservabilityPipelineSpecData } from "./ObservabilityPipelineSpecData";
 import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
@@ -2616,8 +2629,12 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ObservabilityPipelineAmazonS3DestinationType: ["amazon_s3"],
   ObservabilityPipelineAmazonS3SourceType: ["amazon_s3"],
+  ObservabilityPipelineCustomProcessorType: ["custom_processor"],
   ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
   ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
+  ObservabilityPipelineDatadogTagsProcessorAction: ["include", "exclude"],
+  ObservabilityPipelineDatadogTagsProcessorMode: ["filter"],
+  ObservabilityPipelineDatadogTagsProcessorType: ["datadog_tags"],
   ObservabilityPipelineDecoding: ["bytes", "gelf", "json", "syslog"],
   ObservabilityPipelineDedupeProcessorMode: ["match", "ignore"],
   ObservabilityPipelineDedupeProcessorType: ["dedupe"],
@@ -2768,6 +2785,29 @@ const enumsMap: { [key: string]: any[] } = {
     "data_set_us",
   ],
   ObservabilityPipelineSentinelOneDestinationType: ["sentinel_one"],
+  ObservabilityPipelineSocketDestinationEncoding: ["json", "raw_message"],
+  ObservabilityPipelineSocketDestinationFramingBytesMethod: ["bytes"],
+  ObservabilityPipelineSocketDestinationFramingCharacterDelimitedMethod: [
+    "character_delimited",
+  ],
+  ObservabilityPipelineSocketDestinationFramingNewlineDelimitedMethod: [
+    "newline_delimited",
+  ],
+  ObservabilityPipelineSocketDestinationMode: ["tcp", "udp"],
+  ObservabilityPipelineSocketDestinationType: ["socket"],
+  ObservabilityPipelineSocketSourceFramingBytesMethod: ["bytes"],
+  ObservabilityPipelineSocketSourceFramingCharacterDelimitedMethod: [
+    "character_delimited",
+  ],
+  ObservabilityPipelineSocketSourceFramingChunkedGelfMethod: ["chunked_gelf"],
+  ObservabilityPipelineSocketSourceFramingNewlineDelimitedMethod: [
+    "newline_delimited",
+  ],
+  ObservabilityPipelineSocketSourceFramingOctetCountingMethod: [
+    "octet_counting",
+  ],
+  ObservabilityPipelineSocketSourceMode: ["tcp", "udp"],
+  ObservabilityPipelineSocketSourceType: ["socket"],
   ObservabilityPipelineSplunkHecDestinationEncoding: ["json", "raw_message"],
   ObservabilityPipelineSplunkHecDestinationType: ["splunk_hec"],
   ObservabilityPipelineSplunkHecSourceType: ["splunk_hec"],
@@ -4667,12 +4707,17 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineAmazonS3Source: ObservabilityPipelineAmazonS3Source,
   ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
   ObservabilityPipelineConfig: ObservabilityPipelineConfig,
+  ObservabilityPipelineCustomProcessor: ObservabilityPipelineCustomProcessor,
+  ObservabilityPipelineCustomProcessorRemap:
+    ObservabilityPipelineCustomProcessorRemap,
   ObservabilityPipelineData: ObservabilityPipelineData,
   ObservabilityPipelineDataAttributes: ObservabilityPipelineDataAttributes,
   ObservabilityPipelineDatadogAgentSource:
     ObservabilityPipelineDatadogAgentSource,
   ObservabilityPipelineDatadogLogsDestination:
     ObservabilityPipelineDatadogLogsDestination,
+  ObservabilityPipelineDatadogTagsProcessor:
+    ObservabilityPipelineDatadogTagsProcessor,
   ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
   ObservabilityPipelineElasticsearchDestination:
     ObservabilityPipelineElasticsearchDestination,
@@ -4784,6 +4829,25 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineSensitiveDataScannerProcessorScopeOptions,
   ObservabilityPipelineSentinelOneDestination:
     ObservabilityPipelineSentinelOneDestination,
+  ObservabilityPipelineSocketDestination:
+    ObservabilityPipelineSocketDestination,
+  ObservabilityPipelineSocketDestinationFramingBytes:
+    ObservabilityPipelineSocketDestinationFramingBytes,
+  ObservabilityPipelineSocketDestinationFramingCharacterDelimited:
+    ObservabilityPipelineSocketDestinationFramingCharacterDelimited,
+  ObservabilityPipelineSocketDestinationFramingNewlineDelimited:
+    ObservabilityPipelineSocketDestinationFramingNewlineDelimited,
+  ObservabilityPipelineSocketSource: ObservabilityPipelineSocketSource,
+  ObservabilityPipelineSocketSourceFramingBytes:
+    ObservabilityPipelineSocketSourceFramingBytes,
+  ObservabilityPipelineSocketSourceFramingCharacterDelimited:
+    ObservabilityPipelineSocketSourceFramingCharacterDelimited,
+  ObservabilityPipelineSocketSourceFramingChunkedGelf:
+    ObservabilityPipelineSocketSourceFramingChunkedGelf,
+  ObservabilityPipelineSocketSourceFramingNewlineDelimited:
+    ObservabilityPipelineSocketSourceFramingNewlineDelimited,
+  ObservabilityPipelineSocketSourceFramingOctetCounting:
+    ObservabilityPipelineSocketSourceFramingOctetCounting,
   ObservabilityPipelineSpec: ObservabilityPipelineSpec,
   ObservabilityPipelineSpecData: ObservabilityPipelineSpecData,
   ObservabilityPipelineSplunkHecDestination:
@@ -5817,6 +5881,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSentinelOneDestination",
     "ObservabilityPipelineOpenSearchDestination",
     "ObservabilityPipelineAmazonOpenSearchDestination",
+    "ObservabilityPipelineSocketDestination",
   ],
   ObservabilityPipelineConfigProcessorItem: [
     "ObservabilityPipelineFilterProcessor",
@@ -5835,6 +5900,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineEnrichmentTableProcessor",
     "ObservabilityPipelineReduceProcessor",
     "ObservabilityPipelineThrottleProcessor",
+    "ObservabilityPipelineCustomProcessor",
+    "ObservabilityPipelineDatadogTagsProcessor",
   ],
   ObservabilityPipelineConfigSourceItem: [
     "ObservabilityPipelineKafkaSource",
@@ -5852,6 +5919,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineGooglePubSubSource",
     "ObservabilityPipelineHttpClientSource",
     "ObservabilityPipelineLogstashSource",
+    "ObservabilityPipelineSocketSource",
   ],
   ObservabilityPipelineMetricValue: [
     "ObservabilityPipelineGeneratedMetricIncrementByOne",
@@ -5873,6 +5941,18 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSensitiveDataScannerProcessorScopeInclude",
     "ObservabilityPipelineSensitiveDataScannerProcessorScopeExclude",
     "ObservabilityPipelineSensitiveDataScannerProcessorScopeAll",
+  ],
+  ObservabilityPipelineSocketDestinationFraming: [
+    "ObservabilityPipelineSocketDestinationFramingNewlineDelimited",
+    "ObservabilityPipelineSocketDestinationFramingBytes",
+    "ObservabilityPipelineSocketDestinationFramingCharacterDelimited",
+  ],
+  ObservabilityPipelineSocketSourceFraming: [
+    "ObservabilityPipelineSocketSourceFramingNewlineDelimited",
+    "ObservabilityPipelineSocketSourceFramingBytes",
+    "ObservabilityPipelineSocketSourceFramingCharacterDelimited",
+    "ObservabilityPipelineSocketSourceFramingOctetCounting",
+    "ObservabilityPipelineSocketSourceFramingChunkedGelf",
   ],
   Query: ["ActionQuery", "DataTransform", "StateVariable"],
   RUMAggregateBucketValue: [
