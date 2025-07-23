@@ -2102,6 +2102,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "SyntheticsMobileTest",
     },
     "v1.SearchTests": {
+        "text": {
+            "type": "string",
+            "format": "",
+            },
         "includeFullConfig": {
             "type": "boolean",
             "format": "",

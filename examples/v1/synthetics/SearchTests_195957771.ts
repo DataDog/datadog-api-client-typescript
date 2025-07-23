@@ -8,6 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
 const params: v1.SyntheticsApiSearchTestsRequest = {
+  text: "tag:value",
   includeFullConfig: true,
   searchSuites: true,
   facetsOnly: true,
