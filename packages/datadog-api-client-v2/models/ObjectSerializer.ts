@@ -1618,6 +1618,7 @@ import { SecurityMonitoringRuleTestRequest } from "./SecurityMonitoringRuleTestR
 import { SecurityMonitoringRuleTestResponse } from "./SecurityMonitoringRuleTestResponse";
 import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
 import { SecurityMonitoringRuleUpdatePayload } from "./SecurityMonitoringRuleUpdatePayload";
+import { SecurityMonitoringSchedulingOptions } from "./SecurityMonitoringSchedulingOptions";
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 import { SecurityMonitoringSignalAssigneeUpdateAttributes } from "./SecurityMonitoringSignalAssigneeUpdateAttributes";
 import { SecurityMonitoringSignalAssigneeUpdateData } from "./SecurityMonitoringSignalAssigneeUpdateData";
@@ -5170,6 +5171,7 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringRuleThirdPartyOptions:
     SecurityMonitoringRuleThirdPartyOptions,
   SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
+  SecurityMonitoringSchedulingOptions: SecurityMonitoringSchedulingOptions,
   SecurityMonitoringSignal: SecurityMonitoringSignal,
   SecurityMonitoringSignalAssigneeUpdateAttributes:
     SecurityMonitoringSignalAssigneeUpdateAttributes,
