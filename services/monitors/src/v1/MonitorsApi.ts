@@ -76,7 +76,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     if (monitorIds !== undefined) {
       requestContext.setQueryParam(
         "monitor_ids",
-        serialize(monitorIds, TypingInfo, "Array<number>", ""),
+        serialize(monitorIds, TypingInfo, "Array<number>", "int64"),
         "csv",
       );
     }

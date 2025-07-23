@@ -669,7 +669,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "probe_dc",
         serialize(probeDc, TypingInfo, "Array<string>", ""),
-        "csv",
+        "multi",
       );
     }
 
@@ -837,7 +837,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "probe_dc",
         serialize(probeDc, TypingInfo, "Array<string>", ""),
-        "csv",
+        "multi",
       );
     }
 
