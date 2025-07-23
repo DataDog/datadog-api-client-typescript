@@ -2112,6 +2112,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "SyntheticsMobileTest",
   },
   "SyntheticsApi.V1.SearchTests": {
+    text: {
+      type: "string",
+      format: "",
+    },
     includeFullConfig: {
       type: "boolean",
       format: "",

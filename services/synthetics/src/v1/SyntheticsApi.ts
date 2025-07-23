@@ -1350,6 +1350,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async searchTests(
+    text?: string,
     includeFullConfig?: boolean,
     searchSuites?: boolean,
     facetsOnly?: boolean,
@@ -1382,6 +1383,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Query Params
+    if (text !== undefined) {
+      requestContext.setQueryParam(
+        "text",
+        serialize(text, TypingInfo, "string", ""),
+        "",
+      );
+    }
     if (includeFullConfig !== undefined) {
       requestContext.setQueryParam(
         "include_full_config",
@@ -4073,6 +4081,11 @@ export interface SyntheticsApiPatchTestRequest {
 
 export interface SyntheticsApiSearchTestsRequest {
   /**
+   * The search query.
+   * @type string
+   */
+  text?: string;
+  /**
    * If true, include the full configuration for each test in the response.
    * @type boolean
    */
@@ -4809,6 +4822,7 @@ export class SyntheticsApi {
     options?: Configuration,
   ): Promise<SyntheticsListTestsResponse> {
     const requestContextPromise = this.requestFactory.searchTests(
+      param.text,
       param.includeFullConfig,
       param.searchSuites,
       param.facetsOnly,
