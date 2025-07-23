@@ -167,6 +167,7 @@ import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
 import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
 import { LogsDailyLimitReset } from "./LogsDailyLimitReset";
 import { LogsDateRemapper } from "./LogsDateRemapper";
+import { LogsDecoderProcessor } from "./LogsDecoderProcessor";
 import { LogsExclusion } from "./LogsExclusion";
 import { LogsExclusionFilter } from "./LogsExclusionFilter";
 import { LogsFilter } from "./LogsFilter";
@@ -935,6 +936,9 @@ const enumsMap: { [key: string]: any[] } = {
   LogsAttributeRemapperType: ["attribute-remapper"],
   LogsCategoryProcessorType: ["category-processor"],
   LogsDateRemapperType: ["date-remapper"],
+  LogsDecoderProcessorBinaryToTextEncoding: ["base64", "base16"],
+  LogsDecoderProcessorInputRepresentation: ["utf_8", "integer"],
+  LogsDecoderProcessorType: ["decoder-processor"],
   LogsGeoIPParserType: ["geo-ip-parser"],
   LogsGrokParserType: ["grok-parser"],
   LogsLookupProcessorType: ["lookup-processor"],
@@ -1880,6 +1884,7 @@ const typeMap: { [index: string]: any } = {
   LogsCategoryProcessorCategory: LogsCategoryProcessorCategory,
   LogsDailyLimitReset: LogsDailyLimitReset,
   LogsDateRemapper: LogsDateRemapper,
+  LogsDecoderProcessor: LogsDecoderProcessor,
   LogsExclusion: LogsExclusion,
   LogsExclusionFilter: LogsExclusionFilter,
   LogsFilter: LogsFilter,
@@ -2434,6 +2439,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsTraceRemapper",
     "LogsSpanRemapper",
     "LogsArrayProcessor",
+    "LogsDecoderProcessor",
   ],
   MonitorFormulaAndFunctionQueryDefinition: [
     "MonitorFormulaAndFunctionEventQueryDefinition",
