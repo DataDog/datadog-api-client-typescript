@@ -882,7 +882,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         serialize(include, TypingInfo, "Array<ListTeamsInclude>", ""),
-        "csv",
+        "multi",
       );
     }
     if (filterKeyword !== undefined) {

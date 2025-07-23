@@ -1519,7 +1519,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "index_name",
         serialize(indexName, TypingInfo, "Array<string>", ""),
-        "csv",
+        "multi",
       );
     }
 
@@ -2478,7 +2478,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "names",
         serialize(names, TypingInfo, "Array<string>", ""),
-        "csv",
+        "multi",
       );
     }
     if (limit !== undefined) {
