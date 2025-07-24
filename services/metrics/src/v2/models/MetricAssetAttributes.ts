@@ -1,9 +1,13 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 /**
- * Assets related to the object, including title and url.
+ * Assets related to the object, including title, url, and tags.
  */
 export class MetricAssetAttributes {
+  /**
+   * List of tag keys used in the asset.
+   */
+  "tags"?: Array<string>;
   /**
    * Title of the asset.
    */
@@ -27,6 +31,10 @@ export class MetricAssetAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
+    },
     title: {
       baseName: "title",
       type: "string",
