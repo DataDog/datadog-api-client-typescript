@@ -15,6 +15,10 @@ export class MetricDashboardAttributes {
    */
   "popularity"?: number;
   /**
+   * List of tag keys used in the asset.
+   */
+  "tags"?: Array<string>;
+  /**
    * Title of the asset.
    */
   "title"?: string;
@@ -43,6 +47,10 @@ export class MetricDashboardAttributes {
       baseName: "popularity",
       type: "number",
       format: "double",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     title: {
       baseName: "title",
