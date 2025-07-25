@@ -3,9 +3,9 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 import { Dataset } from "./Dataset";
 
 /**
- * Create request for a dataset.
+ * Edit request for a dataset.
  */
-export class DatasetCreateRequest {
+export class DatasetUpdateRequest {
   /**
    * Dataset object.
    *
@@ -52,7 +52,7 @@ export class DatasetCreateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DatasetCreateRequest.attributeTypeMap;
+    return DatasetUpdateRequest.attributeTypeMap;
   }
 
   public constructor() {}

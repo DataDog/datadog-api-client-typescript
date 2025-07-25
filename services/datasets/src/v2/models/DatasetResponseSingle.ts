@@ -8,6 +8,18 @@ import { Dataset } from "./Dataset";
 export class DatasetResponseSingle {
   /**
    * Dataset object.
+   *
+   * ### Datasets Constraints
+   * - **Tag Limit per Dataset**:
+   *   - Each restricted dataset supports a maximum of 10 key:value pairs per product.
+   *
+   * - **Tag Key Rules per Telemetry Type**:
+   *   - Only one tag key or attribute may be used to define access within a single telemetry type.
+   *   - The same or different tag key may be used across different telemetry types.
+   *
+   * - **Tag Value Uniqueness**:
+   *   - Tag values must be unique within a single dataset.
+   *   - A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.
    */
   "data": Dataset;
   /**

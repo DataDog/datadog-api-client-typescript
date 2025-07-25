@@ -6,6 +6,7 @@ import { DatasetAttributes } from "./DatasetAttributes";
 import { DatasetCreateRequest } from "./DatasetCreateRequest";
 import { DatasetResponseMulti } from "./DatasetResponseMulti";
 import { DatasetResponseSingle } from "./DatasetResponseSingle";
+import { DatasetUpdateRequest } from "./DatasetUpdateRequest";
 import { FiltersPerProduct } from "./FiltersPerProduct";
 
 export const TypingInfo: ModelTypingInfo = {
@@ -18,6 +19,7 @@ export const TypingInfo: ModelTypingInfo = {
     DatasetCreateRequest: DatasetCreateRequest,
     DatasetResponseMulti: DatasetResponseMulti,
     DatasetResponseSingle: DatasetResponseSingle,
+    DatasetUpdateRequest: DatasetUpdateRequest,
     FiltersPerProduct: FiltersPerProduct,
   },
 };
