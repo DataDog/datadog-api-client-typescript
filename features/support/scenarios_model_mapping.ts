@@ -4587,6 +4587,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DatasetResponseSingle",
     },
+    "v2.UpdateDataset": {
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DatasetUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DatasetResponseSingle",
+    },
     "v2.CreateDataDeletionRequest": {
         "product": {
             "type": "string",

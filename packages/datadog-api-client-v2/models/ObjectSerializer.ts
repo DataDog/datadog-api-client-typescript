@@ -535,6 +535,7 @@ import { DatasetAttributes } from "./DatasetAttributes";
 import { DatasetCreateRequest } from "./DatasetCreateRequest";
 import { DatasetResponseMulti } from "./DatasetResponseMulti";
 import { DatasetResponseSingle } from "./DatasetResponseSingle";
+import { DatasetUpdateRequest } from "./DatasetUpdateRequest";
 import { DeleteAppResponse } from "./DeleteAppResponse";
 import { DeleteAppResponseData } from "./DeleteAppResponseData";
 import { DeleteAppsRequest } from "./DeleteAppsRequest";
@@ -3929,6 +3930,7 @@ const typeMap: { [index: string]: any } = {
   DatasetCreateRequest: DatasetCreateRequest,
   DatasetResponseMulti: DatasetResponseMulti,
   DatasetResponseSingle: DatasetResponseSingle,
+  DatasetUpdateRequest: DatasetUpdateRequest,
   DeleteAppResponse: DeleteAppResponse,
   DeleteAppResponseData: DeleteAppResponseData,
   DeleteAppsRequest: DeleteAppsRequest,
