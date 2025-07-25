@@ -228,6 +228,7 @@ export {
   DatasetsApiCreateDatasetRequest,
   DatasetsApiDeleteDatasetRequest,
   DatasetsApiGetDatasetRequest,
+  DatasetsApiUpdateDatasetRequest,
   DatasetsApi,
 } from "./apis/DatasetsApi";
 
@@ -1443,6 +1444,7 @@ export { DatasetAttributes } from "./models/DatasetAttributes";
 export { DatasetCreateRequest } from "./models/DatasetCreateRequest";
 export { DatasetResponseMulti } from "./models/DatasetResponseMulti";
 export { DatasetResponseSingle } from "./models/DatasetResponseSingle";
+export { DatasetUpdateRequest } from "./models/DatasetUpdateRequest";
 export { DataTransform } from "./models/DataTransform";
 export { DataTransformProperties } from "./models/DataTransformProperties";
 export { DataTransformType } from "./models/DataTransformType";

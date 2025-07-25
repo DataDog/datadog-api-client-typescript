@@ -3,25 +3,30 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { Dataset } from "./Dataset";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Product-specific filters for the dataset.
+ * Edit request for a dataset.
  */
-export class FiltersPerProduct {
+export class DatasetUpdateRequest {
   /**
-   * Defines the list of tag-based filters used to restrict access to telemetry data for a specific product.
-   * These filters act as access control rules. Each filter must follow the tag query syntax used by
-   * Datadog (such as `@tag.key:value`), and only one tag or attribute may be used to define the access strategy
-   * per telemetry type.
+   * Dataset object.
+   *
+   * ### Datasets Constraints
+   * - **Tag Limit per Dataset**:
+   *   - Each restricted dataset supports a maximum of 10 key:value pairs per product.
+   *
+   * - **Tag Key Rules per Telemetry Type**:
+   *   - Only one tag key or attribute may be used to define access within a single telemetry type.
+   *   - The same or different tag key may be used across different telemetry types.
+   *
+   * - **Tag Value Uniqueness**:
+   *   - Tag values must be unique within a single dataset.
+   *   - A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.
    */
-  "filters": Array<string>;
-  /**
-   * Name of the product the dataset is for. Possible values are 'apm', 'rum',
-   * 'metrics', 'logs', 'error_tracking', and 'cloud_cost'.
-   */
-  "product": string;
+  "data": Dataset;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,14 +44,9 @@ export class FiltersPerProduct {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filters: {
-      baseName: "filters",
-      type: "Array<string>",
-      required: true,
-    },
-    product: {
-      baseName: "product",
-      type: "string",
+    data: {
+      baseName: "data",
+      type: "Dataset",
       required: true,
     },
     additionalProperties: {
@@ -59,7 +59,7 @@ export class FiltersPerProduct {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FiltersPerProduct.attributeTypeMap;
+    return DatasetUpdateRequest.attributeTypeMap;
   }
 
   public constructor() {}
