@@ -164,6 +164,7 @@ export {
 
 export {
   CloudNetworkMonitoringApiGetAggregatedConnectionsRequest,
+  CloudNetworkMonitoringApiGetAggregatedDnsRequest,
   CloudNetworkMonitoringApi,
 } from "./apis/CloudNetworkMonitoringApi";
 
@@ -1467,6 +1468,7 @@ export { DetailedFindingType } from "./models/DetailedFindingType";
 export { DeviceAttributes } from "./models/DeviceAttributes";
 export { DeviceAttributesInterfaceStatuses } from "./models/DeviceAttributesInterfaceStatuses";
 export { DevicesListData } from "./models/DevicesListData";
+export { DnsMetricKey } from "./models/DnsMetricKey";
 export { DomainAllowlist } from "./models/DomainAllowlist";
 export { DomainAllowlistAttributes } from "./models/DomainAllowlistAttributes";
 export { DomainAllowlistRequest } from "./models/DomainAllowlistRequest";
@@ -3113,6 +3115,12 @@ export { SingleAggregatedConnectionResponseArray } from "./models/SingleAggregat
 export { SingleAggregatedConnectionResponseData } from "./models/SingleAggregatedConnectionResponseData";
 export { SingleAggregatedConnectionResponseDataAttributes } from "./models/SingleAggregatedConnectionResponseDataAttributes";
 export { SingleAggregatedConnectionResponseDataType } from "./models/SingleAggregatedConnectionResponseDataType";
+export { SingleAggregatedDnsResponseArray } from "./models/SingleAggregatedDnsResponseArray";
+export { SingleAggregatedDnsResponseData } from "./models/SingleAggregatedDnsResponseData";
+export { SingleAggregatedDnsResponseDataAttributes } from "./models/SingleAggregatedDnsResponseDataAttributes";
+export { SingleAggregatedDnsResponseDataAttributesGroupByItems } from "./models/SingleAggregatedDnsResponseDataAttributesGroupByItems";
+export { SingleAggregatedDnsResponseDataAttributesMetricsItems } from "./models/SingleAggregatedDnsResponseDataAttributesMetricsItems";
+export { SingleAggregatedDnsResponseDataType } from "./models/SingleAggregatedDnsResponseDataType";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { SlackTriggerWrapper } from "./models/SlackTriggerWrapper";
