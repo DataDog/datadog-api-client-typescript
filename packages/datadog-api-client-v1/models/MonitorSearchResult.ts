@@ -151,7 +151,7 @@ export class MonitorSearchResult {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

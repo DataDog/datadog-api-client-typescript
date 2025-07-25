@@ -84,7 +84,7 @@ export class RUMGroupBy {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -54,7 +54,7 @@ export class ContainerImageGroupAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

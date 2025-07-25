@@ -99,7 +99,6 @@ export class SLOHistoryMonitor {
     history: {
       baseName: "history",
       type: "Array<[number, number]>",
-      format: "double",
     },
     monitorModified: {
       baseName: "monitor_modified",
@@ -140,7 +139,7 @@ export class SLOHistoryMonitor {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

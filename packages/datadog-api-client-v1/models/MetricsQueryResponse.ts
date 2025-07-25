@@ -104,7 +104,7 @@ export class MetricsQueryResponse {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

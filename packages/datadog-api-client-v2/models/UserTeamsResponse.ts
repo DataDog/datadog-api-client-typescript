@@ -65,7 +65,7 @@ export class UserTeamsResponse {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

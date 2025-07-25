@@ -138,7 +138,6 @@ export class SLOResponseData {
     configuredAlertIds: {
       baseName: "configured_alert_ids",
       type: "Array<number>",
-      format: "int64",
     },
     createdAt: {
       baseName: "created_at",
@@ -169,7 +168,6 @@ export class SLOResponseData {
     monitorIds: {
       baseName: "monitor_ids",
       type: "Array<number>",
-      format: "int64",
     },
     monitorTags: {
       baseName: "monitor_tags",
@@ -215,7 +213,7 @@ export class SLOResponseData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

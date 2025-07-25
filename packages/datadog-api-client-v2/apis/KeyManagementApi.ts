@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { APIKeyCreateRequest } from "../models/APIKeyCreateRequest";
 import { APIKeyResponse } from "../models/APIKeyResponse";
@@ -931,12 +930,7 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -987,12 +981,7 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";
@@ -1045,12 +1034,7 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
+      return;
     }
 
     const body = (await response.body.text()) || "";

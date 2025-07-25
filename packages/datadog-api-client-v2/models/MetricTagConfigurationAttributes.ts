@@ -92,7 +92,7 @@ export class MetricTagConfigurationAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

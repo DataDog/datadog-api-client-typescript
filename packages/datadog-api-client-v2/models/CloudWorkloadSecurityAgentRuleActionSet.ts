@@ -87,7 +87,7 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

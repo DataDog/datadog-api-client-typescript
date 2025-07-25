@@ -49,7 +49,7 @@ export class RumRetentionFilterCreateData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -117,7 +117,7 @@ export class UsageCloudSecurityPostureManagementHour {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

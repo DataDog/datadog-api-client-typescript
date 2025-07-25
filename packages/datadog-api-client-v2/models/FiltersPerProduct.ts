@@ -51,7 +51,7 @@ export class FiltersPerProduct {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

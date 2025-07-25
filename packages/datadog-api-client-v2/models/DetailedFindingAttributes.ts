@@ -82,7 +82,6 @@ export class DetailedFindingAttributes {
     evaluationChangedAt: {
       baseName: "evaluation_changed_at",
       type: "number",
-      format: "int64",
     },
     message: {
       baseName: "message",
@@ -103,7 +102,6 @@ export class DetailedFindingAttributes {
     resourceDiscoveryDate: {
       baseName: "resource_discovery_date",
       type: "number",
-      format: "int64",
     },
     resourceType: {
       baseName: "resource_type",
@@ -123,7 +121,7 @@ export class DetailedFindingAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

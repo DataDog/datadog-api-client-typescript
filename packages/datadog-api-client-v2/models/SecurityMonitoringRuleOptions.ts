@@ -97,7 +97,6 @@ export class SecurityMonitoringRuleOptions {
     evaluationWindow: {
       baseName: "evaluationWindow",
       type: "SecurityMonitoringRuleEvaluationWindow",
-      format: "int32",
     },
     hardcodedEvaluatorType: {
       baseName: "hardcodedEvaluatorType",
@@ -110,12 +109,10 @@ export class SecurityMonitoringRuleOptions {
     keepAlive: {
       baseName: "keepAlive",
       type: "SecurityMonitoringRuleKeepAlive",
-      format: "int32",
     },
     maxSignalDuration: {
       baseName: "maxSignalDuration",
       type: "SecurityMonitoringRuleMaxSignalDuration",
-      format: "int32",
     },
     newValueOptions: {
       baseName: "newValueOptions",
@@ -127,7 +124,7 @@ export class SecurityMonitoringRuleOptions {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

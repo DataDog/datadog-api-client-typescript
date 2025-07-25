@@ -47,7 +47,7 @@ export class ServiceDefinitionV2Dot1Integrations {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

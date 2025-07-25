@@ -79,16 +79,14 @@ export class PatchNotificationRuleParametersDataAttributes {
     timeAggregation: {
       baseName: "time_aggregation",
       type: "number",
-      format: "int64",
     },
     version: {
       baseName: "version",
       type: "number",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -55,7 +55,7 @@ export class LogsArchiveDefinition {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

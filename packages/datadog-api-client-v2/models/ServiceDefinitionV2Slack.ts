@@ -56,7 +56,7 @@ export class ServiceDefinitionV2Slack {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

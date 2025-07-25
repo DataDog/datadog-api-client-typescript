@@ -53,7 +53,7 @@ export class SyntheticsTestRequestCertificateItem {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

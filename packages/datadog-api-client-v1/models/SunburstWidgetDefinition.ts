@@ -109,7 +109,7 @@ export class SunburstWidgetDefinition {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

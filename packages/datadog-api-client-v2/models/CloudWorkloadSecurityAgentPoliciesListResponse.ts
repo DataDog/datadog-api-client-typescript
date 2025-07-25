@@ -38,7 +38,7 @@ export class CloudWorkloadSecurityAgentPoliciesListResponse {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 
