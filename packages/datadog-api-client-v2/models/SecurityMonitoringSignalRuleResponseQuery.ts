@@ -103,7 +103,7 @@ export class SecurityMonitoringSignalRuleResponseQuery {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

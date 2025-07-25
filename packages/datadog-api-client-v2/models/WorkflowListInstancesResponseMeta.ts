@@ -38,7 +38,7 @@ export class WorkflowListInstancesResponseMeta {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -39,7 +39,7 @@ export class IncidentServiceUpdateRequest {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

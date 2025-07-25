@@ -134,7 +134,6 @@ import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
 import { IPRanges } from "./IPRanges";
-import { IdpFormData } from "./IdpFormData";
 import { IdpResponse } from "./IdpResponse";
 import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
@@ -1851,7 +1850,6 @@ const typeMap: { [index: string]: any } = {
   IPPrefixesSyntheticsPrivateLocations: IPPrefixesSyntheticsPrivateLocations,
   IPPrefixesWebhooks: IPPrefixesWebhooks,
   IPRanges: IPRanges,
-  IdpFormData: IdpFormData,
   IdpResponse: IdpResponse,
   ImageWidgetDefinition: ImageWidgetDefinition,
   IntakePayloadAccepted: IntakePayloadAccepted,
@@ -2694,12 +2692,13 @@ export class ObjectSerializer {
       if (data.additionalProperties) {
         const additionalPropertiesMap = attributesMap["additionalProperties"];
         if (additionalPropertiesMap) {
-          for (const key in data.additionalProperties) {
-            instance[key] = ObjectSerializer.serialize(
-              data.additionalProperties[key],
-              additionalPropertiesMap.type,
-              additionalPropertiesMap.format
-            );
+          const additionalProperties = ObjectSerializer.serialize(
+            data.additionalProperties,
+            additionalPropertiesMap.type,
+            additionalPropertiesMap.format
+          );
+          for (const key in additionalProperties) {
+            instance[key] = additionalProperties[key];
           }
         } else {
           throw new Error(`additionalProperties found in ${type}`);
@@ -2827,15 +2826,17 @@ export class ObjectSerializer {
             instance.additionalProperties = {};
           }
 
-          const attributeObj = attributesMap["additionalProperties"];
-          for (const key in extraAttributes) {
-            instance.additionalProperties[extraAttributes[key]] =
-              ObjectSerializer.deserialize(
-                data[extraAttributes[key]],
-                attributeObj.type,
-                attributeObj.format
-              );
+          const additionalProperties: { [key: string]: any } = {};
+          for (const key of extraAttributes) {
+            additionalProperties[key] = data[key];
           }
+
+          const attributeObj = attributesMap["additionalProperties"];
+          instance.additionalProperties = ObjectSerializer.deserialize(
+            additionalProperties,
+            attributeObj.type,
+            attributeObj.format
+          );
         } else {
           throw new Error(
             `found extra attributes '${extraAttributes}' in ${type}`

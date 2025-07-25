@@ -26,7 +26,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "apmHostTop99p"?: UsageBillableSummaryBody;
+  "apmHostTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -34,7 +34,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "apmProfilerHostTop99p"?: UsageBillableSummaryBody;
+  "apmProfilerHostTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -50,7 +50,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "applicationSecurityHostTop99p"?: UsageBillableSummaryBody;
+  "applicationSecurityHostTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -94,7 +94,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "cspmHostTop99p"?: UsageBillableSummaryBody;
+  "cspmHostTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -110,7 +110,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "cwsHostTop99p"?: UsageBillableSummaryBody;
+  "cwsHostTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -118,7 +118,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "dbmHostTop99p"?: UsageBillableSummaryBody;
+  "dbmHostTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -166,7 +166,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "infraAndApmHostTop99p"?: UsageBillableSummaryBody;
+  "infraAndApmHostTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -178,7 +178,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "infraHostTop99p"?: UsageBillableSummaryBody;
+  "infraHostTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -198,7 +198,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "iotTop99p"?: UsageBillableSummaryBody;
+  "iotTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -214,43 +214,43 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed15daySum"?: UsageBillableSummaryBody;
+  "logsIndexed15DaySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed180daySum"?: UsageBillableSummaryBody;
+  "logsIndexed180DaySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed1daySum"?: UsageBillableSummaryBody;
+  "logsIndexed1DaySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed30daySum"?: UsageBillableSummaryBody;
+  "logsIndexed30DaySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed360daySum"?: UsageBillableSummaryBody;
+  "logsIndexed360DaySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed3daySum"?: UsageBillableSummaryBody;
+  "logsIndexed3DaySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed45daySum"?: UsageBillableSummaryBody;
+  "logsIndexed45DaySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed60daySum"?: UsageBillableSummaryBody;
+  "logsIndexed60DaySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed7daySum"?: UsageBillableSummaryBody;
+  "logsIndexed7DaySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed90daySum"?: UsageBillableSummaryBody;
+  "logsIndexed90DaySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -270,7 +270,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "networkDeviceTop99p"?: UsageBillableSummaryBody;
+  "networkDeviceTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -282,7 +282,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "npmHostTop99p"?: UsageBillableSummaryBody;
+  "npmHostTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -302,7 +302,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "profHostTop99p"?: UsageBillableSummaryBody;
+  "profHostTop99P"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -396,7 +396,7 @@ export class UsageBillableSummaryKeys {
       baseName: "apm_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    apmHostTop99p: {
+    apmHostTop99P: {
       baseName: "apm_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -404,7 +404,7 @@ export class UsageBillableSummaryKeys {
       baseName: "apm_profiler_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    apmProfilerHostTop99p: {
+    apmProfilerHostTop99P: {
       baseName: "apm_profiler_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -420,7 +420,7 @@ export class UsageBillableSummaryKeys {
       baseName: "application_security_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    applicationSecurityHostTop99p: {
+    applicationSecurityHostTop99P: {
       baseName: "application_security_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -464,7 +464,7 @@ export class UsageBillableSummaryKeys {
       baseName: "cspm_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    cspmHostTop99p: {
+    cspmHostTop99P: {
       baseName: "cspm_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -480,7 +480,7 @@ export class UsageBillableSummaryKeys {
       baseName: "cws_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    cwsHostTop99p: {
+    cwsHostTop99P: {
       baseName: "cws_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -488,7 +488,7 @@ export class UsageBillableSummaryKeys {
       baseName: "dbm_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    dbmHostTop99p: {
+    dbmHostTop99P: {
       baseName: "dbm_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -536,7 +536,7 @@ export class UsageBillableSummaryKeys {
       baseName: "infra_and_apm_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    infraAndApmHostTop99p: {
+    infraAndApmHostTop99P: {
       baseName: "infra_and_apm_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -548,7 +548,7 @@ export class UsageBillableSummaryKeys {
       baseName: "infra_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    infraHostTop99p: {
+    infraHostTop99P: {
       baseName: "infra_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -568,7 +568,7 @@ export class UsageBillableSummaryKeys {
       baseName: "iot_sum",
       type: "UsageBillableSummaryBody",
     },
-    iotTop99p: {
+    iotTop99P: {
       baseName: "iot_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -584,43 +584,43 @@ export class UsageBillableSummaryKeys {
       baseName: "logs_forwarding_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed15daySum: {
+    logsIndexed15DaySum: {
       baseName: "logs_indexed_15day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed180daySum: {
+    logsIndexed180DaySum: {
       baseName: "logs_indexed_180day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed1daySum: {
+    logsIndexed1DaySum: {
       baseName: "logs_indexed_1day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed30daySum: {
+    logsIndexed30DaySum: {
       baseName: "logs_indexed_30day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed360daySum: {
+    logsIndexed360DaySum: {
       baseName: "logs_indexed_360day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed3daySum: {
+    logsIndexed3DaySum: {
       baseName: "logs_indexed_3day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed45daySum: {
+    logsIndexed45DaySum: {
       baseName: "logs_indexed_45day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed60daySum: {
+    logsIndexed60DaySum: {
       baseName: "logs_indexed_60day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed7daySum: {
+    logsIndexed7DaySum: {
       baseName: "logs_indexed_7day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed90daySum: {
+    logsIndexed90DaySum: {
       baseName: "logs_indexed_90day_sum",
       type: "UsageBillableSummaryBody",
     },
@@ -640,7 +640,7 @@ export class UsageBillableSummaryKeys {
       baseName: "network_device_sum",
       type: "UsageBillableSummaryBody",
     },
-    networkDeviceTop99p: {
+    networkDeviceTop99P: {
       baseName: "network_device_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -652,7 +652,7 @@ export class UsageBillableSummaryKeys {
       baseName: "npm_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    npmHostTop99p: {
+    npmHostTop99P: {
       baseName: "npm_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -672,7 +672,7 @@ export class UsageBillableSummaryKeys {
       baseName: "prof_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    profHostTop99p: {
+    profHostTop99P: {
       baseName: "prof_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -742,7 +742,7 @@ export class UsageBillableSummaryKeys {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

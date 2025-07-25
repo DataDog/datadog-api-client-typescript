@@ -124,7 +124,7 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

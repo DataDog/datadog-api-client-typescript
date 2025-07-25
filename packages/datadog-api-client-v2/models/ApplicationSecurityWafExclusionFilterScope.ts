@@ -45,7 +45,7 @@ export class ApplicationSecurityWafExclusionFilterScope {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

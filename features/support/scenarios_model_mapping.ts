@@ -5,34 +5,29 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.ListAPIKeys": {
         "operationResponseType": "ApiKeyListResponse",
     },
-    "v1.CreateAPIKey": {
-        "body": {
+    "v1.CreateAPIKey": {"body": {
             "type": "ApiKey",
             "format": "",
             },
         "operationResponseType": "ApiKeyResponse",
     },
-    "v1.DeleteAPIKey": {
-        "key": {
+    "v1.GetAPIKey": {"key": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ApiKeyResponse",
     },
-    "v1.GetAPIKey": {
-        "key": {
+    "v1.UpdateAPIKey": {"key": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "ApiKeyResponse",
-    },
-    "v1.UpdateAPIKey": {
-        "key": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "ApiKey",
+            "format": "",
+            },
+        "operationResponseType": "ApiKeyResponse",
+    },
+    "v1.DeleteAPIKey": {"key": {
+            "type": "string",
             "format": "",
             },
         "operationResponseType": "ApiKeyResponse",
@@ -40,1019 +35,830 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.ListApplicationKeys": {
         "operationResponseType": "ApplicationKeyListResponse",
     },
-    "v1.CreateApplicationKey": {
-        "body": {
+    "v1.CreateApplicationKey": {"body": {
             "type": "ApplicationKey",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
-    "v1.DeleteApplicationKey": {
-        "key": {
+    "v1.GetApplicationKey": {"key": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
-    "v1.GetApplicationKey": {
-        "key": {
+    "v1.UpdateApplicationKey": {"key": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "ApplicationKeyResponse",
-    },
-    "v1.UpdateApplicationKey": {
-        "key": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "ApplicationKey",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
-    "v1.SubmitServiceCheck": {
-        "body": {
+    "v1.DeleteApplicationKey": {"key": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
+    },
+    "v1.SubmitServiceCheck": {"body": {
             "type": "Array<ServiceCheck>",
             "format": "",
             },
         "operationResponseType": "IntakePayloadAccepted",
     },
-    "v1.GetDailyCustomReports": {
-        "pageSize": {
+    "v1.GetDailyCustomReports": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sortDir": {
+            },"sortDir": {
             "type": "UsageSortDirection",
             "format": "",
-            },
-        "sort": {
+            },"sort": {
             "type": "UsageSort",
             "format": "",
             },
         "operationResponseType": "UsageCustomReportsResponse",
     },
-    "v1.GetSpecifiedDailyCustomReports": {
-        "reportId": {
+    "v1.GetSpecifiedDailyCustomReports": {"reportId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UsageSpecifiedCustomReportsResponse",
     },
-    "v1.GetMonthlyCustomReports": {
-        "pageSize": {
+    "v1.GetMonthlyCustomReports": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sortDir": {
+            },"sortDir": {
             "type": "UsageSortDirection",
             "format": "",
-            },
-        "sort": {
+            },"sort": {
             "type": "UsageSort",
             "format": "",
             },
         "operationResponseType": "UsageCustomReportsResponse",
     },
-    "v1.GetSpecifiedMonthlyCustomReports": {
-        "reportId": {
+    "v1.GetSpecifiedMonthlyCustomReports": {"reportId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UsageSpecifiedCustomReportsResponse",
     },
-    "v1.GetUsageAnalyzedLogs": {
-        "startHr": {
+    "v1.GetUsageAnalyzedLogs": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageAnalyzedLogsResponse",
     },
-    "v1.GetUsageAuditLogs": {
-        "startHr": {
+    "v1.GetUsageAuditLogs": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageAuditLogsResponse",
     },
-    "v1.GetUsageLambda": {
-        "startHr": {
+    "v1.GetUsageLambda": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageLambdaResponse",
     },
-    "v1.GetUsageBillableSummary": {
-        "month": {
+    "v1.GetUsageBillableSummary": {"month": {
             "type": "Date",
             "format": "date-time",
-            },
-        "includeConnectedAccounts": {
+            },"includeConnectedAccounts": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "UsageBillableSummaryResponse",
     },
-    "v1.GetUsageCIApp": {
-        "startHr": {
+    "v1.GetUsageCIApp": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageCIVisibilityResponse",
     },
-    "v1.GetUsageCloudSecurityPostureManagement": {
-        "startHr": {
+    "v1.GetUsageCloudSecurityPostureManagement": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageCloudSecurityPostureManagementResponse",
     },
-    "v1.GetUsageCWS": {
-        "startHr": {
+    "v1.GetUsageCWS": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageCWSResponse",
     },
-    "v1.GetUsageDBM": {
-        "startHr": {
+    "v1.GetUsageDBM": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageDBMResponse",
     },
-    "v1.GetUsageFargate": {
-        "startHr": {
+    "v1.GetUsageFargate": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageFargateResponse",
     },
-    "v1.GetUsageHosts": {
-        "startHr": {
+    "v1.GetUsageHosts": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageHostsResponse",
     },
-    "v1.GetHourlyUsageAttribution": {
-        "startHr": {
+    "v1.GetHourlyUsageAttribution": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "usageType": {
+            },"usageType": {
             "type": "HourlyUsageAttributionUsageType",
             "format": "",
-            },
-        "nextRecordId": {
+            },"nextRecordId": {
             "type": "string",
             "format": "",
-            },
-        "tagBreakdownKeys": {
+            },"tagBreakdownKeys": {
             "type": "string",
             "format": "",
-            },
-        "includeDescendants": {
+            },"includeDescendants": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "HourlyUsageAttributionResponse",
     },
-    "v1.GetIncidentManagement": {
-        "startHr": {
+    "v1.GetIncidentManagement": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageIncidentManagementResponse",
     },
-    "v1.GetUsageIndexedSpans": {
-        "startHr": {
+    "v1.GetUsageIndexedSpans": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageIndexedSpansResponse",
     },
-    "v1.GetIngestedSpans": {
-        "startHr": {
+    "v1.GetIngestedSpans": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageIngestedSpansResponse",
     },
-    "v1.GetUsageInternetOfThings": {
-        "startHr": {
+    "v1.GetUsageInternetOfThings": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageIoTResponse",
     },
-    "v1.GetUsageLogs": {
-        "startHr": {
+    "v1.GetUsageLogs": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageLogsResponse",
     },
-    "v1.GetUsageLogsByRetention": {
-        "startHr": {
+    "v1.GetUsageLogsByRetention": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageLogsByRetentionResponse",
     },
-    "v1.GetUsageLogsByIndex": {
-        "startHr": {
+    "v1.GetUsageLogsByIndex": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "indexName": {
+            },"indexName": {
             "type": "Array<string>",
             "format": "",
             },
         "operationResponseType": "UsageLogsByIndexResponse",
     },
-    "v1.GetMonthlyUsageAttribution": {
-        "startMonth": {
+    "v1.GetMonthlyUsageAttribution": {"startMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endMonth": {
+            },"endMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "fields": {
+            },"fields": {
             "type": "MonthlyUsageAttributionSupportedMetrics",
             "format": "",
-            },
-        "sortDirection": {
+            },"sortDirection": {
             "type": "UsageSortDirection",
             "format": "",
-            },
-        "sortName": {
+            },"sortName": {
             "type": "MonthlyUsageAttributionSupportedMetrics",
             "format": "",
-            },
-        "tagBreakdownKeys": {
+            },"tagBreakdownKeys": {
             "type": "string",
             "format": "",
-            },
-        "nextRecordId": {
+            },"nextRecordId": {
             "type": "string",
             "format": "",
-            },
-        "includeDescendants": {
+            },"includeDescendants": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "MonthlyUsageAttributionResponse",
     },
-    "v1.GetUsageNetworkFlows": {
-        "startHr": {
+    "v1.GetUsageNetworkFlows": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageNetworkFlowsResponse",
     },
-    "v1.GetUsageNetworkHosts": {
-        "startHr": {
+    "v1.GetUsageNetworkHosts": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageNetworkHostsResponse",
     },
-    "v1.GetUsageOnlineArchive": {
-        "startHr": {
+    "v1.GetUsageOnlineArchive": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageOnlineArchiveResponse",
     },
-    "v1.GetUsageProfiling": {
-        "startHr": {
+    "v1.GetUsageProfiling": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageProfilingResponse",
     },
-    "v1.GetUsageRumUnits": {
-        "startHr": {
+    "v1.GetUsageRumUnits": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageRumUnitsResponse",
     },
-    "v1.GetUsageRumSessions": {
-        "startHr": {
+    "v1.GetUsageRumSessions": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "type": {
+            },"type": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UsageRumSessionsResponse",
     },
-    "v1.GetUsageSDS": {
-        "startHr": {
+    "v1.GetUsageSDS": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageSDSResponse",
     },
-    "v1.GetUsageSNMP": {
-        "startHr": {
+    "v1.GetUsageSNMP": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageSNMPResponse",
     },
-    "v1.GetUsageSummary": {
-        "startMonth": {
+    "v1.GetUsageSummary": {"startMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endMonth": {
+            },"endMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "includeOrgDetails": {
+            },"includeOrgDetails": {
             "type": "boolean",
             "format": "",
-            },
-        "includeConnectedAccounts": {
+            },"includeConnectedAccounts": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "UsageSummaryResponse",
     },
-    "v1.GetUsageSynthetics": {
-        "startHr": {
+    "v1.GetUsageSynthetics": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageSyntheticsResponse",
     },
-    "v1.GetUsageSyntheticsAPI": {
-        "startHr": {
+    "v1.GetUsageSyntheticsAPI": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageSyntheticsAPIResponse",
     },
-    "v1.GetUsageSyntheticsBrowser": {
-        "startHr": {
+    "v1.GetUsageSyntheticsBrowser": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageSyntheticsBrowserResponse",
     },
-    "v1.GetUsageTimeseries": {
-        "startHr": {
+    "v1.GetUsageTimeseries": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageTimeseriesResponse",
     },
-    "v1.GetUsageTopAvgMetrics": {
-        "month": {
+    "v1.GetUsageTopAvgMetrics": {"month": {
             "type": "Date",
             "format": "date-time",
-            },
-        "day": {
+            },"day": {
             "type": "Date",
             "format": "date-time",
-            },
-        "names": {
+            },"names": {
             "type": "Array<string>",
             "format": "",
-            },
-        "limit": {
+            },"limit": {
             "type": "number",
             "format": "int32",
-            },
-        "nextRecordId": {
+            },"nextRecordId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UsageTopAvgMetricsResponse",
     },
-    "v1.DeleteDashboards": {
-        "body": {
-            "type": "DashboardBulkDeleteRequest",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.ListDashboards": {
-        "filterShared": {
+    "v1.ListDashboards": {"filterShared": {
             "type": "boolean",
             "format": "",
-            },
-        "filterDeleted": {
+            },"filterDeleted": {
             "type": "boolean",
             "format": "",
-            },
-        "count": {
+            },"count": {
             "type": "number",
             "format": "int64",
-            },
-        "start": {
+            },"start": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "DashboardSummary",
     },
-    "v1.RestoreDashboards": {
-        "body": {
-            "type": "DashboardRestoreRequest",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.CreateDashboard": {
-        "body": {
+    "v1.CreateDashboard": {"body": {
             "type": "Dashboard",
             "format": "",
             },
         "operationResponseType": "Dashboard",
     },
-    "v1.CreatePublicDashboard": {
-        "body": {
+    "v1.DeleteDashboards": {"body": {
+            "type": "DashboardBulkDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v1.RestoreDashboards": {"body": {
+            "type": "DashboardRestoreRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v1.CreatePublicDashboard": {"body": {
             "type": "SharedDashboard",
             "format": "",
             },
         "operationResponseType": "SharedDashboard",
     },
-    "v1.DeletePublicDashboard": {
-        "token": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "DeleteSharedDashboardResponse",
-    },
-    "v1.GetPublicDashboard": {
-        "token": {
+    "v1.GetPublicDashboard": {"token": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SharedDashboard",
     },
-    "v1.UpdatePublicDashboard": {
-        "token": {
+    "v1.UpdatePublicDashboard": {"token": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SharedDashboardUpdateRequest",
             "format": "",
             },
         "operationResponseType": "SharedDashboard",
     },
-    "v1.DeletePublicDashboardInvitation": {
-        "token": {
+    "v1.DeletePublicDashboard": {"token": {
             "type": "string",
             "format": "",
             },
-        "body": {
-            "type": "SharedDashboardInvites",
-            "format": "",
-            },
-        "operationResponseType": "void",
+        "operationResponseType": "DeleteSharedDashboardResponse",
     },
-    "v1.GetPublicDashboardInvitations": {
-        "token": {
+    "v1.GetPublicDashboardInvitations": {"token": {
             "type": "string",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "SharedDashboardInvites",
     },
-    "v1.SendPublicDashboardInvitation": {
-        "token": {
+    "v1.SendPublicDashboardInvitation": {"token": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SharedDashboardInvites",
             "format": "",
             },
         "operationResponseType": "SharedDashboardInvites",
     },
-    "v1.DeleteDashboard": {
-        "dashboardId": {
+    "v1.DeletePublicDashboardInvitation": {"token": {
             "type": "string",
             "format": "",
+            },"body": {
+            "type": "SharedDashboardInvites",
+            "format": "",
             },
-        "operationResponseType": "DashboardDeleteResponse",
+        "operationResponseType": "{}",
     },
-    "v1.GetDashboard": {
-        "dashboardId": {
+    "v1.GetDashboard": {"dashboardId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "Dashboard",
     },
-    "v1.UpdateDashboard": {
-        "dashboardId": {
+    "v1.UpdateDashboard": {"dashboardId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "Dashboard",
             "format": "",
             },
         "operationResponseType": "Dashboard",
     },
+    "v1.DeleteDashboard": {"dashboardId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DashboardDeleteResponse",
+    },
     "v1.ListDashboardLists": {
         "operationResponseType": "DashboardListListResponse",
     },
-    "v1.CreateDashboardList": {
-        "body": {
+    "v1.CreateDashboardList": {"body": {
             "type": "DashboardList",
             "format": "",
             },
         "operationResponseType": "DashboardList",
     },
-    "v1.DeleteDashboardList": {
-        "listId": {
+    "v1.GetDashboardList": {"listId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "DashboardList",
+    },
+    "v1.UpdateDashboardList": {"listId": {
+            "type": "number",
+            "format": "int64",
+            },"body": {
+            "type": "DashboardList",
+            "format": "",
+            },
+        "operationResponseType": "DashboardList",
+    },
+    "v1.DeleteDashboardList": {"listId": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "DashboardListDeleteResponse",
     },
-    "v1.GetDashboardList": {
-        "listId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "DashboardList",
-    },
-    "v1.UpdateDashboardList": {
-        "listId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "body": {
-            "type": "DashboardList",
-            "format": "",
-            },
-        "operationResponseType": "DashboardList",
-    },
-    "v1.SubmitDistributionPoints": {
-        "contentEncoding": {
+    "v1.SubmitDistributionPoints": {"contentEncoding": {
             "type": "DistributionPointsContentEncoding",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "DistributionPointsPayload",
             "format": "",
             },
         "operationResponseType": "IntakePayloadAccepted",
     },
-    "v1.ListActiveMetrics": {
-        "from": {
+    "v1.ListActiveMetrics": {"from": {
             "type": "number",
             "format": "int64",
-            },
-        "host": {
+            },"host": {
             "type": "string",
             "format": "",
-            },
-        "tagFilter": {
+            },"tagFilter": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MetricsListResponse",
     },
-    "v1.GetMetricMetadata": {
-        "metricName": {
+    "v1.GetMetricMetadata": {"metricName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MetricMetadata",
     },
-    "v1.UpdateMetricMetadata": {
-        "metricName": {
+    "v1.UpdateMetricMetadata": {"metricName": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "MetricMetadata",
             "format": "",
             },
         "operationResponseType": "MetricMetadata",
     },
-    "v1.QueryMetrics": {
-        "from": {
+    "v1.QueryMetrics": {"from": {
             "type": "number",
             "format": "int64",
-            },
-        "to": {
+            },"to": {
             "type": "number",
             "format": "int64",
-            },
-        "query": {
+            },"query": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MetricsQueryResponse",
     },
-    "v1.ListMetrics": {
-        "q": {
+    "v1.ListMetrics": {"q": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MetricSearchResponse",
     },
-    "v1.SubmitMetrics": {
-        "contentEncoding": {
+    "v1.SubmitMetrics": {"contentEncoding": {
             "type": "MetricContentEncoding",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "MetricsPayload",
             "format": "",
             },
         "operationResponseType": "IntakePayloadAccepted",
     },
-    "v1.ListDowntimes": {
-        "currentOnly": {
+    "v1.ListDowntimes": {"currentOnly": {
             "type": "boolean",
             "format": "",
-            },
-        "withCreator": {
+            },"withCreator": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "Array<Downtime>",
     },
-    "v1.CreateDowntime": {
-        "body": {
+    "v1.CreateDowntime": {"body": {
             "type": "Downtime",
             "format": "",
             },
         "operationResponseType": "Downtime",
     },
-    "v1.CancelDowntimesByScope": {
-        "body": {
+    "v1.CancelDowntimesByScope": {"body": {
             "type": "CancelDowntimesByScopeRequest",
             "format": "",
             },
         "operationResponseType": "CanceledDowntimesIds",
     },
-    "v1.CancelDowntime": {
-        "downtimeId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetDowntime": {
-        "downtimeId": {
+    "v1.GetDowntime": {"downtimeId": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "Downtime",
     },
-    "v1.UpdateDowntime": {
-        "downtimeId": {
+    "v1.UpdateDowntime": {"downtimeId": {
             "type": "number",
             "format": "int64",
-            },
-        "body": {
+            },"body": {
             "type": "Downtime",
             "format": "",
             },
         "operationResponseType": "Downtime",
     },
-    "v1.ListMonitorDowntimes": {
-        "monitorId": {
+    "v1.CancelDowntime": {"downtimeId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "{}",
+    },
+    "v1.ListMonitorDowntimes": {"monitorId": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "Array<Downtime>",
     },
-    "v1.ListEvents": {
-        "start": {
+    "v1.ListEvents": {"start": {
             "type": "number",
             "format": "int64",
-            },
-        "end": {
+            },"end": {
             "type": "number",
             "format": "int64",
-            },
-        "priority": {
+            },"priority": {
             "type": "EventPriority",
             "format": "",
-            },
-        "sources": {
+            },"sources": {
             "type": "string",
             "format": "",
-            },
-        "tags": {
+            },"tags": {
             "type": "string",
             "format": "",
-            },
-        "unaggregated": {
+            },"unaggregated": {
             "type": "boolean",
             "format": "",
-            },
-        "excludeAggregate": {
+            },"excludeAggregate": {
             "type": "boolean",
             "format": "",
-            },
-        "page": {
+            },"page": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "EventListResponse",
     },
-    "v1.CreateEvent": {
-        "body": {
+    "v1.CreateEvent": {"body": {
             "type": "EventCreateRequest",
             "format": "",
             },
         "operationResponseType": "EventCreateResponse",
     },
-    "v1.GetEvent": {
-        "eventId": {
+    "v1.GetEvent": {"eventId": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "EventResponse",
     },
-    "v1.GetGraphSnapshot": {
-        "metricQuery": {
+    "v1.GetGraphSnapshot": {"metricQuery": {
             "type": "string",
             "format": "",
-            },
-        "start": {
+            },"start": {
             "type": "number",
             "format": "int64",
-            },
-        "end": {
+            },"end": {
             "type": "number",
             "format": "int64",
-            },
-        "eventQuery": {
+            },"eventQuery": {
             "type": "string",
             "format": "",
-            },
-        "graphDef": {
+            },"graphDef": {
             "type": "string",
             "format": "",
-            },
-        "title": {
+            },"title": {
             "type": "string",
             "format": "",
-            },
-        "height": {
+            },"height": {
             "type": "number",
             "format": "int64",
-            },
-        "width": {
+            },"width": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "GraphSnapshot",
     },
-    "v1.MuteHost": {
-        "hostName": {
+    "v1.MuteHost": {"hostName": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "HostMuteSettings",
             "format": "",
             },
         "operationResponseType": "HostMuteResponse",
     },
-    "v1.UnmuteHost": {
-        "hostName": {
+    "v1.UnmuteHost": {"hostName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "HostMuteResponse",
     },
-    "v1.ListHosts": {
-        "filter": {
+    "v1.ListHosts": {"filter": {
             "type": "string",
             "format": "",
-            },
-        "sortField": {
+            },"sortField": {
             "type": "string",
             "format": "",
-            },
-        "sortDir": {
+            },"sortDir": {
             "type": "string",
             "format": "",
-            },
-        "start": {
+            },"start": {
             "type": "number",
             "format": "int64",
-            },
-        "count": {
+            },"count": {
             "type": "number",
             "format": "int64",
-            },
-        "from": {
+            },"from": {
             "type": "number",
             "format": "int64",
-            },
-        "includeMutedHostsData": {
+            },"includeMutedHostsData": {
             "type": "boolean",
             "format": "",
-            },
-        "includeHostsMetadata": {
+            },"includeHostsMetadata": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "HostListResponse",
     },
-    "v1.GetHostTotals": {
-        "from": {
+    "v1.GetHostTotals": {"from": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "HostTotals",
     },
-    "v1.DeleteAWSAccount": {
-        "body": {
-            "type": "AWSAccountDeleteRequest",
-            "format": "",
-            },
-        "operationResponseType": "any",
-    },
-    "v1.ListAWSAccounts": {
-        "accountId": {
+    "v1.ListAWSAccounts": {"accountId": {
             "type": "string",
             "format": "",
-            },
-        "roleName": {
+            },"roleName": {
             "type": "string",
             "format": "",
-            },
-        "accessKeyId": {
+            },"accessKeyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "AWSAccountListResponse",
     },
-    "v1.CreateAWSAccount": {
-        "body": {
+    "v1.UpdateAWSAccount": {"accountId": {
+            "type": "string",
+            "format": "",
+            },"roleName": {
+            "type": "string",
+            "format": "",
+            },"accessKeyId": {
+            "type": "string",
+            "format": "",
+            },"body": {
+            "type": "AWSAccount",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
+    "v1.CreateAWSAccount": {"body": {
             "type": "AWSAccount",
             "format": "",
             },
         "operationResponseType": "AWSAccountCreateResponse",
     },
-    "v1.UpdateAWSAccount": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "roleName": {
-            "type": "string",
-            "format": "",
-            },
-        "accessKeyId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "AWSAccount",
+    "v1.DeleteAWSAccount": {"body": {
+            "type": "AWSAccountDeleteRequest",
             "format": "",
             },
         "operationResponseType": "any",
@@ -1060,70 +866,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.ListAvailableAWSNamespaces": {
         "operationResponseType": "Array<string>",
     },
-    "v1.DeleteAWSEventBridgeSource": {
-        "body": {
-            "type": "AWSEventBridgeDeleteRequest",
-            "format": "",
-            },
-        "operationResponseType": "AWSEventBridgeDeleteResponse",
-    },
     "v1.ListAWSEventBridgeSources": {
         "operationResponseType": "AWSEventBridgeListResponse",
     },
-    "v1.CreateAWSEventBridgeSource": {
-        "body": {
+    "v1.CreateAWSEventBridgeSource": {"body": {
             "type": "AWSEventBridgeCreateRequest",
             "format": "",
             },
         "operationResponseType": "AWSEventBridgeCreateResponse",
     },
-    "v1.DeleteAWSTagFilter": {
-        "body": {
-            "type": "AWSTagFilterDeleteRequest",
+    "v1.DeleteAWSEventBridgeSource": {"body": {
+            "type": "AWSEventBridgeDeleteRequest",
             "format": "",
             },
-        "operationResponseType": "any",
+        "operationResponseType": "AWSEventBridgeDeleteResponse",
     },
-    "v1.ListAWSTagFilters": {
-        "accountId": {
+    "v1.ListAWSTagFilters": {"accountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "AWSTagFilterListResponse",
     },
-    "v1.CreateAWSTagFilter": {
-        "body": {
+    "v1.CreateAWSTagFilter": {"body": {
             "type": "AWSTagFilterCreateRequest",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v1.CreateNewAWSExternalID": {
-        "body": {
+    "v1.DeleteAWSTagFilter": {"body": {
+            "type": "AWSTagFilterDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
+    "v1.CreateNewAWSExternalID": {"body": {
             "type": "AWSAccount",
             "format": "",
             },
         "operationResponseType": "AWSAccountCreateResponse",
     },
-    "v1.DeleteAWSLambdaARN": {
-        "body": {
-            "type": "AWSAccountAndLambdaRequest",
-            "format": "",
-            },
-        "operationResponseType": "any",
-    },
     "v1.ListAWSLogsIntegrations": {
         "operationResponseType": "Array<AWSLogsListResponse>",
     },
-    "v1.CreateAWSLambdaARN": {
-        "body": {
+    "v1.CreateAWSLambdaARN": {"body": {
             "type": "AWSAccountAndLambdaRequest",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v1.CheckAWSLogsLambdaAsync": {
-        "body": {
+    "v1.DeleteAWSLambdaARN": {"body": {
+            "type": "AWSAccountAndLambdaRequest",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
+    "v1.CheckAWSLogsLambdaAsync": {"body": {
             "type": "AWSAccountAndLambdaRequest",
             "format": "",
             },
@@ -1132,54 +929,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.ListAWSLogsServices": {
         "operationResponseType": "Array<AWSLogsListServicesResponse>",
     },
-    "v1.EnableAWSLogServices": {
-        "body": {
+    "v1.EnableAWSLogServices": {"body": {
             "type": "AWSLogsServicesRequest",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v1.CheckAWSLogsServicesAsync": {
-        "body": {
+    "v1.CheckAWSLogsServicesAsync": {"body": {
             "type": "AWSLogsServicesRequest",
             "format": "",
             },
         "operationResponseType": "AWSLogsAsyncResponse",
     },
-    "v1.DeleteAzureIntegration": {
-        "body": {
-            "type": "AzureAccount",
-            "format": "",
-            },
-        "operationResponseType": "any",
-    },
     "v1.ListAzureIntegration": {
         "operationResponseType": "Array<AzureAccount>",
     },
-    "v1.CreateAzureIntegration": {
-        "body": {
+    "v1.UpdateAzureIntegration": {"body": {
             "type": "AzureAccount",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v1.UpdateAzureIntegration": {
-        "body": {
+    "v1.CreateAzureIntegration": {"body": {
             "type": "AzureAccount",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v1.UpdateAzureHostFilters": {
-        "body": {
+    "v1.DeleteAzureIntegration": {"body": {
             "type": "AzureAccount",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v1.DeleteGCPIntegration": {
-        "body": {
-            "type": "GCPAccount",
+    "v1.UpdateAzureHostFilters": {"body": {
+            "type": "AzureAccount",
             "format": "",
             },
         "operationResponseType": "any",
@@ -1187,188 +971,163 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.ListGCPIntegration": {
         "operationResponseType": "Array<GCPAccount>",
     },
-    "v1.CreateGCPIntegration": {
-        "body": {
+    "v1.UpdateGCPIntegration": {"body": {
             "type": "GCPAccount",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v1.UpdateGCPIntegration": {
-        "body": {
+    "v1.CreateGCPIntegration": {"body": {
             "type": "GCPAccount",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v1.CreatePagerDutyIntegrationService": {
-        "body": {
+    "v1.DeleteGCPIntegration": {"body": {
+            "type": "GCPAccount",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
+    "v1.CreatePagerDutyIntegrationService": {"body": {
             "type": "PagerDutyService",
             "format": "",
             },
         "operationResponseType": "PagerDutyServiceName",
     },
-    "v1.DeletePagerDutyIntegrationService": {
-        "serviceName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetPagerDutyIntegrationService": {
-        "serviceName": {
+    "v1.GetPagerDutyIntegrationService": {"serviceName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "PagerDutyServiceName",
     },
-    "v1.UpdatePagerDutyIntegrationService": {
-        "serviceName": {
+    "v1.UpdatePagerDutyIntegrationService": {"serviceName": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "PagerDutyServiceKey",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v1.GetSlackIntegrationChannels": {
-        "accountName": {
+    "v1.DeletePagerDutyIntegrationService": {"serviceName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v1.GetSlackIntegrationChannels": {"accountName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "Array<SlackIntegrationChannel>",
     },
-    "v1.CreateSlackIntegrationChannel": {
-        "accountName": {
+    "v1.CreateSlackIntegrationChannel": {"accountName": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SlackIntegrationChannel",
             "format": "",
             },
         "operationResponseType": "SlackIntegrationChannel",
     },
-    "v1.RemoveSlackIntegrationChannel": {
-        "accountName": {
+    "v1.GetSlackIntegrationChannel": {"accountName": {
             "type": "string",
             "format": "",
-            },
-        "channelName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetSlackIntegrationChannel": {
-        "accountName": {
-            "type": "string",
-            "format": "",
-            },
-        "channelName": {
+            },"channelName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SlackIntegrationChannel",
     },
-    "v1.UpdateSlackIntegrationChannel": {
-        "accountName": {
+    "v1.RemoveSlackIntegrationChannel": {"accountName": {
+            "type": "string",
+            "format": "",
+            },"channelName": {
             "type": "string",
             "format": "",
             },
-        "channelName": {
+        "operationResponseType": "{}",
+    },
+    "v1.UpdateSlackIntegrationChannel": {"accountName": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"channelName": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "SlackIntegrationChannel",
             "format": "",
             },
         "operationResponseType": "SlackIntegrationChannel",
     },
-    "v1.CreateWebhooksIntegrationCustomVariable": {
-        "body": {
+    "v1.CreateWebhooksIntegrationCustomVariable": {"body": {
             "type": "WebhooksIntegrationCustomVariable",
             "format": "",
             },
         "operationResponseType": "WebhooksIntegrationCustomVariableResponse",
     },
-    "v1.DeleteWebhooksIntegrationCustomVariable": {
-        "customVariableName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetWebhooksIntegrationCustomVariable": {
-        "customVariableName": {
+    "v1.GetWebhooksIntegrationCustomVariable": {"customVariableName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "WebhooksIntegrationCustomVariableResponse",
     },
-    "v1.UpdateWebhooksIntegrationCustomVariable": {
-        "customVariableName": {
+    "v1.UpdateWebhooksIntegrationCustomVariable": {"customVariableName": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "WebhooksIntegrationCustomVariableUpdateRequest",
             "format": "",
             },
         "operationResponseType": "WebhooksIntegrationCustomVariableResponse",
     },
-    "v1.CreateWebhooksIntegration": {
-        "body": {
+    "v1.DeleteWebhooksIntegrationCustomVariable": {"customVariableName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v1.CreateWebhooksIntegration": {"body": {
             "type": "WebhooksIntegration",
             "format": "",
             },
         "operationResponseType": "WebhooksIntegration",
     },
-    "v1.DeleteWebhooksIntegration": {
-        "webhookName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetWebhooksIntegration": {
-        "webhookName": {
+    "v1.GetWebhooksIntegration": {"webhookName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "WebhooksIntegration",
     },
-    "v1.UpdateWebhooksIntegration": {
-        "webhookName": {
+    "v1.UpdateWebhooksIntegration": {"webhookName": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "WebhooksIntegrationUpdateRequest",
             "format": "",
             },
         "operationResponseType": "WebhooksIntegration",
     },
-    "v1.ListLogs": {
-        "body": {
+    "v1.DeleteWebhooksIntegration": {"webhookName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v1.ListLogs": {"body": {
             "type": "LogsListRequest",
             "format": "",
             },
         "operationResponseType": "LogsListResponse",
     },
-    "v1.SubmitLog": {
-        "contentEncoding": {
+    "v1.SubmitLog": {"contentEncoding": {
             "type": "ContentEncoding",
             "format": "",
-            },
-        "ddtags": {
+            },"ddtags": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "Array<HTTPLogItem>",
             "format": "",
             },
@@ -1377,8 +1136,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.GetLogsIndexOrder": {
         "operationResponseType": "LogsIndexesOrder",
     },
-    "v1.UpdateLogsIndexOrder": {
-        "body": {
+    "v1.UpdateLogsIndexOrder": {"body": {
             "type": "LogsIndexesOrder",
             "format": "",
             },
@@ -1387,43 +1145,37 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.ListLogIndexes": {
         "operationResponseType": "LogsIndexListResponse",
     },
-    "v1.CreateLogsIndex": {
-        "body": {
+    "v1.CreateLogsIndex": {"body": {
             "type": "LogsIndex",
             "format": "",
             },
         "operationResponseType": "LogsIndex",
     },
-    "v1.DeleteLogsIndex": {
-        "name": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetLogsIndex": {
-        "name": {
+    "v1.GetLogsIndex": {"name": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "LogsIndex",
     },
-    "v1.UpdateLogsIndex": {
-        "name": {
+    "v1.UpdateLogsIndex": {"name": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "LogsIndexUpdateRequest",
             "format": "",
             },
         "operationResponseType": "LogsIndex",
     },
+    "v1.DeleteLogsIndex": {"name": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v1.GetLogsPipelineOrder": {
         "operationResponseType": "LogsPipelinesOrder",
     },
-    "v1.UpdateLogsPipelineOrder": {
-        "body": {
+    "v1.UpdateLogsPipelineOrder": {"body": {
             "type": "LogsPipelinesOrder",
             "format": "",
             },
@@ -1432,509 +1184,415 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.ListLogsPipelines": {
         "operationResponseType": "Array<LogsPipeline>",
     },
-    "v1.CreateLogsPipeline": {
-        "body": {
+    "v1.CreateLogsPipeline": {"body": {
             "type": "LogsPipeline",
             "format": "",
             },
         "operationResponseType": "LogsPipeline",
     },
-    "v1.DeleteLogsPipeline": {
-        "pipelineId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetLogsPipeline": {
-        "pipelineId": {
+    "v1.GetLogsPipeline": {"pipelineId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "LogsPipeline",
     },
-    "v1.UpdateLogsPipeline": {
-        "pipelineId": {
+    "v1.UpdateLogsPipeline": {"pipelineId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "LogsPipeline",
             "format": "",
             },
         "operationResponseType": "LogsPipeline",
     },
-    "v1.ListMonitors": {
-        "groupStates": {
+    "v1.DeleteLogsPipeline": {"pipelineId": {
             "type": "string",
             "format": "",
             },
-        "name": {
+        "operationResponseType": "{}",
+    },
+    "v1.ListMonitors": {"groupStates": {
             "type": "string",
             "format": "",
-            },
-        "tags": {
+            },"name": {
             "type": "string",
             "format": "",
-            },
-        "monitorTags": {
+            },"tags": {
             "type": "string",
             "format": "",
-            },
-        "withDowntimes": {
+            },"monitorTags": {
+            "type": "string",
+            "format": "",
+            },"withDowntimes": {
             "type": "boolean",
             "format": "",
-            },
-        "idOffset": {
+            },"idOffset": {
             "type": "number",
             "format": "int64",
-            },
-        "page": {
+            },"page": {
             "type": "number",
             "format": "int64",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "Array<Monitor>",
     },
-    "v1.CreateMonitor": {
-        "body": {
+    "v1.CreateMonitor": {"body": {
             "type": "Monitor",
             "format": "",
             },
         "operationResponseType": "Monitor",
     },
-    "v1.CheckCanDeleteMonitor": {
-        "monitorIds": {
+    "v1.CheckCanDeleteMonitor": {"monitorIds": {
             "type": "Array<number>",
-            "format": "int64",
+            "format": "",
             },
         "operationResponseType": "CheckCanDeleteMonitorResponse",
     },
-    "v1.SearchMonitorGroups": {
-        "query": {
+    "v1.SearchMonitorGroups": {"query": {
             "type": "string",
             "format": "",
-            },
-        "page": {
+            },"page": {
             "type": "number",
             "format": "int64",
-            },
-        "perPage": {
+            },"perPage": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MonitorGroupSearchResponse",
     },
-    "v1.SearchMonitors": {
-        "query": {
+    "v1.SearchMonitors": {"query": {
             "type": "string",
             "format": "",
-            },
-        "page": {
+            },"page": {
             "type": "number",
             "format": "int64",
-            },
-        "perPage": {
+            },"perPage": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MonitorSearchResponse",
     },
-    "v1.ValidateMonitor": {
-        "body": {
+    "v1.ValidateMonitor": {"body": {
             "type": "Monitor",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v1.DeleteMonitor": {
-        "monitorId": {
+    "v1.GetMonitor": {"monitorId": {
             "type": "number",
             "format": "int64",
-            },
-        "force": {
+            },"groupStates": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "DeletedMonitor",
-    },
-    "v1.GetMonitor": {
-        "monitorId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "groupStates": {
-            "type": "string",
-            "format": "",
-            },
-        "withDowntimes": {
+            },"withDowntimes": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "Monitor",
     },
-    "v1.UpdateMonitor": {
-        "monitorId": {
+    "v1.UpdateMonitor": {"monitorId": {
             "type": "number",
             "format": "int64",
-            },
-        "body": {
+            },"body": {
             "type": "MonitorUpdateRequest",
             "format": "",
             },
         "operationResponseType": "Monitor",
     },
-    "v1.ValidateExistingMonitor": {
-        "monitorId": {
+    "v1.DeleteMonitor": {"monitorId": {
             "type": "number",
             "format": "int64",
+            },"force": {
+            "type": "string",
+            "format": "",
             },
-        "body": {
+        "operationResponseType": "DeletedMonitor",
+    },
+    "v1.ValidateExistingMonitor": {"monitorId": {
+            "type": "number",
+            "format": "int64",
+            },"body": {
             "type": "Monitor",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v1.ListNotebooks": {
-        "authorHandle": {
+    "v1.ListNotebooks": {"authorHandle": {
             "type": "string",
             "format": "",
-            },
-        "excludeAuthorHandle": {
+            },"excludeAuthorHandle": {
             "type": "string",
             "format": "",
-            },
-        "start": {
+            },"start": {
             "type": "number",
             "format": "int64",
-            },
-        "count": {
+            },"count": {
             "type": "number",
             "format": "int64",
-            },
-        "sortField": {
+            },"sortField": {
             "type": "string",
             "format": "",
-            },
-        "sortDir": {
+            },"sortDir": {
             "type": "string",
             "format": "",
-            },
-        "query": {
+            },"query": {
             "type": "string",
             "format": "",
-            },
-        "includeCells": {
+            },"includeCells": {
             "type": "boolean",
             "format": "",
-            },
-        "isTemplate": {
+            },"isTemplate": {
             "type": "boolean",
             "format": "",
-            },
-        "type": {
+            },"type": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "NotebooksResponse",
     },
-    "v1.CreateNotebook": {
-        "body": {
+    "v1.CreateNotebook": {"body": {
             "type": "NotebookCreateRequest",
             "format": "",
             },
         "operationResponseType": "NotebookResponse",
     },
-    "v1.DeleteNotebook": {
-        "notebookId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetNotebook": {
-        "notebookId": {
+    "v1.GetNotebook": {"notebookId": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "NotebookResponse",
     },
-    "v1.UpdateNotebook": {
-        "notebookId": {
+    "v1.UpdateNotebook": {"notebookId": {
             "type": "number",
             "format": "int64",
-            },
-        "body": {
+            },"body": {
             "type": "NotebookUpdateRequest",
             "format": "",
             },
         "operationResponseType": "NotebookResponse",
     },
+    "v1.DeleteNotebook": {"notebookId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "{}",
+    },
     "v1.ListOrgs": {
         "operationResponseType": "OrganizationListResponse",
     },
-    "v1.CreateChildOrg": {
-        "body": {
+    "v1.CreateChildOrg": {"body": {
             "type": "OrganizationCreateBody",
             "format": "",
             },
         "operationResponseType": "OrganizationCreateResponse",
     },
-    "v1.GetOrg": {
-        "publicId": {
+    "v1.GetOrg": {"publicId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "OrganizationResponse",
     },
-    "v1.UpdateOrg": {
-        "publicId": {
+    "v1.UpdateOrg": {"publicId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "Organization",
             "format": "",
             },
         "operationResponseType": "OrganizationResponse",
     },
-    "v1.DowngradeOrg": {
-        "publicId": {
+    "v1.DowngradeOrg": {"publicId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "OrgDowngradedResponse",
     },
-    "v1.UploadIdPForOrg": {
-        "publicId": {
+    "v1.UploadIdPForOrg": {"publicId": {
             "type": "string",
             "format": "",
-            },
-        "idpFile": {
+            },"idpFile": {
             "type": "HttpFile",
             "format": "binary",
             },
         "operationResponseType": "IdpResponse",
     },
-    "v1.AddSecurityMonitoringSignalToIncident": {
-        "signalId": {
+    "v1.AddSecurityMonitoringSignalToIncident": {"signalId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "AddSignalToIncidentRequest",
             "format": "",
             },
         "operationResponseType": "SuccessfulSignalUpdateResponse",
     },
-    "v1.EditSecurityMonitoringSignalAssignee": {
-        "signalId": {
+    "v1.EditSecurityMonitoringSignalAssignee": {"signalId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SignalAssigneeUpdateRequest",
             "format": "",
             },
         "operationResponseType": "SuccessfulSignalUpdateResponse",
     },
-    "v1.EditSecurityMonitoringSignalState": {
-        "signalId": {
+    "v1.EditSecurityMonitoringSignalState": {"signalId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SignalStateUpdateRequest",
             "format": "",
             },
         "operationResponseType": "SuccessfulSignalUpdateResponse",
     },
-    "v1.ListSLOs": {
-        "ids": {
+    "v1.ListSLOs": {"ids": {
             "type": "string",
             "format": "",
-            },
-        "query": {
+            },"query": {
             "type": "string",
             "format": "",
-            },
-        "tagsQuery": {
+            },"tagsQuery": {
             "type": "string",
             "format": "",
-            },
-        "metricsQuery": {
+            },"metricsQuery": {
             "type": "string",
             "format": "",
-            },
-        "limit": {
+            },"limit": {
             "type": "number",
             "format": "int64",
-            },
-        "offset": {
+            },"offset": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "SLOListResponse",
     },
-    "v1.CreateSLO": {
-        "body": {
+    "v1.CreateSLO": {"body": {
             "type": "ServiceLevelObjectiveRequest",
             "format": "",
             },
         "operationResponseType": "SLOListResponse",
     },
-    "v1.DeleteSLOTimeframeInBulk": {
-        "body": {
+    "v1.DeleteSLOTimeframeInBulk": {"body": {
             "type": "{ [key: string]: Array<SLOTimeframe>; }",
             "format": "",
             },
         "operationResponseType": "SLOBulkDeleteResponse",
     },
-    "v1.CheckCanDeleteSLO": {
-        "ids": {
+    "v1.CheckCanDeleteSLO": {"ids": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CheckCanDeleteSLOResponse",
     },
-    "v1.SearchSLO": {
-        "query": {
+    "v1.SearchSLO": {"query": {
             "type": "string",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "includeFacets": {
+            },"includeFacets": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "SearchSLOResponse",
     },
-    "v1.DeleteSLO": {
-        "sloId": {
+    "v1.GetSLO": {"sloId": {
             "type": "string",
             "format": "",
-            },
-        "force": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SLODeleteResponse",
-    },
-    "v1.GetSLO": {
-        "sloId": {
-            "type": "string",
-            "format": "",
-            },
-        "withConfiguredAlertIds": {
+            },"withConfiguredAlertIds": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "SLOResponse",
     },
-    "v1.UpdateSLO": {
-        "sloId": {
+    "v1.UpdateSLO": {"sloId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "ServiceLevelObjective",
             "format": "",
             },
         "operationResponseType": "SLOListResponse",
     },
-    "v1.GetSLOCorrections": {
-        "sloId": {
+    "v1.DeleteSLO": {"sloId": {
+            "type": "string",
+            "format": "",
+            },"force": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SLODeleteResponse",
+    },
+    "v1.GetSLOCorrections": {"sloId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SLOCorrectionListResponse",
     },
-    "v1.GetSLOHistory": {
-        "sloId": {
+    "v1.GetSLOHistory": {"sloId": {
             "type": "string",
             "format": "",
-            },
-        "fromTs": {
+            },"fromTs": {
             "type": "number",
             "format": "int64",
-            },
-        "toTs": {
+            },"toTs": {
             "type": "number",
             "format": "int64",
-            },
-        "target": {
+            },"target": {
             "type": "number",
             "format": "double",
-            },
-        "applyCorrection": {
+            },"applyCorrection": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "SLOHistoryResponse",
     },
-    "v1.ListSLOCorrection": {
-        "offset": {
+    "v1.ListSLOCorrection": {"offset": {
             "type": "number",
             "format": "int64",
-            },
-        "limit": {
+            },"limit": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "SLOCorrectionListResponse",
     },
-    "v1.CreateSLOCorrection": {
-        "body": {
+    "v1.CreateSLOCorrection": {"body": {
             "type": "SLOCorrectionCreateRequest",
             "format": "",
             },
         "operationResponseType": "SLOCorrectionResponse",
     },
-    "v1.DeleteSLOCorrection": {
-        "sloCorrectionId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetSLOCorrection": {
-        "sloCorrectionId": {
+    "v1.GetSLOCorrection": {"sloCorrectionId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SLOCorrectionResponse",
     },
-    "v1.UpdateSLOCorrection": {
-        "sloCorrectionId": {
+    "v1.DeleteSLOCorrection": {"sloCorrectionId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v1.UpdateSLOCorrection": {"sloCorrectionId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "SLOCorrectionUpdateRequest",
             "format": "",
             },
         "operationResponseType": "SLOCorrectionResponse",
     },
-    "v1.GetSyntheticsCIBatch": {
-        "batchId": {
+    "v1.GetSyntheticsCIBatch": {"batchId": {
             "type": "string",
             "format": "",
             },
@@ -1943,270 +1601,223 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.ListLocations": {
         "operationResponseType": "SyntheticsLocations",
     },
-    "v1.CreatePrivateLocation": {
-        "body": {
+    "v1.CreatePrivateLocation": {"body": {
             "type": "SyntheticsPrivateLocation",
             "format": "",
             },
         "operationResponseType": "SyntheticsPrivateLocationCreationResponse",
     },
-    "v1.DeletePrivateLocation": {
-        "locationId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetPrivateLocation": {
-        "locationId": {
+    "v1.GetPrivateLocation": {"locationId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SyntheticsPrivateLocation",
     },
-    "v1.UpdatePrivateLocation": {
-        "locationId": {
+    "v1.UpdatePrivateLocation": {"locationId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SyntheticsPrivateLocation",
             "format": "",
             },
         "operationResponseType": "SyntheticsPrivateLocation",
     },
+    "v1.DeletePrivateLocation": {"locationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v1.GetSyntheticsDefaultLocations": {
         "operationResponseType": "Array<string>",
     },
-    "v1.ListTests": {
-        "pageSize": {
+    "v1.ListTests": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "SyntheticsListTestsResponse",
     },
-    "v1.CreateSyntheticsAPITest": {
-        "body": {
+    "v1.CreateSyntheticsAPITest": {"body": {
             "type": "SyntheticsAPITest",
             "format": "",
             },
         "operationResponseType": "SyntheticsAPITest",
     },
-    "v1.GetAPITest": {
-        "publicId": {
+    "v1.GetAPITest": {"publicId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SyntheticsAPITest",
     },
-    "v1.UpdateAPITest": {
-        "publicId": {
+    "v1.UpdateAPITest": {"publicId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SyntheticsAPITest",
             "format": "",
             },
         "operationResponseType": "SyntheticsAPITest",
     },
-    "v1.CreateSyntheticsBrowserTest": {
-        "body": {
+    "v1.CreateSyntheticsBrowserTest": {"body": {
             "type": "SyntheticsBrowserTest",
             "format": "",
             },
         "operationResponseType": "SyntheticsBrowserTest",
     },
-    "v1.GetBrowserTest": {
-        "publicId": {
+    "v1.GetBrowserTest": {"publicId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SyntheticsBrowserTest",
     },
-    "v1.UpdateBrowserTest": {
-        "publicId": {
+    "v1.UpdateBrowserTest": {"publicId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SyntheticsBrowserTest",
             "format": "",
             },
         "operationResponseType": "SyntheticsBrowserTest",
     },
-    "v1.GetBrowserTestLatestResults": {
-        "publicId": {
+    "v1.GetBrowserTestLatestResults": {"publicId": {
             "type": "string",
             "format": "",
-            },
-        "fromTs": {
+            },"fromTs": {
             "type": "number",
             "format": "int64",
-            },
-        "toTs": {
+            },"toTs": {
             "type": "number",
             "format": "int64",
-            },
-        "probeDc": {
+            },"probeDc": {
             "type": "Array<string>",
             "format": "",
             },
         "operationResponseType": "SyntheticsGetBrowserTestLatestResultsResponse",
     },
-    "v1.GetBrowserTestResult": {
-        "publicId": {
+    "v1.GetBrowserTestResult": {"publicId": {
             "type": "string",
             "format": "",
-            },
-        "resultId": {
+            },"resultId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SyntheticsBrowserTestResultFull",
     },
-    "v1.DeleteTests": {
-        "body": {
+    "v1.DeleteTests": {"body": {
             "type": "SyntheticsDeleteTestsPayload",
             "format": "",
             },
         "operationResponseType": "SyntheticsDeleteTestsResponse",
     },
-    "v1.CreateSyntheticsMobileTest": {
-        "body": {
+    "v1.CreateSyntheticsMobileTest": {"body": {
             "type": "SyntheticsMobileTest",
             "format": "",
             },
         "operationResponseType": "SyntheticsMobileTest",
     },
-    "v1.GetMobileTest": {
-        "publicId": {
+    "v1.GetMobileTest": {"publicId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SyntheticsMobileTest",
     },
-    "v1.UpdateMobileTest": {
-        "publicId": {
+    "v1.UpdateMobileTest": {"publicId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SyntheticsMobileTest",
             "format": "",
             },
         "operationResponseType": "SyntheticsMobileTest",
     },
-    "v1.SearchTests": {
-        "text": {
+    "v1.SearchTests": {"text": {
             "type": "string",
             "format": "",
-            },
-        "includeFullConfig": {
+            },"includeFullConfig": {
             "type": "boolean",
             "format": "",
-            },
-        "searchSuites": {
+            },"searchSuites": {
             "type": "boolean",
             "format": "",
-            },
-        "facetsOnly": {
+            },"facetsOnly": {
             "type": "boolean",
             "format": "",
-            },
-        "start": {
+            },"start": {
             "type": "number",
             "format": "int64",
-            },
-        "count": {
+            },"count": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SyntheticsListTestsResponse",
     },
-    "v1.TriggerTests": {
-        "body": {
+    "v1.TriggerTests": {"body": {
             "type": "SyntheticsTriggerBody",
             "format": "",
             },
         "operationResponseType": "SyntheticsTriggerCITestsResponse",
     },
-    "v1.TriggerCITests": {
-        "body": {
+    "v1.TriggerCITests": {"body": {
             "type": "SyntheticsCITestBody",
             "format": "",
             },
         "operationResponseType": "SyntheticsTriggerCITestsResponse",
     },
-    "v1.FetchUptimes": {
-        "body": {
+    "v1.FetchUptimes": {"body": {
             "type": "SyntheticsFetchUptimesPayload",
             "format": "",
             },
         "operationResponseType": "Array<SyntheticsTestUptime>",
     },
-    "v1.GetTest": {
-        "publicId": {
+    "v1.GetTest": {"publicId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SyntheticsTestDetails",
     },
-    "v1.PatchTest": {
-        "publicId": {
+    "v1.PatchTest": {"publicId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SyntheticsPatchTestBody",
             "format": "",
             },
         "operationResponseType": "SyntheticsTestDetails",
     },
-    "v1.GetAPITestLatestResults": {
-        "publicId": {
+    "v1.GetAPITestLatestResults": {"publicId": {
             "type": "string",
             "format": "",
-            },
-        "fromTs": {
+            },"fromTs": {
             "type": "number",
             "format": "int64",
-            },
-        "toTs": {
+            },"toTs": {
             "type": "number",
             "format": "int64",
-            },
-        "probeDc": {
+            },"probeDc": {
             "type": "Array<string>",
             "format": "",
             },
         "operationResponseType": "SyntheticsGetAPITestLatestResultsResponse",
     },
-    "v1.GetAPITestResult": {
-        "publicId": {
+    "v1.GetAPITestResult": {"publicId": {
             "type": "string",
             "format": "",
-            },
-        "resultId": {
+            },"resultId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SyntheticsAPITestResultFull",
     },
-    "v1.UpdateTestPauseStatus": {
-        "publicId": {
+    "v1.UpdateTestPauseStatus": {"publicId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SyntheticsUpdateTestPauseStatusPayload",
             "format": "",
             },
@@ -2215,194 +1826,163 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.ListGlobalVariables": {
         "operationResponseType": "SyntheticsListGlobalVariablesResponse",
     },
-    "v1.CreateGlobalVariable": {
-        "body": {
+    "v1.CreateGlobalVariable": {"body": {
             "type": "SyntheticsGlobalVariableRequest",
             "format": "",
             },
         "operationResponseType": "SyntheticsGlobalVariable",
     },
-    "v1.DeleteGlobalVariable": {
-        "variableId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetGlobalVariable": {
-        "variableId": {
+    "v1.GetGlobalVariable": {"variableId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SyntheticsGlobalVariable",
     },
-    "v1.EditGlobalVariable": {
-        "variableId": {
+    "v1.EditGlobalVariable": {"variableId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SyntheticsGlobalVariableRequest",
             "format": "",
             },
         "operationResponseType": "SyntheticsGlobalVariable",
     },
-    "v1.ListHostTags": {
-        "source": {
+    "v1.DeleteGlobalVariable": {"variableId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v1.ListHostTags": {"source": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "TagToHosts",
     },
-    "v1.DeleteHostTags": {
-        "hostName": {
+    "v1.GetHostTags": {"hostName": {
             "type": "string",
             "format": "",
-            },
-        "source": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v1.GetHostTags": {
-        "hostName": {
-            "type": "string",
-            "format": "",
-            },
-        "source": {
+            },"source": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "HostTags",
     },
-    "v1.CreateHostTags": {
-        "hostName": {
+    "v1.UpdateHostTags": {"hostName": {
             "type": "string",
             "format": "",
-            },
-        "source": {
+            },"source": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "HostTags",
             "format": "",
             },
         "operationResponseType": "HostTags",
     },
-    "v1.UpdateHostTags": {
-        "hostName": {
+    "v1.CreateHostTags": {"hostName": {
             "type": "string",
             "format": "",
-            },
-        "source": {
+            },"source": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "HostTags",
             "format": "",
             },
         "operationResponseType": "HostTags",
+    },
+    "v1.DeleteHostTags": {"hostName": {
+            "type": "string",
+            "format": "",
+            },"source": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v1.ListUsers": {
         "operationResponseType": "UserListResponse",
     },
-    "v1.CreateUser": {
-        "body": {
+    "v1.CreateUser": {"body": {
             "type": "User",
             "format": "",
             },
         "operationResponseType": "UserResponse",
     },
-    "v1.DisableUser": {
-        "userHandle": {
+    "v1.GetUser": {"userHandle": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
+    },
+    "v1.UpdateUser": {"userHandle": {
+            "type": "string",
+            "format": "",
+            },"body": {
+            "type": "User",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
+    },
+    "v1.DisableUser": {"userHandle": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UserDisableResponse",
     },
-    "v1.GetUser": {
-        "userHandle": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "UserResponse",
-    },
-    "v1.UpdateUser": {
-        "userHandle": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "User",
-            "format": "",
-            },
-        "operationResponseType": "UserResponse",
-    },
     "v1.Validate": {
         "operationResponseType": "AuthenticationValidationResponse",
     },
-    "v2.ListAppKeyRegistrations": {
-        "pageSize": {
+    "v2.ListAppKeyRegistrations": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "ListAppKeyRegistrationsResponse",
     },
-    "v2.UnregisterAppKey": {
-        "appKeyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetAppKeyRegistration": {
-        "appKeyId": {
+    "v2.GetAppKeyRegistration": {"appKeyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "GetAppKeyRegistrationResponse",
     },
-    "v2.RegisterAppKey": {
-        "appKeyId": {
+    "v2.RegisterAppKey": {"appKeyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RegisterAppKeyResponse",
     },
-    "v2.CreateActionConnection": {
-        "body": {
+    "v2.UnregisterAppKey": {"appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CreateActionConnection": {"body": {
             "type": "CreateActionConnectionRequest",
             "format": "",
             },
         "operationResponseType": "CreateActionConnectionResponse",
     },
-    "v2.DeleteActionConnection": {
-        "connectionId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetActionConnection": {
-        "connectionId": {
+    "v2.GetActionConnection": {"connectionId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "GetActionConnectionResponse",
     },
-    "v2.UpdateActionConnection": {
-        "connectionId": {
+    "v2.DeleteActionConnection": {"connectionId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateActionConnection": {"connectionId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "UpdateActionConnectionRequest",
             "format": "",
             },
@@ -2411,296 +1991,241 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListAwsScanOptions": {
         "operationResponseType": "AwsScanOptionsListResponse",
     },
-    "v2.CreateAwsScanOptions": {
-        "body": {
+    "v2.CreateAwsScanOptions": {"body": {
             "type": "AwsScanOptionsCreateRequest",
             "format": "",
             },
         "operationResponseType": "AwsScanOptionsResponse",
     },
-    "v2.DeleteAwsScanOptions": {
-        "accountId": {
+    "v2.DeleteAwsScanOptions": {"accountId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.UpdateAwsScanOptions": {
-        "accountId": {
+    "v2.UpdateAwsScanOptions": {"accountId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "AwsScanOptionsUpdateRequest",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ListAwsOnDemandTasks": {
         "operationResponseType": "AwsOnDemandListResponse",
     },
-    "v2.CreateAwsOnDemandTask": {
-        "body": {
+    "v2.CreateAwsOnDemandTask": {"body": {
             "type": "AwsOnDemandCreateRequest",
             "format": "",
             },
         "operationResponseType": "AwsOnDemandResponse",
     },
-    "v2.GetAwsOnDemandTask": {
-        "taskId": {
+    "v2.GetAwsOnDemandTask": {"taskId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "AwsOnDemandResponse",
     },
-    "v2.ListAPIKeys": {
-        "pageSize": {
+    "v2.ListAPIKeys": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "APIKeysSort",
             "format": "",
-            },
-        "filter": {
+            },"filter": {
             "type": "string",
             "format": "",
-            },
-        "filterCreatedAtStart": {
+            },"filterCreatedAtStart": {
             "type": "string",
             "format": "",
-            },
-        "filterCreatedAtEnd": {
+            },"filterCreatedAtEnd": {
             "type": "string",
             "format": "",
-            },
-        "filterModifiedAtStart": {
+            },"filterModifiedAtStart": {
             "type": "string",
             "format": "",
-            },
-        "filterModifiedAtEnd": {
+            },"filterModifiedAtEnd": {
             "type": "string",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
-            },
-        "filterRemoteConfigReadEnabled": {
+            },"filterRemoteConfigReadEnabled": {
             "type": "boolean",
             "format": "",
-            },
-        "filterCategory": {
+            },"filterCategory": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "APIKeysResponse",
     },
-    "v2.CreateAPIKey": {
-        "body": {
+    "v2.CreateAPIKey": {"body": {
             "type": "APIKeyCreateRequest",
             "format": "",
             },
         "operationResponseType": "APIKeyResponse",
     },
-    "v2.DeleteAPIKey": {
-        "apiKeyId": {
+    "v2.GetAPIKey": {"apiKeyId": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetAPIKey": {
-        "apiKeyId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "APIKeyResponse",
     },
-    "v2.UpdateAPIKey": {
-        "apiKeyId": {
+    "v2.DeleteAPIKey": {"apiKeyId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAPIKey": {"apiKeyId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "APIKeyUpdateRequest",
             "format": "",
             },
         "operationResponseType": "APIKeyResponse",
     },
-    "v2.ListApplicationKeys": {
-        "pageSize": {
+    "v2.ListApplicationKeys": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "ApplicationKeysSort",
             "format": "",
-            },
-        "filter": {
+            },"filter": {
             "type": "string",
             "format": "",
-            },
-        "filterCreatedAtStart": {
+            },"filterCreatedAtStart": {
             "type": "string",
             "format": "",
-            },
-        "filterCreatedAtEnd": {
+            },"filterCreatedAtEnd": {
             "type": "string",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ListApplicationKeysResponse",
     },
-    "v2.DeleteApplicationKey": {
-        "appKeyId": {
+    "v2.GetApplicationKey": {"appKeyId": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetApplicationKey": {
-        "appKeyId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
-    "v2.UpdateApplicationKey": {
-        "appKeyId": {
+    "v2.DeleteApplicationKey": {"appKeyId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateApplicationKey": {"appKeyId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "ApplicationKeyUpdateRequest",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
-    "v2.ListCurrentUserApplicationKeys": {
-        "pageSize": {
+    "v2.ListCurrentUserApplicationKeys": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "ApplicationKeysSort",
             "format": "",
-            },
-        "filter": {
+            },"filter": {
             "type": "string",
             "format": "",
-            },
-        "filterCreatedAtStart": {
+            },"filterCreatedAtStart": {
             "type": "string",
             "format": "",
-            },
-        "filterCreatedAtEnd": {
+            },"filterCreatedAtEnd": {
             "type": "string",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ListApplicationKeysResponse",
     },
-    "v2.CreateCurrentUserApplicationKey": {
-        "body": {
+    "v2.CreateCurrentUserApplicationKey": {"body": {
             "type": "ApplicationKeyCreateRequest",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
-    "v2.DeleteCurrentUserApplicationKey": {
-        "appKeyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetCurrentUserApplicationKey": {
-        "appKeyId": {
+    "v2.GetCurrentUserApplicationKey": {"appKeyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
-    "v2.UpdateCurrentUserApplicationKey": {
-        "appKeyId": {
+    "v2.DeleteCurrentUserApplicationKey": {"appKeyId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateCurrentUserApplicationKey": {"appKeyId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "ApplicationKeyUpdateRequest",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
-    "v2.ListAPIs": {
-        "query": {
+    "v2.ListAPIs": {"query": {
             "type": "string",
             "format": "",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int64",
-            },
-        "pageOffset": {
+            },"pageOffset": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "ListAPIsResponse",
     },
-    "v2.DeleteOpenAPI": {
-        "id": {
+    "v2.DeleteOpenAPI": {"id": {
             "type": "string",
-            "format": "uuid",
+            "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.GetOpenAPI": {
-        "id": {
+    "v2.GetOpenAPI": {"id": {
             "type": "string",
-            "format": "uuid",
+            "format": "",
             },
         "operationResponseType": "HttpFile",
     },
-    "v2.UpdateOpenAPI": {
-        "id": {
+    "v2.UpdateOpenAPI": {"id": {
             "type": "string",
-            "format": "uuid",
-            },
-        "openapiSpecFile": {
+            "format": "",
+            },"openapiSpecFile": {
             "type": "HttpFile",
             "format": "binary",
             },
         "operationResponseType": "UpdateOpenAPIResponse",
     },
-    "v2.CreateOpenAPI": {
-        "openapiSpecFile": {
+    "v2.CreateOpenAPI": {"openapiSpecFile": {
             "type": "HttpFile",
             "format": "binary",
             },
@@ -2709,33 +2234,28 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListSpansMetrics": {
         "operationResponseType": "SpansMetricsResponse",
     },
-    "v2.CreateSpansMetric": {
-        "body": {
+    "v2.CreateSpansMetric": {"body": {
             "type": "SpansMetricCreateRequest",
             "format": "",
             },
         "operationResponseType": "SpansMetricResponse",
     },
-    "v2.DeleteSpansMetric": {
-        "metricId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetSpansMetric": {
-        "metricId": {
+    "v2.GetSpansMetric": {"metricId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SpansMetricResponse",
     },
-    "v2.UpdateSpansMetric": {
-        "metricId": {
+    "v2.DeleteSpansMetric": {"metricId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateSpansMetric": {"metricId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "SpansMetricUpdateRequest",
             "format": "",
             },
@@ -2744,263 +2264,214 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListApmRetentionFilters": {
         "operationResponseType": "RetentionFiltersResponse",
     },
-    "v2.CreateApmRetentionFilter": {
-        "body": {
+    "v2.CreateApmRetentionFilter": {"body": {
             "type": "RetentionFilterCreateRequest",
             "format": "",
             },
         "operationResponseType": "RetentionFilterCreateResponse",
     },
-    "v2.ReorderApmRetentionFilters": {
-        "body": {
+    "v2.ReorderApmRetentionFilters": {"body": {
             "type": "ReorderRetentionFiltersRequest",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.DeleteApmRetentionFilter": {
-        "filterId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetApmRetentionFilter": {
-        "filterId": {
+    "v2.GetApmRetentionFilter": {"filterId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RetentionFilterResponse",
     },
-    "v2.UpdateApmRetentionFilter": {
-        "filterId": {
+    "v2.UpdateApmRetentionFilter": {"filterId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "RetentionFilterUpdateRequest",
             "format": "",
             },
         "operationResponseType": "RetentionFilterResponse",
     },
-    "v2.DeleteApps": {
-        "body": {
-            "type": "DeleteAppsRequest",
-            "format": "",
-            },
-        "operationResponseType": "DeleteAppsResponse",
-    },
-    "v2.ListApps": {
-        "limit": {
-            "type": "number",
-            "format": "int64",
-            },
-        "page": {
-            "type": "number",
-            "format": "int64",
-            },
-        "filterUserName": {
+    "v2.DeleteApmRetentionFilter": {"filterId": {
             "type": "string",
             "format": "",
             },
-        "filterUserUuid": {
+        "operationResponseType": "{}",
+    },
+    "v2.ListApps": {"limit": {
+            "type": "number",
+            "format": "int64",
+            },"page": {
+            "type": "number",
+            "format": "int64",
+            },"filterUserName": {
+            "type": "string",
+            "format": "",
+            },"filterUserUuid": {
             "type": "string",
             "format": "uuid",
-            },
-        "filterName": {
+            },"filterName": {
             "type": "string",
             "format": "",
-            },
-        "filterQuery": {
+            },"filterQuery": {
             "type": "string",
             "format": "",
-            },
-        "filterDeployed": {
+            },"filterDeployed": {
             "type": "boolean",
             "format": "",
-            },
-        "filterTags": {
+            },"filterTags": {
             "type": "string",
             "format": "",
-            },
-        "filterFavorite": {
+            },"filterFavorite": {
             "type": "boolean",
             "format": "",
-            },
-        "filterSelfService": {
+            },"filterSelfService": {
             "type": "boolean",
             "format": "",
-            },
-        "sort": {
+            },"sort": {
             "type": "Array<AppsSortField>",
             "format": "",
             },
         "operationResponseType": "ListAppsResponse",
     },
-    "v2.CreateApp": {
-        "body": {
+    "v2.CreateApp": {"body": {
             "type": "CreateAppRequest",
             "format": "",
             },
         "operationResponseType": "CreateAppResponse",
     },
-    "v2.DeleteApp": {
-        "appId": {
-            "type": "string",
-            "format": "uuid",
+    "v2.DeleteApps": {"body": {
+            "type": "DeleteAppsRequest",
+            "format": "",
             },
-        "operationResponseType": "DeleteAppResponse",
+        "operationResponseType": "DeleteAppsResponse",
     },
-    "v2.GetApp": {
-        "appId": {
+    "v2.GetApp": {"appId": {
             "type": "string",
             "format": "uuid",
-            },
-        "version": {
+            },"version": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "GetAppResponse",
     },
-    "v2.UpdateApp": {
-        "appId": {
+    "v2.DeleteApp": {"appId": {
             "type": "string",
             "format": "uuid",
             },
-        "body": {
+        "operationResponseType": "DeleteAppResponse",
+    },
+    "v2.UpdateApp": {"appId": {
+            "type": "string",
+            "format": "uuid",
+            },"body": {
             "type": "UpdateAppRequest",
             "format": "",
             },
         "operationResponseType": "UpdateAppResponse",
     },
-    "v2.UnpublishApp": {
-        "appId": {
-            "type": "string",
-            "format": "uuid",
-            },
-        "operationResponseType": "UnpublishAppResponse",
-    },
-    "v2.PublishApp": {
-        "appId": {
+    "v2.PublishApp": {"appId": {
             "type": "string",
             "format": "uuid",
             },
         "operationResponseType": "PublishAppResponse",
     },
-    "v2.ListAuditLogs": {
-        "filterQuery": {
+    "v2.UnpublishApp": {"appId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "UnpublishAppResponse",
+    },
+    "v2.ListAuditLogs": {"filterQuery": {
             "type": "string",
             "format": "",
-            },
-        "filterFrom": {
+            },"filterFrom": {
             "type": "Date",
             "format": "date-time",
-            },
-        "filterTo": {
+            },"filterTo": {
             "type": "Date",
             "format": "date-time",
-            },
-        "sort": {
+            },"sort": {
             "type": "AuditLogsSort",
             "format": "",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "AuditLogsEventsResponse",
     },
-    "v2.SearchAuditLogs": {
-        "body": {
+    "v2.SearchAuditLogs": {"body": {
             "type": "AuditLogsSearchEventsRequest",
             "format": "",
             },
         "operationResponseType": "AuditLogsEventsResponse",
     },
-    "v2.ListAuthNMappings": {
-        "pageSize": {
+    "v2.ListAuthNMappings": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "AuthNMappingsSort",
             "format": "",
-            },
-        "filter": {
+            },"filter": {
             "type": "string",
             "format": "",
-            },
-        "resourceType": {
+            },"resourceType": {
             "type": "AuthNMappingResourceType",
             "format": "",
             },
         "operationResponseType": "AuthNMappingsResponse",
     },
-    "v2.CreateAuthNMapping": {
-        "body": {
+    "v2.CreateAuthNMapping": {"body": {
             "type": "AuthNMappingCreateRequest",
             "format": "",
             },
         "operationResponseType": "AuthNMappingResponse",
     },
-    "v2.DeleteAuthNMapping": {
-        "authnMappingId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetAuthNMapping": {
-        "authnMappingId": {
+    "v2.GetAuthNMapping": {"authnMappingId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "AuthNMappingResponse",
     },
-    "v2.UpdateAuthNMapping": {
-        "authnMappingId": {
+    "v2.DeleteAuthNMapping": {"authnMappingId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAuthNMapping": {"authnMappingId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "AuthNMappingUpdateRequest",
             "format": "",
             },
         "operationResponseType": "AuthNMappingResponse",
     },
-    "v2.SearchCases": {
-        "pageSize": {
+    "v2.SearchCases": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sortField": {
+            },"sortField": {
             "type": "CaseSortableField",
             "format": "",
-            },
-        "filter": {
+            },"filter": {
             "type": "string",
             "format": "",
-            },
-        "sortAsc": {
+            },"sortAsc": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "CasesResponse",
     },
-    "v2.CreateCase": {
-        "body": {
+    "v2.CreateCase": {"body": {
             "type": "CaseCreateRequest",
             "format": "",
             },
@@ -3009,806 +2480,640 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetProjects": {
         "operationResponseType": "ProjectsResponse",
     },
-    "v2.CreateProject": {
-        "body": {
+    "v2.CreateProject": {"body": {
             "type": "ProjectCreateRequest",
             "format": "",
             },
         "operationResponseType": "ProjectResponse",
     },
-    "v2.DeleteProject": {
-        "projectId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetProject": {
-        "projectId": {
+    "v2.GetProject": {"projectId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ProjectResponse",
     },
-    "v2.GetCase": {
-        "caseId": {
+    "v2.DeleteProject": {"projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.GetCase": {"caseId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CaseResponse",
     },
-    "v2.ArchiveCase": {
-        "caseId": {
+    "v2.ArchiveCase": {"caseId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "CaseEmptyRequest",
             "format": "",
             },
         "operationResponseType": "CaseResponse",
     },
-    "v2.AssignCase": {
-        "caseId": {
+    "v2.AssignCase": {"caseId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "CaseAssignRequest",
             "format": "",
             },
         "operationResponseType": "CaseResponse",
     },
-    "v2.UpdatePriority": {
-        "caseId": {
+    "v2.UpdatePriority": {"caseId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "CaseUpdatePriorityRequest",
             "format": "",
             },
         "operationResponseType": "CaseResponse",
     },
-    "v2.UpdateStatus": {
-        "caseId": {
+    "v2.UpdateStatus": {"caseId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "CaseUpdateStatusRequest",
             "format": "",
             },
         "operationResponseType": "CaseResponse",
     },
-    "v2.UnarchiveCase": {
-        "caseId": {
+    "v2.UnarchiveCase": {"caseId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "CaseEmptyRequest",
             "format": "",
             },
         "operationResponseType": "CaseResponse",
     },
-    "v2.UnassignCase": {
-        "caseId": {
+    "v2.UnassignCase": {"caseId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "CaseEmptyRequest",
             "format": "",
             },
         "operationResponseType": "CaseResponse",
     },
-    "v2.ListCatalogEntity": {
-        "pageOffset": {
+    "v2.ListCatalogEntity": {"pageOffset": {
             "type": "number",
             "format": "int64",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int64",
-            },
-        "filterId": {
+            },"filterId": {
             "type": "string",
             "format": "",
-            },
-        "filterRef": {
+            },"filterRef": {
             "type": "string",
             "format": "",
-            },
-        "filterName": {
+            },"filterName": {
             "type": "string",
             "format": "",
-            },
-        "filterKind": {
+            },"filterKind": {
             "type": "string",
             "format": "",
-            },
-        "filterOwner": {
+            },"filterOwner": {
             "type": "string",
             "format": "",
-            },
-        "filterRelationType": {
+            },"filterRelationType": {
             "type": "RelationType",
             "format": "",
-            },
-        "filterExcludeSnapshot": {
+            },"filterExcludeSnapshot": {
             "type": "string",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "IncludeType",
             "format": "",
             },
         "operationResponseType": "ListEntityCatalogResponse",
     },
-    "v2.UpsertCatalogEntity": {
-        "body": {
+    "v2.UpsertCatalogEntity": {"body": {
             "type": "UpsertCatalogEntityRequest",
             "format": "",
             },
         "operationResponseType": "UpsertCatalogEntityResponse",
     },
-    "v2.DeleteCatalogEntity": {
-        "entityId": {
+    "v2.DeleteCatalogEntity": {"entityId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.ListCatalogKind": {
-        "pageOffset": {
+    "v2.ListCatalogKind": {"pageOffset": {
             "type": "number",
             "format": "int64",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int64",
-            },
-        "filterId": {
+            },"filterId": {
             "type": "string",
             "format": "",
-            },
-        "filterName": {
+            },"filterName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ListKindCatalogResponse",
     },
-    "v2.UpsertCatalogKind": {
-        "body": {
+    "v2.UpsertCatalogKind": {"body": {
             "type": "UpsertCatalogKindRequest",
             "format": "",
             },
         "operationResponseType": "UpsertCatalogKindResponse",
     },
-    "v2.DeleteCatalogKind": {
-        "kindId": {
+    "v2.DeleteCatalogKind": {"kindId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.ListCatalogRelation": {
-        "pageOffset": {
+    "v2.ListCatalogRelation": {"pageOffset": {
             "type": "number",
             "format": "int64",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int64",
-            },
-        "filterType": {
+            },"filterType": {
             "type": "RelationType",
             "format": "",
-            },
-        "filterFromRef": {
+            },"filterFromRef": {
             "type": "string",
             "format": "",
-            },
-        "filterToRef": {
+            },"filterToRef": {
             "type": "string",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "RelationIncludeType",
             "format": "",
             },
         "operationResponseType": "ListRelationCatalogResponse",
     },
-    "v2.CreateCIAppPipelineEvent": {
-        "body": {
+    "v2.CreateCIAppPipelineEvent": {"body": {
             "type": "CIAppCreatePipelineEventRequest",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v2.AggregateCIAppPipelineEvents": {
-        "body": {
+    "v2.AggregateCIAppPipelineEvents": {"body": {
             "type": "CIAppPipelinesAggregateRequest",
             "format": "",
             },
         "operationResponseType": "CIAppPipelinesAnalyticsAggregateResponse",
     },
-    "v2.ListCIAppPipelineEvents": {
-        "filterQuery": {
+    "v2.ListCIAppPipelineEvents": {"filterQuery": {
             "type": "string",
             "format": "",
-            },
-        "filterFrom": {
+            },"filterFrom": {
             "type": "Date",
             "format": "date-time",
-            },
-        "filterTo": {
+            },"filterTo": {
             "type": "Date",
             "format": "date-time",
-            },
-        "sort": {
+            },"sort": {
             "type": "CIAppSort",
             "format": "",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "CIAppPipelineEventsResponse",
     },
-    "v2.SearchCIAppPipelineEvents": {
-        "body": {
+    "v2.SearchCIAppPipelineEvents": {"body": {
             "type": "CIAppPipelineEventsRequest",
             "format": "",
             },
         "operationResponseType": "CIAppPipelineEventsResponse",
     },
-    "v2.AggregateCIAppTestEvents": {
-        "body": {
+    "v2.AggregateCIAppTestEvents": {"body": {
             "type": "CIAppTestsAggregateRequest",
             "format": "",
             },
         "operationResponseType": "CIAppTestsAnalyticsAggregateResponse",
     },
-    "v2.ListCIAppTestEvents": {
-        "filterQuery": {
+    "v2.ListCIAppTestEvents": {"filterQuery": {
             "type": "string",
             "format": "",
-            },
-        "filterFrom": {
+            },"filterFrom": {
             "type": "Date",
             "format": "date-time",
-            },
-        "filterTo": {
+            },"filterTo": {
             "type": "Date",
             "format": "date-time",
-            },
-        "sort": {
+            },"sort": {
             "type": "CIAppSort",
             "format": "",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "CIAppTestEventsResponse",
     },
-    "v2.SearchCIAppTestEvents": {
-        "body": {
+    "v2.SearchCIAppTestEvents": {"body": {
             "type": "CIAppTestEventsRequest",
             "format": "",
             },
         "operationResponseType": "CIAppTestEventsResponse",
     },
-    "v2.CreateCustomFramework": {
-        "body": {
+    "v2.CreateCustomFramework": {"body": {
             "type": "CreateCustomFrameworkRequest",
             "format": "",
             },
         "operationResponseType": "CreateCustomFrameworkResponse",
     },
-    "v2.DeleteCustomFramework": {
-        "handle": {
+    "v2.GetCustomFramework": {"handle": {
             "type": "string",
             "format": "",
-            },
-        "version": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "DeleteCustomFrameworkResponse",
-    },
-    "v2.GetCustomFramework": {
-        "handle": {
-            "type": "string",
-            "format": "",
-            },
-        "version": {
+            },"version": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "GetCustomFrameworkResponse",
     },
-    "v2.UpdateCustomFramework": {
-        "handle": {
+    "v2.UpdateCustomFramework": {"handle": {
             "type": "string",
             "format": "",
-            },
-        "version": {
+            },"version": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "UpdateCustomFrameworkRequest",
             "format": "",
             },
         "operationResponseType": "UpdateCustomFrameworkResponse",
     },
-    "v2.GetResourceEvaluationFilters": {
-        "cloudProvider": {
+    "v2.DeleteCustomFramework": {"handle": {
+            "type": "string",
+            "format": "",
+            },"version": {
             "type": "string",
             "format": "",
             },
-        "accountId": {
+        "operationResponseType": "DeleteCustomFrameworkResponse",
+    },
+    "v2.GetResourceEvaluationFilters": {"cloudProvider": {
             "type": "string",
             "format": "",
-            },
-        "skipCache": {
+            },"accountId": {
+            "type": "string",
+            "format": "",
+            },"skipCache": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "GetResourceEvaluationFiltersResponse",
     },
-    "v2.UpdateResourceEvaluationFilters": {
-        "body": {
+    "v2.UpdateResourceEvaluationFilters": {"body": {
             "type": "UpdateResourceEvaluationFiltersRequest",
             "format": "",
             },
         "operationResponseType": "UpdateResourceEvaluationFiltersResponse",
     },
-    "v2.ListFindings": {
-        "pageLimit": {
+    "v2.ListFindings": {"pageLimit": {
             "type": "number",
             "format": "int64",
-            },
-        "snapshotTimestamp": {
+            },"snapshotTimestamp": {
             "type": "number",
             "format": "int64",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
-            },
-        "filterTags": {
+            },"filterTags": {
             "type": "string",
             "format": "",
-            },
-        "filterEvaluationChangedAt": {
+            },"filterEvaluationChangedAt": {
             "type": "string",
             "format": "",
-            },
-        "filterMuted": {
+            },"filterMuted": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRuleId": {
+            },"filterRuleId": {
             "type": "string",
             "format": "",
-            },
-        "filterRuleName": {
+            },"filterRuleName": {
             "type": "string",
             "format": "",
-            },
-        "filterResourceType": {
+            },"filterResourceType": {
             "type": "string",
             "format": "",
-            },
-        "filterDiscoveryTimestamp": {
+            },"filterDiscoveryTimestamp": {
             "type": "string",
             "format": "",
-            },
-        "filterEvaluation": {
+            },"filterEvaluation": {
             "type": "FindingEvaluation",
             "format": "",
-            },
-        "filterStatus": {
+            },"filterStatus": {
             "type": "FindingStatus",
             "format": "",
-            },
-        "filterVulnerabilityType": {
+            },"filterVulnerabilityType": {
             "type": "Array<FindingVulnerabilityType>",
             "format": "",
-            },
-        "detailedFindings": {
+            },"detailedFindings": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "ListFindingsResponse",
     },
-    "v2.MuteFindings": {
-        "body": {
+    "v2.MuteFindings": {"body": {
             "type": "BulkMuteFindingsRequest",
             "format": "",
             },
         "operationResponseType": "BulkMuteFindingsResponse",
     },
-    "v2.GetFinding": {
-        "findingId": {
+    "v2.GetFinding": {"findingId": {
             "type": "string",
             "format": "",
-            },
-        "snapshotTimestamp": {
+            },"snapshotTimestamp": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "GetFindingResponse",
     },
-    "v2.ListVulnerableAssets": {
-        "pageToken": {
+    "v2.ListVulnerableAssets": {"pageToken": {
             "type": "string",
             "format": "",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "filterName": {
+            },"filterName": {
             "type": "string",
             "format": "",
-            },
-        "filterType": {
+            },"filterType": {
             "type": "AssetType",
             "format": "",
-            },
-        "filterVersionFirst": {
+            },"filterVersionFirst": {
             "type": "string",
             "format": "",
-            },
-        "filterVersionLast": {
+            },"filterVersionLast": {
             "type": "string",
             "format": "",
-            },
-        "filterRepositoryUrl": {
+            },"filterRepositoryUrl": {
             "type": "string",
             "format": "",
-            },
-        "filterRisksInProduction": {
+            },"filterRisksInProduction": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRisksUnderAttack": {
+            },"filterRisksUnderAttack": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRisksIsPubliclyAccessible": {
+            },"filterRisksIsPubliclyAccessible": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRisksHasPrivilegedAccess": {
+            },"filterRisksHasPrivilegedAccess": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRisksHasAccessToSensitiveData": {
+            },"filterRisksHasAccessToSensitiveData": {
             "type": "boolean",
             "format": "",
-            },
-        "filterEnvironments": {
+            },"filterEnvironments": {
             "type": "string",
             "format": "",
-            },
-        "filterTeams": {
+            },"filterTeams": {
             "type": "string",
             "format": "",
-            },
-        "filterArch": {
+            },"filterArch": {
             "type": "string",
             "format": "",
-            },
-        "filterOperatingSystemName": {
+            },"filterOperatingSystemName": {
             "type": "string",
             "format": "",
-            },
-        "filterOperatingSystemVersion": {
+            },"filterOperatingSystemVersion": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ListVulnerableAssetsResponse",
     },
-    "v2.ListAssetsSBOMs": {
-        "pageToken": {
+    "v2.ListAssetsSBOMs": {"pageToken": {
             "type": "string",
             "format": "",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "filterAssetType": {
+            },"filterAssetType": {
             "type": "AssetType",
             "format": "",
-            },
-        "filterAssetName": {
+            },"filterAssetName": {
             "type": "string",
             "format": "",
-            },
-        "filterPackageName": {
+            },"filterPackageName": {
             "type": "string",
             "format": "",
-            },
-        "filterPackageVersion": {
+            },"filterPackageVersion": {
             "type": "string",
             "format": "",
-            },
-        "filterLicenseName": {
+            },"filterLicenseName": {
             "type": "string",
             "format": "",
-            },
-        "filterLicenseType": {
+            },"filterLicenseType": {
             "type": "SBOMComponentLicenseType",
             "format": "",
             },
         "operationResponseType": "ListAssetsSBOMsResponse",
     },
-    "v2.GetSBOM": {
-        "assetType": {
+    "v2.GetSBOM": {"assetType": {
             "type": "AssetType",
             "format": "",
-            },
-        "filterAssetName": {
+            },"filterAssetName": {
             "type": "string",
             "format": "",
-            },
-        "filterRepoDigest": {
+            },"filterRepoDigest": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "GetSBOMResponse",
     },
     "v2.GetSignalNotificationRules": {
-        "operationResponseType": "any",
+        "operationResponseType": "NotificationRulesList",
     },
-    "v2.CreateSignalNotificationRule": {
-        "body": {
+    "v2.CreateSignalNotificationRule": {"body": {
             "type": "CreateNotificationRuleParameters",
             "format": "",
             },
         "operationResponseType": "NotificationRuleResponse",
     },
-    "v2.DeleteSignalNotificationRule": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetSignalNotificationRule": {
-        "id": {
+    "v2.GetSignalNotificationRule": {"id": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "NotificationRuleResponse",
     },
-    "v2.PatchSignalNotificationRule": {
-        "id": {
+    "v2.DeleteSignalNotificationRule": {"id": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.PatchSignalNotificationRule": {"id": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "PatchNotificationRuleParameters",
             "format": "",
             },
         "operationResponseType": "NotificationRuleResponse",
     },
-    "v2.ListVulnerabilities": {
-        "pageToken": {
+    "v2.ListVulnerabilities": {"pageToken": {
             "type": "string",
             "format": "",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "filterType": {
+            },"filterType": {
             "type": "VulnerabilityType",
             "format": "",
-            },
-        "filterCvssBaseScoreOp": {
+            },"filterCvssBaseScoreOp": {
             "type": "number",
             "format": "double",
-            },
-        "filterCvssBaseSeverity": {
+            },"filterCvssBaseSeverity": {
             "type": "VulnerabilitySeverity",
             "format": "",
-            },
-        "filterCvssBaseVector": {
+            },"filterCvssBaseVector": {
             "type": "string",
             "format": "",
-            },
-        "filterCvssDatadogScoreOp": {
+            },"filterCvssDatadogScoreOp": {
             "type": "number",
             "format": "double",
-            },
-        "filterCvssDatadogSeverity": {
+            },"filterCvssDatadogSeverity": {
             "type": "VulnerabilitySeverity",
             "format": "",
-            },
-        "filterCvssDatadogVector": {
+            },"filterCvssDatadogVector": {
             "type": "string",
             "format": "",
-            },
-        "filterStatus": {
+            },"filterStatus": {
             "type": "VulnerabilityStatus",
             "format": "",
-            },
-        "filterTool": {
+            },"filterTool": {
             "type": "VulnerabilityTool",
             "format": "",
-            },
-        "filterLibraryName": {
+            },"filterLibraryName": {
             "type": "string",
             "format": "",
-            },
-        "filterLibraryVersion": {
+            },"filterLibraryVersion": {
             "type": "string",
             "format": "",
-            },
-        "filterAdvisoryId": {
+            },"filterAdvisoryId": {
             "type": "string",
             "format": "",
-            },
-        "filterRisksExploitationProbability": {
+            },"filterRisksExploitationProbability": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRisksPocExploitAvailable": {
+            },"filterRisksPocExploitAvailable": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRisksExploitAvailable": {
+            },"filterRisksExploitAvailable": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRisksEpssScoreOp": {
+            },"filterRisksEpssScoreOp": {
             "type": "number",
             "format": "double",
-            },
-        "filterRisksEpssSeverity": {
+            },"filterRisksEpssSeverity": {
             "type": "VulnerabilitySeverity",
             "format": "",
-            },
-        "filterLanguage": {
+            },"filterLanguage": {
             "type": "string",
             "format": "",
-            },
-        "filterEcosystem": {
+            },"filterEcosystem": {
             "type": "VulnerabilityEcosystem",
             "format": "",
-            },
-        "filterCodeLocationLocation": {
+            },"filterCodeLocationLocation": {
             "type": "string",
             "format": "",
-            },
-        "filterCodeLocationFilePath": {
+            },"filterCodeLocationFilePath": {
             "type": "string",
             "format": "",
-            },
-        "filterCodeLocationMethod": {
+            },"filterCodeLocationMethod": {
             "type": "string",
             "format": "",
-            },
-        "filterFixAvailable": {
+            },"filterFixAvailable": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRepoDigests": {
+            },"filterRepoDigests": {
             "type": "string",
             "format": "",
-            },
-        "filterOrigin": {
+            },"filterOrigin": {
             "type": "string",
             "format": "",
-            },
-        "filterAssetName": {
+            },"filterAssetName": {
             "type": "string",
             "format": "",
-            },
-        "filterAssetType": {
+            },"filterAssetType": {
             "type": "AssetType",
             "format": "",
-            },
-        "filterAssetVersionFirst": {
+            },"filterAssetVersionFirst": {
             "type": "string",
             "format": "",
-            },
-        "filterAssetVersionLast": {
+            },"filterAssetVersionLast": {
             "type": "string",
             "format": "",
-            },
-        "filterAssetRepositoryUrl": {
+            },"filterAssetRepositoryUrl": {
             "type": "string",
             "format": "",
-            },
-        "filterAssetRisksInProduction": {
+            },"filterAssetRisksInProduction": {
             "type": "boolean",
             "format": "",
-            },
-        "filterAssetRisksUnderAttack": {
+            },"filterAssetRisksUnderAttack": {
             "type": "boolean",
             "format": "",
-            },
-        "filterAssetRisksIsPubliclyAccessible": {
+            },"filterAssetRisksIsPubliclyAccessible": {
             "type": "boolean",
             "format": "",
-            },
-        "filterAssetRisksHasPrivilegedAccess": {
+            },"filterAssetRisksHasPrivilegedAccess": {
             "type": "boolean",
             "format": "",
-            },
-        "filterAssetRisksHasAccessToSensitiveData": {
+            },"filterAssetRisksHasAccessToSensitiveData": {
             "type": "boolean",
             "format": "",
-            },
-        "filterAssetEnvironments": {
+            },"filterAssetEnvironments": {
             "type": "string",
             "format": "",
-            },
-        "filterAssetTeams": {
+            },"filterAssetTeams": {
             "type": "string",
             "format": "",
-            },
-        "filterAssetArch": {
+            },"filterAssetArch": {
             "type": "string",
             "format": "",
-            },
-        "filterAssetOperatingSystemName": {
+            },"filterAssetOperatingSystemName": {
             "type": "string",
             "format": "",
-            },
-        "filterAssetOperatingSystemVersion": {
+            },"filterAssetOperatingSystemVersion": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ListVulnerabilitiesResponse",
     },
     "v2.GetVulnerabilityNotificationRules": {
-        "operationResponseType": "any",
+        "operationResponseType": "NotificationRulesList",
     },
-    "v2.CreateVulnerabilityNotificationRule": {
-        "body": {
+    "v2.CreateVulnerabilityNotificationRule": {"body": {
             "type": "CreateNotificationRuleParameters",
             "format": "",
             },
         "operationResponseType": "NotificationRuleResponse",
     },
-    "v2.DeleteVulnerabilityNotificationRule": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetVulnerabilityNotificationRule": {
-        "id": {
+    "v2.GetVulnerabilityNotificationRule": {"id": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "NotificationRuleResponse",
     },
-    "v2.PatchVulnerabilityNotificationRule": {
-        "id": {
+    "v2.DeleteVulnerabilityNotificationRule": {"id": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.PatchVulnerabilityNotificationRule": {"id": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "PatchNotificationRuleParameters",
             "format": "",
             },
@@ -3817,33 +3122,28 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListSecurityFilters": {
         "operationResponseType": "SecurityFiltersResponse",
     },
-    "v2.CreateSecurityFilter": {
-        "body": {
+    "v2.CreateSecurityFilter": {"body": {
             "type": "SecurityFilterCreateRequest",
             "format": "",
             },
         "operationResponseType": "SecurityFilterResponse",
     },
-    "v2.DeleteSecurityFilter": {
-        "securityFilterId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetSecurityFilter": {
-        "securityFilterId": {
+    "v2.GetSecurityFilter": {"securityFilterId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SecurityFilterResponse",
     },
-    "v2.UpdateSecurityFilter": {
-        "securityFilterId": {
+    "v2.DeleteSecurityFilter": {"securityFilterId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateSecurityFilter": {"securityFilterId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "SecurityFilterUpdateRequest",
             "format": "",
             },
@@ -3852,304 +3152,250 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListSecurityMonitoringSuppressions": {
         "operationResponseType": "SecurityMonitoringSuppressionsResponse",
     },
-    "v2.CreateSecurityMonitoringSuppression": {
-        "body": {
+    "v2.CreateSecurityMonitoringSuppression": {"body": {
             "type": "SecurityMonitoringSuppressionCreateRequest",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSuppressionResponse",
     },
-    "v2.DeleteSecurityMonitoringSuppression": {
-        "suppressionId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetSecurityMonitoringSuppression": {
-        "suppressionId": {
+    "v2.GetSecurityMonitoringSuppression": {"suppressionId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSuppressionResponse",
     },
-    "v2.UpdateSecurityMonitoringSuppression": {
-        "suppressionId": {
+    "v2.DeleteSecurityMonitoringSuppression": {"suppressionId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateSecurityMonitoringSuppression": {"suppressionId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "SecurityMonitoringSuppressionUpdateRequest",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSuppressionResponse",
     },
-    "v2.ListSecurityMonitoringRules": {
-        "pageSize": {
+    "v2.ListSecurityMonitoringRules": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "SecurityMonitoringListRulesResponse",
     },
-    "v2.CreateSecurityMonitoringRule": {
-        "body": {
+    "v2.CreateSecurityMonitoringRule": {"body": {
             "type": "SecurityMonitoringRuleCreatePayload",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
     },
-    "v2.ConvertSecurityMonitoringRuleFromJSONToTerraform": {
-        "body": {
+    "v2.ConvertSecurityMonitoringRuleFromJSONToTerraform": {"body": {
             "type": "SecurityMonitoringRuleConvertPayload",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleConvertResponse",
     },
-    "v2.TestSecurityMonitoringRule": {
-        "body": {
+    "v2.TestSecurityMonitoringRule": {"body": {
             "type": "SecurityMonitoringRuleTestRequest",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleTestResponse",
     },
-    "v2.ValidateSecurityMonitoringRule": {
-        "body": {
+    "v2.ValidateSecurityMonitoringRule": {"body": {
             "type": "SecurityMonitoringRuleValidatePayload",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.DeleteSecurityMonitoringRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetSecurityMonitoringRule": {
-        "ruleId": {
+    "v2.GetSecurityMonitoringRule": {"ruleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
     },
-    "v2.UpdateSecurityMonitoringRule": {
-        "ruleId": {
+    "v2.UpdateSecurityMonitoringRule": {"ruleId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SecurityMonitoringRuleUpdatePayload",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
     },
-    "v2.ConvertExistingSecurityMonitoringRule": {
-        "ruleId": {
+    "v2.DeleteSecurityMonitoringRule": {"ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ConvertExistingSecurityMonitoringRule": {"ruleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleConvertResponse",
     },
-    "v2.TestExistingSecurityMonitoringRule": {
-        "ruleId": {
+    "v2.TestExistingSecurityMonitoringRule": {"ruleId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SecurityMonitoringRuleTestRequest",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleTestResponse",
     },
-    "v2.GetRuleVersionHistory": {
-        "ruleId": {
+    "v2.GetRuleVersionHistory": {"ruleId": {
             "type": "string",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "GetRuleVersionHistoryResponse",
     },
-    "v2.ListSecurityMonitoringSignals": {
-        "filterQuery": {
+    "v2.ListSecurityMonitoringSignals": {"filterQuery": {
             "type": "string",
             "format": "",
-            },
-        "filterFrom": {
+            },"filterFrom": {
             "type": "Date",
             "format": "date-time",
-            },
-        "filterTo": {
+            },"filterTo": {
             "type": "Date",
             "format": "date-time",
-            },
-        "sort": {
+            },"sort": {
             "type": "SecurityMonitoringSignalsSort",
             "format": "",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "SecurityMonitoringSignalsListResponse",
     },
-    "v2.SearchSecurityMonitoringSignals": {
-        "body": {
+    "v2.SearchSecurityMonitoringSignals": {"body": {
             "type": "SecurityMonitoringSignalListRequest",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSignalsListResponse",
     },
-    "v2.GetSecurityMonitoringSignal": {
-        "signalId": {
+    "v2.GetSecurityMonitoringSignal": {"signalId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSignalResponse",
     },
-    "v2.EditSecurityMonitoringSignalAssignee": {
-        "signalId": {
+    "v2.EditSecurityMonitoringSignalAssignee": {"signalId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SecurityMonitoringSignalAssigneeUpdateRequest",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
-    "v2.EditSecurityMonitoringSignalIncidents": {
-        "signalId": {
+    "v2.EditSecurityMonitoringSignalIncidents": {"signalId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SecurityMonitoringSignalIncidentsUpdateRequest",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
-    "v2.EditSecurityMonitoringSignalState": {
-        "signalId": {
+    "v2.EditSecurityMonitoringSignalState": {"signalId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SecurityMonitoringSignalStateUpdateRequest",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
-    "v2.ListHistoricalJobs": {
-        "pageSize": {
+    "v2.ListHistoricalJobs": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "string",
             "format": "",
-            },
-        "filterQuery": {
+            },"filterQuery": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ListHistoricalJobsResponse",
     },
-    "v2.RunHistoricalJob": {
-        "body": {
+    "v2.RunHistoricalJob": {"body": {
             "type": "RunHistoricalJobRequest",
             "format": "",
             },
         "operationResponseType": "JobCreateResponse",
     },
-    "v2.ConvertJobResultToSignal": {
-        "body": {
+    "v2.ConvertJobResultToSignal": {"body": {
             "type": "ConvertJobResultsToSignalsRequest",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.DeleteHistoricalJob": {
-        "jobId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetHistoricalJob": {
-        "jobId": {
+    "v2.GetHistoricalJob": {"jobId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "HistoricalJobResponse",
     },
-    "v2.CancelHistoricalJob": {
-        "jobId": {
+    "v2.DeleteHistoricalJob": {"jobId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.ListContainerImages": {
-        "filterTags": {
+    "v2.CancelHistoricalJob": {"jobId": {
             "type": "string",
             "format": "",
             },
-        "groupBy": {
+        "operationResponseType": "{}",
+    },
+    "v2.ListContainerImages": {"filterTags": {
             "type": "string",
             "format": "",
-            },
-        "sort": {
+            },"groupBy": {
             "type": "string",
             "format": "",
-            },
-        "pageSize": {
+            },"sort": {
+            "type": "string",
+            "format": "",
+            },"pageSize": {
             "type": "number",
             "format": "int32",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ContainerImagesResponse",
     },
-    "v2.ListContainers": {
-        "filterTags": {
+    "v2.ListContainers": {"filterTags": {
             "type": "string",
             "format": "",
-            },
-        "groupBy": {
+            },"groupBy": {
             "type": "string",
             "format": "",
-            },
-        "sort": {
+            },"sort": {
             "type": "string",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int32",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
             },
@@ -4158,26 +3404,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListCostAWSCURConfigs": {
         "operationResponseType": "AwsCURConfigsResponse",
     },
-    "v2.CreateCostAWSCURConfig": {
-        "body": {
+    "v2.CreateCostAWSCURConfig": {"body": {
             "type": "AwsCURConfigPostRequest",
             "format": "",
             },
         "operationResponseType": "AwsCURConfigResponse",
     },
-    "v2.DeleteCostAWSCURConfig": {
-        "cloudAccountId": {
+    "v2.DeleteCostAWSCURConfig": {"cloudAccountId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.UpdateCostAWSCURConfig": {
-        "cloudAccountId": {
+    "v2.UpdateCostAWSCURConfig": {"cloudAccountId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "AwsCURConfigPatchRequest",
             "format": "",
             },
@@ -4186,51 +3428,44 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListCostAzureUCConfigs": {
         "operationResponseType": "AzureUCConfigsResponse",
     },
-    "v2.CreateCostAzureUCConfigs": {
-        "body": {
+    "v2.CreateCostAzureUCConfigs": {"body": {
             "type": "AzureUCConfigPostRequest",
             "format": "",
             },
         "operationResponseType": "AzureUCConfigPairsResponse",
     },
-    "v2.DeleteCostAzureUCConfig": {
-        "cloudAccountId": {
+    "v2.DeleteCostAzureUCConfig": {"cloudAccountId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.UpdateCostAzureUCConfigs": {
-        "cloudAccountId": {
+    "v2.UpdateCostAzureUCConfigs": {"cloudAccountId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "AzureUCConfigPatchRequest",
             "format": "",
             },
         "operationResponseType": "AzureUCConfigPairsResponse",
     },
-    "v2.UpsertBudget": {
-        "body": {
+    "v2.UpsertBudget": {"body": {
             "type": "BudgetWithEntries",
             "format": "",
             },
         "operationResponseType": "BudgetWithEntries",
     },
-    "v2.DeleteBudget": {
-        "budgetId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetBudget": {
-        "budgetId": {
+    "v2.GetBudget": {"budgetId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "BudgetWithEntries",
+    },
+    "v2.DeleteBudget": {"budgetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListBudgets": {
         "operationResponseType": "BudgetArray",
@@ -4238,50 +3473,43 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListCustomCostsFiles": {
         "operationResponseType": "CustomCostsFileListResponse",
     },
-    "v2.UploadCustomCostsFile": {
-        "body": {
+    "v2.UploadCustomCostsFile": {"body": {
             "type": "Array<CustomCostsFileLineItem>",
             "format": "",
             },
         "operationResponseType": "CustomCostsFileUploadResponse",
     },
-    "v2.DeleteCustomCostsFile": {
-        "fileId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetCustomCostsFile": {
-        "fileId": {
+    "v2.GetCustomCostsFile": {"fileId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CustomCostsFileGetResponse",
     },
+    "v2.DeleteCustomCostsFile": {"fileId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListCostGCPUsageCostConfigs": {
         "operationResponseType": "GCPUsageCostConfigsResponse",
     },
-    "v2.CreateCostGCPUsageCostConfig": {
-        "body": {
+    "v2.CreateCostGCPUsageCostConfig": {"body": {
             "type": "GCPUsageCostConfigPostRequest",
             "format": "",
             },
         "operationResponseType": "GCPUsageCostConfigResponse",
     },
-    "v2.DeleteCostGCPUsageCostConfig": {
-        "cloudAccountId": {
+    "v2.DeleteCostGCPUsageCostConfig": {"cloudAccountId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.UpdateCostGCPUsageCostConfig": {
-        "cloudAccountId": {
+    "v2.UpdateCostGCPUsageCostConfig": {"cloudAccountId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "GCPUsageCostConfigPatchRequest",
             "format": "",
             },
@@ -4290,225 +3518,178 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetActiveBillingDimensions": {
         "operationResponseType": "ActiveBillingDimensionsResponse",
     },
-    "v2.GetMonthlyCostAttribution": {
-        "startMonth": {
+    "v2.GetMonthlyCostAttribution": {"startMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endMonth": {
+            },"endMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "fields": {
+            },"fields": {
             "type": "string",
             "format": "",
-            },
-        "sortDirection": {
+            },"sortDirection": {
             "type": "SortDirection",
             "format": "",
-            },
-        "sortName": {
+            },"sortName": {
             "type": "string",
             "format": "",
-            },
-        "tagBreakdownKeys": {
+            },"tagBreakdownKeys": {
             "type": "string",
             "format": "",
-            },
-        "nextRecordId": {
+            },"nextRecordId": {
             "type": "string",
             "format": "",
-            },
-        "includeDescendants": {
+            },"includeDescendants": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "MonthlyCostAttributionResponse",
     },
-    "v2.GetUsageApplicationSecurityMonitoring": {
-        "startHr": {
+    "v2.GetUsageApplicationSecurityMonitoring": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageApplicationSecurityMonitoringResponse",
     },
-    "v2.GetBillingDimensionMapping": {
-        "filterMonth": {
+    "v2.GetBillingDimensionMapping": {"filterMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "filterView": {
+            },"filterView": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "BillingDimensionsMappingResponse",
     },
-    "v2.GetCostByOrg": {
-        "startMonth": {
+    "v2.GetCostByOrg": {"startMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endMonth": {
+            },"endMonth": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "CostByOrgResponse",
     },
-    "v2.GetEstimatedCostByOrg": {
-        "view": {
+    "v2.GetEstimatedCostByOrg": {"view": {
             "type": "string",
             "format": "",
-            },
-        "startMonth": {
+            },"startMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endMonth": {
+            },"endMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "startDate": {
+            },"startDate": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endDate": {
+            },"endDate": {
             "type": "Date",
             "format": "date-time",
-            },
-        "includeConnectedAccounts": {
+            },"includeConnectedAccounts": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "CostByOrgResponse",
     },
-    "v2.GetHistoricalCostByOrg": {
-        "view": {
+    "v2.GetHistoricalCostByOrg": {"view": {
             "type": "string",
             "format": "",
-            },
-        "startMonth": {
+            },"startMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endMonth": {
+            },"endMonth": {
             "type": "Date",
             "format": "date-time",
-            },
-        "includeConnectedAccounts": {
+            },"includeConnectedAccounts": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "CostByOrgResponse",
     },
-    "v2.GetHourlyUsage": {
-        "filterTimestampStart": {
+    "v2.GetHourlyUsage": {"filterTimestampStart": {
             "type": "Date",
             "format": "date-time",
-            },
-        "filterTimestampEnd": {
+            },"filterTimestampEnd": {
             "type": "Date",
             "format": "date-time",
-            },
-        "filterProductFamilies": {
+            },"filterProductFamilies": {
             "type": "string",
             "format": "",
-            },
-        "filterIncludeDescendants": {
+            },"filterIncludeDescendants": {
             "type": "boolean",
             "format": "",
-            },
-        "filterIncludeConnectedAccounts": {
+            },"filterIncludeConnectedAccounts": {
             "type": "boolean",
             "format": "",
-            },
-        "filterIncludeBreakdown": {
+            },"filterIncludeBreakdown": {
             "type": "boolean",
             "format": "",
-            },
-        "filterVersions": {
+            },"filterVersions": {
             "type": "string",
             "format": "",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int32",
-            },
-        "pageNextRecordId": {
+            },"pageNextRecordId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "HourlyUsageResponse",
     },
-    "v2.GetUsageLambdaTracedInvocations": {
-        "startHr": {
+    "v2.GetUsageLambdaTracedInvocations": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageLambdaTracedInvocationsResponse",
     },
-    "v2.GetUsageObservabilityPipelines": {
-        "startHr": {
+    "v2.GetUsageObservabilityPipelines": {"startHr": {
             "type": "Date",
             "format": "date-time",
-            },
-        "endHr": {
+            },"endHr": {
             "type": "Date",
             "format": "date-time",
             },
         "operationResponseType": "UsageObservabilityPipelinesResponse",
     },
-    "v2.GetProjectedCost": {
-        "view": {
+    "v2.GetProjectedCost": {"view": {
             "type": "string",
             "format": "",
-            },
-        "includeConnectedAccounts": {
+            },"includeConnectedAccounts": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "ProjectedCostResponse",
     },
-    "v2.ListAllCSMAgents": {
-        "page": {
+    "v2.ListAllCSMAgents": {"page": {
             "type": "number",
             "format": "int32",
-            },
-        "size": {
+            },"size": {
             "type": "number",
             "format": "int32",
-            },
-        "query": {
+            },"query": {
             "type": "string",
             "format": "",
-            },
-        "orderDirection": {
+            },"orderDirection": {
             "type": "OrderDirection",
             "format": "",
             },
         "operationResponseType": "CsmAgentsResponse",
     },
-    "v2.ListAllCSMServerlessAgents": {
-        "page": {
+    "v2.ListAllCSMServerlessAgents": {"page": {
             "type": "number",
             "format": "int32",
-            },
-        "size": {
+            },"size": {
             "type": "number",
             "format": "int32",
-            },
-        "query": {
+            },"query": {
             "type": "string",
             "format": "",
-            },
-        "orderDirection": {
+            },"orderDirection": {
             "type": "OrderDirection",
             "format": "",
             },
@@ -4523,117 +3704,97 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetCSMServerlessCoverageAnalysis": {
         "operationResponseType": "CsmServerlessCoverageAnalysisResponse",
     },
-    "v2.DeleteDashboardListItems": {
-        "dashboardListId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "body": {
-            "type": "DashboardListDeleteItemsRequest",
-            "format": "",
-            },
-        "operationResponseType": "DashboardListDeleteItemsResponse",
-    },
-    "v2.GetDashboardListItems": {
-        "dashboardListId": {
+    "v2.GetDashboardListItems": {"dashboardListId": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "DashboardListItems",
     },
-    "v2.CreateDashboardListItems": {
-        "dashboardListId": {
+    "v2.UpdateDashboardListItems": {"dashboardListId": {
             "type": "number",
             "format": "int64",
-            },
-        "body": {
-            "type": "DashboardListAddItemsRequest",
-            "format": "",
-            },
-        "operationResponseType": "DashboardListAddItemsResponse",
-    },
-    "v2.UpdateDashboardListItems": {
-        "dashboardListId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "body": {
+            },"body": {
             "type": "DashboardListUpdateItemsRequest",
             "format": "",
             },
         "operationResponseType": "DashboardListUpdateItemsResponse",
     },
+    "v2.CreateDashboardListItems": {"dashboardListId": {
+            "type": "number",
+            "format": "int64",
+            },"body": {
+            "type": "DashboardListAddItemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DashboardListAddItemsResponse",
+    },
+    "v2.DeleteDashboardListItems": {"dashboardListId": {
+            "type": "number",
+            "format": "int64",
+            },"body": {
+            "type": "DashboardListDeleteItemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DashboardListDeleteItemsResponse",
+    },
     "v2.GetAllDatasets": {
         "operationResponseType": "DatasetResponseMulti",
     },
-    "v2.CreateDataset": {
-        "body": {
+    "v2.CreateDataset": {"body": {
             "type": "DatasetCreateRequest",
             "format": "",
             },
         "operationResponseType": "DatasetResponseSingle",
     },
-    "v2.DeleteDataset": {
-        "datasetId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetDataset": {
-        "datasetId": {
+    "v2.GetDataset": {"datasetId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "DatasetResponseSingle",
     },
-    "v2.UpdateDataset": {
-        "datasetId": {
+    "v2.UpdateDataset": {"datasetId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "DatasetUpdateRequest",
             "format": "",
             },
         "operationResponseType": "DatasetResponseSingle",
     },
-    "v2.CreateDataDeletionRequest": {
-        "product": {
+    "v2.DeleteDataset": {"datasetId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.CreateDataDeletionRequest": {"product": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "CreateDataDeletionRequestBody",
             "format": "",
             },
         "operationResponseType": "CreateDataDeletionResponseBody",
     },
-    "v2.GetDataDeletionRequests": {
-        "nextPage": {
+    "v2.GetDataDeletionRequests": {"nextPage": {
             "type": "string",
             "format": "",
-            },
-        "product": {
+            },"product": {
             "type": "string",
             "format": "",
-            },
-        "query": {
+            },"query": {
             "type": "string",
             "format": "",
-            },
-        "status": {
+            },"status": {
             "type": "string",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "GetDataDeletionsResponseBody",
     },
-    "v2.CancelDataDeletionRequest": {
-        "id": {
+    "v2.CancelDataDeletionRequest": {"id": {
             "type": "string",
             "format": "",
             },
@@ -4642,471 +3803,388 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetDomainAllowlist": {
         "operationResponseType": "DomainAllowlistResponse",
     },
-    "v2.PatchDomainAllowlist": {
-        "body": {
+    "v2.PatchDomainAllowlist": {"body": {
             "type": "DomainAllowlistRequest",
             "format": "",
             },
         "operationResponseType": "DomainAllowlistResponse",
     },
-    "v2.CreateDORADeployment": {
-        "body": {
+    "v2.CreateDORADeployment": {"body": {
             "type": "DORADeploymentRequest",
             "format": "",
             },
         "operationResponseType": "DORADeploymentResponse",
     },
-    "v2.ListDORADeployments": {
-        "body": {
+    "v2.ListDORADeployments": {"body": {
             "type": "DORAListDeploymentsRequest",
             "format": "",
             },
         "operationResponseType": "DORAListResponse",
     },
-    "v2.GetDORADeployment": {
-        "deploymentId": {
+    "v2.GetDORADeployment": {"deploymentId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "DORAFetchResponse",
     },
-    "v2.CreateDORAFailure": {
-        "body": {
+    "v2.CreateDORAFailure": {"body": {
             "type": "DORAFailureRequest",
             "format": "",
             },
         "operationResponseType": "DORAFailureResponse",
     },
-    "v2.ListDORAFailures": {
-        "body": {
+    "v2.ListDORAFailures": {"body": {
             "type": "DORAListFailuresRequest",
             "format": "",
             },
         "operationResponseType": "DORAListResponse",
     },
-    "v2.GetDORAFailure": {
-        "failureId": {
+    "v2.GetDORAFailure": {"failureId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "DORAFetchResponse",
     },
-    "v2.CreateDORAIncident": {
-        "body": {
+    "v2.CreateDORAIncident": {"body": {
             "type": "DORAFailureRequest",
             "format": "",
             },
         "operationResponseType": "DORAFailureResponse",
     },
-    "v2.ListDowntimes": {
-        "currentOnly": {
+    "v2.ListDowntimes": {"currentOnly": {
             "type": "boolean",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
-            },
-        "pageOffset": {
+            },"pageOffset": {
             "type": "number",
             "format": "int64",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "ListDowntimesResponse",
     },
-    "v2.CreateDowntime": {
-        "body": {
+    "v2.CreateDowntime": {"body": {
             "type": "DowntimeCreateRequest",
             "format": "",
             },
         "operationResponseType": "DowntimeResponse",
     },
-    "v2.CancelDowntime": {
-        "downtimeId": {
+    "v2.GetDowntime": {"downtimeId": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetDowntime": {
-        "downtimeId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "DowntimeResponse",
     },
-    "v2.UpdateDowntime": {
-        "downtimeId": {
+    "v2.CancelDowntime": {"downtimeId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateDowntime": {"downtimeId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "DowntimeUpdateRequest",
             "format": "",
             },
         "operationResponseType": "DowntimeResponse",
     },
-    "v2.ListMonitorDowntimes": {
-        "monitorId": {
+    "v2.ListMonitorDowntimes": {"monitorId": {
             "type": "number",
             "format": "int64",
-            },
-        "pageOffset": {
+            },"pageOffset": {
             "type": "number",
             "format": "int64",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "MonitorDowntimeMatchResponse",
     },
-    "v2.ListEvents": {
-        "filterQuery": {
+    "v2.ListEvents": {"filterQuery": {
             "type": "string",
             "format": "",
-            },
-        "filterFrom": {
+            },"filterFrom": {
             "type": "string",
             "format": "",
-            },
-        "filterTo": {
+            },"filterTo": {
             "type": "string",
             "format": "",
-            },
-        "sort": {
+            },"sort": {
             "type": "EventsSort",
             "format": "",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "EventsListResponse",
     },
-    "v2.CreateEvent": {
-        "body": {
+    "v2.CreateEvent": {"body": {
             "type": "EventCreateRequestPayload",
             "format": "",
             },
         "operationResponseType": "EventCreateResponsePayload",
     },
-    "v2.SearchEvents": {
-        "body": {
+    "v2.SearchEvents": {"body": {
             "type": "EventsListRequest",
             "format": "",
             },
         "operationResponseType": "EventsListResponse",
     },
-    "v2.GetEvent": {
-        "eventId": {
+    "v2.GetEvent": {"eventId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "V2EventResponse",
     },
-    "v2.ListIncidents": {
-        "include": {
+    "v2.ListIncidents": {"include": {
             "type": "Array<IncidentRelatedObject>",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageOffset": {
+            },"pageOffset": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "IncidentsResponse",
     },
-    "v2.CreateIncident": {
-        "body": {
+    "v2.CreateIncident": {"body": {
             "type": "IncidentCreateRequest",
             "format": "",
             },
         "operationResponseType": "IncidentResponse",
     },
-    "v2.ListIncidentTypes": {
-        "includeDeleted": {
+    "v2.ListIncidentTypes": {"includeDeleted": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "IncidentTypeListResponse",
     },
-    "v2.CreateIncidentType": {
-        "body": {
+    "v2.CreateIncidentType": {"body": {
             "type": "IncidentTypeCreateRequest",
             "format": "",
             },
         "operationResponseType": "IncidentTypeResponse",
     },
-    "v2.DeleteIncidentType": {
-        "incidentTypeId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetIncidentType": {
-        "incidentTypeId": {
+    "v2.GetIncidentType": {"incidentTypeId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "IncidentTypeResponse",
     },
-    "v2.UpdateIncidentType": {
-        "incidentTypeId": {
+    "v2.DeleteIncidentType": {"incidentTypeId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentType": {"incidentTypeId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "IncidentTypePatchRequest",
             "format": "",
             },
         "operationResponseType": "IncidentTypeResponse",
     },
-    "v2.SearchIncidents": {
-        "include": {
+    "v2.SearchIncidents": {"include": {
             "type": "IncidentRelatedObject",
             "format": "",
-            },
-        "query": {
+            },"query": {
             "type": "string",
             "format": "",
-            },
-        "sort": {
+            },"sort": {
             "type": "IncidentSearchSortOrder",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageOffset": {
+            },"pageOffset": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "IncidentSearchResponse",
     },
-    "v2.DeleteIncident": {
-        "incidentId": {
+    "v2.GetIncident": {"incidentId": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetIncident": {
-        "incidentId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "Array<IncidentRelatedObject>",
             "format": "",
             },
         "operationResponseType": "IncidentResponse",
     },
-    "v2.UpdateIncident": {
-        "incidentId": {
+    "v2.DeleteIncident": {"incidentId": {
             "type": "string",
             "format": "",
             },
-        "include": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncident": {"incidentId": {
+            "type": "string",
+            "format": "",
+            },"include": {
             "type": "Array<IncidentRelatedObject>",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "IncidentUpdateRequest",
             "format": "",
             },
         "operationResponseType": "IncidentResponse",
     },
-    "v2.ListIncidentAttachments": {
-        "incidentId": {
+    "v2.ListIncidentAttachments": {"incidentId": {
             "type": "string",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "Array<IncidentAttachmentRelatedObject>",
             "format": "",
-            },
-        "filterAttachmentType": {
+            },"filterAttachmentType": {
             "type": "Array<IncidentAttachmentAttachmentType>",
             "format": "",
             },
         "operationResponseType": "IncidentAttachmentsResponse",
     },
-    "v2.UpdateIncidentAttachments": {
-        "incidentId": {
+    "v2.UpdateIncidentAttachments": {"incidentId": {
             "type": "string",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "Array<IncidentAttachmentRelatedObject>",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "IncidentAttachmentUpdateRequest",
             "format": "",
             },
         "operationResponseType": "IncidentAttachmentUpdateResponse",
     },
-    "v2.ListIncidentIntegrations": {
-        "incidentId": {
+    "v2.ListIncidentIntegrations": {"incidentId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "IncidentIntegrationMetadataListResponse",
     },
-    "v2.CreateIncidentIntegration": {
-        "incidentId": {
+    "v2.CreateIncidentIntegration": {"incidentId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "IncidentIntegrationMetadataCreateRequest",
             "format": "",
             },
         "operationResponseType": "IncidentIntegrationMetadataResponse",
     },
-    "v2.DeleteIncidentIntegration": {
-        "incidentId": {
+    "v2.GetIncidentIntegration": {"incidentId": {
             "type": "string",
             "format": "",
-            },
-        "integrationMetadataId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetIncidentIntegration": {
-        "incidentId": {
-            "type": "string",
-            "format": "",
-            },
-        "integrationMetadataId": {
+            },"integrationMetadataId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "IncidentIntegrationMetadataResponse",
     },
-    "v2.UpdateIncidentIntegration": {
-        "incidentId": {
+    "v2.DeleteIncidentIntegration": {"incidentId": {
+            "type": "string",
+            "format": "",
+            },"integrationMetadataId": {
             "type": "string",
             "format": "",
             },
-        "integrationMetadataId": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentIntegration": {"incidentId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"integrationMetadataId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "IncidentIntegrationMetadataPatchRequest",
             "format": "",
             },
         "operationResponseType": "IncidentIntegrationMetadataResponse",
     },
-    "v2.ListIncidentTodos": {
-        "incidentId": {
+    "v2.ListIncidentTodos": {"incidentId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "IncidentTodoListResponse",
     },
-    "v2.CreateIncidentTodo": {
-        "incidentId": {
+    "v2.CreateIncidentTodo": {"incidentId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "IncidentTodoCreateRequest",
             "format": "",
             },
         "operationResponseType": "IncidentTodoResponse",
     },
-    "v2.DeleteIncidentTodo": {
-        "incidentId": {
+    "v2.GetIncidentTodo": {"incidentId": {
             "type": "string",
             "format": "",
-            },
-        "todoId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetIncidentTodo": {
-        "incidentId": {
-            "type": "string",
-            "format": "",
-            },
-        "todoId": {
+            },"todoId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "IncidentTodoResponse",
     },
-    "v2.UpdateIncidentTodo": {
-        "incidentId": {
+    "v2.DeleteIncidentTodo": {"incidentId": {
+            "type": "string",
+            "format": "",
+            },"todoId": {
             "type": "string",
             "format": "",
             },
-        "todoId": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentTodo": {"incidentId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"todoId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "IncidentTodoPatchRequest",
             "format": "",
             },
         "operationResponseType": "IncidentTodoResponse",
     },
-    "v2.ListAWSAccounts": {
-        "awsAccountId": {
+    "v2.ListAWSAccounts": {"awsAccountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "AWSAccountsResponse",
     },
-    "v2.CreateAWSAccount": {
-        "body": {
+    "v2.CreateAWSAccount": {"body": {
             "type": "AWSAccountCreateRequest",
             "format": "",
             },
         "operationResponseType": "AWSAccountResponse",
     },
-    "v2.DeleteAWSAccount": {
-        "awsAccountConfigId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetAWSAccount": {
-        "awsAccountConfigId": {
+    "v2.GetAWSAccount": {"awsAccountConfigId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "AWSAccountResponse",
     },
-    "v2.UpdateAWSAccount": {
-        "awsAccountConfigId": {
+    "v2.DeleteAWSAccount": {"awsAccountConfigId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateAWSAccount": {"awsAccountConfigId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "AWSAccountUpdateRequest",
             "format": "",
             },
@@ -5127,26 +4205,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListGCPSTSAccounts": {
         "operationResponseType": "GCPSTSServiceAccountsResponse",
     },
-    "v2.CreateGCPSTSAccount": {
-        "body": {
+    "v2.CreateGCPSTSAccount": {"body": {
             "type": "GCPSTSServiceAccountCreateRequest",
             "format": "",
             },
         "operationResponseType": "GCPSTSServiceAccountResponse",
     },
-    "v2.DeleteGCPSTSAccount": {
-        "accountId": {
+    "v2.DeleteGCPSTSAccount": {"accountId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.UpdateGCPSTSAccount": {
-        "accountId": {
+    "v2.UpdateGCPSTSAccount": {"accountId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "GCPSTSServiceAccountUpdateRequest",
             "format": "",
             },
@@ -5155,105 +4229,88 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetGCPSTSDelegate": {
         "operationResponseType": "GCPSTSDelegateAccountResponse",
     },
-    "v2.MakeGCPSTSDelegate": {
-        "body": {
+    "v2.MakeGCPSTSDelegate": {"body": {
             "type": "any",
             "format": "",
             },
         "operationResponseType": "GCPSTSDelegateAccountResponse",
     },
-    "v2.GetChannelByName": {
-        "tenantName": {
+    "v2.GetChannelByName": {"tenantName": {
             "type": "string",
             "format": "",
-            },
-        "teamName": {
+            },"teamName": {
             "type": "string",
             "format": "",
-            },
-        "channelName": {
+            },"channelName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MicrosoftTeamsGetChannelByNameResponse",
     },
-    "v2.ListTenantBasedHandles": {
-        "tenantId": {
+    "v2.ListTenantBasedHandles": {"tenantId": {
             "type": "string",
             "format": "",
-            },
-        "name": {
+            },"name": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MicrosoftTeamsTenantBasedHandlesResponse",
     },
-    "v2.CreateTenantBasedHandle": {
-        "body": {
+    "v2.CreateTenantBasedHandle": {"body": {
             "type": "MicrosoftTeamsCreateTenantBasedHandleRequest",
             "format": "",
             },
         "operationResponseType": "MicrosoftTeamsTenantBasedHandleResponse",
     },
-    "v2.DeleteTenantBasedHandle": {
-        "handleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetTenantBasedHandle": {
-        "handleId": {
+    "v2.GetTenantBasedHandle": {"handleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MicrosoftTeamsTenantBasedHandleResponse",
     },
-    "v2.UpdateTenantBasedHandle": {
-        "handleId": {
+    "v2.DeleteTenantBasedHandle": {"handleId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTenantBasedHandle": {"handleId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "MicrosoftTeamsUpdateTenantBasedHandleRequest",
             "format": "",
             },
         "operationResponseType": "MicrosoftTeamsTenantBasedHandleResponse",
     },
-    "v2.ListWorkflowsWebhookHandles": {
-        "name": {
+    "v2.ListWorkflowsWebhookHandles": {"name": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MicrosoftTeamsWorkflowsWebhookHandlesResponse",
     },
-    "v2.CreateWorkflowsWebhookHandle": {
-        "body": {
+    "v2.CreateWorkflowsWebhookHandle": {"body": {
             "type": "MicrosoftTeamsCreateWorkflowsWebhookHandleRequest",
             "format": "",
             },
         "operationResponseType": "MicrosoftTeamsWorkflowsWebhookHandleResponse",
     },
-    "v2.DeleteWorkflowsWebhookHandle": {
-        "handleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetWorkflowsWebhookHandle": {
-        "handleId": {
+    "v2.GetWorkflowsWebhookHandle": {"handleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MicrosoftTeamsWorkflowsWebhookHandleResponse",
     },
-    "v2.UpdateWorkflowsWebhookHandle": {
-        "handleId": {
+    "v2.DeleteWorkflowsWebhookHandle": {"handleId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateWorkflowsWebhookHandle": {"handleId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest",
             "format": "",
             },
@@ -5262,33 +4319,28 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListOpsgenieServices": {
         "operationResponseType": "OpsgenieServicesResponse",
     },
-    "v2.CreateOpsgenieService": {
-        "body": {
+    "v2.CreateOpsgenieService": {"body": {
             "type": "OpsgenieServiceCreateRequest",
             "format": "",
             },
         "operationResponseType": "OpsgenieServiceResponse",
     },
-    "v2.DeleteOpsgenieService": {
-        "integrationServiceId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetOpsgenieService": {
-        "integrationServiceId": {
+    "v2.GetOpsgenieService": {"integrationServiceId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "OpsgenieServiceResponse",
     },
-    "v2.UpdateOpsgenieService": {
-        "integrationServiceId": {
+    "v2.DeleteOpsgenieService": {"integrationServiceId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOpsgenieService": {"integrationServiceId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "OpsgenieServiceUpdateRequest",
             "format": "",
             },
@@ -5297,33 +4349,28 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListCloudflareAccounts": {
         "operationResponseType": "CloudflareAccountsResponse",
     },
-    "v2.CreateCloudflareAccount": {
-        "body": {
+    "v2.CreateCloudflareAccount": {"body": {
             "type": "CloudflareAccountCreateRequest",
             "format": "",
             },
         "operationResponseType": "CloudflareAccountResponse",
     },
-    "v2.DeleteCloudflareAccount": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetCloudflareAccount": {
-        "accountId": {
+    "v2.GetCloudflareAccount": {"accountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CloudflareAccountResponse",
     },
-    "v2.UpdateCloudflareAccount": {
-        "accountId": {
+    "v2.DeleteCloudflareAccount": {"accountId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateCloudflareAccount": {"accountId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "CloudflareAccountUpdateRequest",
             "format": "",
             },
@@ -5332,88 +4379,73 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListConfluentAccount": {
         "operationResponseType": "ConfluentAccountsResponse",
     },
-    "v2.CreateConfluentAccount": {
-        "body": {
+    "v2.CreateConfluentAccount": {"body": {
             "type": "ConfluentAccountCreateRequest",
             "format": "",
             },
         "operationResponseType": "ConfluentAccountResponse",
     },
-    "v2.DeleteConfluentAccount": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetConfluentAccount": {
-        "accountId": {
+    "v2.GetConfluentAccount": {"accountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ConfluentAccountResponse",
     },
-    "v2.UpdateConfluentAccount": {
-        "accountId": {
+    "v2.DeleteConfluentAccount": {"accountId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateConfluentAccount": {"accountId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "ConfluentAccountUpdateRequest",
             "format": "",
             },
         "operationResponseType": "ConfluentAccountResponse",
     },
-    "v2.ListConfluentResource": {
-        "accountId": {
+    "v2.ListConfluentResource": {"accountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ConfluentResourcesResponse",
     },
-    "v2.CreateConfluentResource": {
-        "accountId": {
+    "v2.CreateConfluentResource": {"accountId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "ConfluentResourceRequest",
             "format": "",
             },
         "operationResponseType": "ConfluentResourceResponse",
     },
-    "v2.DeleteConfluentResource": {
-        "accountId": {
+    "v2.GetConfluentResource": {"accountId": {
             "type": "string",
             "format": "",
-            },
-        "resourceId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetConfluentResource": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "resourceId": {
+            },"resourceId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ConfluentResourceResponse",
     },
-    "v2.UpdateConfluentResource": {
-        "accountId": {
+    "v2.DeleteConfluentResource": {"accountId": {
+            "type": "string",
+            "format": "",
+            },"resourceId": {
             "type": "string",
             "format": "",
             },
-        "resourceId": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateConfluentResource": {"accountId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"resourceId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "ConfluentResourceRequest",
             "format": "",
             },
@@ -5422,88 +4454,73 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListFastlyAccounts": {
         "operationResponseType": "FastlyAccountsResponse",
     },
-    "v2.CreateFastlyAccount": {
-        "body": {
+    "v2.CreateFastlyAccount": {"body": {
             "type": "FastlyAccountCreateRequest",
             "format": "",
             },
         "operationResponseType": "FastlyAccountResponse",
     },
-    "v2.DeleteFastlyAccount": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetFastlyAccount": {
-        "accountId": {
+    "v2.GetFastlyAccount": {"accountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "FastlyAccountResponse",
     },
-    "v2.UpdateFastlyAccount": {
-        "accountId": {
+    "v2.DeleteFastlyAccount": {"accountId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateFastlyAccount": {"accountId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "FastlyAccountUpdateRequest",
             "format": "",
             },
         "operationResponseType": "FastlyAccountResponse",
     },
-    "v2.ListFastlyServices": {
-        "accountId": {
+    "v2.ListFastlyServices": {"accountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "FastlyServicesResponse",
     },
-    "v2.CreateFastlyService": {
-        "accountId": {
+    "v2.CreateFastlyService": {"accountId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "FastlyServiceRequest",
             "format": "",
             },
         "operationResponseType": "FastlyServiceResponse",
     },
-    "v2.DeleteFastlyService": {
-        "accountId": {
+    "v2.GetFastlyService": {"accountId": {
             "type": "string",
             "format": "",
-            },
-        "serviceId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetFastlyService": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "serviceId": {
+            },"serviceId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "FastlyServiceResponse",
     },
-    "v2.UpdateFastlyService": {
-        "accountId": {
+    "v2.DeleteFastlyService": {"accountId": {
+            "type": "string",
+            "format": "",
+            },"serviceId": {
             "type": "string",
             "format": "",
             },
-        "serviceId": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateFastlyService": {"accountId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"serviceId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "FastlyServiceRequest",
             "format": "",
             },
@@ -5512,33 +4529,28 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListOktaAccounts": {
         "operationResponseType": "OktaAccountsResponse",
     },
-    "v2.CreateOktaAccount": {
-        "body": {
+    "v2.CreateOktaAccount": {"body": {
             "type": "OktaAccountRequest",
             "format": "",
             },
         "operationResponseType": "OktaAccountResponse",
     },
-    "v2.DeleteOktaAccount": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetOktaAccount": {
-        "accountId": {
+    "v2.GetOktaAccount": {"accountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "OktaAccountResponse",
     },
-    "v2.UpdateOktaAccount": {
-        "accountId": {
+    "v2.DeleteOktaAccount": {"accountId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateOktaAccount": {"accountId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "OktaAccountUpdateRequest",
             "format": "",
             },
@@ -5547,72 +4559,58 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetIPAllowlist": {
         "operationResponseType": "IPAllowlistResponse",
     },
-    "v2.UpdateIPAllowlist": {
-        "body": {
+    "v2.UpdateIPAllowlist": {"body": {
             "type": "IPAllowlistUpdateRequest",
             "format": "",
             },
         "operationResponseType": "IPAllowlistResponse",
     },
-    "v2.SubmitLog": {
-        "contentEncoding": {
+    "v2.SubmitLog": {"contentEncoding": {
             "type": "ContentEncoding",
             "format": "",
-            },
-        "ddtags": {
+            },"ddtags": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "Array<HTTPLogItem>",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v2.AggregateLogs": {
-        "body": {
+    "v2.AggregateLogs": {"body": {
             "type": "LogsAggregateRequest",
             "format": "",
             },
         "operationResponseType": "LogsAggregateResponse",
     },
-    "v2.ListLogsGet": {
-        "filterQuery": {
+    "v2.ListLogsGet": {"filterQuery": {
             "type": "string",
             "format": "",
-            },
-        "filterIndexes": {
+            },"filterIndexes": {
             "type": "Array<string>",
             "format": "",
-            },
-        "filterFrom": {
+            },"filterFrom": {
             "type": "Date",
             "format": "date-time",
-            },
-        "filterTo": {
+            },"filterTo": {
             "type": "Date",
             "format": "date-time",
-            },
-        "filterStorageTier": {
+            },"filterStorageTier": {
             "type": "LogsStorageTier",
             "format": "",
-            },
-        "sort": {
+            },"sort": {
             "type": "LogsSort",
             "format": "",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "LogsListResponse",
     },
-    "v2.ListLogs": {
-        "body": {
+    "v2.ListLogs": {"body": {
             "type": "LogsListRequest",
             "format": "",
             },
@@ -5621,8 +4619,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetLogsArchiveOrder": {
         "operationResponseType": "LogsArchiveOrder",
     },
-    "v2.UpdateLogsArchiveOrder": {
-        "body": {
+    "v2.UpdateLogsArchiveOrder": {"body": {
             "type": "LogsArchiveOrder",
             "format": "",
             },
@@ -5631,97 +4628,82 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListLogsArchives": {
         "operationResponseType": "LogsArchives",
     },
-    "v2.CreateLogsArchive": {
-        "body": {
+    "v2.CreateLogsArchive": {"body": {
             "type": "LogsArchiveCreateRequest",
             "format": "",
             },
         "operationResponseType": "LogsArchive",
     },
-    "v2.DeleteLogsArchive": {
-        "archiveId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetLogsArchive": {
-        "archiveId": {
+    "v2.GetLogsArchive": {"archiveId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "LogsArchive",
     },
-    "v2.UpdateLogsArchive": {
-        "archiveId": {
+    "v2.UpdateLogsArchive": {"archiveId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "LogsArchiveCreateRequest",
             "format": "",
             },
         "operationResponseType": "LogsArchive",
     },
-    "v2.RemoveRoleFromArchive": {
-        "archiveId": {
+    "v2.DeleteLogsArchive": {"archiveId": {
             "type": "string",
             "format": "",
             },
-        "body": {
-            "type": "RelationshipToRole",
-            "format": "",
-            },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.ListArchiveReadRoles": {
-        "archiveId": {
+    "v2.ListArchiveReadRoles": {"archiveId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RolesResponse",
     },
-    "v2.AddReadRoleToArchive": {
-        "archiveId": {
+    "v2.AddReadRoleToArchive": {"archiveId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "RelationshipToRole",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
+    },
+    "v2.RemoveRoleFromArchive": {"archiveId": {
+            "type": "string",
+            "format": "",
+            },"body": {
+            "type": "RelationshipToRole",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListLogsCustomDestinations": {
         "operationResponseType": "CustomDestinationsResponse",
     },
-    "v2.CreateLogsCustomDestination": {
-        "body": {
+    "v2.CreateLogsCustomDestination": {"body": {
             "type": "CustomDestinationCreateRequest",
             "format": "",
             },
         "operationResponseType": "CustomDestinationResponse",
     },
-    "v2.DeleteLogsCustomDestination": {
-        "customDestinationId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetLogsCustomDestination": {
-        "customDestinationId": {
+    "v2.GetLogsCustomDestination": {"customDestinationId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CustomDestinationResponse",
     },
-    "v2.UpdateLogsCustomDestination": {
-        "customDestinationId": {
+    "v2.DeleteLogsCustomDestination": {"customDestinationId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateLogsCustomDestination": {"customDestinationId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "CustomDestinationUpdateRequest",
             "format": "",
             },
@@ -5730,260 +4712,214 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListLogsMetrics": {
         "operationResponseType": "LogsMetricsResponse",
     },
-    "v2.CreateLogsMetric": {
-        "body": {
+    "v2.CreateLogsMetric": {"body": {
             "type": "LogsMetricCreateRequest",
             "format": "",
             },
         "operationResponseType": "LogsMetricResponse",
     },
-    "v2.DeleteLogsMetric": {
-        "metricId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetLogsMetric": {
-        "metricId": {
+    "v2.GetLogsMetric": {"metricId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "LogsMetricResponse",
     },
-    "v2.UpdateLogsMetric": {
-        "metricId": {
+    "v2.DeleteLogsMetric": {"metricId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateLogsMetric": {"metricId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "LogsMetricUpdateRequest",
             "format": "",
             },
         "operationResponseType": "LogsMetricResponse",
     },
-    "v2.ListTagConfigurations": {
-        "filterConfigured": {
+    "v2.ListTagConfigurations": {"filterConfigured": {
             "type": "boolean",
             "format": "",
-            },
-        "filterTagsConfigured": {
+            },"filterTagsConfigured": {
             "type": "string",
             "format": "",
-            },
-        "filterMetricType": {
+            },"filterMetricType": {
             "type": "MetricTagConfigurationMetricTypeCategory",
             "format": "",
-            },
-        "filterIncludePercentiles": {
+            },"filterIncludePercentiles": {
             "type": "boolean",
             "format": "",
-            },
-        "filterQueried": {
+            },"filterQueried": {
             "type": "boolean",
             "format": "",
-            },
-        "filterTags": {
+            },"filterTags": {
             "type": "string",
             "format": "",
-            },
-        "filterRelatedAssets": {
+            },"filterRelatedAssets": {
             "type": "boolean",
             "format": "",
-            },
-        "windowSeconds": {
+            },"windowSeconds": {
             "type": "number",
             "format": "int64",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int32",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MetricsAndMetricTagConfigurationsResponse",
     },
-    "v2.DeleteBulkTagsMetricsConfiguration": {
-        "body": {
-            "type": "MetricBulkTagConfigDeleteRequest",
-            "format": "",
-            },
-        "operationResponseType": "MetricBulkTagConfigResponse",
-    },
-    "v2.CreateBulkTagsMetricsConfiguration": {
-        "body": {
+    "v2.CreateBulkTagsMetricsConfiguration": {"body": {
             "type": "MetricBulkTagConfigCreateRequest",
             "format": "",
             },
         "operationResponseType": "MetricBulkTagConfigResponse",
     },
-    "v2.ListActiveMetricConfigurations": {
-        "metricName": {
-            "type": "string",
+    "v2.DeleteBulkTagsMetricsConfiguration": {"body": {
+            "type": "MetricBulkTagConfigDeleteRequest",
             "format": "",
             },
-        "windowSeconds": {
+        "operationResponseType": "MetricBulkTagConfigResponse",
+    },
+    "v2.ListActiveMetricConfigurations": {"metricName": {
+            "type": "string",
+            "format": "",
+            },"windowSeconds": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "MetricSuggestedTagsAndAggregationsResponse",
     },
-    "v2.ListTagsByMetricName": {
-        "metricName": {
+    "v2.ListTagsByMetricName": {"metricName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MetricAllTagsResponse",
     },
-    "v2.ListMetricAssets": {
-        "metricName": {
+    "v2.ListMetricAssets": {"metricName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MetricAssetsResponse",
     },
-    "v2.EstimateMetricsOutputSeries": {
-        "metricName": {
+    "v2.EstimateMetricsOutputSeries": {"metricName": {
             "type": "string",
             "format": "",
-            },
-        "filterGroups": {
+            },"filterGroups": {
             "type": "string",
             "format": "",
-            },
-        "filterHoursAgo": {
+            },"filterHoursAgo": {
             "type": "number",
             "format": "int32",
-            },
-        "filterNumAggregations": {
+            },"filterNumAggregations": {
             "type": "number",
             "format": "int32",
-            },
-        "filterPct": {
+            },"filterPct": {
             "type": "boolean",
             "format": "",
-            },
-        "filterTimespanH": {
+            },"filterTimespanH": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "MetricEstimateResponse",
     },
-    "v2.GetMetricTagCardinalityDetails": {
-        "metricName": {
+    "v2.GetMetricTagCardinalityDetails": {"metricName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MetricTagCardinalitiesResponse",
     },
-    "v2.DeleteTagConfiguration": {
-        "metricName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.ListTagConfigurationByName": {
-        "metricName": {
+    "v2.ListTagConfigurationByName": {"metricName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MetricTagConfigurationResponse",
     },
-    "v2.UpdateTagConfiguration": {
-        "metricName": {
+    "v2.CreateTagConfiguration": {"metricName": {
             "type": "string",
             "format": "",
-            },
-        "body": {
-            "type": "MetricTagConfigurationUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "MetricTagConfigurationResponse",
-    },
-    "v2.CreateTagConfiguration": {
-        "metricName": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "MetricTagConfigurationCreateRequest",
             "format": "",
             },
         "operationResponseType": "MetricTagConfigurationResponse",
     },
-    "v2.ListVolumesByMetricName": {
-        "metricName": {
+    "v2.DeleteTagConfiguration": {"metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTagConfiguration": {"metricName": {
+            "type": "string",
+            "format": "",
+            },"body": {
+            "type": "MetricTagConfigurationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MetricTagConfigurationResponse",
+    },
+    "v2.ListVolumesByMetricName": {"metricName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MetricVolumesResponse",
     },
-    "v2.QueryScalarData": {
-        "body": {
+    "v2.QueryScalarData": {"body": {
             "type": "ScalarFormulaQueryRequest",
             "format": "",
             },
         "operationResponseType": "ScalarFormulaQueryResponse",
     },
-    "v2.QueryTimeseriesData": {
-        "body": {
+    "v2.QueryTimeseriesData": {"body": {
             "type": "TimeseriesFormulaQueryRequest",
             "format": "",
             },
         "operationResponseType": "TimeseriesFormulaQueryResponse",
     },
-    "v2.SubmitMetrics": {
-        "contentEncoding": {
+    "v2.SubmitMetrics": {"contentEncoding": {
             "type": "MetricContentEncoding",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "MetricPayload",
             "format": "",
             },
         "operationResponseType": "IntakePayloadAccepted",
     },
-    "v2.GetMonitorNotificationRules": {
-        "include": {
+    "v2.GetMonitorNotificationRules": {"include": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MonitorNotificationRuleListResponse",
     },
-    "v2.CreateMonitorNotificationRule": {
-        "body": {
+    "v2.CreateMonitorNotificationRule": {"body": {
             "type": "MonitorNotificationRuleCreateRequest",
             "format": "",
             },
         "operationResponseType": "MonitorNotificationRuleResponse",
     },
-    "v2.DeleteMonitorNotificationRule": {
-        "ruleId": {
+    "v2.GetMonitorNotificationRule": {"ruleId": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetMonitorNotificationRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MonitorNotificationRuleResponse",
     },
-    "v2.UpdateMonitorNotificationRule": {
-        "ruleId": {
+    "v2.DeleteMonitorNotificationRule": {"ruleId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateMonitorNotificationRule": {"ruleId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "MonitorNotificationRuleUpdateRequest",
             "format": "",
             },
@@ -5992,33 +4928,28 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListMonitorConfigPolicies": {
         "operationResponseType": "MonitorConfigPolicyListResponse",
     },
-    "v2.CreateMonitorConfigPolicy": {
-        "body": {
+    "v2.CreateMonitorConfigPolicy": {"body": {
             "type": "MonitorConfigPolicyCreateRequest",
             "format": "",
             },
         "operationResponseType": "MonitorConfigPolicyResponse",
     },
-    "v2.DeleteMonitorConfigPolicy": {
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetMonitorConfigPolicy": {
-        "policyId": {
+    "v2.GetMonitorConfigPolicy": {"policyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MonitorConfigPolicyResponse",
     },
-    "v2.UpdateMonitorConfigPolicy": {
-        "policyId": {
+    "v2.DeleteMonitorConfigPolicy": {"policyId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateMonitorConfigPolicy": {"policyId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "MonitorConfigPolicyEditRequest",
             "format": "",
             },
@@ -6027,542 +4958,445 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListMonitorUserTemplates": {
         "operationResponseType": "MonitorUserTemplateListResponse",
     },
-    "v2.CreateMonitorUserTemplate": {
-        "body": {
+    "v2.CreateMonitorUserTemplate": {"body": {
             "type": "MonitorUserTemplateCreateRequest",
             "format": "",
             },
         "operationResponseType": "MonitorUserTemplateCreateResponse",
     },
-    "v2.ValidateMonitorUserTemplate": {
-        "body": {
+    "v2.ValidateMonitorUserTemplate": {"body": {
             "type": "MonitorUserTemplateCreateRequest",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.DeleteMonitorUserTemplate": {
-        "templateId": {
+    "v2.GetMonitorUserTemplate": {"templateId": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetMonitorUserTemplate": {
-        "templateId": {
-            "type": "string",
-            "format": "",
-            },
-        "withAllVersions": {
+            },"withAllVersions": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "MonitorUserTemplateResponse",
     },
-    "v2.UpdateMonitorUserTemplate": {
-        "templateId": {
+    "v2.UpdateMonitorUserTemplate": {"templateId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "MonitorUserTemplateUpdateRequest",
             "format": "",
             },
         "operationResponseType": "MonitorUserTemplateResponse",
     },
-    "v2.ValidateExistingMonitorUserTemplate": {
-        "templateId": {
+    "v2.DeleteMonitorUserTemplate": {"templateId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.ValidateExistingMonitorUserTemplate": {"templateId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "MonitorUserTemplateUpdateRequest",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.ListDevices": {
-        "pageSize": {
+    "v2.ListDevices": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "string",
             "format": "",
-            },
-        "filterTag": {
+            },"filterTag": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ListDevicesResponse",
     },
-    "v2.GetDevice": {
-        "deviceId": {
+    "v2.GetDevice": {"deviceId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "GetDeviceResponse",
     },
-    "v2.GetInterfaces": {
-        "deviceId": {
+    "v2.GetInterfaces": {"deviceId": {
             "type": "string",
             "format": "",
-            },
-        "getIpAddresses": {
+            },"getIpAddresses": {
             "type": "boolean",
             "format": "",
             },
         "operationResponseType": "GetInterfacesResponse",
     },
-    "v2.ListDeviceUserTags": {
-        "deviceId": {
+    "v2.ListDeviceUserTags": {"deviceId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ListTagsResponse",
     },
-    "v2.UpdateDeviceUserTags": {
-        "deviceId": {
+    "v2.UpdateDeviceUserTags": {"deviceId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "ListTagsResponse",
             "format": "",
             },
         "operationResponseType": "ListTagsResponse",
     },
-    "v2.GetAggregatedConnections": {
-        "from": {
+    "v2.GetAggregatedConnections": {"from": {
             "type": "number",
             "format": "int64",
-            },
-        "to": {
+            },"to": {
             "type": "number",
             "format": "int64",
-            },
-        "groupBy": {
+            },"groupBy": {
             "type": "string",
             "format": "",
-            },
-        "tags": {
+            },"tags": {
             "type": "string",
             "format": "",
-            },
-        "limit": {
+            },"limit": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "SingleAggregatedConnectionResponseArray",
     },
-    "v2.CreateOnCallEscalationPolicy": {
-        "include": {
+    "v2.CreateOnCallEscalationPolicy": {"include": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "EscalationPolicyCreateRequest",
             "format": "",
             },
         "operationResponseType": "EscalationPolicy",
     },
-    "v2.DeleteOnCallEscalationPolicy": {
-        "policyId": {
+    "v2.GetOnCallEscalationPolicy": {"policyId": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetOnCallEscalationPolicy": {
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "EscalationPolicy",
     },
-    "v2.UpdateOnCallEscalationPolicy": {
-        "policyId": {
+    "v2.UpdateOnCallEscalationPolicy": {"policyId": {
             "type": "string",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "EscalationPolicyUpdateRequest",
             "format": "",
             },
         "operationResponseType": "EscalationPolicy",
     },
-    "v2.CreateOnCallSchedule": {
-        "include": {
+    "v2.DeleteOnCallEscalationPolicy": {"policyId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.CreateOnCallSchedule": {"include": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "ScheduleCreateRequest",
             "format": "",
             },
         "operationResponseType": "Schedule",
     },
-    "v2.DeleteOnCallSchedule": {
-        "scheduleId": {
+    "v2.GetOnCallSchedule": {"include": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetOnCallSchedule": {
-        "include": {
-            "type": "string",
-            "format": "",
-            },
-        "scheduleId": {
+            },"scheduleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "Schedule",
     },
-    "v2.UpdateOnCallSchedule": {
-        "include": {
+    "v2.UpdateOnCallSchedule": {"include": {
             "type": "string",
             "format": "",
-            },
-        "scheduleId": {
+            },"scheduleId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "ScheduleUpdateRequest",
             "format": "",
             },
         "operationResponseType": "Schedule",
     },
-    "v2.GetScheduleOnCallUser": {
-        "include": {
+    "v2.DeleteOnCallSchedule": {"scheduleId": {
             "type": "string",
             "format": "",
             },
-        "scheduleId": {
+        "operationResponseType": "{}",
+    },
+    "v2.GetScheduleOnCallUser": {"include": {
             "type": "string",
             "format": "",
-            },
-        "filterAtTs": {
+            },"scheduleId": {
+            "type": "string",
+            "format": "",
+            },"filterAtTs": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "Shift",
     },
-    "v2.GetTeamOnCallUsers": {
-        "include": {
+    "v2.GetTeamOnCallUsers": {"include": {
             "type": "string",
             "format": "",
-            },
-        "teamId": {
+            },"teamId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "TeamOnCallResponders",
     },
-    "v2.GetOnCallTeamRoutingRules": {
-        "teamId": {
+    "v2.GetOnCallTeamRoutingRules": {"teamId": {
             "type": "string",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "TeamRoutingRules",
     },
-    "v2.SetOnCallTeamRoutingRules": {
-        "teamId": {
+    "v2.SetOnCallTeamRoutingRules": {"teamId": {
             "type": "string",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "TeamRoutingRulesRequest",
             "format": "",
             },
         "operationResponseType": "TeamRoutingRules",
     },
-    "v2.CreateOnCallPage": {
-        "body": {
+    "v2.CreateOnCallPage": {"body": {
             "type": "CreatePageRequest",
             "format": "",
             },
         "operationResponseType": "CreatePageResponse",
     },
-    "v2.AcknowledgeOnCallPage": {
-        "pageId": {
+    "v2.AcknowledgeOnCallPage": {"pageId": {
             "type": "string",
             "format": "uuid",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.EscalateOnCallPage": {
-        "pageId": {
+    "v2.EscalateOnCallPage": {"pageId": {
             "type": "string",
             "format": "uuid",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.ResolveOnCallPage": {
-        "pageId": {
+    "v2.ResolveOnCallPage": {"pageId": {
             "type": "string",
             "format": "uuid",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ListOrgConfigs": {
         "operationResponseType": "OrgConfigListResponse",
     },
-    "v2.GetOrgConfig": {
-        "orgConfigName": {
+    "v2.GetOrgConfig": {"orgConfigName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "OrgConfigGetResponse",
     },
-    "v2.UpdateOrgConfig": {
-        "orgConfigName": {
+    "v2.UpdateOrgConfig": {"orgConfigName": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "OrgConfigWriteRequest",
             "format": "",
             },
         "operationResponseType": "OrgConfigGetResponse",
     },
-    "v2.UploadIdPMetadata": {
-        "idpFile": {
+    "v2.UploadIdPMetadata": {"idpFile": {
             "type": "HttpFile",
             "format": "binary",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ListPermissions": {
         "operationResponseType": "PermissionsResponse",
     },
-    "v2.ListRoles": {
-        "pageSize": {
+    "v2.ListRoles": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "RolesSort",
             "format": "",
-            },
-        "filter": {
+            },"filter": {
             "type": "string",
             "format": "",
-            },
-        "filterId": {
+            },"filterId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RolesResponse",
     },
-    "v2.CreateRole": {
-        "body": {
+    "v2.CreateRole": {"body": {
             "type": "RoleCreateRequest",
             "format": "",
             },
         "operationResponseType": "RoleCreateResponse",
     },
-    "v2.DeleteRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetRole": {
-        "roleId": {
+    "v2.GetRole": {"roleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RoleResponse",
     },
-    "v2.UpdateRole": {
-        "roleId": {
+    "v2.DeleteRole": {"roleId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateRole": {"roleId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "RoleUpdateRequest",
             "format": "",
             },
         "operationResponseType": "RoleUpdateResponse",
     },
-    "v2.CloneRole": {
-        "roleId": {
+    "v2.CloneRole": {"roleId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "RoleCloneRequest",
             "format": "",
             },
         "operationResponseType": "RoleResponse",
     },
-    "v2.RemovePermissionFromRole": {
-        "roleId": {
+    "v2.ListRolePermissions": {"roleId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "PermissionsResponse",
+    },
+    "v2.AddPermissionToRole": {"roleId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "RelationshipToPermission",
             "format": "",
             },
         "operationResponseType": "PermissionsResponse",
     },
-    "v2.ListRolePermissions": {
-        "roleId": {
+    "v2.RemovePermissionFromRole": {"roleId": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "PermissionsResponse",
-    },
-    "v2.AddPermissionToRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "RelationshipToPermission",
             "format": "",
             },
         "operationResponseType": "PermissionsResponse",
     },
-    "v2.RemoveUserFromRole": {
-        "roleId": {
+    "v2.ListRoleUsers": {"roleId": {
+            "type": "string",
+            "format": "",
+            },"pageSize": {
+            "type": "number",
+            "format": "int64",
+            },"pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },"sort": {
+            "type": "string",
+            "format": "",
+            },"filter": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "UsersResponse",
+    },
+    "v2.AddUserToRole": {"roleId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "RelationshipToUser",
             "format": "",
             },
         "operationResponseType": "UsersResponse",
     },
-    "v2.ListRoleUsers": {
-        "roleId": {
+    "v2.RemoveUserFromRole": {"roleId": {
             "type": "string",
             "format": "",
-            },
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "sort": {
-            "type": "string",
-            "format": "",
-            },
-        "filter": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "UsersResponse",
-    },
-    "v2.AddUserToRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "RelationshipToUser",
             "format": "",
             },
         "operationResponseType": "UsersResponse",
     },
-    "v2.ListPowerpacks": {
-        "pageLimit": {
+    "v2.ListPowerpacks": {"pageLimit": {
             "type": "number",
             "format": "int64",
-            },
-        "pageOffset": {
+            },"pageOffset": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "ListPowerpacksResponse",
     },
-    "v2.CreatePowerpack": {
-        "body": {
+    "v2.CreatePowerpack": {"body": {
             "type": "Powerpack",
             "format": "",
             },
         "operationResponseType": "PowerpackResponse",
     },
-    "v2.DeletePowerpack": {
-        "powerpackId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetPowerpack": {
-        "powerpackId": {
+    "v2.GetPowerpack": {"powerpackId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "PowerpackResponse",
     },
-    "v2.UpdatePowerpack": {
-        "powerpackId": {
+    "v2.DeletePowerpack": {"powerpackId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdatePowerpack": {"powerpackId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "Powerpack",
             "format": "",
             },
         "operationResponseType": "PowerpackResponse",
     },
-    "v2.ListProcesses": {
-        "search": {
+    "v2.ListProcesses": {"search": {
             "type": "string",
             "format": "",
-            },
-        "tags": {
+            },"tags": {
             "type": "string",
             "format": "",
-            },
-        "from": {
+            },"from": {
             "type": "number",
             "format": "int64",
-            },
-        "to": {
+            },"to": {
             "type": "number",
             "format": "int64",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int32",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
             },
@@ -6571,119 +5405,100 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListApplicationSecurityWAFCustomRules": {
         "operationResponseType": "ApplicationSecurityWafCustomRuleListResponse",
     },
-    "v2.CreateApplicationSecurityWafCustomRule": {
-        "body": {
+    "v2.CreateApplicationSecurityWafCustomRule": {"body": {
             "type": "ApplicationSecurityWafCustomRuleCreateRequest",
             "format": "",
             },
         "operationResponseType": "ApplicationSecurityWafCustomRuleResponse",
     },
-    "v2.DeleteApplicationSecurityWafCustomRule": {
-        "customRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetApplicationSecurityWafCustomRule": {
-        "customRuleId": {
+    "v2.GetApplicationSecurityWafCustomRule": {"customRuleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ApplicationSecurityWafCustomRuleResponse",
     },
-    "v2.UpdateApplicationSecurityWafCustomRule": {
-        "customRuleId": {
+    "v2.UpdateApplicationSecurityWafCustomRule": {"customRuleId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "ApplicationSecurityWafCustomRuleUpdateRequest",
             "format": "",
             },
         "operationResponseType": "ApplicationSecurityWafCustomRuleResponse",
     },
+    "v2.DeleteApplicationSecurityWafCustomRule": {"customRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListApplicationSecurityWafExclusionFilters": {
         "operationResponseType": "ApplicationSecurityWafExclusionFiltersResponse",
     },
-    "v2.CreateApplicationSecurityWafExclusionFilter": {
-        "body": {
+    "v2.CreateApplicationSecurityWafExclusionFilter": {"body": {
             "type": "ApplicationSecurityWafExclusionFilterCreateRequest",
             "format": "",
             },
         "operationResponseType": "ApplicationSecurityWafExclusionFilterResponse",
     },
-    "v2.DeleteApplicationSecurityWafExclusionFilter": {
-        "exclusionFilterId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetApplicationSecurityWafExclusionFilter": {
-        "exclusionFilterId": {
+    "v2.GetApplicationSecurityWafExclusionFilter": {"exclusionFilterId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ApplicationSecurityWafExclusionFilterResponse",
     },
-    "v2.UpdateApplicationSecurityWafExclusionFilter": {
-        "exclusionFilterId": {
+    "v2.UpdateApplicationSecurityWafExclusionFilter": {"exclusionFilterId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "ApplicationSecurityWafExclusionFilterUpdateRequest",
             "format": "",
             },
         "operationResponseType": "ApplicationSecurityWafExclusionFilterResponse",
     },
-    "v2.ListCSMThreatsAgentRules": {
-        "policyId": {
+    "v2.DeleteApplicationSecurityWafExclusionFilter": {"exclusionFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.ListCSMThreatsAgentRules": {"policyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
     },
-    "v2.CreateCSMThreatsAgentRule": {
-        "body": {
+    "v2.CreateCSMThreatsAgentRule": {"body": {
             "type": "CloudWorkloadSecurityAgentRuleCreateRequest",
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
-    "v2.DeleteCSMThreatsAgentRule": {
-        "agentRuleId": {
+    "v2.GetCSMThreatsAgentRule": {"agentRuleId": {
             "type": "string",
             "format": "",
-            },
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetCSMThreatsAgentRule": {
-        "agentRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "policyId": {
+            },"policyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
-    "v2.UpdateCSMThreatsAgentRule": {
-        "agentRuleId": {
+    "v2.DeleteCSMThreatsAgentRule": {"agentRuleId": {
+            "type": "string",
+            "format": "",
+            },"policyId": {
             "type": "string",
             "format": "",
             },
-        "policyId": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateCSMThreatsAgentRule": {"agentRuleId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"policyId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "CloudWorkloadSecurityAgentRuleUpdateRequest",
             "format": "",
             },
@@ -6692,8 +5507,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListCSMThreatsAgentPolicies": {
         "operationResponseType": "CloudWorkloadSecurityAgentPoliciesListResponse",
     },
-    "v2.CreateCSMThreatsAgentPolicy": {
-        "body": {
+    "v2.CreateCSMThreatsAgentPolicy": {"body": {
             "type": "CloudWorkloadSecurityAgentPolicyCreateRequest",
             "format": "",
             },
@@ -6702,26 +5516,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.DownloadCSMThreatsPolicy": {
         "operationResponseType": "HttpFile",
     },
-    "v2.DeleteCSMThreatsAgentPolicy": {
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetCSMThreatsAgentPolicy": {
-        "policyId": {
+    "v2.GetCSMThreatsAgentPolicy": {"policyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentPolicyResponse",
     },
-    "v2.UpdateCSMThreatsAgentPolicy": {
-        "policyId": {
+    "v2.DeleteCSMThreatsAgentPolicy": {"policyId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateCSMThreatsAgentPolicy": {"policyId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "CloudWorkloadSecurityAgentPolicyUpdateRequest",
             "format": "",
             },
@@ -6733,119 +5543,100 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListCloudWorkloadSecurityAgentRules": {
         "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
     },
-    "v2.CreateCloudWorkloadSecurityAgentRule": {
-        "body": {
+    "v2.CreateCloudWorkloadSecurityAgentRule": {"body": {
             "type": "CloudWorkloadSecurityAgentRuleCreateRequest",
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
-    "v2.DeleteCloudWorkloadSecurityAgentRule": {
-        "agentRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetCloudWorkloadSecurityAgentRule": {
-        "agentRuleId": {
+    "v2.GetCloudWorkloadSecurityAgentRule": {"agentRuleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
-    "v2.UpdateCloudWorkloadSecurityAgentRule": {
-        "agentRuleId": {
+    "v2.DeleteCloudWorkloadSecurityAgentRule": {"agentRuleId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateCloudWorkloadSecurityAgentRule": {"agentRuleId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "CloudWorkloadSecurityAgentRuleUpdateRequest",
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
-    "v2.ListPipelines": {
-        "pageSize": {
+    "v2.ListPipelines": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "ListPipelinesResponse",
     },
-    "v2.CreatePipeline": {
-        "body": {
+    "v2.CreatePipeline": {"body": {
             "type": "ObservabilityPipelineSpec",
             "format": "",
             },
         "operationResponseType": "ObservabilityPipeline",
     },
-    "v2.ValidatePipeline": {
-        "body": {
+    "v2.ValidatePipeline": {"body": {
             "type": "ObservabilityPipelineSpec",
             "format": "",
             },
         "operationResponseType": "ValidationResponse",
     },
-    "v2.DeletePipeline": {
-        "pipelineId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetPipeline": {
-        "pipelineId": {
+    "v2.GetPipeline": {"pipelineId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ObservabilityPipeline",
     },
-    "v2.UpdatePipeline": {
-        "pipelineId": {
+    "v2.UpdatePipeline": {"pipelineId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "ObservabilityPipeline",
             "format": "",
             },
         "operationResponseType": "ObservabilityPipeline",
     },
-    "v2.DeleteRestrictionPolicy": {
-        "resourceId": {
+    "v2.DeletePipeline": {"pipelineId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.GetRestrictionPolicy": {
-        "resourceId": {
+    "v2.GetRestrictionPolicy": {"resourceId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RestrictionPolicyResponse",
     },
-    "v2.UpdateRestrictionPolicy": {
-        "resourceId": {
+    "v2.UpdateRestrictionPolicy": {"resourceId": {
             "type": "string",
             "format": "",
-            },
-        "allowSelfLockout": {
+            },"allowSelfLockout": {
             "type": "boolean",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "RestrictionPolicyUpdateRequest",
             "format": "",
             },
         "operationResponseType": "RestrictionPolicyResponse",
     },
-    "v2.AggregateRUMEvents": {
-        "body": {
+    "v2.DeleteRestrictionPolicy": {"resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.AggregateRUMEvents": {"body": {
             "type": "RUMAggregateRequest",
             "format": "",
             },
@@ -6854,133 +5645,109 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetRUMApplications": {
         "operationResponseType": "RUMApplicationsResponse",
     },
-    "v2.CreateRUMApplication": {
-        "body": {
+    "v2.CreateRUMApplication": {"body": {
             "type": "RUMApplicationCreateRequest",
             "format": "",
             },
         "operationResponseType": "RUMApplicationResponse",
     },
-    "v2.DeleteRUMApplication": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetRUMApplication": {
-        "id": {
+    "v2.GetRUMApplication": {"id": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RUMApplicationResponse",
     },
-    "v2.UpdateRUMApplication": {
-        "id": {
+    "v2.DeleteRUMApplication": {"id": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateRUMApplication": {"id": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "RUMApplicationUpdateRequest",
             "format": "",
             },
         "operationResponseType": "RUMApplicationResponse",
     },
-    "v2.ListRUMEvents": {
-        "filterQuery": {
+    "v2.ListRUMEvents": {"filterQuery": {
             "type": "string",
             "format": "",
-            },
-        "filterFrom": {
+            },"filterFrom": {
             "type": "Date",
             "format": "date-time",
-            },
-        "filterTo": {
+            },"filterTo": {
             "type": "Date",
             "format": "date-time",
-            },
-        "sort": {
+            },"sort": {
             "type": "RUMSort",
             "format": "",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "RUMEventsResponse",
     },
-    "v2.SearchRUMEvents": {
-        "body": {
+    "v2.SearchRUMEvents": {"body": {
             "type": "RUMSearchEventsRequest",
             "format": "",
             },
         "operationResponseType": "RUMEventsResponse",
     },
-    "v2.OrderRetentionFilters": {
-        "appId": {
+    "v2.OrderRetentionFilters": {"appId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "RumRetentionFiltersOrderRequest",
             "format": "",
             },
         "operationResponseType": "RumRetentionFiltersOrderResponse",
     },
-    "v2.ListRetentionFilters": {
-        "appId": {
+    "v2.ListRetentionFilters": {"appId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RumRetentionFiltersResponse",
     },
-    "v2.CreateRetentionFilter": {
-        "appId": {
+    "v2.CreateRetentionFilter": {"appId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "RumRetentionFilterCreateRequest",
             "format": "",
             },
         "operationResponseType": "RumRetentionFilterResponse",
     },
-    "v2.DeleteRetentionFilter": {
-        "appId": {
+    "v2.GetRetentionFilter": {"appId": {
             "type": "string",
             "format": "",
-            },
-        "rfId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetRetentionFilter": {
-        "appId": {
-            "type": "string",
-            "format": "",
-            },
-        "rfId": {
+            },"rfId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RumRetentionFilterResponse",
     },
-    "v2.UpdateRetentionFilter": {
-        "appId": {
+    "v2.DeleteRetentionFilter": {"appId": {
+            "type": "string",
+            "format": "",
+            },"rfId": {
             "type": "string",
             "format": "",
             },
-        "rfId": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateRetentionFilter": {"appId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"rfId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "RumRetentionFilterUpdateRequest",
             "format": "",
             },
@@ -6989,219 +5756,178 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListRumMetrics": {
         "operationResponseType": "RumMetricsResponse",
     },
-    "v2.CreateRumMetric": {
-        "body": {
+    "v2.CreateRumMetric": {"body": {
             "type": "RumMetricCreateRequest",
             "format": "",
             },
         "operationResponseType": "RumMetricResponse",
     },
-    "v2.DeleteRumMetric": {
-        "metricId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetRumMetric": {
-        "metricId": {
+    "v2.GetRumMetric": {"metricId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RumMetricResponse",
     },
-    "v2.UpdateRumMetric": {
-        "metricId": {
+    "v2.DeleteRumMetric": {"metricId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateRumMetric": {"metricId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "RumMetricUpdateRequest",
             "format": "",
             },
         "operationResponseType": "RumMetricResponse",
     },
-    "v2.ListScorecardOutcomes": {
-        "pageSize": {
+    "v2.ListScorecardOutcomes": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageOffset": {
+            },"pageOffset": {
             "type": "number",
             "format": "int64",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
-            },
-        "fieldsOutcome": {
+            },"fieldsOutcome": {
             "type": "string",
             "format": "",
-            },
-        "fieldsRule": {
+            },"fieldsRule": {
             "type": "string",
             "format": "",
-            },
-        "filterOutcomeServiceName": {
+            },"filterOutcomeServiceName": {
             "type": "string",
             "format": "",
-            },
-        "filterOutcomeState": {
+            },"filterOutcomeState": {
             "type": "string",
             "format": "",
-            },
-        "filterRuleEnabled": {
+            },"filterRuleEnabled": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRuleId": {
+            },"filterRuleId": {
             "type": "string",
             "format": "",
-            },
-        "filterRuleName": {
+            },"filterRuleName": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "OutcomesResponse",
     },
-    "v2.CreateScorecardOutcomesBatch": {
-        "body": {
+    "v2.CreateScorecardOutcomesBatch": {"body": {
             "type": "OutcomesBatchRequest",
             "format": "",
             },
         "operationResponseType": "OutcomesBatchResponse",
     },
-    "v2.ListScorecardRules": {
-        "pageSize": {
+    "v2.ListScorecardRules": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageOffset": {
+            },"pageOffset": {
             "type": "number",
             "format": "int64",
-            },
-        "include": {
+            },"include": {
             "type": "string",
             "format": "",
-            },
-        "filterRuleId": {
+            },"filterRuleId": {
             "type": "string",
             "format": "",
-            },
-        "filterRuleEnabled": {
+            },"filterRuleEnabled": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRuleCustom": {
+            },"filterRuleCustom": {
             "type": "boolean",
             "format": "",
-            },
-        "filterRuleName": {
+            },"filterRuleName": {
             "type": "string",
             "format": "",
-            },
-        "filterRuleDescription": {
+            },"filterRuleDescription": {
             "type": "string",
             "format": "",
-            },
-        "fieldsRule": {
+            },"fieldsRule": {
             "type": "string",
             "format": "",
-            },
-        "fieldsScorecard": {
+            },"fieldsScorecard": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ListRulesResponse",
     },
-    "v2.CreateScorecardRule": {
-        "body": {
+    "v2.CreateScorecardRule": {"body": {
             "type": "CreateRuleRequest",
             "format": "",
             },
         "operationResponseType": "CreateRuleResponse",
     },
-    "v2.DeleteScorecardRule": {
-        "ruleId": {
+    "v2.UpdateScorecardRule": {"ruleId": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.UpdateScorecardRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "UpdateRuleRequest",
             "format": "",
             },
         "operationResponseType": "UpdateRuleResponse",
     },
+    "v2.DeleteScorecardRule": {"ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListScanningGroups": {
         "operationResponseType": "SensitiveDataScannerGetConfigResponse",
     },
-    "v2.ReorderScanningGroups": {
-        "body": {
+    "v2.ReorderScanningGroups": {"body": {
             "type": "SensitiveDataScannerConfigRequest",
             "format": "",
             },
         "operationResponseType": "SensitiveDataScannerReorderGroupsResponse",
     },
-    "v2.CreateScanningGroup": {
-        "body": {
+    "v2.CreateScanningGroup": {"body": {
             "type": "SensitiveDataScannerGroupCreateRequest",
             "format": "",
             },
         "operationResponseType": "SensitiveDataScannerCreateGroupResponse",
     },
-    "v2.DeleteScanningGroup": {
-        "groupId": {
+    "v2.DeleteScanningGroup": {"groupId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SensitiveDataScannerGroupDeleteRequest",
             "format": "",
             },
         "operationResponseType": "SensitiveDataScannerGroupDeleteResponse",
     },
-    "v2.UpdateScanningGroup": {
-        "groupId": {
+    "v2.UpdateScanningGroup": {"groupId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SensitiveDataScannerGroupUpdateRequest",
             "format": "",
             },
         "operationResponseType": "SensitiveDataScannerGroupUpdateResponse",
     },
-    "v2.CreateScanningRule": {
-        "body": {
+    "v2.CreateScanningRule": {"body": {
             "type": "SensitiveDataScannerRuleCreateRequest",
             "format": "",
             },
         "operationResponseType": "SensitiveDataScannerCreateRuleResponse",
     },
-    "v2.DeleteScanningRule": {
-        "ruleId": {
+    "v2.DeleteScanningRule": {"ruleId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SensitiveDataScannerRuleDeleteRequest",
             "format": "",
             },
         "operationResponseType": "SensitiveDataScannerRuleDeleteResponse",
     },
-    "v2.UpdateScanningRule": {
-        "ruleId": {
+    "v2.UpdateScanningRule": {"ruleId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "SensitiveDataScannerRuleUpdateRequest",
             "format": "",
             },
@@ -7210,244 +5936,199 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.ListStandardPatterns": {
         "operationResponseType": "SensitiveDataScannerStandardPatternsResponseData",
     },
-    "v2.CreateServiceAccount": {
-        "body": {
+    "v2.CreateServiceAccount": {"body": {
             "type": "ServiceAccountCreateRequest",
             "format": "",
             },
         "operationResponseType": "UserResponse",
     },
-    "v2.ListServiceAccountApplicationKeys": {
-        "serviceAccountId": {
+    "v2.ListServiceAccountApplicationKeys": {"serviceAccountId": {
             "type": "string",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "ApplicationKeysSort",
             "format": "",
-            },
-        "filter": {
+            },"filter": {
             "type": "string",
             "format": "",
-            },
-        "filterCreatedAtStart": {
+            },"filterCreatedAtStart": {
             "type": "string",
             "format": "",
-            },
-        "filterCreatedAtEnd": {
+            },"filterCreatedAtEnd": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ListApplicationKeysResponse",
     },
-    "v2.CreateServiceAccountApplicationKey": {
-        "serviceAccountId": {
+    "v2.CreateServiceAccountApplicationKey": {"serviceAccountId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "ApplicationKeyCreateRequest",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
-    "v2.DeleteServiceAccountApplicationKey": {
-        "serviceAccountId": {
+    "v2.GetServiceAccountApplicationKey": {"serviceAccountId": {
             "type": "string",
             "format": "",
-            },
-        "appKeyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetServiceAccountApplicationKey": {
-        "serviceAccountId": {
-            "type": "string",
-            "format": "",
-            },
-        "appKeyId": {
+            },"appKeyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "PartialApplicationKeyResponse",
     },
-    "v2.UpdateServiceAccountApplicationKey": {
-        "serviceAccountId": {
+    "v2.DeleteServiceAccountApplicationKey": {"serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },"appKeyId": {
             "type": "string",
             "format": "",
             },
-        "appKeyId": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateServiceAccountApplicationKey": {"serviceAccountId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"appKeyId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "ApplicationKeyUpdateRequest",
             "format": "",
             },
         "operationResponseType": "PartialApplicationKeyResponse",
     },
-    "v2.ListIncidentServices": {
-        "include": {
+    "v2.ListIncidentServices": {"include": {
             "type": "IncidentRelatedObject",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageOffset": {
+            },"pageOffset": {
             "type": "number",
             "format": "int64",
-            },
-        "filter": {
+            },"filter": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "IncidentServicesResponse",
     },
-    "v2.CreateIncidentService": {
-        "body": {
+    "v2.CreateIncidentService": {"body": {
             "type": "IncidentServiceCreateRequest",
             "format": "",
             },
         "operationResponseType": "IncidentServiceResponse",
     },
-    "v2.DeleteIncidentService": {
-        "serviceId": {
+    "v2.GetIncidentService": {"serviceId": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetIncidentService": {
-        "serviceId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "IncidentRelatedObject",
             "format": "",
             },
         "operationResponseType": "IncidentServiceResponse",
     },
-    "v2.UpdateIncidentService": {
-        "serviceId": {
+    "v2.DeleteIncidentService": {"serviceId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentService": {"serviceId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "IncidentServiceUpdateRequest",
             "format": "",
             },
         "operationResponseType": "IncidentServiceResponse",
     },
-    "v2.ListServiceDefinitions": {
-        "pageSize": {
+    "v2.ListServiceDefinitions": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "schemaVersion": {
+            },"schemaVersion": {
             "type": "ServiceDefinitionSchemaVersions",
             "format": "",
             },
         "operationResponseType": "ServiceDefinitionsListResponse",
     },
-    "v2.CreateOrUpdateServiceDefinitions": {
-        "body": {
+    "v2.CreateOrUpdateServiceDefinitions": {"body": {
             "type": "ServiceDefinitionsCreateRequest",
             "format": "",
             },
         "operationResponseType": "ServiceDefinitionCreateResponse",
     },
-    "v2.DeleteServiceDefinition": {
-        "serviceName": {
+    "v2.GetServiceDefinition": {"serviceName": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetServiceDefinition": {
-        "serviceName": {
-            "type": "string",
-            "format": "",
-            },
-        "schemaVersion": {
+            },"schemaVersion": {
             "type": "ServiceDefinitionSchemaVersions",
             "format": "",
             },
         "operationResponseType": "ServiceDefinitionGetResponse",
     },
-    "v2.CreateSLOReportJob": {
-        "body": {
+    "v2.DeleteServiceDefinition": {"serviceName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.CreateSLOReportJob": {"body": {
             "type": "SloReportCreateRequest",
             "format": "",
             },
         "operationResponseType": "SLOReportPostResponse",
     },
-    "v2.GetSLOReport": {
-        "reportId": {
+    "v2.GetSLOReport": {"reportId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "string",
     },
-    "v2.GetSLOReportJobStatus": {
-        "reportId": {
+    "v2.GetSLOReportJobStatus": {"reportId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SLOReportStatusGetResponse",
     },
-    "v2.AggregateSpans": {
-        "body": {
+    "v2.AggregateSpans": {"body": {
             "type": "SpansAggregateRequest",
             "format": "",
             },
         "operationResponseType": "SpansAggregateResponse",
     },
-    "v2.ListSpansGet": {
-        "filterQuery": {
+    "v2.ListSpansGet": {"filterQuery": {
             "type": "string",
             "format": "",
-            },
-        "filterFrom": {
+            },"filterFrom": {
             "type": "string",
             "format": "",
-            },
-        "filterTo": {
+            },"filterTo": {
             "type": "string",
             "format": "",
-            },
-        "sort": {
+            },"sort": {
             "type": "SpansSort",
             "format": "",
-            },
-        "pageCursor": {
+            },"pageCursor": {
             "type": "string",
             "format": "",
-            },
-        "pageLimit": {
+            },"pageLimit": {
             "type": "number",
             "format": "int32",
             },
         "operationResponseType": "SpansListResponse",
     },
-    "v2.ListSpans": {
-        "body": {
+    "v2.ListSpans": {"body": {
             "type": "SpansListRequest",
             "format": "",
             },
@@ -7456,478 +6137,391 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetOnDemandConcurrencyCap": {
         "operationResponseType": "OnDemandConcurrencyCapResponse",
     },
-    "v2.SetOnDemandConcurrencyCap": {
-        "body": {
+    "v2.SetOnDemandConcurrencyCap": {"body": {
             "type": "OnDemandConcurrencyCapAttributes",
             "format": "",
             },
         "operationResponseType": "OnDemandConcurrencyCapResponse",
     },
-    "v2.ListTeams": {
-        "pageNumber": {
+    "v2.ListTeams": {"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "ListTeamsSort",
             "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "Array<ListTeamsInclude>",
             "format": "",
-            },
-        "filterKeyword": {
+            },"filterKeyword": {
             "type": "string",
             "format": "",
-            },
-        "filterMe": {
+            },"filterMe": {
             "type": "boolean",
             "format": "",
-            },
-        "fieldsTeam": {
+            },"fieldsTeam": {
             "type": "Array<TeamsField>",
             "format": "",
             },
         "operationResponseType": "TeamsResponse",
     },
-    "v2.CreateTeam": {
-        "body": {
+    "v2.CreateTeam": {"body": {
             "type": "TeamCreateRequest",
             "format": "",
             },
         "operationResponseType": "TeamResponse",
     },
-    "v2.ListMemberTeams": {
-        "superTeamId": {
+    "v2.ListMemberTeams": {"superTeamId": {
             "type": "string",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "fieldsTeam": {
+            },"fieldsTeam": {
             "type": "Array<TeamsField>",
             "format": "",
             },
         "operationResponseType": "TeamsResponse",
     },
-    "v2.AddMemberTeam": {
-        "superTeamId": {
+    "v2.AddMemberTeam": {"superTeamId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "AddMemberTeamRequest",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.RemoveMemberTeam": {
-        "superTeamId": {
+    "v2.RemoveMemberTeam": {"superTeamId": {
+            "type": "string",
+            "format": "",
+            },"memberTeamId": {
             "type": "string",
             "format": "",
             },
-        "memberTeamId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.DeleteTeam": {
-        "teamId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetTeam": {
-        "teamId": {
+    "v2.GetTeam": {"teamId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "TeamResponse",
     },
-    "v2.UpdateTeam": {
-        "teamId": {
+    "v2.DeleteTeam": {"teamId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTeam": {"teamId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "TeamUpdateRequest",
             "format": "",
             },
         "operationResponseType": "TeamResponse",
     },
-    "v2.GetTeamLinks": {
-        "teamId": {
+    "v2.GetTeamLinks": {"teamId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "TeamLinksResponse",
     },
-    "v2.CreateTeamLink": {
-        "teamId": {
+    "v2.CreateTeamLink": {"teamId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "TeamLinkCreateRequest",
             "format": "",
             },
         "operationResponseType": "TeamLinkResponse",
     },
-    "v2.DeleteTeamLink": {
-        "teamId": {
+    "v2.GetTeamLink": {"teamId": {
             "type": "string",
             "format": "",
-            },
-        "linkId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetTeamLink": {
-        "teamId": {
-            "type": "string",
-            "format": "",
-            },
-        "linkId": {
+            },"linkId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "TeamLinkResponse",
     },
-    "v2.UpdateTeamLink": {
-        "teamId": {
+    "v2.DeleteTeamLink": {"teamId": {
+            "type": "string",
+            "format": "",
+            },"linkId": {
             "type": "string",
             "format": "",
             },
-        "linkId": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTeamLink": {"teamId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"linkId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "TeamLinkCreateRequest",
             "format": "",
             },
         "operationResponseType": "TeamLinkResponse",
     },
-    "v2.GetTeamMemberships": {
-        "teamId": {
+    "v2.GetTeamMemberships": {"teamId": {
             "type": "string",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "GetTeamMembershipsSort",
             "format": "",
-            },
-        "filterKeyword": {
+            },"filterKeyword": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UserTeamsResponse",
     },
-    "v2.CreateTeamMembership": {
-        "teamId": {
+    "v2.CreateTeamMembership": {"teamId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "UserTeamRequest",
             "format": "",
             },
         "operationResponseType": "UserTeamResponse",
     },
-    "v2.DeleteTeamMembership": {
-        "teamId": {
+    "v2.DeleteTeamMembership": {"teamId": {
+            "type": "string",
+            "format": "",
+            },"userId": {
             "type": "string",
             "format": "",
             },
-        "userId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
-    "v2.UpdateTeamMembership": {
-        "teamId": {
+    "v2.UpdateTeamMembership": {"teamId": {
             "type": "string",
             "format": "",
-            },
-        "userId": {
+            },"userId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "UserTeamUpdateRequest",
             "format": "",
             },
         "operationResponseType": "UserTeamResponse",
     },
-    "v2.GetTeamPermissionSettings": {
-        "teamId": {
+    "v2.GetTeamPermissionSettings": {"teamId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "TeamPermissionSettingsResponse",
     },
-    "v2.UpdateTeamPermissionSetting": {
-        "teamId": {
+    "v2.UpdateTeamPermissionSetting": {"teamId": {
             "type": "string",
             "format": "",
-            },
-        "action": {
+            },"action": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "TeamPermissionSettingUpdateRequest",
             "format": "",
             },
         "operationResponseType": "TeamPermissionSettingResponse",
     },
-    "v2.GetUserMemberships": {
-        "userUuid": {
+    "v2.GetUserMemberships": {"userUuid": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UserTeamsResponse",
     },
-    "v2.ListIncidentTeams": {
-        "include": {
+    "v2.ListIncidentTeams": {"include": {
             "type": "IncidentRelatedObject",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageOffset": {
+            },"pageOffset": {
             "type": "number",
             "format": "int64",
-            },
-        "filter": {
+            },"filter": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "IncidentTeamsResponse",
     },
-    "v2.CreateIncidentTeam": {
-        "body": {
+    "v2.CreateIncidentTeam": {"body": {
             "type": "IncidentTeamCreateRequest",
             "format": "",
             },
         "operationResponseType": "IncidentTeamResponse",
     },
-    "v2.DeleteIncidentTeam": {
-        "teamId": {
+    "v2.GetIncidentTeam": {"teamId": {
             "type": "string",
             "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetIncidentTeam": {
-        "teamId": {
-            "type": "string",
-            "format": "",
-            },
-        "include": {
+            },"include": {
             "type": "IncidentRelatedObject",
             "format": "",
             },
         "operationResponseType": "IncidentTeamResponse",
     },
-    "v2.UpdateIncidentTeam": {
-        "teamId": {
+    "v2.DeleteIncidentTeam": {"teamId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateIncidentTeam": {"teamId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "IncidentTeamUpdateRequest",
             "format": "",
             },
         "operationResponseType": "IncidentTeamResponse",
     },
-    "v2.SendInvitations": {
-        "body": {
+    "v2.SendInvitations": {"body": {
             "type": "UserInvitationsRequest",
             "format": "",
             },
         "operationResponseType": "UserInvitationsResponse",
     },
-    "v2.GetInvitation": {
-        "userInvitationUuid": {
+    "v2.GetInvitation": {"userInvitationUuid": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UserInvitationResponse",
     },
-    "v2.ListUsers": {
-        "pageSize": {
+    "v2.ListUsers": {"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
-            },
-        "sort": {
+            },"sort": {
             "type": "string",
             "format": "",
-            },
-        "sortDir": {
+            },"sortDir": {
             "type": "QuerySortOrder",
             "format": "",
-            },
-        "filter": {
+            },"filter": {
             "type": "string",
             "format": "",
-            },
-        "filterStatus": {
+            },"filterStatus": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UsersResponse",
     },
-    "v2.CreateUser": {
-        "body": {
+    "v2.CreateUser": {"body": {
             "type": "UserCreateRequest",
             "format": "",
             },
         "operationResponseType": "UserResponse",
     },
-    "v2.DisableUser": {
-        "userId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetUser": {
-        "userId": {
+    "v2.GetUser": {"userId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UserResponse",
     },
-    "v2.UpdateUser": {
-        "userId": {
+    "v2.DisableUser": {"userId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateUser": {"userId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "UserUpdateRequest",
             "format": "",
             },
         "operationResponseType": "UserResponse",
     },
-    "v2.ListUserOrganizations": {
-        "userId": {
+    "v2.ListUserOrganizations": {"userId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UserResponse",
     },
-    "v2.ListUserPermissions": {
-        "userId": {
+    "v2.ListUserPermissions": {"userId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "PermissionsResponse",
     },
-    "v2.CreateWorkflow": {
-        "body": {
+    "v2.CreateWorkflow": {"body": {
             "type": "CreateWorkflowRequest",
             "format": "",
             },
         "operationResponseType": "CreateWorkflowResponse",
     },
-    "v2.DeleteWorkflow": {
-        "workflowId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetWorkflow": {
-        "workflowId": {
+    "v2.GetWorkflow": {"workflowId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "GetWorkflowResponse",
     },
-    "v2.UpdateWorkflow": {
-        "workflowId": {
+    "v2.DeleteWorkflow": {"workflowId": {
             "type": "string",
             "format": "",
             },
-        "body": {
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateWorkflow": {"workflowId": {
+            "type": "string",
+            "format": "",
+            },"body": {
             "type": "UpdateWorkflowRequest",
             "format": "",
             },
         "operationResponseType": "UpdateWorkflowResponse",
     },
-    "v2.ListWorkflowInstances": {
-        "workflowId": {
+    "v2.ListWorkflowInstances": {"workflowId": {
             "type": "string",
             "format": "",
-            },
-        "pageSize": {
+            },"pageSize": {
             "type": "number",
             "format": "int64",
-            },
-        "pageNumber": {
+            },"pageNumber": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "WorkflowListInstancesResponse",
     },
-    "v2.CreateWorkflowInstance": {
-        "workflowId": {
+    "v2.CreateWorkflowInstance": {"workflowId": {
             "type": "string",
             "format": "",
-            },
-        "body": {
+            },"body": {
             "type": "WorkflowInstanceCreateRequest",
             "format": "",
             },
         "operationResponseType": "WorkflowInstanceCreateResponse",
     },
-    "v2.GetWorkflowInstance": {
-        "workflowId": {
+    "v2.GetWorkflowInstance": {"workflowId": {
             "type": "string",
             "format": "",
-            },
-        "instanceId": {
+            },"instanceId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "WorklflowGetInstanceResponse",
     },
-    "v2.CancelWorkflowInstance": {
-        "workflowId": {
+    "v2.CancelWorkflowInstance": {"workflowId": {
             "type": "string",
             "format": "",
-            },
-        "instanceId": {
+            },"instanceId": {
             "type": "string",
             "format": "",
             },
