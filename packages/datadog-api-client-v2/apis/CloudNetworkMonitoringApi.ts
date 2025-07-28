@@ -165,7 +165,7 @@ export interface CloudNetworkMonitoringApiGetAggregatedConnectionsRequest {
    */
   to?: number;
   /**
-   * Comma-separated list of fields to group connections by.
+   * Comma-separated list of fields to group connections by. The maximum number of group_by(s) is 10.
    * @type string
    */
   groupBy?: string;
