@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { Dataset } from "./Dataset";
+import { DatasetRequest } from "./DatasetRequest";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,21 +12,19 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DatasetCreateRequest {
   /**
-   * Dataset object.
-   *
-   * ### Datasets Constraints
-   * - **Tag Limit per Dataset**:
+   * **Datasets Object Constraints**
+   * - **Tag limit per dataset**:
    *   - Each restricted dataset supports a maximum of 10 key:value pairs per product.
    *
-   * - **Tag Key Rules per Telemetry Type**:
+   * - **Tag key rules per telemetry type**:
    *   - Only one tag key or attribute may be used to define access within a single telemetry type.
    *   - The same or different tag key may be used across different telemetry types.
    *
-   * - **Tag Value Uniqueness**:
+   * - **Tag value uniqueness**:
    *   - Tag values must be unique within a single dataset.
    *   - A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.
    */
-  "data": Dataset;
+  "data": DatasetRequest;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,7 +44,7 @@ export class DatasetCreateRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Dataset",
+      type: "DatasetRequest",
       required: true,
     },
     additionalProperties: {

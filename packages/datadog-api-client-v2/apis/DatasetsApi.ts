@@ -29,6 +29,11 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'createDataset'");
+    if (!_config.unstableOperations["v2.createDataset"]) {
+      throw new Error("Unstable operation 'createDataset' is disabled");
+    }
+
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createDataset");
@@ -71,6 +76,11 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'deleteDataset'");
+    if (!_config.unstableOperations["v2.deleteDataset"]) {
+      throw new Error("Unstable operation 'deleteDataset' is disabled");
+    }
+
     // verify required parameter 'datasetId' is not null or undefined
     if (datasetId === null || datasetId === undefined) {
       throw new RequiredError("datasetId", "deleteDataset");
@@ -104,6 +114,11 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'getAllDatasets'");
+    if (!_config.unstableOperations["v2.getAllDatasets"]) {
+      throw new Error("Unstable operation 'getAllDatasets' is disabled");
+    }
+
     // Path Params
     const localVarPath = "/api/v2/datasets";
 
@@ -129,6 +144,11 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getDataset'");
+    if (!_config.unstableOperations["v2.getDataset"]) {
+      throw new Error("Unstable operation 'getDataset' is disabled");
+    }
 
     // verify required parameter 'datasetId' is not null or undefined
     if (datasetId === null || datasetId === undefined) {
@@ -164,6 +184,11 @@ export class DatasetsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateDataset'");
+    if (!_config.unstableOperations["v2.updateDataset"]) {
+      throw new Error("Unstable operation 'updateDataset' is disabled");
+    }
 
     // verify required parameter 'datasetId' is not null or undefined
     if (datasetId === null || datasetId === undefined) {

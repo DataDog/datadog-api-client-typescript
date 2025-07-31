@@ -5,27 +5,29 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
+configuration.unstableOperations["v2.updateDataset"] = true;
 const apiInstance = new v2.DatasetsApi(configuration);
+
+// there is a valid "dataset" in the system
+const DATASET_DATA_ID = process.env.DATASET_DATA_ID as string;
 
 const params: v2.DatasetsApiUpdateDatasetRequest = {
   body: {
     data: {
       attributes: {
-        createdAt: undefined,
         name: "Security Audit Dataset",
-        principals: ["role:86245fce-0a4e-11f0-92bd-da7ad0900002"],
+        principals: ["role:94172442-be03-11e9-a77a-3b7612558ac1"],
         productFilters: [
           {
-            filters: ["@application.id:ABCD"],
-            product: "logs",
+            filters: ["@application.id:1234"],
+            product: "metrics",
           },
         ],
       },
-      id: "123e4567-e89b-12d3-a456-426614174000",
       type: "dataset",
     },
   },
-  datasetId: "dataset_id",
+  datasetId: DATASET_DATA_ID,
 };
 
 apiInstance
