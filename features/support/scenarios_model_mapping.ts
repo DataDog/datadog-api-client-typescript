@@ -3412,6 +3412,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterResourceId": {
+            "type": "string",
+            "format": "",
+            },
         "filterDiscoveryTimestamp": {
             "type": "string",
             "format": "",

@@ -1620,6 +1620,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     filterRuleId?: string,
     filterRuleName?: string,
     filterResourceType?: string,
+    filterResourceId?: string,
     filterDiscoveryTimestamp?: string,
     filterEvaluation?: FindingEvaluation,
     filterStatus?: FindingStatus,
@@ -1705,6 +1706,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[resource_type]",
         ObjectSerializer.serialize(filterResourceType, "string", ""),
+        ""
+      );
+    }
+    if (filterResourceId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[@resource_id]",
+        ObjectSerializer.serialize(filterResourceId, "string", ""),
         ""
       );
     }
@@ -7258,6 +7266,11 @@ export interface SecurityMonitoringApiListFindingsRequest {
    */
   filterResourceType?: string;
   /**
+   * Return only findings for the specified resource id.
+   * @type string
+   */
+  filterResourceId?: string;
+  /**
    * Return findings that were found on a specified date (Unix ms) or date range (using comparison operators).
    * @type string
    */
@@ -8656,6 +8669,7 @@ export class SecurityMonitoringApi {
    * - `external_id`: The resource external ID related to the finding.
    * - `description`: The description and remediation steps for the finding.
    * - `datadog_link`: The Datadog relative link for the finding.
+   * - `ip_addresses`: The list of private IP addresses for the resource related to the finding.
    *
    * ### Response
    *
@@ -8683,6 +8697,7 @@ export class SecurityMonitoringApi {
       param.filterRuleId,
       param.filterRuleName,
       param.filterResourceType,
+      param.filterResourceId,
       param.filterDiscoveryTimestamp,
       param.filterEvaluation,
       param.filterStatus,
@@ -8722,6 +8737,7 @@ export class SecurityMonitoringApi {
         param.filterRuleId,
         param.filterRuleName,
         param.filterResourceType,
+        param.filterResourceId,
         param.filterDiscoveryTimestamp,
         param.filterEvaluation,
         param.filterStatus,
