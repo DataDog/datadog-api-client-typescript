@@ -3069,6 +3069,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CaseResponse",
   },
+  "CaseManagementApi.V2.UpdateAttributes": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CaseUpdateAttributesRequest",
+      format: "",
+    },
+    operationResponseType: "CaseResponse",
+  },
   "CaseManagementApi.V2.UpdatePriority": {
     caseId: {
       type: "string",
