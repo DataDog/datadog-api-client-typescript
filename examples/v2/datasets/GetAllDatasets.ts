@@ -5,6 +5,7 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
+configuration.unstableOperations["v2.getAllDatasets"] = true;
 const apiInstance = new v2.DatasetsApi(configuration);
 
 apiInstance

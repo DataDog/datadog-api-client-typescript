@@ -3,14 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DatasetAttributes } from "./DatasetAttributes";
+import { DatasetAttributesResponse } from "./DatasetAttributesResponse";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Dataset object.
- *
- * ### Datasets Constraints
+ * **Datasets Object Constraints**
  * - **Tag Limit per Dataset**:
  *   - Each restricted dataset supports a maximum of 10 key:value pairs per product.
  *
@@ -22,11 +20,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  *   - Tag values must be unique within a single dataset.
  *   - A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.
  */
-export class Dataset {
+export class DatasetResponse {
   /**
    * Dataset metadata and configuration(s).
    */
-  "attributes": DatasetAttributes;
+  "attributes"?: DatasetAttributesResponse;
   /**
    * Unique identifier for the dataset.
    */
@@ -34,7 +32,7 @@ export class Dataset {
   /**
    * Resource type, always "dataset".
    */
-  "type": string;
+  "type"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -54,8 +52,7 @@ export class Dataset {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "DatasetAttributes",
-      required: true,
+      type: "DatasetAttributesResponse",
     },
     id: {
       baseName: "id",
@@ -64,7 +61,6 @@ export class Dataset {
     type: {
       baseName: "type",
       type: "string",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -76,7 +72,7 @@ export class Dataset {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return Dataset.attributeTypeMap;
+    return DatasetResponse.attributeTypeMap;
   }
 
   public constructor() {}

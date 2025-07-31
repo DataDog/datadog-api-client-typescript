@@ -3,28 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { DatasetRequest } from "./DatasetRequest";
+import { FiltersPerProduct } from "./FiltersPerProduct";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Edit request for a dataset.
+ * Dataset metadata and configurations.
  */
-export class DatasetUpdateRequest {
+export class DatasetAttributesRequest {
   /**
-   * **Datasets Object Constraints**
-   * - **Tag limit per dataset**:
-   *   - Each restricted dataset supports a maximum of 10 key:value pairs per product.
-   *
-   * - **Tag key rules per telemetry type**:
-   *   - Only one tag key or attribute may be used to define access within a single telemetry type.
-   *   - The same or different tag key may be used across different telemetry types.
-   *
-   * - **Tag value uniqueness**:
-   *   - Tag values must be unique within a single dataset.
-   *   - A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.
+   * Name of the dataset.
    */
-  "data": DatasetRequest;
+  "name": string;
+  /**
+   * List of access principals, formatted as `principal_type:id`. Principal can be 'team' or 'role'.
+   */
+  "principals": Array<string>;
+  /**
+   * List of product-specific filters.
+   */
+  "productFilters": Array<FiltersPerProduct>;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,9 +40,19 @@ export class DatasetUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DatasetRequest",
+    name: {
+      baseName: "name",
+      type: "string",
+      required: true,
+    },
+    principals: {
+      baseName: "principals",
+      type: "Array<string>",
+      required: true,
+    },
+    productFilters: {
+      baseName: "product_filters",
+      type: "Array<FiltersPerProduct>",
       required: true,
     },
     additionalProperties: {
@@ -57,7 +65,7 @@ export class DatasetUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return DatasetUpdateRequest.attributeTypeMap;
+    return DatasetAttributesRequest.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { Dataset } from "./Dataset";
+import { DatasetResponse } from "./DatasetResponse";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +14,7 @@ export class DatasetResponseMulti {
   /**
    * The list of datasets returned in response.
    */
-  "data": Array<Dataset>;
+  "data"?: Array<DatasetResponse>;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,8 +34,7 @@ export class DatasetResponseMulti {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<Dataset>",
-      required: true,
+      type: "Array<DatasetResponse>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

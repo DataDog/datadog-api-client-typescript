@@ -5,10 +5,14 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
+configuration.unstableOperations["v2.deleteDataset"] = true;
 const apiInstance = new v2.DatasetsApi(configuration);
 
+// there is a valid "dataset" in the system
+const DATASET_DATA_ID = process.env.DATASET_DATA_ID as string;
+
 const params: v2.DatasetsApiDeleteDatasetRequest = {
-  datasetId: "dataset_id",
+  datasetId: DATASET_DATA_ID,
 };
 
 apiInstance

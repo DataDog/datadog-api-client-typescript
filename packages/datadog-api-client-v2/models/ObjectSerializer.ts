@@ -563,9 +563,11 @@ import { DatadogAPIKey } from "./DatadogAPIKey";
 import { DatadogAPIKeyUpdate } from "./DatadogAPIKeyUpdate";
 import { DatadogIntegration } from "./DatadogIntegration";
 import { DatadogIntegrationUpdate } from "./DatadogIntegrationUpdate";
-import { Dataset } from "./Dataset";
-import { DatasetAttributes } from "./DatasetAttributes";
+import { DatasetAttributesRequest } from "./DatasetAttributesRequest";
+import { DatasetAttributesResponse } from "./DatasetAttributesResponse";
 import { DatasetCreateRequest } from "./DatasetCreateRequest";
+import { DatasetRequest } from "./DatasetRequest";
+import { DatasetResponse } from "./DatasetResponse";
 import { DatasetResponseMulti } from "./DatasetResponseMulti";
 import { DatasetResponseSingle } from "./DatasetResponseSingle";
 import { DatasetUpdateRequest } from "./DatasetUpdateRequest";
@@ -4090,9 +4092,11 @@ const typeMap: { [index: string]: any } = {
   DatadogAPIKeyUpdate: DatadogAPIKeyUpdate,
   DatadogIntegration: DatadogIntegration,
   DatadogIntegrationUpdate: DatadogIntegrationUpdate,
-  Dataset: Dataset,
-  DatasetAttributes: DatasetAttributes,
+  DatasetAttributesRequest: DatasetAttributesRequest,
+  DatasetAttributesResponse: DatasetAttributesResponse,
   DatasetCreateRequest: DatasetCreateRequest,
+  DatasetRequest: DatasetRequest,
+  DatasetResponse: DatasetResponse,
   DatasetResponseMulti: DatasetResponseMulti,
   DatasetResponseSingle: DatasetResponseSingle,
   DatasetUpdateRequest: DatasetUpdateRequest,
