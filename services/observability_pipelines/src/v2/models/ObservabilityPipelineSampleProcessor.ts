@@ -7,6 +7,10 @@ import { ObservabilityPipelineSampleProcessorType } from "./ObservabilityPipelin
  */
 export class ObservabilityPipelineSampleProcessor {
   /**
+   * Optional list of fields to group events by. Each group will be sampled independently
+   */
+  "groupBy"?: Array<string>;
+  /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
   "id": string;
@@ -45,6 +49,10 @@ export class ObservabilityPipelineSampleProcessor {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    groupBy: {
+      baseName: "group_by",
+      type: "Array<string>",
+    },
     id: {
       baseName: "id",
       type: "string",
