@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { Dataset } from "./Dataset";
+import { DatasetResponse } from "./DatasetResponse";
 
 /**
  * Response containing a list of datasets.
@@ -9,7 +9,7 @@ export class DatasetResponseMulti {
   /**
    * The list of datasets returned in response.
    */
-  "data": Array<Dataset>;
+  "data"?: Array<DatasetResponse>;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -27,8 +27,7 @@ export class DatasetResponseMulti {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<Dataset>",
-      required: true,
+      type: "Array<DatasetResponse>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
