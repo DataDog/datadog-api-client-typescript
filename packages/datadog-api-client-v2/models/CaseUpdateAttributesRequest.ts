@@ -3,32 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CaseAttributes } from "./CaseAttributes";
-import { CaseRelationships } from "./CaseRelationships";
-import { CaseResourceType } from "./CaseResourceType";
+import { CaseUpdateAttributes } from "./CaseUpdateAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A case
+ * Case update attributes request
  */
-export class Case {
+export class CaseUpdateAttributesRequest {
   /**
-   * Case resource attributes
+   * Case update attributes
    */
-  "attributes": CaseAttributes;
-  /**
-   * Case's identifier
-   */
-  "id": string;
-  /**
-   * Resources related to a case
-   */
-  "relationships"?: CaseRelationships;
-  /**
-   * Case resource type
-   */
-  "type": CaseResourceType;
+  "data": CaseUpdateAttributes;
 
   /**
    * A container for additional, undeclared properties.
@@ -46,23 +32,9 @@ export class Case {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "CaseRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "CaseResourceType",
+    data: {
+      baseName: "data",
+      type: "CaseUpdateAttributes",
       required: true,
     },
     additionalProperties: {
@@ -75,7 +47,7 @@ export class Case {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return Case.attributeTypeMap;
+    return CaseUpdateAttributesRequest.attributeTypeMap;
   }
 
   public constructor() {}
