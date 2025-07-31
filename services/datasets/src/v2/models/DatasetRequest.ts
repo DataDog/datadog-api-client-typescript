@@ -1,31 +1,25 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { DatasetAttributes } from "./DatasetAttributes";
+import { DatasetAttributesRequest } from "./DatasetAttributesRequest";
 
 /**
- * Dataset object.
- *
- * ### Datasets Constraints
- * - **Tag Limit per Dataset**:
+ * **Datasets Object Constraints**
+ * - **Tag limit per dataset**:
  *   - Each restricted dataset supports a maximum of 10 key:value pairs per product.
  *
- * - **Tag Key Rules per Telemetry Type**:
+ * - **Tag key rules per telemetry type**:
  *   - Only one tag key or attribute may be used to define access within a single telemetry type.
  *   - The same or different tag key may be used across different telemetry types.
  *
- * - **Tag Value Uniqueness**:
+ * - **Tag value uniqueness**:
  *   - Tag values must be unique within a single dataset.
  *   - A tag value used in one dataset cannot be reused in another dataset of the same telemetry type.
  */
-export class Dataset {
+export class DatasetRequest {
   /**
-   * Dataset metadata and configuration(s).
+   * Dataset metadata and configurations.
    */
-  "attributes": DatasetAttributes;
-  /**
-   * Unique identifier for the dataset.
-   */
-  "id"?: string;
+  "attributes": DatasetAttributesRequest;
   /**
    * Resource type, always "dataset".
    */
@@ -47,12 +41,8 @@ export class Dataset {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "DatasetAttributes",
+      type: "DatasetAttributesRequest",
       required: true,
-    },
-    id: {
-      baseName: "id",
-      type: "string",
     },
     type: {
       baseName: "type",
@@ -69,7 +59,7 @@ export class Dataset {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return Dataset.attributeTypeMap;
+    return DatasetRequest.attributeTypeMap;
   }
 
   public constructor() {}

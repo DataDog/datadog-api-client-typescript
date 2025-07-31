@@ -1,9 +1,11 @@
 import { ModelTypingInfo } from "@datadog/datadog-api-client";
 
 import { APIErrorResponse } from "./APIErrorResponse";
-import { Dataset } from "./Dataset";
-import { DatasetAttributes } from "./DatasetAttributes";
+import { DatasetAttributesRequest } from "./DatasetAttributesRequest";
+import { DatasetAttributesResponse } from "./DatasetAttributesResponse";
 import { DatasetCreateRequest } from "./DatasetCreateRequest";
+import { DatasetRequest } from "./DatasetRequest";
+import { DatasetResponse } from "./DatasetResponse";
 import { DatasetResponseMulti } from "./DatasetResponseMulti";
 import { DatasetResponseSingle } from "./DatasetResponseSingle";
 import { DatasetUpdateRequest } from "./DatasetUpdateRequest";
@@ -14,9 +16,11 @@ export const TypingInfo: ModelTypingInfo = {
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
-    Dataset: Dataset,
-    DatasetAttributes: DatasetAttributes,
+    DatasetAttributesRequest: DatasetAttributesRequest,
+    DatasetAttributesResponse: DatasetAttributesResponse,
     DatasetCreateRequest: DatasetCreateRequest,
+    DatasetRequest: DatasetRequest,
+    DatasetResponse: DatasetResponse,
     DatasetResponseMulti: DatasetResponseMulti,
     DatasetResponseSingle: DatasetResponseSingle,
     DatasetUpdateRequest: DatasetUpdateRequest,
