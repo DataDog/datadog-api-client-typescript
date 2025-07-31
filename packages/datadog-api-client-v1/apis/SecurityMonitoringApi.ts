@@ -460,7 +460,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Modify the triage assignee of a security signal.
+   * This endpoint is deprecated - Modify the triage assignee of a security signal.
    * @param param The request object
    */
   public editSecurityMonitoringSignalAssignee(
@@ -485,7 +485,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Change the triage state of a security signal.
+   * This endpoint is deprecated - Change the triage state of a security signal.
    * @param param The request object
    */
   public editSecurityMonitoringSignalState(
