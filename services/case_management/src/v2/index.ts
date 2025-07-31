@@ -9,6 +9,7 @@ export {
   CaseManagementApiSearchCasesRequest,
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUpdateAttributesRequest,
   CaseManagementApiUpdatePriorityRequest,
   CaseManagementApiUpdateStatusRequest,
   CaseManagementApi,
@@ -37,6 +38,9 @@ export { CasesResponseMeta } from "./models/CasesResponseMeta";
 export { CasesResponseMetaPagination } from "./models/CasesResponseMetaPagination";
 export { CaseStatus } from "./models/CaseStatus";
 export { CaseType } from "./models/CaseType";
+export { CaseUpdateAttributes } from "./models/CaseUpdateAttributes";
+export { CaseUpdateAttributesAttributes } from "./models/CaseUpdateAttributesAttributes";
+export { CaseUpdateAttributesRequest } from "./models/CaseUpdateAttributesRequest";
 export { CaseUpdatePriority } from "./models/CaseUpdatePriority";
 export { CaseUpdatePriorityAttributes } from "./models/CaseUpdatePriorityAttributes";
 export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
