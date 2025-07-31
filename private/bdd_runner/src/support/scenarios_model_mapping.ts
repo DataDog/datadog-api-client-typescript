@@ -3422,6 +3422,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterResourceId: {
+      type: "string",
+      format: "",
+    },
     filterDiscoveryTimestamp: {
       type: "string",
       format: "",
