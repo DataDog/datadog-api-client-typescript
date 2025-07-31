@@ -273,6 +273,9 @@ import { CaseRelationships } from "./CaseRelationships";
 import { CaseResponse } from "./CaseResponse";
 import { CaseTrigger } from "./CaseTrigger";
 import { CaseTriggerWrapper } from "./CaseTriggerWrapper";
+import { CaseUpdateAttributes } from "./CaseUpdateAttributes";
+import { CaseUpdateAttributesAttributes } from "./CaseUpdateAttributesAttributes";
+import { CaseUpdateAttributesRequest } from "./CaseUpdateAttributesRequest";
 import { CaseUpdatePriority } from "./CaseUpdatePriority";
 import { CaseUpdatePriorityAttributes } from "./CaseUpdatePriorityAttributes";
 import { CaseUpdatePriorityRequest } from "./CaseUpdatePriorityRequest";
@@ -3608,6 +3611,9 @@ const typeMap: { [index: string]: any } = {
   CaseResponse: CaseResponse,
   CaseTrigger: CaseTrigger,
   CaseTriggerWrapper: CaseTriggerWrapper,
+  CaseUpdateAttributes: CaseUpdateAttributes,
+  CaseUpdateAttributesAttributes: CaseUpdateAttributesAttributes,
+  CaseUpdateAttributesRequest: CaseUpdateAttributesRequest,
   CaseUpdatePriority: CaseUpdatePriority,
   CaseUpdatePriorityAttributes: CaseUpdatePriorityAttributes,
   CaseUpdatePriorityRequest: CaseUpdatePriorityRequest,

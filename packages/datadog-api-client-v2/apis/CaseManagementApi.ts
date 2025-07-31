@@ -24,6 +24,7 @@ import { CaseEmptyRequest } from "../models/CaseEmptyRequest";
 import { CaseResponse } from "../models/CaseResponse";
 import { CaseSortableField } from "../models/CaseSortableField";
 import { CasesResponse } from "../models/CasesResponse";
+import { CaseUpdateAttributesRequest } from "../models/CaseUpdateAttributesRequest";
 import { CaseUpdatePriorityRequest } from "../models/CaseUpdatePriorityRequest";
 import { CaseUpdateStatusRequest } from "../models/CaseUpdateStatusRequest";
 import { ProjectCreateRequest } from "../models/ProjectCreateRequest";
@@ -497,6 +498,57 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CaseEmptyRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+      "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updateAttributes(
+    caseId: string,
+    body: CaseUpdateAttributesRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "updateAttributes");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updateAttributes");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cases/{case_id}/attributes".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CaseManagementApi.updateAttributes")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "CaseUpdateAttributesRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -1299,6 +1351,70 @@ export class CaseManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to updateAttributes
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateAttributes(
+    response: ResponseContext
+  ): Promise<CaseResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CaseResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CaseResponse"
+      ) as CaseResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CaseResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CaseResponse",
+        ""
+      ) as CaseResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updatePriority
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1540,6 +1656,19 @@ export interface CaseManagementApiUnassignCaseRequest {
    * @type CaseEmptyRequest
    */
   body: CaseEmptyRequest;
+}
+
+export interface CaseManagementApiUpdateAttributesRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
+  /**
+   * Case attributes update payload
+   * @type CaseUpdateAttributesRequest
+   */
+  body: CaseUpdateAttributesRequest;
 }
 
 export interface CaseManagementApiUpdatePriorityRequest {
@@ -1858,6 +1987,28 @@ export class CaseManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.unassignCase(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update case attributes
+   * @param param The request object
+   */
+  public updateAttributes(
+    param: CaseManagementApiUpdateAttributesRequest,
+    options?: Configuration
+  ): Promise<CaseResponse> {
+    const requestContextPromise = this.requestFactory.updateAttributes(
+      param.caseId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAttributes(responseContext);
         });
     });
   }

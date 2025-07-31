@@ -138,6 +138,7 @@ export {
   CaseManagementApiSearchCasesRequest,
   CaseManagementApiUnarchiveCaseRequest,
   CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUpdateAttributesRequest,
   CaseManagementApiUpdatePriorityRequest,
   CaseManagementApiUpdateStatusRequest,
   CaseManagementApi,
@@ -1075,6 +1076,9 @@ export { CaseStatus } from "./models/CaseStatus";
 export { CaseTrigger } from "./models/CaseTrigger";
 export { CaseTriggerWrapper } from "./models/CaseTriggerWrapper";
 export { CaseType } from "./models/CaseType";
+export { CaseUpdateAttributes } from "./models/CaseUpdateAttributes";
+export { CaseUpdateAttributesAttributes } from "./models/CaseUpdateAttributesAttributes";
+export { CaseUpdateAttributesRequest } from "./models/CaseUpdateAttributesRequest";
 export { CaseUpdatePriority } from "./models/CaseUpdatePriority";
 export { CaseUpdatePriorityAttributes } from "./models/CaseUpdatePriorityAttributes";
 export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
