@@ -7,6 +7,7 @@ import { AzureStorageDestination } from "./AzureStorageDestination";
 import { MicrosoftSentinelDestination } from "./MicrosoftSentinelDestination";
 import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
 import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelineAmazonS3Destination";
+import { ObservabilityPipelineAmazonSecurityLakeDestination } from "./ObservabilityPipelineAmazonSecurityLakeDestination";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
@@ -15,6 +16,7 @@ import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelin
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
 import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
 import { ObservabilityPipelineSentinelOneDestination } from "./ObservabilityPipelineSentinelOneDestination";
+import { ObservabilityPipelineSocketDestination } from "./ObservabilityPipelineSocketDestination";
 import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
 import { ObservabilityPipelineSumoLogicDestination } from "./ObservabilityPipelineSumoLogicDestination";
 import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelineSyslogNgDestination";
@@ -41,4 +43,6 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineSentinelOneDestination
   | ObservabilityPipelineOpenSearchDestination
   | ObservabilityPipelineAmazonOpenSearchDestination
+  | ObservabilityPipelineSocketDestination
+  | ObservabilityPipelineAmazonSecurityLakeDestination
   | UnparsedObject;
