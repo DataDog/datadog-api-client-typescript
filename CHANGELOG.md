@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 1.41.0/2025-08-04
+
+### Added
+* Extended List Findings API to expose resource related Private IP Addresses to details [#2586](https://github.com/DataDog/datadog-api-client-typescript/pull/2586)
+* update metrics.yaml for ListMetricAssets and include Dashboard info [#2576](https://github.com/DataDog/datadog-api-client-typescript/pull/2576)
+* Uncomment edit dataset block, add dataset limitations into endpoint descriptions  [#2564](https://github.com/DataDog/datadog-api-client-typescript/pull/2564)
+* Add `text` field in synthetics search endpoint [#2562](https://github.com/DataDog/datadog-api-client-typescript/pull/2562)
+* Adding all action connection types to public API [#2560](https://github.com/DataDog/datadog-api-client-typescript/pull/2560)
+* Document case management attributes endpoints [#2552](https://github.com/DataDog/datadog-api-client-typescript/pull/2552)
+* add AP2 endpoint for On-Call Paging [#2543](https://github.com/DataDog/datadog-api-client-typescript/pull/2543)
+* Flag IP case action [#2539](https://github.com/DataDog/datadog-api-client-typescript/pull/2539)
+* Adding Datadog Connection to Connection API [#2522](https://github.com/DataDog/datadog-api-client-typescript/pull/2522)
+* Add decoder processor to public api [#2513](https://github.com/DataDog/datadog-api-client-typescript/pull/2513)
+* Add `disableAiaIntermediateFetching` option [#2498](https://github.com/DataDog/datadog-api-client-typescript/pull/2498)
+* Allow to make XPQ queries to the DORA data source [#2488](https://github.com/DataDog/datadog-api-client-typescript/pull/2488)
+* update metrics.yaml for ListMetricAssets [#2457](https://github.com/DataDog/datadog-api-client-typescript/pull/2457)
+* Add Get Tag Cardinalities Endpoint Spec [#2409](https://github.com/DataDog/datadog-api-client-typescript/pull/2409)
+
+### Fixed
+* Split Dataset into separate request and response objects, mark unstable [#2584](https://github.com/DataDog/datadog-api-client-typescript/pull/2584)
+* Disables some tests to avoid fails as the service is disabled [#2574](https://github.com/DataDog/datadog-api-client-typescript/pull/2574)
+* Update entity version documentation in Software Catalog [#2470](https://github.com/DataDog/datadog-api-client-typescript/pull/2470)
+
+### Deprecated
+* Deprecate signals triage v1 endpoints [#2578](https://github.com/DataDog/datadog-api-client-typescript/pull/2578)
+
 ## 1.40.0/2025-07-14
 
 ### Added
