@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineSumoLogicDestinationEncoding } from "./ObservabilityPipelineSumoLogicDestinationEncoding";
 import { ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem } from "./ObservabilityPipelineSumoLogicDestinationHeaderCustomFieldsItem";
 import { ObservabilityPipelineSumoLogicDestinationType } from "./ObservabilityPipelineSumoLogicDestinationType";
@@ -8,6 +9,10 @@ import { ObservabilityPipelineSumoLogicDestinationType } from "./ObservabilityPi
  * The `sumo_logic` destination forwards logs to Sumo Logic.
  */
 export class ObservabilityPipelineSumoLogicDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The output encoding format.
    */
@@ -55,6 +60,10 @@ export class ObservabilityPipelineSumoLogicDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     encoding: {
       baseName: "encoding",
       type: "ObservabilityPipelineSumoLogicDestinationEncoding",
