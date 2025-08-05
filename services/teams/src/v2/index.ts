@@ -15,6 +15,7 @@ export {
   TeamsApiListMemberTeamsRequest,
   TeamsApiListTeamsRequest,
   TeamsApiRemoveMemberTeamRequest,
+  TeamsApiSyncTeamsRequest,
   TeamsApiUpdateTeamRequest,
   TeamsApiUpdateTeamLinkRequest,
   TeamsApiUpdateTeamMembershipRequest,
@@ -78,6 +79,12 @@ export { TeamsResponse } from "./models/TeamsResponse";
 export { TeamsResponseLinks } from "./models/TeamsResponseLinks";
 export { TeamsResponseMeta } from "./models/TeamsResponseMeta";
 export { TeamsResponseMetaPagination } from "./models/TeamsResponseMetaPagination";
+export { TeamSyncAttributes } from "./models/TeamSyncAttributes";
+export { TeamSyncAttributesSource } from "./models/TeamSyncAttributesSource";
+export { TeamSyncAttributesType } from "./models/TeamSyncAttributesType";
+export { TeamSyncBulkType } from "./models/TeamSyncBulkType";
+export { TeamSyncData } from "./models/TeamSyncData";
+export { TeamSyncRequest } from "./models/TeamSyncRequest";
 export { TeamType } from "./models/TeamType";
 export { TeamUpdate } from "./models/TeamUpdate";
 export { TeamUpdateAttributes } from "./models/TeamUpdateAttributes";
