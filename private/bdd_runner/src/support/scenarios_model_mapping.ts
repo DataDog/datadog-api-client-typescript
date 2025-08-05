@@ -6184,6 +6184,29 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SingleAggregatedConnectionResponseArray",
   },
+  "CloudNetworkMonitoringApi.V2.GetAggregatedDns": {
+    from: {
+      type: "number",
+      format: "int64",
+    },
+    to: {
+      type: "number",
+      format: "int64",
+    },
+    groupBy: {
+      type: "string",
+      format: "",
+    },
+    tags: {
+      type: "string",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "int32",
+    },
+    operationResponseType: "SingleAggregatedDnsResponseArray",
+  },
   "OnCallApi.V2.CreateOnCallEscalationPolicy": {
     include: {
       type: "string",

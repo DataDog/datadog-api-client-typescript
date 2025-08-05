@@ -24,6 +24,7 @@ import {
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { SingleAggregatedConnectionResponseArray } from "./models/SingleAggregatedConnectionResponseArray";
+import { SingleAggregatedDnsResponseArray } from "./models/SingleAggregatedDnsResponseArray";
 import { version } from "../version";
 
 export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFactory {
@@ -61,6 +62,93 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "CloudNetworkMonitoringApi.v2.getAggregatedConnections",
+      CloudNetworkMonitoringApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (from !== undefined) {
+      requestContext.setQueryParam(
+        "from",
+        serialize(from, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (to !== undefined) {
+      requestContext.setQueryParam(
+        "to",
+        serialize(to, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (groupBy !== undefined) {
+      requestContext.setQueryParam(
+        "group_by",
+        serialize(groupBy, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (tags !== undefined) {
+      requestContext.setQueryParam(
+        "tags",
+        serialize(tags, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        serialize(limit, TypingInfo, "number", "int32"),
+        "",
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getAggregatedDns(
+    from?: number,
+    to?: number,
+    groupBy?: string,
+    tags?: string,
+    limit?: number,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    if (
+      !_config.unstableOperations[
+        "CloudNetworkMonitoringApi.v2.getAggregatedDns"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'getAggregatedDns' is disabled. Enable it by setting `configuration.unstableOperations['CloudNetworkMonitoringApi.v2.getAggregatedDns'] = true`",
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/network/dns/aggregate";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CloudNetworkMonitoringApi.v2.getAggregatedDns",
       CloudNetworkMonitoringApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -179,6 +267,62 @@ export class CloudNetworkMonitoringApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"',
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getAggregatedDns
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAggregatedDns(
+    response: ResponseContext,
+  ): Promise<SingleAggregatedDnsResponseArray> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: SingleAggregatedDnsResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SingleAggregatedDnsResponseArray",
+      ) as SingleAggregatedDnsResponseArray;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SingleAggregatedDnsResponseArray = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "SingleAggregatedDnsResponseArray",
+        "",
+      ) as SingleAggregatedDnsResponseArray;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
 }
 
 export interface CloudNetworkMonitoringApiGetAggregatedConnectionsRequest {
@@ -203,7 +347,35 @@ export interface CloudNetworkMonitoringApiGetAggregatedConnectionsRequest {
    */
   tags?: string;
   /**
-   * The number of connections to be returned. The maximum value is 7500.
+   * The number of connections to be returned. The maximum value is 7500. The default is 100.
+   * @type number
+   */
+  limit?: number;
+}
+
+export interface CloudNetworkMonitoringApiGetAggregatedDnsRequest {
+  /**
+   * Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window is 15 minutes before the `to` timestamp. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
+   * @type number
+   */
+  from?: number;
+  /**
+   * Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window is the current time. If neither `from` nor `to` are provided, the query window is `[now - 15m, now]`.
+   * @type number
+   */
+  to?: number;
+  /**
+   * Comma-separated list of fields to group DNS traffic by. The server side defaults to `network.dns_query` if unspecified. `server_ungrouped` may be used if groups are not desired. The maximum number of group_by(s) is 10.
+   * @type string
+   */
+  groupBy?: string;
+  /**
+   * Comma-separated list of tags to filter DNS traffic by.
+   * @type string
+   */
+  tags?: string;
+  /**
+   * The number of aggregated DNS entries to be returned. The maximum value is 7500. The default is 100.
    * @type number
    */
   limit?: number;
@@ -252,6 +424,31 @@ export class CloudNetworkMonitoringApi {
           return this.responseProcessor.getAggregatedConnections(
             responseContext,
           );
+        });
+    });
+  }
+
+  /**
+   * Get all aggregated DNS traffic.
+   * @param param The request object
+   */
+  public getAggregatedDns(
+    param: CloudNetworkMonitoringApiGetAggregatedDnsRequest = {},
+    options?: Configuration,
+  ): Promise<SingleAggregatedDnsResponseArray> {
+    const requestContextPromise = this.requestFactory.getAggregatedDns(
+      param.from,
+      param.to,
+      param.groupBy,
+      param.tags,
+      param.limit,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAggregatedDns(responseContext);
         });
     });
   }
