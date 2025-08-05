@@ -1851,6 +1851,11 @@ import { SimpleMonitorUserTemplate } from "./SimpleMonitorUserTemplate";
 import { SingleAggregatedConnectionResponseArray } from "./SingleAggregatedConnectionResponseArray";
 import { SingleAggregatedConnectionResponseData } from "./SingleAggregatedConnectionResponseData";
 import { SingleAggregatedConnectionResponseDataAttributes } from "./SingleAggregatedConnectionResponseDataAttributes";
+import { SingleAggregatedDnsResponseArray } from "./SingleAggregatedDnsResponseArray";
+import { SingleAggregatedDnsResponseData } from "./SingleAggregatedDnsResponseData";
+import { SingleAggregatedDnsResponseDataAttributes } from "./SingleAggregatedDnsResponseDataAttributes";
+import { SingleAggregatedDnsResponseDataAttributesGroupByItems } from "./SingleAggregatedDnsResponseDataAttributesGroupByItems";
+import { SingleAggregatedDnsResponseDataAttributesMetricsItems } from "./SingleAggregatedDnsResponseDataAttributesMetricsItems";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { SlackTriggerWrapper } from "./SlackTriggerWrapper";
@@ -2458,6 +2463,18 @@ const enumsMap: { [key: string]: any[] } = {
   DatadogAPIKeyType: ["DatadogAPIKey"],
   DatadogIntegrationType: ["Datadog"],
   DetailedFindingType: ["detailed_finding"],
+  DnsMetricKey: [
+    "dns_total_requests",
+    "dns_failures",
+    "dns_successful_responses",
+    "dns_failed_responses",
+    "dns_timeouts",
+    "dns_responses.nxdomain",
+    "dns_responses.servfail",
+    "dns_responses.other",
+    "dns_success_latency_percentile",
+    "dns_failure_latency_percentile",
+  ],
   DomainAllowlistType: ["domain_allowlist"],
   DowntimeIncludedMonitorType: ["monitors"],
   DowntimeNotifyEndStateActions: ["canceled", "expired"],
@@ -3235,6 +3252,7 @@ const enumsMap: { [key: string]: any[] } = {
   ShiftDataRelationshipsUserDataType: ["users"],
   ShiftDataType: ["shifts"],
   SingleAggregatedConnectionResponseDataType: ["aggregated_connection"],
+  SingleAggregatedDnsResponseDataType: ["aggregated_dns"],
   SortDirection: ["desc", "asc"],
   SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
@@ -5590,6 +5608,14 @@ const typeMap: { [index: string]: any } = {
     SingleAggregatedConnectionResponseData,
   SingleAggregatedConnectionResponseDataAttributes:
     SingleAggregatedConnectionResponseDataAttributes,
+  SingleAggregatedDnsResponseArray: SingleAggregatedDnsResponseArray,
+  SingleAggregatedDnsResponseData: SingleAggregatedDnsResponseData,
+  SingleAggregatedDnsResponseDataAttributes:
+    SingleAggregatedDnsResponseDataAttributes,
+  SingleAggregatedDnsResponseDataAttributesGroupByItems:
+    SingleAggregatedDnsResponseDataAttributesGroupByItems,
+  SingleAggregatedDnsResponseDataAttributesMetricsItems:
+    SingleAggregatedDnsResponseDataAttributesMetricsItems,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   SlackTriggerWrapper: SlackTriggerWrapper,

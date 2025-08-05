@@ -288,6 +288,7 @@ export function createConfiguration(
       "v2.validateExistingMonitorUserTemplate": false,
       "v2.validateMonitorUserTemplate": false,
       "v2.getAggregatedConnections": false,
+      "v2.getAggregatedDns": false,
       "v2.createPipeline": false,
       "v2.deletePipeline": false,
       "v2.getPipeline": false,
