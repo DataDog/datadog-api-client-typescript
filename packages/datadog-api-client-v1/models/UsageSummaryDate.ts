@@ -316,6 +316,18 @@ export class UsageSummaryDate {
    */
   "errorTrackingRumErrorEventsSum"?: number;
   /**
+   * Shows the sum of all Event Management correlated events over all hours in the current date for all organizations.
+   */
+  "eventManagementCorrelationCorrelatedEventsSum"?: number;
+  /**
+   * Shows the sum of all Event Management correlated related events over all hours in the current date for all organizations.
+   */
+  "eventManagementCorrelationCorrelatedRelatedEventsSum"?: number;
+  /**
+   * Shows the sum of all Event Management correlations over all hours in the current date for all organizations.
+   */
+  "eventManagementCorrelationSum"?: number;
+  /**
    * The average number of Profiling Fargate tasks over all hours in the current date for all organizations.
    */
   "fargateContainerProfilerProfilingFargateAvg"?: number;
@@ -1089,6 +1101,21 @@ export class UsageSummaryDate {
     },
     errorTrackingRumErrorEventsSum: {
       baseName: "error_tracking_rum_error_events_sum",
+      type: "number",
+      format: "int64",
+    },
+    eventManagementCorrelationCorrelatedEventsSum: {
+      baseName: "event_management_correlation_correlated_events_sum",
+      type: "number",
+      format: "int64",
+    },
+    eventManagementCorrelationCorrelatedRelatedEventsSum: {
+      baseName: "event_management_correlation_correlated_related_events_sum",
+      type: "number",
+      format: "int64",
+    },
+    eventManagementCorrelationSum: {
+      baseName: "event_management_correlation_sum",
       type: "number",
       format: "int64",
     },
