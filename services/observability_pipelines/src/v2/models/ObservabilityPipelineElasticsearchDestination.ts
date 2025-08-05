@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineElasticsearchDestinationApiVersion } from "./ObservabilityPipelineElasticsearchDestinationApiVersion";
 import { ObservabilityPipelineElasticsearchDestinationType } from "./ObservabilityPipelineElasticsearchDestinationType";
 
@@ -11,6 +12,10 @@ export class ObservabilityPipelineElasticsearchDestination {
    * The Elasticsearch API version to use. Set to `auto` to auto-detect.
    */
   "apiVersion"?: ObservabilityPipelineElasticsearchDestinationApiVersion;
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The index to write logs to in Elasticsearch.
    */
@@ -45,6 +50,10 @@ export class ObservabilityPipelineElasticsearchDestination {
     apiVersion: {
       baseName: "api_version",
       type: "ObservabilityPipelineElasticsearchDestinationApiVersion",
+    },
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
     },
     bulkIndex: {
       baseName: "bulk_index",
