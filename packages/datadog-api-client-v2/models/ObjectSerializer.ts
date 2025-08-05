@@ -1261,6 +1261,7 @@ import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineData
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
+import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineDiskBufferOptions";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
 import { ObservabilityPipelineEnrichmentTableFileEncoding } from "./ObservabilityPipelineEnrichmentTableFileEncoding";
@@ -1286,6 +1287,8 @@ import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSo
 import { ObservabilityPipelineKafkaSourceLibrdkafkaOption } from "./ObservabilityPipelineKafkaSourceLibrdkafkaOption";
 import { ObservabilityPipelineKafkaSourceSasl } from "./ObservabilityPipelineKafkaSourceSasl";
 import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
+import { ObservabilityPipelineMemoryBufferOptions } from "./ObservabilityPipelineMemoryBufferOptions";
+import { ObservabilityPipelineMemoryBufferSizeOptions } from "./ObservabilityPipelineMemoryBufferSizeOptions";
 import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
@@ -2756,6 +2759,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ObservabilityPipelineAmazonS3DestinationType: ["amazon_s3"],
   ObservabilityPipelineAmazonS3SourceType: ["amazon_s3"],
+  ObservabilityPipelineBufferOptionsDiskType: ["disk"],
+  ObservabilityPipelineBufferOptionsMemoryType: ["memory"],
   ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
   ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
   ObservabilityPipelineDecoding: ["bytes", "gelf", "json", "syslog"],
@@ -4895,6 +4900,8 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineDatadogLogsDestination:
     ObservabilityPipelineDatadogLogsDestination,
   ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
+  ObservabilityPipelineDiskBufferOptions:
+    ObservabilityPipelineDiskBufferOptions,
   ObservabilityPipelineElasticsearchDestination:
     ObservabilityPipelineElasticsearchDestination,
   ObservabilityPipelineEnrichmentTableFile:
@@ -4934,6 +4941,10 @@ const typeMap: { [index: string]: any } = {
     ObservabilityPipelineKafkaSourceLibrdkafkaOption,
   ObservabilityPipelineKafkaSourceSasl: ObservabilityPipelineKafkaSourceSasl,
   ObservabilityPipelineLogstashSource: ObservabilityPipelineLogstashSource,
+  ObservabilityPipelineMemoryBufferOptions:
+    ObservabilityPipelineMemoryBufferOptions,
+  ObservabilityPipelineMemoryBufferSizeOptions:
+    ObservabilityPipelineMemoryBufferSizeOptions,
   ObservabilityPipelineMetadataEntry: ObservabilityPipelineMetadataEntry,
   ObservabilityPipelineNewRelicDestination:
     ObservabilityPipelineNewRelicDestination,
@@ -6129,6 +6140,11 @@ const oneOfMap: { [index: string]: string[] } = {
   MonitorNotificationRuleResponseIncludedItem: ["User"],
   NotionCredentials: ["NotionAPIKey"],
   NotionCredentialsUpdate: ["NotionAPIKeyUpdate"],
+  ObservabilityPipelineBufferOptions: [
+    "ObservabilityPipelineDiskBufferOptions",
+    "ObservabilityPipelineMemoryBufferOptions",
+    "ObservabilityPipelineMemoryBufferSizeOptions",
+  ],
   ObservabilityPipelineConfigDestinationItem: [
     "ObservabilityPipelineDatadogLogsDestination",
     "ObservabilityPipelineAmazonS3Destination",

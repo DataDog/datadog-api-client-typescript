@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { MicrosoftSentinelDestinationType } from "./MicrosoftSentinelDestinationType";
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
  */
 export class MicrosoftSentinelDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * Azure AD client ID used for authentication.
    */
@@ -56,6 +61,10 @@ export class MicrosoftSentinelDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     clientId: {
       baseName: "client_id",
       type: "string",
