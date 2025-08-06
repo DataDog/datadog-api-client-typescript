@@ -369,6 +369,10 @@ export class UsageSummaryResponse {
    */
   "flexLogsComputeSmallAvgSum"?: number;
   /**
+   * Shows the average number of Flex Logs Compute Extra Large Instances over all hours in the current months for all organizations.
+   */
+  "flexLogsComputeXlargeAvgSum"?: number;
+  /**
    * Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the current months for all organizations.
    */
   "flexLogsComputeXsmallAvgSum"?: number;
@@ -1212,6 +1216,11 @@ export class UsageSummaryResponse {
     },
     flexLogsComputeSmallAvgSum: {
       baseName: "flex_logs_compute_small_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsComputeXlargeAvgSum: {
+      baseName: "flex_logs_compute_xlarge_avg_sum",
       type: "number",
       format: "int64",
     },
