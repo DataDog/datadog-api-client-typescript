@@ -37,6 +37,11 @@ export { ObservabilityPipelineConfig } from "./models/ObservabilityPipelineConfi
 export { ObservabilityPipelineConfigDestinationItem } from "./models/ObservabilityPipelineConfigDestinationItem";
 export { ObservabilityPipelineConfigProcessorItem } from "./models/ObservabilityPipelineConfigProcessorItem";
 export { ObservabilityPipelineConfigSourceItem } from "./models/ObservabilityPipelineConfigSourceItem";
+export { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./models/ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
+export { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./models/ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
+export { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm } from "./models/ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm";
+export { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding } from "./models/ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding";
+export { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType } from "./models/ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType";
 export { ObservabilityPipelineData } from "./models/ObservabilityPipelineData";
 export { ObservabilityPipelineDataAttributes } from "./models/ObservabilityPipelineDataAttributes";
 export { ObservabilityPipelineDatadogAgentSource } from "./models/ObservabilityPipelineDatadogAgentSource";

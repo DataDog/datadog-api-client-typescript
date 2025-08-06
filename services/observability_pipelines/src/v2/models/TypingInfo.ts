@@ -16,6 +16,8 @@ import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelin
 import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
+import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
+import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
 import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
 import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
@@ -125,6 +127,15 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ObservabilityPipelineAmazonS3DestinationType: ["amazon_s3"],
     ObservabilityPipelineAmazonS3SourceType: ["amazon_s3"],
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm:
+      ["gzip", "zlib"],
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding: [
+      "json",
+      "raw_message",
+    ],
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType: [
+      "crowdstrike_next_gen_siem",
+    ],
     ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
     ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
     ObservabilityPipelineDecoding: ["bytes", "gelf", "json", "syslog"],
@@ -311,6 +322,7 @@ export const TypingInfo: ModelTypingInfo = {
       "ObservabilityPipelineSentinelOneDestination",
       "ObservabilityPipelineOpenSearchDestination",
       "ObservabilityPipelineAmazonOpenSearchDestination",
+      "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
     ],
     ObservabilityPipelineConfigProcessorItem: [
       "ObservabilityPipelineFilterProcessor",
@@ -393,6 +405,10 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineAmazonS3Source: ObservabilityPipelineAmazonS3Source,
     ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
     ObservabilityPipelineConfig: ObservabilityPipelineConfig,
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestination:
+      ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression:
+      ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression,
     ObservabilityPipelineData: ObservabilityPipelineData,
     ObservabilityPipelineDataAttributes: ObservabilityPipelineDataAttributes,
     ObservabilityPipelineDatadogAgentSource:
