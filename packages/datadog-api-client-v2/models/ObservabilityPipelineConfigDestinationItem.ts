@@ -7,6 +7,7 @@ import { AzureStorageDestination } from "./AzureStorageDestination";
 import { MicrosoftSentinelDestination } from "./MicrosoftSentinelDestination";
 import { ObservabilityPipelineAmazonOpenSearchDestination } from "./ObservabilityPipelineAmazonOpenSearchDestination";
 import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelineAmazonS3Destination";
+import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineGoogleChronicleDestination } from "./ObservabilityPipelineGoogleChronicleDestination";
@@ -41,4 +42,5 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineSentinelOneDestination
   | ObservabilityPipelineOpenSearchDestination
   | ObservabilityPipelineAmazonOpenSearchDestination
+  | ObservabilityPipelineCrowdStrikeNextGenSiemDestination
   | UnparsedObject;
