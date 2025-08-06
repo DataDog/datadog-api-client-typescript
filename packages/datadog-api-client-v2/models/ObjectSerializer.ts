@@ -1256,6 +1256,8 @@ import { ObservabilityPipelineAmazonS3Destination } from "./ObservabilityPipelin
 import { ObservabilityPipelineAmazonS3Source } from "./ObservabilityPipelineAmazonS3Source";
 import { ObservabilityPipelineAwsAuth } from "./ObservabilityPipelineAwsAuth";
 import { ObservabilityPipelineConfig } from "./ObservabilityPipelineConfig";
+import { ObservabilityPipelineCrowdStrikeNextGenSiemDestination } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestination";
+import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression";
 import { ObservabilityPipelineData } from "./ObservabilityPipelineData";
 import { ObservabilityPipelineDataAttributes } from "./ObservabilityPipelineDataAttributes";
 import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipelineDatadogAgentSource";
@@ -2756,6 +2758,17 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ObservabilityPipelineAmazonS3DestinationType: ["amazon_s3"],
   ObservabilityPipelineAmazonS3SourceType: ["amazon_s3"],
+  ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm: [
+    "gzip",
+    "zlib",
+  ],
+  ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding: [
+    "json",
+    "raw_message",
+  ],
+  ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType: [
+    "crowdstrike_next_gen_siem",
+  ],
   ObservabilityPipelineDatadogAgentSourceType: ["datadog_agent"],
   ObservabilityPipelineDatadogLogsDestinationType: ["datadog_logs"],
   ObservabilityPipelineDecoding: ["bytes", "gelf", "json", "syslog"],
@@ -4890,6 +4903,10 @@ const typeMap: { [index: string]: any } = {
   ObservabilityPipelineAmazonS3Source: ObservabilityPipelineAmazonS3Source,
   ObservabilityPipelineAwsAuth: ObservabilityPipelineAwsAuth,
   ObservabilityPipelineConfig: ObservabilityPipelineConfig,
+  ObservabilityPipelineCrowdStrikeNextGenSiemDestination:
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestination,
+  ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression:
+    ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression,
   ObservabilityPipelineData: ObservabilityPipelineData,
   ObservabilityPipelineDataAttributes: ObservabilityPipelineDataAttributes,
   ObservabilityPipelineDatadogAgentSource:
@@ -6147,6 +6164,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ObservabilityPipelineSentinelOneDestination",
     "ObservabilityPipelineOpenSearchDestination",
     "ObservabilityPipelineAmazonOpenSearchDestination",
+    "ObservabilityPipelineCrowdStrikeNextGenSiemDestination",
   ],
   ObservabilityPipelineConfigProcessorItem: [
     "ObservabilityPipelineFilterProcessor",
