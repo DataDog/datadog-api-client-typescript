@@ -251,6 +251,8 @@ export const TypingInfo: ModelTypingInfo = {
       "identity_risk",
       "misconfiguration",
       "api_security",
+      "host_vulnerability",
+      "iac_misconfiguration",
     ],
     RuleVersionUpdateType: ["create", "update", "delete"],
     RunHistoricalJobRequestDataType: ["historicalDetectionsJobCreate"],
