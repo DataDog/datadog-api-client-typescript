@@ -5,6 +5,8 @@
  */
 import { ObservabilityPipelineAddEnvVarsProcessor } from "./ObservabilityPipelineAddEnvVarsProcessor";
 import { ObservabilityPipelineAddFieldsProcessor } from "./ObservabilityPipelineAddFieldsProcessor";
+import { ObservabilityPipelineCustomProcessor } from "./ObservabilityPipelineCustomProcessor";
+import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
 import { ObservabilityPipelineEnrichmentTableProcessor } from "./ObservabilityPipelineEnrichmentTableProcessor";
 import { ObservabilityPipelineFilterProcessor } from "./ObservabilityPipelineFilterProcessor";
@@ -43,4 +45,6 @@ export type ObservabilityPipelineConfigProcessorItem =
   | ObservabilityPipelineEnrichmentTableProcessor
   | ObservabilityPipelineReduceProcessor
   | ObservabilityPipelineThrottleProcessor
+  | ObservabilityPipelineCustomProcessor
+  | ObservabilityPipelineDatadogTagsProcessor
   | UnparsedObject;
