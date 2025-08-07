@@ -17,6 +17,8 @@ import { AWSIntegrationIamPermissionsResponse } from "./AWSIntegrationIamPermiss
 import { AWSIntegrationIamPermissionsResponseAttributes } from "./AWSIntegrationIamPermissionsResponseAttributes";
 import { AWSIntegrationIamPermissionsResponseData } from "./AWSIntegrationIamPermissionsResponseData";
 import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
+import { AWSLambdaForwarderConfigLogSourceConfig } from "./AWSLambdaForwarderConfigLogSourceConfig";
+import { AWSLogSourceTagFilter } from "./AWSLogSourceTagFilter";
 import { AWSLogsConfig } from "./AWSLogsConfig";
 import { AWSMetricsConfig } from "./AWSMetricsConfig";
 import { AWSNamespaceFiltersExcludeOnly } from "./AWSNamespaceFiltersExcludeOnly";
@@ -72,6 +74,9 @@ export const TypingInfo: ModelTypingInfo = {
     AWSIntegrationIamPermissionsResponseData:
       AWSIntegrationIamPermissionsResponseData,
     AWSLambdaForwarderConfig: AWSLambdaForwarderConfig,
+    AWSLambdaForwarderConfigLogSourceConfig:
+      AWSLambdaForwarderConfigLogSourceConfig,
+    AWSLogSourceTagFilter: AWSLogSourceTagFilter,
     AWSLogsConfig: AWSLogsConfig,
     AWSMetricsConfig: AWSMetricsConfig,
     AWSNamespaceFiltersExcludeOnly: AWSNamespaceFiltersExcludeOnly,
