@@ -28,7 +28,9 @@ export { AWSIntegrationIamPermissionsResponseAttributes } from "./models/AWSInte
 export { AWSIntegrationIamPermissionsResponseData } from "./models/AWSIntegrationIamPermissionsResponseData";
 export { AWSIntegrationIamPermissionsResponseDataType } from "./models/AWSIntegrationIamPermissionsResponseDataType";
 export { AWSLambdaForwarderConfig } from "./models/AWSLambdaForwarderConfig";
+export { AWSLambdaForwarderConfigLogSourceConfig } from "./models/AWSLambdaForwarderConfigLogSourceConfig";
 export { AWSLogsConfig } from "./models/AWSLogsConfig";
+export { AWSLogSourceTagFilter } from "./models/AWSLogSourceTagFilter";
 export { AWSMetricsConfig } from "./models/AWSMetricsConfig";
 export { AWSNamespaceFilters } from "./models/AWSNamespaceFilters";
 export { AWSNamespaceFiltersExcludeOnly } from "./models/AWSNamespaceFiltersExcludeOnly";
