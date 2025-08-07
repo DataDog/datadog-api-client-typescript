@@ -989,7 +989,9 @@ export { AWSIntegrationIamPermissionsResponseDataType } from "./models/AWSIntegr
 export { AWSIntegrationType } from "./models/AWSIntegrationType";
 export { AWSIntegrationUpdate } from "./models/AWSIntegrationUpdate";
 export { AWSLambdaForwarderConfig } from "./models/AWSLambdaForwarderConfig";
+export { AWSLambdaForwarderConfigLogSourceConfig } from "./models/AWSLambdaForwarderConfigLogSourceConfig";
 export { AWSLogsConfig } from "./models/AWSLogsConfig";
+export { AWSLogSourceTagFilter } from "./models/AWSLogSourceTagFilter";
 export { AWSLogsServicesResponse } from "./models/AWSLogsServicesResponse";
 export { AWSLogsServicesResponseAttributes } from "./models/AWSLogsServicesResponseAttributes";
 export { AWSLogsServicesResponseData } from "./models/AWSLogsServicesResponseData";
