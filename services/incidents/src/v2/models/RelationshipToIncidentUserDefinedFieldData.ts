@@ -7,7 +7,7 @@ import { IncidentUserDefinedFieldType } from "./IncidentUserDefinedFieldType";
  */
 export class RelationshipToIncidentUserDefinedFieldData {
   /**
-   * A unique identifier that represents the responder.
+   * A unique identifier that represents the user defined field.
    */
   "id": string;
   /**
