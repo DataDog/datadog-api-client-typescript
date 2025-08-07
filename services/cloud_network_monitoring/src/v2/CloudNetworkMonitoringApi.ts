@@ -46,16 +46,6 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    if (
-      !_config.unstableOperations[
-        "CloudNetworkMonitoringApi.v2.getAggregatedConnections"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getAggregatedConnections' is disabled. Enable it by setting `configuration.unstableOperations['CloudNetworkMonitoringApi.v2.getAggregatedConnections'] = true`",
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/network/connections/aggregate";
 
@@ -132,16 +122,6 @@ export class CloudNetworkMonitoringApiRequestFactory extends BaseAPIRequestFacto
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    if (
-      !_config.unstableOperations[
-        "CloudNetworkMonitoringApi.v2.getAggregatedDns"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'getAggregatedDns' is disabled. Enable it by setting `configuration.unstableOperations['CloudNetworkMonitoringApi.v2.getAggregatedDns'] = true`",
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/network/dns/aggregate";
