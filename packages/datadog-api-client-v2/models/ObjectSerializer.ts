@@ -32,6 +32,8 @@ import { AWSIntegrationIamPermissionsResponseAttributes } from "./AWSIntegration
 import { AWSIntegrationIamPermissionsResponseData } from "./AWSIntegrationIamPermissionsResponseData";
 import { AWSIntegrationUpdate } from "./AWSIntegrationUpdate";
 import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
+import { AWSLambdaForwarderConfigLogSourceConfig } from "./AWSLambdaForwarderConfigLogSourceConfig";
+import { AWSLogSourceTagFilter } from "./AWSLogSourceTagFilter";
 import { AWSLogsConfig } from "./AWSLogsConfig";
 import { AWSLogsServicesResponse } from "./AWSLogsServicesResponse";
 import { AWSLogsServicesResponseAttributes } from "./AWSLogsServicesResponseAttributes";
@@ -3485,6 +3487,9 @@ const typeMap: { [index: string]: any } = {
     AWSIntegrationIamPermissionsResponseData,
   AWSIntegrationUpdate: AWSIntegrationUpdate,
   AWSLambdaForwarderConfig: AWSLambdaForwarderConfig,
+  AWSLambdaForwarderConfigLogSourceConfig:
+    AWSLambdaForwarderConfigLogSourceConfig,
+  AWSLogSourceTagFilter: AWSLogSourceTagFilter,
   AWSLogsConfig: AWSLogsConfig,
   AWSLogsServicesResponse: AWSLogsServicesResponse,
   AWSLogsServicesResponseAttributes: AWSLogsServicesResponseAttributes,

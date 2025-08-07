@@ -23,6 +23,14 @@ const params: v2.AWSIntegrationApiCreateAWSAccountRequest = {
             lambdas: [
               "arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder",
             ],
+            logSourceConfig: {
+              tagFilters: [
+                {
+                  source: "s3",
+                  tags: ["test:test"],
+                },
+              ],
+            },
             sources: ["s3"],
           },
         },

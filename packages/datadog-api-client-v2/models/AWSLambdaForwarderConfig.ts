@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AWSLambdaForwarderConfigLogSourceConfig } from "./AWSLambdaForwarderConfigLogSourceConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,6 +16,10 @@ export class AWSLambdaForwarderConfig {
    * List of Datadog Lambda Log Forwarder ARNs in your AWS account. Defaults to `[]`.
    */
   "lambdas"?: Array<string>;
+  /**
+   * Log source configuration.
+   */
+  "logSourceConfig"?: AWSLambdaForwarderConfigLogSourceConfig;
   /**
    * List of service IDs set to enable automatic log collection. Discover the list of available services with the
    * [Get list of AWS log ready services](https://docs.datadoghq.com/api/latest/aws-logs-integration/#get-list-of-aws-log-ready-services) endpoint.
@@ -40,6 +45,10 @@ export class AWSLambdaForwarderConfig {
     lambdas: {
       baseName: "lambdas",
       type: "Array<string>",
+    },
+    logSourceConfig: {
+      baseName: "log_source_config",
+      type: "AWSLambdaForwarderConfigLogSourceConfig",
     },
     sources: {
       baseName: "sources",
