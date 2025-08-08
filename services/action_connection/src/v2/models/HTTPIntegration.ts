@@ -4,19 +4,19 @@ import { HTTPCredentials } from "./HTTPCredentials";
 import { HTTPIntegrationType } from "./HTTPIntegrationType";
 
 /**
- * The definition of `HTTPIntegration` object.
+ * The definition of the `HTTPIntegration` object.
  */
 export class HTTPIntegration {
   /**
-   * Base HTTP url for the integration
+   * Base HTTP url for the integration.
    */
   "baseUrl": string;
   /**
-   * The definition of `HTTPCredentials` object.
+   * The definition of the `HTTPCredentials` object.
    */
   "credentials": HTTPCredentials;
   /**
-   * The definition of `HTTPIntegrationType` object.
+   * The definition of the `HTTPIntegrationType` object.
    */
   "type": HTTPIntegrationType;
   /**
