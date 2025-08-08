@@ -9,15 +9,15 @@ import { AWSIntegrationType } from "./AWSIntegrationType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `AWSIntegration` object.
+ * The definition of the `AWSIntegration` object.
  */
 export class AWSIntegration {
   /**
-   * The definition of `AWSCredentials` object.
+   * The definition of the `AWSCredentials` object.
    */
   "credentials": AWSCredentials;
   /**
-   * The definition of `AWSIntegrationType` object.
+   * The definition of the `AWSIntegrationType` object.
    */
   "type": AWSIntegrationType;
 

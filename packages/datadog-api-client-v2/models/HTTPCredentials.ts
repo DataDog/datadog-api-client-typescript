@@ -3,12 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { HTTPBasicAuth } from "./HTTPBasicAuth";
+import { HTTPMtlsAuth } from "./HTTPMtlsAuth";
 import { HTTPTokenAuth } from "./HTTPTokenAuth";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `HTTPCredentials` object.
+ * The definition of the `HTTPCredentials` object.
  */
 
-export type HTTPCredentials = HTTPTokenAuth | UnparsedObject;
+export type HTTPCredentials =
+  | HTTPTokenAuth
+  | HTTPBasicAuth
+  | HTTPMtlsAuth
+  | UnparsedObject;

@@ -3,27 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { HTTPCredentials } from "./HTTPCredentials";
-import { HTTPIntegrationType } from "./HTTPIntegrationType";
+import { HTTPBasicAuthType } from "./HTTPBasicAuthType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of the `HTTPIntegration` object.
+ * The definition of the `HTTPBasicAuth` object.
  */
-export class HTTPIntegration {
+export class HTTPBasicAuthUpdate {
   /**
-   * Base HTTP url for the integration.
+   * Password used for authentication. Saved in a secret store
    */
-  "baseUrl": string;
+  "password"?: string;
   /**
-   * The definition of the `HTTPCredentials` object.
+   * The definition of the `HTTPBasicAuth` object.
    */
-  "credentials": HTTPCredentials;
+  "type": HTTPBasicAuthType;
   /**
-   * The definition of the `HTTPIntegrationType` object.
+   * Username used for authentication.
    */
-  "type": HTTPIntegrationType;
+  "username"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,20 +40,18 @@ export class HTTPIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    baseUrl: {
-      baseName: "base_url",
+    password: {
+      baseName: "password",
       type: "string",
-      required: true,
-    },
-    credentials: {
-      baseName: "credentials",
-      type: "HTTPCredentials",
-      required: true,
     },
     type: {
       baseName: "type",
-      type: "HTTPIntegrationType",
+      type: "HTTPBasicAuthType",
       required: true,
+    },
+    username: {
+      baseName: "username",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -66,7 +63,7 @@ export class HTTPIntegration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HTTPIntegration.attributeTypeMap;
+    return HTTPBasicAuthUpdate.attributeTypeMap;
   }
 
   public constructor() {}

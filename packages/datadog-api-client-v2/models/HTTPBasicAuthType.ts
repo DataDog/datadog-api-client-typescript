@@ -3,12 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AWSAssumeRole } from "./AWSAssumeRole";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of the `AWSCredentials` object.
+ * The definition of the `HTTPBasicAuth` object.
  */
 
-export type AWSCredentials = AWSAssumeRole | UnparsedObject;
+export type HTTPBasicAuthType = typeof HTTPBASICAUTH | UnparsedObject;
+export const HTTPBASICAUTH = "HTTPBasicAuth";

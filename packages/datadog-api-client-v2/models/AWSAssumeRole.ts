@@ -8,27 +8,31 @@ import { AWSAssumeRoleType } from "./AWSAssumeRoleType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `AWSAssumeRole` object.
+ * The definition of the `AWSAssumeRole` object.
  */
 export class AWSAssumeRole {
   /**
-   * AWS account the connection is created for
+   * AWS account the connection is created for.
    */
   "accountId": string;
   /**
-   * External ID used to scope which connection can be used to assume the role
+   * External ID used to scope which connection can be used to assume the role.
    */
   "externalId"?: string;
   /**
-   * AWS account that will assume the role
+   * Pass true if the `external_id` should be regenerated.
+   */
+  "generateNewExternalId"?: boolean;
+  /**
+   * AWS account that will assume the role.
    */
   "principalId"?: string;
   /**
-   * Role to assume
+   * Role to assume.
    */
   "role": string;
   /**
-   * The definition of `AWSAssumeRoleType` object.
+   * The definition of the `AWSAssumeRole` object.
    */
   "type": AWSAssumeRoleType;
 
@@ -56,6 +60,10 @@ export class AWSAssumeRole {
     externalId: {
       baseName: "external_id",
       type: "string",
+    },
+    generateNewExternalId: {
+      baseName: "generate_new_external_id",
+      type: "boolean",
     },
     principalId: {
       baseName: "principal_id",
