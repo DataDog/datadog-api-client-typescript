@@ -1,10 +1,12 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { CalculatedField } from "./CalculatedField";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleTypeCreate } from "./SecurityMonitoringRuleTypeCreate";
+import { SecurityMonitoringSchedulingOptions } from "./SecurityMonitoringSchedulingOptions";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
 
@@ -12,6 +14,10 @@ import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoring
  * Create a new rule.
  */
 export class SecurityMonitoringStandardRuleCreatePayload {
+  /**
+   * Calculated fields. Only allowed for scheduled rules - in other words, when schedulingOptions is also defined.
+   */
+  "calculatedFields"?: Array<CalculatedField>;
   /**
    * Cases for generating signals.
    */
@@ -53,6 +59,10 @@ export class SecurityMonitoringStandardRuleCreatePayload {
    */
   "referenceTables"?: Array<SecurityMonitoringReferenceTable>;
   /**
+   * Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs real-time on ingested logs.
+   */
+  "schedulingOptions"?: SecurityMonitoringSchedulingOptions;
+  /**
    * Tags for generated signals.
    */
   "tags"?: Array<string>;
@@ -79,6 +89,10 @@ export class SecurityMonitoringStandardRuleCreatePayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    calculatedFields: {
+      baseName: "calculatedFields",
+      type: "Array<CalculatedField>",
+    },
     cases: {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCaseCreate>",
@@ -124,6 +138,10 @@ export class SecurityMonitoringStandardRuleCreatePayload {
     referenceTables: {
       baseName: "referenceTables",
       type: "Array<SecurityMonitoringReferenceTable>",
+    },
+    schedulingOptions: {
+      baseName: "schedulingOptions",
+      type: "SecurityMonitoringSchedulingOptions",
     },
     tags: {
       baseName: "tags",
