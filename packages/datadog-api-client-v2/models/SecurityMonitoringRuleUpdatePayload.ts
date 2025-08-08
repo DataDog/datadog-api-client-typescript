@@ -3,12 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CalculatedField } from "./CalculatedField";
 import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurationRuleComplianceSignalOptions";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
+import { SecurityMonitoringSchedulingOptions } from "./SecurityMonitoringSchedulingOptions";
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -17,6 +19,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Update an existing rule.
  */
 export class SecurityMonitoringRuleUpdatePayload {
+  /**
+   * Calculated fields. Only allowed for scheduled rules - in other words, when schedulingOptions is also defined.
+   */
+  "calculatedFields"?: Array<CalculatedField>;
   /**
    * Cases for generating signals.
    */
@@ -70,6 +76,10 @@ export class SecurityMonitoringRuleUpdatePayload {
    */
   "referenceTables"?: Array<SecurityMonitoringReferenceTable>;
   /**
+   * Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs real-time on ingested logs.
+   */
+  "schedulingOptions"?: SecurityMonitoringSchedulingOptions;
+  /**
    * Tags for generated signals.
    */
   "tags"?: Array<string>;
@@ -98,6 +108,10 @@ export class SecurityMonitoringRuleUpdatePayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    calculatedFields: {
+      baseName: "calculatedFields",
+      type: "Array<CalculatedField>",
+    },
     cases: {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
@@ -149,6 +163,10 @@ export class SecurityMonitoringRuleUpdatePayload {
     referenceTables: {
       baseName: "referenceTables",
       type: "Array<SecurityMonitoringReferenceTable>",
+    },
+    schedulingOptions: {
+      baseName: "schedulingOptions",
+      type: "SecurityMonitoringSchedulingOptions",
     },
     tags: {
       baseName: "tags",

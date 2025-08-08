@@ -3,11 +3,13 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CalculatedField } from "./CalculatedField";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleTypeTest } from "./SecurityMonitoringRuleTypeTest";
+import { SecurityMonitoringSchedulingOptions } from "./SecurityMonitoringSchedulingOptions";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
 
@@ -17,6 +19,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The payload of a rule to test
  */
 export class SecurityMonitoringStandardRuleTestPayload {
+  /**
+   * Calculated fields. Only allowed for scheduled rules - in other words, when schedulingOptions is also defined.
+   */
+  "calculatedFields"?: Array<CalculatedField>;
   /**
    * Cases for generating signals.
    */
@@ -58,6 +64,10 @@ export class SecurityMonitoringStandardRuleTestPayload {
    */
   "referenceTables"?: Array<SecurityMonitoringReferenceTable>;
   /**
+   * Options for scheduled rules. When this field is present, the rule runs based on the schedule. When absent, it runs real-time on ingested logs.
+   */
+  "schedulingOptions"?: SecurityMonitoringSchedulingOptions;
+  /**
    * Tags for generated signals.
    */
   "tags"?: Array<string>;
@@ -86,6 +96,10 @@ export class SecurityMonitoringStandardRuleTestPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    calculatedFields: {
+      baseName: "calculatedFields",
+      type: "Array<CalculatedField>",
+    },
     cases: {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCaseCreate>",
@@ -131,6 +145,10 @@ export class SecurityMonitoringStandardRuleTestPayload {
     referenceTables: {
       baseName: "referenceTables",
       type: "Array<SecurityMonitoringReferenceTable>",
+    },
+    schedulingOptions: {
+      baseName: "schedulingOptions",
+      type: "SecurityMonitoringSchedulingOptions",
     },
     tags: {
       baseName: "tags",

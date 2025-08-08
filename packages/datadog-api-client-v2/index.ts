@@ -3067,6 +3067,7 @@ export { SecurityMonitoringRuleTypeRead } from "./models/SecurityMonitoringRuleT
 export { SecurityMonitoringRuleTypeTest } from "./models/SecurityMonitoringRuleTypeTest";
 export { SecurityMonitoringRuleUpdatePayload } from "./models/SecurityMonitoringRuleUpdatePayload";
 export { SecurityMonitoringRuleValidatePayload } from "./models/SecurityMonitoringRuleValidatePayload";
+export { SecurityMonitoringSchedulingOptions } from "./models/SecurityMonitoringSchedulingOptions";
 export { SecurityMonitoringSignal } from "./models/SecurityMonitoringSignal";
 export { SecurityMonitoringSignalArchiveReason } from "./models/SecurityMonitoringSignalArchiveReason";
 export { SecurityMonitoringSignalAssigneeUpdateAttributes } from "./models/SecurityMonitoringSignalAssigneeUpdateAttributes";
