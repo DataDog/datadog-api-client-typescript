@@ -832,6 +832,8 @@ import { GreyNoiseAPIKeyUpdate } from "./GreyNoiseAPIKeyUpdate";
 import { GreyNoiseIntegration } from "./GreyNoiseIntegration";
 import { GreyNoiseIntegrationUpdate } from "./GreyNoiseIntegrationUpdate";
 import { GroupScalarColumn } from "./GroupScalarColumn";
+import { HTTPBasicAuth } from "./HTTPBasicAuth";
+import { HTTPBasicAuthUpdate } from "./HTTPBasicAuthUpdate";
 import { HTTPBody } from "./HTTPBody";
 import { HTTPCIAppError } from "./HTTPCIAppError";
 import { HTTPCIAppErrors } from "./HTTPCIAppErrors";
@@ -842,6 +844,8 @@ import { HTTPIntegrationUpdate } from "./HTTPIntegrationUpdate";
 import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogErrors } from "./HTTPLogErrors";
 import { HTTPLogItem } from "./HTTPLogItem";
+import { HTTPMtlsAuth } from "./HTTPMtlsAuth";
+import { HTTPMtlsAuthUpdate } from "./HTTPMtlsAuthUpdate";
 import { HTTPToken } from "./HTTPToken";
 import { HTTPTokenAuth } from "./HTTPTokenAuth";
 import { HTTPTokenAuthUpdate } from "./HTTPTokenAuthUpdate";
@@ -2586,7 +2590,9 @@ const enumsMap: { [key: string]: any[] } = {
   GitlabIntegrationType: ["Gitlab"],
   GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
   GreyNoiseIntegrationType: ["GreyNoise"],
+  HTTPBasicAuthType: ["HTTPBasicAuth"],
   HTTPIntegrationType: ["HTTP"],
+  HTTPMtlsAuthType: ["HTTPMtlsAuth"],
   HTTPTokenAuthType: ["HTTPTokenAuth"],
   HistoricalJobDataType: ["historicalDetectionsJob"],
   HourlyUsageType: [
@@ -4411,6 +4417,8 @@ const typeMap: { [index: string]: any } = {
   GreyNoiseIntegration: GreyNoiseIntegration,
   GreyNoiseIntegrationUpdate: GreyNoiseIntegrationUpdate,
   GroupScalarColumn: GroupScalarColumn,
+  HTTPBasicAuth: HTTPBasicAuth,
+  HTTPBasicAuthUpdate: HTTPBasicAuthUpdate,
   HTTPBody: HTTPBody,
   HTTPCIAppError: HTTPCIAppError,
   HTTPCIAppErrors: HTTPCIAppErrors,
@@ -4421,6 +4429,8 @@ const typeMap: { [index: string]: any } = {
   HTTPLogError: HTTPLogError,
   HTTPLogErrors: HTTPLogErrors,
   HTTPLogItem: HTTPLogItem,
+  HTTPMtlsAuth: HTTPMtlsAuth,
+  HTTPMtlsAuthUpdate: HTTPMtlsAuthUpdate,
   HTTPToken: HTTPToken,
   HTTPTokenAuth: HTTPTokenAuth,
   HTTPTokenAuthUpdate: HTTPTokenAuthUpdate,
@@ -6067,8 +6077,12 @@ const oneOfMap: { [index: string]: string[] } = {
   GitlabCredentialsUpdate: ["GitlabAPIKeyUpdate"],
   GreyNoiseCredentials: ["GreyNoiseAPIKey"],
   GreyNoiseCredentialsUpdate: ["GreyNoiseAPIKeyUpdate"],
-  HTTPCredentials: ["HTTPTokenAuth"],
-  HTTPCredentialsUpdate: ["HTTPTokenAuthUpdate"],
+  HTTPCredentials: ["HTTPTokenAuth", "HTTPBasicAuth", "HTTPMtlsAuth"],
+  HTTPCredentialsUpdate: [
+    "HTTPTokenAuthUpdate",
+    "HTTPBasicAuthUpdate",
+    "HTTPMtlsAuthUpdate",
+  ],
   IncidentAttachmentAttributes: [
     "IncidentAttachmentPostmortemAttributes",
     "IncidentAttachmentLinkAttributes",

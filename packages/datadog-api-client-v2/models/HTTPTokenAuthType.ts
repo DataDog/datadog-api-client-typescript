@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `HTTPTokenAuthType` object.
+ * The definition of the `HTTPTokenAuth` object.
  */
 
 export type HTTPTokenAuthType = typeof HTTPTOKENAUTH | UnparsedObject;

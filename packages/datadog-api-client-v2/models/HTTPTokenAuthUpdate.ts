@@ -28,7 +28,7 @@ export class HTTPTokenAuthUpdate {
    */
   "tokens"?: Array<HTTPTokenUpdate>;
   /**
-   * The definition of `HTTPTokenAuthType` object.
+   * The definition of the `HTTPTokenAuth` object.
    */
   "type": HTTPTokenAuthType;
   /**
