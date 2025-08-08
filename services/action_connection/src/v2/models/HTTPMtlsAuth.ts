@@ -1,27 +1,23 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { AWSAssumeRoleType } from "./AWSAssumeRoleType";
+import { HTTPMtlsAuthType } from "./HTTPMtlsAuthType";
 
 /**
- * The definition of the `AWSAssumeRole` object.
+ * The definition of the `HTTPMtlsAuth` object.
  */
-export class AWSAssumeRoleUpdate {
+export class HTTPMtlsAuth {
   /**
-   * AWS account the connection is created for.
+   * Certificate of authority used to sign the request.
    */
-  "accountId"?: string;
+  "certificate": string;
   /**
-   * Pass true if the `external_id` should be regenerated.
+   * Private key used for the MTLS handshake
    */
-  "generateNewExternalId"?: boolean;
+  "privateKey": string;
   /**
-   * Role to assume.
+   * The definition of the `HTTPMtlsAuth` object.
    */
-  "role"?: string;
-  /**
-   * The definition of the `AWSAssumeRole` object.
-   */
-  "type": AWSAssumeRoleType;
+  "type": HTTPMtlsAuthType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -37,21 +33,19 @@ export class AWSAssumeRoleUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
+    certificate: {
+      baseName: "certificate",
       type: "string",
+      required: true,
     },
-    generateNewExternalId: {
-      baseName: "generate_new_external_id",
-      type: "boolean",
-    },
-    role: {
-      baseName: "role",
+    privateKey: {
+      baseName: "private_key",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "AWSAssumeRoleType",
+      type: "HTTPMtlsAuthType",
       required: true,
     },
     additionalProperties: {
@@ -64,7 +58,7 @@ export class AWSAssumeRoleUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAssumeRoleUpdate.attributeTypeMap;
+    return HTTPMtlsAuth.attributeTypeMap;
   }
 
   public constructor() {}
