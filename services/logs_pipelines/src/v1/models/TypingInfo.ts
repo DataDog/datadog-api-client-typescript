@@ -4,10 +4,15 @@ import { APIErrorResponse } from "./APIErrorResponse";
 import { LogsAPIError } from "./LogsAPIError";
 import { LogsAPIErrorResponse } from "./LogsAPIErrorResponse";
 import { LogsArithmeticProcessor } from "./LogsArithmeticProcessor";
+import { LogsArrayProcessor } from "./LogsArrayProcessor";
+import { LogsArrayProcessorOperationAppend } from "./LogsArrayProcessorOperationAppend";
+import { LogsArrayProcessorOperationLength } from "./LogsArrayProcessorOperationLength";
+import { LogsArrayProcessorOperationSelect } from "./LogsArrayProcessorOperationSelect";
 import { LogsAttributeRemapper } from "./LogsAttributeRemapper";
 import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
 import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
 import { LogsDateRemapper } from "./LogsDateRemapper";
+import { LogsDecoderProcessor } from "./LogsDecoderProcessor";
 import { LogsFilter } from "./LogsFilter";
 import { LogsGeoIPParser } from "./LogsGeoIPParser";
 import { LogsGrokParser } from "./LogsGrokParser";
@@ -29,9 +34,16 @@ import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupPro
 export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     LogsArithmeticProcessorType: ["arithmetic-processor"],
+    LogsArrayProcessorOperationAppendType: ["append"],
+    LogsArrayProcessorOperationLengthType: ["length"],
+    LogsArrayProcessorOperationSelectType: ["select"],
+    LogsArrayProcessorType: ["array-processor"],
     LogsAttributeRemapperType: ["attribute-remapper"],
     LogsCategoryProcessorType: ["category-processor"],
     LogsDateRemapperType: ["date-remapper"],
+    LogsDecoderProcessorBinaryToTextEncoding: ["base64", "base16"],
+    LogsDecoderProcessorInputRepresentation: ["utf_8", "integer"],
+    LogsDecoderProcessorType: ["decoder-processor"],
     LogsGeoIPParserType: ["geo-ip-parser"],
     LogsGrokParserType: ["grok-parser"],
     LogsLookupProcessorType: ["lookup-processor"],
@@ -47,6 +59,11 @@ export const TypingInfo: ModelTypingInfo = {
     TargetFormatType: ["auto", "string", "integer", "double"],
   },
   oneOfMap: {
+    LogsArrayProcessorOperation: [
+      "LogsArrayProcessorOperationAppend",
+      "LogsArrayProcessorOperationLength",
+      "LogsArrayProcessorOperationSelect",
+    ],
     LogsProcessor: [
       "LogsGrokParser",
       "LogsDateRemapper",
@@ -65,6 +82,8 @@ export const TypingInfo: ModelTypingInfo = {
       "ReferenceTableLogsLookupProcessor",
       "LogsTraceRemapper",
       "LogsSpanRemapper",
+      "LogsArrayProcessor",
+      "LogsDecoderProcessor",
     ],
   },
   typeMap: {
@@ -72,10 +91,15 @@ export const TypingInfo: ModelTypingInfo = {
     LogsAPIError: LogsAPIError,
     LogsAPIErrorResponse: LogsAPIErrorResponse,
     LogsArithmeticProcessor: LogsArithmeticProcessor,
+    LogsArrayProcessor: LogsArrayProcessor,
+    LogsArrayProcessorOperationAppend: LogsArrayProcessorOperationAppend,
+    LogsArrayProcessorOperationLength: LogsArrayProcessorOperationLength,
+    LogsArrayProcessorOperationSelect: LogsArrayProcessorOperationSelect,
     LogsAttributeRemapper: LogsAttributeRemapper,
     LogsCategoryProcessor: LogsCategoryProcessor,
     LogsCategoryProcessorCategory: LogsCategoryProcessorCategory,
     LogsDateRemapper: LogsDateRemapper,
+    LogsDecoderProcessor: LogsDecoderProcessor,
     LogsFilter: LogsFilter,
     LogsGeoIPParser: LogsGeoIPParser,
     LogsGrokParser: LogsGrokParser,

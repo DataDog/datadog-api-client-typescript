@@ -179,6 +179,19 @@
   {
     "parameters": [
       {
+        "name": "body",
+        "origin": "request",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"Security Audit Dataset\",\n      \"principals\": [\n        \"role:94172442-be03-11e9-a77a-3b7612558ac1\"\n      ],\n      \"product_filters\": [\n        {\n          \"filters\": [\n            \"@application.id:ABCD\"\n          ],\n          \"product\": \"metrics\"\n        }\n      ]\n    },\n    \"type\": \"dataset\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"dataset\" in the system",
+    "key": "dataset",
+    "tag": "Datasets",
+    "operationId": "CreateDataset"
+  },
+  {
+    "parameters": [
+      {
         "name": "product",
         "value": "\"logs\""
       },
@@ -280,7 +293,7 @@
     "parameters": [
       {
         "name": "body",
-        "value": "{\n  \"data\": {\n    \"type\": \"account\",\n    \"attributes\": {\n      \"account_tags\": [\n        \"key:value\"\n      ],\n      \"auth_config\": {\n        \"role_name\": \"DatadogIntegrationRole\"\n      },\n      \"aws_account_id\": \"123456789012\",\n      \"aws_partition\": \"aws\",\n      \"aws_regions\": {\n        \"include_only\": [\n          \"us-east-1\"\n        ]\n      },\n      \"logs_config\": {\n        \"lambda_forwarder\": {\n          \"lambdas\": [\n            \"arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder\"\n          ],\n          \"sources\": [\n            \"s3\"\n          ]\n        }\n      },\n      \"metrics_config\": {\n        \"enabled\": true,\n        \"automute_enabled\": true,\n        \"collect_custom_metrics\": false,\n        \"collect_cloudwatch_alarms\": false,\n        \"tag_filters\": [\n          {\n            \"namespace\": \"AWS/EC2\",\n            \"tags\": [\n              \"key:value\"\n            ]\n          }\n        ],\n        \"namespace_filters\": {\n          \"include_only\": [\n            \"AWS/EC2\"\n          ]\n        }\n      },\n      \"resources_config\": {\n        \"cloud_security_posture_management_collection\": false,\n        \"extended_collection\": false\n      },\n      \"traces_config\": {\n        \"xray_services\": {\n          \"include_only\": [\n            \"AWS/AppSync\"\n          ]\n        }\n      }\n    }\n  }\n}"
+        "value": "{\n  \"data\": {\n    \"type\": \"account\",\n    \"attributes\": {\n      \"account_tags\": [\n        \"key:value\"\n      ],\n      \"auth_config\": {\n        \"role_name\": \"DatadogIntegrationRole\"\n      },\n      \"aws_account_id\": \"123456789012\",\n      \"aws_partition\": \"aws\",\n      \"aws_regions\": {\n        \"include_only\": [\n          \"us-east-1\"\n        ]\n      },\n      \"logs_config\": {\n        \"lambda_forwarder\": {\n          \"lambdas\": [\n            \"arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder\"\n          ],\n          \"sources\": [\n            \"s3\"\n          ],\n          \"log_source_config\": {\n            \"tag_filters\": [\n              {\n                \"source\": \"s3\",\n                \"tags\": [\"test:test\"]\n              }\n            ]\n          }\n        }\n      },\n      \"metrics_config\": {\n        \"enabled\": true,\n        \"automute_enabled\": true,\n        \"collect_custom_metrics\": false,\n        \"collect_cloudwatch_alarms\": false,\n        \"tag_filters\": [\n          {\n            \"namespace\": \"AWS/EC2\",\n            \"tags\": [\n              \"key:value\"\n            ]\n          }\n        ],\n        \"namespace_filters\": {\n          \"include_only\": [\n            \"AWS/EC2\"\n          ]\n        }\n      },\n      \"resources_config\": {\n        \"cloud_security_posture_management_collection\": false,\n        \"extended_collection\": false\n      },\n      \"traces_config\": {\n        \"xray_services\": {\n          \"include_only\": [\n            \"AWS/AppSync\"\n          ]\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "step": "there is a valid \"aws_account_v2\" in the system",
@@ -483,6 +496,18 @@
     "key": "monitor_configuration_policy",
     "tag": "Monitors",
     "operationId": "CreateMonitorConfigPolicy"
+  },
+  {
+    "parameters": [
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"type\": \"monitor-user-template\",\n    \"attributes\": {\n      \"description\": \"It's a threshold\",\n      \"title\": \"api spec given template {{ unique_lower }}\",\n      \"monitor_definition\": {\n        \"message\": \"cats\",\n        \"name\": \"High Error Rate on service\",\n        \"query\": \"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\n        \"type\": \"query alert\"\n      },\n      \"template_variables\": [{\"name\": \"scope\", \"available_values\": [], \"defaults\": [\"cats\"]}],\n      \"tags\": [\"category:test\"]\n    }\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"monitor_user_template\" in the system",
+    "key": "monitor_user_template",
+    "tag": "Monitors",
+    "operationId": "CreateMonitorUserTemplate"
   },
   {
     "parameters": [

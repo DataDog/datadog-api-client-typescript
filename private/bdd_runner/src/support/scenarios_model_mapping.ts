@@ -2111,6 +2111,37 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "SyntheticsMobileTest",
   },
+  "SyntheticsApi.V1.SearchTests": {
+    text: {
+      type: "string",
+      format: "",
+    },
+    includeFullConfig: {
+      type: "boolean",
+      format: "",
+    },
+    searchSuites: {
+      type: "boolean",
+      format: "",
+    },
+    facetsOnly: {
+      type: "boolean",
+      format: "",
+    },
+    start: {
+      type: "number",
+      format: "int64",
+    },
+    count: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "SyntheticsListTestsResponse",
+  },
   "SyntheticsApi.V1.TriggerTests": {
     body: {
       type: "SyntheticsTriggerBody",
@@ -2322,6 +2353,38 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   },
   "AuthenticationApi.V1.Validate": {
     operationResponseType: "AuthenticationValidationResponse",
+  },
+  "ActionConnectionApi.V2.ListAppKeyRegistrations": {
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    operationResponseType: "ListAppKeyRegistrationsResponse",
+  },
+  "ActionConnectionApi.V2.GetAppKeyRegistration": {
+    appKeyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "GetAppKeyRegistrationResponse",
+  },
+  "ActionConnectionApi.V2.RegisterAppKey": {
+    appKeyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "RegisterAppKeyResponse",
+  },
+  "ActionConnectionApi.V2.UnregisterAppKey": {
+    appKeyId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "ActionConnectionApi.V2.CreateActionConnection": {
     body: {
@@ -3006,6 +3069,17 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "CaseResponse",
   },
+  "CaseManagementApi.V2.UpdateAttributes": {
+    caseId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "CaseUpdateAttributesRequest",
+      format: "",
+    },
+    operationResponseType: "CaseResponse",
+  },
   "CaseManagementApi.V2.UpdatePriority": {
     caseId: {
       type: "string",
@@ -3359,6 +3433,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterResourceId: {
+      type: "string",
+      format: "",
+    },
     filterDiscoveryTimestamp: {
       type: "string",
       format: "",
@@ -3452,6 +3530,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterTeams: {
+      type: "string",
+      format: "",
+    },
     filterArch: {
       type: "string",
       format: "",
@@ -3465,6 +3547,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "ListVulnerableAssetsResponse",
+  },
+  "SecurityMonitoringApi.V2.ListAssetsSBOMs": {
+    pageToken: {
+      type: "string",
+      format: "",
+    },
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    filterAssetType: {
+      type: "AssetType",
+      format: "",
+    },
+    filterAssetName: {
+      type: "string",
+      format: "",
+    },
+    filterPackageName: {
+      type: "string",
+      format: "",
+    },
+    filterPackageVersion: {
+      type: "string",
+      format: "",
+    },
+    filterLicenseName: {
+      type: "string",
+      format: "",
+    },
+    filterLicenseType: {
+      type: "SBOMComponentLicenseType",
+      format: "",
+    },
+    operationResponseType: "ListAssetsSBOMsResponse",
   },
   "SecurityMonitoringApi.V2.GetSBOM": {
     assetType: {
@@ -3621,6 +3738,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       type: "string",
       format: "",
     },
+    filterOrigin: {
+      type: "string",
+      format: "",
+    },
     filterAssetName: {
       type: "string",
       format: "",
@@ -3662,6 +3783,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     filterAssetEnvironments: {
+      type: "string",
+      format: "",
+    },
+    filterAssetTeams: {
       type: "string",
       format: "",
     },
@@ -4159,6 +4284,34 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "{}",
   },
+  "CloudCostManagementApi.V2.ListCostGCPUsageCostConfigs": {
+    operationResponseType: "GCPUsageCostConfigsResponse",
+  },
+  "CloudCostManagementApi.V2.CreateCostGCPUsageCostConfig": {
+    body: {
+      type: "GCPUsageCostConfigPostRequest",
+      format: "",
+    },
+    operationResponseType: "GCPUsageCostConfigResponse",
+  },
+  "CloudCostManagementApi.V2.DeleteCostGCPUsageCostConfig": {
+    cloudAccountId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "CloudCostManagementApi.V2.UpdateCostGCPUsageCostConfig": {
+    cloudAccountId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "GCPUsageCostConfigPatchRequest",
+      format: "",
+    },
+    operationResponseType: "GCPUsageCostConfigResponse",
+  },
   "UsageMeteringApi.V2.GetActiveBillingDimensions": {
     operationResponseType: "ActiveBillingDimensionsResponse",
   },
@@ -4434,6 +4587,41 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "",
     },
     operationResponseType: "DashboardListDeleteItemsResponse",
+  },
+  "DatasetsApi.V2.GetAllDatasets": {
+    operationResponseType: "DatasetResponseMulti",
+  },
+  "DatasetsApi.V2.CreateDataset": {
+    body: {
+      type: "DatasetCreateRequest",
+      format: "",
+    },
+    operationResponseType: "DatasetResponseSingle",
+  },
+  "DatasetsApi.V2.GetDataset": {
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "DatasetResponseSingle",
+  },
+  "DatasetsApi.V2.UpdateDataset": {
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "DatasetUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "DatasetResponseSingle",
+  },
+  "DatasetsApi.V2.DeleteDataset": {
+    datasetId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
   },
   "DataDeletionApi.V2.CreateDataDeletionRequest": {
     product: {
@@ -4954,6 +5142,9 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   },
   "AWSIntegrationApi.V2.CreateNewAWSExternalID": {
     operationResponseType: "AWSNewExternalIDResponse",
+  },
+  "AWSIntegrationApi.V2.GetAWSIntegrationIAMPermissions": {
+    operationResponseType: "AWSIntegrationIamPermissionsResponse",
   },
   "AWSLogsIntegrationApi.V2.ListAWSLogsServices": {
     operationResponseType: "AWSLogsServicesResponse",
@@ -5705,6 +5896,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "MetricEstimateResponse",
   },
+  "MetricsApi.V2.GetMetricTagCardinalityDetails": {
+    metricName: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "MetricTagCardinalitiesResponse",
+  },
   "MetricsApi.V2.ListTagConfigurationByName": {
     metricName: {
       type: "string",
@@ -5851,6 +6049,63 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     },
     operationResponseType: "MonitorConfigPolicyResponse",
   },
+  "MonitorsApi.V2.ListMonitorUserTemplates": {
+    operationResponseType: "MonitorUserTemplateListResponse",
+  },
+  "MonitorsApi.V2.CreateMonitorUserTemplate": {
+    body: {
+      type: "MonitorUserTemplateCreateRequest",
+      format: "",
+    },
+    operationResponseType: "MonitorUserTemplateCreateResponse",
+  },
+  "MonitorsApi.V2.ValidateMonitorUserTemplate": {
+    body: {
+      type: "MonitorUserTemplateCreateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "MonitorsApi.V2.GetMonitorUserTemplate": {
+    templateId: {
+      type: "string",
+      format: "",
+    },
+    withAllVersions: {
+      type: "boolean",
+      format: "",
+    },
+    operationResponseType: "MonitorUserTemplateResponse",
+  },
+  "MonitorsApi.V2.UpdateMonitorUserTemplate": {
+    templateId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "MonitorUserTemplateUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "MonitorUserTemplateResponse",
+  },
+  "MonitorsApi.V2.DeleteMonitorUserTemplate": {
+    templateId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "MonitorsApi.V2.ValidateExistingMonitorUserTemplate": {
+    templateId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "MonitorUserTemplateUpdateRequest",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
   "NetworkDeviceMonitoringApi.V2.ListDevices": {
     pageSize: {
       type: "number",
@@ -5928,6 +6183,29 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
       format: "int32",
     },
     operationResponseType: "SingleAggregatedConnectionResponseArray",
+  },
+  "CloudNetworkMonitoringApi.V2.GetAggregatedDns": {
+    from: {
+      type: "number",
+      format: "int64",
+    },
+    to: {
+      type: "number",
+      format: "int64",
+    },
+    groupBy: {
+      type: "string",
+      format: "",
+    },
+    tags: {
+      type: "string",
+      format: "",
+    },
+    limit: {
+      type: "number",
+      format: "int32",
+    },
+    operationResponseType: "SingleAggregatedDnsResponseArray",
   },
   "OnCallApi.V2.CreateOnCallEscalationPolicy": {
     include: {

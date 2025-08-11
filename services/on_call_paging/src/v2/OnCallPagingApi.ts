@@ -73,9 +73,9 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -124,9 +124,9 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -169,9 +169,9 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -214,9 +214,9 @@ export class OnCallPagingApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -450,6 +450,7 @@ export class OnCallPagingApi {
     "OnCallPagingApi.v2.acknowledgeOnCallPage": [
       new ServerConfiguration<{
         site:
+          | "lava.oncall.datadoghq.com"
           | "saffron.oncall.datadoghq.com"
           | "navy.oncall.datadoghq.com"
           | "coral.oncall.datadoghq.com"
@@ -476,6 +477,7 @@ export class OnCallPagingApi {
     "OnCallPagingApi.v2.createOnCallPage": [
       new ServerConfiguration<{
         site:
+          | "lava.oncall.datadoghq.com"
           | "saffron.oncall.datadoghq.com"
           | "navy.oncall.datadoghq.com"
           | "coral.oncall.datadoghq.com"
@@ -502,6 +504,7 @@ export class OnCallPagingApi {
     "OnCallPagingApi.v2.escalateOnCallPage": [
       new ServerConfiguration<{
         site:
+          | "lava.oncall.datadoghq.com"
           | "saffron.oncall.datadoghq.com"
           | "navy.oncall.datadoghq.com"
           | "coral.oncall.datadoghq.com"
@@ -528,6 +531,7 @@ export class OnCallPagingApi {
     "OnCallPagingApi.v2.resolveOnCallPage": [
       new ServerConfiguration<{
         site:
+          | "lava.oncall.datadoghq.com"
           | "saffron.oncall.datadoghq.com"
           | "navy.oncall.datadoghq.com"
           | "coral.oncall.datadoghq.com"

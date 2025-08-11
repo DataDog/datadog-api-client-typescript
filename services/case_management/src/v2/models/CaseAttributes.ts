@@ -7,13 +7,17 @@ import { JiraIssue } from "./JiraIssue";
 import { ServiceNowTicket } from "./ServiceNowTicket";
 
 /**
- * Case attributes
+ * Case resource attributes
  */
 export class CaseAttributes {
   /**
    * Timestamp of when the case was archived
    */
   "archivedAt"?: Date;
+  /**
+   * The definition of `CaseObjectAttributes` object.
+   */
+  "attributes"?: { [key: string]: Array<string> };
   /**
    * Timestamp of when the case was closed
    */
@@ -77,6 +81,10 @@ export class CaseAttributes {
       baseName: "archived_at",
       type: "Date",
       format: "date-time",
+    },
+    attributes: {
+      baseName: "attributes",
+      type: "{ [key: string]: Array<string>; }",
     },
     closedAt: {
       baseName: "closed_at",

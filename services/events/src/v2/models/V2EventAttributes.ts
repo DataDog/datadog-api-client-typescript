@@ -11,7 +11,7 @@ export class V2EventAttributes {
    */
   "attributes"?: V2EventAttributesAttributes;
   /**
-   * Free-formed text associated with the event.
+   * Free-form text associated with the event.
    */
   "message"?: string;
   /**

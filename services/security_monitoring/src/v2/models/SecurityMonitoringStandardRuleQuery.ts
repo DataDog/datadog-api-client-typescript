@@ -32,6 +32,11 @@ export class SecurityMonitoringStandardRuleQuery {
    */
   "hasOptionalGroupByFields"?: boolean;
   /**
+   * **This field is currently unstable and might be removed in a minor version upgrade.**
+   * The index to run the query on, if the `dataSource` is `logs`. Only used for scheduled rules - in other words, when the `schedulingOptions` field is present in the rule payload.
+   */
+  "index"?: string;
+  /**
    * (Deprecated) The target field to aggregate over when using the sum or max
    * aggregations. `metrics` field should be used instead.
    */
@@ -86,6 +91,10 @@ export class SecurityMonitoringStandardRuleQuery {
     hasOptionalGroupByFields: {
       baseName: "hasOptionalGroupByFields",
       type: "boolean",
+    },
+    index: {
+      baseName: "index",
+      type: "string",
     },
     metric: {
       baseName: "metric",

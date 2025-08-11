@@ -73,9 +73,9 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -118,9 +118,9 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -188,9 +188,9 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -370,7 +370,7 @@ export class RestrictionPoliciesApiResponseProcessor {
 
 export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`.
+   * Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules.
    * @type string
    */
   resourceId: string;
@@ -378,7 +378,7 @@ export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`.
+   * Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules.
    * @type string
    */
   resourceId: string;
@@ -386,7 +386,7 @@ export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiUpdateRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `integration-account`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`.
+   * Identifier, formatted as `type:id`. Supported types: `dashboard`, `integration-service`, `integration-webhook`, `notebook`, `reference-table`, `security-rule`, `slo`, `workflow`, `app-builder-app`, `connection`, `connection-group`, `rum-application`, `cross-org-connection`, `spreadsheet`, `on-call-schedule`, `on-call-escalation-policy`, `on-call-team-routing-rules.
    * @type string
    */
   resourceId: string;
@@ -472,7 +472,6 @@ export class RestrictionPoliciesApi {
    * #### Supported resources
    * Restriction policies can be applied to the following resources:
    * - Dashboards: `dashboard`
-   * - Integration Accounts: `integration-account`
    * - Integration Services: `integration-service`
    * - Integration Webhooks: `integration-webhook`
    * - Notebooks: `notebook`
@@ -489,12 +488,16 @@ export class RestrictionPoliciesApi {
    * - Connections: `connection`
    * - Connection Groups: `connection-group`
    * - RUM Applications: `rum-application`
+   * - Cross Org Connections: `cross-org-connection`
+   * - Spreadsheets: `spreadsheet`
+   * - On-Call Schedules: `on-call-schedule`
+   * - On-Call Escalation Policies: `on-call-escalation-policy`
+   * - On-Call Team Routing Rules: `on-call-team-routing-rules`
    *
    * #### Supported relations for resources
    * Resource Type               | Supported Relations
    * ----------------------------|--------------------------
    * Dashboards                  | `viewer`, `editor`
-   * Integration Accounts        | `viewer`, `editor`
    * Integration Services        | `viewer`, `editor`
    * Integration Webhooks        | `viewer`, `editor`
    * Notebooks                   | `viewer`, `editor`
@@ -511,6 +514,11 @@ export class RestrictionPoliciesApi {
    * Connections                 | `viewer`, `resolver`, `editor`
    * Connection Groups           | `viewer`, `editor`
    * RUM Application             | `viewer`, `editor`
+   * Cross Org Connections       | `viewer`, `editor`
+   * Spreadsheets                | `viewer`, `editor`
+   * On-Call Schedules           | `viewer`, `overrider`, `editor`
+   * On-Call Escalation Policies | `viewer`, `editor`
+   * On-Call Team Routing Rules  | `viewer`, `editor`
    * @param param The request object
    */
   public updateRestrictionPolicy(

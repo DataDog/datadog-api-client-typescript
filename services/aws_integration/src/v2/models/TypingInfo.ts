@@ -13,7 +13,12 @@ import { AWSAccountUpdateRequestData } from "./AWSAccountUpdateRequestData";
 import { AWSAccountsResponse } from "./AWSAccountsResponse";
 import { AWSAuthConfigKeys } from "./AWSAuthConfigKeys";
 import { AWSAuthConfigRole } from "./AWSAuthConfigRole";
+import { AWSIntegrationIamPermissionsResponse } from "./AWSIntegrationIamPermissionsResponse";
+import { AWSIntegrationIamPermissionsResponseAttributes } from "./AWSIntegrationIamPermissionsResponseAttributes";
+import { AWSIntegrationIamPermissionsResponseData } from "./AWSIntegrationIamPermissionsResponseData";
 import { AWSLambdaForwarderConfig } from "./AWSLambdaForwarderConfig";
+import { AWSLambdaForwarderConfigLogSourceConfig } from "./AWSLambdaForwarderConfigLogSourceConfig";
+import { AWSLogSourceTagFilter } from "./AWSLogSourceTagFilter";
 import { AWSLogsConfig } from "./AWSLogsConfig";
 import { AWSMetricsConfig } from "./AWSMetricsConfig";
 import { AWSNamespaceFiltersExcludeOnly } from "./AWSNamespaceFiltersExcludeOnly";
@@ -36,6 +41,7 @@ export const TypingInfo: ModelTypingInfo = {
   enumsMap: {
     AWSAccountPartition: ["aws", "aws-cn", "aws-us-gov"],
     AWSAccountType: ["account"],
+    AWSIntegrationIamPermissionsResponseDataType: ["permissions"],
     AWSNamespacesResponseDataType: ["namespaces"],
     AWSNewExternalIDResponseDataType: ["external_id"],
   },
@@ -62,7 +68,15 @@ export const TypingInfo: ModelTypingInfo = {
     AWSAccountsResponse: AWSAccountsResponse,
     AWSAuthConfigKeys: AWSAuthConfigKeys,
     AWSAuthConfigRole: AWSAuthConfigRole,
+    AWSIntegrationIamPermissionsResponse: AWSIntegrationIamPermissionsResponse,
+    AWSIntegrationIamPermissionsResponseAttributes:
+      AWSIntegrationIamPermissionsResponseAttributes,
+    AWSIntegrationIamPermissionsResponseData:
+      AWSIntegrationIamPermissionsResponseData,
     AWSLambdaForwarderConfig: AWSLambdaForwarderConfig,
+    AWSLambdaForwarderConfigLogSourceConfig:
+      AWSLambdaForwarderConfigLogSourceConfig,
+    AWSLogSourceTagFilter: AWSLogSourceTagFilter,
     AWSLogsConfig: AWSLogsConfig,
     AWSMetricsConfig: AWSMetricsConfig,
     AWSNamespaceFiltersExcludeOnly: AWSNamespaceFiltersExcludeOnly,

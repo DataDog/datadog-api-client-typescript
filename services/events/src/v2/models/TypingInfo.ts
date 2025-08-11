@@ -52,6 +52,7 @@ export const TypingInfo: ModelTypingInfo = {
       "dashboard",
     ],
     AlertEventAttributesPriority: ["1", "2", "3", "4", "5"],
+    AlertEventAttributesStatus: ["warn", "error", "ok"],
     AlertEventCustomAttributesLinksItemsCategory: [
       "runbook",
       "documentation",
@@ -59,10 +60,15 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     AlertEventCustomAttributesPriority: ["1", "2", "3", "4", "5"],
     AlertEventCustomAttributesStatus: ["warn", "error", "ok"],
-    ChangeEventAttributesAuthorType: ["user", "system"],
+    ChangeEventAttributesAuthorType: ["user", "system", "api", "automation"],
     ChangeEventAttributesChangedResourceType: ["feature_flag", "configuration"],
     ChangeEventAttributesImpactedResourcesItemType: ["service"],
-    ChangeEventCustomAttributesAuthorType: ["user", "system"],
+    ChangeEventCustomAttributesAuthorType: [
+      "user",
+      "system",
+      "api",
+      "automation",
+    ],
     ChangeEventCustomAttributesChangedResourceType: [
       "feature_flag",
       "configuration",

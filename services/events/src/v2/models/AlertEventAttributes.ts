@@ -2,6 +2,7 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { AlertEventAttributesLinksItem } from "./AlertEventAttributesLinksItem";
 import { AlertEventAttributesPriority } from "./AlertEventAttributesPriority";
+import { AlertEventAttributesStatus } from "./AlertEventAttributesStatus";
 import { EventSystemAttributes } from "./EventSystemAttributes";
 
 /**
@@ -32,6 +33,10 @@ export class AlertEventAttributes {
    * Service that triggered the event.
    */
   "service"?: string;
+  /**
+   * The status of the alert.
+   */
+  "status"?: AlertEventAttributesStatus;
   /**
    * POSIX timestamp of the event.
    */
@@ -78,6 +83,10 @@ export class AlertEventAttributes {
     service: {
       baseName: "service",
       type: "string",
+    },
+    status: {
+      baseName: "status",
+      type: "AlertEventAttributesStatus",
     },
     timestamp: {
       baseName: "timestamp",

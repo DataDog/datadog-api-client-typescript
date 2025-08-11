@@ -43,6 +43,16 @@ import { CustomCostsFileMetadataWithContentHighLevel } from "./CustomCostsFileMe
 import { CustomCostsFileUploadResponse } from "./CustomCostsFileUploadResponse";
 import { CustomCostsFileUsageChargePeriod } from "./CustomCostsFileUsageChargePeriod";
 import { CustomCostsUser } from "./CustomCostsUser";
+import { GCPUsageCostConfig } from "./GCPUsageCostConfig";
+import { GCPUsageCostConfigAttributes } from "./GCPUsageCostConfigAttributes";
+import { GCPUsageCostConfigPatchData } from "./GCPUsageCostConfigPatchData";
+import { GCPUsageCostConfigPatchRequest } from "./GCPUsageCostConfigPatchRequest";
+import { GCPUsageCostConfigPatchRequestAttributes } from "./GCPUsageCostConfigPatchRequestAttributes";
+import { GCPUsageCostConfigPostData } from "./GCPUsageCostConfigPostData";
+import { GCPUsageCostConfigPostRequest } from "./GCPUsageCostConfigPostRequest";
+import { GCPUsageCostConfigPostRequestAttributes } from "./GCPUsageCostConfigPostRequestAttributes";
+import { GCPUsageCostConfigResponse } from "./GCPUsageCostConfigResponse";
+import { GCPUsageCostConfigsResponse } from "./GCPUsageCostConfigsResponse";
 import { TagFilter } from "./TagFilter";
 
 export const TypingInfo: ModelTypingInfo = {
@@ -53,6 +63,9 @@ export const TypingInfo: ModelTypingInfo = {
     AzureUCConfigPairType: ["azure_uc_configs"],
     AzureUCConfigPatchRequestType: ["azure_uc_config_patch_request"],
     AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
+    GCPUsageCostConfigPatchRequestType: ["gcp_uc_config_patch_request"],
+    GCPUsageCostConfigPostRequestType: ["gcp_uc_config_post_request"],
+    GCPUsageCostConfigType: ["gcp_uc_config"],
   },
   oneOfMap: {},
   typeMap: {
@@ -100,6 +113,18 @@ export const TypingInfo: ModelTypingInfo = {
     CustomCostsFileUploadResponse: CustomCostsFileUploadResponse,
     CustomCostsFileUsageChargePeriod: CustomCostsFileUsageChargePeriod,
     CustomCostsUser: CustomCostsUser,
+    GCPUsageCostConfig: GCPUsageCostConfig,
+    GCPUsageCostConfigAttributes: GCPUsageCostConfigAttributes,
+    GCPUsageCostConfigPatchData: GCPUsageCostConfigPatchData,
+    GCPUsageCostConfigPatchRequest: GCPUsageCostConfigPatchRequest,
+    GCPUsageCostConfigPatchRequestAttributes:
+      GCPUsageCostConfigPatchRequestAttributes,
+    GCPUsageCostConfigPostData: GCPUsageCostConfigPostData,
+    GCPUsageCostConfigPostRequest: GCPUsageCostConfigPostRequest,
+    GCPUsageCostConfigPostRequestAttributes:
+      GCPUsageCostConfigPostRequestAttributes,
+    GCPUsageCostConfigResponse: GCPUsageCostConfigResponse,
+    GCPUsageCostConfigsResponse: GCPUsageCostConfigsResponse,
     TagFilter: TagFilter,
   },
 };

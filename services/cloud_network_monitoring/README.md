@@ -2,7 +2,7 @@
 
 ## Description
 
-The Cloud Network Monitoring API allows you to fetch aggregated connections and their attributes. See the [Cloud Network Monitoring page](https://docs.datadoghq.com/network_monitoring/cloud_network_monitoring/) for more information.
+The Cloud Network Monitoring API allows you to fetch aggregated connections and DNS traffic with their attributes. See the [Cloud Network Monitoring page](https://docs.datadoghq.com/network_monitoring/cloud_network_monitoring/) and [DNS Monitoring page](https://docs.datadoghq.com/network_monitoring/dns/) for more information.
 
 ## Navigation
 
@@ -25,14 +25,6 @@ import { CloudNetworkMonitoringApiV2 } from "@datadog/datadog-api-client-cloud-n
 import { v2 } from "@datadog/datadog-api-client-cloud-network-monitoring";
 
 const configuration = createConfiguration();
-// Enable unstable operations
-const configurationOpts = {
-    unstableOperations: {
-        "CloudNetworkMonitoringApi.v2.getAggregatedConnections": true
-    }
-}
-
-const configuration = createConfiguration(configurationOpts);
 const apiInstance = new CloudNetworkMonitoringApiV2(configuration);
 const params = {/* parameters */};
 

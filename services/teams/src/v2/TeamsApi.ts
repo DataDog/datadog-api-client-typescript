@@ -113,9 +113,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -164,9 +164,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -224,9 +224,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -284,9 +284,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -329,9 +329,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -379,9 +379,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -429,9 +429,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -474,9 +474,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -524,9 +524,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -569,9 +569,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -648,9 +648,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -693,9 +693,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -738,9 +738,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -815,9 +815,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -882,7 +882,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         serialize(include, TypingInfo, "Array<ListTeamsInclude>", ""),
-        "csv",
+        "multi",
       );
     }
     if (filterKeyword !== undefined) {
@@ -909,9 +909,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -966,9 +966,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1026,9 +1026,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1091,9 +1091,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1156,9 +1156,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -1221,9 +1221,9 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;

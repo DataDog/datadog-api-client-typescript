@@ -2,6 +2,7 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
  * Supported products for hourly usage attribution requests.
+ * The following values have been **deprecated**: `estimated_indexed_spans_usage`, `estimated_ingested_spans_usage`.
  */
 export type HourlyUsageAttributionUsageType =
   | typeof API_USAGE
@@ -45,6 +46,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof INGESTED_SPANS_BYTES_USAGE
   | typeof INVOCATIONS_USAGE
   | typeof LAMBDA_TRACED_INVOCATIONS_USAGE
+  | typeof LLM_OBSERVABILITY_USAGE
   | typeof LOGS_INDEXED_15DAY_USAGE
   | typeof LOGS_INDEXED_180DAY_USAGE
   | typeof LOGS_INDEXED_1DAY_USAGE
@@ -58,15 +60,21 @@ export type HourlyUsageAttributionUsageType =
   | typeof LOGS_INDEXED_CUSTOM_RETENTION_USAGE
   | typeof MOBILE_APP_TESTING_USAGE
   | typeof NDM_NETFLOW_USAGE
+  | typeof NETWORK_DEVICE_WIRELESS_USAGE
   | typeof NPM_HOST_USAGE
   | typeof OBS_PIPELINE_BYTES_USAGE
   | typeof OBS_PIPELINE_VCPU_USAGE
   | typeof ONLINE_ARCHIVE_USAGE
+  | typeof PRODUCT_ANALYTICS_SESSION_USAGE
   | typeof PROFILED_CONTAINER_USAGE
   | typeof PROFILED_FARGATE_USAGE
   | typeof PROFILED_HOST_USAGE
+  | typeof PUBLISHED_APP_USAGE
   | typeof RUM_BROWSER_MOBILE_SESSIONS_USAGE
+  | typeof RUM_INGESTED_USAGE
+  | typeof RUM_INVESTIGATE_USAGE
   | typeof RUM_REPLAY_SESSIONS_USAGE
+  | typeof RUM_SESSION_REPLAY_ADD_ON_USAGE
   | typeof SCA_FARGATE_USAGE
   | typeof SDS_SCANNED_BYTES_USAGE
   | typeof SERVERLESS_APPS_USAGE
@@ -124,6 +132,7 @@ export const INGESTED_SPANS_BYTES_USAGE = "ingested_spans_bytes_usage";
 export const INVOCATIONS_USAGE = "invocations_usage";
 export const LAMBDA_TRACED_INVOCATIONS_USAGE =
   "lambda_traced_invocations_usage";
+export const LLM_OBSERVABILITY_USAGE = "llm_observability_usage";
 export const LOGS_INDEXED_15DAY_USAGE = "logs_indexed_15day_usage";
 export const LOGS_INDEXED_180DAY_USAGE = "logs_indexed_180day_usage";
 export const LOGS_INDEXED_1DAY_USAGE = "logs_indexed_1day_usage";
@@ -138,16 +147,24 @@ export const LOGS_INDEXED_CUSTOM_RETENTION_USAGE =
   "logs_indexed_custom_retention_usage";
 export const MOBILE_APP_TESTING_USAGE = "mobile_app_testing_usage";
 export const NDM_NETFLOW_USAGE = "ndm_netflow_usage";
-export const NPM_HOST_USAGE = "npm_host_usage";
+export const NETWORK_DEVICE_WIRELESS_USAGE = "npm_host_usage";
+export const NPM_HOST_USAGE = "network_device_wireless_usage";
 export const OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
 export const OBS_PIPELINE_VCPU_USAGE = "obs_pipelines_vcpu_usage";
 export const ONLINE_ARCHIVE_USAGE = "online_archive_usage";
+export const PRODUCT_ANALYTICS_SESSION_USAGE =
+  "product_analytics_session_usage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
+export const PUBLISHED_APP_USAGE = "published_app";
 export const RUM_BROWSER_MOBILE_SESSIONS_USAGE =
   "rum_browser_mobile_sessions_usage";
+export const RUM_INGESTED_USAGE = "rum_ingested_usage";
+export const RUM_INVESTIGATE_USAGE = "rum_investigate_usage";
 export const RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage";
+export const RUM_SESSION_REPLAY_ADD_ON_USAGE =
+  "rum_session_replay_add_on_usage";
 export const SCA_FARGATE_USAGE = "sca_fargate_usage";
 export const SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage";
 export const SERVERLESS_APPS_USAGE = "serverless_apps_usage";

@@ -85,6 +85,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -347,6 +348,7 @@ export class LogsApi {
           | "us3.datadoghq.com"
           | "us5.datadoghq.com"
           | "ap1.datadoghq.com"
+          | "ap2.datadoghq.com"
           | "datadoghq.eu"
           | "ddog-gov.com";
         subdomain: string;

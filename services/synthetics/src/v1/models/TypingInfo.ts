@@ -339,6 +339,7 @@ export const TypingInfo: ModelTypingInfo = {
       "assertRequests",
       "click",
       "extractFromJavascript",
+      "extractFromEmailBody",
       "extractVariable",
       "goToEmailLink",
       "goToUrl",
@@ -416,6 +417,7 @@ export const TypingInfo: ModelTypingInfo = {
       "SyntheticsBasicAuthOauthROP",
     ],
     SyntheticsMobileStepParamsValue: ["string", "number"],
+    SyntheticsTestRequestDNSServerPort: ["number", "string"],
     SyntheticsTestRequestPort: ["number", "string"],
   },
   typeMap: {

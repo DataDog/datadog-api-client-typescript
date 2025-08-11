@@ -55,6 +55,10 @@ export class IncidentResponseAttributes {
    */
   "incidentTypeUuid"?: string;
   /**
+   * A flag indicating whether the incident is a test incident.
+   */
+  "isTest"?: boolean;
+  /**
    * Timestamp when the incident was last modified.
    */
   "modified"?: Date;
@@ -172,6 +176,10 @@ export class IncidentResponseAttributes {
     incidentTypeUuid: {
       baseName: "incident_type_uuid",
       type: "string",
+    },
+    isTest: {
+      baseName: "is_test",
+      type: "boolean",
     },
     modified: {
       baseName: "modified",

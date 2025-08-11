@@ -25,6 +25,10 @@ export class DashboardTemplateVariable {
    */
   "prefix"?: string;
   /**
+   * The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+   */
+  "type"?: string;
+  /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
@@ -58,6 +62,10 @@ export class DashboardTemplateVariable {
     },
     prefix: {
       baseName: "prefix",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
       type: "string",
     },
     additionalProperties: {

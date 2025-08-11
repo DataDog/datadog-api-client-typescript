@@ -18,7 +18,6 @@ import {
   serialize,
   ServerConfiguration,
   stringify,
-  applySecurityAuthentication,
 } from "@datadog/datadog-api-client";
 
 import { TypingInfo } from "./models/TypingInfo";
@@ -58,12 +57,6 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
 
     return requestContext;
   }
@@ -138,6 +131,7 @@ export class IPRangesApi {
           | "us3.datadoghq.com"
           | "us5.datadoghq.com"
           | "ap1.datadoghq.com"
+          | "ap2.datadoghq.com"
           | "datadoghq.eu"
           | "ddog-gov.com";
         subdomain: string;

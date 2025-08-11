@@ -9,7 +9,7 @@ import { CaseResourceType } from "./CaseResourceType";
  */
 export class Case {
   /**
-   * Case attributes
+   * Case resource attributes
    */
   "attributes": CaseAttributes;
   /**

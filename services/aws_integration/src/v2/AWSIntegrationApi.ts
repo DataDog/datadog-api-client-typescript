@@ -27,6 +27,7 @@ import { AWSAccountCreateRequest } from "./models/AWSAccountCreateRequest";
 import { AWSAccountResponse } from "./models/AWSAccountResponse";
 import { AWSAccountsResponse } from "./models/AWSAccountsResponse";
 import { AWSAccountUpdateRequest } from "./models/AWSAccountUpdateRequest";
+import { AWSIntegrationIamPermissionsResponse } from "./models/AWSIntegrationIamPermissionsResponse";
 import { AWSNamespacesResponse } from "./models/AWSNamespacesResponse";
 import { AWSNewExternalIDResponse } from "./models/AWSNewExternalIDResponse";
 import { version } from "../version";
@@ -217,6 +218,41 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const { server, overrides } = _config.getServerAndOverrides(
       "AWSIntegrationApi.v2.getAWSAccount",
+      AWSIntegrationApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.GET,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getAWSIntegrationIAMPermissions(
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/integration/aws/iam_permissions";
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "AWSIntegrationApi.v2.getAWSIntegrationIAMPermissions",
       AWSIntegrationApi.operationServers,
     );
     const requestContext = server.makeRequestContext(
@@ -631,6 +667,62 @@ export class AWSIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getAWSIntegrationIAMPermissions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getAWSIntegrationIAMPermissions(
+    response: ResponseContext,
+  ): Promise<AWSIntegrationIamPermissionsResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: AWSIntegrationIamPermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSIntegrationIamPermissionsResponse",
+      ) as AWSIntegrationIamPermissionsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: AWSIntegrationIamPermissionsResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "AWSIntegrationIamPermissionsResponse",
+        "",
+      ) as AWSIntegrationIamPermissionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAWSAccounts
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -943,6 +1035,26 @@ export class AWSIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getAWSAccount(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all AWS IAM permissions required for the AWS integration.
+   * @param param The request object
+   */
+  public getAWSIntegrationIAMPermissions(
+    options?: Configuration,
+  ): Promise<AWSIntegrationIamPermissionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getAWSIntegrationIAMPermissions(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAWSIntegrationIAMPermissions(
+            responseContext,
+          );
         });
     });
   }

@@ -130,9 +130,9 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -216,9 +216,9 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
+      "AuthZ",
     ]);
 
     return requestContext;
@@ -637,13 +637,13 @@ export class EventsApi {
   /**
    * This endpoint allows you to publish events.
    *
+   * **Note:** To utilize this endpoint with our client libraries, please ensure you are using the latest version released on or after July 1, 2025. Earlier versions do not support this functionality.
+   *
    * ✅ **Only events with the `change` or `alert` category** are in General Availability. For change events, see [Change Tracking](https://docs.datadoghq.com/change_tracking) for more details.
    *
    * ❌ For use cases involving other event categories, use the V1 endpoint or reach out to [support](https://www.datadoghq.com/support/).
    *
    * ❌ Notifications are not yet supported for events sent to this endpoint. Use the V1 endpoint for notification functionality.
-   *
-   * ❌ This endpoint is not available for the Government (US1-FED) site. Contact your account representative for more information.
    * @param param The request object
    */
   public createEvent(

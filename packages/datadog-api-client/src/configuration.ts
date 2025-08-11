@@ -201,7 +201,6 @@ export function createConfiguration(
     const serverConf = server1.getConfiguration();
     server1.setVariables({ site: process.env.DD_SITE } as typeof serverConf);
   }
-
   const authMethods = conf.authMethods || {};
   if (
     !("apiKeyAuth" in authMethods) &&
@@ -245,7 +244,6 @@ export function createConfiguration(
   configuration.httpApi.fetch = conf.fetch;
   return configuration;
 }
-
 /**
  * Apply given security authentication method if avaiable in configuration.
  */

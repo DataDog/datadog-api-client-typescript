@@ -1,4 +1,28 @@
 {
+  "ListAppKeyRegistrations": {
+    "tag": "Action Connection",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UnregisterAppKey": {
+    "tag": "Action Connection",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetAppKeyRegistration": {
+    "tag": "Action Connection",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "RegisterAppKey": {
+    "tag": "Action Connection",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "CreateActionConnection": {
     "tag": "Action Connection",
     "undo": {
@@ -422,6 +446,12 @@
       "type": "idempotent"
     }
   },
+  "UpdateAttributes": {
+    "tag": "Case Management",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "UpdatePriority": {
     "tag": "Case Management",
     "undo": {
@@ -706,6 +736,30 @@
       "type": "safe"
     }
   },
+  "ListCostGCPUsageCostConfigs": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateCostGCPUsageCostConfig": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "DeleteCostGCPUsageCostConfig": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "UpdateCostGCPUsageCostConfig": {
+    "tag": "Cloud Cost Management",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "GetActiveBillingDimensions": {
     "tag": "Usage Metering",
     "undo": {
@@ -807,6 +861,43 @@
     "tag": "Dashboard Lists",
     "undo": {
       "type": "safe"
+    }
+  },
+  "GetAllDatasets": {
+    "tag": "Datasets",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateDataset": {
+    "tag": "Datasets",
+    "undo": {
+      "operationId": "DeleteDataset",
+      "parameters": [
+        {
+          "name": "dataset_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteDataset": {
+    "tag": "Datasets",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetDataset": {
+    "tag": "Datasets",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateDataset": {
+    "tag": "Datasets",
+    "undo": {
+      "type": "idempotent"
     }
   },
   "CreateDataDeletionRequest": {
@@ -1167,6 +1258,12 @@
     }
   },
   "CreateNewAWSExternalID": {
+    "tag": "AWS Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetAWSIntegrationIAMPermissions": {
     "tag": "AWS Integration",
     "undo": {
       "type": "safe"
@@ -1779,6 +1876,12 @@
       "type": "safe"
     }
   },
+  "GetMetricTagCardinalityDetails": {
+    "tag": "Metrics",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "DeleteTagConfiguration": {
     "tag": "Metrics",
     "undo": {
@@ -1890,6 +1993,55 @@
       "type": "idempotent"
     }
   },
+  "ListMonitorUserTemplates": {
+    "tag": "Monitors",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateMonitorUserTemplate": {
+    "tag": "Monitors",
+    "undo": {
+      "operationId": "DeleteMonitorUserTemplate",
+      "parameters": [
+        {
+          "name": "template_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "ValidateMonitorUserTemplate": {
+    "tag": "Monitors",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "DeleteMonitorUserTemplate": {
+    "tag": "Monitors",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetMonitorUserTemplate": {
+    "tag": "Monitors",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateMonitorUserTemplate": {
+    "tag": "Monitors",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ValidateExistingMonitorUserTemplate": {
+    "tag": "Monitors",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "ListMonitorDowntimes": {
     "tag": "Downtimes",
     "undo": {
@@ -1927,6 +2079,12 @@
     }
   },
   "GetAggregatedConnections": {
+    "tag": "Cloud Network Monitoring",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetAggregatedDns": {
     "tag": "Cloud Network Monitoring",
     "undo": {
       "type": "safe"
@@ -2629,6 +2787,12 @@
   },
   "DownloadCloudWorkloadPolicyFile": {
     "tag": "CSM Threats",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListAssetsSBOMs": {
+    "tag": "Security Monitoring",
     "undo": {
       "type": "safe"
     }

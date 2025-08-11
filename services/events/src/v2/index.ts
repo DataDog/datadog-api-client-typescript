@@ -10,6 +10,7 @@ export { AlertEventAttributes } from "./models/AlertEventAttributes";
 export { AlertEventAttributesLinksItem } from "./models/AlertEventAttributesLinksItem";
 export { AlertEventAttributesLinksItemCategory } from "./models/AlertEventAttributesLinksItemCategory";
 export { AlertEventAttributesPriority } from "./models/AlertEventAttributesPriority";
+export { AlertEventAttributesStatus } from "./models/AlertEventAttributesStatus";
 export { AlertEventCustomAttributes } from "./models/AlertEventCustomAttributes";
 export { AlertEventCustomAttributesLinksItems } from "./models/AlertEventCustomAttributesLinksItems";
 export { AlertEventCustomAttributesLinksItemsCategory } from "./models/AlertEventCustomAttributesLinksItemsCategory";
