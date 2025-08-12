@@ -6,6 +6,9 @@ import { CaseAssign } from "./CaseAssign";
 import { CaseAssignAttributes } from "./CaseAssignAttributes";
 import { CaseAssignRequest } from "./CaseAssignRequest";
 import { CaseAttributes } from "./CaseAttributes";
+import { CaseComment } from "./CaseComment";
+import { CaseCommentAttributes } from "./CaseCommentAttributes";
+import { CaseCommentRequest } from "./CaseCommentRequest";
 import { CaseCreate } from "./CaseCreate";
 import { CaseCreateAttributes } from "./CaseCreateAttributes";
 import { CaseCreateRelationships } from "./CaseCreateRelationships";
@@ -45,6 +48,12 @@ import { RelationshipToTeamLinks } from "./RelationshipToTeamLinks";
 import { ServiceNowTicket } from "./ServiceNowTicket";
 import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
+import { TimelineCell } from "./TimelineCell";
+import { TimelineCellAuthorUser } from "./TimelineCellAuthorUser";
+import { TimelineCellAuthorUserContent } from "./TimelineCellAuthorUserContent";
+import { TimelineCellContentComment } from "./TimelineCellContentComment";
+import { TimelineCellResource } from "./TimelineCellResource";
+import { TimelineResponse } from "./TimelineResponse";
 import { UserRelationshipData } from "./UserRelationshipData";
 import { UsersRelationship } from "./UsersRelationship";
 
@@ -58,9 +67,15 @@ export const TypingInfo: ModelTypingInfo = {
     CaseType: ["STANDARD"],
     ProjectResourceType: ["project"],
     TeamLinkType: ["team_links"],
+    TimelineCellAuthorUserType: ["USER"],
+    TimelineCellResourceType: ["timeline_cell"],
+    TimelineCellType: ["COMMENT"],
     UserResourceType: ["user"],
   },
-  oneOfMap: {},
+  oneOfMap: {
+    TimelineCellAuthor: ["TimelineCellAuthorUser"],
+    TimelineCellContent: ["TimelineCellContentComment"],
+  },
   typeMap: {
     APIErrorResponse: APIErrorResponse,
     Case: Case,
@@ -68,6 +83,9 @@ export const TypingInfo: ModelTypingInfo = {
     CaseAssignAttributes: CaseAssignAttributes,
     CaseAssignRequest: CaseAssignRequest,
     CaseAttributes: CaseAttributes,
+    CaseComment: CaseComment,
+    CaseCommentAttributes: CaseCommentAttributes,
+    CaseCommentRequest: CaseCommentRequest,
     CaseCreate: CaseCreate,
     CaseCreateAttributes: CaseCreateAttributes,
     CaseCreateRelationships: CaseCreateRelationships,
@@ -107,6 +125,12 @@ export const TypingInfo: ModelTypingInfo = {
     ServiceNowTicket: ServiceNowTicket,
     ServiceNowTicketResult: ServiceNowTicketResult,
     TeamRelationshipsLinks: TeamRelationshipsLinks,
+    TimelineCell: TimelineCell,
+    TimelineCellAuthorUser: TimelineCellAuthorUser,
+    TimelineCellAuthorUserContent: TimelineCellAuthorUserContent,
+    TimelineCellContentComment: TimelineCellContentComment,
+    TimelineCellResource: TimelineCellResource,
+    TimelineResponse: TimelineResponse,
     UserRelationshipData: UserRelationshipData,
     UsersRelationship: UsersRelationship,
   },
