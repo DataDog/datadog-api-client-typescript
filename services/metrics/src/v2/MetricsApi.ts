@@ -24,6 +24,7 @@ import {
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
+import { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 import { MetricAllTagsResponse } from "./models/MetricAllTagsResponse";
 import { MetricAssetsResponse } from "./models/MetricAssetsResponse";
 import { MetricBulkTagConfigCreateRequest } from "./models/MetricBulkTagConfigCreateRequest";
@@ -1285,21 +1286,24 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode === 429
     ) {
       const bodyText = parse(await response.body.text(), contentType);
-      let body: APIErrorResponse;
+      let body: JSONAPIErrorResponse;
       try {
         body = deserialize(
           bodyText,
           TypingInfo,
-          "APIErrorResponse",
-        ) as APIErrorResponse;
+          "JSONAPIErrorResponse",
+        ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
+        throw new ApiException<JSONAPIErrorResponse>(
           response.httpStatusCode,
           bodyText,
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml

@@ -11,6 +11,9 @@ import { EventsTimeseriesQuery } from "./EventsTimeseriesQuery";
 import { FormulaLimit } from "./FormulaLimit";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorItemSource } from "./JSONAPIErrorItemSource";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { Metric } from "./Metric";
 import { MetricAllTags } from "./MetricAllTags";
 import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
@@ -184,6 +187,9 @@ export const TypingInfo: ModelTypingInfo = {
     FormulaLimit: FormulaLimit,
     GroupScalarColumn: GroupScalarColumn,
     IntakePayloadAccepted: IntakePayloadAccepted,
+    JSONAPIErrorItem: JSONAPIErrorItem,
+    JSONAPIErrorItemSource: JSONAPIErrorItemSource,
+    JSONAPIErrorResponse: JSONAPIErrorResponse,
     Metric: Metric,
     MetricAllTags: MetricAllTags,
     MetricAllTagsAttributes: MetricAllTagsAttributes,
