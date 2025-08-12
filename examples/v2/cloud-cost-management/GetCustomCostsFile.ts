@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.CloudCostManagementApi(configuration);
 
 const params: v2.CloudCostManagementApiGetCustomCostsFileRequest = {
-  fileId: "file_id",
+  fileId: "9ed1a245-8291-44de-9f59-1dc87975ca4a",
 };
 
 apiInstance

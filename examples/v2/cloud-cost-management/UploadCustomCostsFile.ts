@@ -10,11 +10,15 @@ const apiInstance = new v2.CloudCostManagementApi(configuration);
 const params: v2.CloudCostManagementApiUploadCustomCostsFileRequest = {
   body: [
     {
-      billedCost: 100.5,
+      providerName: "my_provider",
+      chargePeriodStart: "2023-05-06",
+      chargePeriodEnd: "2023-06-06",
+      chargeDescription: "my_description",
+      billedCost: 250,
       billingCurrency: "USD",
-      chargeDescription: "Monthly usage charge for my service",
-      chargePeriodEnd: "2023-02-28",
-      chargePeriodStart: "2023-02-01",
+      tags: {
+        key: "value",
+      },
     },
   ],
 };

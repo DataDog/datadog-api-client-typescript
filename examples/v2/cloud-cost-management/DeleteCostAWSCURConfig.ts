@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.CloudCostManagementApi(configuration);
 
 const params: v2.CloudCostManagementApiDeleteCostAWSCURConfigRequest = {
-  cloudAccountId: "100",
+  cloudAccountId: 100,
 };
 
 apiInstance

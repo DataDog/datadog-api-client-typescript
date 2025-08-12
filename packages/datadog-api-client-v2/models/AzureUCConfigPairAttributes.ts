@@ -18,7 +18,7 @@ export class AzureUCConfigPairAttributes {
   /**
    * The ID of the Azure config pair.
    */
-  "id"?: number;
+  "id"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -43,8 +43,7 @@ export class AzureUCConfigPairAttributes {
     },
     id: {
       baseName: "id",
-      type: "number",
-      format: "int64",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
