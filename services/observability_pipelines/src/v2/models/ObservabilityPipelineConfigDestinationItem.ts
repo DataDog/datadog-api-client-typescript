@@ -12,6 +12,7 @@ import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelin
 import { ObservabilityPipelineOpenSearchDestination } from "./ObservabilityPipelineOpenSearchDestination";
 import { ObservabilityPipelineRsyslogDestination } from "./ObservabilityPipelineRsyslogDestination";
 import { ObservabilityPipelineSentinelOneDestination } from "./ObservabilityPipelineSentinelOneDestination";
+import { ObservabilityPipelineSocketDestination } from "./ObservabilityPipelineSocketDestination";
 import { ObservabilityPipelineSplunkHecDestination } from "./ObservabilityPipelineSplunkHecDestination";
 import { ObservabilityPipelineSumoLogicDestination } from "./ObservabilityPipelineSumoLogicDestination";
 import { ObservabilityPipelineSyslogNgDestination } from "./ObservabilityPipelineSyslogNgDestination";
@@ -35,4 +36,5 @@ export type ObservabilityPipelineConfigDestinationItem =
   | ObservabilityPipelineSentinelOneDestination
   | ObservabilityPipelineOpenSearchDestination
   | ObservabilityPipelineAmazonOpenSearchDestination
+  | ObservabilityPipelineSocketDestination
   | UnparsedObject;
