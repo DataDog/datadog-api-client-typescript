@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 1.41.0/2025-08-12
+
+### Added
+* Add Flex_Logs_Compute_XL to API Spec [#2619](https://github.com/DataDog/datadog-api-client-typescript/pull/2619)
+* Support Host and IaC finding types in security notifications  [#2617](https://github.com/DataDog/datadog-api-client-typescript/pull/2617)
+* New keys for summary public endpoint for Event Management Correlation product [#2609](https://github.com/DataDog/datadog-api-client-typescript/pull/2609)
+* Add log autosubscription tag filters config to aws v2 API [#2601](https://github.com/DataDog/datadog-api-client-typescript/pull/2601)
+* Extended List Findings API to expose resource related Private IP Addresses to details [#2586](https://github.com/DataDog/datadog-api-client-typescript/pull/2586)
+* update metrics.yaml for ListMetricAssets and include Dashboard info [#2576](https://github.com/DataDog/datadog-api-client-typescript/pull/2576)
+* Support Cloud SIEM scheduled rules in API client [#2568](https://github.com/DataDog/datadog-api-client-typescript/pull/2568)
+* Uncomment edit dataset block, add dataset limitations into endpoint descriptions  [#2564](https://github.com/DataDog/datadog-api-client-typescript/pull/2564)
+* Add `text` field in synthetics search endpoint [#2562](https://github.com/DataDog/datadog-api-client-typescript/pull/2562)
+* Adding all action connection types to public API [#2560](https://github.com/DataDog/datadog-api-client-typescript/pull/2560)
+* Document case management attributes endpoints [#2552](https://github.com/DataDog/datadog-api-client-typescript/pull/2552)
+* add AP2 endpoint for On-Call Paging [#2543](https://github.com/DataDog/datadog-api-client-typescript/pull/2543)
+* Flag IP case action [#2539](https://github.com/DataDog/datadog-api-client-typescript/pull/2539)
+* Add DNS specs for Cloud Network Monitoring API [#2535](https://github.com/DataDog/datadog-api-client-typescript/pull/2535)
+* Adding Datadog Connection to Connection API [#2522](https://github.com/DataDog/datadog-api-client-typescript/pull/2522)
+
+### Fixed
+* Split Dataset into separate request and response objects, mark unstable [#2584](https://github.com/DataDog/datadog-api-client-typescript/pull/2584)
+* Disables some tests to avoid fails as the service is disabled [#2574](https://github.com/DataDog/datadog-api-client-typescript/pull/2574)
+* OP make 'support_rules' field in parse_grok processor optional [#2546](https://github.com/DataDog/datadog-api-client-typescript/pull/2546)
+
+### Deprecated
+* Deprecate signals triage v1 endpoints [#2578](https://github.com/DataDog/datadog-api-client-typescript/pull/2578)
+
 ## 1.40.0/2025-07-14
 
 ### Added
