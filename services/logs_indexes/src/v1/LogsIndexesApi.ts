@@ -24,6 +24,7 @@ import {
 import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { LogsAPIErrorResponse } from "./models/LogsAPIErrorResponse";
+import { LogsAPILimitReachedResponse } from "./models/LogsAPILimitReachedResponse";
 import { LogsIndex } from "./models/LogsIndex";
 import { LogsIndexesOrder } from "./models/LogsIndexesOrder";
 import { LogsIndexListResponse } from "./models/LogsIndexListResponse";
@@ -413,6 +414,27 @@ export class LogsIndexesApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode === 422) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: LogsAPILimitReachedResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "LogsAPILimitReachedResponse",
+        ) as LogsAPILimitReachedResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<LogsAPILimitReachedResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<LogsAPILimitReachedResponse>(
+        response.httpStatusCode,
+        body,
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
