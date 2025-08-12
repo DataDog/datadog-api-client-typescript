@@ -130,6 +130,7 @@ export {
 export {
   CaseManagementApiArchiveCaseRequest,
   CaseManagementApiAssignCaseRequest,
+  CaseManagementApiCommentCaseRequest,
   CaseManagementApiCreateCaseRequest,
   CaseManagementApiCreateProjectRequest,
   CaseManagementApiDeleteProjectRequest,
@@ -1085,6 +1086,9 @@ export { CaseAssign } from "./models/CaseAssign";
 export { CaseAssignAttributes } from "./models/CaseAssignAttributes";
 export { CaseAssignRequest } from "./models/CaseAssignRequest";
 export { CaseAttributes } from "./models/CaseAttributes";
+export { CaseComment } from "./models/CaseComment";
+export { CaseCommentAttributes } from "./models/CaseCommentAttributes";
+export { CaseCommentRequest } from "./models/CaseCommentRequest";
 export { CaseCreate } from "./models/CaseCreate";
 export { CaseCreateAttributes } from "./models/CaseCreateAttributes";
 export { CaseCreateRelationships } from "./models/CaseCreateRelationships";
@@ -3443,6 +3447,17 @@ export { TeamUpdate } from "./models/TeamUpdate";
 export { TeamUpdateAttributes } from "./models/TeamUpdateAttributes";
 export { TeamUpdateRelationships } from "./models/TeamUpdateRelationships";
 export { TeamUpdateRequest } from "./models/TeamUpdateRequest";
+export { TimelineCell } from "./models/TimelineCell";
+export { TimelineCellAuthor } from "./models/TimelineCellAuthor";
+export { TimelineCellAuthorUser } from "./models/TimelineCellAuthorUser";
+export { TimelineCellAuthorUserContent } from "./models/TimelineCellAuthorUserContent";
+export { TimelineCellAuthorUserType } from "./models/TimelineCellAuthorUserType";
+export { TimelineCellContent } from "./models/TimelineCellContent";
+export { TimelineCellContentComment } from "./models/TimelineCellContentComment";
+export { TimelineCellResource } from "./models/TimelineCellResource";
+export { TimelineCellResourceType } from "./models/TimelineCellResourceType";
+export { TimelineCellType } from "./models/TimelineCellType";
+export { TimelineResponse } from "./models/TimelineResponse";
 export { TimeRestriction } from "./models/TimeRestriction";
 export { TimeRestrictions } from "./models/TimeRestrictions";
 export { TimeseriesFormulaQueryRequest } from "./models/TimeseriesFormulaQueryRequest";
