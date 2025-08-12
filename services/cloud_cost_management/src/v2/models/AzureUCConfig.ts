@@ -35,7 +35,7 @@ export class AzureUCConfig {
   /**
    * The ID of the Azure config.
    */
-  "id"?: number;
+  "id"?: string;
   /**
    * The number of months the report has been backfilled.
    */
@@ -114,8 +114,7 @@ export class AzureUCConfig {
     },
     id: {
       baseName: "id",
-      type: "number",
-      format: "int64",
+      type: "string",
     },
     months: {
       baseName: "months",

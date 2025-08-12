@@ -251,7 +251,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async deleteCostAWSCURConfig(
-    cloudAccountId: string,
+    cloudAccountId: number,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -297,7 +297,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async deleteCostAzureUCConfig(
-    cloudAccountId: string,
+    cloudAccountId: number,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -343,7 +343,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async deleteCostGCPUsageCostConfig(
-    cloudAccountId: string,
+    cloudAccountId: number,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -666,6 +666,10 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async listCustomCostsFiles(
+    pageNumber?: number,
+    pageSize?: number,
+    filterStatus?: string,
+    sort?: string,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -691,6 +695,36 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
       requestContext.setHeaderParam("User-Agent", this.userAgent);
     }
 
+    // Query Params
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        serialize(pageNumber, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        serialize(pageSize, TypingInfo, "number", "int64"),
+        "",
+      );
+    }
+    if (filterStatus !== undefined) {
+      requestContext.setQueryParam(
+        "filter[status]",
+        serialize(filterStatus, TypingInfo, "string", ""),
+        "",
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        serialize(sort, TypingInfo, "string", ""),
+        "",
+      );
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -702,7 +736,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async updateCostAWSCURConfig(
-    cloudAccountId: string,
+    cloudAccountId: number,
     body: AwsCURConfigPatchRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -763,7 +797,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async updateCostAzureUCConfigs(
-    cloudAccountId: string,
+    cloudAccountId: number,
     body: AzureUCConfigPatchRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -824,7 +858,7 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
   }
 
   public async updateCostGCPUsageCostConfig(
-    cloudAccountId: string,
+    cloudAccountId: number,
     body: GCPUsageCostConfigPatchRequest,
     _options?: Configuration,
   ): Promise<RequestContext> {
@@ -1370,7 +1404,11 @@ export class CloudCostManagementApiResponseProcessor {
     if (response.httpStatusCode === 204) {
       return;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -1480,7 +1518,11 @@ export class CloudCostManagementApiResponseProcessor {
       ) as CustomCostsFileGetResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -1758,7 +1800,11 @@ export class CloudCostManagementApiResponseProcessor {
       ) as CustomCostsFileListResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -1991,7 +2037,11 @@ export class CloudCostManagementApiResponseProcessor {
       ) as CustomCostsFileUploadResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -2121,25 +2171,25 @@ export interface CloudCostManagementApiDeleteBudgetRequest {
 export interface CloudCostManagementApiDeleteCostAWSCURConfigRequest {
   /**
    * Cloud Account id.
-   * @type string
+   * @type number
    */
-  cloudAccountId: string;
+  cloudAccountId: number;
 }
 
 export interface CloudCostManagementApiDeleteCostAzureUCConfigRequest {
   /**
    * Cloud Account id.
-   * @type string
+   * @type number
    */
-  cloudAccountId: string;
+  cloudAccountId: number;
 }
 
 export interface CloudCostManagementApiDeleteCostGCPUsageCostConfigRequest {
   /**
    * Cloud Account id.
-   * @type string
+   * @type number
    */
-  cloudAccountId: string;
+  cloudAccountId: number;
 }
 
 export interface CloudCostManagementApiDeleteCustomCostsFileRequest {
@@ -2166,12 +2216,35 @@ export interface CloudCostManagementApiGetCustomCostsFileRequest {
   fileId: string;
 }
 
+export interface CloudCostManagementApiListCustomCostsFilesRequest {
+  /**
+   * Page number for pagination
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Page size for pagination
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Filter by file status
+   * @type string
+   */
+  filterStatus?: string;
+  /**
+   * Sort key with optional descending prefix
+   * @type string
+   */
+  sort?: string;
+}
+
 export interface CloudCostManagementApiUpdateCostAWSCURConfigRequest {
   /**
    * Cloud Account id.
-   * @type string
+   * @type number
    */
-  cloudAccountId: string;
+  cloudAccountId: number;
   /**
    * @type AwsCURConfigPatchRequest
    */
@@ -2181,9 +2254,9 @@ export interface CloudCostManagementApiUpdateCostAWSCURConfigRequest {
 export interface CloudCostManagementApiUpdateCostAzureUCConfigsRequest {
   /**
    * Cloud Account id.
-   * @type string
+   * @type number
    */
-  cloudAccountId: string;
+  cloudAccountId: number;
   /**
    * @type AzureUCConfigPatchRequest
    */
@@ -2193,9 +2266,9 @@ export interface CloudCostManagementApiUpdateCostAzureUCConfigsRequest {
 export interface CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest {
   /**
    * Cloud Account id.
-   * @type string
+   * @type number
    */
-  cloudAccountId: string;
+  cloudAccountId: number;
   /**
    * @type GCPUsageCostConfigPatchRequest
    */
@@ -2529,10 +2602,16 @@ export class CloudCostManagementApi {
    * @param param The request object
    */
   public listCustomCostsFiles(
+    param: CloudCostManagementApiListCustomCostsFilesRequest = {},
     options?: Configuration,
   ): Promise<CustomCostsFileListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listCustomCostsFiles(options);
+    const requestContextPromise = this.requestFactory.listCustomCostsFiles(
+      param.pageNumber,
+      param.pageSize,
+      param.filterStatus,
+      param.sort,
+      options,
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

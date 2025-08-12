@@ -14,7 +14,7 @@ export class AzureUCConfigPair {
   /**
    * The ID of Cloud Cost Management account.
    */
-  "id"?: number;
+  "id"?: string;
   /**
    * Type of Azure config pair.
    */
@@ -41,8 +41,7 @@ export class AzureUCConfigPair {
     },
     id: {
       baseName: "id",
-      type: "number",
-      format: "int64",
+      type: "string",
     },
     type: {
       baseName: "type",
