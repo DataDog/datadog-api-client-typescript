@@ -548,6 +548,7 @@ export { LogQueryDefinitionGroupBySort } from "./models/LogQueryDefinitionGroupB
 export { LogQueryDefinitionSearch } from "./models/LogQueryDefinitionSearch";
 export { LogsAPIError } from "./models/LogsAPIError";
 export { LogsAPIErrorResponse } from "./models/LogsAPIErrorResponse";
+export { LogsAPILimitReachedResponse } from "./models/LogsAPILimitReachedResponse";
 export { LogsArithmeticProcessor } from "./models/LogsArithmeticProcessor";
 export { LogsArithmeticProcessorType } from "./models/LogsArithmeticProcessorType";
 export { LogsArrayProcessor } from "./models/LogsArrayProcessor";
