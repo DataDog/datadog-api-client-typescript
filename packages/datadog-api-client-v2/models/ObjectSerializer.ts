@@ -277,6 +277,9 @@ import { CaseAssign } from "./CaseAssign";
 import { CaseAssignAttributes } from "./CaseAssignAttributes";
 import { CaseAssignRequest } from "./CaseAssignRequest";
 import { CaseAttributes } from "./CaseAttributes";
+import { CaseComment } from "./CaseComment";
+import { CaseCommentAttributes } from "./CaseCommentAttributes";
+import { CaseCommentRequest } from "./CaseCommentRequest";
 import { CaseCreate } from "./CaseCreate";
 import { CaseCreateAttributes } from "./CaseCreateAttributes";
 import { CaseCreateRelationships } from "./CaseCreateRelationships";
@@ -1976,6 +1979,12 @@ import { TeamsResponseMeta } from "./TeamsResponseMeta";
 import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
 import { TimeRestriction } from "./TimeRestriction";
 import { TimeRestrictions } from "./TimeRestrictions";
+import { TimelineCell } from "./TimelineCell";
+import { TimelineCellAuthorUser } from "./TimelineCellAuthorUser";
+import { TimelineCellAuthorUserContent } from "./TimelineCellAuthorUserContent";
+import { TimelineCellContentComment } from "./TimelineCellContentComment";
+import { TimelineCellResource } from "./TimelineCellResource";
+import { TimelineResponse } from "./TimelineResponse";
 import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
 import { TimeseriesFormulaQueryResponse } from "./TimeseriesFormulaQueryResponse";
 import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
@@ -3329,6 +3338,9 @@ const enumsMap: { [key: string]: any[] } = {
     "team_links",
     "user_team_permissions",
   ],
+  TimelineCellAuthorUserType: ["USER"],
+  TimelineCellResourceType: ["timeline_cell"],
+  TimelineCellType: ["COMMENT"],
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
@@ -3770,6 +3782,9 @@ const typeMap: { [index: string]: any } = {
   CaseAssignAttributes: CaseAssignAttributes,
   CaseAssignRequest: CaseAssignRequest,
   CaseAttributes: CaseAttributes,
+  CaseComment: CaseComment,
+  CaseCommentAttributes: CaseCommentAttributes,
+  CaseCommentRequest: CaseCommentRequest,
   CaseCreate: CaseCreate,
   CaseCreateAttributes: CaseCreateAttributes,
   CaseCreateRelationships: CaseCreateRelationships,
@@ -5749,6 +5764,12 @@ const typeMap: { [index: string]: any } = {
   TeamsResponseMetaPagination: TeamsResponseMetaPagination,
   TimeRestriction: TimeRestriction,
   TimeRestrictions: TimeRestrictions,
+  TimelineCell: TimelineCell,
+  TimelineCellAuthorUser: TimelineCellAuthorUser,
+  TimelineCellAuthorUserContent: TimelineCellAuthorUserContent,
+  TimelineCellContentComment: TimelineCellContentComment,
+  TimelineCellResource: TimelineCellResource,
+  TimelineResponse: TimelineResponse,
   TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
   TimeseriesFormulaQueryResponse: TimeseriesFormulaQueryResponse,
   TimeseriesFormulaRequest: TimeseriesFormulaRequest,
@@ -6300,6 +6321,8 @@ const oneOfMap: { [index: string]: string[] } = {
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
   TeamOnCallRespondersIncluded: ["User", "Escalation"],
   TeamRoutingRulesIncluded: ["RoutingRule"],
+  TimelineCellAuthor: ["TimelineCellAuthorUser"],
+  TimelineCellContent: ["TimelineCellContentComment"],
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
   Trigger: [
     "APITriggerWrapper",

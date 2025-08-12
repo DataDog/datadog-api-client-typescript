@@ -3070,6 +3070,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CaseResponse",
     },
+    "v2.CommentCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseCommentRequest",
+            "format": "",
+            },
+        "operationResponseType": "TimelineResponse",
+    },
     "v2.UpdatePriority": {
         "caseId": {
             "type": "string",
