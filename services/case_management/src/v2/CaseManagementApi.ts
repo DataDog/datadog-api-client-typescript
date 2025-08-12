@@ -25,6 +25,7 @@ import { TypingInfo } from "./models/TypingInfo";
 import { APIErrorResponse } from "./models/APIErrorResponse";
 import { Case } from "./models/Case";
 import { CaseAssignRequest } from "./models/CaseAssignRequest";
+import { CaseCommentRequest } from "./models/CaseCommentRequest";
 import { CaseCreateRequest } from "./models/CaseCreateRequest";
 import { CaseEmptyRequest } from "./models/CaseEmptyRequest";
 import { CaseResponse } from "./models/CaseResponse";
@@ -36,6 +37,7 @@ import { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
 import { ProjectCreateRequest } from "./models/ProjectCreateRequest";
 import { ProjectResponse } from "./models/ProjectResponse";
 import { ProjectsResponse } from "./models/ProjectsResponse";
+import { TimelineResponse } from "./models/TimelineResponse";
 import { version } from "../version";
 
 export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
@@ -162,6 +164,65 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
       "AuthZ",
+    ]);
+
+    return requestContext;
+  }
+
+  public async commentCase(
+    caseId: string,
+    body: CaseCommentRequest,
+    _options?: Configuration,
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'caseId' is not null or undefined
+    if (caseId === null || caseId === undefined) {
+      throw new RequiredError("caseId", "commentCase");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "commentCase");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cases/{case_id}/comment".replace(
+      "{case_id}",
+      encodeURIComponent(String(caseId)),
+    );
+
+    // Make Request Context
+    const { server, overrides } = _config.getServerAndOverrides(
+      "CaseManagementApi.v2.commentCase",
+      CaseManagementApi.operationServers,
+    );
+    const requestContext = server.makeRequestContext(
+      localVarPath,
+      HttpMethod.POST,
+      overrides,
+    );
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Set User-Agent
+    if (this.userAgent) {
+      requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Body Params
+    const contentType = getPreferredMediaType(["application/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = stringify(
+      serialize(body, TypingInfo, "CaseCommentRequest", ""),
+      contentType,
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
     ]);
 
     return requestContext;
@@ -942,6 +1003,68 @@ export class CaseManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to commentCase
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async commentCase(
+    response: ResponseContext,
+  ): Promise<TimelineResponse> {
+    const contentType = normalizeMediaType(response.headers["content-type"]);
+    if (response.httpStatusCode === 200) {
+      const body: TimelineResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TimelineResponse",
+      ) as TimelineResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = parse(await response.body.text(), contentType);
+      let body: APIErrorResponse;
+      try {
+        body = deserialize(
+          bodyText,
+          TypingInfo,
+          "APIErrorResponse",
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText,
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: TimelineResponse = deserialize(
+        parse(await response.body.text(), contentType),
+        TypingInfo,
+        "TimelineResponse",
+        "",
+      ) as TimelineResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"',
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createCase
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1680,6 +1803,19 @@ export interface CaseManagementApiAssignCaseRequest {
   body: CaseAssignRequest;
 }
 
+export interface CaseManagementApiCommentCaseRequest {
+  /**
+   * Case's UUID or key
+   * @type string
+   */
+  caseId: string;
+  /**
+   * Case comment payload
+   * @type CaseCommentRequest
+   */
+  body: CaseCommentRequest;
+}
+
 export interface CaseManagementApiCreateCaseRequest {
   /**
    * Case payload
@@ -1872,6 +2008,28 @@ export class CaseManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.assignCase(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Comment case
+   * @param param The request object
+   */
+  public commentCase(
+    param: CaseManagementApiCommentCaseRequest,
+    options?: Configuration,
+  ): Promise<TimelineResponse> {
+    const requestContextPromise = this.requestFactory.commentCase(
+      param.caseId,
+      param.body,
+      options,
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.commentCase(responseContext);
         });
     });
   }

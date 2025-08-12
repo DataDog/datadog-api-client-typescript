@@ -1,6 +1,7 @@
 export {
   CaseManagementApiArchiveCaseRequest,
   CaseManagementApiAssignCaseRequest,
+  CaseManagementApiCommentCaseRequest,
   CaseManagementApiCreateCaseRequest,
   CaseManagementApiCreateProjectRequest,
   CaseManagementApiDeleteProjectRequest,
@@ -22,6 +23,9 @@ export { CaseAssign } from "./models/CaseAssign";
 export { CaseAssignAttributes } from "./models/CaseAssignAttributes";
 export { CaseAssignRequest } from "./models/CaseAssignRequest";
 export { CaseAttributes } from "./models/CaseAttributes";
+export { CaseComment } from "./models/CaseComment";
+export { CaseCommentAttributes } from "./models/CaseCommentAttributes";
+export { CaseCommentRequest } from "./models/CaseCommentRequest";
 export { CaseCreate } from "./models/CaseCreate";
 export { CaseCreateAttributes } from "./models/CaseCreateAttributes";
 export { CaseCreateRelationships } from "./models/CaseCreateRelationships";
@@ -68,6 +72,17 @@ export { ServiceNowTicket } from "./models/ServiceNowTicket";
 export { ServiceNowTicketResult } from "./models/ServiceNowTicketResult";
 export { TeamLinkType } from "./models/TeamLinkType";
 export { TeamRelationshipsLinks } from "./models/TeamRelationshipsLinks";
+export { TimelineCell } from "./models/TimelineCell";
+export { TimelineCellAuthor } from "./models/TimelineCellAuthor";
+export { TimelineCellAuthorUser } from "./models/TimelineCellAuthorUser";
+export { TimelineCellAuthorUserContent } from "./models/TimelineCellAuthorUserContent";
+export { TimelineCellAuthorUserType } from "./models/TimelineCellAuthorUserType";
+export { TimelineCellContent } from "./models/TimelineCellContent";
+export { TimelineCellContentComment } from "./models/TimelineCellContentComment";
+export { TimelineCellResource } from "./models/TimelineCellResource";
+export { TimelineCellResourceType } from "./models/TimelineCellResourceType";
+export { TimelineCellType } from "./models/TimelineCellType";
+export { TimelineResponse } from "./models/TimelineResponse";
 export { UserRelationshipData } from "./models/UserRelationshipData";
 export { UserResourceType } from "./models/UserResourceType";
 export { UsersRelationship } from "./models/UsersRelationship";
