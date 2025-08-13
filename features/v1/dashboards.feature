@@ -423,6 +423,17 @@ Feature: Dashboards
     And the response "widgets[0].definition.requests[0].sort.order_by[0].index" is equal to 0
 
   @team:DataDog/dashboards-backend
+  Scenario: Create a new dashboard with geomap widget in custom focus
+    Given new "CreateDashboard" request
+    And body from file "dashboards_json_payload/geomap_widget_in_custom_focus.json"
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "widgets[0].definition.type" is equal to "geomap"
+    And the response "widgets[0].definition.requests[0].sort.order_by[0].order" is equal to "desc"
+    And the response "widgets[0].definition.requests[0].sort.order_by[0].type" is equal to "formula"
+    And the response "widgets[0].definition.requests[0].sort.order_by[0].index" is equal to 0
+
+  @team:DataDog/dashboards-backend
   Scenario: Create a new dashboard with heatmap widget
     Given new "CreateDashboard" request
     And body from file "dashboards_json_payload/heatmap_widget.json"
