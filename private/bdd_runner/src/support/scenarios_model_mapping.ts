@@ -4192,15 +4192,15 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   },
   "CloudCostManagementApi.V2.DeleteCostAWSCURConfig": {
     cloudAccountId: {
-      type: "string",
-      format: "",
+      type: "number",
+      format: "int64",
     },
     operationResponseType: "{}",
   },
   "CloudCostManagementApi.V2.UpdateCostAWSCURConfig": {
     cloudAccountId: {
-      type: "string",
-      format: "",
+      type: "number",
+      format: "int64",
     },
     body: {
       type: "AwsCURConfigPatchRequest",
@@ -4220,15 +4220,15 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   },
   "CloudCostManagementApi.V2.DeleteCostAzureUCConfig": {
     cloudAccountId: {
-      type: "string",
-      format: "",
+      type: "number",
+      format: "int64",
     },
     operationResponseType: "{}",
   },
   "CloudCostManagementApi.V2.UpdateCostAzureUCConfigs": {
     cloudAccountId: {
-      type: "string",
-      format: "",
+      type: "number",
+      format: "int64",
     },
     body: {
       type: "AzureUCConfigPatchRequest",
@@ -4261,6 +4261,22 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "BudgetArray",
   },
   "CloudCostManagementApi.V2.ListCustomCostsFiles": {
+    pageNumber: {
+      type: "number",
+      format: "int64",
+    },
+    pageSize: {
+      type: "number",
+      format: "int64",
+    },
+    filterStatus: {
+      type: "string",
+      format: "",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
     operationResponseType: "CustomCostsFileListResponse",
   },
   "CloudCostManagementApi.V2.UploadCustomCostsFile": {
@@ -4296,15 +4312,15 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   },
   "CloudCostManagementApi.V2.DeleteCostGCPUsageCostConfig": {
     cloudAccountId: {
-      type: "string",
-      format: "",
+      type: "number",
+      format: "int64",
     },
     operationResponseType: "{}",
   },
   "CloudCostManagementApi.V2.UpdateCostGCPUsageCostConfig": {
     cloudAccountId: {
-      type: "string",
-      format: "",
+      type: "number",
+      format: "int64",
     },
     body: {
       type: "GCPUsageCostConfigPatchRequest",

@@ -9,6 +9,7 @@ export {
   CloudCostManagementApiDeleteCustomCostsFileRequest,
   CloudCostManagementApiGetBudgetRequest,
   CloudCostManagementApiGetCustomCostsFileRequest,
+  CloudCostManagementApiListCustomCostsFilesRequest,
   CloudCostManagementApiUpdateCostAWSCURConfigRequest,
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest,
