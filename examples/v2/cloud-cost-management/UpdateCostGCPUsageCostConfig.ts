@@ -16,7 +16,7 @@ const params: v2.CloudCostManagementApiUpdateCostGCPUsageCostConfigRequest = {
       type: "gcp_uc_config_patch_request",
     },
   },
-  cloudAccountId: "100",
+  cloudAccountId: 100,
 };
 
 apiInstance

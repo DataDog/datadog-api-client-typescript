@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.CloudCostManagementApi(configuration);
 
 const params: v2.CloudCostManagementApiDeleteCostAzureUCConfigRequest = {
-  cloudAccountId: "100",
+  cloudAccountId: 100,
 };
 
 apiInstance
