@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `AWSIntegrationType` object.
+ * The definition of the `AWSIntegrationType` object.
  */
 
 export type AWSIntegrationType = typeof AWS | UnparsedObject;

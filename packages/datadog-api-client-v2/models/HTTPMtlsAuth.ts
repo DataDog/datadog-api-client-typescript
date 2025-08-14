@@ -3,27 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { HTTPCredentials } from "./HTTPCredentials";
-import { HTTPIntegrationType } from "./HTTPIntegrationType";
+import { HTTPMtlsAuthType } from "./HTTPMtlsAuthType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of the `HTTPIntegration` object.
+ * The definition of the `HTTPMtlsAuth` object.
  */
-export class HTTPIntegration {
+export class HTTPMtlsAuth {
   /**
-   * Base HTTP url for the integration.
+   * Certificate of authority used to sign the request.
    */
-  "baseUrl": string;
+  "certificate": string;
   /**
-   * The definition of the `HTTPCredentials` object.
+   * Private key used for the MTLS handshake
    */
-  "credentials": HTTPCredentials;
+  "privateKey": string;
   /**
-   * The definition of the `HTTPIntegrationType` object.
+   * The definition of the `HTTPMtlsAuth` object.
    */
-  "type": HTTPIntegrationType;
+  "type": HTTPMtlsAuthType;
 
   /**
    * A container for additional, undeclared properties.
@@ -41,19 +40,19 @@ export class HTTPIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    baseUrl: {
-      baseName: "base_url",
+    certificate: {
+      baseName: "certificate",
       type: "string",
       required: true,
     },
-    credentials: {
-      baseName: "credentials",
-      type: "HTTPCredentials",
+    privateKey: {
+      baseName: "private_key",
+      type: "string",
       required: true,
     },
     type: {
       baseName: "type",
-      type: "HTTPIntegrationType",
+      type: "HTTPMtlsAuthType",
       required: true,
     },
     additionalProperties: {
@@ -66,7 +65,7 @@ export class HTTPIntegration {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return HTTPIntegration.attributeTypeMap;
+    return HTTPMtlsAuth.attributeTypeMap;
   }
 
   public constructor() {}

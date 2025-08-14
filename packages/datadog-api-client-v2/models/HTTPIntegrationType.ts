@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `HTTPIntegrationType` object.
+ * The definition of the `HTTPIntegrationType` object.
  */
 
 export type HTTPIntegrationType = typeof HTTP | UnparsedObject;
