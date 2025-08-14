@@ -2358,7 +2358,10 @@ const enumsMap: { [key: string]: any[] } = {
   CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
   CaseType: ["STANDARD"],
   ChangeEventAttributesAuthorType: ["user", "system", "api", "automation"],
-  ChangeEventAttributesChangedResourceType: ["feature_flag", "configuration"],
+  ChangeEventAttributesChangedResourceType: [
+    "feature_flag",
+    "metric_configuration",
+  ],
   ChangeEventAttributesImpactedResourcesItemType: ["service"],
   ChangeEventCustomAttributesAuthorType: [
     "user",
@@ -2368,7 +2371,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   ChangeEventCustomAttributesChangedResourceType: [
     "feature_flag",
-    "configuration",
+    "metric_configuration",
   ],
   ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
   CircleCIAPIKeyType: ["CircleCIAPIKey"],
