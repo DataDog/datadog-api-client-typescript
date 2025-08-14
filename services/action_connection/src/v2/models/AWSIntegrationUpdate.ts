@@ -4,15 +4,15 @@ import { AWSCredentialsUpdate } from "./AWSCredentialsUpdate";
 import { AWSIntegrationType } from "./AWSIntegrationType";
 
 /**
- * The definition of `AWSIntegrationUpdate` object.
+ * The definition of the `AWSIntegrationUpdate` object.
  */
 export class AWSIntegrationUpdate {
   /**
-   * The definition of `AWSCredentialsUpdate` object.
+   * The definition of the `AWSCredentialsUpdate` object.
    */
   "credentials"?: AWSCredentialsUpdate;
   /**
-   * The definition of `AWSIntegrationType` object.
+   * The definition of the `AWSIntegrationType` object.
    */
   "type": AWSIntegrationType;
   /**

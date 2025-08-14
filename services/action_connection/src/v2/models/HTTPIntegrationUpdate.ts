@@ -4,19 +4,19 @@ import { HTTPCredentialsUpdate } from "./HTTPCredentialsUpdate";
 import { HTTPIntegrationType } from "./HTTPIntegrationType";
 
 /**
- * The definition of `HTTPIntegrationUpdate` object.
+ * The definition of the `HTTPIntegrationUpdate` object.
  */
 export class HTTPIntegrationUpdate {
   /**
-   * Base HTTP url for the integration
+   * Base HTTP url for the integration.
    */
   "baseUrl"?: string;
   /**
-   * The definition of `HTTPCredentialsUpdate` object.
+   * The definition of the `HTTPCredentialsUpdate` object.
    */
   "credentials"?: HTTPCredentialsUpdate;
   /**
-   * The definition of `HTTPIntegrationType` object.
+   * The definition of the `HTTPIntegrationType` object.
    */
   "type": HTTPIntegrationType;
   /**
