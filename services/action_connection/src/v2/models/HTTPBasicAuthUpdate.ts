@@ -1,27 +1,23 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
-import { AWSAssumeRoleType } from "./AWSAssumeRoleType";
+import { HTTPBasicAuthType } from "./HTTPBasicAuthType";
 
 /**
- * The definition of the `AWSAssumeRole` object.
+ * The definition of the `HTTPBasicAuth` object.
  */
-export class AWSAssumeRoleUpdate {
+export class HTTPBasicAuthUpdate {
   /**
-   * AWS account the connection is created for.
+   * Password used for authentication. Saved in a secret store
    */
-  "accountId"?: string;
+  "password"?: string;
   /**
-   * Pass true if the `external_id` should be regenerated.
+   * The definition of the `HTTPBasicAuth` object.
    */
-  "generateNewExternalId"?: boolean;
+  "type": HTTPBasicAuthType;
   /**
-   * Role to assume.
+   * Username used for authentication.
    */
-  "role"?: string;
-  /**
-   * The definition of the `AWSAssumeRole` object.
-   */
-  "type": AWSAssumeRoleType;
+  "username"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -37,22 +33,18 @@ export class AWSAssumeRoleUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountId: {
-      baseName: "account_id",
-      type: "string",
-    },
-    generateNewExternalId: {
-      baseName: "generate_new_external_id",
-      type: "boolean",
-    },
-    role: {
-      baseName: "role",
+    password: {
+      baseName: "password",
       type: "string",
     },
     type: {
       baseName: "type",
-      type: "AWSAssumeRoleType",
+      type: "HTTPBasicAuthType",
       required: true,
+    },
+    username: {
+      baseName: "username",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +56,7 @@ export class AWSAssumeRoleUpdate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAssumeRoleUpdate.attributeTypeMap;
+    return HTTPBasicAuthUpdate.attributeTypeMap;
   }
 
   public constructor() {}

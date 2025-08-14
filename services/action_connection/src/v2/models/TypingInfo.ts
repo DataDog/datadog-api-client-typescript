@@ -71,11 +71,15 @@ import { GreyNoiseAPIKey } from "./GreyNoiseAPIKey";
 import { GreyNoiseAPIKeyUpdate } from "./GreyNoiseAPIKeyUpdate";
 import { GreyNoiseIntegration } from "./GreyNoiseIntegration";
 import { GreyNoiseIntegrationUpdate } from "./GreyNoiseIntegrationUpdate";
+import { HTTPBasicAuth } from "./HTTPBasicAuth";
+import { HTTPBasicAuthUpdate } from "./HTTPBasicAuthUpdate";
 import { HTTPBody } from "./HTTPBody";
 import { HTTPHeader } from "./HTTPHeader";
 import { HTTPHeaderUpdate } from "./HTTPHeaderUpdate";
 import { HTTPIntegration } from "./HTTPIntegration";
 import { HTTPIntegrationUpdate } from "./HTTPIntegrationUpdate";
+import { HTTPMtlsAuth } from "./HTTPMtlsAuth";
+import { HTTPMtlsAuthUpdate } from "./HTTPMtlsAuthUpdate";
 import { HTTPToken } from "./HTTPToken";
 import { HTTPTokenAuth } from "./HTTPTokenAuth";
 import { HTTPTokenAuthUpdate } from "./HTTPTokenAuthUpdate";
@@ -158,7 +162,9 @@ export const TypingInfo: ModelTypingInfo = {
     GitlabIntegrationType: ["Gitlab"],
     GreyNoiseAPIKeyType: ["GreyNoiseAPIKey"],
     GreyNoiseIntegrationType: ["GreyNoise"],
+    HTTPBasicAuthType: ["HTTPBasicAuth"],
     HTTPIntegrationType: ["HTTP"],
+    HTTPMtlsAuthType: ["HTTPMtlsAuth"],
     HTTPTokenAuthType: ["HTTPTokenAuth"],
     LaunchDarklyAPIKeyType: ["LaunchDarklyAPIKey"],
     LaunchDarklyIntegrationType: ["LaunchDarkly"],
@@ -264,8 +270,12 @@ export const TypingInfo: ModelTypingInfo = {
     GitlabCredentialsUpdate: ["GitlabAPIKeyUpdate"],
     GreyNoiseCredentials: ["GreyNoiseAPIKey"],
     GreyNoiseCredentialsUpdate: ["GreyNoiseAPIKeyUpdate"],
-    HTTPCredentials: ["HTTPTokenAuth"],
-    HTTPCredentialsUpdate: ["HTTPTokenAuthUpdate"],
+    HTTPCredentials: ["HTTPTokenAuth", "HTTPBasicAuth", "HTTPMtlsAuth"],
+    HTTPCredentialsUpdate: [
+      "HTTPTokenAuthUpdate",
+      "HTTPBasicAuthUpdate",
+      "HTTPMtlsAuthUpdate",
+    ],
     LaunchDarklyCredentials: ["LaunchDarklyAPIKey"],
     LaunchDarklyCredentialsUpdate: ["LaunchDarklyAPIKeyUpdate"],
     NotionCredentials: ["NotionAPIKey"],
@@ -355,11 +365,15 @@ export const TypingInfo: ModelTypingInfo = {
     GreyNoiseAPIKeyUpdate: GreyNoiseAPIKeyUpdate,
     GreyNoiseIntegration: GreyNoiseIntegration,
     GreyNoiseIntegrationUpdate: GreyNoiseIntegrationUpdate,
+    HTTPBasicAuth: HTTPBasicAuth,
+    HTTPBasicAuthUpdate: HTTPBasicAuthUpdate,
     HTTPBody: HTTPBody,
     HTTPHeader: HTTPHeader,
     HTTPHeaderUpdate: HTTPHeaderUpdate,
     HTTPIntegration: HTTPIntegration,
     HTTPIntegrationUpdate: HTTPIntegrationUpdate,
+    HTTPMtlsAuth: HTTPMtlsAuth,
+    HTTPMtlsAuthUpdate: HTTPMtlsAuthUpdate,
     HTTPToken: HTTPToken,
     HTTPTokenAuth: HTTPTokenAuth,
     HTTPTokenAuthUpdate: HTTPTokenAuthUpdate,
