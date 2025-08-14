@@ -8,7 +8,7 @@ import { AWSAssumeRoleUpdate } from "./AWSAssumeRoleUpdate";
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `AWSCredentialsUpdate` object.
+ * The definition of the `AWSCredentialsUpdate` object.
  */
 
 export type AWSCredentialsUpdate = AWSAssumeRoleUpdate | UnparsedObject;

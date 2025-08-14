@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The definition of `AWSAssumeRoleType` object.
+ * The definition of the `AWSAssumeRole` object.
  */
 
 export type AWSAssumeRoleType = typeof AWSASSUMEROLE | UnparsedObject;
