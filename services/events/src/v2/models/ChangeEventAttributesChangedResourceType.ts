@@ -5,7 +5,7 @@ import { UnparsedObject } from "@datadog/datadog-api-client";
  */
 export type ChangeEventAttributesChangedResourceType =
   | typeof FEATURE_FLAG
-  | typeof CONFIGURATION
+  | typeof METRIC_CONFIGURATION
   | UnparsedObject;
 export const FEATURE_FLAG = "feature_flag";
-export const CONFIGURATION = "configuration";
+export const METRIC_CONFIGURATION = "metric_configuration";

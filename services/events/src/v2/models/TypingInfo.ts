@@ -61,7 +61,10 @@ export const TypingInfo: ModelTypingInfo = {
     AlertEventCustomAttributesPriority: ["1", "2", "3", "4", "5"],
     AlertEventCustomAttributesStatus: ["warn", "error", "ok"],
     ChangeEventAttributesAuthorType: ["user", "system", "api", "automation"],
-    ChangeEventAttributesChangedResourceType: ["feature_flag", "configuration"],
+    ChangeEventAttributesChangedResourceType: [
+      "feature_flag",
+      "metric_configuration",
+    ],
     ChangeEventAttributesImpactedResourcesItemType: ["service"],
     ChangeEventCustomAttributesAuthorType: [
       "user",
@@ -71,7 +74,7 @@ export const TypingInfo: ModelTypingInfo = {
     ],
     ChangeEventCustomAttributesChangedResourceType: [
       "feature_flag",
-      "configuration",
+      "metric_configuration",
     ],
     ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
     EventCategory: ["change", "alert"],
