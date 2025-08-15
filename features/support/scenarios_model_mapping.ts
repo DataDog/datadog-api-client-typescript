@@ -2344,6 +2344,108 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.Validate": {
         "operationResponseType": "AuthenticationValidationResponse",
     },
+    "v2.ListDatastores": {
+        "operationResponseType": "DatastoreArray",
+    },
+    "v2.CreateDatastore": {
+        "body": {
+            "type": "CreateAppsDatastoreRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateAppsDatastoreResponse",
+    },
+    "v2.CreateDatastoreFromImport": {
+        "body": {
+            "type": "CreateAppsDatastoreFromImportRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateAppsDatastoreFromImportResponse",
+    },
+    "v2.DeleteDatastore": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetDatastore": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Datastore",
+    },
+    "v2.UpdateDatastore": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateAppsDatastoreRequest",
+            "format": "",
+            },
+        "operationResponseType": "Datastore",
+    },
+    "v2.DeleteDatastoreItem": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DeleteAppsDatastoreItemRequest",
+            "format": "",
+            },
+        "operationResponseType": "DeleteAppsDatastoreItemResponse",
+    },
+    "v2.ListDatastoreItems": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "itemKey": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ItemApiPayloadArray",
+    },
+    "v2.PutDatastoreItem": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PutAppsDatastoreItemRequest",
+            "format": "",
+            },
+        "operationResponseType": "PutAppsDatastoreItemResponse",
+    },
+    "v2.BulkPutDatastoreItems": {
+        "datastoreId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "BulkPutAppsDatastoreItemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "PutAppsDatastoreItemResponseArray",
+    },
     "v2.ListAppKeyRegistrations": {
         "pageSize": {
             "type": "number",
