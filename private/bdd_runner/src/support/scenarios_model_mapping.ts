@@ -2354,6 +2354,108 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
   "AuthenticationApi.V1.Validate": {
     operationResponseType: "AuthenticationValidationResponse",
   },
+  "ActionsDatastoresApi.V2.ListDatastores": {
+    operationResponseType: "DatastoreArray",
+  },
+  "ActionsDatastoresApi.V2.CreateDatastore": {
+    body: {
+      type: "CreateAppsDatastoreRequest",
+      format: "",
+    },
+    operationResponseType: "CreateAppsDatastoreResponse",
+  },
+  "ActionsDatastoresApi.V2.CreateDatastoreFromImport": {
+    body: {
+      type: "CreateAppsDatastoreFromImportRequest",
+      format: "",
+    },
+    operationResponseType: "CreateAppsDatastoreFromImportResponse",
+  },
+  "ActionsDatastoresApi.V2.GetDatastore": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "Datastore",
+  },
+  "ActionsDatastoresApi.V2.DeleteDatastore": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "{}",
+  },
+  "ActionsDatastoresApi.V2.UpdateDatastore": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "UpdateAppsDatastoreRequest",
+      format: "",
+    },
+    operationResponseType: "Datastore",
+  },
+  "ActionsDatastoresApi.V2.ListDatastoreItems": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    filter: {
+      type: "string",
+      format: "",
+    },
+    itemKey: {
+      type: "string",
+      format: "",
+    },
+    pageLimit: {
+      type: "number",
+      format: "int64",
+    },
+    pageOffset: {
+      type: "number",
+      format: "int64",
+    },
+    sort: {
+      type: "string",
+      format: "",
+    },
+    operationResponseType: "ItemApiPayloadArray",
+  },
+  "ActionsDatastoresApi.V2.PutDatastoreItem": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "PutAppsDatastoreItemRequest",
+      format: "",
+    },
+    operationResponseType: "PutAppsDatastoreItemResponse",
+  },
+  "ActionsDatastoresApi.V2.DeleteDatastoreItem": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "DeleteAppsDatastoreItemRequest",
+      format: "",
+    },
+    operationResponseType: "DeleteAppsDatastoreItemResponse",
+  },
+  "ActionsDatastoresApi.V2.BulkPutDatastoreItems": {
+    datastoreId: {
+      type: "string",
+      format: "",
+    },
+    body: {
+      type: "BulkPutAppsDatastoreItemsRequest",
+      format: "",
+    },
+    operationResponseType: "PutAppsDatastoreItemResponseArray",
+  },
   "ActionConnectionApi.V2.ListAppKeyRegistrations": {
     pageSize: {
       type: "number",
