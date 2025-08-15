@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
 import { DatasetAttributesResponse } from "./DatasetAttributesResponse";
+import { DatasetType } from "./DatasetType";
 
 /**
  * **Datasets Object Constraints**
@@ -25,9 +26,9 @@ export class DatasetResponse {
    */
   "id"?: string;
   /**
-   * Resource type, always "dataset".
+   * Resource type, always set to `dataset`.
    */
-  "type"?: string;
+  "type"?: DatasetType;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -53,7 +54,7 @@ export class DatasetResponse {
     },
     type: {
       baseName: "type",
-      type: "string",
+      type: "DatasetType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
