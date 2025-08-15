@@ -7102,6 +7102,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OutcomesResponse",
     },
+    "v2.UpdateScorecardOutcomesAsync": {
+        "body": {
+            "type": "UpdateOutcomesAsyncRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
     "v2.CreateScorecardOutcomesBatch": {
         "body": {
             "type": "OutcomesBatchRequest",
