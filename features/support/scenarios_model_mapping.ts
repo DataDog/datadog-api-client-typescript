@@ -12,13 +12,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApiKeyResponse",
     },
-    "v1.DeleteAPIKey": {
-        "key": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "ApiKeyResponse",
-    },
     "v1.GetAPIKey": {
         "key": {
             "type": "string",
@@ -37,19 +30,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApiKeyResponse",
     },
+    "v1.DeleteAPIKey": {
+        "key": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApiKeyResponse",
+    },
     "v1.ListApplicationKeys": {
         "operationResponseType": "ApplicationKeyListResponse",
     },
     "v1.CreateApplicationKey": {
         "body": {
             "type": "ApplicationKey",
-            "format": "",
-            },
-        "operationResponseType": "ApplicationKeyResponse",
-    },
-    "v1.DeleteApplicationKey": {
-        "key": {
-            "type": "string",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
@@ -68,6 +61,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "body": {
             "type": "ApplicationKey",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
+    },
+    "v1.DeleteApplicationKey": {
+        "key": {
+            "type": "string",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
@@ -562,13 +562,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UsageTopAvgMetricsResponse",
     },
-    "v1.DeleteDashboards": {
-        "body": {
-            "type": "DashboardBulkDeleteRequest",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v1.ListDashboards": {
         "filterShared": {
             "type": "boolean",
@@ -588,13 +581,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DashboardSummary",
     },
-    "v1.RestoreDashboards": {
-        "body": {
-            "type": "DashboardRestoreRequest",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v1.CreateDashboard": {
         "body": {
             "type": "Dashboard",
@@ -602,19 +588,26 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Dashboard",
     },
+    "v1.DeleteDashboards": {
+        "body": {
+            "type": "DashboardBulkDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v1.RestoreDashboards": {
+        "body": {
+            "type": "DashboardRestoreRequest",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v1.CreatePublicDashboard": {
         "body": {
             "type": "SharedDashboard",
             "format": "",
             },
         "operationResponseType": "SharedDashboard",
-    },
-    "v1.DeletePublicDashboard": {
-        "token": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "DeleteSharedDashboardResponse",
     },
     "v1.GetPublicDashboard": {
         "token": {
@@ -634,16 +627,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SharedDashboard",
     },
-    "v1.DeletePublicDashboardInvitation": {
+    "v1.DeletePublicDashboard": {
         "token": {
             "type": "string",
             "format": "",
             },
-        "body": {
-            "type": "SharedDashboardInvites",
-            "format": "",
-            },
-        "operationResponseType": "void",
+        "operationResponseType": "DeleteSharedDashboardResponse",
     },
     "v1.GetPublicDashboardInvitations": {
         "token": {
@@ -671,12 +660,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SharedDashboardInvites",
     },
-    "v1.DeleteDashboard": {
-        "dashboardId": {
+    "v1.DeletePublicDashboardInvitation": {
+        "token": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "DashboardDeleteResponse",
+        "body": {
+            "type": "SharedDashboardInvites",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v1.GetDashboard": {
         "dashboardId": {
@@ -696,6 +689,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Dashboard",
     },
+    "v1.DeleteDashboard": {
+        "dashboardId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DashboardDeleteResponse",
+    },
     "v1.ListDashboardLists": {
         "operationResponseType": "DashboardListListResponse",
     },
@@ -705,13 +705,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DashboardList",
-    },
-    "v1.DeleteDashboardList": {
-        "listId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "DashboardListDeleteResponse",
     },
     "v1.GetDashboardList": {
         "listId": {
@@ -730,6 +723,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DashboardList",
+    },
+    "v1.DeleteDashboardList": {
+        "listId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "DashboardListDeleteResponse",
     },
     "v1.SubmitDistributionPoints": {
         "contentEncoding": {
@@ -833,13 +833,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CanceledDowntimesIds",
     },
-    "v1.CancelDowntime": {
-        "downtimeId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "void",
-    },
     "v1.GetDowntime": {
         "downtimeId": {
             "type": "number",
@@ -857,6 +850,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "Downtime",
+    },
+    "v1.CancelDowntime": {
+        "downtimeId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "{}",
     },
     "v1.ListMonitorDowntimes": {
         "monitorId": {
@@ -1009,13 +1009,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "HostTotals",
     },
-    "v1.DeleteAWSAccount": {
-        "body": {
-            "type": "AWSAccountDeleteRequest",
-            "format": "",
-            },
-        "operationResponseType": "any",
-    },
     "v1.ListAWSAccounts": {
         "accountId": {
             "type": "string",
@@ -1030,13 +1023,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "AWSAccountListResponse",
-    },
-    "v1.CreateAWSAccount": {
-        "body": {
-            "type": "AWSAccount",
-            "format": "",
-            },
-        "operationResponseType": "AWSAccountCreateResponse",
     },
     "v1.UpdateAWSAccount": {
         "accountId": {
@@ -1057,15 +1043,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "any",
     },
-    "v1.ListAvailableAWSNamespaces": {
-        "operationResponseType": "Array<string>",
-    },
-    "v1.DeleteAWSEventBridgeSource": {
+    "v1.CreateAWSAccount": {
         "body": {
-            "type": "AWSEventBridgeDeleteRequest",
+            "type": "AWSAccount",
             "format": "",
             },
-        "operationResponseType": "AWSEventBridgeDeleteResponse",
+        "operationResponseType": "AWSAccountCreateResponse",
+    },
+    "v1.DeleteAWSAccount": {
+        "body": {
+            "type": "AWSAccountDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
+    "v1.ListAvailableAWSNamespaces": {
+        "operationResponseType": "Array<string>",
     },
     "v1.ListAWSEventBridgeSources": {
         "operationResponseType": "AWSEventBridgeListResponse",
@@ -1077,12 +1070,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AWSEventBridgeCreateResponse",
     },
-    "v1.DeleteAWSTagFilter": {
+    "v1.DeleteAWSEventBridgeSource": {
         "body": {
-            "type": "AWSTagFilterDeleteRequest",
+            "type": "AWSEventBridgeDeleteRequest",
             "format": "",
             },
-        "operationResponseType": "any",
+        "operationResponseType": "AWSEventBridgeDeleteResponse",
     },
     "v1.ListAWSTagFilters": {
         "accountId": {
@@ -1098,6 +1091,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "any",
     },
+    "v1.DeleteAWSTagFilter": {
+        "body": {
+            "type": "AWSTagFilterDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
     "v1.CreateNewAWSExternalID": {
         "body": {
             "type": "AWSAccount",
@@ -1105,17 +1105,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AWSAccountCreateResponse",
     },
-    "v1.DeleteAWSLambdaARN": {
+    "v1.ListAWSLogsIntegrations": {
+        "operationResponseType": "Array<AWSLogsListResponse>",
+    },
+    "v1.CreateAWSLambdaARN": {
         "body": {
             "type": "AWSAccountAndLambdaRequest",
             "format": "",
             },
         "operationResponseType": "any",
     },
-    "v1.ListAWSLogsIntegrations": {
-        "operationResponseType": "Array<AWSLogsListResponse>",
-    },
-    "v1.CreateAWSLambdaARN": {
+    "v1.DeleteAWSLambdaARN": {
         "body": {
             "type": "AWSAccountAndLambdaRequest",
             "format": "",
@@ -1146,15 +1146,15 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AWSLogsAsyncResponse",
     },
-    "v1.DeleteAzureIntegration": {
+    "v1.ListAzureIntegration": {
+        "operationResponseType": "Array<AzureAccount>",
+    },
+    "v1.UpdateAzureIntegration": {
         "body": {
             "type": "AzureAccount",
             "format": "",
             },
         "operationResponseType": "any",
-    },
-    "v1.ListAzureIntegration": {
-        "operationResponseType": "Array<AzureAccount>",
     },
     "v1.CreateAzureIntegration": {
         "body": {
@@ -1163,7 +1163,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "any",
     },
-    "v1.UpdateAzureIntegration": {
+    "v1.DeleteAzureIntegration": {
         "body": {
             "type": "AzureAccount",
             "format": "",
@@ -1177,15 +1177,15 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "any",
     },
-    "v1.DeleteGCPIntegration": {
+    "v1.ListGCPIntegration": {
+        "operationResponseType": "Array<GCPAccount>",
+    },
+    "v1.UpdateGCPIntegration": {
         "body": {
             "type": "GCPAccount",
             "format": "",
             },
         "operationResponseType": "any",
-    },
-    "v1.ListGCPIntegration": {
-        "operationResponseType": "Array<GCPAccount>",
     },
     "v1.CreateGCPIntegration": {
         "body": {
@@ -1194,7 +1194,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "any",
     },
-    "v1.UpdateGCPIntegration": {
+    "v1.DeleteGCPIntegration": {
         "body": {
             "type": "GCPAccount",
             "format": "",
@@ -1207,13 +1207,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "PagerDutyServiceName",
-    },
-    "v1.DeletePagerDutyIntegrationService": {
-        "serviceName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
     },
     "v1.GetPagerDutyIntegrationService": {
         "serviceName": {
@@ -1231,7 +1224,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "PagerDutyServiceKey",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
+    },
+    "v1.DeletePagerDutyIntegrationService": {
+        "serviceName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v1.GetSlackIntegrationChannels": {
         "accountName": {
@@ -1251,17 +1251,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SlackIntegrationChannel",
     },
-    "v1.RemoveSlackIntegrationChannel": {
-        "accountName": {
-            "type": "string",
-            "format": "",
-            },
-        "channelName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v1.GetSlackIntegrationChannel": {
         "accountName": {
             "type": "string",
@@ -1272,6 +1261,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SlackIntegrationChannel",
+    },
+    "v1.RemoveSlackIntegrationChannel": {
+        "accountName": {
+            "type": "string",
+            "format": "",
+            },
+        "channelName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v1.UpdateSlackIntegrationChannel": {
         "accountName": {
@@ -1295,13 +1295,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "WebhooksIntegrationCustomVariableResponse",
     },
-    "v1.DeleteWebhooksIntegrationCustomVariable": {
-        "customVariableName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v1.GetWebhooksIntegrationCustomVariable": {
         "customVariableName": {
             "type": "string",
@@ -1320,19 +1313,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "WebhooksIntegrationCustomVariableResponse",
     },
+    "v1.DeleteWebhooksIntegrationCustomVariable": {
+        "customVariableName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v1.CreateWebhooksIntegration": {
         "body": {
             "type": "WebhooksIntegration",
             "format": "",
             },
         "operationResponseType": "WebhooksIntegration",
-    },
-    "v1.DeleteWebhooksIntegration": {
-        "webhookName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
     },
     "v1.GetWebhooksIntegration": {
         "webhookName": {
@@ -1351,6 +1344,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "WebhooksIntegration",
+    },
+    "v1.DeleteWebhooksIntegration": {
+        "webhookName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v1.ListLogs": {
         "body": {
@@ -1394,13 +1394,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LogsIndex",
     },
-    "v1.DeleteLogsIndex": {
-        "name": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v1.GetLogsIndex": {
         "name": {
             "type": "string",
@@ -1418,6 +1411,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "LogsIndex",
+    },
+    "v1.DeleteLogsIndex": {
+        "name": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v1.GetLogsPipelineOrder": {
         "operationResponseType": "LogsPipelinesOrder",
@@ -1439,13 +1439,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LogsPipeline",
     },
-    "v1.DeleteLogsPipeline": {
-        "pipelineId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v1.GetLogsPipeline": {
         "pipelineId": {
             "type": "string",
@@ -1463,6 +1456,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "LogsPipeline",
+    },
+    "v1.DeleteLogsPipeline": {
+        "pipelineId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v1.ListMonitors": {
         "groupStates": {
@@ -1509,7 +1509,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.CheckCanDeleteMonitor": {
         "monitorIds": {
             "type": "Array<number>",
-            "format": "int64",
+            "format": "",
             },
         "operationResponseType": "CheckCanDeleteMonitorResponse",
     },
@@ -1558,17 +1558,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "any",
     },
-    "v1.DeleteMonitor": {
-        "monitorId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "force": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "DeletedMonitor",
-    },
     "v1.GetMonitor": {
         "monitorId": {
             "type": "number",
@@ -1594,6 +1583,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "Monitor",
+    },
+    "v1.DeleteMonitor": {
+        "monitorId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "force": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeletedMonitor",
     },
     "v1.ValidateExistingMonitor": {
         "monitorId": {
@@ -1656,13 +1656,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "NotebookResponse",
     },
-    "v1.DeleteNotebook": {
-        "notebookId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "void",
-    },
     "v1.GetNotebook": {
         "notebookId": {
             "type": "number",
@@ -1680,6 +1673,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "NotebookResponse",
+    },
+    "v1.DeleteNotebook": {
+        "notebookId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "{}",
     },
     "v1.ListOrgs": {
         "operationResponseType": "OrganizationListResponse",
@@ -1827,17 +1827,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SearchSLOResponse",
     },
-    "v1.DeleteSLO": {
-        "sloId": {
-            "type": "string",
-            "format": "",
-            },
-        "force": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SLODeleteResponse",
-    },
     "v1.GetSLO": {
         "sloId": {
             "type": "string",
@@ -1859,6 +1848,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SLOListResponse",
+    },
+    "v1.DeleteSLO": {
+        "sloId": {
+            "type": "string",
+            "format": "",
+            },
+        "force": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SLODeleteResponse",
     },
     "v1.GetSLOCorrections": {
         "sloId": {
@@ -1908,19 +1908,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SLOCorrectionResponse",
     },
-    "v1.DeleteSLOCorrection": {
-        "sloCorrectionId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v1.GetSLOCorrection": {
         "sloCorrectionId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SLOCorrectionResponse",
+    },
+    "v1.DeleteSLOCorrection": {
+        "sloCorrectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v1.UpdateSLOCorrection": {
         "sloCorrectionId": {
@@ -1950,13 +1950,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsPrivateLocationCreationResponse",
     },
-    "v1.DeletePrivateLocation": {
-        "locationId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v1.GetPrivateLocation": {
         "locationId": {
             "type": "string",
@@ -1974,6 +1967,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SyntheticsPrivateLocation",
+    },
+    "v1.DeletePrivateLocation": {
+        "locationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v1.GetSyntheticsDefaultLocations": {
         "operationResponseType": "Array<string>",
@@ -2222,13 +2222,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsGlobalVariable",
     },
-    "v1.DeleteGlobalVariable": {
-        "variableId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v1.GetGlobalVariable": {
         "variableId": {
             "type": "string",
@@ -2247,23 +2240,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsGlobalVariable",
     },
+    "v1.DeleteGlobalVariable": {
+        "variableId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v1.ListHostTags": {
         "source": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "TagToHosts",
-    },
-    "v1.DeleteHostTags": {
-        "hostName": {
-            "type": "string",
-            "format": "",
-            },
-        "source": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
     },
     "v1.GetHostTags": {
         "hostName": {
@@ -2272,21 +2261,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "source": {
             "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "HostTags",
-    },
-    "v1.CreateHostTags": {
-        "hostName": {
-            "type": "string",
-            "format": "",
-            },
-        "source": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "HostTags",
             "format": "",
             },
         "operationResponseType": "HostTags",
@@ -2306,6 +2280,32 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "HostTags",
     },
+    "v1.CreateHostTags": {
+        "hostName": {
+            "type": "string",
+            "format": "",
+            },
+        "source": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "HostTags",
+            "format": "",
+            },
+        "operationResponseType": "HostTags",
+    },
+    "v1.DeleteHostTags": {
+        "hostName": {
+            "type": "string",
+            "format": "",
+            },
+        "source": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v1.ListUsers": {
         "operationResponseType": "UserListResponse",
     },
@@ -2315,13 +2315,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "UserResponse",
-    },
-    "v1.DisableUser": {
-        "userHandle": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "UserDisableResponse",
     },
     "v1.GetUser": {
         "userHandle": {
@@ -2341,6 +2334,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UserResponse",
     },
+    "v1.DisableUser": {
+        "userHandle": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserDisableResponse",
+    },
     "v1.Validate": {
         "operationResponseType": "AuthenticationValidationResponse",
     },
@@ -2354,13 +2354,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int64",
             },
         "operationResponseType": "ListAppKeyRegistrationsResponse",
-    },
-    "v2.UnregisterAppKey": {
-        "appKeyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
     },
     "v2.GetAppKeyRegistration": {
         "appKeyId": {
@@ -2376,6 +2369,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RegisterAppKeyResponse",
     },
+    "v2.UnregisterAppKey": {
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateActionConnection": {
         "body": {
             "type": "CreateActionConnectionRequest",
@@ -2383,19 +2383,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CreateActionConnectionResponse",
     },
-    "v2.DeleteActionConnection": {
-        "connectionId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetActionConnection": {
         "connectionId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "GetActionConnectionResponse",
+    },
+    "v2.DeleteActionConnection": {
+        "connectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateActionConnection": {
         "connectionId": {
@@ -2423,7 +2423,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.UpdateAwsScanOptions": {
         "accountId": {
@@ -2434,7 +2434,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "AwsScanOptionsUpdateRequest",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ListAwsOnDemandTasks": {
         "operationResponseType": "AwsOnDemandListResponse",
@@ -2507,13 +2507,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "APIKeyResponse",
     },
-    "v2.DeleteAPIKey": {
-        "apiKeyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetAPIKey": {
         "apiKeyId": {
             "type": "string",
@@ -2524,6 +2517,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "APIKeyResponse",
+    },
+    "v2.DeleteAPIKey": {
+        "apiKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateAPIKey": {
         "apiKeyId": {
@@ -2567,13 +2567,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListApplicationKeysResponse",
     },
-    "v2.DeleteApplicationKey": {
-        "appKeyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetApplicationKey": {
         "appKeyId": {
             "type": "string",
@@ -2584,6 +2577,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
+    },
+    "v2.DeleteApplicationKey": {
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateApplicationKey": {
         "appKeyId": {
@@ -2634,19 +2634,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
-    "v2.DeleteCurrentUserApplicationKey": {
-        "appKeyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetCurrentUserApplicationKey": {
         "appKeyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
+    },
+    "v2.DeleteCurrentUserApplicationKey": {
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateCurrentUserApplicationKey": {
         "appKeyId": {
@@ -2677,21 +2677,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.DeleteOpenAPI": {
         "id": {
             "type": "string",
-            "format": "uuid",
+            "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.GetOpenAPI": {
         "id": {
             "type": "string",
-            "format": "uuid",
+            "format": "",
             },
         "operationResponseType": "HttpFile",
     },
     "v2.UpdateOpenAPI": {
         "id": {
             "type": "string",
-            "format": "uuid",
+            "format": "",
             },
         "openapiSpecFile": {
             "type": "HttpFile",
@@ -2716,19 +2716,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SpansMetricResponse",
     },
-    "v2.DeleteSpansMetric": {
-        "metricId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetSpansMetric": {
         "metricId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SpansMetricResponse",
+    },
+    "v2.DeleteSpansMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateSpansMetric": {
         "metricId": {
@@ -2756,14 +2756,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "ReorderRetentionFiltersRequest",
             "format": "",
             },
-        "operationResponseType": "void",
-    },
-    "v2.DeleteApmRetentionFilter": {
-        "filterId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.GetApmRetentionFilter": {
         "filterId": {
@@ -2783,12 +2776,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RetentionFilterResponse",
     },
-    "v2.DeleteApps": {
-        "body": {
-            "type": "DeleteAppsRequest",
+    "v2.DeleteApmRetentionFilter": {
+        "filterId": {
+            "type": "string",
             "format": "",
             },
-        "operationResponseType": "DeleteAppsResponse",
+        "operationResponseType": "{}",
     },
     "v2.ListApps": {
         "limit": {
@@ -2844,12 +2837,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CreateAppResponse",
     },
-    "v2.DeleteApp": {
-        "appId": {
-            "type": "string",
-            "format": "uuid",
+    "v2.DeleteApps": {
+        "body": {
+            "type": "DeleteAppsRequest",
+            "format": "",
             },
-        "operationResponseType": "DeleteAppResponse",
+        "operationResponseType": "DeleteAppsResponse",
     },
     "v2.GetApp": {
         "appId": {
@@ -2862,6 +2855,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GetAppResponse",
     },
+    "v2.DeleteApp": {
+        "appId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "DeleteAppResponse",
+    },
     "v2.UpdateApp": {
         "appId": {
             "type": "string",
@@ -2873,19 +2873,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UpdateAppResponse",
     },
-    "v2.UnpublishApp": {
-        "appId": {
-            "type": "string",
-            "format": "uuid",
-            },
-        "operationResponseType": "UnpublishAppResponse",
-    },
     "v2.PublishApp": {
         "appId": {
             "type": "string",
             "format": "uuid",
             },
         "operationResponseType": "PublishAppResponse",
+    },
+    "v2.UnpublishApp": {
+        "appId": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "UnpublishAppResponse",
     },
     "v2.ListAuditLogs": {
         "filterQuery": {
@@ -2951,19 +2951,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AuthNMappingResponse",
     },
-    "v2.DeleteAuthNMapping": {
-        "authnMappingId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetAuthNMapping": {
         "authnMappingId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "AuthNMappingResponse",
+    },
+    "v2.DeleteAuthNMapping": {
+        "authnMappingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateAuthNMapping": {
         "authnMappingId": {
@@ -3016,19 +3016,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProjectResponse",
     },
-    "v2.DeleteProject": {
-        "projectId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetProject": {
         "projectId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ProjectResponse",
+    },
+    "v2.DeleteProject": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.GetCase": {
         "caseId": {
@@ -3169,7 +3169,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ListCatalogKind": {
         "pageOffset": {
@@ -3202,7 +3202,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ListCatalogRelation": {
         "pageOffset": {
@@ -3327,17 +3327,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CreateCustomFrameworkResponse",
     },
-    "v2.DeleteCustomFramework": {
-        "handle": {
-            "type": "string",
-            "format": "",
-            },
-        "version": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "DeleteCustomFrameworkResponse",
-    },
     "v2.GetCustomFramework": {
         "handle": {
             "type": "string",
@@ -3363,6 +3352,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "UpdateCustomFrameworkResponse",
+    },
+    "v2.DeleteCustomFramework": {
+        "handle": {
+            "type": "string",
+            "format": "",
+            },
+        "version": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeleteCustomFrameworkResponse",
     },
     "v2.GetResourceEvaluationFilters": {
         "cloudProvider": {
@@ -3589,11 +3589,18 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "GetSBOMResponse",
     },
     "v2.GetSignalNotificationRules": {
-        "operationResponseType": "any",
+        "operationResponseType": "NotificationRulesList",
     },
     "v2.CreateSignalNotificationRule": {
         "body": {
             "type": "CreateNotificationRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.GetSignalNotificationRule": {
+        "id": {
+            "type": "string",
             "format": "",
             },
         "operationResponseType": "NotificationRuleResponse",
@@ -3603,14 +3610,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
-    },
-    "v2.GetSignalNotificationRule": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "NotificationRuleResponse",
+        "operationResponseType": "{}",
     },
     "v2.PatchSignalNotificationRule": {
         "id": {
@@ -3795,11 +3795,18 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "ListVulnerabilitiesResponse",
     },
     "v2.GetVulnerabilityNotificationRules": {
-        "operationResponseType": "any",
+        "operationResponseType": "NotificationRulesList",
     },
     "v2.CreateVulnerabilityNotificationRule": {
         "body": {
             "type": "CreateNotificationRuleParameters",
+            "format": "",
+            },
+        "operationResponseType": "NotificationRuleResponse",
+    },
+    "v2.GetVulnerabilityNotificationRule": {
+        "id": {
+            "type": "string",
             "format": "",
             },
         "operationResponseType": "NotificationRuleResponse",
@@ -3809,14 +3816,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
-    },
-    "v2.GetVulnerabilityNotificationRule": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "NotificationRuleResponse",
+        "operationResponseType": "{}",
     },
     "v2.PatchVulnerabilityNotificationRule": {
         "id": {
@@ -3839,19 +3839,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityFilterResponse",
     },
-    "v2.DeleteSecurityFilter": {
-        "securityFilterId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetSecurityFilter": {
         "securityFilterId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SecurityFilterResponse",
+    },
+    "v2.DeleteSecurityFilter": {
+        "securityFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateSecurityFilter": {
         "securityFilterId": {
@@ -3874,19 +3874,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSuppressionResponse",
     },
-    "v2.DeleteSecurityMonitoringSuppression": {
-        "suppressionId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetSecurityMonitoringSuppression": {
         "suppressionId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSuppressionResponse",
+    },
+    "v2.DeleteSecurityMonitoringSuppression": {
+        "suppressionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateSecurityMonitoringSuppression": {
         "suppressionId": {
@@ -3936,14 +3936,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "SecurityMonitoringRuleValidatePayload",
             "format": "",
             },
-        "operationResponseType": "void",
-    },
-    "v2.DeleteSecurityMonitoringRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.GetSecurityMonitoringRule": {
         "ruleId": {
@@ -3962,6 +3955,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
+    },
+    "v2.DeleteSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ConvertExistingSecurityMonitoringRule": {
         "ruleId": {
@@ -4101,14 +4101,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "ConvertJobResultsToSignalsRequest",
             "format": "",
             },
-        "operationResponseType": "void",
-    },
-    "v2.DeleteHistoricalJob": {
-        "jobId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.GetHistoricalJob": {
         "jobId": {
@@ -4117,12 +4110,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "HistoricalJobResponse",
     },
+    "v2.DeleteHistoricalJob": {
+        "jobId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CancelHistoricalJob": {
         "jobId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ListContainerImages": {
         "filterTags": {
@@ -4185,7 +4185,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.UpdateCostAWSCURConfig": {
         "cloudAccountId": {
@@ -4213,7 +4213,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.UpdateCostAzureUCConfigs": {
         "cloudAccountId": {
@@ -4233,19 +4233,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "BudgetWithEntries",
     },
-    "v2.DeleteBudget": {
-        "budgetId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetBudget": {
         "budgetId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "BudgetWithEntries",
+    },
+    "v2.DeleteBudget": {
+        "budgetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListBudgets": {
         "operationResponseType": "BudgetArray",
@@ -4260,19 +4260,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CustomCostsFileUploadResponse",
     },
-    "v2.DeleteCustomCostsFile": {
-        "fileId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetCustomCostsFile": {
         "fileId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CustomCostsFileGetResponse",
+    },
+    "v2.DeleteCustomCostsFile": {
+        "fileId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListCostGCPUsageCostConfigs": {
         "operationResponseType": "GCPUsageCostConfigsResponse",
@@ -4289,7 +4289,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.UpdateCostGCPUsageCostConfig": {
         "cloudAccountId": {
@@ -4538,34 +4538,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetCSMServerlessCoverageAnalysis": {
         "operationResponseType": "CsmServerlessCoverageAnalysisResponse",
     },
-    "v2.DeleteDashboardListItems": {
-        "dashboardListId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "body": {
-            "type": "DashboardListDeleteItemsRequest",
-            "format": "",
-            },
-        "operationResponseType": "DashboardListDeleteItemsResponse",
-    },
     "v2.GetDashboardListItems": {
         "dashboardListId": {
             "type": "number",
             "format": "int64",
             },
         "operationResponseType": "DashboardListItems",
-    },
-    "v2.CreateDashboardListItems": {
-        "dashboardListId": {
-            "type": "number",
-            "format": "int64",
-            },
-        "body": {
-            "type": "DashboardListAddItemsRequest",
-            "format": "",
-            },
-        "operationResponseType": "DashboardListAddItemsResponse",
     },
     "v2.UpdateDashboardListItems": {
         "dashboardListId": {
@@ -4578,6 +4556,28 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DashboardListUpdateItemsResponse",
     },
+    "v2.CreateDashboardListItems": {
+        "dashboardListId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "DashboardListAddItemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DashboardListAddItemsResponse",
+    },
+    "v2.DeleteDashboardListItems": {
+        "dashboardListId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "DashboardListDeleteItemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DashboardListDeleteItemsResponse",
+    },
     "v2.GetAllDatasets": {
         "operationResponseType": "DatasetResponseMulti",
     },
@@ -4587,13 +4587,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DatasetResponseSingle",
-    },
-    "v2.DeleteDataset": {
-        "datasetId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
     },
     "v2.GetDataset": {
         "datasetId": {
@@ -4612,6 +4605,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DatasetResponseSingle",
+    },
+    "v2.DeleteDataset": {
+        "datasetId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.CreateDataDeletionRequest": {
         "product": {
@@ -4739,13 +4739,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DowntimeResponse",
     },
-    "v2.CancelDowntime": {
-        "downtimeId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetDowntime": {
         "downtimeId": {
             "type": "string",
@@ -4756,6 +4749,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DowntimeResponse",
+    },
+    "v2.CancelDowntime": {
+        "downtimeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateDowntime": {
         "downtimeId": {
@@ -4867,19 +4867,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentTypeResponse",
     },
-    "v2.DeleteIncidentType": {
-        "incidentTypeId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetIncidentType": {
         "incidentTypeId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "IncidentTypeResponse",
+    },
+    "v2.DeleteIncidentType": {
+        "incidentTypeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateIncidentType": {
         "incidentTypeId": {
@@ -4915,13 +4915,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentSearchResponse",
     },
-    "v2.DeleteIncident": {
-        "incidentId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetIncident": {
         "incidentId": {
             "type": "string",
@@ -4932,6 +4925,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentResponse",
+    },
+    "v2.DeleteIncident": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateIncident": {
         "incidentId": {
@@ -4996,17 +4996,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentIntegrationMetadataResponse",
     },
-    "v2.DeleteIncidentIntegration": {
-        "incidentId": {
-            "type": "string",
-            "format": "",
-            },
-        "integrationMetadataId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetIncidentIntegration": {
         "incidentId": {
             "type": "string",
@@ -5017,6 +5006,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentIntegrationMetadataResponse",
+    },
+    "v2.DeleteIncidentIntegration": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "integrationMetadataId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateIncidentIntegration": {
         "incidentId": {
@@ -5051,17 +5051,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentTodoResponse",
     },
-    "v2.DeleteIncidentTodo": {
-        "incidentId": {
-            "type": "string",
-            "format": "",
-            },
-        "todoId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetIncidentTodo": {
         "incidentId": {
             "type": "string",
@@ -5072,6 +5061,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTodoResponse",
+    },
+    "v2.DeleteIncidentTodo": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "todoId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateIncidentTodo": {
         "incidentId": {
@@ -5102,19 +5102,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AWSAccountResponse",
     },
-    "v2.DeleteAWSAccount": {
-        "awsAccountConfigId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetAWSAccount": {
         "awsAccountConfigId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "AWSAccountResponse",
+    },
+    "v2.DeleteAWSAccount": {
+        "awsAccountConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateAWSAccount": {
         "awsAccountConfigId": {
@@ -5154,7 +5154,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.UpdateGCPSTSAccount": {
         "accountId": {
@@ -5210,19 +5210,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MicrosoftTeamsTenantBasedHandleResponse",
     },
-    "v2.DeleteTenantBasedHandle": {
-        "handleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetTenantBasedHandle": {
         "handleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MicrosoftTeamsTenantBasedHandleResponse",
+    },
+    "v2.DeleteTenantBasedHandle": {
+        "handleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateTenantBasedHandle": {
         "handleId": {
@@ -5249,19 +5249,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MicrosoftTeamsWorkflowsWebhookHandleResponse",
     },
-    "v2.DeleteWorkflowsWebhookHandle": {
-        "handleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetWorkflowsWebhookHandle": {
         "handleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MicrosoftTeamsWorkflowsWebhookHandleResponse",
+    },
+    "v2.DeleteWorkflowsWebhookHandle": {
+        "handleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateWorkflowsWebhookHandle": {
         "handleId": {
@@ -5284,19 +5284,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OpsgenieServiceResponse",
     },
-    "v2.DeleteOpsgenieService": {
-        "integrationServiceId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetOpsgenieService": {
         "integrationServiceId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "OpsgenieServiceResponse",
+    },
+    "v2.DeleteOpsgenieService": {
+        "integrationServiceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateOpsgenieService": {
         "integrationServiceId": {
@@ -5319,19 +5319,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CloudflareAccountResponse",
     },
-    "v2.DeleteCloudflareAccount": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetCloudflareAccount": {
         "accountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CloudflareAccountResponse",
+    },
+    "v2.DeleteCloudflareAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateCloudflareAccount": {
         "accountId": {
@@ -5354,19 +5354,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ConfluentAccountResponse",
     },
-    "v2.DeleteConfluentAccount": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetConfluentAccount": {
         "accountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "ConfluentAccountResponse",
+    },
+    "v2.DeleteConfluentAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateConfluentAccount": {
         "accountId": {
@@ -5397,17 +5397,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ConfluentResourceResponse",
     },
-    "v2.DeleteConfluentResource": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "resourceId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetConfluentResource": {
         "accountId": {
             "type": "string",
@@ -5418,6 +5407,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ConfluentResourceResponse",
+    },
+    "v2.DeleteConfluentResource": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateConfluentResource": {
         "accountId": {
@@ -5444,19 +5444,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FastlyAccountResponse",
     },
-    "v2.DeleteFastlyAccount": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetFastlyAccount": {
         "accountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "FastlyAccountResponse",
+    },
+    "v2.DeleteFastlyAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateFastlyAccount": {
         "accountId": {
@@ -5487,17 +5487,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FastlyServiceResponse",
     },
-    "v2.DeleteFastlyService": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "serviceId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetFastlyService": {
         "accountId": {
             "type": "string",
@@ -5508,6 +5497,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "FastlyServiceResponse",
+    },
+    "v2.DeleteFastlyService": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "serviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateFastlyService": {
         "accountId": {
@@ -5534,19 +5534,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OktaAccountResponse",
     },
-    "v2.DeleteOktaAccount": {
-        "accountId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetOktaAccount": {
         "accountId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "OktaAccountResponse",
+    },
+    "v2.DeleteOktaAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateOktaAccount": {
         "accountId": {
@@ -5653,13 +5653,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LogsArchive",
     },
-    "v2.DeleteLogsArchive": {
-        "archiveId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetLogsArchive": {
         "archiveId": {
             "type": "string",
@@ -5678,16 +5671,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LogsArchive",
     },
-    "v2.RemoveRoleFromArchive": {
+    "v2.DeleteLogsArchive": {
         "archiveId": {
             "type": "string",
             "format": "",
             },
-        "body": {
-            "type": "RelationshipToRole",
-            "format": "",
-            },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ListArchiveReadRoles": {
         "archiveId": {
@@ -5705,7 +5694,18 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "RelationshipToRole",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
+    },
+    "v2.RemoveRoleFromArchive": {
+        "archiveId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToRole",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListLogsCustomDestinations": {
         "operationResponseType": "CustomDestinationsResponse",
@@ -5717,19 +5717,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CustomDestinationResponse",
     },
-    "v2.DeleteLogsCustomDestination": {
-        "customDestinationId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetLogsCustomDestination": {
         "customDestinationId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CustomDestinationResponse",
+    },
+    "v2.DeleteLogsCustomDestination": {
+        "customDestinationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateLogsCustomDestination": {
         "customDestinationId": {
@@ -5752,19 +5752,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LogsMetricResponse",
     },
-    "v2.DeleteLogsMetric": {
-        "metricId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetLogsMetric": {
         "metricId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "LogsMetricResponse",
+    },
+    "v2.DeleteLogsMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateLogsMetric": {
         "metricId": {
@@ -5820,16 +5820,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MetricsAndMetricTagConfigurationsResponse",
     },
-    "v2.DeleteBulkTagsMetricsConfiguration": {
+    "v2.CreateBulkTagsMetricsConfiguration": {
         "body": {
-            "type": "MetricBulkTagConfigDeleteRequest",
+            "type": "MetricBulkTagConfigCreateRequest",
             "format": "",
             },
         "operationResponseType": "MetricBulkTagConfigResponse",
     },
-    "v2.CreateBulkTagsMetricsConfiguration": {
+    "v2.DeleteBulkTagsMetricsConfiguration": {
         "body": {
-            "type": "MetricBulkTagConfigCreateRequest",
+            "type": "MetricBulkTagConfigDeleteRequest",
             "format": "",
             },
         "operationResponseType": "MetricBulkTagConfigResponse",
@@ -5893,27 +5893,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MetricTagCardinalitiesResponse",
     },
-    "v2.DeleteTagConfiguration": {
-        "metricName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.ListTagConfigurationByName": {
         "metricName": {
             "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "MetricTagConfigurationResponse",
-    },
-    "v2.UpdateTagConfiguration": {
-        "metricName": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "MetricTagConfigurationUpdateRequest",
             "format": "",
             },
         "operationResponseType": "MetricTagConfigurationResponse",
@@ -5925,6 +5907,24 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "body": {
             "type": "MetricTagConfigurationCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MetricTagConfigurationResponse",
+    },
+    "v2.DeleteTagConfiguration": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
+    "v2.UpdateTagConfiguration": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "MetricTagConfigurationUpdateRequest",
             "format": "",
             },
         "operationResponseType": "MetricTagConfigurationResponse",
@@ -5975,13 +5975,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MonitorNotificationRuleResponse",
     },
-    "v2.DeleteMonitorNotificationRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetMonitorNotificationRule": {
         "ruleId": {
             "type": "string",
@@ -5992,6 +5985,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "MonitorNotificationRuleResponse",
+    },
+    "v2.DeleteMonitorNotificationRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateMonitorNotificationRule": {
         "ruleId": {
@@ -6014,19 +6014,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MonitorConfigPolicyResponse",
     },
-    "v2.DeleteMonitorConfigPolicy": {
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetMonitorConfigPolicy": {
         "policyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "MonitorConfigPolicyResponse",
+    },
+    "v2.DeleteMonitorConfigPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateMonitorConfigPolicy": {
         "policyId": {
@@ -6054,14 +6054,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "MonitorUserTemplateCreateRequest",
             "format": "",
             },
-        "operationResponseType": "void",
-    },
-    "v2.DeleteMonitorUserTemplate": {
-        "templateId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.GetMonitorUserTemplate": {
         "templateId": {
@@ -6085,6 +6078,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MonitorUserTemplateResponse",
     },
+    "v2.DeleteMonitorUserTemplate": {
+        "templateId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ValidateExistingMonitorUserTemplate": {
         "templateId": {
             "type": "string",
@@ -6094,7 +6094,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "MonitorUserTemplateUpdateRequest",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ListDevices": {
         "pageSize": {
@@ -6208,13 +6208,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "EscalationPolicy",
     },
-    "v2.DeleteOnCallEscalationPolicy": {
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetOnCallEscalationPolicy": {
         "policyId": {
             "type": "string",
@@ -6241,6 +6234,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "EscalationPolicy",
     },
+    "v2.DeleteOnCallEscalationPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.CreateOnCallSchedule": {
         "include": {
             "type": "string",
@@ -6251,13 +6251,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "Schedule",
-    },
-    "v2.DeleteOnCallSchedule": {
-        "scheduleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
     },
     "v2.GetOnCallSchedule": {
         "include": {
@@ -6284,6 +6277,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "Schedule",
+    },
+    "v2.DeleteOnCallSchedule": {
+        "scheduleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.GetScheduleOnCallUser": {
         "include": {
@@ -6349,21 +6349,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "uuid",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.EscalateOnCallPage": {
         "pageId": {
             "type": "string",
             "format": "uuid",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ResolveOnCallPage": {
         "pageId": {
             "type": "string",
             "format": "uuid",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ListOrgConfigs": {
         "operationResponseType": "OrgConfigListResponse",
@@ -6391,7 +6391,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "HttpFile",
             "format": "binary",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.ListPermissions": {
         "operationResponseType": "PermissionsResponse",
@@ -6426,19 +6426,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RoleCreateResponse",
     },
-    "v2.DeleteRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetRole": {
         "roleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RoleResponse",
+    },
+    "v2.DeleteRole": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateRole": {
         "roleId": {
@@ -6462,17 +6462,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RoleResponse",
     },
-    "v2.RemovePermissionFromRole": {
-        "roleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "RelationshipToPermission",
-            "format": "",
-            },
-        "operationResponseType": "PermissionsResponse",
-    },
     "v2.ListRolePermissions": {
         "roleId": {
             "type": "string",
@@ -6491,16 +6480,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "PermissionsResponse",
     },
-    "v2.RemoveUserFromRole": {
+    "v2.RemovePermissionFromRole": {
         "roleId": {
             "type": "string",
             "format": "",
             },
         "body": {
-            "type": "RelationshipToUser",
+            "type": "RelationshipToPermission",
             "format": "",
             },
-        "operationResponseType": "UsersResponse",
+        "operationResponseType": "PermissionsResponse",
     },
     "v2.ListRoleUsers": {
         "roleId": {
@@ -6536,6 +6525,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UsersResponse",
     },
+    "v2.RemoveUserFromRole": {
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToUser",
+            "format": "",
+            },
+        "operationResponseType": "UsersResponse",
+    },
     "v2.ListPowerpacks": {
         "pageLimit": {
             "type": "number",
@@ -6554,19 +6554,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "PowerpackResponse",
     },
-    "v2.DeletePowerpack": {
-        "powerpackId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetPowerpack": {
         "powerpackId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "PowerpackResponse",
+    },
+    "v2.DeletePowerpack": {
+        "powerpackId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdatePowerpack": {
         "powerpackId": {
@@ -6616,13 +6616,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationSecurityWafCustomRuleResponse",
     },
-    "v2.DeleteApplicationSecurityWafCustomRule": {
-        "customRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetApplicationSecurityWafCustomRule": {
         "customRuleId": {
             "type": "string",
@@ -6641,6 +6634,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationSecurityWafCustomRuleResponse",
     },
+    "v2.DeleteApplicationSecurityWafCustomRule": {
+        "customRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListApplicationSecurityWafExclusionFilters": {
         "operationResponseType": "ApplicationSecurityWafExclusionFiltersResponse",
     },
@@ -6650,13 +6650,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ApplicationSecurityWafExclusionFilterResponse",
-    },
-    "v2.DeleteApplicationSecurityWafExclusionFilter": {
-        "exclusionFilterId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
     },
     "v2.GetApplicationSecurityWafExclusionFilter": {
         "exclusionFilterId": {
@@ -6676,6 +6669,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationSecurityWafExclusionFilterResponse",
     },
+    "v2.DeleteApplicationSecurityWafExclusionFilter": {
+        "exclusionFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.ListCSMThreatsAgentRules": {
         "policyId": {
             "type": "string",
@@ -6690,17 +6690,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
-    "v2.DeleteCSMThreatsAgentRule": {
-        "agentRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetCSMThreatsAgentRule": {
         "agentRuleId": {
             "type": "string",
@@ -6711,6 +6700,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
+    },
+    "v2.DeleteCSMThreatsAgentRule": {
+        "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateCSMThreatsAgentRule": {
         "agentRuleId": {
@@ -6740,19 +6740,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.DownloadCSMThreatsPolicy": {
         "operationResponseType": "HttpFile",
     },
-    "v2.DeleteCSMThreatsAgentPolicy": {
-        "policyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetCSMThreatsAgentPolicy": {
         "policyId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentPolicyResponse",
+    },
+    "v2.DeleteCSMThreatsAgentPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateCSMThreatsAgentPolicy": {
         "policyId": {
@@ -6778,19 +6778,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
-    "v2.DeleteCloudWorkloadSecurityAgentRule": {
-        "agentRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetCloudWorkloadSecurityAgentRule": {
         "agentRuleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
+    },
+    "v2.DeleteCloudWorkloadSecurityAgentRule": {
+        "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateCloudWorkloadSecurityAgentRule": {
         "agentRuleId": {
@@ -6828,13 +6828,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ValidationResponse",
     },
-    "v2.DeletePipeline": {
-        "pipelineId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetPipeline": {
         "pipelineId": {
             "type": "string",
@@ -6853,12 +6846,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ObservabilityPipeline",
     },
-    "v2.DeleteRestrictionPolicy": {
-        "resourceId": {
+    "v2.DeletePipeline": {
+        "pipelineId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.GetRestrictionPolicy": {
         "resourceId": {
@@ -6882,6 +6875,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RestrictionPolicyResponse",
     },
+    "v2.DeleteRestrictionPolicy": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
+    },
     "v2.AggregateRUMEvents": {
         "body": {
             "type": "RUMAggregateRequest",
@@ -6899,19 +6899,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RUMApplicationResponse",
     },
-    "v2.DeleteRUMApplication": {
-        "id": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetRUMApplication": {
         "id": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RUMApplicationResponse",
+    },
+    "v2.DeleteRUMApplication": {
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateRUMApplication": {
         "id": {
@@ -6987,17 +6987,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RumRetentionFilterResponse",
     },
-    "v2.DeleteRetentionFilter": {
-        "appId": {
-            "type": "string",
-            "format": "",
-            },
-        "rfId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetRetentionFilter": {
         "appId": {
             "type": "string",
@@ -7008,6 +6997,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "RumRetentionFilterResponse",
+    },
+    "v2.DeleteRetentionFilter": {
+        "appId": {
+            "type": "string",
+            "format": "",
+            },
+        "rfId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateRetentionFilter": {
         "appId": {
@@ -7034,19 +7034,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RumMetricResponse",
     },
-    "v2.DeleteRumMetric": {
-        "metricId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetRumMetric": {
         "metricId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "RumMetricResponse",
+    },
+    "v2.DeleteRumMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateRumMetric": {
         "metricId": {
@@ -7159,13 +7159,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CreateRuleResponse",
     },
-    "v2.DeleteScorecardRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.UpdateScorecardRule": {
         "ruleId": {
             "type": "string",
@@ -7176,6 +7169,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "UpdateRuleResponse",
+    },
+    "v2.DeleteScorecardRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.ListScanningGroups": {
         "operationResponseType": "SensitiveDataScannerGetConfigResponse",
@@ -7297,17 +7297,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
-    "v2.DeleteServiceAccountApplicationKey": {
-        "serviceAccountId": {
-            "type": "string",
-            "format": "",
-            },
-        "appKeyId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetServiceAccountApplicationKey": {
         "serviceAccountId": {
             "type": "string",
@@ -7318,6 +7307,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "PartialApplicationKeyResponse",
+    },
+    "v2.DeleteServiceAccountApplicationKey": {
+        "serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateServiceAccountApplicationKey": {
         "serviceAccountId": {
@@ -7360,13 +7360,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentServiceResponse",
     },
-    "v2.DeleteIncidentService": {
-        "serviceId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetIncidentService": {
         "serviceId": {
             "type": "string",
@@ -7377,6 +7370,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentServiceResponse",
+    },
+    "v2.DeleteIncidentService": {
+        "serviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateIncidentService": {
         "serviceId": {
@@ -7411,13 +7411,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ServiceDefinitionCreateResponse",
     },
-    "v2.DeleteServiceDefinition": {
-        "serviceName": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetServiceDefinition": {
         "serviceName": {
             "type": "string",
@@ -7428,6 +7421,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ServiceDefinitionGetResponse",
+    },
+    "v2.DeleteServiceDefinition": {
+        "serviceName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.CreateSLOReportJob": {
         "body": {
@@ -7567,7 +7567,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "AddMemberTeamRequest",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.RemoveMemberTeam": {
         "superTeamId": {
@@ -7578,14 +7578,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
-    },
-    "v2.DeleteTeam": {
-        "teamId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.GetTeam": {
         "teamId": {
@@ -7593,6 +7586,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "TeamResponse",
+    },
+    "v2.DeleteTeam": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateTeam": {
         "teamId": {
@@ -7623,17 +7623,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TeamLinkResponse",
     },
-    "v2.DeleteTeamLink": {
-        "teamId": {
-            "type": "string",
-            "format": "",
-            },
-        "linkId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetTeamLink": {
         "teamId": {
             "type": "string",
@@ -7644,6 +7633,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "TeamLinkResponse",
+    },
+    "v2.DeleteTeamLink": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "linkId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateTeamLink": {
         "teamId": {
@@ -7703,7 +7703,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "{}",
     },
     "v2.UpdateTeamMembership": {
         "teamId": {
@@ -7775,13 +7775,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentTeamResponse",
     },
-    "v2.DeleteIncidentTeam": {
-        "teamId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetIncidentTeam": {
         "teamId": {
             "type": "string",
@@ -7792,6 +7785,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTeamResponse",
+    },
+    "v2.DeleteIncidentTeam": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateIncidentTeam": {
         "teamId": {
@@ -7852,19 +7852,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UserResponse",
     },
-    "v2.DisableUser": {
-        "userId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetUser": {
         "userId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "UserResponse",
+    },
+    "v2.DisableUser": {
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateUser": {
         "userId": {
@@ -7898,19 +7898,19 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CreateWorkflowResponse",
     },
-    "v2.DeleteWorkflow": {
-        "workflowId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
     "v2.GetWorkflow": {
         "workflowId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "GetWorkflowResponse",
+    },
+    "v2.DeleteWorkflow": {
+        "workflowId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "{}",
     },
     "v2.UpdateWorkflow": {
         "workflowId": {

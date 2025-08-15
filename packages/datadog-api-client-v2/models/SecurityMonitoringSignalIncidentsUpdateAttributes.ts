@@ -39,16 +39,14 @@ export class SecurityMonitoringSignalIncidentsUpdateAttributes {
       baseName: "incident_ids",
       type: "Array<number>",
       required: true,
-      format: "int64",
     },
     version: {
       baseName: "version",
       type: "number",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

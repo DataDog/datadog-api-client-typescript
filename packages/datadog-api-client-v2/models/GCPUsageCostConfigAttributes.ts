@@ -141,7 +141,7 @@ export class GCPUsageCostConfigAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -98,7 +98,6 @@ export class AlertEventAttributes {
     timestamp: {
       baseName: "timestamp",
       type: "number",
-      format: "int64",
     },
     title: {
       baseName: "title",
@@ -106,7 +105,7 @@ export class AlertEventAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

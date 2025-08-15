@@ -58,7 +58,7 @@ export class RumMetricCreateData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

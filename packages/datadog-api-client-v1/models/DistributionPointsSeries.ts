@@ -73,7 +73,7 @@ export class DistributionPointsSeries {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

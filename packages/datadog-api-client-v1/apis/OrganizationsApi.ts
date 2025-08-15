@@ -18,7 +18,6 @@ import FormData from "form-data";
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IdpResponse } from "../models/IdpResponse";
 import { Organization } from "../models/Organization";

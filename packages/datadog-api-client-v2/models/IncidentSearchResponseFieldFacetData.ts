@@ -38,7 +38,6 @@ export class IncidentSearchResponseFieldFacetData {
     count: {
       baseName: "count",
       type: "number",
-      format: "int32",
     },
     name: {
       baseName: "name",
@@ -46,7 +45,7 @@ export class IncidentSearchResponseFieldFacetData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

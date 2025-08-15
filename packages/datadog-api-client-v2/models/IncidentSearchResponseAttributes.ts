@@ -59,7 +59,7 @@ export class IncidentSearchResponseAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

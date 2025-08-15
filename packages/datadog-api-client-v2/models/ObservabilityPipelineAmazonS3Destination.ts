@@ -112,7 +112,7 @@ export class ObservabilityPipelineAmazonS3Destination {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

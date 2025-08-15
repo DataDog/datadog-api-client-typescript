@@ -65,11 +65,10 @@ export class SLOHistoryMetricsSeries {
       baseName: "values",
       type: "Array<number>",
       required: true,
-      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

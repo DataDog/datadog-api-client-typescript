@@ -57,7 +57,7 @@ export class FreshserviceAPIKey {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

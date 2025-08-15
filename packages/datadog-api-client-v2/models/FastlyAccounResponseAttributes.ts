@@ -47,7 +47,7 @@ export class FastlyAccounResponseAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

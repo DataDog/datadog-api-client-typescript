@@ -143,7 +143,6 @@ export class SyntheticsStepDetail {
     playingTab: {
       baseName: "playingTab",
       type: "SyntheticsPlayingTab",
-      format: "int64",
     },
     screenshotBucketKey: {
       baseName: "screenshotBucketKey",
@@ -193,7 +192,7 @@ export class SyntheticsStepDetail {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

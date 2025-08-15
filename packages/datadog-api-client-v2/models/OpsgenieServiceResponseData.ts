@@ -58,7 +58,7 @@ export class OpsgenieServiceResponseData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

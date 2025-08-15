@@ -76,7 +76,7 @@ export class HTTPLogItem {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "string",
+      type: "{ [key: string]: string; }",
     },
   };
 
