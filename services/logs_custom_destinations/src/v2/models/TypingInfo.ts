@@ -6,18 +6,22 @@ import { CustomDestinationCreateRequestAttributes } from "./CustomDestinationCre
 import { CustomDestinationCreateRequestDefinition } from "./CustomDestinationCreateRequestDefinition";
 import { CustomDestinationElasticsearchDestinationAuth } from "./CustomDestinationElasticsearchDestinationAuth";
 import { CustomDestinationForwardDestinationElasticsearch } from "./CustomDestinationForwardDestinationElasticsearch";
+import { CustomDestinationForwardDestinationGoogleSecurityOperations } from "./CustomDestinationForwardDestinationGoogleSecurityOperations";
 import { CustomDestinationForwardDestinationHttp } from "./CustomDestinationForwardDestinationHttp";
 import { CustomDestinationForwardDestinationMicrosoftSentinel } from "./CustomDestinationForwardDestinationMicrosoftSentinel";
 import { CustomDestinationForwardDestinationSplunk } from "./CustomDestinationForwardDestinationSplunk";
+import { CustomDestinationGoogleSecurityOperationsDestinationAuth } from "./CustomDestinationGoogleSecurityOperationsDestinationAuth";
 import { CustomDestinationHttpDestinationAuthBasic } from "./CustomDestinationHttpDestinationAuthBasic";
 import { CustomDestinationHttpDestinationAuthCustomHeader } from "./CustomDestinationHttpDestinationAuthCustomHeader";
 import { CustomDestinationResponse } from "./CustomDestinationResponse";
 import { CustomDestinationResponseAttributes } from "./CustomDestinationResponseAttributes";
 import { CustomDestinationResponseDefinition } from "./CustomDestinationResponseDefinition";
 import { CustomDestinationResponseForwardDestinationElasticsearch } from "./CustomDestinationResponseForwardDestinationElasticsearch";
+import { CustomDestinationResponseForwardDestinationGoogleSecurityOperations } from "./CustomDestinationResponseForwardDestinationGoogleSecurityOperations";
 import { CustomDestinationResponseForwardDestinationHttp } from "./CustomDestinationResponseForwardDestinationHttp";
 import { CustomDestinationResponseForwardDestinationMicrosoftSentinel } from "./CustomDestinationResponseForwardDestinationMicrosoftSentinel";
 import { CustomDestinationResponseForwardDestinationSplunk } from "./CustomDestinationResponseForwardDestinationSplunk";
+import { CustomDestinationResponseGoogleSecurityOperationsDestinationAuth } from "./CustomDestinationResponseGoogleSecurityOperationsDestinationAuth";
 import { CustomDestinationResponseHttpDestinationAuthBasic } from "./CustomDestinationResponseHttpDestinationAuthBasic";
 import { CustomDestinationResponseHttpDestinationAuthCustomHeader } from "./CustomDestinationResponseHttpDestinationAuthCustomHeader";
 import { CustomDestinationUpdateRequest } from "./CustomDestinationUpdateRequest";
@@ -32,21 +36,33 @@ export const TypingInfo: ModelTypingInfo = {
       "BLOCK_LIST",
     ],
     CustomDestinationForwardDestinationElasticsearchType: ["elasticsearch"],
+    CustomDestinationForwardDestinationGoogleSecurityOperationsType: [
+      "google_security_operations",
+    ],
     CustomDestinationForwardDestinationHttpType: ["http"],
     CustomDestinationForwardDestinationMicrosoftSentinelType: [
       "microsoft_sentinel",
     ],
     CustomDestinationForwardDestinationSplunkType: ["splunk_hec"],
+    CustomDestinationGoogleSecurityOperationsDestinationAuthType: [
+      "gcp_private_key",
+    ],
     CustomDestinationHttpDestinationAuthBasicType: ["basic"],
     CustomDestinationHttpDestinationAuthCustomHeaderType: ["custom_header"],
     CustomDestinationResponseForwardDestinationElasticsearchType: [
       "elasticsearch",
+    ],
+    CustomDestinationResponseForwardDestinationGoogleSecurityOperationsType: [
+      "google_security_operations",
     ],
     CustomDestinationResponseForwardDestinationHttpType: ["http"],
     CustomDestinationResponseForwardDestinationMicrosoftSentinelType: [
       "microsoft_sentinel",
     ],
     CustomDestinationResponseForwardDestinationSplunkType: ["splunk_hec"],
+    CustomDestinationResponseGoogleSecurityOperationsDestinationAuthType: [
+      "gcp_private_key",
+    ],
     CustomDestinationResponseHttpDestinationAuthBasicType: ["basic"],
     CustomDestinationResponseHttpDestinationAuthCustomHeaderType: [
       "custom_header",
@@ -59,6 +75,7 @@ export const TypingInfo: ModelTypingInfo = {
       "CustomDestinationForwardDestinationSplunk",
       "CustomDestinationForwardDestinationElasticsearch",
       "CustomDestinationForwardDestinationMicrosoftSentinel",
+      "CustomDestinationForwardDestinationGoogleSecurityOperations",
     ],
     CustomDestinationHttpDestinationAuth: [
       "CustomDestinationHttpDestinationAuthBasic",
@@ -69,6 +86,7 @@ export const TypingInfo: ModelTypingInfo = {
       "CustomDestinationResponseForwardDestinationSplunk",
       "CustomDestinationResponseForwardDestinationElasticsearch",
       "CustomDestinationResponseForwardDestinationMicrosoftSentinel",
+      "CustomDestinationResponseForwardDestinationGoogleSecurityOperations",
     ],
     CustomDestinationResponseHttpDestinationAuth: [
       "CustomDestinationResponseHttpDestinationAuthBasic",
@@ -86,12 +104,16 @@ export const TypingInfo: ModelTypingInfo = {
       CustomDestinationElasticsearchDestinationAuth,
     CustomDestinationForwardDestinationElasticsearch:
       CustomDestinationForwardDestinationElasticsearch,
+    CustomDestinationForwardDestinationGoogleSecurityOperations:
+      CustomDestinationForwardDestinationGoogleSecurityOperations,
     CustomDestinationForwardDestinationHttp:
       CustomDestinationForwardDestinationHttp,
     CustomDestinationForwardDestinationMicrosoftSentinel:
       CustomDestinationForwardDestinationMicrosoftSentinel,
     CustomDestinationForwardDestinationSplunk:
       CustomDestinationForwardDestinationSplunk,
+    CustomDestinationGoogleSecurityOperationsDestinationAuth:
+      CustomDestinationGoogleSecurityOperationsDestinationAuth,
     CustomDestinationHttpDestinationAuthBasic:
       CustomDestinationHttpDestinationAuthBasic,
     CustomDestinationHttpDestinationAuthCustomHeader:
@@ -101,12 +123,16 @@ export const TypingInfo: ModelTypingInfo = {
     CustomDestinationResponseDefinition: CustomDestinationResponseDefinition,
     CustomDestinationResponseForwardDestinationElasticsearch:
       CustomDestinationResponseForwardDestinationElasticsearch,
+    CustomDestinationResponseForwardDestinationGoogleSecurityOperations:
+      CustomDestinationResponseForwardDestinationGoogleSecurityOperations,
     CustomDestinationResponseForwardDestinationHttp:
       CustomDestinationResponseForwardDestinationHttp,
     CustomDestinationResponseForwardDestinationMicrosoftSentinel:
       CustomDestinationResponseForwardDestinationMicrosoftSentinel,
     CustomDestinationResponseForwardDestinationSplunk:
       CustomDestinationResponseForwardDestinationSplunk,
+    CustomDestinationResponseGoogleSecurityOperationsDestinationAuth:
+      CustomDestinationResponseGoogleSecurityOperationsDestinationAuth,
     CustomDestinationResponseHttpDestinationAuthBasic:
       CustomDestinationResponseHttpDestinationAuthBasic,
     CustomDestinationResponseHttpDestinationAuthCustomHeader:
