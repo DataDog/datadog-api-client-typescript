@@ -27,6 +27,10 @@ import { RelationshipToRuleData } from "./RelationshipToRuleData";
 import { RelationshipToRuleDataObject } from "./RelationshipToRuleDataObject";
 import { RuleAttributes } from "./RuleAttributes";
 import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
+import { UpdateOutcomesAsyncAttributes } from "./UpdateOutcomesAsyncAttributes";
+import { UpdateOutcomesAsyncRequest } from "./UpdateOutcomesAsyncRequest";
+import { UpdateOutcomesAsyncRequestData } from "./UpdateOutcomesAsyncRequestData";
+import { UpdateOutcomesAsyncRequestItem } from "./UpdateOutcomesAsyncRequestItem";
 import { UpdateRuleRequest } from "./UpdateRuleRequest";
 import { UpdateRuleRequestData } from "./UpdateRuleRequestData";
 import { UpdateRuleResponse } from "./UpdateRuleResponse";
@@ -39,6 +43,7 @@ export const TypingInfo: ModelTypingInfo = {
     RuleType: ["rule"],
     ScorecardType: ["scorecard"],
     State: ["pass", "fail", "skip"],
+    UpdateOutcomesAsyncType: ["batched-outcome"],
   },
   oneOfMap: {},
   typeMap: {
@@ -70,6 +75,10 @@ export const TypingInfo: ModelTypingInfo = {
     RelationshipToRuleDataObject: RelationshipToRuleDataObject,
     RuleAttributes: RuleAttributes,
     RuleOutcomeRelationships: RuleOutcomeRelationships,
+    UpdateOutcomesAsyncAttributes: UpdateOutcomesAsyncAttributes,
+    UpdateOutcomesAsyncRequest: UpdateOutcomesAsyncRequest,
+    UpdateOutcomesAsyncRequestData: UpdateOutcomesAsyncRequestData,
+    UpdateOutcomesAsyncRequestItem: UpdateOutcomesAsyncRequestItem,
     UpdateRuleRequest: UpdateRuleRequest,
     UpdateRuleRequestData: UpdateRuleRequestData,
     UpdateRuleResponse: UpdateRuleResponse,

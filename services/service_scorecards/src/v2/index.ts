@@ -4,6 +4,7 @@ export {
   ServiceScorecardsApiDeleteScorecardRuleRequest,
   ServiceScorecardsApiListScorecardOutcomesRequest,
   ServiceScorecardsApiListScorecardRulesRequest,
+  ServiceScorecardsApiUpdateScorecardOutcomesAsyncRequest,
   ServiceScorecardsApiUpdateScorecardRuleRequest,
   ServiceScorecardsApi,
 } from "./ServiceScorecardsApi";
@@ -40,6 +41,11 @@ export { RuleOutcomeRelationships } from "./models/RuleOutcomeRelationships";
 export { RuleType } from "./models/RuleType";
 export { ScorecardType } from "./models/ScorecardType";
 export { State } from "./models/State";
+export { UpdateOutcomesAsyncAttributes } from "./models/UpdateOutcomesAsyncAttributes";
+export { UpdateOutcomesAsyncRequest } from "./models/UpdateOutcomesAsyncRequest";
+export { UpdateOutcomesAsyncRequestData } from "./models/UpdateOutcomesAsyncRequestData";
+export { UpdateOutcomesAsyncRequestItem } from "./models/UpdateOutcomesAsyncRequestItem";
+export { UpdateOutcomesAsyncType } from "./models/UpdateOutcomesAsyncType";
 export { UpdateRuleRequest } from "./models/UpdateRuleRequest";
 export { UpdateRuleRequestData } from "./models/UpdateRuleRequestData";
 export { UpdateRuleResponse } from "./models/UpdateRuleResponse";
