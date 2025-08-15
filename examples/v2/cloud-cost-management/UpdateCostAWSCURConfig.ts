@@ -16,7 +16,7 @@ const params: v2.CloudCostManagementApiUpdateCostAWSCURConfigRequest = {
       type: "aws_cur_config_patch_request",
     },
   },
-  cloudAccountId: "100",
+  cloudAccountId: 100,
 };
 
 apiInstance

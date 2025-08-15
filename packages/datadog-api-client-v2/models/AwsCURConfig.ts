@@ -19,7 +19,7 @@ export class AwsCURConfig {
   /**
    * The ID of the AWS CUR config.
    */
-  "id"?: number;
+  "id"?: string;
   /**
    * Type of AWS CUR config.
    */
@@ -48,8 +48,7 @@ export class AwsCURConfig {
     },
     id: {
       baseName: "id",
-      type: "number",
-      format: "int64",
+      type: "string",
     },
     type: {
       baseName: "type",

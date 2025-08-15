@@ -28,10 +28,6 @@ export class AwsCURConfigPostRequestAttributes {
    */
   "bucketRegion"?: string;
   /**
-   * Whether or not the Cloud Cost Management account is enabled.
-   */
-  "isEnabled"?: boolean;
-  /**
    * The month of the report.
    */
   "months"?: number;
@@ -77,10 +73,6 @@ export class AwsCURConfigPostRequestAttributes {
     bucketRegion: {
       baseName: "bucket_region",
       type: "string",
-    },
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
     },
     months: {
       baseName: "months",
