@@ -7555,6 +7555,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TeamResponse",
     },
+    "v2.SyncTeams": {
+        "body": {
+            "type": "TeamSyncRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
     "v2.ListMemberTeams": {
         "superTeamId": {
             "type": "string",
