@@ -40,6 +40,9 @@ import { TeamPermissionSettingsResponse } from "./TeamPermissionSettingsResponse
 import { TeamRelationships } from "./TeamRelationships";
 import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 import { TeamResponse } from "./TeamResponse";
+import { TeamSyncAttributes } from "./TeamSyncAttributes";
+import { TeamSyncData } from "./TeamSyncData";
+import { TeamSyncRequest } from "./TeamSyncRequest";
 import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
@@ -90,6 +93,9 @@ export const TypingInfo: ModelTypingInfo = {
       "user_access_manage",
       "teams_manage",
     ],
+    TeamSyncAttributesSource: ["github"],
+    TeamSyncAttributesType: ["link"],
+    TeamSyncBulkType: ["team_sync_bulk"],
     TeamType: ["team"],
     TeamsField: [
       "id",
@@ -161,6 +167,9 @@ export const TypingInfo: ModelTypingInfo = {
     TeamRelationships: TeamRelationships,
     TeamRelationshipsLinks: TeamRelationshipsLinks,
     TeamResponse: TeamResponse,
+    TeamSyncAttributes: TeamSyncAttributes,
+    TeamSyncData: TeamSyncData,
+    TeamSyncRequest: TeamSyncRequest,
     TeamUpdate: TeamUpdate,
     TeamUpdateAttributes: TeamUpdateAttributes,
     TeamUpdateRelationships: TeamUpdateRelationships,
