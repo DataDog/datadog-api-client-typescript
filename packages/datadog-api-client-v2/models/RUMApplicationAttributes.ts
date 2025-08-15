@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { RUMProductScales } from "./RUMProductScales";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -42,6 +43,10 @@ export class RUMApplicationAttributes {
    * Org ID of the RUM application.
    */
   "orgId": number;
+  /**
+   * Product Scales configuration for the RUM application.
+   */
+  "productScales"?: RUMProductScales;
   /**
    * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
    */
@@ -110,6 +115,10 @@ export class RUMApplicationAttributes {
       type: "number",
       required: true,
       format: "int32",
+    },
+    productScales: {
+      baseName: "product_scales",
+      type: "RUMProductScales",
     },
     type: {
       baseName: "type",
