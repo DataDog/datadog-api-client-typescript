@@ -48,7 +48,7 @@ export class MonitorNotificationRuleCreateRequestData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -49,7 +49,7 @@ export class AwsCURConfigPatchData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

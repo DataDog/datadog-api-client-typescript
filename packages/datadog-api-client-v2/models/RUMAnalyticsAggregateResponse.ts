@@ -56,7 +56,7 @@ export class RUMAnalyticsAggregateResponse {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -121,7 +121,7 @@ export class ApplicationSecurityWafExclusionFilterAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

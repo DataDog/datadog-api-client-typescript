@@ -37,7 +37,7 @@ export class ServiceDefinitionV2Dot1Pagerduty {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

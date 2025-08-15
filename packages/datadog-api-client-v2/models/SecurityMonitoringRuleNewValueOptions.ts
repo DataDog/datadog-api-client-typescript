@@ -51,12 +51,10 @@ export class SecurityMonitoringRuleNewValueOptions {
     forgetAfter: {
       baseName: "forgetAfter",
       type: "SecurityMonitoringRuleNewValueOptionsForgetAfter",
-      format: "int32",
     },
     learningDuration: {
       baseName: "learningDuration",
       type: "SecurityMonitoringRuleNewValueOptionsLearningDuration",
-      format: "int32",
     },
     learningMethod: {
       baseName: "learningMethod",
@@ -65,11 +63,10 @@ export class SecurityMonitoringRuleNewValueOptions {
     learningThreshold: {
       baseName: "learningThreshold",
       type: "SecurityMonitoringRuleNewValueOptionsLearningThreshold",
-      format: "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -65,7 +65,7 @@ export class CIAppResponseMetadata {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

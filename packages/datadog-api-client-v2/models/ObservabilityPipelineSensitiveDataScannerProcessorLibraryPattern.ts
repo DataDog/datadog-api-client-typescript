@@ -49,7 +49,7 @@ export class ObservabilityPipelineSensitiveDataScannerProcessorLibraryPattern {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

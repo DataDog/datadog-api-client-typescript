@@ -71,7 +71,7 @@ export class TeamPermissionSettingAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

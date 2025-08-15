@@ -116,7 +116,7 @@ export class SyntheticsGlobalVariable {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

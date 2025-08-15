@@ -50,7 +50,6 @@ export class IncidentSearchResponseUserFacetData {
     count: {
       baseName: "count",
       type: "number",
-      format: "int32",
     },
     email: {
       baseName: "email",
@@ -70,7 +69,7 @@ export class IncidentSearchResponseUserFacetData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -47,7 +47,7 @@ export class CloudConfigurationRuleCaseCreate {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -67,11 +67,10 @@ export class RumRetentionFilterUpdateAttributes {
     sampleRate: {
       baseName: "sample_rate",
       type: "number",
-      format: "int64",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

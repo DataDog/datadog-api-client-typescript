@@ -38,7 +38,7 @@ export class LayerRelationshipsMembers {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

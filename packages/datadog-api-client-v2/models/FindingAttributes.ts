@@ -99,7 +99,6 @@ export class FindingAttributes {
     evaluationChangedAt: {
       baseName: "evaluation_changed_at",
       type: "number",
-      format: "int64",
     },
     externalId: {
       baseName: "external_id",
@@ -116,7 +115,6 @@ export class FindingAttributes {
     resourceDiscoveryDate: {
       baseName: "resource_discovery_date",
       type: "number",
-      format: "int64",
     },
     resourceType: {
       baseName: "resource_type",
@@ -140,7 +138,7 @@ export class FindingAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

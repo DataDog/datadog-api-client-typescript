@@ -100,7 +100,6 @@ export class SLOHistorySLIData {
     history: {
       baseName: "history",
       type: "Array<[number, number]>",
-      format: "double",
     },
     monitorModified: {
       baseName: "monitor_modified",
@@ -140,7 +139,7 @@ export class SLOHistorySLIData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

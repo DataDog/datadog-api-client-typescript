@@ -54,7 +54,7 @@ export class SyntheticsPatchTestOperation {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

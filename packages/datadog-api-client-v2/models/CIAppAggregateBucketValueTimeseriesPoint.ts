@@ -47,7 +47,7 @@ export class CIAppAggregateBucketValueTimeseriesPoint {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

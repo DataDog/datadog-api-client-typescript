@@ -90,7 +90,7 @@ export class UsageFargateHour {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

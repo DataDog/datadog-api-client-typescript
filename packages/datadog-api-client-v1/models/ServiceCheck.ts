@@ -70,7 +70,6 @@ export class ServiceCheck {
       baseName: "status",
       type: "ServiceCheckStatus",
       required: true,
-      format: "int32",
     },
     tags: {
       baseName: "tags",
@@ -84,7 +83,7 @@ export class ServiceCheck {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

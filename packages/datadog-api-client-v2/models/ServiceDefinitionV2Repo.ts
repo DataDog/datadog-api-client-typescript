@@ -55,7 +55,7 @@ export class ServiceDefinitionV2Repo {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

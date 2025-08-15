@@ -110,7 +110,6 @@ export class ServiceLevelObjectiveRequest {
     monitorIds: {
       baseName: "monitor_ids",
       type: "Array<number>",
-      format: "int64",
     },
     name: {
       baseName: "name",
@@ -155,7 +154,7 @@ export class ServiceLevelObjectiveRequest {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

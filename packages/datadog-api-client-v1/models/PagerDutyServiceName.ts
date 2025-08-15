@@ -38,7 +38,7 @@ export class PagerDutyServiceName {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

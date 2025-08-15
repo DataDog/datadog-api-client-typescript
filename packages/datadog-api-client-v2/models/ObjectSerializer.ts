@@ -865,7 +865,6 @@ import { IPAllowlistEntryAttributes } from "./IPAllowlistEntryAttributes";
 import { IPAllowlistEntryData } from "./IPAllowlistEntryData";
 import { IPAllowlistResponse } from "./IPAllowlistResponse";
 import { IPAllowlistUpdateRequest } from "./IPAllowlistUpdateRequest";
-import { IdPMetadataFormData } from "./IdPMetadataFormData";
 import { IncidentAttachmentData } from "./IncidentAttachmentData";
 import { IncidentAttachmentLinkAttributes } from "./IncidentAttachmentLinkAttributes";
 import { IncidentAttachmentLinkAttributesAttachmentObject } from "./IncidentAttachmentLinkAttributesAttachmentObject";
@@ -1239,6 +1238,7 @@ import { NotebookTriggerWrapper } from "./NotebookTriggerWrapper";
 import { NotificationRule } from "./NotificationRule";
 import { NotificationRuleAttributes } from "./NotificationRuleAttributes";
 import { NotificationRuleResponse } from "./NotificationRuleResponse";
+import { NotificationRulesList } from "./NotificationRulesList";
 import { NotionAPIKey } from "./NotionAPIKey";
 import { NotionAPIKeyUpdate } from "./NotionAPIKeyUpdate";
 import { NotionIntegration } from "./NotionIntegration";
@@ -1375,7 +1375,6 @@ import { OpenAIAPIKeyUpdate } from "./OpenAIAPIKeyUpdate";
 import { OpenAIIntegration } from "./OpenAIIntegration";
 import { OpenAIIntegrationUpdate } from "./OpenAIIntegrationUpdate";
 import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
-import { OpenAPIFile } from "./OpenAPIFile";
 import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
 import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
 import { OpsgenieServiceCreateRequest } from "./OpsgenieServiceCreateRequest";
@@ -4501,7 +4500,6 @@ const typeMap: { [index: string]: any } = {
   IPAllowlistEntryData: IPAllowlistEntryData,
   IPAllowlistResponse: IPAllowlistResponse,
   IPAllowlistUpdateRequest: IPAllowlistUpdateRequest,
-  IdPMetadataFormData: IdPMetadataFormData,
   IncidentAttachmentData: IncidentAttachmentData,
   IncidentAttachmentLinkAttributes: IncidentAttachmentLinkAttributes,
   IncidentAttachmentLinkAttributesAttachmentObject:
@@ -4927,6 +4925,7 @@ const typeMap: { [index: string]: any } = {
   NotificationRule: NotificationRule,
   NotificationRuleAttributes: NotificationRuleAttributes,
   NotificationRuleResponse: NotificationRuleResponse,
+  NotificationRulesList: NotificationRulesList,
   NotionAPIKey: NotionAPIKey,
   NotionAPIKeyUpdate: NotionAPIKeyUpdate,
   NotionIntegration: NotionIntegration,
@@ -5138,7 +5137,6 @@ const typeMap: { [index: string]: any } = {
   OpenAIIntegration: OpenAIIntegration,
   OpenAIIntegrationUpdate: OpenAIIntegrationUpdate,
   OpenAPIEndpoint: OpenAPIEndpoint,
-  OpenAPIFile: OpenAPIFile,
   OpsgenieServiceCreateAttributes: OpsgenieServiceCreateAttributes,
   OpsgenieServiceCreateData: OpsgenieServiceCreateData,
   OpsgenieServiceCreateRequest: OpsgenieServiceCreateRequest,
@@ -6565,12 +6563,13 @@ export class ObjectSerializer {
       if (data.additionalProperties) {
         const additionalPropertiesMap = attributesMap["additionalProperties"];
         if (additionalPropertiesMap) {
-          for (const key in data.additionalProperties) {
-            instance[key] = ObjectSerializer.serialize(
-              data.additionalProperties[key],
-              additionalPropertiesMap.type,
-              additionalPropertiesMap.format
-            );
+          const additionalProperties = ObjectSerializer.serialize(
+            data.additionalProperties,
+            additionalPropertiesMap.type,
+            additionalPropertiesMap.format
+          );
+          for (const key in additionalProperties) {
+            instance[key] = additionalProperties[key];
           }
         } else {
           throw new Error(`additionalProperties found in ${type}`);
@@ -6698,15 +6697,17 @@ export class ObjectSerializer {
             instance.additionalProperties = {};
           }
 
-          const attributeObj = attributesMap["additionalProperties"];
-          for (const key in extraAttributes) {
-            instance.additionalProperties[extraAttributes[key]] =
-              ObjectSerializer.deserialize(
-                data[extraAttributes[key]],
-                attributeObj.type,
-                attributeObj.format
-              );
+          const additionalProperties: { [key: string]: any } = {};
+          for (const key of extraAttributes) {
+            additionalProperties[key] = data[key];
           }
+
+          const attributeObj = attributesMap["additionalProperties"];
+          instance.additionalProperties = ObjectSerializer.deserialize(
+            additionalProperties,
+            attributeObj.type,
+            attributeObj.format
+          );
         } else {
           throw new Error(
             `found extra attributes '${extraAttributes}' in ${type}`

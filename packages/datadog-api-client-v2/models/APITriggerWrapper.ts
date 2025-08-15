@@ -47,7 +47,7 @@ export class APITriggerWrapper {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -200,7 +200,7 @@ export class CIAppPipelineEventInProgressPipeline {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

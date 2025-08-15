@@ -39,7 +39,7 @@ export class MSTeamsIntegrationMetadata {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

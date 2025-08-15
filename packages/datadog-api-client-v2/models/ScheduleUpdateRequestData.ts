@@ -67,7 +67,7 @@ export class ScheduleUpdateRequestData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

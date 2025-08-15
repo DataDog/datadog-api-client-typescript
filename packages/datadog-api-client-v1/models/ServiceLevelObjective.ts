@@ -160,7 +160,6 @@ export class ServiceLevelObjective {
     monitorIds: {
       baseName: "monitor_ids",
       type: "Array<number>",
-      format: "int64",
     },
     monitorTags: {
       baseName: "monitor_tags",
@@ -209,7 +208,7 @@ export class ServiceLevelObjective {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -143,7 +143,7 @@ export class SyntheticsTestDetails {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

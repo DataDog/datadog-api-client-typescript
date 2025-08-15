@@ -88,7 +88,7 @@ export class RetentionFilterCreateAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

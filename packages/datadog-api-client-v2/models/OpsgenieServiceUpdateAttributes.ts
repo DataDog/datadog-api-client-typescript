@@ -62,7 +62,7 @@ export class OpsgenieServiceUpdateAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

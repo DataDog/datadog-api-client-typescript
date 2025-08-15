@@ -7,9 +7,6 @@ import { Unit } from "./Unit";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
-
-*/
 export class TimeseriesResponseSeries {
   /**
    * List of tags that apply to a single response value.
@@ -58,7 +55,7 @@ export class TimeseriesResponseSeries {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

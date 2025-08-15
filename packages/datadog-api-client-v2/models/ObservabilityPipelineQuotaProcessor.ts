@@ -131,7 +131,7 @@ export class ObservabilityPipelineQuotaProcessor {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -56,7 +56,7 @@ export class ServiceDefinitionV2Email {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

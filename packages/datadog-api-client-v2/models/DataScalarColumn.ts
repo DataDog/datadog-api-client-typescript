@@ -60,11 +60,10 @@ export class DataScalarColumn {
     values: {
       baseName: "values",
       type: "Array<number>",
-      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

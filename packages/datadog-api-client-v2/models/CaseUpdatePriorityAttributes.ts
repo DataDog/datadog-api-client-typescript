@@ -39,7 +39,7 @@ export class CaseUpdatePriorityAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

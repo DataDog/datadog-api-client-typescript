@@ -12,7 +12,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CsmAgentsResponse } from "../models/CsmAgentsResponse";
 import { OrderDirection } from "../models/OrderDirection";

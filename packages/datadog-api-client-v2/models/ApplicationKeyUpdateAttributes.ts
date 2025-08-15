@@ -45,7 +45,7 @@ export class ApplicationKeyUpdateAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

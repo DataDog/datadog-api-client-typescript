@@ -92,7 +92,6 @@ export class SecurityMonitoringSignalTriageAttributes {
       baseName: "incident_ids",
       type: "Array<number>",
       required: true,
-      format: "int64",
     },
     state: {
       baseName: "state",
@@ -110,7 +109,7 @@ export class SecurityMonitoringSignalTriageAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

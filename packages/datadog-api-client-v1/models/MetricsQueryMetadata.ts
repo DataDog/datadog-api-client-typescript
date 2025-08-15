@@ -117,7 +117,6 @@ export class MetricsQueryMetadata {
     pointlist: {
       baseName: "pointlist",
       type: "Array<[number, number]>",
-      format: "double",
     },
     queryIndex: {
       baseName: "query_index",
@@ -143,7 +142,7 @@ export class MetricsQueryMetadata {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

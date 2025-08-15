@@ -3,19 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-
-import { HttpFile } from "../../datadog-api-client-common/http/http";
+import { NotificationRule } from "./NotificationRule";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
-/**
- * The form data submitted to upload IdP metadata
- */
-export class IdPMetadataFormData {
-  /**
-   * The IdP metadata XML file
-   */
-  "idpFile"?: HttpFile;
+export class NotificationRulesList {
+  "data"?: Array<NotificationRule>;
 
   /**
    * A container for additional, undeclared properties.
@@ -33,14 +26,13 @@ export class IdPMetadataFormData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    idpFile: {
-      baseName: "idp_file",
-      type: "HttpFile",
-      format: "binary",
+    data: {
+      baseName: "data",
+      type: "Array<NotificationRule>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 
@@ -48,7 +40,7 @@ export class IdPMetadataFormData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IdPMetadataFormData.attributeTypeMap;
+    return NotificationRulesList.attributeTypeMap;
   }
 
   public constructor() {}

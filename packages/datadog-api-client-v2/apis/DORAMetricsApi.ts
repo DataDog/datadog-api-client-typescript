@@ -15,7 +15,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { DORADeploymentRequest } from "../models/DORADeploymentRequest";
 import { DORADeploymentResponse } from "../models/DORADeploymentResponse";

@@ -510,7 +510,6 @@ export { HourlyUsageAttributionResponse } from "./models/HourlyUsageAttributionR
 export { HourlyUsageAttributionUsageType } from "./models/HourlyUsageAttributionUsageType";
 export { HTTPLogError } from "./models/HTTPLogError";
 export { HTTPLogItem } from "./models/HTTPLogItem";
-export { IdpFormData } from "./models/IdpFormData";
 export { IdpResponse } from "./models/IdpResponse";
 export { IFrameWidgetDefinition } from "./models/IFrameWidgetDefinition";
 export { IFrameWidgetDefinitionType } from "./models/IFrameWidgetDefinitionType";

@@ -48,7 +48,7 @@ export class SplitIntegrationUpdate {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

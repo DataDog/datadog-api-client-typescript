@@ -56,7 +56,7 @@ export class CasesResponseMetaPagination {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -85,7 +85,7 @@ export class SyntheticsSSLCertificateSubject {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

@@ -37,7 +37,7 @@ export class LogsMetricFilter {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

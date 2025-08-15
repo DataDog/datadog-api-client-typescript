@@ -114,7 +114,6 @@ export class ChangeEventAttributes {
     timestamp: {
       baseName: "timestamp",
       type: "number",
-      format: "int64",
     },
     title: {
       baseName: "title",
@@ -122,7 +121,7 @@ export class ChangeEventAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

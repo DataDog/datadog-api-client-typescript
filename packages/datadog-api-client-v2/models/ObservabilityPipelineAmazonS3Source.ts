@@ -77,7 +77,7 @@ export class ObservabilityPipelineAmazonS3Source {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

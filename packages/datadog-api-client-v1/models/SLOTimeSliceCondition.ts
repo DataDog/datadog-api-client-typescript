@@ -62,7 +62,6 @@ export class SLOTimeSliceCondition {
     queryIntervalSeconds: {
       baseName: "query_interval_seconds",
       type: "SLOTimeSliceInterval",
-      format: "int32",
     },
     threshold: {
       baseName: "threshold",
@@ -72,7 +71,7 @@ export class SLOTimeSliceCondition {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

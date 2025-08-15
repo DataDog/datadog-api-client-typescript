@@ -102,7 +102,6 @@ export class MetricSeries {
     type: {
       baseName: "type",
       type: "MetricIntakeType",
-      format: "int32",
     },
     unit: {
       baseName: "unit",
@@ -110,7 +109,7 @@ export class MetricSeries {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

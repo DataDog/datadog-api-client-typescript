@@ -46,7 +46,7 @@ export class SelfServiceTriggerWrapper {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

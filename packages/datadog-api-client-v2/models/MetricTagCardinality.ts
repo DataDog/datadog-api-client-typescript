@@ -54,7 +54,7 @@ export class MetricTagCardinality {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

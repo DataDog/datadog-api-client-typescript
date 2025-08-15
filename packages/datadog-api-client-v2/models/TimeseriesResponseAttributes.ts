@@ -47,16 +47,14 @@ export class TimeseriesResponseAttributes {
     times: {
       baseName: "times",
       type: "Array<number>",
-      format: "int64",
     },
     values: {
       baseName: "values",
       type: "Array<Array<number>>",
-      format: "double",
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

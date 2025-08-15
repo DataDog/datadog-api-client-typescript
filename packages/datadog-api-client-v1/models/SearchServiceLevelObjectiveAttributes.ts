@@ -144,7 +144,6 @@ export class SearchServiceLevelObjectiveAttributes {
     monitorIds: {
       baseName: "monitor_ids",
       type: "Array<number>",
-      format: "int64",
     },
     name: {
       baseName: "name",
@@ -180,7 +179,7 @@ export class SearchServiceLevelObjectiveAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

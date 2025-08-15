@@ -55,7 +55,7 @@ export class MicrosoftTeamsChannelInfoResponseData {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 

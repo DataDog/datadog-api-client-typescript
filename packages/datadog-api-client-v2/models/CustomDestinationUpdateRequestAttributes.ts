@@ -92,7 +92,7 @@ export class CustomDestinationUpdateRequestAttributes {
     },
     additionalProperties: {
       baseName: "additionalProperties",
-      type: "any",
+      type: "{ [key: string]: any; }",
     },
   };
 
