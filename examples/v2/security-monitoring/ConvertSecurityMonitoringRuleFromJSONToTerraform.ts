@@ -10,7 +10,7 @@ const apiInstance = new v2.SecurityMonitoringApi(configuration);
 const params: v2.SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest =
   {
     body: {
-      name: "Example-Security-Monitoring",
+      name: "_49768568946de993",
       queries: [
         {
           query: "@test:true",
