@@ -3,22 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AzureUCConfig } from "./AzureUCConfig";
+import { TeamSyncAttributes } from "./TeamSyncAttributes";
+import { TeamSyncBulkType } from "./TeamSyncBulkType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for Azure config pair.
+ * Team sync data.
  */
-export class AzureUCConfigPairAttributes {
+export class TeamSyncData {
   /**
-   * An Azure config.
+   * Team sync attributes.
    */
-  "configs": Array<AzureUCConfig>;
+  "attributes": TeamSyncAttributes;
   /**
-   * The ID of the Azure config pair.
+   * Team sync bulk type.
    */
-  "id"?: string;
+  "type": TeamSyncBulkType;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +37,15 @@ export class AzureUCConfigPairAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    configs: {
-      baseName: "configs",
-      type: "Array<AzureUCConfig>",
+    attributes: {
+      baseName: "attributes",
+      type: "TeamSyncAttributes",
       required: true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "TeamSyncBulkType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +57,7 @@ export class AzureUCConfigPairAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AzureUCConfigPairAttributes.attributeTypeMap;
+    return TeamSyncData.attributeTypeMap;
   }
 
   public constructor() {}

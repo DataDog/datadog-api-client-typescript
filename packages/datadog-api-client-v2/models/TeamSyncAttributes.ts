@@ -3,22 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AzureUCConfig } from "./AzureUCConfig";
+import { TeamSyncAttributesSource } from "./TeamSyncAttributesSource";
+import { TeamSyncAttributesType } from "./TeamSyncAttributesType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes for Azure config pair.
+ * Team sync attributes.
  */
-export class AzureUCConfigPairAttributes {
+export class TeamSyncAttributes {
   /**
-   * An Azure config.
+   * The external source platform for team synchronization. Only "github" is supported.
    */
-  "configs": Array<AzureUCConfig>;
+  "source": TeamSyncAttributesSource;
   /**
-   * The ID of the Azure config pair.
+   * The type of synchronization operation. Only "link" is supported, which links existing teams by matching names.
    */
-  "id"?: string;
+  "type": TeamSyncAttributesType;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +37,15 @@ export class AzureUCConfigPairAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    configs: {
-      baseName: "configs",
-      type: "Array<AzureUCConfig>",
+    source: {
+      baseName: "source",
+      type: "TeamSyncAttributesSource",
       required: true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "TeamSyncAttributesType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +57,7 @@ export class AzureUCConfigPairAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AzureUCConfigPairAttributes.attributeTypeMap;
+    return TeamSyncAttributes.attributeTypeMap;
   }
 
   public constructor() {}

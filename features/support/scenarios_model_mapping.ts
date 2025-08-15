@@ -4182,15 +4182,15 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v2.DeleteCostAWSCURConfig": {
         "cloudAccountId": {
-            "type": "string",
-            "format": "",
+            "type": "number",
+            "format": "int64",
             },
         "operationResponseType": "void",
     },
     "v2.UpdateCostAWSCURConfig": {
         "cloudAccountId": {
-            "type": "string",
-            "format": "",
+            "type": "number",
+            "format": "int64",
             },
         "body": {
             "type": "AwsCURConfigPatchRequest",
@@ -4210,15 +4210,15 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v2.DeleteCostAzureUCConfig": {
         "cloudAccountId": {
-            "type": "string",
-            "format": "",
+            "type": "number",
+            "format": "int64",
             },
         "operationResponseType": "void",
     },
     "v2.UpdateCostAzureUCConfigs": {
         "cloudAccountId": {
-            "type": "string",
-            "format": "",
+            "type": "number",
+            "format": "int64",
             },
         "body": {
             "type": "AzureUCConfigPatchRequest",
@@ -4251,6 +4251,22 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "BudgetArray",
     },
     "v2.ListCustomCostsFiles": {
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filterStatus": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "CustomCostsFileListResponse",
     },
     "v2.UploadCustomCostsFile": {
@@ -4286,15 +4302,15 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v2.DeleteCostGCPUsageCostConfig": {
         "cloudAccountId": {
-            "type": "string",
-            "format": "",
+            "type": "number",
+            "format": "int64",
             },
         "operationResponseType": "void",
     },
     "v2.UpdateCostGCPUsageCostConfig": {
         "cloudAccountId": {
-            "type": "string",
-            "format": "",
+            "type": "number",
+            "format": "int64",
             },
         "body": {
             "type": "GCPUsageCostConfigPatchRequest",
@@ -7538,6 +7554,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "TeamResponse",
+    },
+    "v2.SyncTeams": {
+        "body": {
+            "type": "TeamSyncRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.ListMemberTeams": {
         "superTeamId": {
