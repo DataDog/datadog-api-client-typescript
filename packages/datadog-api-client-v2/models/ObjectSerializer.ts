@@ -2015,6 +2015,10 @@ import { UpdateCustomFrameworkResponse } from "./UpdateCustomFrameworkResponse";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
 import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
+import { UpdateOutcomesAsyncAttributes } from "./UpdateOutcomesAsyncAttributes";
+import { UpdateOutcomesAsyncRequest } from "./UpdateOutcomesAsyncRequest";
+import { UpdateOutcomesAsyncRequestData } from "./UpdateOutcomesAsyncRequestData";
+import { UpdateOutcomesAsyncRequestItem } from "./UpdateOutcomesAsyncRequestItem";
 import { UpdateResourceEvaluationFiltersRequest } from "./UpdateResourceEvaluationFiltersRequest";
 import { UpdateResourceEvaluationFiltersRequestData } from "./UpdateResourceEvaluationFiltersRequestData";
 import { UpdateResourceEvaluationFiltersResponse } from "./UpdateResourceEvaluationFiltersResponse";
@@ -3390,6 +3394,7 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesFormulaResponseType: ["timeseries_response"],
   TokenType: ["SECRET"],
   TriggerSource: ["security_findings", "security_signals"],
+  UpdateOutcomesAsyncType: ["batched-outcome"],
   Urgency: ["low", "high", "dynamic"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserAttributesStatus: ["active", "deactivated", "pending"],
@@ -5859,6 +5864,10 @@ const typeMap: { [index: string]: any } = {
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
   UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
   UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
+  UpdateOutcomesAsyncAttributes: UpdateOutcomesAsyncAttributes,
+  UpdateOutcomesAsyncRequest: UpdateOutcomesAsyncRequest,
+  UpdateOutcomesAsyncRequestData: UpdateOutcomesAsyncRequestData,
+  UpdateOutcomesAsyncRequestItem: UpdateOutcomesAsyncRequestItem,
   UpdateResourceEvaluationFiltersRequest:
     UpdateResourceEvaluationFiltersRequest,
   UpdateResourceEvaluationFiltersRequestData:
