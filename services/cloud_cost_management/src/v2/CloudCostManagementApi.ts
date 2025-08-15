@@ -1860,7 +1860,11 @@ export class CloudCostManagementApiResponseProcessor {
       ) as AwsCURConfigsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
       const bodyText = parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
@@ -1919,6 +1923,7 @@ export class CloudCostManagementApiResponseProcessor {
     if (
       response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
       response.httpStatusCode === 429
     ) {
       const bodyText = parse(await response.body.text(), contentType);
