@@ -1,5 +1,8 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { RUMEventProcessingState } from "./RUMEventProcessingState";
+import { RUMProductAnalyticsRetentionState } from "./RUMProductAnalyticsRetentionState";
+
 /**
  * RUM application creation attributes.
  */
@@ -8,6 +11,14 @@ export class RUMApplicationCreateAttributes {
    * Name of the RUM application.
    */
   "name": string;
+  /**
+   * Configures which RUM events are processed and stored for the application.
+   */
+  "rumEventProcessingState"?: RUMEventProcessingState;
+  /**
+   * Controls the retention policy for product analytics data derived from RUM events.
+   */
+  "rumProductAnalyticsRetentionState"?: RUMProductAnalyticsRetentionState;
   /**
    * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
    */
@@ -31,6 +42,14 @@ export class RUMApplicationCreateAttributes {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    rumEventProcessingState: {
+      baseName: "rum_event_processing_state",
+      type: "RUMEventProcessingState",
+    },
+    rumProductAnalyticsRetentionState: {
+      baseName: "rum_product_analytics_retention_state",
+      type: "RUMProductAnalyticsRetentionState",
     },
     type: {
       baseName: "type",
