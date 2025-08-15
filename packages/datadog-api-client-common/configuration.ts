@@ -310,6 +310,7 @@ export function createConfiguration(
       "v2.addMemberTeam": false,
       "v2.listMemberTeams": false,
       "v2.removeMemberTeam": false,
+      "v2.syncTeams": false,
       "v2.createIncidentTeam": false,
       "v2.deleteIncidentTeam": false,
       "v2.getIncidentTeam": false,
