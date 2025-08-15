@@ -12,7 +12,9 @@ import { DatasetUpdateRequest } from "./DatasetUpdateRequest";
 import { FiltersPerProduct } from "./FiltersPerProduct";
 
 export const TypingInfo: ModelTypingInfo = {
-  enumsMap: {},
+  enumsMap: {
+    DatasetType: ["dataset"],
+  },
   oneOfMap: {},
   typeMap: {
     APIErrorResponse: APIErrorResponse,
