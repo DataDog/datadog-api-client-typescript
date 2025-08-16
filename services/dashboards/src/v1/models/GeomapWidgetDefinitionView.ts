@@ -5,9 +5,13 @@ import { AttributeTypeMap } from "@datadog/datadog-api-client";
  */
 export class GeomapWidgetDefinitionView {
   /**
-   * The 2-letter ISO code of a country to focus the map on. Or `WORLD`.
+   * A custom extent of the map defined by an array of four numbers in the order `[minLongitude, minLatitude, maxLongitude, maxLatitude]`. Mutually exclusive with `focus`.
    */
-  "focus": string;
+  "customExtent"?: [number, number, number, number];
+  /**
+   * The 2-letter ISO code of a country to focus the map on. Or `WORLD`. Mutually exclusive with `custom_extent`.
+   */
+  "focus"?: string;
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -23,10 +27,14 @@ export class GeomapWidgetDefinitionView {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    customExtent: {
+      baseName: "custom_extent",
+      type: "[number, number, number, number]",
+      format: "double",
+    },
     focus: {
       baseName: "focus",
       type: "string",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
