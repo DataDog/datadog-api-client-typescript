@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { DatasetAttributesResponse } from "./DatasetAttributesResponse";
+import { DatasetType } from "./DatasetType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -30,9 +31,9 @@ export class DatasetResponse {
    */
   "id"?: string;
   /**
-   * Resource type, always "dataset".
+   * Resource type, always set to `dataset`.
    */
-  "type"?: string;
+  "type"?: DatasetType;
 
   /**
    * A container for additional, undeclared properties.
@@ -60,7 +61,7 @@ export class DatasetResponse {
     },
     type: {
       baseName: "type",
-      type: "string",
+      type: "DatasetType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
