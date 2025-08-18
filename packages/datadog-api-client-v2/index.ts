@@ -1514,6 +1514,7 @@ export { DatasetRequest } from "./models/DatasetRequest";
 export { DatasetResponse } from "./models/DatasetResponse";
 export { DatasetResponseMulti } from "./models/DatasetResponseMulti";
 export { DatasetResponseSingle } from "./models/DatasetResponseSingle";
+export { DatasetType } from "./models/DatasetType";
 export { DatasetUpdateRequest } from "./models/DatasetUpdateRequest";
 export { DataTransform } from "./models/DataTransform";
 export { DataTransformProperties } from "./models/DataTransformProperties";

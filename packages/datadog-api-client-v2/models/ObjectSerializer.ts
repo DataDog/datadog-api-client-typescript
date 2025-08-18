@@ -2484,6 +2484,7 @@ const enumsMap: { [key: string]: any[] } = {
   DataTransformType: ["dataTransform"],
   DatadogAPIKeyType: ["DatadogAPIKey"],
   DatadogIntegrationType: ["Datadog"],
+  DatasetType: ["dataset"],
   DetailedFindingType: ["detailed_finding"],
   DnsMetricKey: [
     "dns_total_requests",
