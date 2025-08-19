@@ -4,30 +4,21 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { RUMEventProcessingState } from "./RUMEventProcessingState";
-import { RUMProductAnalyticsRetentionState } from "./RUMProductAnalyticsRetentionState";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * RUM application creation attributes.
+ * RUM event processing scale configuration.
  */
-export class RUMApplicationCreateAttributes {
+export class RUMEventProcessingScale {
   /**
-   * Name of the RUM application.
+   * Timestamp in milliseconds when this scale was last modified.
    */
-  "name": string;
-  /**
-   * Controls the retention policy for Product Analytics data derived from RUM events.
-   */
-  "productAnalyticsRetentionState"?: RUMProductAnalyticsRetentionState;
+  "lastModifiedAt"?: number;
   /**
    * Configures which RUM events are processed and stored for the application.
    */
-  "rumEventProcessingState"?: RUMEventProcessingState;
-  /**
-   * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
-   */
-  "type"?: string;
+  "state"?: RUMEventProcessingState;
 
   /**
    * A container for additional, undeclared properties.
@@ -45,22 +36,14 @@ export class RUMApplicationCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    lastModifiedAt: {
+      baseName: "last_modified_at",
+      type: "number",
+      format: "int64",
     },
-    productAnalyticsRetentionState: {
-      baseName: "product_analytics_retention_state",
-      type: "RUMProductAnalyticsRetentionState",
-    },
-    rumEventProcessingState: {
-      baseName: "rum_event_processing_state",
+    state: {
+      baseName: "state",
       type: "RUMEventProcessingState",
-    },
-    type: {
-      baseName: "type",
-      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -72,7 +55,7 @@ export class RUMApplicationCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMApplicationCreateAttributes.attributeTypeMap;
+    return RUMEventProcessingScale.attributeTypeMap;
   }
 
   public constructor() {}
