@@ -1,5 +1,7 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { RUMProductScales } from "./RUMProductScales";
+
 /**
  * RUM application list attributes.
  */
@@ -32,6 +34,10 @@ export class RUMApplicationListAttributes {
    * Org ID of the RUM application.
    */
   "orgId": number;
+  /**
+   * Product Scales configuration for the RUM application.
+   */
+  "productScales"?: RUMProductScales;
   /**
    * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
    */
@@ -93,6 +99,10 @@ export class RUMApplicationListAttributes {
       type: "number",
       required: true,
       format: "int32",
+    },
+    productScales: {
+      baseName: "product_scales",
+      type: "RUMProductScales",
     },
     type: {
       baseName: "type",
