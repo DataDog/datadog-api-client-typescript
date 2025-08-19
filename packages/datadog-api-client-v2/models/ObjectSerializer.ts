@@ -1478,9 +1478,12 @@ import { RUMBucketResponse } from "./RUMBucketResponse";
 import { RUMCompute } from "./RUMCompute";
 import { RUMEvent } from "./RUMEvent";
 import { RUMEventAttributes } from "./RUMEventAttributes";
+import { RUMEventProcessingScale } from "./RUMEventProcessingScale";
 import { RUMEventsResponse } from "./RUMEventsResponse";
 import { RUMGroupBy } from "./RUMGroupBy";
 import { RUMGroupByHistogram } from "./RUMGroupByHistogram";
+import { RUMProductAnalyticsRetentionScale } from "./RUMProductAnalyticsRetentionScale";
+import { RUMProductScales } from "./RUMProductScales";
 import { RUMQueryFilter } from "./RUMQueryFilter";
 import { RUMQueryOptions } from "./RUMQueryOptions";
 import { RUMQueryPageOptions } from "./RUMQueryPageOptions";
@@ -3037,7 +3040,9 @@ const enumsMap: { [key: string]: any[] } = {
   RUMApplicationType: ["rum_application"],
   RUMApplicationUpdateType: ["rum_application_update"],
   RUMComputeType: ["timeseries", "total"],
+  RUMEventProcessingState: ["ALL", "ERROR_FOCUSED_MODE", "NONE"],
   RUMEventType: ["rum"],
+  RUMProductAnalyticsRetentionState: ["MAX", "NONE"],
   RUMResponseStatus: ["done", "timeout"],
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
@@ -5251,9 +5256,12 @@ const typeMap: { [index: string]: any } = {
   RUMCompute: RUMCompute,
   RUMEvent: RUMEvent,
   RUMEventAttributes: RUMEventAttributes,
+  RUMEventProcessingScale: RUMEventProcessingScale,
   RUMEventsResponse: RUMEventsResponse,
   RUMGroupBy: RUMGroupBy,
   RUMGroupByHistogram: RUMGroupByHistogram,
+  RUMProductAnalyticsRetentionScale: RUMProductAnalyticsRetentionScale,
+  RUMProductScales: RUMProductScales,
   RUMQueryFilter: RUMQueryFilter,
   RUMQueryOptions: RUMQueryOptions,
   RUMQueryPageOptions: RUMQueryPageOptions,

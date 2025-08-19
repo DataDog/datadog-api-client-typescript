@@ -3,6 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { RUMEventProcessingState } from "./RUMEventProcessingState";
+import { RUMProductAnalyticsRetentionState } from "./RUMProductAnalyticsRetentionState";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,6 +16,14 @@ export class RUMApplicationUpdateAttributes {
    * Name of the RUM application.
    */
   "name"?: string;
+  /**
+   * Controls the retention policy for Product Analytics data derived from RUM events.
+   */
+  "productAnalyticsRetentionState"?: RUMProductAnalyticsRetentionState;
+  /**
+   * Configures which RUM events are processed and stored for the application.
+   */
+  "rumEventProcessingState"?: RUMEventProcessingState;
   /**
    * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
    */
@@ -38,6 +48,14 @@ export class RUMApplicationUpdateAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    productAnalyticsRetentionState: {
+      baseName: "product_analytics_retention_state",
+      type: "RUMProductAnalyticsRetentionState",
+    },
+    rumEventProcessingState: {
+      baseName: "rum_event_processing_state",
+      type: "RUMEventProcessingState",
     },
     type: {
       baseName: "type",
