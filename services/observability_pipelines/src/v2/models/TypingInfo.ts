@@ -27,6 +27,7 @@ import { ObservabilityPipelineDatadogAgentSource } from "./ObservabilityPipeline
 import { ObservabilityPipelineDatadogLogsDestination } from "./ObservabilityPipelineDatadogLogsDestination";
 import { ObservabilityPipelineDatadogTagsProcessor } from "./ObservabilityPipelineDatadogTagsProcessor";
 import { ObservabilityPipelineDedupeProcessor } from "./ObservabilityPipelineDedupeProcessor";
+import { ObservabilityPipelineDiskBufferOptions } from "./ObservabilityPipelineDiskBufferOptions";
 import { ObservabilityPipelineElasticsearchDestination } from "./ObservabilityPipelineElasticsearchDestination";
 import { ObservabilityPipelineEnrichmentTableFile } from "./ObservabilityPipelineEnrichmentTableFile";
 import { ObservabilityPipelineEnrichmentTableFileEncoding } from "./ObservabilityPipelineEnrichmentTableFileEncoding";
@@ -52,6 +53,8 @@ import { ObservabilityPipelineKafkaSource } from "./ObservabilityPipelineKafkaSo
 import { ObservabilityPipelineKafkaSourceLibrdkafkaOption } from "./ObservabilityPipelineKafkaSourceLibrdkafkaOption";
 import { ObservabilityPipelineKafkaSourceSasl } from "./ObservabilityPipelineKafkaSourceSasl";
 import { ObservabilityPipelineLogstashSource } from "./ObservabilityPipelineLogstashSource";
+import { ObservabilityPipelineMemoryBufferOptions } from "./ObservabilityPipelineMemoryBufferOptions";
+import { ObservabilityPipelineMemoryBufferSizeOptions } from "./ObservabilityPipelineMemoryBufferSizeOptions";
 import { ObservabilityPipelineMetadataEntry } from "./ObservabilityPipelineMetadataEntry";
 import { ObservabilityPipelineNewRelicDestination } from "./ObservabilityPipelineNewRelicDestination";
 import { ObservabilityPipelineOcsfMapperProcessor } from "./ObservabilityPipelineOcsfMapperProcessor";
@@ -144,6 +147,8 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineAmazonSecurityLakeDestinationType: [
       "amazon_security_lake",
     ],
+    ObservabilityPipelineBufferOptionsDiskType: ["disk"],
+    ObservabilityPipelineBufferOptionsMemoryType: ["memory"],
     ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompressionAlgorithm:
       ["gzip", "zlib"],
     ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding: [
@@ -350,6 +355,11 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineThrottleProcessorType: ["throttle"],
   },
   oneOfMap: {
+    ObservabilityPipelineBufferOptions: [
+      "ObservabilityPipelineDiskBufferOptions",
+      "ObservabilityPipelineMemoryBufferOptions",
+      "ObservabilityPipelineMemoryBufferSizeOptions",
+    ],
     ObservabilityPipelineConfigDestinationItem: [
       "ObservabilityPipelineDatadogLogsDestination",
       "ObservabilityPipelineAmazonS3Destination",
@@ -484,6 +494,8 @@ export const TypingInfo: ModelTypingInfo = {
     ObservabilityPipelineDatadogTagsProcessor:
       ObservabilityPipelineDatadogTagsProcessor,
     ObservabilityPipelineDedupeProcessor: ObservabilityPipelineDedupeProcessor,
+    ObservabilityPipelineDiskBufferOptions:
+      ObservabilityPipelineDiskBufferOptions,
     ObservabilityPipelineElasticsearchDestination:
       ObservabilityPipelineElasticsearchDestination,
     ObservabilityPipelineEnrichmentTableFile:
@@ -525,6 +537,10 @@ export const TypingInfo: ModelTypingInfo = {
       ObservabilityPipelineKafkaSourceLibrdkafkaOption,
     ObservabilityPipelineKafkaSourceSasl: ObservabilityPipelineKafkaSourceSasl,
     ObservabilityPipelineLogstashSource: ObservabilityPipelineLogstashSource,
+    ObservabilityPipelineMemoryBufferOptions:
+      ObservabilityPipelineMemoryBufferOptions,
+    ObservabilityPipelineMemoryBufferSizeOptions:
+      ObservabilityPipelineMemoryBufferSizeOptions,
     ObservabilityPipelineMetadataEntry: ObservabilityPipelineMetadataEntry,
     ObservabilityPipelineNewRelicDestination:
       ObservabilityPipelineNewRelicDestination,

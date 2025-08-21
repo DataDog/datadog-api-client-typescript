@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineNewRelicDestinationRegion } from "./ObservabilityPipelineNewRelicDestinationRegion";
 import { ObservabilityPipelineNewRelicDestinationType } from "./ObservabilityPipelineNewRelicDestinationType";
 
@@ -7,6 +8,10 @@ import { ObservabilityPipelineNewRelicDestinationType } from "./ObservabilityPip
  * The `new_relic` destination sends logs to the New Relic platform.
  */
 export class ObservabilityPipelineNewRelicDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The unique identifier for this component.
    */
@@ -38,6 +43,10 @@ export class ObservabilityPipelineNewRelicDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     id: {
       baseName: "id",
       type: "string",

@@ -1,5 +1,6 @@
 import { AttributeTypeMap } from "@datadog/datadog-api-client";
 
+import { ObservabilityPipelineBufferOptions } from "./ObservabilityPipelineBufferOptions";
 import { ObservabilityPipelineRsyslogDestinationType } from "./ObservabilityPipelineRsyslogDestinationType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
@@ -7,6 +8,10 @@ import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
  * The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
  */
 export class ObservabilityPipelineRsyslogDestination {
+  /**
+   * Configuration for buffer settings on destination components.
+   */
+  "buffer"?: ObservabilityPipelineBufferOptions;
   /**
    * The unique identifier for this component.
    */
@@ -42,6 +47,10 @@ export class ObservabilityPipelineRsyslogDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    buffer: {
+      baseName: "buffer",
+      type: "ObservabilityPipelineBufferOptions",
+    },
     id: {
       baseName: "id",
       type: "string",
