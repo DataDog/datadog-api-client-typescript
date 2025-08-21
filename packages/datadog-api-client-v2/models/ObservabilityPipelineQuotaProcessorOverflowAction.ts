@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The action to take when the quota is exceeded. Options:
+ * The action to take when the quota or bucket limit is exceeded. Options:
  * - `drop`: Drop the event.
  * - `no_action`: Let the event pass through.
  * - `overflow_routing`: Route to an overflow destination.
