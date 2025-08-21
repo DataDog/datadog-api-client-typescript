@@ -728,6 +728,7 @@ export {
 } from "./apis/TeamsApi";
 
 export {
+  UsageMeteringApiGetActiveBillingDimensionsRequest,
   UsageMeteringApiGetBillingDimensionMappingRequest,
   UsageMeteringApiGetCostByOrgRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
