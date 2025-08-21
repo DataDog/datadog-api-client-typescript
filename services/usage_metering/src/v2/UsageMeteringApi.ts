@@ -45,6 +45,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     }
   }
   public async getActiveBillingDimensions(
+    month?: Date,
     _options?: Configuration,
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -71,6 +72,15 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Set User-Agent
     if (this.userAgent) {
       requestContext.setHeaderParam("User-Agent", this.userAgent);
+    }
+
+    // Query Params
+    if (month !== undefined) {
+      requestContext.setQueryParam(
+        "month",
+        serialize(month, TypingInfo, "Date", "date-time"),
+        "",
+      );
     }
 
     // Apply auth methods
@@ -1516,6 +1526,14 @@ export class UsageMeteringApiResponseProcessor {
   }
 }
 
+export interface UsageMeteringApiGetActiveBillingDimensionsRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for billing dimensions active this month. Defaults to the current month.
+   * @type Date
+   */
+  month?: Date;
+}
+
 export interface UsageMeteringApiGetBillingDimensionMappingRequest {
   /**
    * Datetime in ISO-8601 format, UTC, and for mappings beginning this month. Defaults to the current month.
@@ -1779,14 +1797,15 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get active billing dimensions for cost attribution. Cost data for a given month becomes available no later than the 19th of the following month.
+   * Get active billing dimensions for cost attribution in a given month. Note that billing dimensions active in a given month may not appear in the Monthly Cost Attribution API response until the 19th of the following month. For the most accurate results, request the same month for both endpoints.
    * @param param The request object
    */
   public getActiveBillingDimensions(
+    param: UsageMeteringApiGetActiveBillingDimensionsRequest = {},
     options?: Configuration,
   ): Promise<ActiveBillingDimensionsResponse> {
     const requestContextPromise =
-      this.requestFactory.getActiveBillingDimensions(options);
+      this.requestFactory.getActiveBillingDimensions(param.month, options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

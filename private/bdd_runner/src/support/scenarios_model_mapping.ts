@@ -4329,6 +4329,10 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "GCPUsageCostConfigResponse",
   },
   "UsageMeteringApi.V2.GetActiveBillingDimensions": {
+    month: {
+      type: "Date",
+      format: "date-time",
+    },
     operationResponseType: "ActiveBillingDimensionsResponse",
   },
   "UsageMeteringApi.V2.GetMonthlyCostAttribution": {

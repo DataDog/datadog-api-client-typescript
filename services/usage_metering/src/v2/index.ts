@@ -1,4 +1,5 @@
 export {
+  UsageMeteringApiGetActiveBillingDimensionsRequest,
   UsageMeteringApiGetBillingDimensionMappingRequest,
   UsageMeteringApiGetCostByOrgRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
