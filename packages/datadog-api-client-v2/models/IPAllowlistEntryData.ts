@@ -21,7 +21,7 @@ export class IPAllowlistEntryData {
    */
   "id"?: string;
   /**
-   * IP allowlist Entry type.
+   * IP allowlist entry type.
    */
   "type": IPAllowlistEntryType;
 

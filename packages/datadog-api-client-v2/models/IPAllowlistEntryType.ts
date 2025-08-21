@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * IP allowlist Entry type.
+ * IP allowlist entry type.
  */
 
 export type IPAllowlistEntryType = typeof IP_ALLOWLIST_ENTRY | UnparsedObject;
