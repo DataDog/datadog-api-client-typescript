@@ -15,9 +15,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ObservabilityPipelineQuotaProcessor {
   /**
-   * If set to `true`, logs that matched the quota filter and sent after the quota has been met are dropped; only logs that did not match the filter query continue through the pipeline.
+   * If set to `true`, logs that match the quota filter and are sent after the quota is exceeded are dropped. Logs that do not match the filter continue through the pipeline. **Note**: You can set either `drop_events` or `overflow_action`, but not both.
    */
-  "dropEvents": boolean;
+  "dropEvents"?: boolean;
   /**
    * The unique identifier for this component. Used to reference this component in other parts of the pipeline (for example, as the `input` to downstream components).
    */
@@ -43,7 +43,7 @@ export class ObservabilityPipelineQuotaProcessor {
    */
   "name": string;
   /**
-   * The action to take when the quota is exceeded. Options:
+   * The action to take when the quota or bucket limit is exceeded. Options:
    * - `drop`: Drop the event.
    * - `no_action`: Let the event pass through.
    * - `overflow_routing`: Route to an overflow destination.
@@ -57,6 +57,13 @@ export class ObservabilityPipelineQuotaProcessor {
    * A list of fields used to segment log traffic for quota enforcement. Quotas are tracked independently by unique combinations of these field values.
    */
   "partitionFields"?: Array<string>;
+  /**
+   * The action to take when the quota or bucket limit is exceeded. Options:
+   * - `drop`: Drop the event.
+   * - `no_action`: Let the event pass through.
+   * - `overflow_routing`: Route to an overflow destination.
+   */
+  "tooManyBucketsAction"?: ObservabilityPipelineQuotaProcessorOverflowAction;
   /**
    * The processor type. The value should always be `quota`.
    */
@@ -81,7 +88,6 @@ export class ObservabilityPipelineQuotaProcessor {
     dropEvents: {
       baseName: "drop_events",
       type: "boolean",
-      required: true,
     },
     id: {
       baseName: "id",
@@ -123,6 +129,10 @@ export class ObservabilityPipelineQuotaProcessor {
     partitionFields: {
       baseName: "partition_fields",
       type: "Array<string>",
+    },
+    tooManyBucketsAction: {
+      baseName: "too_many_buckets_action",
+      type: "ObservabilityPipelineQuotaProcessorOverflowAction",
     },
     type: {
       baseName: "type",
