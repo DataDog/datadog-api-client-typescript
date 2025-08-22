@@ -1,7 +1,7 @@
 import { UnparsedObject } from "@datadog/datadog-api-client";
 
 /**
- * Channel info resource type.
+ * Microsoft Teams channel info resource type.
  */
 export type MicrosoftTeamsChannelInfoType =
   | typeof MS_TEAMS_CHANNEL_INFO

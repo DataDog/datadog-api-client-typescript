@@ -16,7 +16,7 @@ export class MicrosoftTeamsChannelInfoResponseData {
    */
   "id"?: string;
   /**
-   * Channel info resource type.
+   * Microsoft Teams channel info resource type.
    */
   "type"?: MicrosoftTeamsChannelInfoType;
   /**
