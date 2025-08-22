@@ -4427,13 +4427,13 @@ export const ScenariosModelMappings: { [key: string]: OperationMapping } = {
     operationResponseType: "CostByOrgResponse",
   },
   "UsageMeteringApi.V2.GetHistoricalCostByOrg": {
-    view: {
-      type: "string",
-      format: "",
-    },
     startMonth: {
       type: "Date",
       format: "date-time",
+    },
+    view: {
+      type: "string",
+      format: "",
     },
     endMonth: {
       type: "Date",
