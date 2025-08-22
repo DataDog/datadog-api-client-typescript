@@ -8,8 +8,8 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.UsageMeteringApi(configuration);
 
 const params: v2.UsageMeteringApiGetHistoricalCostByOrgRequest = {
-  view: "sub-org",
   startMonth: new Date(new Date().getTime() + -2 * 86400 * 30 * 1000),
+  view: "sub-org",
 };
 
 apiInstance

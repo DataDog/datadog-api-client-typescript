@@ -260,17 +260,17 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (view !== undefined) {
-      requestContext.setQueryParam(
-        "view",
-        ObjectSerializer.serialize(view, "string", ""),
-        ""
-      );
-    }
     if (startMonth !== undefined) {
       requestContext.setQueryParam(
         "start_month",
         ObjectSerializer.serialize(startMonth, "Date", "date-time"),
+        ""
+      );
+    }
+    if (view !== undefined) {
+      requestContext.setQueryParam(
+        "view",
+        ObjectSerializer.serialize(view, "string", ""),
         ""
       );
     }
