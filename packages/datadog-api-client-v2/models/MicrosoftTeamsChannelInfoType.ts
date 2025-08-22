@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Channel info resource type.
+ * Microsoft Teams channel info resource type.
  */
 
 export type MicrosoftTeamsChannelInfoType =
