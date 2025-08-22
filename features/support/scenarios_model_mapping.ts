@@ -4417,13 +4417,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "CostByOrgResponse",
     },
     "v2.GetHistoricalCostByOrg": {
-        "view": {
-            "type": "string",
-            "format": "",
-            },
         "startMonth": {
             "type": "Date",
             "format": "date-time",
+            },
+        "view": {
+            "type": "string",
+            "format": "",
             },
         "endMonth": {
             "type": "Date",
