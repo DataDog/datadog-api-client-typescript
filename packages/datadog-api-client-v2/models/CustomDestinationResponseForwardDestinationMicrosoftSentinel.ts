@@ -5,35 +5,40 @@
  */
 import { CustomDestinationResponseForwardDestinationMicrosoftSentinelType } from "./CustomDestinationResponseForwardDestinationMicrosoftSentinelType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Microsoft Sentinel destination.
- */
+*/
 export class CustomDestinationResponseForwardDestinationMicrosoftSentinel {
   /**
    * Client ID from the Datadog Azure integration.
-   */
+  */
   "clientId": string;
   /**
    * Azure data collection endpoint.
-   */
+  */
   "dataCollectionEndpoint": string;
   /**
    * Azure data collection rule ID.
-   */
+  */
   "dataCollectionRuleId": string;
   /**
    * Azure stream name.
-   */
+  */
   "streamName": string;
   /**
    * Tenant ID from the Datadog Azure integration.
-   */
+  */
   "tenantId": string;
   /**
    * Type of the Microsoft Sentinel destination.
-   */
+  */
   "type": CustomDestinationResponseForwardDestinationMicrosoftSentinelType;
 
   /**
@@ -52,48 +57,74 @@ export class CustomDestinationResponseForwardDestinationMicrosoftSentinel {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    clientId: {
-      baseName: "client_id",
-      type: "string",
-      required: true,
+    "clientId": {
+      "baseName": "client_id",
+      "type": "string",
+      "required": true,
     },
-    dataCollectionEndpoint: {
-      baseName: "data_collection_endpoint",
-      type: "string",
-      required: true,
+    "dataCollectionEndpoint": {
+      "baseName": "data_collection_endpoint",
+      "type": "string",
+      "required": true,
     },
-    dataCollectionRuleId: {
-      baseName: "data_collection_rule_id",
-      type: "string",
-      required: true,
+    "dataCollectionRuleId": {
+      "baseName": "data_collection_rule_id",
+      "type": "string",
+      "required": true,
     },
-    streamName: {
-      baseName: "stream_name",
-      type: "string",
-      required: true,
+    "streamName": {
+      "baseName": "stream_name",
+      "type": "string",
+      "required": true,
     },
-    tenantId: {
-      baseName: "tenant_id",
-      type: "string",
-      required: true,
+    "tenantId": {
+      "baseName": "tenant_id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CustomDestinationResponseForwardDestinationMicrosoftSentinelType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CustomDestinationResponseForwardDestinationMicrosoftSentinelType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomDestinationResponseForwardDestinationMicrosoftSentinel.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Publication status of the notebook. For now, always "published".
- */
+*/
 
 export type NotebookStatus = typeof PUBLISHED | UnparsedObject;
-export const PUBLISHED = "published";
+export const PUBLISHED = 'published';

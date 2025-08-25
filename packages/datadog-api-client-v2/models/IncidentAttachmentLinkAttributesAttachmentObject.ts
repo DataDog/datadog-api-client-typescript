@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The link attachment.
- */
+*/
 export class IncidentAttachmentLinkAttributesAttachmentObject {
   /**
    * The URL of this link attachment.
-   */
+  */
   "documentUrl": string;
   /**
    * The title of this link attachment.
-   */
+  */
   "title": string;
 
   /**
@@ -35,28 +40,54 @@ export class IncidentAttachmentLinkAttributesAttachmentObject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    documentUrl: {
-      baseName: "documentUrl",
-      type: "string",
-      required: true,
+    "documentUrl": {
+      "baseName": "documentUrl",
+      "type": "string",
+      "required": true,
     },
-    title: {
-      baseName: "title",
-      type: "string",
-      required: true,
+    "title": {
+      "baseName": "title",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentAttachmentLinkAttributesAttachmentObject.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

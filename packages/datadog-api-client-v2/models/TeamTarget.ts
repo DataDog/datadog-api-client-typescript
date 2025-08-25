@@ -5,19 +5,24 @@
  */
 import { TeamTargetType } from "./TeamTargetType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Represents a team target for an escalation policy step, including the team's ID and resource type.
- */
+*/
 export class TeamTarget {
   /**
    * Specifies the unique identifier of the team resource.
-   */
+  */
   "id": string;
   /**
    * Indicates that the resource is of type `teams`.
-   */
+  */
   "type": TeamTargetType;
 
   /**
@@ -36,28 +41,54 @@ export class TeamTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamTargetType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamTargetType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamTarget.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -1,20 +1,18 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+  HttpFile
+  } from "../../datadog-api-client-common/http/http";
+
+import FormData from "form-data";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { HourlyUsageAttributionResponse } from "../models/HourlyUsageAttributionResponse";
@@ -58,56 +56,30 @@ import { UsageTimeseriesResponse } from "../models/UsageTimeseriesResponse";
 import { UsageTopAvgMetricsResponse } from "../models/UsageTopAvgMetricsResponse";
 
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
-  public async getDailyCustomReports(
-    pageSize?: number,
-    pageNumber?: number,
-    sortDir?: UsageSortDirection,
-    sort?: UsageSort,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async getDailyCustomReports(pageSize?: number,pageNumber?: number,sortDir?: UsageSortDirection,sort?: UsageSort,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v1/daily_custom_reports";
+    const localVarPath = '/api/v1/daily_custom_reports';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getDailyCustomReports")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getDailyCustomReports').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
-        ""
-      );
+      requestContext.setQueryParam("page[size]", ObjectSerializer.serialize(pageSize, "number", "int64"), "");
     }
     if (pageNumber !== undefined) {
-      requestContext.setQueryParam(
-        "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
-        ""
-      );
+      requestContext.setQueryParam("page[number]", ObjectSerializer.serialize(pageNumber, "number", "int64"), "");
     }
     if (sortDir !== undefined) {
-      requestContext.setQueryParam(
-        "sort_dir",
-        ObjectSerializer.serialize(sortDir, "UsageSortDirection", ""),
-        ""
-      );
+      requestContext.setQueryParam("sort_dir", ObjectSerializer.serialize(sortDir, "UsageSortDirection", ""), "");
     }
     if (sort !== undefined) {
-      requestContext.setQueryParam(
-        "sort",
-        ObjectSerializer.serialize(sort, "UsageSort", ""),
-        ""
-      );
+      requestContext.setQueryParam("sort", ObjectSerializer.serialize(sort, "UsageSort", ""), "");
     }
 
     // Apply auth methods
@@ -119,86 +91,45 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getHourlyUsageAttribution(
-    startHr: Date,
-    usageType: HourlyUsageAttributionUsageType,
-    endHr?: Date,
-    nextRecordId?: string,
-    tagBreakdownKeys?: string,
-    includeDescendants?: boolean,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getHourlyUsageAttribution(startHr: Date,usageType: HourlyUsageAttributionUsageType,endHr?: Date,nextRecordId?: string,tagBreakdownKeys?: string,includeDescendants?: boolean,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getHourlyUsageAttribution");
+      throw new RequiredError('startHr', 'getHourlyUsageAttribution');
     }
 
     // verify required parameter 'usageType' is not null or undefined
     if (usageType === null || usageType === undefined) {
-      throw new RequiredError("usageType", "getHourlyUsageAttribution");
+      throw new RequiredError('usageType', 'getHourlyUsageAttribution');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/hourly-attribution";
+    const localVarPath = '/api/v1/usage/hourly-attribution';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getHourlyUsageAttribution")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getHourlyUsageAttribution').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
     if (usageType !== undefined) {
-      requestContext.setQueryParam(
-        "usage_type",
-        ObjectSerializer.serialize(
-          usageType,
-          "HourlyUsageAttributionUsageType",
-          ""
-        ),
-        ""
-      );
+      requestContext.setQueryParam("usage_type", ObjectSerializer.serialize(usageType, "HourlyUsageAttributionUsageType", ""), "");
     }
     if (nextRecordId !== undefined) {
-      requestContext.setQueryParam(
-        "next_record_id",
-        ObjectSerializer.serialize(nextRecordId, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("next_record_id", ObjectSerializer.serialize(nextRecordId, "string", ""), "");
     }
     if (tagBreakdownKeys !== undefined) {
-      requestContext.setQueryParam(
-        "tag_breakdown_keys",
-        ObjectSerializer.serialize(tagBreakdownKeys, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("tag_breakdown_keys", ObjectSerializer.serialize(tagBreakdownKeys, "string", ""), "");
     }
     if (includeDescendants !== undefined) {
-      requestContext.setQueryParam(
-        "include_descendants",
-        ObjectSerializer.serialize(includeDescendants, "boolean", ""),
-        ""
-      );
+      requestContext.setQueryParam("include_descendants", ObjectSerializer.serialize(includeDescendants, "boolean", ""), "");
     }
 
     // Apply auth methods
@@ -211,45 +142,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getIncidentManagement(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getIncidentManagement(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getIncidentManagement");
+      throw new RequiredError('startHr', 'getIncidentManagement');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/incident-management";
+    const localVarPath = '/api/v1/usage/incident-management';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getIncidentManagement")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getIncidentManagement').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -262,45 +176,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getIngestedSpans(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getIngestedSpans(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getIngestedSpans");
+      throw new RequiredError('startHr', 'getIngestedSpans');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/ingested-spans";
+    const localVarPath = '/api/v1/usage/ingested-spans';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getIngestedSpans")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getIngestedSpans').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -313,56 +210,29 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getMonthlyCustomReports(
-    pageSize?: number,
-    pageNumber?: number,
-    sortDir?: UsageSortDirection,
-    sort?: UsageSort,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getMonthlyCustomReports(pageSize?: number,pageNumber?: number,sortDir?: UsageSortDirection,sort?: UsageSort,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v1/monthly_custom_reports";
+    const localVarPath = '/api/v1/monthly_custom_reports';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getMonthlyCustomReports")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getMonthlyCustomReports').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64"),
-        ""
-      );
+      requestContext.setQueryParam("page[size]", ObjectSerializer.serialize(pageSize, "number", "int64"), "");
     }
     if (pageNumber !== undefined) {
-      requestContext.setQueryParam(
-        "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64"),
-        ""
-      );
+      requestContext.setQueryParam("page[number]", ObjectSerializer.serialize(pageNumber, "number", "int64"), "");
     }
     if (sortDir !== undefined) {
-      requestContext.setQueryParam(
-        "sort_dir",
-        ObjectSerializer.serialize(sortDir, "UsageSortDirection", ""),
-        ""
-      );
+      requestContext.setQueryParam("sort_dir", ObjectSerializer.serialize(sortDir, "UsageSortDirection", ""), "");
     }
     if (sort !== undefined) {
-      requestContext.setQueryParam(
-        "sort",
-        ObjectSerializer.serialize(sort, "UsageSort", ""),
-        ""
-      );
+      requestContext.setQueryParam("sort", ObjectSerializer.serialize(sort, "UsageSort", ""), "");
     }
 
     // Apply auth methods
@@ -374,106 +244,51 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getMonthlyUsageAttribution(
-    startMonth: Date,
-    fields: MonthlyUsageAttributionSupportedMetrics,
-    endMonth?: Date,
-    sortDirection?: UsageSortDirection,
-    sortName?: MonthlyUsageAttributionSupportedMetrics,
-    tagBreakdownKeys?: string,
-    nextRecordId?: string,
-    includeDescendants?: boolean,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getMonthlyUsageAttribution(startMonth: Date,fields: MonthlyUsageAttributionSupportedMetrics,endMonth?: Date,sortDirection?: UsageSortDirection,sortName?: MonthlyUsageAttributionSupportedMetrics,tagBreakdownKeys?: string,nextRecordId?: string,includeDescendants?: boolean,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
-      throw new RequiredError("startMonth", "getMonthlyUsageAttribution");
+      throw new RequiredError('startMonth', 'getMonthlyUsageAttribution');
     }
 
     // verify required parameter 'fields' is not null or undefined
     if (fields === null || fields === undefined) {
-      throw new RequiredError("fields", "getMonthlyUsageAttribution");
+      throw new RequiredError('fields', 'getMonthlyUsageAttribution');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/monthly-attribution";
+    const localVarPath = '/api/v1/usage/monthly-attribution';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getMonthlyUsageAttribution")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getMonthlyUsageAttribution').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startMonth !== undefined) {
-      requestContext.setQueryParam(
-        "start_month",
-        ObjectSerializer.serialize(startMonth, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_month", ObjectSerializer.serialize(startMonth, "Date", "date-time"), "");
     }
     if (endMonth !== undefined) {
-      requestContext.setQueryParam(
-        "end_month",
-        ObjectSerializer.serialize(endMonth, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_month", ObjectSerializer.serialize(endMonth, "Date", "date-time"), "");
     }
     if (fields !== undefined) {
-      requestContext.setQueryParam(
-        "fields",
-        ObjectSerializer.serialize(
-          fields,
-          "MonthlyUsageAttributionSupportedMetrics",
-          ""
-        ),
-        ""
-      );
+      requestContext.setQueryParam("fields", ObjectSerializer.serialize(fields, "MonthlyUsageAttributionSupportedMetrics", ""), "");
     }
     if (sortDirection !== undefined) {
-      requestContext.setQueryParam(
-        "sort_direction",
-        ObjectSerializer.serialize(sortDirection, "UsageSortDirection", ""),
-        ""
-      );
+      requestContext.setQueryParam("sort_direction", ObjectSerializer.serialize(sortDirection, "UsageSortDirection", ""), "");
     }
     if (sortName !== undefined) {
-      requestContext.setQueryParam(
-        "sort_name",
-        ObjectSerializer.serialize(
-          sortName,
-          "MonthlyUsageAttributionSupportedMetrics",
-          ""
-        ),
-        ""
-      );
+      requestContext.setQueryParam("sort_name", ObjectSerializer.serialize(sortName, "MonthlyUsageAttributionSupportedMetrics", ""), "");
     }
     if (tagBreakdownKeys !== undefined) {
-      requestContext.setQueryParam(
-        "tag_breakdown_keys",
-        ObjectSerializer.serialize(tagBreakdownKeys, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("tag_breakdown_keys", ObjectSerializer.serialize(tagBreakdownKeys, "string", ""), "");
     }
     if (nextRecordId !== undefined) {
-      requestContext.setQueryParam(
-        "next_record_id",
-        ObjectSerializer.serialize(nextRecordId, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("next_record_id", ObjectSerializer.serialize(nextRecordId, "string", ""), "");
     }
     if (includeDescendants !== undefined) {
-      requestContext.setQueryParam(
-        "include_descendants",
-        ObjectSerializer.serialize(includeDescendants, "boolean", ""),
-        ""
-      );
+      requestContext.setQueryParam("include_descendants", ObjectSerializer.serialize(includeDescendants, "boolean", ""), "");
     }
 
     // Apply auth methods
@@ -486,31 +301,21 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getSpecifiedDailyCustomReports(
-    reportId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getSpecifiedDailyCustomReports(reportId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'reportId' is not null or undefined
     if (reportId === null || reportId === undefined) {
-      throw new RequiredError("reportId", "getSpecifiedDailyCustomReports");
+      throw new RequiredError('reportId', 'getSpecifiedDailyCustomReports');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/daily_custom_reports/{report_id}".replace(
-      "{report_id}",
-      encodeURIComponent(String(reportId))
-    );
+    const localVarPath = '/api/v1/daily_custom_reports/{report_id}'
+      .replace('{report_id}', encodeURIComponent(String(reportId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getSpecifiedDailyCustomReports")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getSpecifiedDailyCustomReports').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -522,31 +327,21 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getSpecifiedMonthlyCustomReports(
-    reportId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getSpecifiedMonthlyCustomReports(reportId: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'reportId' is not null or undefined
     if (reportId === null || reportId === undefined) {
-      throw new RequiredError("reportId", "getSpecifiedMonthlyCustomReports");
+      throw new RequiredError('reportId', 'getSpecifiedMonthlyCustomReports');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/monthly_custom_reports/{report_id}".replace(
-      "{report_id}",
-      encodeURIComponent(String(reportId))
-    );
+    const localVarPath = '/api/v1/monthly_custom_reports/{report_id}'
+      .replace('{report_id}', encodeURIComponent(String(reportId)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getSpecifiedMonthlyCustomReports")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getSpecifiedMonthlyCustomReports').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -558,45 +353,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageAnalyzedLogs(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageAnalyzedLogs(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageAnalyzedLogs");
+      throw new RequiredError('startHr', 'getUsageAnalyzedLogs');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/analyzed_logs";
+    const localVarPath = '/api/v1/usage/analyzed_logs';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageAnalyzedLogs")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageAnalyzedLogs').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -609,45 +387,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageAuditLogs(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageAuditLogs(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageAuditLogs");
+      throw new RequiredError('startHr', 'getUsageAuditLogs');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/audit_logs";
+    const localVarPath = '/api/v1/usage/audit_logs';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageAuditLogs")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageAuditLogs').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -660,40 +421,23 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageBillableSummary(
-    month?: Date,
-    includeConnectedAccounts?: boolean,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageBillableSummary(month?: Date,includeConnectedAccounts?: boolean,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v1/usage/billable-summary";
+    const localVarPath = '/api/v1/usage/billable-summary';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageBillableSummary")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageBillableSummary').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (month !== undefined) {
-      requestContext.setQueryParam(
-        "month",
-        ObjectSerializer.serialize(month, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("month", ObjectSerializer.serialize(month, "Date", "date-time"), "");
     }
     if (includeConnectedAccounts !== undefined) {
-      requestContext.setQueryParam(
-        "include_connected_accounts",
-        ObjectSerializer.serialize(includeConnectedAccounts, "boolean", ""),
-        ""
-      );
+      requestContext.setQueryParam("include_connected_accounts", ObjectSerializer.serialize(includeConnectedAccounts, "boolean", ""), "");
     }
 
     // Apply auth methods
@@ -706,45 +450,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageCIApp(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageCIApp(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageCIApp");
+      throw new RequiredError('startHr', 'getUsageCIApp');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/ci-app";
+    const localVarPath = '/api/v1/usage/ci-app';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageCIApp")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageCIApp').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -757,48 +484,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageCloudSecurityPostureManagement(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageCloudSecurityPostureManagement(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "startHr",
-        "getUsageCloudSecurityPostureManagement"
-      );
+      throw new RequiredError('startHr', 'getUsageCloudSecurityPostureManagement');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/cspm";
+    const localVarPath = '/api/v1/usage/cspm';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageCloudSecurityPostureManagement")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageCloudSecurityPostureManagement').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -811,45 +518,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageCWS(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageCWS(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageCWS");
+      throw new RequiredError('startHr', 'getUsageCWS');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/cws";
+    const localVarPath = '/api/v1/usage/cws';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageCWS")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageCWS').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -862,45 +552,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageDBM(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageDBM(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageDBM");
+      throw new RequiredError('startHr', 'getUsageDBM');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/dbm";
+    const localVarPath = '/api/v1/usage/dbm';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageDBM")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageDBM').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -913,45 +586,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageFargate(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageFargate(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageFargate");
+      throw new RequiredError('startHr', 'getUsageFargate');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/fargate";
+    const localVarPath = '/api/v1/usage/fargate';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageFargate")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageFargate').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -964,45 +620,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageHosts(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageHosts(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageHosts");
+      throw new RequiredError('startHr', 'getUsageHosts');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/hosts";
+    const localVarPath = '/api/v1/usage/hosts';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageHosts")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageHosts').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1015,45 +654,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageIndexedSpans(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageIndexedSpans(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageIndexedSpans");
+      throw new RequiredError('startHr', 'getUsageIndexedSpans');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/indexed-spans";
+    const localVarPath = '/api/v1/usage/indexed-spans';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageIndexedSpans")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageIndexedSpans').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1066,45 +688,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageInternetOfThings(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageInternetOfThings(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageInternetOfThings");
+      throw new RequiredError('startHr', 'getUsageInternetOfThings');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/iot";
+    const localVarPath = '/api/v1/usage/iot';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageInternetOfThings")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageInternetOfThings').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1117,45 +722,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageLambda(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageLambda(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageLambda");
+      throw new RequiredError('startHr', 'getUsageLambda');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/aws_lambda";
+    const localVarPath = '/api/v1/usage/aws_lambda';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageLambda")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageLambda').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1168,45 +756,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageLogs(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageLogs(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageLogs");
+      throw new RequiredError('startHr', 'getUsageLogs');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/logs";
+    const localVarPath = '/api/v1/usage/logs';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageLogs")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageLogs').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1219,53 +790,31 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageLogsByIndex(
-    startHr: Date,
-    endHr?: Date,
-    indexName?: Array<string>,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageLogsByIndex(startHr: Date,endHr?: Date,indexName?: Array<string>,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageLogsByIndex");
+      throw new RequiredError('startHr', 'getUsageLogsByIndex');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/logs_by_index";
+    const localVarPath = '/api/v1/usage/logs_by_index';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageLogsByIndex")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageLogsByIndex').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
     if (indexName !== undefined) {
-      requestContext.setQueryParam(
-        "index_name",
-        ObjectSerializer.serialize(indexName, "Array<string>", ""),
-        "multi"
-      );
+      requestContext.setQueryParam("index_name", ObjectSerializer.serialize(indexName, "Array<string>", ""), "multi");
     }
 
     // Apply auth methods
@@ -1278,45 +827,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageLogsByRetention(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageLogsByRetention(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageLogsByRetention");
+      throw new RequiredError('startHr', 'getUsageLogsByRetention');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/logs-by-retention";
+    const localVarPath = '/api/v1/usage/logs-by-retention';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageLogsByRetention")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageLogsByRetention').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1329,45 +861,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageNetworkFlows(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageNetworkFlows(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageNetworkFlows");
+      throw new RequiredError('startHr', 'getUsageNetworkFlows');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/network_flows";
+    const localVarPath = '/api/v1/usage/network_flows';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageNetworkFlows")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageNetworkFlows').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1380,45 +895,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageNetworkHosts(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageNetworkHosts(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageNetworkHosts");
+      throw new RequiredError('startHr', 'getUsageNetworkHosts');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/network_hosts";
+    const localVarPath = '/api/v1/usage/network_hosts';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageNetworkHosts")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageNetworkHosts').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1431,45 +929,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageOnlineArchive(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageOnlineArchive(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageOnlineArchive");
+      throw new RequiredError('startHr', 'getUsageOnlineArchive');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/online-archive";
+    const localVarPath = '/api/v1/usage/online-archive';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageOnlineArchive")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageOnlineArchive').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1482,45 +963,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageProfiling(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageProfiling(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageProfiling");
+      throw new RequiredError('startHr', 'getUsageProfiling');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/profiling";
+    const localVarPath = '/api/v1/usage/profiling';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageProfiling")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageProfiling').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1533,53 +997,31 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageRumSessions(
-    startHr: Date,
-    endHr?: Date,
-    type?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageRumSessions(startHr: Date,endHr?: Date,type?: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageRumSessions");
+      throw new RequiredError('startHr', 'getUsageRumSessions');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/rum_sessions";
+    const localVarPath = '/api/v1/usage/rum_sessions';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageRumSessions")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageRumSessions').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
     if (type !== undefined) {
-      requestContext.setQueryParam(
-        "type",
-        ObjectSerializer.serialize(type, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("type", ObjectSerializer.serialize(type, "string", ""), "");
     }
 
     // Apply auth methods
@@ -1592,45 +1034,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageRumUnits(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageRumUnits(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageRumUnits");
+      throw new RequiredError('startHr', 'getUsageRumUnits');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/rum";
+    const localVarPath = '/api/v1/usage/rum';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageRumUnits")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageRumUnits').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1643,45 +1068,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageSDS(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageSDS(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageSDS");
+      throw new RequiredError('startHr', 'getUsageSDS');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/sds";
+    const localVarPath = '/api/v1/usage/sds';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageSDS")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageSDS').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1694,45 +1102,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageSNMP(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageSNMP(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageSNMP");
+      throw new RequiredError('startHr', 'getUsageSNMP');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/snmp";
+    const localVarPath = '/api/v1/usage/snmp';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageSNMP")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageSNMP').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1745,61 +1136,34 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageSummary(
-    startMonth: Date,
-    endMonth?: Date,
-    includeOrgDetails?: boolean,
-    includeConnectedAccounts?: boolean,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageSummary(startMonth: Date,endMonth?: Date,includeOrgDetails?: boolean,includeConnectedAccounts?: boolean,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
-      throw new RequiredError("startMonth", "getUsageSummary");
+      throw new RequiredError('startMonth', 'getUsageSummary');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/summary";
+    const localVarPath = '/api/v1/usage/summary';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageSummary")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageSummary').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startMonth !== undefined) {
-      requestContext.setQueryParam(
-        "start_month",
-        ObjectSerializer.serialize(startMonth, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_month", ObjectSerializer.serialize(startMonth, "Date", "date-time"), "");
     }
     if (endMonth !== undefined) {
-      requestContext.setQueryParam(
-        "end_month",
-        ObjectSerializer.serialize(endMonth, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_month", ObjectSerializer.serialize(endMonth, "Date", "date-time"), "");
     }
     if (includeOrgDetails !== undefined) {
-      requestContext.setQueryParam(
-        "include_org_details",
-        ObjectSerializer.serialize(includeOrgDetails, "boolean", ""),
-        ""
-      );
+      requestContext.setQueryParam("include_org_details", ObjectSerializer.serialize(includeOrgDetails, "boolean", ""), "");
     }
     if (includeConnectedAccounts !== undefined) {
-      requestContext.setQueryParam(
-        "include_connected_accounts",
-        ObjectSerializer.serialize(includeConnectedAccounts, "boolean", ""),
-        ""
-      );
+      requestContext.setQueryParam("include_connected_accounts", ObjectSerializer.serialize(includeConnectedAccounts, "boolean", ""), "");
     }
 
     // Apply auth methods
@@ -1812,45 +1176,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageSynthetics(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageSynthetics(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageSynthetics");
+      throw new RequiredError('startHr', 'getUsageSynthetics');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/synthetics";
+    const localVarPath = '/api/v1/usage/synthetics';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageSynthetics")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageSynthetics').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1863,45 +1210,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageSyntheticsAPI(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageSyntheticsAPI(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageSyntheticsAPI");
+      throw new RequiredError('startHr', 'getUsageSyntheticsAPI');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/synthetics_api";
+    const localVarPath = '/api/v1/usage/synthetics_api';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageSyntheticsAPI")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageSyntheticsAPI').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1914,45 +1244,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageSyntheticsBrowser(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageSyntheticsBrowser(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageSyntheticsBrowser");
+      throw new RequiredError('startHr', 'getUsageSyntheticsBrowser');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/synthetics_browser";
+    const localVarPath = '/api/v1/usage/synthetics_browser';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageSyntheticsBrowser")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageSyntheticsBrowser').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -1965,45 +1278,28 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageTimeseries(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageTimeseries(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError("startHr", "getUsageTimeseries");
+      throw new RequiredError('startHr', 'getUsageTimeseries');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/timeseries";
+    const localVarPath = '/api/v1/usage/timeseries';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageTimeseries")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageTimeseries').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"), "");
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"), "");
     }
 
     // Apply auth methods
@@ -2016,64 +1312,32 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageTopAvgMetrics(
-    month?: Date,
-    day?: Date,
-    names?: Array<string>,
-    limit?: number,
-    nextRecordId?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getUsageTopAvgMetrics(month?: Date,day?: Date,names?: Array<string>,limit?: number,nextRecordId?: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = "/api/v1/usage/top_avg_metrics";
+    const localVarPath = '/api/v1/usage/top_avg_metrics';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageTopAvgMetrics")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
+    const requestContext = _config.getServer('v1.UsageMeteringApi.getUsageTopAvgMetrics').makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (month !== undefined) {
-      requestContext.setQueryParam(
-        "month",
-        ObjectSerializer.serialize(month, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("month", ObjectSerializer.serialize(month, "Date", "date-time"), "");
     }
     if (day !== undefined) {
-      requestContext.setQueryParam(
-        "day",
-        ObjectSerializer.serialize(day, "Date", "date-time"),
-        ""
-      );
+      requestContext.setQueryParam("day", ObjectSerializer.serialize(day, "Date", "date-time"), "");
     }
     if (names !== undefined) {
-      requestContext.setQueryParam(
-        "names",
-        ObjectSerializer.serialize(names, "Array<string>", ""),
-        "multi"
-      );
+      requestContext.setQueryParam("names", ObjectSerializer.serialize(names, "Array<string>", ""), "multi");
     }
     if (limit !== undefined) {
-      requestContext.setQueryParam(
-        "limit",
-        ObjectSerializer.serialize(limit, "number", "int32"),
-        ""
-      );
+      requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", "int32"), "");
     }
     if (nextRecordId !== undefined) {
-      requestContext.setQueryParam(
-        "next_record_id",
-        ObjectSerializer.serialize(nextRecordId, "string", ""),
-        ""
-      );
+      requestContext.setQueryParam("next_record_id", ObjectSerializer.serialize(nextRecordId, "string", ""), "");
     }
 
     // Apply auth methods
@@ -2088,6 +1352,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class UsageMeteringApiResponseProcessor {
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -2095,12 +1360,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getDailyCustomReports
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getDailyCustomReports(
-    response: ResponseContext
-  ): Promise<UsageCustomReportsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getDailyCustomReports(response: ResponseContext): Promise<UsageCustomReportsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageCustomReportsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2108,11 +1369,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageCustomReportsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2121,11 +1379,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -2133,17 +1388,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageCustomReportsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageCustomReportsResponse",
-        ""
+        "UsageCustomReportsResponse", ""
       ) as UsageCustomReportsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2153,12 +1404,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getHourlyUsageAttribution
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getHourlyUsageAttribution(
-    response: ResponseContext
-  ): Promise<HourlyUsageAttributionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getHourlyUsageAttribution(response: ResponseContext): Promise<HourlyUsageAttributionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: HourlyUsageAttributionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2166,11 +1413,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as HourlyUsageAttributionResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2179,11 +1423,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -2191,17 +1432,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HourlyUsageAttributionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "HourlyUsageAttributionResponse",
-        ""
+        "HourlyUsageAttributionResponse", ""
       ) as HourlyUsageAttributionResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2211,29 +1448,17 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getIncidentManagement
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getIncidentManagement(
-    response: ResponseContext
-  ): Promise<UsageIncidentManagementResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getIncidentManagement(response: ResponseContext): Promise<UsageIncidentManagementResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UsageIncidentManagementResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "UsageIncidentManagementResponse"
-        ) as UsageIncidentManagementResponse;
+      const body: UsageIncidentManagementResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageIncidentManagementResponse"
+      ) as UsageIncidentManagementResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2242,30 +1467,22 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageIncidentManagementResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "UsageIncidentManagementResponse",
-          ""
-        ) as UsageIncidentManagementResponse;
+      const body: UsageIncidentManagementResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageIncidentManagementResponse", ""
+      ) as UsageIncidentManagementResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2275,12 +1492,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getIngestedSpans
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getIngestedSpans(
-    response: ResponseContext
-  ): Promise<UsageIngestedSpansResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getIngestedSpans(response: ResponseContext): Promise<UsageIngestedSpansResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageIngestedSpansResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2288,15 +1501,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageIngestedSpansResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2305,11 +1511,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -2317,17 +1520,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageIngestedSpansResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageIngestedSpansResponse",
-        ""
+        "UsageIngestedSpansResponse", ""
       ) as UsageIngestedSpansResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2337,12 +1536,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getMonthlyCustomReports
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getMonthlyCustomReports(
-    response: ResponseContext
-  ): Promise<UsageCustomReportsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getMonthlyCustomReports(response: ResponseContext): Promise<UsageCustomReportsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageCustomReportsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2350,11 +1545,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageCustomReportsResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2363,11 +1555,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -2375,17 +1564,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageCustomReportsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageCustomReportsResponse",
-        ""
+        "UsageCustomReportsResponse", ""
       ) as UsageCustomReportsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2395,25 +1580,17 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getMonthlyUsageAttribution
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getMonthlyUsageAttribution(
-    response: ResponseContext
-  ): Promise<MonthlyUsageAttributionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getMonthlyUsageAttribution(response: ResponseContext): Promise<MonthlyUsageAttributionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: MonthlyUsageAttributionResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MonthlyUsageAttributionResponse"
-        ) as MonthlyUsageAttributionResponse;
+      const body: MonthlyUsageAttributionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MonthlyUsageAttributionResponse"
+      ) as MonthlyUsageAttributionResponse;
       return body;
     }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2422,30 +1599,22 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MonthlyUsageAttributionResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MonthlyUsageAttributionResponse",
-          ""
-        ) as MonthlyUsageAttributionResponse;
+      const body: MonthlyUsageAttributionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MonthlyUsageAttributionResponse", ""
+      ) as MonthlyUsageAttributionResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2455,29 +1624,17 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getSpecifiedDailyCustomReports
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSpecifiedDailyCustomReports(
-    response: ResponseContext
-  ): Promise<UsageSpecifiedCustomReportsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getSpecifiedDailyCustomReports(response: ResponseContext): Promise<UsageSpecifiedCustomReportsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UsageSpecifiedCustomReportsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "UsageSpecifiedCustomReportsResponse"
-        ) as UsageSpecifiedCustomReportsResponse;
+      const body: UsageSpecifiedCustomReportsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageSpecifiedCustomReportsResponse"
+      ) as UsageSpecifiedCustomReportsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2486,30 +1643,22 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageSpecifiedCustomReportsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "UsageSpecifiedCustomReportsResponse",
-          ""
-        ) as UsageSpecifiedCustomReportsResponse;
+      const body: UsageSpecifiedCustomReportsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageSpecifiedCustomReportsResponse", ""
+      ) as UsageSpecifiedCustomReportsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2519,30 +1668,17 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getSpecifiedMonthlyCustomReports
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getSpecifiedMonthlyCustomReports(
-    response: ResponseContext
-  ): Promise<UsageSpecifiedCustomReportsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getSpecifiedMonthlyCustomReports(response: ResponseContext): Promise<UsageSpecifiedCustomReportsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UsageSpecifiedCustomReportsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "UsageSpecifiedCustomReportsResponse"
-        ) as UsageSpecifiedCustomReportsResponse;
+      const body: UsageSpecifiedCustomReportsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageSpecifiedCustomReportsResponse"
+      ) as UsageSpecifiedCustomReportsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2551,30 +1687,22 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageSpecifiedCustomReportsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "UsageSpecifiedCustomReportsResponse",
-          ""
-        ) as UsageSpecifiedCustomReportsResponse;
+      const body: UsageSpecifiedCustomReportsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageSpecifiedCustomReportsResponse", ""
+      ) as UsageSpecifiedCustomReportsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2584,12 +1712,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageAnalyzedLogs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageAnalyzedLogs(
-    response: ResponseContext
-  ): Promise<UsageAnalyzedLogsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageAnalyzedLogs(response: ResponseContext): Promise<UsageAnalyzedLogsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageAnalyzedLogsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2597,15 +1721,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageAnalyzedLogsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2614,11 +1731,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -2626,17 +1740,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageAnalyzedLogsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageAnalyzedLogsResponse",
-        ""
+        "UsageAnalyzedLogsResponse", ""
       ) as UsageAnalyzedLogsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2646,12 +1756,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageAuditLogs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageAuditLogs(
-    response: ResponseContext
-  ): Promise<UsageAuditLogsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageAuditLogs(response: ResponseContext): Promise<UsageAuditLogsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageAuditLogsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2659,15 +1765,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageAuditLogsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2676,11 +1775,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -2688,17 +1784,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageAuditLogsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageAuditLogsResponse",
-        ""
+        "UsageAuditLogsResponse", ""
       ) as UsageAuditLogsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2708,12 +1800,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageBillableSummary
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageBillableSummary(
-    response: ResponseContext
-  ): Promise<UsageBillableSummaryResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageBillableSummary(response: ResponseContext): Promise<UsageBillableSummaryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageBillableSummaryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2721,15 +1809,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageBillableSummaryResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2738,11 +1819,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -2750,17 +1828,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageBillableSummaryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageBillableSummaryResponse",
-        ""
+        "UsageBillableSummaryResponse", ""
       ) as UsageBillableSummaryResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2770,12 +1844,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageCIApp
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageCIApp(
-    response: ResponseContext
-  ): Promise<UsageCIVisibilityResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageCIApp(response: ResponseContext): Promise<UsageCIVisibilityResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageCIVisibilityResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2783,15 +1853,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageCIVisibilityResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2800,11 +1863,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -2812,17 +1872,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageCIVisibilityResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageCIVisibilityResponse",
-        ""
+        "UsageCIVisibilityResponse", ""
       ) as UsageCIVisibilityResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2832,29 +1888,17 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageCloudSecurityPostureManagement
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageCloudSecurityPostureManagement(
-    response: ResponseContext
-  ): Promise<UsageCloudSecurityPostureManagementResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageCloudSecurityPostureManagement(response: ResponseContext): Promise<UsageCloudSecurityPostureManagementResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: UsageCloudSecurityPostureManagementResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "UsageCloudSecurityPostureManagementResponse"
-        ) as UsageCloudSecurityPostureManagementResponse;
+      const body: UsageCloudSecurityPostureManagementResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageCloudSecurityPostureManagementResponse"
+      ) as UsageCloudSecurityPostureManagementResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2863,30 +1907,22 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageCloudSecurityPostureManagementResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "UsageCloudSecurityPostureManagementResponse",
-          ""
-        ) as UsageCloudSecurityPostureManagementResponse;
+      const body: UsageCloudSecurityPostureManagementResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageCloudSecurityPostureManagementResponse", ""
+      ) as UsageCloudSecurityPostureManagementResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2896,12 +1932,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageCWS
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageCWS(
-    response: ResponseContext
-  ): Promise<UsageCWSResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageCWS(response: ResponseContext): Promise<UsageCWSResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageCWSResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2909,15 +1941,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageCWSResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2926,11 +1951,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -2938,17 +1960,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageCWSResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageCWSResponse",
-        ""
+        "UsageCWSResponse", ""
       ) as UsageCWSResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -2958,12 +1976,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageDBM
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageDBM(
-    response: ResponseContext
-  ): Promise<UsageDBMResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageDBM(response: ResponseContext): Promise<UsageDBMResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageDBMResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2971,15 +1985,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageDBMResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -2988,11 +1995,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3000,17 +2004,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageDBMResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageDBMResponse",
-        ""
+        "UsageDBMResponse", ""
       ) as UsageDBMResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3020,12 +2020,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageFargate
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageFargate(
-    response: ResponseContext
-  ): Promise<UsageFargateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageFargate(response: ResponseContext): Promise<UsageFargateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageFargateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3033,15 +2029,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageFargateResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3050,11 +2039,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3062,17 +2048,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageFargateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageFargateResponse",
-        ""
+        "UsageFargateResponse", ""
       ) as UsageFargateResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3082,12 +2064,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageHosts
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageHosts(
-    response: ResponseContext
-  ): Promise<UsageHostsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageHosts(response: ResponseContext): Promise<UsageHostsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageHostsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3095,15 +2073,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageHostsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3112,11 +2083,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3124,17 +2092,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageHostsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageHostsResponse",
-        ""
+        "UsageHostsResponse", ""
       ) as UsageHostsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3144,12 +2108,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageIndexedSpans
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageIndexedSpans(
-    response: ResponseContext
-  ): Promise<UsageIndexedSpansResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageIndexedSpans(response: ResponseContext): Promise<UsageIndexedSpansResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageIndexedSpansResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3157,15 +2117,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageIndexedSpansResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3174,11 +2127,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3186,17 +2136,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageIndexedSpansResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageIndexedSpansResponse",
-        ""
+        "UsageIndexedSpansResponse", ""
       ) as UsageIndexedSpansResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3206,12 +2152,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageInternetOfThings
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageInternetOfThings(
-    response: ResponseContext
-  ): Promise<UsageIoTResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageInternetOfThings(response: ResponseContext): Promise<UsageIoTResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageIoTResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3219,15 +2161,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageIoTResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3236,11 +2171,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3248,17 +2180,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageIoTResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageIoTResponse",
-        ""
+        "UsageIoTResponse", ""
       ) as UsageIoTResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3268,12 +2196,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageLambda
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageLambda(
-    response: ResponseContext
-  ): Promise<UsageLambdaResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageLambda(response: ResponseContext): Promise<UsageLambdaResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageLambdaResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3281,15 +2205,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageLambdaResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3298,11 +2215,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3310,17 +2224,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageLambdaResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageLambdaResponse",
-        ""
+        "UsageLambdaResponse", ""
       ) as UsageLambdaResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3330,12 +2240,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageLogs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageLogs(
-    response: ResponseContext
-  ): Promise<UsageLogsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageLogs(response: ResponseContext): Promise<UsageLogsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageLogsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3343,15 +2249,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageLogsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3360,11 +2259,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3372,17 +2268,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageLogsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageLogsResponse",
-        ""
+        "UsageLogsResponse", ""
       ) as UsageLogsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3392,12 +2284,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageLogsByIndex
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageLogsByIndex(
-    response: ResponseContext
-  ): Promise<UsageLogsByIndexResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageLogsByIndex(response: ResponseContext): Promise<UsageLogsByIndexResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageLogsByIndexResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3405,15 +2293,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageLogsByIndexResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3422,11 +2303,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3434,17 +2312,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageLogsByIndexResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageLogsByIndexResponse",
-        ""
+        "UsageLogsByIndexResponse", ""
       ) as UsageLogsByIndexResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3454,12 +2328,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageLogsByRetention
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageLogsByRetention(
-    response: ResponseContext
-  ): Promise<UsageLogsByRetentionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageLogsByRetention(response: ResponseContext): Promise<UsageLogsByRetentionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageLogsByRetentionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3467,15 +2337,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageLogsByRetentionResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3484,11 +2347,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3496,17 +2356,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageLogsByRetentionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageLogsByRetentionResponse",
-        ""
+        "UsageLogsByRetentionResponse", ""
       ) as UsageLogsByRetentionResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3516,12 +2372,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageNetworkFlows
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageNetworkFlows(
-    response: ResponseContext
-  ): Promise<UsageNetworkFlowsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageNetworkFlows(response: ResponseContext): Promise<UsageNetworkFlowsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageNetworkFlowsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3529,15 +2381,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageNetworkFlowsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3546,11 +2391,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3558,17 +2400,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageNetworkFlowsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageNetworkFlowsResponse",
-        ""
+        "UsageNetworkFlowsResponse", ""
       ) as UsageNetworkFlowsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3578,12 +2416,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageNetworkHosts
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageNetworkHosts(
-    response: ResponseContext
-  ): Promise<UsageNetworkHostsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageNetworkHosts(response: ResponseContext): Promise<UsageNetworkHostsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageNetworkHostsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3591,15 +2425,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageNetworkHostsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3608,11 +2435,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3620,17 +2444,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageNetworkHostsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageNetworkHostsResponse",
-        ""
+        "UsageNetworkHostsResponse", ""
       ) as UsageNetworkHostsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3640,12 +2460,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageOnlineArchive
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageOnlineArchive(
-    response: ResponseContext
-  ): Promise<UsageOnlineArchiveResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageOnlineArchive(response: ResponseContext): Promise<UsageOnlineArchiveResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageOnlineArchiveResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3653,15 +2469,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageOnlineArchiveResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3670,11 +2479,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3682,17 +2488,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageOnlineArchiveResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageOnlineArchiveResponse",
-        ""
+        "UsageOnlineArchiveResponse", ""
       ) as UsageOnlineArchiveResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3702,12 +2504,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageProfiling
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageProfiling(
-    response: ResponseContext
-  ): Promise<UsageProfilingResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageProfiling(response: ResponseContext): Promise<UsageProfilingResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageProfilingResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3715,15 +2513,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageProfilingResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3732,11 +2523,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3744,17 +2532,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageProfilingResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageProfilingResponse",
-        ""
+        "UsageProfilingResponse", ""
       ) as UsageProfilingResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3764,12 +2548,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageRumSessions
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageRumSessions(
-    response: ResponseContext
-  ): Promise<UsageRumSessionsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageRumSessions(response: ResponseContext): Promise<UsageRumSessionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageRumSessionsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3777,15 +2557,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageRumSessionsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3794,11 +2567,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3806,17 +2576,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageRumSessionsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageRumSessionsResponse",
-        ""
+        "UsageRumSessionsResponse", ""
       ) as UsageRumSessionsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3826,12 +2592,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageRumUnits
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageRumUnits(
-    response: ResponseContext
-  ): Promise<UsageRumUnitsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageRumUnits(response: ResponseContext): Promise<UsageRumUnitsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageRumUnitsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3839,15 +2601,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageRumUnitsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3856,11 +2611,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3868,17 +2620,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageRumUnitsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageRumUnitsResponse",
-        ""
+        "UsageRumUnitsResponse", ""
       ) as UsageRumUnitsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3888,12 +2636,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageSDS
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageSDS(
-    response: ResponseContext
-  ): Promise<UsageSDSResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageSDS(response: ResponseContext): Promise<UsageSDSResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageSDSResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3901,15 +2645,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageSDSResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3918,11 +2655,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3930,17 +2664,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageSDSResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageSDSResponse",
-        ""
+        "UsageSDSResponse", ""
       ) as UsageSDSResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -3950,12 +2680,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageSNMP
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageSNMP(
-    response: ResponseContext
-  ): Promise<UsageSNMPResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageSNMP(response: ResponseContext): Promise<UsageSNMPResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageSNMPResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -3963,15 +2689,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageSNMPResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -3980,11 +2699,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -3992,17 +2708,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageSNMPResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageSNMPResponse",
-        ""
+        "UsageSNMPResponse", ""
       ) as UsageSNMPResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -4012,12 +2724,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageSummary
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageSummary(
-    response: ResponseContext
-  ): Promise<UsageSummaryResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageSummary(response: ResponseContext): Promise<UsageSummaryResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageSummaryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4025,15 +2733,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageSummaryResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4042,11 +2743,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -4054,17 +2752,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageSummaryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageSummaryResponse",
-        ""
+        "UsageSummaryResponse", ""
       ) as UsageSummaryResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -4074,12 +2768,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageSynthetics
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageSynthetics(
-    response: ResponseContext
-  ): Promise<UsageSyntheticsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageSynthetics(response: ResponseContext): Promise<UsageSyntheticsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageSyntheticsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4087,15 +2777,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageSyntheticsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4104,11 +2787,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -4116,17 +2796,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageSyntheticsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageSyntheticsResponse",
-        ""
+        "UsageSyntheticsResponse", ""
       ) as UsageSyntheticsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -4136,12 +2812,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageSyntheticsAPI
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageSyntheticsAPI(
-    response: ResponseContext
-  ): Promise<UsageSyntheticsAPIResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageSyntheticsAPI(response: ResponseContext): Promise<UsageSyntheticsAPIResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageSyntheticsAPIResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4149,15 +2821,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageSyntheticsAPIResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4166,11 +2831,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -4178,17 +2840,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageSyntheticsAPIResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageSyntheticsAPIResponse",
-        ""
+        "UsageSyntheticsAPIResponse", ""
       ) as UsageSyntheticsAPIResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -4198,12 +2856,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageSyntheticsBrowser
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageSyntheticsBrowser(
-    response: ResponseContext
-  ): Promise<UsageSyntheticsBrowserResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageSyntheticsBrowser(response: ResponseContext): Promise<UsageSyntheticsBrowserResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageSyntheticsBrowserResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4211,15 +2865,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageSyntheticsBrowserResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4228,11 +2875,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -4240,17 +2884,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageSyntheticsBrowserResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageSyntheticsBrowserResponse",
-        ""
+        "UsageSyntheticsBrowserResponse", ""
       ) as UsageSyntheticsBrowserResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -4260,12 +2900,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageTimeseries
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageTimeseries(
-    response: ResponseContext
-  ): Promise<UsageTimeseriesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageTimeseries(response: ResponseContext): Promise<UsageTimeseriesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageTimeseriesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4273,15 +2909,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageTimeseriesResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4290,11 +2919,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -4302,17 +2928,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageTimeseriesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageTimeseriesResponse",
-        ""
+        "UsageTimeseriesResponse", ""
       ) as UsageTimeseriesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -4322,12 +2944,8 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageTopAvgMetrics
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getUsageTopAvgMetrics(
-    response: ResponseContext
-  ): Promise<UsageTopAvgMetricsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getUsageTopAvgMetrics(response: ResponseContext): Promise<UsageTopAvgMetricsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: UsageTopAvgMetricsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -4335,15 +2953,8 @@ export class UsageMeteringApiResponseProcessor {
       ) as UsageTopAvgMetricsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -4352,11 +2963,8 @@ export class UsageMeteringApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -4364,17 +2972,13 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageTopAvgMetricsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageTopAvgMetricsResponse",
-        ""
+        "UsageTopAvgMetricsResponse", ""
       ) as UsageTopAvgMetricsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -4383,22 +2987,22 @@ export interface UsageMeteringApiGetDailyCustomReportsRequest {
    * The number of files to return in the response. `[default=60]`.
    * @type number
    */
-  pageSize?: number;
+  pageSize?: number
   /**
    * The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
    * @type number
    */
-  pageNumber?: number;
+  pageNumber?: number
   /**
    * The direction to sort by: `[desc, asc]`.
    * @type UsageSortDirection
    */
-  sortDir?: UsageSortDirection;
+  sortDir?: UsageSortDirection
   /**
    * The field to sort by: `[computed_on, size, start_date, end_date]`.
    * @type UsageSort
    */
-  sort?: UsageSort;
+  sort?: UsageSort
 }
 
 export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
@@ -4406,36 +3010,36 @@ export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Usage type to retrieve. The following values have been **deprecated**:
    * `estimated_indexed_spans_usage`, `estimated_ingested_spans_usage`.
    * @type HourlyUsageAttributionUsageType
    */
-  usageType: HourlyUsageAttributionUsageType;
+  usageType: HourlyUsageAttributionUsageType
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
   /**
    * List following results with a next_record_id provided in the previous query.
    * @type string
    */
-  nextRecordId?: string;
+  nextRecordId?: string
   /**
    * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
-   *
+   * 
    * To see which tags are available, look for the value of `tag_config_source` in the API response.
    * @type string
    */
-  tagBreakdownKeys?: string;
+  tagBreakdownKeys?: string
   /**
    * Include child org usage in the response. Defaults to `true`.
    * @type boolean
    */
-  includeDescendants?: boolean;
+  includeDescendants?: boolean
 }
 
 export interface UsageMeteringApiGetIncidentManagementRequest {
@@ -4443,13 +3047,13 @@ export interface UsageMeteringApiGetIncidentManagementRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetIngestedSpansRequest {
@@ -4457,13 +3061,13 @@ export interface UsageMeteringApiGetIngestedSpansRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetMonthlyCustomReportsRequest {
@@ -4471,22 +3075,22 @@ export interface UsageMeteringApiGetMonthlyCustomReportsRequest {
    * The number of files to return in the response `[default=60].`
    * @type number
    */
-  pageSize?: number;
+  pageSize?: number
   /**
    * The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
    * @type number
    */
-  pageNumber?: number;
+  pageNumber?: number
   /**
    * The direction to sort by: `[desc, asc]`.
    * @type UsageSortDirection
    */
-  sortDir?: UsageSortDirection;
+  sortDir?: UsageSortDirection
   /**
    * The field to sort by: `[computed_on, size, start_date, end_date]`.
    * @type UsageSort
    */
-  sort?: UsageSort;
+  sort?: UsageSort
 }
 
 export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
@@ -4495,48 +3099,48 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
    * Maximum of 15 months ago.
    * @type Date
    */
-  startMonth: Date;
+  startMonth: Date
   /**
    * Comma-separated list of usage types to return, or `*` for all usage types.
    * The following values have been **deprecated**:
    * `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`.
    * @type MonthlyUsageAttributionSupportedMetrics
    */
-  fields: MonthlyUsageAttributionSupportedMetrics;
+  fields: MonthlyUsageAttributionSupportedMetrics
   /**
    * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
    * @type Date
    */
-  endMonth?: Date;
+  endMonth?: Date
   /**
    * The direction to sort by: `[desc, asc]`.
    * @type UsageSortDirection
    */
-  sortDirection?: UsageSortDirection;
+  sortDirection?: UsageSortDirection
   /**
    * The field to sort by.
    * The following values have been **deprecated**:
    * `estimated_indexed_spans_usage`, `estimated_indexed_spans_percentage`, `estimated_ingested_spans_usage`, `estimated_ingested_spans_percentage`.
    * @type MonthlyUsageAttributionSupportedMetrics
    */
-  sortName?: MonthlyUsageAttributionSupportedMetrics;
+  sortName?: MonthlyUsageAttributionSupportedMetrics
   /**
    * Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.
-   *
+   * 
    * To see which tags are available, look for the value of `tag_config_source` in the API response.
    * @type string
    */
-  tagBreakdownKeys?: string;
+  tagBreakdownKeys?: string
   /**
    * List following results with a next_record_id provided in the previous query.
    * @type string
    */
-  nextRecordId?: string;
+  nextRecordId?: string
   /**
    * Include child org usage in the response. Defaults to `true`.
    * @type boolean
    */
-  includeDescendants?: boolean;
+  includeDescendants?: boolean
 }
 
 export interface UsageMeteringApiGetSpecifiedDailyCustomReportsRequest {
@@ -4544,7 +3148,7 @@ export interface UsageMeteringApiGetSpecifiedDailyCustomReportsRequest {
    * Date of the report in the format `YYYY-MM-DD`.
    * @type string
    */
-  reportId: string;
+  reportId: string
 }
 
 export interface UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest {
@@ -4552,7 +3156,7 @@ export interface UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest {
    * Date of the report in the format `YYYY-MM-DD`.
    * @type string
    */
-  reportId: string;
+  reportId: string
 }
 
 export interface UsageMeteringApiGetUsageAnalyzedLogsRequest {
@@ -4560,13 +3164,13 @@ export interface UsageMeteringApiGetUsageAnalyzedLogsRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageAuditLogsRequest {
@@ -4574,13 +3178,13 @@ export interface UsageMeteringApiGetUsageAuditLogsRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageBillableSummaryRequest {
@@ -4588,12 +3192,12 @@ export interface UsageMeteringApiGetUsageBillableSummaryRequest {
    * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage starting this month.
    * @type Date
    */
-  month?: Date;
+  month?: Date
   /**
-   * Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
+   * Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`. 
    * @type boolean
    */
-  includeConnectedAccounts?: boolean;
+  includeConnectedAccounts?: boolean
 }
 
 export interface UsageMeteringApiGetUsageCIAppRequest {
@@ -4601,13 +3205,13 @@ export interface UsageMeteringApiGetUsageCIAppRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest {
@@ -4615,13 +3219,13 @@ export interface UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageCWSRequest {
@@ -4629,13 +3233,13 @@ export interface UsageMeteringApiGetUsageCWSRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageDBMRequest {
@@ -4643,13 +3247,13 @@ export interface UsageMeteringApiGetUsageDBMRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageFargateRequest {
@@ -4657,12 +3261,12 @@ export interface UsageMeteringApiGetUsageFargateRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageHostsRequest {
@@ -4670,12 +3274,12 @@ export interface UsageMeteringApiGetUsageHostsRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageIndexedSpansRequest {
@@ -4683,12 +3287,12 @@ export interface UsageMeteringApiGetUsageIndexedSpansRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageInternetOfThingsRequest {
@@ -4696,13 +3300,13 @@ export interface UsageMeteringApiGetUsageInternetOfThingsRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageLambdaRequest {
@@ -4710,12 +3314,12 @@ export interface UsageMeteringApiGetUsageLambdaRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageLogsRequest {
@@ -4723,12 +3327,12 @@ export interface UsageMeteringApiGetUsageLogsRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageLogsByIndexRequest {
@@ -4736,17 +3340,17 @@ export interface UsageMeteringApiGetUsageLogsByIndexRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
   /**
    * Comma-separated list of log index names.
    * @type Array<string>
    */
-  indexName?: Array<string>;
+  indexName?: Array<string>
 }
 
 export interface UsageMeteringApiGetUsageLogsByRetentionRequest {
@@ -4754,13 +3358,13 @@ export interface UsageMeteringApiGetUsageLogsByRetentionRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageNetworkFlowsRequest {
@@ -4768,13 +3372,13 @@ export interface UsageMeteringApiGetUsageNetworkFlowsRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageNetworkHostsRequest {
@@ -4782,12 +3386,12 @@ export interface UsageMeteringApiGetUsageNetworkHostsRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageOnlineArchiveRequest {
@@ -4795,13 +3399,13 @@ export interface UsageMeteringApiGetUsageOnlineArchiveRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageProfilingRequest {
@@ -4809,13 +3413,13 @@ export interface UsageMeteringApiGetUsageProfilingRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageRumSessionsRequest {
@@ -4823,17 +3427,17 @@ export interface UsageMeteringApiGetUsageRumSessionsRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
   /**
    * RUM type: `[browser, mobile]`. Defaults to `browser`.
    * @type string
    */
-  type?: string;
+  type?: string
 }
 
 export interface UsageMeteringApiGetUsageRumUnitsRequest {
@@ -4841,12 +3445,12 @@ export interface UsageMeteringApiGetUsageRumUnitsRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageSDSRequest {
@@ -4854,13 +3458,13 @@ export interface UsageMeteringApiGetUsageSDSRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageSNMPRequest {
@@ -4868,13 +3472,13 @@ export interface UsageMeteringApiGetUsageSNMPRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
    * **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageSummaryRequest {
@@ -4883,22 +3487,22 @@ export interface UsageMeteringApiGetUsageSummaryRequest {
    * Maximum of 15 months ago.
    * @type Date
    */
-  startMonth: Date;
+  startMonth: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
    * @type Date
    */
-  endMonth?: Date;
+  endMonth?: Date
   /**
    * Include usage summaries for each sub-org.
    * @type boolean
    */
-  includeOrgDetails?: boolean;
+  includeOrgDetails?: boolean
   /**
-   * Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
+   * Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`. 
    * @type boolean
    */
-  includeConnectedAccounts?: boolean;
+  includeConnectedAccounts?: boolean
 }
 
 export interface UsageMeteringApiGetUsageSyntheticsRequest {
@@ -4906,12 +3510,12 @@ export interface UsageMeteringApiGetUsageSyntheticsRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageSyntheticsAPIRequest {
@@ -4919,12 +3523,12 @@ export interface UsageMeteringApiGetUsageSyntheticsAPIRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageSyntheticsBrowserRequest {
@@ -4932,12 +3536,12 @@ export interface UsageMeteringApiGetUsageSyntheticsBrowserRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageTimeseriesRequest {
@@ -4945,12 +3549,12 @@ export interface UsageMeteringApiGetUsageTimeseriesRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date;
+  startHr: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date;
+  endHr?: Date
 }
 
 export interface UsageMeteringApiGetUsageTopAvgMetricsRequest {
@@ -4958,27 +3562,27 @@ export interface UsageMeteringApiGetUsageTopAvgMetricsRequest {
    * Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
    * @type Date
    */
-  month?: Date;
+  month?: Date
   /**
    * Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
    * @type Date
    */
-  day?: Date;
+  day?: Date
   /**
    * Comma-separated list of metric names.
    * @type Array<string>
    */
-  names?: Array<string>;
+  names?: Array<string>
   /**
    * Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
    * @type number
    */
-  limit?: number;
+  limit?: number
   /**
    * List following results with a next_record_id provided in the previous query.
    * @type string
    */
-  nextRecordId?: string;
+  nextRecordId?: string
 }
 
 export class UsageMeteringApi {
@@ -4986,16 +3590,10 @@ export class UsageMeteringApi {
   private responseProcessor: UsageMeteringApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: UsageMeteringApiRequestFactory,
-    responseProcessor?: UsageMeteringApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: UsageMeteringApiRequestFactory, responseProcessor?: UsageMeteringApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new UsageMeteringApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new UsageMeteringApiResponseProcessor();
+    this.requestFactory = requestFactory || new UsageMeteringApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new UsageMeteringApiResponseProcessor();
   }
 
   /**
@@ -5004,33 +3602,22 @@ export class UsageMeteringApi {
    * Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getDailyCustomReports(
-    param: UsageMeteringApiGetDailyCustomReportsRequest = {},
-    options?: Configuration
-  ): Promise<UsageCustomReportsResponse> {
-    const requestContextPromise = this.requestFactory.getDailyCustomReports(
-      param.pageSize,
-      param.pageNumber,
-      param.sortDir,
-      param.sort,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getDailyCustomReports(responseContext);
+  public getDailyCustomReports(param: UsageMeteringApiGetDailyCustomReportsRequest = {}, options?: Configuration): Promise<UsageCustomReportsResponse> {
+    const requestContextPromise = this.requestFactory.getDailyCustomReports(param.pageSize,param.pageNumber,param.sortDir,param.sort,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getDailyCustomReports(responseContext);
         });
     });
   }
 
   /**
    * Get hourly usage attribution. Multi-region data is available starting March 1, 2023.
-   *
+   * 
    * This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
    * set in the response. If it is, make another request and pass `next_record_id` as a parameter.
    * Pseudo code example:
-   *
+   * 
    * ```
    * response := GetHourlyUsageAttribution(start_month)
    * cursor := response.metadata.pagination.next_record_id
@@ -5042,26 +3629,11 @@ export class UsageMeteringApi {
    * ```
    * @param param The request object
    */
-  public getHourlyUsageAttribution(
-    param: UsageMeteringApiGetHourlyUsageAttributionRequest,
-    options?: Configuration
-  ): Promise<HourlyUsageAttributionResponse> {
-    const requestContextPromise = this.requestFactory.getHourlyUsageAttribution(
-      param.startHr,
-      param.usageType,
-      param.endHr,
-      param.nextRecordId,
-      param.tagBreakdownKeys,
-      param.includeDescendants,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getHourlyUsageAttribution(
-            responseContext
-          );
+  public getHourlyUsageAttribution(param: UsageMeteringApiGetHourlyUsageAttributionRequest, options?: Configuration): Promise<HourlyUsageAttributionResponse> {
+    const requestContextPromise = this.requestFactory.getHourlyUsageAttribution(param.startHr,param.usageType,param.endHr,param.nextRecordId,param.tagBreakdownKeys,param.includeDescendants,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getHourlyUsageAttribution(responseContext);
         });
     });
   }
@@ -5071,20 +3643,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getIncidentManagement(
-    param: UsageMeteringApiGetIncidentManagementRequest,
-    options?: Configuration
-  ): Promise<UsageIncidentManagementResponse> {
-    const requestContextPromise = this.requestFactory.getIncidentManagement(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getIncidentManagement(responseContext);
+  public getIncidentManagement(param: UsageMeteringApiGetIncidentManagementRequest, options?: Configuration): Promise<UsageIncidentManagementResponse> {
+    const requestContextPromise = this.requestFactory.getIncidentManagement(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getIncidentManagement(responseContext);
         });
     });
   }
@@ -5094,20 +3657,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getIngestedSpans(
-    param: UsageMeteringApiGetIngestedSpansRequest,
-    options?: Configuration
-  ): Promise<UsageIngestedSpansResponse> {
-    const requestContextPromise = this.requestFactory.getIngestedSpans(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getIngestedSpans(responseContext);
+  public getIngestedSpans(param: UsageMeteringApiGetIngestedSpansRequest, options?: Configuration): Promise<UsageIngestedSpansResponse> {
+    const requestContextPromise = this.requestFactory.getIngestedSpans(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getIngestedSpans(responseContext);
         });
     });
   }
@@ -5118,35 +3672,22 @@ export class UsageMeteringApi {
    * Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getMonthlyCustomReports(
-    param: UsageMeteringApiGetMonthlyCustomReportsRequest = {},
-    options?: Configuration
-  ): Promise<UsageCustomReportsResponse> {
-    const requestContextPromise = this.requestFactory.getMonthlyCustomReports(
-      param.pageSize,
-      param.pageNumber,
-      param.sortDir,
-      param.sort,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getMonthlyCustomReports(
-            responseContext
-          );
+  public getMonthlyCustomReports(param: UsageMeteringApiGetMonthlyCustomReportsRequest = {}, options?: Configuration): Promise<UsageCustomReportsResponse> {
+    const requestContextPromise = this.requestFactory.getMonthlyCustomReports(param.pageSize,param.pageNumber,param.sortDir,param.sort,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getMonthlyCustomReports(responseContext);
         });
     });
   }
 
   /**
    * Get monthly usage attribution. Multi-region data is available starting March 1, 2023.
-   *
+   * 
    * This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
    * set in the response. If it is, make another request and pass `next_record_id` as a parameter.
    * Pseudo code example:
-   *
+   * 
    * ```
    * response := GetMonthlyUsageAttribution(start_month)
    * cursor := response.metadata.pagination.next_record_id
@@ -5158,29 +3699,11 @@ export class UsageMeteringApi {
    * ```
    * @param param The request object
    */
-  public getMonthlyUsageAttribution(
-    param: UsageMeteringApiGetMonthlyUsageAttributionRequest,
-    options?: Configuration
-  ): Promise<MonthlyUsageAttributionResponse> {
-    const requestContextPromise =
-      this.requestFactory.getMonthlyUsageAttribution(
-        param.startMonth,
-        param.fields,
-        param.endMonth,
-        param.sortDirection,
-        param.sortName,
-        param.tagBreakdownKeys,
-        param.nextRecordId,
-        param.includeDescendants,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getMonthlyUsageAttribution(
-            responseContext
-          );
+  public getMonthlyUsageAttribution(param: UsageMeteringApiGetMonthlyUsageAttributionRequest, options?: Configuration): Promise<MonthlyUsageAttributionResponse> {
+    const requestContextPromise = this.requestFactory.getMonthlyUsageAttribution(param.startMonth,param.fields,param.endMonth,param.sortDirection,param.sortName,param.tagBreakdownKeys,param.nextRecordId,param.includeDescendants,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getMonthlyUsageAttribution(responseContext);
         });
     });
   }
@@ -5191,22 +3714,11 @@ export class UsageMeteringApi {
    * Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getSpecifiedDailyCustomReports(
-    param: UsageMeteringApiGetSpecifiedDailyCustomReportsRequest,
-    options?: Configuration
-  ): Promise<UsageSpecifiedCustomReportsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getSpecifiedDailyCustomReports(
-        param.reportId,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getSpecifiedDailyCustomReports(
-            responseContext
-          );
+  public getSpecifiedDailyCustomReports(param: UsageMeteringApiGetSpecifiedDailyCustomReportsRequest, options?: Configuration): Promise<UsageSpecifiedCustomReportsResponse> {
+    const requestContextPromise = this.requestFactory.getSpecifiedDailyCustomReports(param.reportId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getSpecifiedDailyCustomReports(responseContext);
         });
     });
   }
@@ -5217,22 +3729,11 @@ export class UsageMeteringApi {
    * Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getSpecifiedMonthlyCustomReports(
-    param: UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest,
-    options?: Configuration
-  ): Promise<UsageSpecifiedCustomReportsResponse> {
-    const requestContextPromise =
-      this.requestFactory.getSpecifiedMonthlyCustomReports(
-        param.reportId,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getSpecifiedMonthlyCustomReports(
-            responseContext
-          );
+  public getSpecifiedMonthlyCustomReports(param: UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest, options?: Configuration): Promise<UsageSpecifiedCustomReportsResponse> {
+    const requestContextPromise = this.requestFactory.getSpecifiedMonthlyCustomReports(param.reportId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getSpecifiedMonthlyCustomReports(responseContext);
         });
     });
   }
@@ -5242,20 +3743,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageAnalyzedLogs(
-    param: UsageMeteringApiGetUsageAnalyzedLogsRequest,
-    options?: Configuration
-  ): Promise<UsageAnalyzedLogsResponse> {
-    const requestContextPromise = this.requestFactory.getUsageAnalyzedLogs(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageAnalyzedLogs(responseContext);
+  public getUsageAnalyzedLogs(param: UsageMeteringApiGetUsageAnalyzedLogsRequest, options?: Configuration): Promise<UsageAnalyzedLogsResponse> {
+    const requestContextPromise = this.requestFactory.getUsageAnalyzedLogs(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageAnalyzedLogs(responseContext);
         });
     });
   }
@@ -5265,46 +3757,26 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated.
    * @param param The request object
    */
-  public getUsageAuditLogs(
-    param: UsageMeteringApiGetUsageAuditLogsRequest,
-    options?: Configuration
-  ): Promise<UsageAuditLogsResponse> {
-    const requestContextPromise = this.requestFactory.getUsageAuditLogs(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageAuditLogs(responseContext);
+  public getUsageAuditLogs(param: UsageMeteringApiGetUsageAuditLogsRequest, options?: Configuration): Promise<UsageAuditLogsResponse> {
+    const requestContextPromise = this.requestFactory.getUsageAuditLogs(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageAuditLogs(responseContext);
         });
     });
   }
 
   /**
    * Get billable usage across your account.
-   *
+   * 
    * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
    * @param param The request object
    */
-  public getUsageBillableSummary(
-    param: UsageMeteringApiGetUsageBillableSummaryRequest = {},
-    options?: Configuration
-  ): Promise<UsageBillableSummaryResponse> {
-    const requestContextPromise = this.requestFactory.getUsageBillableSummary(
-      param.month,
-      param.includeConnectedAccounts,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageBillableSummary(
-            responseContext
-          );
+  public getUsageBillableSummary(param: UsageMeteringApiGetUsageBillableSummaryRequest = {}, options?: Configuration): Promise<UsageBillableSummaryResponse> {
+    const requestContextPromise = this.requestFactory.getUsageBillableSummary(param.month,param.includeConnectedAccounts,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageBillableSummary(responseContext);
         });
     });
   }
@@ -5314,20 +3786,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageCIApp(
-    param: UsageMeteringApiGetUsageCIAppRequest,
-    options?: Configuration
-  ): Promise<UsageCIVisibilityResponse> {
-    const requestContextPromise = this.requestFactory.getUsageCIApp(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageCIApp(responseContext);
+  public getUsageCIApp(param: UsageMeteringApiGetUsageCIAppRequest, options?: Configuration): Promise<UsageCIVisibilityResponse> {
+    const requestContextPromise = this.requestFactory.getUsageCIApp(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageCIApp(responseContext);
         });
     });
   }
@@ -5337,23 +3800,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageCloudSecurityPostureManagement(
-    param: UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest,
-    options?: Configuration
-  ): Promise<UsageCloudSecurityPostureManagementResponse> {
-    const requestContextPromise =
-      this.requestFactory.getUsageCloudSecurityPostureManagement(
-        param.startHr,
-        param.endHr,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageCloudSecurityPostureManagement(
-            responseContext
-          );
+  public getUsageCloudSecurityPostureManagement(param: UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest, options?: Configuration): Promise<UsageCloudSecurityPostureManagementResponse> {
+    const requestContextPromise = this.requestFactory.getUsageCloudSecurityPostureManagement(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageCloudSecurityPostureManagement(responseContext);
         });
     });
   }
@@ -5363,20 +3814,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageCWS(
-    param: UsageMeteringApiGetUsageCWSRequest,
-    options?: Configuration
-  ): Promise<UsageCWSResponse> {
-    const requestContextPromise = this.requestFactory.getUsageCWS(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageCWS(responseContext);
+  public getUsageCWS(param: UsageMeteringApiGetUsageCWSRequest, options?: Configuration): Promise<UsageCWSResponse> {
+    const requestContextPromise = this.requestFactory.getUsageCWS(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageCWS(responseContext);
         });
     });
   }
@@ -5386,20 +3828,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageDBM(
-    param: UsageMeteringApiGetUsageDBMRequest,
-    options?: Configuration
-  ): Promise<UsageDBMResponse> {
-    const requestContextPromise = this.requestFactory.getUsageDBM(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageDBM(responseContext);
+  public getUsageDBM(param: UsageMeteringApiGetUsageDBMRequest, options?: Configuration): Promise<UsageDBMResponse> {
+    const requestContextPromise = this.requestFactory.getUsageDBM(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageDBM(responseContext);
         });
     });
   }
@@ -5409,20 +3842,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageFargate(
-    param: UsageMeteringApiGetUsageFargateRequest,
-    options?: Configuration
-  ): Promise<UsageFargateResponse> {
-    const requestContextPromise = this.requestFactory.getUsageFargate(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageFargate(responseContext);
+  public getUsageFargate(param: UsageMeteringApiGetUsageFargateRequest, options?: Configuration): Promise<UsageFargateResponse> {
+    const requestContextPromise = this.requestFactory.getUsageFargate(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageFargate(responseContext);
         });
     });
   }
@@ -5432,20 +3856,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageHosts(
-    param: UsageMeteringApiGetUsageHostsRequest,
-    options?: Configuration
-  ): Promise<UsageHostsResponse> {
-    const requestContextPromise = this.requestFactory.getUsageHosts(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageHosts(responseContext);
+  public getUsageHosts(param: UsageMeteringApiGetUsageHostsRequest, options?: Configuration): Promise<UsageHostsResponse> {
+    const requestContextPromise = this.requestFactory.getUsageHosts(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageHosts(responseContext);
         });
     });
   }
@@ -5455,20 +3870,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageIndexedSpans(
-    param: UsageMeteringApiGetUsageIndexedSpansRequest,
-    options?: Configuration
-  ): Promise<UsageIndexedSpansResponse> {
-    const requestContextPromise = this.requestFactory.getUsageIndexedSpans(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageIndexedSpans(responseContext);
+  public getUsageIndexedSpans(param: UsageMeteringApiGetUsageIndexedSpansRequest, options?: Configuration): Promise<UsageIndexedSpansResponse> {
+    const requestContextPromise = this.requestFactory.getUsageIndexedSpans(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageIndexedSpans(responseContext);
         });
     });
   }
@@ -5478,22 +3884,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageInternetOfThings(
-    param: UsageMeteringApiGetUsageInternetOfThingsRequest,
-    options?: Configuration
-  ): Promise<UsageIoTResponse> {
-    const requestContextPromise = this.requestFactory.getUsageInternetOfThings(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageInternetOfThings(
-            responseContext
-          );
+  public getUsageInternetOfThings(param: UsageMeteringApiGetUsageInternetOfThingsRequest, options?: Configuration): Promise<UsageIoTResponse> {
+    const requestContextPromise = this.requestFactory.getUsageInternetOfThings(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageInternetOfThings(responseContext);
         });
     });
   }
@@ -5503,20 +3898,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageLambda(
-    param: UsageMeteringApiGetUsageLambdaRequest,
-    options?: Configuration
-  ): Promise<UsageLambdaResponse> {
-    const requestContextPromise = this.requestFactory.getUsageLambda(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageLambda(responseContext);
+  public getUsageLambda(param: UsageMeteringApiGetUsageLambdaRequest, options?: Configuration): Promise<UsageLambdaResponse> {
+    const requestContextPromise = this.requestFactory.getUsageLambda(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageLambda(responseContext);
         });
     });
   }
@@ -5526,20 +3912,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageLogs(
-    param: UsageMeteringApiGetUsageLogsRequest,
-    options?: Configuration
-  ): Promise<UsageLogsResponse> {
-    const requestContextPromise = this.requestFactory.getUsageLogs(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageLogs(responseContext);
+  public getUsageLogs(param: UsageMeteringApiGetUsageLogsRequest, options?: Configuration): Promise<UsageLogsResponse> {
+    const requestContextPromise = this.requestFactory.getUsageLogs(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageLogs(responseContext);
         });
     });
   }
@@ -5548,21 +3925,11 @@ export class UsageMeteringApi {
    * Get hourly usage for logs by index.
    * @param param The request object
    */
-  public getUsageLogsByIndex(
-    param: UsageMeteringApiGetUsageLogsByIndexRequest,
-    options?: Configuration
-  ): Promise<UsageLogsByIndexResponse> {
-    const requestContextPromise = this.requestFactory.getUsageLogsByIndex(
-      param.startHr,
-      param.endHr,
-      param.indexName,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageLogsByIndex(responseContext);
+  public getUsageLogsByIndex(param: UsageMeteringApiGetUsageLogsByIndexRequest, options?: Configuration): Promise<UsageLogsByIndexResponse> {
+    const requestContextPromise = this.requestFactory.getUsageLogsByIndex(param.startHr,param.endHr,param.indexName,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageLogsByIndex(responseContext);
         });
     });
   }
@@ -5572,22 +3939,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageLogsByRetention(
-    param: UsageMeteringApiGetUsageLogsByRetentionRequest,
-    options?: Configuration
-  ): Promise<UsageLogsByRetentionResponse> {
-    const requestContextPromise = this.requestFactory.getUsageLogsByRetention(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageLogsByRetention(
-            responseContext
-          );
+  public getUsageLogsByRetention(param: UsageMeteringApiGetUsageLogsByRetentionRequest, options?: Configuration): Promise<UsageLogsByRetentionResponse> {
+    const requestContextPromise = this.requestFactory.getUsageLogsByRetention(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageLogsByRetention(responseContext);
         });
     });
   }
@@ -5597,20 +3953,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageNetworkFlows(
-    param: UsageMeteringApiGetUsageNetworkFlowsRequest,
-    options?: Configuration
-  ): Promise<UsageNetworkFlowsResponse> {
-    const requestContextPromise = this.requestFactory.getUsageNetworkFlows(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageNetworkFlows(responseContext);
+  public getUsageNetworkFlows(param: UsageMeteringApiGetUsageNetworkFlowsRequest, options?: Configuration): Promise<UsageNetworkFlowsResponse> {
+    const requestContextPromise = this.requestFactory.getUsageNetworkFlows(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageNetworkFlows(responseContext);
         });
     });
   }
@@ -5620,20 +3967,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageNetworkHosts(
-    param: UsageMeteringApiGetUsageNetworkHostsRequest,
-    options?: Configuration
-  ): Promise<UsageNetworkHostsResponse> {
-    const requestContextPromise = this.requestFactory.getUsageNetworkHosts(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageNetworkHosts(responseContext);
+  public getUsageNetworkHosts(param: UsageMeteringApiGetUsageNetworkHostsRequest, options?: Configuration): Promise<UsageNetworkHostsResponse> {
+    const requestContextPromise = this.requestFactory.getUsageNetworkHosts(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageNetworkHosts(responseContext);
         });
     });
   }
@@ -5643,20 +3981,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageOnlineArchive(
-    param: UsageMeteringApiGetUsageOnlineArchiveRequest,
-    options?: Configuration
-  ): Promise<UsageOnlineArchiveResponse> {
-    const requestContextPromise = this.requestFactory.getUsageOnlineArchive(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageOnlineArchive(responseContext);
+  public getUsageOnlineArchive(param: UsageMeteringApiGetUsageOnlineArchiveRequest, options?: Configuration): Promise<UsageOnlineArchiveResponse> {
+    const requestContextPromise = this.requestFactory.getUsageOnlineArchive(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageOnlineArchive(responseContext);
         });
     });
   }
@@ -5666,20 +3995,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageProfiling(
-    param: UsageMeteringApiGetUsageProfilingRequest,
-    options?: Configuration
-  ): Promise<UsageProfilingResponse> {
-    const requestContextPromise = this.requestFactory.getUsageProfiling(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageProfiling(responseContext);
+  public getUsageProfiling(param: UsageMeteringApiGetUsageProfilingRequest, options?: Configuration): Promise<UsageProfilingResponse> {
+    const requestContextPromise = this.requestFactory.getUsageProfiling(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageProfiling(responseContext);
         });
     });
   }
@@ -5689,21 +4009,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageRumSessions(
-    param: UsageMeteringApiGetUsageRumSessionsRequest,
-    options?: Configuration
-  ): Promise<UsageRumSessionsResponse> {
-    const requestContextPromise = this.requestFactory.getUsageRumSessions(
-      param.startHr,
-      param.endHr,
-      param.type,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageRumSessions(responseContext);
+  public getUsageRumSessions(param: UsageMeteringApiGetUsageRumSessionsRequest, options?: Configuration): Promise<UsageRumSessionsResponse> {
+    const requestContextPromise = this.requestFactory.getUsageRumSessions(param.startHr,param.endHr,param.type,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageRumSessions(responseContext);
         });
     });
   }
@@ -5713,20 +4023,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageRumUnits(
-    param: UsageMeteringApiGetUsageRumUnitsRequest,
-    options?: Configuration
-  ): Promise<UsageRumUnitsResponse> {
-    const requestContextPromise = this.requestFactory.getUsageRumUnits(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageRumUnits(responseContext);
+  public getUsageRumUnits(param: UsageMeteringApiGetUsageRumUnitsRequest, options?: Configuration): Promise<UsageRumUnitsResponse> {
+    const requestContextPromise = this.requestFactory.getUsageRumUnits(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageRumUnits(responseContext);
         });
     });
   }
@@ -5736,20 +4037,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageSDS(
-    param: UsageMeteringApiGetUsageSDSRequest,
-    options?: Configuration
-  ): Promise<UsageSDSResponse> {
-    const requestContextPromise = this.requestFactory.getUsageSDS(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageSDS(responseContext);
+  public getUsageSDS(param: UsageMeteringApiGetUsageSDSRequest, options?: Configuration): Promise<UsageSDSResponse> {
+    const requestContextPromise = this.requestFactory.getUsageSDS(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageSDS(responseContext);
         });
     });
   }
@@ -5759,46 +4051,26 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageSNMP(
-    param: UsageMeteringApiGetUsageSNMPRequest,
-    options?: Configuration
-  ): Promise<UsageSNMPResponse> {
-    const requestContextPromise = this.requestFactory.getUsageSNMP(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageSNMP(responseContext);
+  public getUsageSNMP(param: UsageMeteringApiGetUsageSNMPRequest, options?: Configuration): Promise<UsageSNMPResponse> {
+    const requestContextPromise = this.requestFactory.getUsageSNMP(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageSNMP(responseContext);
         });
     });
   }
 
   /**
    * Get all usage across your account.
-   *
+   * 
    * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
    * @param param The request object
    */
-  public getUsageSummary(
-    param: UsageMeteringApiGetUsageSummaryRequest,
-    options?: Configuration
-  ): Promise<UsageSummaryResponse> {
-    const requestContextPromise = this.requestFactory.getUsageSummary(
-      param.startMonth,
-      param.endMonth,
-      param.includeOrgDetails,
-      param.includeConnectedAccounts,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageSummary(responseContext);
+  public getUsageSummary(param: UsageMeteringApiGetUsageSummaryRequest, options?: Configuration): Promise<UsageSummaryResponse> {
+    const requestContextPromise = this.requestFactory.getUsageSummary(param.startMonth,param.endMonth,param.includeOrgDetails,param.includeConnectedAccounts,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageSummary(responseContext);
         });
     });
   }
@@ -5808,20 +4080,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageSynthetics(
-    param: UsageMeteringApiGetUsageSyntheticsRequest,
-    options?: Configuration
-  ): Promise<UsageSyntheticsResponse> {
-    const requestContextPromise = this.requestFactory.getUsageSynthetics(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageSynthetics(responseContext);
+  public getUsageSynthetics(param: UsageMeteringApiGetUsageSyntheticsRequest, options?: Configuration): Promise<UsageSyntheticsResponse> {
+    const requestContextPromise = this.requestFactory.getUsageSynthetics(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageSynthetics(responseContext);
         });
     });
   }
@@ -5831,20 +4094,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageSyntheticsAPI(
-    param: UsageMeteringApiGetUsageSyntheticsAPIRequest,
-    options?: Configuration
-  ): Promise<UsageSyntheticsAPIResponse> {
-    const requestContextPromise = this.requestFactory.getUsageSyntheticsAPI(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageSyntheticsAPI(responseContext);
+  public getUsageSyntheticsAPI(param: UsageMeteringApiGetUsageSyntheticsAPIRequest, options?: Configuration): Promise<UsageSyntheticsAPIResponse> {
+    const requestContextPromise = this.requestFactory.getUsageSyntheticsAPI(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageSyntheticsAPI(responseContext);
         });
     });
   }
@@ -5854,22 +4108,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageSyntheticsBrowser(
-    param: UsageMeteringApiGetUsageSyntheticsBrowserRequest,
-    options?: Configuration
-  ): Promise<UsageSyntheticsBrowserResponse> {
-    const requestContextPromise = this.requestFactory.getUsageSyntheticsBrowser(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageSyntheticsBrowser(
-            responseContext
-          );
+  public getUsageSyntheticsBrowser(param: UsageMeteringApiGetUsageSyntheticsBrowserRequest, options?: Configuration): Promise<UsageSyntheticsBrowserResponse> {
+    const requestContextPromise = this.requestFactory.getUsageSyntheticsBrowser(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageSyntheticsBrowser(responseContext);
         });
     });
   }
@@ -5879,20 +4122,11 @@ export class UsageMeteringApi {
    * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */
-  public getUsageTimeseries(
-    param: UsageMeteringApiGetUsageTimeseriesRequest,
-    options?: Configuration
-  ): Promise<UsageTimeseriesResponse> {
-    const requestContextPromise = this.requestFactory.getUsageTimeseries(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageTimeseries(responseContext);
+  public getUsageTimeseries(param: UsageMeteringApiGetUsageTimeseriesRequest, options?: Configuration): Promise<UsageTimeseriesResponse> {
+    const requestContextPromise = this.requestFactory.getUsageTimeseries(param.startHr,param.endHr,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageTimeseries(responseContext);
         });
     });
   }
@@ -5901,23 +4135,11 @@ export class UsageMeteringApi {
    * Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
    * @param param The request object
    */
-  public getUsageTopAvgMetrics(
-    param: UsageMeteringApiGetUsageTopAvgMetricsRequest = {},
-    options?: Configuration
-  ): Promise<UsageTopAvgMetricsResponse> {
-    const requestContextPromise = this.requestFactory.getUsageTopAvgMetrics(
-      param.month,
-      param.day,
-      param.names,
-      param.limit,
-      param.nextRecordId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageTopAvgMetrics(responseContext);
+  public getUsageTopAvgMetrics(param: UsageMeteringApiGetUsageTopAvgMetricsRequest = {}, options?: Configuration): Promise<UsageTopAvgMetricsResponse> {
+    const requestContextPromise = this.requestFactory.getUsageTopAvgMetrics(param.month,param.day,param.names,param.limit,param.nextRecordId,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getUsageTopAvgMetrics(responseContext);
         });
     });
   }

@@ -7,35 +7,40 @@ import { SensitiveDataScannerFilter } from "./SensitiveDataScannerFilter";
 import { SensitiveDataScannerProduct } from "./SensitiveDataScannerProduct";
 import { SensitiveDataScannerSamplings } from "./SensitiveDataScannerSamplings";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes of the Sensitive Data Scanner group.
- */
+*/
 export class SensitiveDataScannerGroupAttributes {
   /**
    * Description of the group.
-   */
+  */
   "description"?: string;
   /**
    * Filter for the Scanning Group.
-   */
+  */
   "filter"?: SensitiveDataScannerFilter;
   /**
    * Whether or not the group is enabled.
-   */
+  */
   "isEnabled"?: boolean;
   /**
    * Name of the group.
-   */
+  */
   "name"?: string;
   /**
    * List of products the scanning group applies.
-   */
+  */
   "productList"?: Array<SensitiveDataScannerProduct>;
   /**
    * List of sampling rates per product type.
-   */
+  */
   "samplings"?: Array<SensitiveDataScannerSamplings>;
 
   /**
@@ -54,42 +59,68 @@ export class SensitiveDataScannerGroupAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    filter: {
-      baseName: "filter",
-      type: "SensitiveDataScannerFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "SensitiveDataScannerFilter",
     },
-    isEnabled: {
-      baseName: "is_enabled",
-      type: "boolean",
+    "isEnabled": {
+      "baseName": "is_enabled",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    productList: {
-      baseName: "product_list",
-      type: "Array<SensitiveDataScannerProduct>",
+    "productList": {
+      "baseName": "product_list",
+      "type": "Array<SensitiveDataScannerProduct>",
     },
-    samplings: {
-      baseName: "samplings",
-      type: "Array<SensitiveDataScannerSamplings>",
+    "samplings": {
+      "baseName": "samplings",
+      "type": "Array<SensitiveDataScannerSamplings>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerGroupAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

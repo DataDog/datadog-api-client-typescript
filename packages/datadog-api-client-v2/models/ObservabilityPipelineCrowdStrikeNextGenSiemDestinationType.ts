@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The destination type. The value should always be `crowdstrike_next_gen_siem`.
- */
+*/
 
-export type ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType =
-  | typeof CROWDSTRIKE_NEXT_GEN_SIEM
-  | UnparsedObject;
-export const CROWDSTRIKE_NEXT_GEN_SIEM = "crowdstrike_next_gen_siem";
+export type ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType = typeof CROWDSTRIKE_NEXT_GEN_SIEM | UnparsedObject;
+export const CROWDSTRIKE_NEXT_GEN_SIEM = 'crowdstrike_next_gen_siem';

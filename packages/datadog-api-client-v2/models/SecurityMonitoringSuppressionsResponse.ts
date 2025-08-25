@@ -5,15 +5,20 @@
  */
 import { SecurityMonitoringSuppression } from "./SecurityMonitoringSuppression";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object containing the available suppression rules.
- */
+*/
 export class SecurityMonitoringSuppressionsResponse {
   /**
    * A list of suppressions objects.
-   */
+  */
   "data"?: Array<SecurityMonitoringSuppression>;
 
   /**
@@ -32,22 +37,48 @@ export class SecurityMonitoringSuppressionsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SecurityMonitoringSuppression>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<SecurityMonitoringSuppression>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SecurityMonitoringSuppressionsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

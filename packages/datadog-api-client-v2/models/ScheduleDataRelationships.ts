@@ -6,19 +6,24 @@
 import { DataRelationshipsTeams } from "./DataRelationshipsTeams";
 import { ScheduleDataRelationshipsLayers } from "./ScheduleDataRelationshipsLayers";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Groups the relationships for a schedule object, referencing layers and teams.
- */
+*/
 export class ScheduleDataRelationships {
   /**
    * Associates layers with this schedule in a data structure.
-   */
+  */
   "layers"?: ScheduleDataRelationshipsLayers;
   /**
    * Associates teams with this schedule in a data structure.
-   */
+  */
   "teams"?: DataRelationshipsTeams;
 
   /**
@@ -37,26 +42,52 @@ export class ScheduleDataRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    layers: {
-      baseName: "layers",
-      type: "ScheduleDataRelationshipsLayers",
+    "layers": {
+      "baseName": "layers",
+      "type": "ScheduleDataRelationshipsLayers",
     },
-    teams: {
-      baseName: "teams",
-      type: "DataRelationshipsTeams",
+    "teams": {
+      "baseName": "teams",
+      "type": "DataRelationshipsTeams",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleDataRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

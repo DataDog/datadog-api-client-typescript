@@ -4,12 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Size to use to display an event.
- */
+*/
 
-export type WidgetEventSize = typeof SMALL | typeof LARGE | UnparsedObject;
-export const SMALL = "s";
-export const LARGE = "l";
+export type WidgetEventSize = typeof SMALL| typeof LARGE | UnparsedObject;
+export const SMALL = 's';
+export const LARGE = 'l';

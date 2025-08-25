@@ -4,19 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the author.
- */
+*/
 
-export type ChangeEventAttributesAuthorType =
-  | typeof USER
-  | typeof SYSTEM
-  | typeof API
-  | typeof AUTOMATION
-  | UnparsedObject;
-export const USER = "user";
-export const SYSTEM = "system";
-export const API = "api";
-export const AUTOMATION = "automation";
+export type ChangeEventAttributesAuthorType = typeof USER| typeof SYSTEM| typeof API| typeof AUTOMATION | UnparsedObject;
+export const USER = 'user';
+export const SYSTEM = 'system';
+export const API = 'api';
+export const AUTOMATION = 'automation';

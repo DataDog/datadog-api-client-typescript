@@ -4,7 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Security rule type which can be used in security rules.
@@ -12,38 +17,21 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * workload_security, signal_correlation, cloud_configuration and infrastructure_configuration.
  * Vulnerability-based notification rules can filter vulnerabilities based on rule types application_code_vulnerability,
  * application_library_vulnerability, attack_path, container_image_vulnerability, identity_risk, misconfiguration, api_security, host_vulnerability and iac_misconfiguration.
- */
+*/
 
-export type RuleTypesItems =
-  | typeof APPLICATION_SECURITY
-  | typeof LOG_DETECTION
-  | typeof WORKLOAD_SECURITY
-  | typeof SIGNAL_CORRELATION
-  | typeof CLOUD_CONFIGURATION
-  | typeof INFRASTRUCTURE_CONFIGURATION
-  | typeof APPLICATION_CODE_VULNERABILITY
-  | typeof APPLICATION_LIBRARY_VULNERABILITY
-  | typeof ATTACK_PATH
-  | typeof CONTAINER_IMAGE_VULNERABILITY
-  | typeof IDENTITY_RISK
-  | typeof MISCONFIGURATION
-  | typeof API_SECURITY
-  | typeof HOST_VULNERABILITY
-  | typeof IAC_MISCONFIGURATION
-  | UnparsedObject;
-export const APPLICATION_SECURITY = "application_security";
-export const LOG_DETECTION = "log_detection";
-export const WORKLOAD_SECURITY = "workload_security";
-export const SIGNAL_CORRELATION = "signal_correlation";
-export const CLOUD_CONFIGURATION = "cloud_configuration";
-export const INFRASTRUCTURE_CONFIGURATION = "infrastructure_configuration";
-export const APPLICATION_CODE_VULNERABILITY = "application_code_vulnerability";
-export const APPLICATION_LIBRARY_VULNERABILITY =
-  "application_library_vulnerability";
-export const ATTACK_PATH = "attack_path";
-export const CONTAINER_IMAGE_VULNERABILITY = "container_image_vulnerability";
-export const IDENTITY_RISK = "identity_risk";
-export const MISCONFIGURATION = "misconfiguration";
-export const API_SECURITY = "api_security";
-export const HOST_VULNERABILITY = "host_vulnerability";
-export const IAC_MISCONFIGURATION = "iac_misconfiguration";
+export type RuleTypesItems = typeof APPLICATION_SECURITY| typeof LOG_DETECTION| typeof WORKLOAD_SECURITY| typeof SIGNAL_CORRELATION| typeof CLOUD_CONFIGURATION| typeof INFRASTRUCTURE_CONFIGURATION| typeof APPLICATION_CODE_VULNERABILITY| typeof APPLICATION_LIBRARY_VULNERABILITY| typeof ATTACK_PATH| typeof CONTAINER_IMAGE_VULNERABILITY| typeof IDENTITY_RISK| typeof MISCONFIGURATION| typeof API_SECURITY| typeof HOST_VULNERABILITY| typeof IAC_MISCONFIGURATION | UnparsedObject;
+export const APPLICATION_SECURITY = 'application_security';
+export const LOG_DETECTION = 'log_detection';
+export const WORKLOAD_SECURITY = 'workload_security';
+export const SIGNAL_CORRELATION = 'signal_correlation';
+export const CLOUD_CONFIGURATION = 'cloud_configuration';
+export const INFRASTRUCTURE_CONFIGURATION = 'infrastructure_configuration';
+export const APPLICATION_CODE_VULNERABILITY = 'application_code_vulnerability';
+export const APPLICATION_LIBRARY_VULNERABILITY = 'application_library_vulnerability';
+export const ATTACK_PATH = 'attack_path';
+export const CONTAINER_IMAGE_VULNERABILITY = 'container_image_vulnerability';
+export const IDENTITY_RISK = 'identity_risk';
+export const MISCONFIGURATION = 'misconfiguration';
+export const API_SECURITY = 'api_security';
+export const HOST_VULNERABILITY = 'host_vulnerability';
+export const IAC_MISCONFIGURATION = 'iac_misconfiguration';

@@ -8,47 +8,52 @@ import { AlertEventAttributesPriority } from "./AlertEventAttributesPriority";
 import { AlertEventAttributesStatus } from "./AlertEventAttributesStatus";
 import { EventSystemAttributes } from "./EventSystemAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Alert event attributes.
- */
+*/
 export class AlertEventAttributes {
   /**
    * Aggregation key of the event.
-   */
+  */
   "aggregationKey"?: string;
   /**
    * JSON object of custom attributes.
-   */
+  */
   "custom"?: any;
   /**
    * JSON object of event system attributes.
-   */
+  */
   "evt"?: EventSystemAttributes;
   /**
    * The links related to the event.
-   */
+  */
   "links"?: Array<AlertEventAttributesLinksItem>;
   /**
    * The priority of the alert.
-   */
+  */
   "priority"?: AlertEventAttributesPriority;
   /**
    * Service that triggered the event.
-   */
+  */
   "service"?: string;
   /**
    * The status of the alert.
-   */
+  */
   "status"?: AlertEventAttributesStatus;
   /**
    * POSIX timestamp of the event.
-   */
+  */
   "timestamp"?: number;
   /**
    * The title of the event.
-   */
+  */
   "title"?: string;
 
   /**
@@ -67,55 +72,81 @@ export class AlertEventAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregationKey: {
-      baseName: "aggregation_key",
-      type: "string",
+    "aggregationKey": {
+      "baseName": "aggregation_key",
+      "type": "string",
     },
-    custom: {
-      baseName: "custom",
-      type: "any",
+    "custom": {
+      "baseName": "custom",
+      "type": "any",
     },
-    evt: {
-      baseName: "evt",
-      type: "EventSystemAttributes",
+    "evt": {
+      "baseName": "evt",
+      "type": "EventSystemAttributes",
     },
-    links: {
-      baseName: "links",
-      type: "Array<AlertEventAttributesLinksItem>",
+    "links": {
+      "baseName": "links",
+      "type": "Array<AlertEventAttributesLinksItem>",
     },
-    priority: {
-      baseName: "priority",
-      type: "AlertEventAttributesPriority",
+    "priority": {
+      "baseName": "priority",
+      "type": "AlertEventAttributesPriority",
     },
-    service: {
-      baseName: "service",
-      type: "string",
+    "service": {
+      "baseName": "service",
+      "type": "string",
     },
-    status: {
-      baseName: "status",
-      type: "AlertEventAttributesStatus",
+    "status": {
+      "baseName": "status",
+      "type": "AlertEventAttributesStatus",
     },
-    timestamp: {
-      baseName: "timestamp",
-      type: "number",
-      format: "int64",
+    "timestamp": {
+      "baseName": "timestamp",
+      "type": "number",
+      "format": "int64",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AlertEventAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

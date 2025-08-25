@@ -5,15 +5,20 @@
  */
 import { ScheduleCreateRequestData } from "./ScheduleCreateRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The top-level request body for schedule creation, wrapping a `data` object.
- */
+*/
 export class ScheduleCreateRequest {
   /**
    * The core data wrapper for creating a schedule, encompassing attributes, relationships, and the resource type.
-   */
+  */
   "data": ScheduleCreateRequestData;
 
   /**
@@ -32,23 +37,49 @@ export class ScheduleCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ScheduleCreateRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ScheduleCreateRequestData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

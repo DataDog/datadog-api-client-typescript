@@ -6,35 +6,40 @@
 import { LayerAttributesInterval } from "./LayerAttributesInterval";
 import { TimeRestriction } from "./TimeRestriction";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Describes key properties of a Layer, including rotation details, name, start/end times, and any restrictions.
- */
+*/
 export class LayerAttributes {
   /**
    * When the layer becomes active (ISO 8601).
-   */
+  */
   "effectiveDate"?: Date;
   /**
    * When the layer ceases to be active (ISO 8601).
-   */
+  */
   "endDate"?: Date;
   /**
    * Defines how often the rotation repeats, using a combination of days and optional seconds. Should be at least 1 hour.
-   */
+  */
   "interval"?: LayerAttributesInterval;
   /**
    * The name of this layer.
-   */
+  */
   "name"?: string;
   /**
    * An optional list of time restrictions for when this layer is in effect.
-   */
+  */
   "restrictions"?: Array<TimeRestriction>;
   /**
    * The date/time when the rotation starts (ISO 8601).
-   */
+  */
   "rotationStart"?: Date;
 
   /**
@@ -53,45 +58,71 @@ export class LayerAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    effectiveDate: {
-      baseName: "effective_date",
-      type: "Date",
-      format: "date-time",
+    "effectiveDate": {
+      "baseName": "effective_date",
+      "type": "Date",
+      "format": "date-time",
     },
-    endDate: {
-      baseName: "end_date",
-      type: "Date",
-      format: "date-time",
+    "endDate": {
+      "baseName": "end_date",
+      "type": "Date",
+      "format": "date-time",
     },
-    interval: {
-      baseName: "interval",
-      type: "LayerAttributesInterval",
+    "interval": {
+      "baseName": "interval",
+      "type": "LayerAttributesInterval",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    restrictions: {
-      baseName: "restrictions",
-      type: "Array<TimeRestriction>",
+    "restrictions": {
+      "baseName": "restrictions",
+      "type": "Array<TimeRestriction>",
     },
-    rotationStart: {
-      baseName: "rotation_start",
-      type: "Date",
-      format: "date-time",
+    "rotationStart": {
+      "baseName": "rotation_start",
+      "type": "Date",
+      "format": "date-time",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LayerAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

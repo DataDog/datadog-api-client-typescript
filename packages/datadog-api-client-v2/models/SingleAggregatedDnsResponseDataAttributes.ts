@@ -6,19 +6,24 @@
 import { SingleAggregatedDnsResponseDataAttributesGroupByItems } from "./SingleAggregatedDnsResponseDataAttributesGroupByItems";
 import { SingleAggregatedDnsResponseDataAttributesMetricsItems } from "./SingleAggregatedDnsResponseDataAttributesMetricsItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Attributes for an aggregated DNS flow.
- */
+*/
 export class SingleAggregatedDnsResponseDataAttributes {
   /**
    * The key, value pairs for each group by.
-   */
+  */
   "groupBys"?: Array<SingleAggregatedDnsResponseDataAttributesGroupByItems>;
   /**
    * Metrics associated with an aggregated DNS flow.
-   */
+  */
   "metrics"?: Array<SingleAggregatedDnsResponseDataAttributesMetricsItems>;
 
   /**
@@ -37,26 +42,52 @@ export class SingleAggregatedDnsResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    groupBys: {
-      baseName: "group_bys",
-      type: "Array<SingleAggregatedDnsResponseDataAttributesGroupByItems>",
+    "groupBys": {
+      "baseName": "group_bys",
+      "type": "Array<SingleAggregatedDnsResponseDataAttributesGroupByItems>",
     },
-    metrics: {
-      baseName: "metrics",
-      type: "Array<SingleAggregatedDnsResponseDataAttributesMetricsItems>",
+    "metrics": {
+      "baseName": "metrics",
+      "type": "Array<SingleAggregatedDnsResponseDataAttributesMetricsItems>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SingleAggregatedDnsResponseDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

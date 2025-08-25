@@ -5,15 +5,20 @@
  */
 import { EntityV3 } from "./EntityV3";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Included schema.
- */
+*/
 export class EntityResponseIncludedSchemaAttributes {
   /**
    * Entity schema v3.
-   */
+  */
   "schema"?: EntityV3;
 
   /**
@@ -32,22 +37,48 @@ export class EntityResponseIncludedSchemaAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    schema: {
-      baseName: "schema",
-      type: "EntityV3",
+    "schema": {
+      "baseName": "schema",
+      "type": "EntityV3",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EntityResponseIncludedSchemaAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

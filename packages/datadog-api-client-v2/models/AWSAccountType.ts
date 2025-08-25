@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * AWS Account resource type.
- */
+*/
 
 export type AWSAccountType = typeof ACCOUNT | UnparsedObject;
-export const ACCOUNT = "account";
+export const ACCOUNT = 'account';

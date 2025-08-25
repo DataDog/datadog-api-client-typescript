@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Byte frames which are delimited by a newline character.
- */
+*/
 
-export type ObservabilityPipelineSocketSourceFramingNewlineDelimitedMethod =
-  | typeof NEWLINE_DELIMITED
-  | UnparsedObject;
-export const NEWLINE_DELIMITED = "newline_delimited";
+export type ObservabilityPipelineSocketSourceFramingNewlineDelimitedMethod = typeof NEWLINE_DELIMITED | UnparsedObject;
+export const NEWLINE_DELIMITED = 'newline_delimited';

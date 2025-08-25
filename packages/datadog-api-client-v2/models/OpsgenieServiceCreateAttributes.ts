@@ -5,27 +5,32 @@
  */
 import { OpsgenieServiceRegionType } from "./OpsgenieServiceRegionType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The Opsgenie service attributes for a create request.
- */
+*/
 export class OpsgenieServiceCreateAttributes {
   /**
    * The custom URL for a custom region.
-   */
+  */
   "customUrl"?: string;
   /**
    * The name for the Opsgenie service.
-   */
+  */
   "name": string;
   /**
    * The Opsgenie API key for your Opsgenie service.
-   */
+  */
   "opsgenieApiKey": string;
   /**
    * The region for the Opsgenie service.
-   */
+  */
   "region": OpsgenieServiceRegionType;
 
   /**
@@ -44,37 +49,63 @@ export class OpsgenieServiceCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customUrl: {
-      baseName: "custom_url",
-      type: "string",
+    "customUrl": {
+      "baseName": "custom_url",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    opsgenieApiKey: {
-      baseName: "opsgenie_api_key",
-      type: "string",
-      required: true,
+    "opsgenieApiKey": {
+      "baseName": "opsgenie_api_key",
+      "type": "string",
+      "required": true,
     },
-    region: {
-      baseName: "region",
-      type: "OpsgenieServiceRegionType",
-      required: true,
+    "region": {
+      "baseName": "region",
+      "type": "OpsgenieServiceRegionType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpsgenieServiceCreateAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

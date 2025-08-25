@@ -5,19 +5,24 @@
  */
 import { ScalarResponse } from "./ScalarResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A message containing one or more responses to scalar queries.
- */
+*/
 export class ScalarFormulaQueryResponse {
   /**
    * A message containing the response to a scalar query.
-   */
+  */
   "data"?: ScalarResponse;
   /**
    * An error generated when processing a request.
-   */
+  */
   "errors"?: string;
 
   /**
@@ -36,26 +41,52 @@ export class ScalarFormulaQueryResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ScalarResponse",
+    "data": {
+      "baseName": "data",
+      "type": "ScalarResponse",
     },
-    errors: {
-      baseName: "errors",
-      type: "string",
+    "errors": {
+      "baseName": "errors",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScalarFormulaQueryResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

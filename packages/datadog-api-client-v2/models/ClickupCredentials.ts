@@ -5,10 +5,15 @@
  */
 import { ClickupAPIKey } from "./ClickupAPIKey";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `ClickupCredentials` object.
- */
+*/
 
 export type ClickupCredentials = ClickupAPIKey | UnparsedObject;

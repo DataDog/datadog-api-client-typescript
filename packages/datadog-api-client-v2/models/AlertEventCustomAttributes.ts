@@ -7,27 +7,32 @@ import { AlertEventCustomAttributesLinksItems } from "./AlertEventCustomAttribut
 import { AlertEventCustomAttributesPriority } from "./AlertEventCustomAttributesPriority";
 import { AlertEventCustomAttributesStatus } from "./AlertEventCustomAttributesStatus";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Alert event attributes.
- */
+*/
 export class AlertEventCustomAttributes {
   /**
    * Free form JSON object for arbitrary data. Supports up to 100 properties per object and a maximum nesting depth of 10 levels.
-   */
-  "custom"?: { [key: string]: any };
+  */
+  "custom"?: { [key: string]: any; };
   /**
    * The links related to the event. Maximum of 20 links allowed.
-   */
+  */
   "links"?: Array<AlertEventCustomAttributesLinksItems>;
   /**
    * The priority of the alert.
-   */
+  */
   "priority"?: AlertEventCustomAttributesPriority;
   /**
    * The status of the alert.
-   */
+  */
   "status": AlertEventCustomAttributesStatus;
 
   /**
@@ -39,31 +44,57 @@ export class AlertEventCustomAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    custom: {
-      baseName: "custom",
-      type: "{ [key: string]: any; }",
+    "custom": {
+      "baseName": "custom",
+      "type": "{ [key: string]: any; }",
     },
-    links: {
-      baseName: "links",
-      type: "Array<AlertEventCustomAttributesLinksItems>",
+    "links": {
+      "baseName": "links",
+      "type": "Array<AlertEventCustomAttributesLinksItems>",
     },
-    priority: {
-      baseName: "priority",
-      type: "AlertEventCustomAttributesPriority",
+    "priority": {
+      "baseName": "priority",
+      "type": "AlertEventCustomAttributesPriority",
     },
-    status: {
-      baseName: "status",
-      type: "AlertEventCustomAttributesStatus",
-      required: true,
-    },
+    "status": {
+      "baseName": "status",
+      "type": "AlertEventCustomAttributesStatus",
+      "required": true,
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AlertEventCustomAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

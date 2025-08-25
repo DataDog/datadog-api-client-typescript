@@ -7,27 +7,32 @@ import { CaseAttributes } from "./CaseAttributes";
 import { CaseRelationships } from "./CaseRelationships";
 import { CaseResourceType } from "./CaseResourceType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A case
- */
+*/
 export class Case {
   /**
    * Case resource attributes
-   */
+  */
   "attributes": CaseAttributes;
   /**
    * Case's identifier
-   */
+  */
   "id": string;
   /**
    * Resources related to a case
-   */
+  */
   "relationships"?: CaseRelationships;
   /**
    * Case resource type
-   */
+  */
   "type": CaseResourceType;
 
   /**
@@ -46,37 +51,63 @@ export class Case {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CaseAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CaseAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "CaseRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "CaseRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "CaseResourceType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CaseResourceType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return Case.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

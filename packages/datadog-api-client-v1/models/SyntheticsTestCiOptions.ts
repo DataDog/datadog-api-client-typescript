@@ -5,15 +5,20 @@
  */
 import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * CI/CD options for a Synthetic test.
- */
+*/
 export class SyntheticsTestCiOptions {
   /**
    * Execution rule for a Synthetic test.
-   */
+  */
   "executionRule": SyntheticsTestExecutionRule;
 
   /**
@@ -32,23 +37,49 @@ export class SyntheticsTestCiOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    executionRule: {
-      baseName: "executionRule",
-      type: "SyntheticsTestExecutionRule",
-      required: true,
+    "executionRule": {
+      "baseName": "executionRule",
+      "type": "SyntheticsTestExecutionRule",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestCiOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { APIKeysType } from "./APIKeysType";
 import { APIKeyUpdateAttributes } from "./APIKeyUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object used to update an API key.
- */
+*/
 export class APIKeyUpdateData {
   /**
    * Attributes used to update an API Key.
-   */
+  */
   "attributes": APIKeyUpdateAttributes;
   /**
    * ID of the API key.
-   */
+  */
   "id": string;
   /**
    * API Keys resource type.
-   */
+  */
   "type": APIKeysType;
 
   /**
@@ -41,33 +46,59 @@ export class APIKeyUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "APIKeyUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "APIKeyUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "APIKeysType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "APIKeysType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return APIKeyUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

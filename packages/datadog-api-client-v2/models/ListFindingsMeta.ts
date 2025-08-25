@@ -5,19 +5,24 @@
  */
 import { ListFindingsPage } from "./ListFindingsPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for pagination.
- */
+*/
 export class ListFindingsMeta {
   /**
    * Pagination and findings count information.
-   */
+  */
   "page"?: ListFindingsPage;
   /**
    * The point in time corresponding to the listed findings.
-   */
+  */
   "snapshotTimestamp"?: number;
 
   /**
@@ -29,23 +34,49 @@ export class ListFindingsMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "ListFindingsPage",
+    "page": {
+      "baseName": "page",
+      "type": "ListFindingsPage",
     },
-    snapshotTimestamp: {
-      baseName: "snapshot_timestamp",
-      type: "number",
-      format: "int64",
-    },
+    "snapshotTimestamp": {
+      "baseName": "snapshot_timestamp",
+      "type": "number",
+      "format": "int64",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListFindingsMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

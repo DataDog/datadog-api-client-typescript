@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `AzureTenant` object.
- */
+*/
 
 export type AzureTenantType = typeof AZURETENANT | UnparsedObject;
-export const AZURETENANT = "AzureTenant";
+export const AZURETENANT = 'AzureTenant';

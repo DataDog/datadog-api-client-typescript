@@ -5,15 +5,20 @@
  */
 import { MetricVolumes } from "./MetricVolumes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object which includes a single metric's volume.
- */
+*/
 export class MetricVolumesResponse {
   /**
    * Possible response objects for a metric's volume.
-   */
+  */
   "data"?: MetricVolumes;
 
   /**
@@ -32,22 +37,48 @@ export class MetricVolumesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricVolumes",
+    "data": {
+      "baseName": "data",
+      "type": "MetricVolumes",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricVolumesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

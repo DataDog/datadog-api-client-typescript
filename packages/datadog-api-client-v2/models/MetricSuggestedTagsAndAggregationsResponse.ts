@@ -5,15 +5,20 @@
  */
 import { MetricSuggestedTagsAndAggregations } from "./MetricSuggestedTagsAndAggregations";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object that includes a single metric's actively queried tags and aggregations.
- */
+*/
 export class MetricSuggestedTagsAndAggregationsResponse {
   /**
    * Object for a single metric's actively queried tags and aggregations.
-   */
+  */
   "data"?: MetricSuggestedTagsAndAggregations;
 
   /**
@@ -32,22 +37,48 @@ export class MetricSuggestedTagsAndAggregationsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricSuggestedTagsAndAggregations",
+    "data": {
+      "baseName": "data",
+      "type": "MetricSuggestedTagsAndAggregations",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricSuggestedTagsAndAggregationsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

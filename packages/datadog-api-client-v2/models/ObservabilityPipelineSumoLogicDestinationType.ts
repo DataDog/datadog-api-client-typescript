@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The destination type. The value should always be `sumo_logic`.
- */
+*/
 
-export type ObservabilityPipelineSumoLogicDestinationType =
-  | typeof SUMO_LOGIC
-  | UnparsedObject;
-export const SUMO_LOGIC = "sumo_logic";
+export type ObservabilityPipelineSumoLogicDestinationType = typeof SUMO_LOGIC | UnparsedObject;
+export const SUMO_LOGIC = 'sumo_logic';

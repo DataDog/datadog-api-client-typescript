@@ -5,23 +5,28 @@
  */
 import { CloudflareGlobalAPITokenType } from "./CloudflareGlobalAPITokenType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `CloudflareGlobalAPIToken` object.
- */
+*/
 export class CloudflareGlobalAPITokenUpdate {
   /**
    * The `CloudflareGlobalAPITokenUpdate` `auth_email`.
-   */
+  */
   "authEmail"?: string;
   /**
    * The `CloudflareGlobalAPITokenUpdate` `global_api_key`.
-   */
+  */
   "globalApiKey"?: string;
   /**
    * The definition of the `CloudflareGlobalAPIToken` object.
-   */
+  */
   "type": CloudflareGlobalAPITokenType;
 
   /**
@@ -40,31 +45,57 @@ export class CloudflareGlobalAPITokenUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    authEmail: {
-      baseName: "auth_email",
-      type: "string",
+    "authEmail": {
+      "baseName": "auth_email",
+      "type": "string",
     },
-    globalApiKey: {
-      baseName: "global_api_key",
-      type: "string",
+    "globalApiKey": {
+      "baseName": "global_api_key",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CloudflareGlobalAPITokenType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CloudflareGlobalAPITokenType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudflareGlobalAPITokenUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

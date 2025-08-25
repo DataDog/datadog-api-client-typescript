@@ -6,19 +6,24 @@
 import { MetricTagCardinalitiesMeta } from "./MetricTagCardinalitiesMeta";
 import { MetricTagCardinality } from "./MetricTagCardinality";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object that includes an array of objects representing the cardinality details of a metric's tags.
- */
+*/
 export class MetricTagCardinalitiesResponse {
   /**
    * A list of tag cardinalities associated with the given metric.
-   */
+  */
   "data"?: Array<MetricTagCardinality>;
   /**
    * Response metadata object.
-   */
+  */
   "meta"?: MetricTagCardinalitiesMeta;
 
   /**
@@ -37,26 +42,52 @@ export class MetricTagCardinalitiesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<MetricTagCardinality>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<MetricTagCardinality>",
     },
-    meta: {
-      baseName: "meta",
-      type: "MetricTagCardinalitiesMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "MetricTagCardinalitiesMeta",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricTagCardinalitiesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

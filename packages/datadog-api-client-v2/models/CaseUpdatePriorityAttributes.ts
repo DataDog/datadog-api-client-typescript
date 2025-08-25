@@ -5,15 +5,20 @@
  */
 import { CasePriority } from "./CasePriority";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Case update priority attributes
- */
+*/
 export class CaseUpdatePriorityAttributes {
   /**
    * Case priority
-   */
+  */
   "priority": CasePriority;
 
   /**
@@ -32,23 +37,49 @@ export class CaseUpdatePriorityAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    priority: {
-      baseName: "priority",
-      type: "CasePriority",
-      required: true,
+    "priority": {
+      "baseName": "priority",
+      "type": "CasePriority",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CaseUpdatePriorityAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

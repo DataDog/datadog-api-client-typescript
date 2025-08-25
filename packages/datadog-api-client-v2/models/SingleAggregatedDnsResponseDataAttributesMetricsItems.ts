@@ -5,19 +5,24 @@
  */
 import { DnsMetricKey } from "./DnsMetricKey";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metrics associated with an aggregated DNS flow.
- */
+*/
 export class SingleAggregatedDnsResponseDataAttributesMetricsItems {
   /**
    * The metric key for DNS metrics.
-   */
+  */
   "key"?: DnsMetricKey;
   /**
    * The metric value.
-   */
+  */
   "value"?: number;
 
   /**
@@ -36,27 +41,53 @@ export class SingleAggregatedDnsResponseDataAttributesMetricsItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    key: {
-      baseName: "key",
-      type: "DnsMetricKey",
+    "key": {
+      "baseName": "key",
+      "type": "DnsMetricKey",
     },
-    value: {
-      baseName: "value",
-      type: "number",
-      format: "int64",
+    "value": {
+      "baseName": "value",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SingleAggregatedDnsResponseDataAttributesMetricsItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

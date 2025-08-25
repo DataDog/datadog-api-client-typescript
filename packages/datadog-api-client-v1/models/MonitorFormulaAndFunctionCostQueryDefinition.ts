@@ -6,27 +6,32 @@
 import { MonitorFormulaAndFunctionCostAggregator } from "./MonitorFormulaAndFunctionCostAggregator";
 import { MonitorFormulaAndFunctionCostDataSource } from "./MonitorFormulaAndFunctionCostDataSource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A formula and functions cost query.
- */
+*/
 export class MonitorFormulaAndFunctionCostQueryDefinition {
   /**
    * Aggregation methods for metric queries.
-   */
+  */
   "aggregator"?: MonitorFormulaAndFunctionCostAggregator;
   /**
    * Data source for cost queries.
-   */
+  */
   "dataSource": MonitorFormulaAndFunctionCostDataSource;
   /**
    * Name of the query for use in formulas.
-   */
+  */
   "name": string;
   /**
    * The monitor query.
-   */
+  */
   "query": string;
 
   /**
@@ -45,37 +50,63 @@ export class MonitorFormulaAndFunctionCostQueryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregator: {
-      baseName: "aggregator",
-      type: "MonitorFormulaAndFunctionCostAggregator",
+    "aggregator": {
+      "baseName": "aggregator",
+      "type": "MonitorFormulaAndFunctionCostAggregator",
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "MonitorFormulaAndFunctionCostDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "MonitorFormulaAndFunctionCostDataSource",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorFormulaAndFunctionCostQueryDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

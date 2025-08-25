@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Type "live" denotes a live span in the new format.
- */
+*/
 
 export type WidgetNewLiveSpanType = typeof LIVE | UnparsedObject;
-export const LIVE = "live";
+export const LIVE = 'live';

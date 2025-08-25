@@ -7,14 +7,15 @@ import { Organization } from "./Organization";
 import { Permission } from "./Permission";
 import { Role } from "./Role";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * An object related to a user.
- */
+*/
 
-export type UserResponseIncludedItem =
-  | Organization
-  | Permission
-  | Role
-  | UnparsedObject;
+export type UserResponseIncludedItem = Organization | Permission | Role | UnparsedObject;

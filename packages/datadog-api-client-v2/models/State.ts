@@ -4,13 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The state of the rule evaluation.
- */
+*/
 
-export type State = typeof PASS | typeof FAIL | typeof SKIP | UnparsedObject;
-export const PASS = "pass";
-export const FAIL = "fail";
-export const SKIP = "skip";
+export type State = typeof PASS| typeof FAIL| typeof SKIP | UnparsedObject;
+export const PASS = 'pass';
+export const FAIL = 'fail';
+export const SKIP = 'skip';

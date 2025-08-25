@@ -4,12 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Event category identifying the type of event.
- */
+*/
 
-export type EventCategory = typeof CHANGE | typeof ALERT | UnparsedObject;
-export const CHANGE = "change";
-export const ALERT = "alert";
+export type EventCategory = typeof CHANGE| typeof ALERT | UnparsedObject;
+export const CHANGE = 'change';
+export const ALERT = 'alert';

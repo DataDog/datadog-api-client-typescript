@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `ConfigCatIntegrationType` object.
- */
+*/
 
 export type ConfigCatIntegrationType = typeof CONFIGCAT | UnparsedObject;
-export const CONFIGCAT = "ConfigCat";
+export const CONFIGCAT = 'ConfigCat';

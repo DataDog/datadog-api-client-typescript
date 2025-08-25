@@ -5,15 +5,20 @@
  */
 import { SingleAggregatedDnsResponseData } from "./SingleAggregatedDnsResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * List of aggregated DNS flows.
- */
+*/
 export class SingleAggregatedDnsResponseArray {
   /**
    * Array of aggregated DNS objects.
-   */
+  */
   "data"?: Array<SingleAggregatedDnsResponseData>;
 
   /**
@@ -32,22 +37,48 @@ export class SingleAggregatedDnsResponseArray {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<SingleAggregatedDnsResponseData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<SingleAggregatedDnsResponseData>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SingleAggregatedDnsResponseArray.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

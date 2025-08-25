@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `ShiftDataAttributes` object.
- */
+*/
 export class ShiftDataAttributes {
   /**
    * The end time of the shift.
-   */
+  */
   "end"?: Date;
   /**
    * The start time of the shift.
-   */
+  */
   "start"?: Date;
 
   /**
@@ -35,28 +40,54 @@ export class ShiftDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    end: {
-      baseName: "end",
-      type: "Date",
-      format: "date-time",
+    "end": {
+      "baseName": "end",
+      "type": "Date",
+      "format": "date-time",
     },
-    start: {
-      baseName: "start",
-      type: "Date",
-      format: "date-time",
+    "start": {
+      "baseName": "start",
+      "type": "Date",
+      "format": "date-time",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ShiftDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { EventCreateResponse } from "./EventCreateResponse";
 import { EventCreateResponsePayloadLinks } from "./EventCreateResponsePayloadLinks";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Event creation response.
- */
+*/
 export class EventCreateResponsePayload {
   /**
    * Event object.
-   */
+  */
   "data"?: EventCreateResponse;
   /**
    * Links to the event.
-   */
+  */
   "links"?: EventCreateResponsePayloadLinks;
 
   /**
@@ -37,26 +42,52 @@ export class EventCreateResponsePayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "EventCreateResponse",
+    "data": {
+      "baseName": "data",
+      "type": "EventCreateResponse",
     },
-    links: {
-      baseName: "links",
-      type: "EventCreateResponsePayloadLinks",
+    "links": {
+      "baseName": "links",
+      "type": "EventCreateResponsePayloadLinks",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventCreateResponsePayload.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

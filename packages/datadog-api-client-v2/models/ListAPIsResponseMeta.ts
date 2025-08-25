@@ -5,15 +5,20 @@
  */
 import { ListAPIsResponseMetaPagination } from "./ListAPIsResponseMetaPagination";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Metadata for `ListAPIsResponse`.
- */
+*/
 export class ListAPIsResponseMeta {
   /**
    * Pagination metadata information for `ListAPIsResponse`.
-   */
+  */
   "pagination"?: ListAPIsResponseMetaPagination;
 
   /**
@@ -32,22 +37,48 @@ export class ListAPIsResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pagination: {
-      baseName: "pagination",
-      type: "ListAPIsResponseMetaPagination",
+    "pagination": {
+      "baseName": "pagination",
+      "type": "ListAPIsResponseMetaPagination",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ListAPIsResponseMeta.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

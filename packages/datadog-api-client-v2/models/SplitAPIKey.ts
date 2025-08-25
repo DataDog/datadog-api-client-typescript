@@ -5,19 +5,24 @@
  */
 import { SplitAPIKeyType } from "./SplitAPIKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `SplitAPIKey` object.
- */
+*/
 export class SplitAPIKey {
   /**
    * The `SplitAPIKey` `api_key`.
-   */
+  */
   "apiKey": string;
   /**
    * The definition of the `SplitAPIKey` object.
-   */
+  */
   "type": SplitAPIKeyType;
 
   /**
@@ -36,28 +41,54 @@ export class SplitAPIKey {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "string",
-      required: true,
+    "apiKey": {
+      "baseName": "api_key",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "SplitAPIKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "SplitAPIKeyType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SplitAPIKey.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

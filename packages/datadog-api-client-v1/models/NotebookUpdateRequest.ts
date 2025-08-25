@@ -5,15 +5,20 @@
  */
 import { NotebookUpdateData } from "./NotebookUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The description of a notebook update request.
- */
+*/
 export class NotebookUpdateRequest {
   /**
    * The data for a notebook update request.
-   */
+  */
   "data": NotebookUpdateData;
 
   /**
@@ -32,23 +37,49 @@ export class NotebookUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "NotebookUpdateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "NotebookUpdateData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotebookUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

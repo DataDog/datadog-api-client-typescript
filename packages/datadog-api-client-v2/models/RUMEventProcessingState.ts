@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Configures which RUM events are processed and stored for the application.
- */
+*/
 
-export type RUMEventProcessingState =
-  | typeof ALL
-  | typeof ERROR_FOCUSED_MODE
-  | typeof NONE
-  | UnparsedObject;
-export const ALL = "ALL";
-export const ERROR_FOCUSED_MODE = "ERROR_FOCUSED_MODE";
-export const NONE = "NONE";
+export type RUMEventProcessingState = typeof ALL| typeof ERROR_FOCUSED_MODE| typeof NONE | UnparsedObject;
+export const ALL = 'ALL';
+export const ERROR_FOCUSED_MODE = 'ERROR_FOCUSED_MODE';
+export const NONE = 'NONE';

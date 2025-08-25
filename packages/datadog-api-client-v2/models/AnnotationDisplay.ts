@@ -5,15 +5,20 @@
  */
 import { AnnotationDisplayBounds } from "./AnnotationDisplayBounds";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `AnnotationDisplay` object.
- */
+*/
 export class AnnotationDisplay {
   /**
    * The definition of `AnnotationDisplayBounds` object.
-   */
+  */
   "bounds"?: AnnotationDisplayBounds;
 
   /**
@@ -32,22 +37,48 @@ export class AnnotationDisplay {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    bounds: {
-      baseName: "bounds",
-      type: "AnnotationDisplayBounds",
+    "bounds": {
+      "baseName": "bounds",
+      "type": "AnnotationDisplayBounds",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnnotationDisplay.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

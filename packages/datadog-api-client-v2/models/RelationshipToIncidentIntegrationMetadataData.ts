@@ -5,19 +5,24 @@
  */
 import { IncidentIntegrationMetadataType } from "./IncidentIntegrationMetadataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A relationship reference for an integration metadata object.
- */
+*/
 export class RelationshipToIncidentIntegrationMetadataData {
   /**
    * A unique identifier that represents the integration metadata.
-   */
+  */
   "id": string;
   /**
    * Integration metadata resource type.
-   */
+  */
   "type": IncidentIntegrationMetadataType;
 
   /**
@@ -36,28 +41,54 @@ export class RelationshipToIncidentIntegrationMetadataData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "IncidentIntegrationMetadataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentIntegrationMetadataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToIncidentIntegrationMetadataData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

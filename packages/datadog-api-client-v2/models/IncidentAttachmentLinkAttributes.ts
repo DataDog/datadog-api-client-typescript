@@ -6,23 +6,28 @@
 import { IncidentAttachmentLinkAttachmentType } from "./IncidentAttachmentLinkAttachmentType";
 import { IncidentAttachmentLinkAttributesAttachmentObject } from "./IncidentAttachmentLinkAttributesAttachmentObject";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attributes object for a link attachment.
- */
+*/
 export class IncidentAttachmentLinkAttributes {
   /**
    * The link attachment.
-   */
+  */
   "attachment": IncidentAttachmentLinkAttributesAttachmentObject;
   /**
    * The type of link attachment attributes.
-   */
+  */
   "attachmentType": IncidentAttachmentLinkAttachmentType;
   /**
    * Timestamp when the incident attachment link was last modified.
-   */
+  */
   "modified"?: Date;
 
   /**
@@ -41,33 +46,59 @@ export class IncidentAttachmentLinkAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attachment: {
-      baseName: "attachment",
-      type: "IncidentAttachmentLinkAttributesAttachmentObject",
-      required: true,
+    "attachment": {
+      "baseName": "attachment",
+      "type": "IncidentAttachmentLinkAttributesAttachmentObject",
+      "required": true,
     },
-    attachmentType: {
-      baseName: "attachment_type",
-      type: "IncidentAttachmentLinkAttachmentType",
-      required: true,
+    "attachmentType": {
+      "baseName": "attachment_type",
+      "type": "IncidentAttachmentLinkAttachmentType",
+      "required": true,
     },
-    modified: {
-      baseName: "modified",
-      type: "Date",
-      format: "date-time",
+    "modified": {
+      "baseName": "modified",
+      "type": "Date",
+      "format": "date-time",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentAttachmentLinkAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

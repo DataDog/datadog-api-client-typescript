@@ -3,50 +3,56 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { MonitorUserTemplateTagsItem } from "./MonitorUserTemplateTagsItem";
 import { MonitorUserTemplateTemplateVariablesItems } from "./MonitorUserTemplateTemplateVariablesItems";
 import { SimpleMonitorUserTemplate } from "./SimpleMonitorUserTemplate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A monitor user template object.
- */
+*/
 export class MonitorUserTemplate {
   /**
    * The created timestamp of the template.
-   */
+  */
   "created"?: Date;
   /**
    * A brief description of the monitor user template.
-   */
+  */
   "description"?: string;
   /**
    * The last modified timestamp. When the template version was created.
-   */
+  */
   "modified"?: Date;
   /**
    * A valid monitor definition in the same format as the [V1 Monitor API](https://docs.datadoghq.com/api/latest/monitors/#create-a-monitor).
-   */
-  "monitorDefinition"?: { [key: string]: any };
+  */
+  "monitorDefinition"?: { [key: string]: any; };
   /**
    * The definition of `MonitorUserTemplateTags` object.
-   */
+  */
   "tags"?: Array<string>;
   /**
    * The definition of `MonitorUserTemplateTemplateVariables` object.
-   */
+  */
   "templateVariables"?: Array<MonitorUserTemplateTemplateVariablesItems>;
   /**
    * The title of the monitor user template.
-   */
+  */
   "title"?: string;
   /**
    * The version of the monitor user template.
-   */
+  */
   "version"?: number;
   /**
    * All versions of the monitor user template.
-   */
+  */
   "versions"?: Array<SimpleMonitorUserTemplate>;
 
   /**
@@ -65,57 +71,83 @@ export class MonitorUserTemplate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    created: {
-      baseName: "created",
-      type: "Date",
-      format: "date-time",
+    "created": {
+      "baseName": "created",
+      "type": "Date",
+      "format": "date-time",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    modified: {
-      baseName: "modified",
-      type: "Date",
-      format: "date-time",
+    "modified": {
+      "baseName": "modified",
+      "type": "Date",
+      "format": "date-time",
     },
-    monitorDefinition: {
-      baseName: "monitor_definition",
-      type: "{ [key: string]: any; }",
+    "monitorDefinition": {
+      "baseName": "monitor_definition",
+      "type": "{ [key: string]: any; }",
     },
-    tags: {
-      baseName: "tags",
-      type: "Array<string>",
+    "tags": {
+      "baseName": "tags",
+      "type": "Array<string>",
     },
-    templateVariables: {
-      baseName: "template_variables",
-      type: "Array<MonitorUserTemplateTemplateVariablesItems>",
+    "templateVariables": {
+      "baseName": "template_variables",
+      "type": "Array<MonitorUserTemplateTemplateVariablesItems>",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    version: {
-      baseName: "version",
-      type: "number",
-      format: "int64",
+    "version": {
+      "baseName": "version",
+      "type": "number",
+      "format": "int64",
     },
-    versions: {
-      baseName: "versions",
-      type: "Array<SimpleMonitorUserTemplate>",
+    "versions": {
+      "baseName": "versions",
+      "type": "Array<SimpleMonitorUserTemplate>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorUserTemplate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,10 +5,15 @@
  */
 import { SplitAPIKeyUpdate } from "./SplitAPIKeyUpdate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `SplitCredentialsUpdate` object.
- */
+*/
 
 export type SplitCredentialsUpdate = SplitAPIKeyUpdate | UnparsedObject;

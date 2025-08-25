@@ -5,10 +5,15 @@
  */
 import { AsanaAccessToken } from "./AsanaAccessToken";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `AsanaCredentials` object.
- */
+*/
 
 export type AsanaCredentials = AsanaAccessToken | UnparsedObject;

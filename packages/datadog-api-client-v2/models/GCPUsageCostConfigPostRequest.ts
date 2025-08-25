@@ -5,15 +5,20 @@
  */
 import { GCPUsageCostConfigPostData } from "./GCPUsageCostConfigPostData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * GCP Usage Cost config post request.
- */
+*/
 export class GCPUsageCostConfigPostRequest {
   /**
    * GCP Usage Cost config post data.
-   */
+  */
   "data": GCPUsageCostConfigPostData;
 
   /**
@@ -32,23 +37,49 @@ export class GCPUsageCostConfigPostRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "GCPUsageCostConfigPostData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "GCPUsageCostConfigPostData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GCPUsageCostConfigPostRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

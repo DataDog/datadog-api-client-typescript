@@ -6,19 +6,24 @@
 import { OktaCredentialsUpdate } from "./OktaCredentialsUpdate";
 import { OktaIntegrationType } from "./OktaIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `OktaIntegrationUpdate` object.
- */
+*/
 export class OktaIntegrationUpdate {
   /**
    * The definition of the `OktaCredentialsUpdate` object.
-   */
+  */
   "credentials"?: OktaCredentialsUpdate;
   /**
    * The definition of the `OktaIntegrationType` object.
-   */
+  */
   "type": OktaIntegrationType;
 
   /**
@@ -37,27 +42,53 @@ export class OktaIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "OktaCredentialsUpdate",
+    "credentials": {
+      "baseName": "credentials",
+      "type": "OktaCredentialsUpdate",
     },
-    type: {
-      baseName: "type",
-      type: "OktaIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OktaIntegrationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OktaIntegrationUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

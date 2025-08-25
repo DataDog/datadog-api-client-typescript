@@ -5,35 +5,40 @@
  */
 import { CustomFrameworkRequirement } from "./CustomFrameworkRequirement";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Framework Data Attributes.
- */
+*/
 export class CustomFrameworkDataAttributes {
   /**
    * Framework Description
-   */
+  */
   "description"?: string;
   /**
    * Framework Handle
-   */
+  */
   "handle": string;
   /**
    * Framework Icon URL
-   */
+  */
   "iconUrl"?: string;
   /**
    * Framework Name
-   */
+  */
   "name": string;
   /**
    * Framework Requirements
-   */
+  */
   "requirements": Array<CustomFrameworkRequirement>;
   /**
    * Framework Version
-   */
+  */
   "version": string;
 
   /**
@@ -52,46 +57,72 @@ export class CustomFrameworkDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
-      required: true,
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
+      "required": true,
     },
-    iconUrl: {
-      baseName: "icon_url",
-      type: "string",
+    "iconUrl": {
+      "baseName": "icon_url",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    requirements: {
-      baseName: "requirements",
-      type: "Array<CustomFrameworkRequirement>",
-      required: true,
+    "requirements": {
+      "baseName": "requirements",
+      "type": "Array<CustomFrameworkRequirement>",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "string",
-      required: true,
+    "version": {
+      "baseName": "version",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomFrameworkDataAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

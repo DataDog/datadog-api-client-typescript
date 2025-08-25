@@ -5,51 +5,56 @@
  */
 import { SyntheticsStepType } from "./SyntheticsStepType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The steps used in a Synthetic browser test.
- */
+*/
 export class SyntheticsStep {
   /**
    * A boolean set to allow this step to fail.
-   */
+  */
   "allowFailure"?: boolean;
   /**
    * A boolean set to always execute this step even if the previous step failed or was skipped.
-   */
+  */
   "alwaysExecute"?: boolean;
   /**
    * A boolean set to exit the test if the step succeeds.
-   */
+  */
   "exitIfSucceed"?: boolean;
   /**
    * A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
-   */
+  */
   "isCritical"?: boolean;
   /**
    * The name of the step.
-   */
+  */
   "name"?: string;
   /**
    * A boolean set to skip taking a screenshot for the step.
-   */
+  */
   "noScreenshot"?: boolean;
   /**
    * The parameters of the step.
-   */
+  */
   "params"?: any;
   /**
    * The public ID of the step.
-   */
+  */
   "publicId"?: string;
   /**
    * The time before declaring a step failed.
-   */
+  */
   "timeout"?: number;
   /**
    * Step type used in your Synthetic test.
-   */
+  */
   "type"?: SyntheticsStepType;
 
   /**
@@ -68,59 +73,85 @@ export class SyntheticsStep {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    allowFailure: {
-      baseName: "allowFailure",
-      type: "boolean",
+    "allowFailure": {
+      "baseName": "allowFailure",
+      "type": "boolean",
     },
-    alwaysExecute: {
-      baseName: "alwaysExecute",
-      type: "boolean",
+    "alwaysExecute": {
+      "baseName": "alwaysExecute",
+      "type": "boolean",
     },
-    exitIfSucceed: {
-      baseName: "exitIfSucceed",
-      type: "boolean",
+    "exitIfSucceed": {
+      "baseName": "exitIfSucceed",
+      "type": "boolean",
     },
-    isCritical: {
-      baseName: "isCritical",
-      type: "boolean",
+    "isCritical": {
+      "baseName": "isCritical",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    noScreenshot: {
-      baseName: "noScreenshot",
-      type: "boolean",
+    "noScreenshot": {
+      "baseName": "noScreenshot",
+      "type": "boolean",
     },
-    params: {
-      baseName: "params",
-      type: "any",
+    "params": {
+      "baseName": "params",
+      "type": "any",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
     },
-    timeout: {
-      baseName: "timeout",
-      type: "number",
-      format: "int64",
+    "timeout": {
+      "baseName": "timeout",
+      "type": "number",
+      "format": "int64",
     },
-    type: {
-      baseName: "type",
-      type: "SyntheticsStepType",
+    "type": {
+      "baseName": "type",
+      "type": "SyntheticsStepType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsStep.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

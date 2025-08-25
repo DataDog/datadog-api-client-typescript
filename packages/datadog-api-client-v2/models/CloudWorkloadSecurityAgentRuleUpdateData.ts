@@ -6,23 +6,28 @@
 import { CloudWorkloadSecurityAgentRuleType } from "./CloudWorkloadSecurityAgentRuleType";
 import { CloudWorkloadSecurityAgentRuleUpdateAttributes } from "./CloudWorkloadSecurityAgentRuleUpdateAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object for a single Agent rule
- */
+*/
 export class CloudWorkloadSecurityAgentRuleUpdateData {
   /**
    * Update an existing Cloud Workload Security Agent rule
-   */
+  */
   "attributes": CloudWorkloadSecurityAgentRuleUpdateAttributes;
   /**
    * The ID of the Agent rule
-   */
+  */
   "id"?: string;
   /**
    * The type of the resource, must always be `agent_rule`
-   */
+  */
   "type": CloudWorkloadSecurityAgentRuleType;
 
   /**
@@ -41,32 +46,58 @@ export class CloudWorkloadSecurityAgentRuleUpdateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "CloudWorkloadSecurityAgentRuleUpdateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "CloudWorkloadSecurityAgentRuleUpdateAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "CloudWorkloadSecurityAgentRuleType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CloudWorkloadSecurityAgentRuleType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentRuleUpdateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

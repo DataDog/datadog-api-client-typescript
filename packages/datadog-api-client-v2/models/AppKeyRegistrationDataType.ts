@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of `AppKeyRegistrationDataType` object.
- */
+*/
 
-export type AppKeyRegistrationDataType =
-  | typeof APP_KEY_REGISTRATION
-  | UnparsedObject;
-export const APP_KEY_REGISTRATION = "app_key_registration";
+export type AppKeyRegistrationDataType = typeof APP_KEY_REGISTRATION | UnparsedObject;
+export const APP_KEY_REGISTRATION = 'app_key_registration';

@@ -6,23 +6,28 @@
 import { MicrosoftTeamsTenantBasedHandleAttributes } from "./MicrosoftTeamsTenantBasedHandleAttributes";
 import { MicrosoftTeamsTenantBasedHandleType } from "./MicrosoftTeamsTenantBasedHandleType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Tenant-based handle data from a response.
- */
+*/
 export class MicrosoftTeamsTenantBasedHandleResponseData {
   /**
    * Tenant-based handle attributes.
-   */
+  */
   "attributes"?: MicrosoftTeamsTenantBasedHandleAttributes;
   /**
    * The ID of the tenant-based handle.
-   */
+  */
   "id"?: string;
   /**
    * Specifies the tenant-based handle resource type.
-   */
+  */
   "type"?: MicrosoftTeamsTenantBasedHandleType;
 
   /**
@@ -41,30 +46,56 @@ export class MicrosoftTeamsTenantBasedHandleResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "MicrosoftTeamsTenantBasedHandleAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "MicrosoftTeamsTenantBasedHandleAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "MicrosoftTeamsTenantBasedHandleType",
+    "type": {
+      "baseName": "type",
+      "type": "MicrosoftTeamsTenantBasedHandleType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MicrosoftTeamsTenantBasedHandleResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

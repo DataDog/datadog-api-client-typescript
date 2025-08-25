@@ -5,23 +5,28 @@
  */
 import { AlertEventAttributesLinksItemCategory } from "./AlertEventAttributesLinksItemCategory";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A link.
- */
+*/
 export class AlertEventAttributesLinksItem {
   /**
    * The category of the link.
-   */
+  */
   "category"?: AlertEventAttributesLinksItemCategory;
   /**
    * The display text of the link.
-   */
+  */
   "title"?: string;
   /**
    * The URL of the link.
-   */
+  */
   "url"?: string;
 
   /**
@@ -40,30 +45,56 @@ export class AlertEventAttributesLinksItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "AlertEventAttributesLinksItemCategory",
+    "category": {
+      "baseName": "category",
+      "type": "AlertEventAttributesLinksItemCategory",
     },
-    title: {
-      baseName: "title",
-      type: "string",
+    "title": {
+      "baseName": "title",
+      "type": "string",
     },
-    url: {
-      baseName: "url",
-      type: "string",
+    "url": {
+      "baseName": "url",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AlertEventAttributesLinksItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

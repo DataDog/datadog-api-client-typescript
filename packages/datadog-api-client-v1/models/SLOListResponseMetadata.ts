@@ -5,15 +5,20 @@
  */
 import { SLOListResponseMetadataPage } from "./SLOListResponseMetadataPage";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The metadata object containing additional information about the list of SLOs.
- */
+*/
 export class SLOListResponseMetadata {
   /**
    * The object containing information about the pages of the list of SLOs.
-   */
+  */
   "page"?: SLOListResponseMetadataPage;
 
   /**
@@ -32,22 +37,48 @@ export class SLOListResponseMetadata {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    page: {
-      baseName: "page",
-      type: "SLOListResponseMetadataPage",
+    "page": {
+      "baseName": "page",
+      "type": "SLOListResponseMetadataPage",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SLOListResponseMetadata.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

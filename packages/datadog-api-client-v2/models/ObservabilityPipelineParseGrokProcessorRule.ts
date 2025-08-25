@@ -6,25 +6,30 @@
 import { ObservabilityPipelineParseGrokProcessorRuleMatchRule } from "./ObservabilityPipelineParseGrokProcessorRuleMatchRule";
 import { ObservabilityPipelineParseGrokProcessorRuleSupportRule } from "./ObservabilityPipelineParseGrokProcessorRuleSupportRule";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A Grok parsing rule used in the `parse_grok` processor. Each rule defines how to extract structured fields
  * from a specific log field using Grok patterns.
- */
+*/
 export class ObservabilityPipelineParseGrokProcessorRule {
   /**
    * A list of Grok parsing rules that define how to extract fields from the source field.
    * Each rule must contain a name and a valid Grok pattern.
-   */
+  */
   "matchRules": Array<ObservabilityPipelineParseGrokProcessorRuleMatchRule>;
   /**
    * The name of the field in the log event to apply the Grok rules to.
-   */
+  */
   "source": string;
   /**
    * A list of Grok helper rules that can be referenced by the parsing rules.
-   */
+  */
   "supportRules"?: Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>;
 
   /**
@@ -43,32 +48,58 @@ export class ObservabilityPipelineParseGrokProcessorRule {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    matchRules: {
-      baseName: "match_rules",
-      type: "Array<ObservabilityPipelineParseGrokProcessorRuleMatchRule>",
-      required: true,
+    "matchRules": {
+      "baseName": "match_rules",
+      "type": "Array<ObservabilityPipelineParseGrokProcessorRuleMatchRule>",
+      "required": true,
     },
-    source: {
-      baseName: "source",
-      type: "string",
-      required: true,
+    "source": {
+      "baseName": "source",
+      "type": "string",
+      "required": true,
     },
-    supportRules: {
-      baseName: "support_rules",
-      type: "Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>",
+    "supportRules": {
+      "baseName": "support_rules",
+      "type": "Array<ObservabilityPipelineParseGrokProcessorRuleSupportRule>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineParseGrokProcessorRule.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

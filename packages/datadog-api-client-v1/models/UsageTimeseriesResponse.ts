@@ -5,15 +5,20 @@
  */
 import { UsageTimeseriesHour } from "./UsageTimeseriesHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing hourly usage of timeseries.
- */
+*/
 export class UsageTimeseriesResponse {
   /**
    * An array of objects regarding hourly usage of timeseries.
-   */
+  */
   "usage"?: Array<UsageTimeseriesHour>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageTimeseriesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageTimeseriesHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageTimeseriesHour>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageTimeseriesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,12 +5,15 @@
  */
 import { SecurityMonitoringStandardRuleTestPayload } from "./SecurityMonitoringStandardRuleTestPayload";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Test a rule.
- */
+*/
 
-export type SecurityMonitoringRuleTestPayload =
-  | SecurityMonitoringStandardRuleTestPayload
-  | UnparsedObject;
+export type SecurityMonitoringRuleTestPayload = SecurityMonitoringStandardRuleTestPayload | UnparsedObject;

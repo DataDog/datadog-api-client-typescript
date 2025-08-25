@@ -1,20 +1,18 @@
-import {
-  BaseAPIRequestFactory,
-  RequiredError,
-} from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  applySecurityAuthentication,
-} from "../../datadog-api-client-common/configuration";
+import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
-} from "../../datadog-api-client-common/http/http";
+  HttpFile
+  } from "../../datadog-api-client-common/http/http";
+
+import FormData from "form-data";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
+
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { WebhooksIntegration } from "../models/WebhooksIntegration";
@@ -24,31 +22,26 @@ import { WebhooksIntegrationCustomVariableUpdateRequest } from "../models/Webhoo
 import { WebhooksIntegrationUpdateRequest } from "../models/WebhooksIntegrationUpdateRequest";
 
 export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-  public async createWebhooksIntegration(
-    body: WebhooksIntegration,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async createWebhooksIntegration(body: WebhooksIntegration,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createWebhooksIntegration");
+      throw new RequiredError('body', 'createWebhooksIntegration');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/integration/webhooks/configuration/webhooks";
+    const localVarPath = '/api/v1/integration/webhooks/configuration/webhooks';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.WebhooksIntegrationApi.createWebhooksIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v1.WebhooksIntegrationApi.createWebhooksIntegration').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "WebhooksIntegration", ""),
@@ -66,37 +59,25 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async createWebhooksIntegrationCustomVariable(
-    body: WebhooksIntegrationCustomVariable,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async createWebhooksIntegrationCustomVariable(body: WebhooksIntegrationCustomVariable,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "body",
-        "createWebhooksIntegrationCustomVariable"
-      );
+      throw new RequiredError('body', 'createWebhooksIntegrationCustomVariable');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/webhooks/configuration/custom-variables";
+    const localVarPath = '/api/v1/integration/webhooks/configuration/custom-variables';
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v1.WebhooksIntegrationApi.createWebhooksIntegrationCustomVariable"
-      )
-      .makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config.getServer('v1.WebhooksIntegrationApi.createWebhooksIntegrationCustomVariable').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "WebhooksIntegrationCustomVariable", ""),
@@ -113,28 +94,20 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async deleteWebhooksIntegration(
-    webhookName: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async deleteWebhooksIntegration(webhookName: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'webhookName' is not null or undefined
     if (webhookName === null || webhookName === undefined) {
-      throw new RequiredError("webhookName", "deleteWebhooksIntegration");
+      throw new RequiredError('webhookName', 'deleteWebhooksIntegration');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
-        "{webhook_name}",
-        encodeURIComponent(String(webhookName))
-      );
+    const localVarPath = '/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}'
+      .replace('{webhook_name}', encodeURIComponent(String(webhookName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.WebhooksIntegrationApi.deleteWebhooksIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v1.WebhooksIntegrationApi.deleteWebhooksIntegration').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -147,33 +120,20 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async deleteWebhooksIntegrationCustomVariable(
-    customVariableName: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async deleteWebhooksIntegrationCustomVariable(customVariableName: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'customVariableName' is not null or undefined
     if (customVariableName === null || customVariableName === undefined) {
-      throw new RequiredError(
-        "customVariableName",
-        "deleteWebhooksIntegrationCustomVariable"
-      );
+      throw new RequiredError('customVariableName', 'deleteWebhooksIntegrationCustomVariable');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
-        "{custom_variable_name}",
-        encodeURIComponent(String(customVariableName))
-      );
+    const localVarPath = '/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}'
+      .replace('{custom_variable_name}', encodeURIComponent(String(customVariableName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v1.WebhooksIntegrationApi.deleteWebhooksIntegrationCustomVariable"
-      )
-      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config.getServer('v1.WebhooksIntegrationApi.deleteWebhooksIntegrationCustomVariable').makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -186,28 +146,20 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async getWebhooksIntegration(
-    webhookName: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getWebhooksIntegration(webhookName: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'webhookName' is not null or undefined
     if (webhookName === null || webhookName === undefined) {
-      throw new RequiredError("webhookName", "getWebhooksIntegration");
+      throw new RequiredError('webhookName', 'getWebhooksIntegration');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
-        "{webhook_name}",
-        encodeURIComponent(String(webhookName))
-      );
+    const localVarPath = '/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}'
+      .replace('{webhook_name}', encodeURIComponent(String(webhookName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.WebhooksIntegrationApi.getWebhooksIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.WebhooksIntegrationApi.getWebhooksIntegration').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -220,33 +172,20 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async getWebhooksIntegrationCustomVariable(
-    customVariableName: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async getWebhooksIntegrationCustomVariable(customVariableName: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'customVariableName' is not null or undefined
     if (customVariableName === null || customVariableName === undefined) {
-      throw new RequiredError(
-        "customVariableName",
-        "getWebhooksIntegrationCustomVariable"
-      );
+      throw new RequiredError('customVariableName', 'getWebhooksIntegrationCustomVariable');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
-        "{custom_variable_name}",
-        encodeURIComponent(String(customVariableName))
-      );
+    const localVarPath = '/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}'
+      .replace('{custom_variable_name}', encodeURIComponent(String(customVariableName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v1.WebhooksIntegrationApi.getWebhooksIntegrationCustomVariable"
-      )
-      .makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config.getServer('v1.WebhooksIntegrationApi.getWebhooksIntegrationCustomVariable').makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -259,41 +198,31 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async updateWebhooksIntegration(
-    webhookName: string,
-    body: WebhooksIntegrationUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async updateWebhooksIntegration(webhookName: string,body: WebhooksIntegrationUpdateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'webhookName' is not null or undefined
     if (webhookName === null || webhookName === undefined) {
-      throw new RequiredError("webhookName", "updateWebhooksIntegration");
+      throw new RequiredError('webhookName', 'updateWebhooksIntegration');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateWebhooksIntegration");
+      throw new RequiredError('body', 'updateWebhooksIntegration');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
-        "{webhook_name}",
-        encodeURIComponent(String(webhookName))
-      );
+    const localVarPath = '/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}'
+      .replace('{webhook_name}', encodeURIComponent(String(webhookName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer("v1.WebhooksIntegrationApi.updateWebhooksIntegration")
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v1.WebhooksIntegrationApi.updateWebhooksIntegration').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "WebhooksIntegrationUpdateRequest", ""),
@@ -310,56 +239,34 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  public async updateWebhooksIntegrationCustomVariable(
-    customVariableName: string,
-    body: WebhooksIntegrationCustomVariableUpdateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async updateWebhooksIntegrationCustomVariable(customVariableName: string,body: WebhooksIntegrationCustomVariableUpdateRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'customVariableName' is not null or undefined
     if (customVariableName === null || customVariableName === undefined) {
-      throw new RequiredError(
-        "customVariableName",
-        "updateWebhooksIntegrationCustomVariable"
-      );
+      throw new RequiredError('customVariableName', 'updateWebhooksIntegrationCustomVariable');
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "body",
-        "updateWebhooksIntegrationCustomVariable"
-      );
+      throw new RequiredError('body', 'updateWebhooksIntegrationCustomVariable');
     }
 
     // Path Params
-    const localVarPath =
-      "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
-        "{custom_variable_name}",
-        encodeURIComponent(String(customVariableName))
-      );
+    const localVarPath = '/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}'
+      .replace('{custom_variable_name}', encodeURIComponent(String(customVariableName)));
 
     // Make Request Context
-    const requestContext = _config
-      .getServer(
-        "v1.WebhooksIntegrationApi.updateWebhooksIntegrationCustomVariable"
-      )
-      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config.getServer('v1.WebhooksIntegrationApi.updateWebhooksIntegrationCustomVariable').makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(
-        body,
-        "WebhooksIntegrationCustomVariableUpdateRequest",
-        ""
-      ),
+      ObjectSerializer.serialize(body, "WebhooksIntegrationCustomVariableUpdateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -375,6 +282,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 }
 
 export class WebhooksIntegrationApiResponseProcessor {
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -382,12 +290,8 @@ export class WebhooksIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createWebhooksIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createWebhooksIntegration(
-    response: ResponseContext
-  ): Promise<WebhooksIntegration> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createWebhooksIntegration(response: ResponseContext): Promise<WebhooksIntegration> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -395,15 +299,8 @@ export class WebhooksIntegrationApiResponseProcessor {
       ) as WebhooksIntegration;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -412,11 +309,8 @@ export class WebhooksIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -424,17 +318,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "WebhooksIntegration",
-        ""
+        "WebhooksIntegration", ""
       ) as WebhooksIntegration;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -444,29 +334,17 @@ export class WebhooksIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createWebhooksIntegrationCustomVariable
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createWebhooksIntegrationCustomVariable(
-    response: ResponseContext
-  ): Promise<WebhooksIntegrationCustomVariableResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async createWebhooksIntegrationCustomVariable(response: ResponseContext): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 201) {
-      const body: WebhooksIntegrationCustomVariableResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WebhooksIntegrationCustomVariableResponse"
-        ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebhooksIntegrationCustomVariableResponse"
+      ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -475,30 +353,22 @@ export class WebhooksIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: WebhooksIntegrationCustomVariableResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WebhooksIntegrationCustomVariableResponse",
-          ""
-        ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebhooksIntegrationCustomVariableResponse", ""
+      ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -508,24 +378,13 @@ export class WebhooksIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteWebhooksIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteWebhooksIntegration(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteWebhooksIntegration(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -534,11 +393,8 @@ export class WebhooksIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -546,17 +402,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
+        "void", ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -566,24 +418,13 @@ export class WebhooksIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteWebhooksIntegrationCustomVariable
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteWebhooksIntegrationCustomVariable(
-    response: ResponseContext
-  ): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async deleteWebhooksIntegrationCustomVariable(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       return;
     }
-    if (
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -592,11 +433,8 @@ export class WebhooksIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -604,17 +442,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
+        "void", ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -624,12 +458,8 @@ export class WebhooksIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to getWebhooksIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getWebhooksIntegration(
-    response: ResponseContext
-  ): Promise<WebhooksIntegration> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getWebhooksIntegration(response: ResponseContext): Promise<WebhooksIntegration> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -637,16 +467,8 @@ export class WebhooksIntegrationApiResponseProcessor {
       ) as WebhooksIntegration;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -655,11 +477,8 @@ export class WebhooksIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -667,17 +486,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "WebhooksIntegration",
-        ""
+        "WebhooksIntegration", ""
       ) as WebhooksIntegration;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -687,30 +502,17 @@ export class WebhooksIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to getWebhooksIntegrationCustomVariable
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getWebhooksIntegrationCustomVariable(
-    response: ResponseContext
-  ): Promise<WebhooksIntegrationCustomVariableResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async getWebhooksIntegrationCustomVariable(response: ResponseContext): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: WebhooksIntegrationCustomVariableResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WebhooksIntegrationCustomVariableResponse"
-        ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebhooksIntegrationCustomVariableResponse"
+      ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -719,30 +521,22 @@ export class WebhooksIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: WebhooksIntegrationCustomVariableResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WebhooksIntegrationCustomVariableResponse",
-          ""
-        ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebhooksIntegrationCustomVariableResponse", ""
+      ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -752,12 +546,8 @@ export class WebhooksIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateWebhooksIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateWebhooksIntegration(
-    response: ResponseContext
-  ): Promise<WebhooksIntegration> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateWebhooksIntegration(response: ResponseContext): Promise<WebhooksIntegration> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
@@ -765,16 +555,8 @@ export class WebhooksIntegrationApiResponseProcessor {
       ) as WebhooksIntegration;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -783,11 +565,8 @@ export class WebhooksIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
@@ -795,17 +574,13 @@ export class WebhooksIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "WebhooksIntegration",
-        ""
+        "WebhooksIntegration", ""
       ) as WebhooksIntegration;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -815,30 +590,17 @@ export class WebhooksIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateWebhooksIntegrationCustomVariable
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateWebhooksIntegrationCustomVariable(
-    response: ResponseContext
-  ): Promise<WebhooksIntegrationCustomVariableResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async updateWebhooksIntegrationCustomVariable(response: ResponseContext): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (response.httpStatusCode === 200) {
-      const body: WebhooksIntegrationCustomVariableResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WebhooksIntegrationCustomVariableResponse"
-        ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebhooksIntegrationCustomVariableResponse"
+      ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
+    if (response.httpStatusCode === 400||response.httpStatusCode === 403||response.httpStatusCode === 404||response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
       let body: APIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
@@ -847,30 +609,22 @@ export class WebhooksIntegrationApiResponseProcessor {
         ) as APIErrorResponse;
       } catch (error) {
         logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, bodyText);
+      } 
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: WebhooksIntegrationCustomVariableResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "WebhooksIntegrationCustomVariableResponse",
-          ""
-        ) as WebhooksIntegrationCustomVariableResponse;
+      const body: WebhooksIntegrationCustomVariableResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "WebhooksIntegrationCustomVariableResponse", ""
+      ) as WebhooksIntegrationCustomVariableResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -879,7 +633,7 @@ export interface WebhooksIntegrationApiCreateWebhooksIntegrationRequest {
    * Create a webhooks integration request body.
    * @type WebhooksIntegration
    */
-  body: WebhooksIntegration;
+  body: WebhooksIntegration
 }
 
 export interface WebhooksIntegrationApiCreateWebhooksIntegrationCustomVariableRequest {
@@ -887,7 +641,7 @@ export interface WebhooksIntegrationApiCreateWebhooksIntegrationCustomVariableRe
    * Define a custom variable request body.
    * @type WebhooksIntegrationCustomVariable
    */
-  body: WebhooksIntegrationCustomVariable;
+  body: WebhooksIntegrationCustomVariable
 }
 
 export interface WebhooksIntegrationApiDeleteWebhooksIntegrationRequest {
@@ -895,7 +649,7 @@ export interface WebhooksIntegrationApiDeleteWebhooksIntegrationRequest {
    * The name of the webhook.
    * @type string
    */
-  webhookName: string;
+  webhookName: string
 }
 
 export interface WebhooksIntegrationApiDeleteWebhooksIntegrationCustomVariableRequest {
@@ -903,7 +657,7 @@ export interface WebhooksIntegrationApiDeleteWebhooksIntegrationCustomVariableRe
    * The name of the custom variable.
    * @type string
    */
-  customVariableName: string;
+  customVariableName: string
 }
 
 export interface WebhooksIntegrationApiGetWebhooksIntegrationRequest {
@@ -911,7 +665,7 @@ export interface WebhooksIntegrationApiGetWebhooksIntegrationRequest {
    * The name of the webhook.
    * @type string
    */
-  webhookName: string;
+  webhookName: string
 }
 
 export interface WebhooksIntegrationApiGetWebhooksIntegrationCustomVariableRequest {
@@ -919,7 +673,7 @@ export interface WebhooksIntegrationApiGetWebhooksIntegrationCustomVariableReque
    * The name of the custom variable.
    * @type string
    */
-  customVariableName: string;
+  customVariableName: string
 }
 
 export interface WebhooksIntegrationApiUpdateWebhooksIntegrationRequest {
@@ -927,12 +681,12 @@ export interface WebhooksIntegrationApiUpdateWebhooksIntegrationRequest {
    * The name of the webhook.
    * @type string
    */
-  webhookName: string;
+  webhookName: string
   /**
    * Update an existing Datadog-Webhooks integration.
    * @type WebhooksIntegrationUpdateRequest
    */
-  body: WebhooksIntegrationUpdateRequest;
+  body: WebhooksIntegrationUpdateRequest
 }
 
 export interface WebhooksIntegrationApiUpdateWebhooksIntegrationCustomVariableRequest {
@@ -940,12 +694,12 @@ export interface WebhooksIntegrationApiUpdateWebhooksIntegrationCustomVariableRe
    * The name of the custom variable.
    * @type string
    */
-  customVariableName: string;
+  customVariableName: string
   /**
    * Update an existing custom variable request body.
    * @type WebhooksIntegrationCustomVariableUpdateRequest
    */
-  body: WebhooksIntegrationCustomVariableUpdateRequest;
+  body: WebhooksIntegrationCustomVariableUpdateRequest
 }
 
 export class WebhooksIntegrationApi {
@@ -953,37 +707,21 @@ export class WebhooksIntegrationApi {
   private responseProcessor: WebhooksIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: WebhooksIntegrationApiRequestFactory,
-    responseProcessor?: WebhooksIntegrationApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: WebhooksIntegrationApiRequestFactory, responseProcessor?: WebhooksIntegrationApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new WebhooksIntegrationApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new WebhooksIntegrationApiResponseProcessor();
+    this.requestFactory = requestFactory || new WebhooksIntegrationApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new WebhooksIntegrationApiResponseProcessor();
   }
 
   /**
    * Creates an endpoint with the name `<WEBHOOK_NAME>`.
    * @param param The request object
    */
-  public createWebhooksIntegration(
-    param: WebhooksIntegrationApiCreateWebhooksIntegrationRequest,
-    options?: Configuration
-  ): Promise<WebhooksIntegration> {
-    const requestContextPromise = this.requestFactory.createWebhooksIntegration(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createWebhooksIntegration(
-            responseContext
-          );
+  public createWebhooksIntegration(param: WebhooksIntegrationApiCreateWebhooksIntegrationRequest, options?: Configuration): Promise<WebhooksIntegration> {
+    const requestContextPromise = this.requestFactory.createWebhooksIntegration(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createWebhooksIntegration(responseContext);
         });
     });
   }
@@ -992,22 +730,11 @@ export class WebhooksIntegrationApi {
    * Creates an endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
    * @param param The request object
    */
-  public createWebhooksIntegrationCustomVariable(
-    param: WebhooksIntegrationApiCreateWebhooksIntegrationCustomVariableRequest,
-    options?: Configuration
-  ): Promise<WebhooksIntegrationCustomVariableResponse> {
-    const requestContextPromise =
-      this.requestFactory.createWebhooksIntegrationCustomVariable(
-        param.body,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.createWebhooksIntegrationCustomVariable(
-            responseContext
-          );
+  public createWebhooksIntegrationCustomVariable(param: WebhooksIntegrationApiCreateWebhooksIntegrationCustomVariableRequest, options?: Configuration): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const requestContextPromise = this.requestFactory.createWebhooksIntegrationCustomVariable(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.createWebhooksIntegrationCustomVariable(responseContext);
         });
     });
   }
@@ -1016,21 +743,11 @@ export class WebhooksIntegrationApi {
    * Deletes the endpoint with the name `<WEBHOOK NAME>`.
    * @param param The request object
    */
-  public deleteWebhooksIntegration(
-    param: WebhooksIntegrationApiDeleteWebhooksIntegrationRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteWebhooksIntegration(
-      param.webhookName,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteWebhooksIntegration(
-            responseContext
-          );
+  public deleteWebhooksIntegration(param: WebhooksIntegrationApiDeleteWebhooksIntegrationRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteWebhooksIntegration(param.webhookName,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteWebhooksIntegration(responseContext);
         });
     });
   }
@@ -1039,22 +756,11 @@ export class WebhooksIntegrationApi {
    * Deletes the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
    * @param param The request object
    */
-  public deleteWebhooksIntegrationCustomVariable(
-    param: WebhooksIntegrationApiDeleteWebhooksIntegrationCustomVariableRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteWebhooksIntegrationCustomVariable(
-        param.customVariableName,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.deleteWebhooksIntegrationCustomVariable(
-            responseContext
-          );
+  public deleteWebhooksIntegrationCustomVariable(param: WebhooksIntegrationApiDeleteWebhooksIntegrationCustomVariableRequest, options?: Configuration): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteWebhooksIntegrationCustomVariable(param.customVariableName,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.deleteWebhooksIntegrationCustomVariable(responseContext);
         });
     });
   }
@@ -1063,46 +769,27 @@ export class WebhooksIntegrationApi {
    * Gets the content of the webhook with the name `<WEBHOOK_NAME>`.
    * @param param The request object
    */
-  public getWebhooksIntegration(
-    param: WebhooksIntegrationApiGetWebhooksIntegrationRequest,
-    options?: Configuration
-  ): Promise<WebhooksIntegration> {
-    const requestContextPromise = this.requestFactory.getWebhooksIntegration(
-      param.webhookName,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getWebhooksIntegration(responseContext);
+  public getWebhooksIntegration(param: WebhooksIntegrationApiGetWebhooksIntegrationRequest, options?: Configuration): Promise<WebhooksIntegration> {
+    const requestContextPromise = this.requestFactory.getWebhooksIntegration(param.webhookName,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getWebhooksIntegration(responseContext);
         });
     });
   }
 
   /**
    * Shows the content of the custom variable with the name `<CUSTOM_VARIABLE_NAME>`.
-   *
+   * 
    * If the custom variable is secret, the value does not return in the
    * response payload.
    * @param param The request object
    */
-  public getWebhooksIntegrationCustomVariable(
-    param: WebhooksIntegrationApiGetWebhooksIntegrationCustomVariableRequest,
-    options?: Configuration
-  ): Promise<WebhooksIntegrationCustomVariableResponse> {
-    const requestContextPromise =
-      this.requestFactory.getWebhooksIntegrationCustomVariable(
-        param.customVariableName,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getWebhooksIntegrationCustomVariable(
-            responseContext
-          );
+  public getWebhooksIntegrationCustomVariable(param: WebhooksIntegrationApiGetWebhooksIntegrationCustomVariableRequest, options?: Configuration): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const requestContextPromise = this.requestFactory.getWebhooksIntegrationCustomVariable(param.customVariableName,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.getWebhooksIntegrationCustomVariable(responseContext);
         });
     });
   }
@@ -1111,22 +798,11 @@ export class WebhooksIntegrationApi {
    * Updates the endpoint with the name `<WEBHOOK_NAME>`.
    * @param param The request object
    */
-  public updateWebhooksIntegration(
-    param: WebhooksIntegrationApiUpdateWebhooksIntegrationRequest,
-    options?: Configuration
-  ): Promise<WebhooksIntegration> {
-    const requestContextPromise = this.requestFactory.updateWebhooksIntegration(
-      param.webhookName,
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateWebhooksIntegration(
-            responseContext
-          );
+  public updateWebhooksIntegration(param: WebhooksIntegrationApiUpdateWebhooksIntegrationRequest, options?: Configuration): Promise<WebhooksIntegration> {
+    const requestContextPromise = this.requestFactory.updateWebhooksIntegration(param.webhookName,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateWebhooksIntegration(responseContext);
         });
     });
   }
@@ -1135,23 +811,11 @@ export class WebhooksIntegrationApi {
    * Updates the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
    * @param param The request object
    */
-  public updateWebhooksIntegrationCustomVariable(
-    param: WebhooksIntegrationApiUpdateWebhooksIntegrationCustomVariableRequest,
-    options?: Configuration
-  ): Promise<WebhooksIntegrationCustomVariableResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateWebhooksIntegrationCustomVariable(
-        param.customVariableName,
-        param.body,
-        options
-      );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.updateWebhooksIntegrationCustomVariable(
-            responseContext
-          );
+  public updateWebhooksIntegrationCustomVariable(param: WebhooksIntegrationApiUpdateWebhooksIntegrationCustomVariableRequest, options?: Configuration): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const requestContextPromise = this.requestFactory.updateWebhooksIntegrationCustomVariable(param.customVariableName,param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.updateWebhooksIntegrationCustomVariable(responseContext);
         });
     });
   }

@@ -6,27 +6,32 @@
 import { MetricsAggregator } from "./MetricsAggregator";
 import { MetricsDataSource } from "./MetricsDataSource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An individual scalar metrics query.
- */
+*/
 export class MetricsScalarQuery {
   /**
    * The type of aggregation that can be performed on metrics-based queries.
-   */
+  */
   "aggregator": MetricsAggregator;
   /**
    * A data source that is powered by the Metrics platform.
-   */
+  */
   "dataSource": MetricsDataSource;
   /**
    * The variable name for use in formulas.
-   */
+  */
   "name"?: string;
   /**
    * A classic metrics query string.
-   */
+  */
   "query": string;
 
   /**
@@ -45,37 +50,63 @@ export class MetricsScalarQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregator: {
-      baseName: "aggregator",
-      type: "MetricsAggregator",
-      required: true,
+    "aggregator": {
+      "baseName": "aggregator",
+      "type": "MetricsAggregator",
+      "required": true,
     },
-    dataSource: {
-      baseName: "data_source",
-      type: "MetricsDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "MetricsDataSource",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricsScalarQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

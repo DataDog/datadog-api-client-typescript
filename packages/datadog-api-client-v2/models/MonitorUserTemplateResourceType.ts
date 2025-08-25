@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Monitor user template resource type.
- */
+*/
 
-export type MonitorUserTemplateResourceType =
-  | typeof MONITOR_USER_TEMPLATE
-  | UnparsedObject;
-export const MONITOR_USER_TEMPLATE = "monitor-user-template";
+export type MonitorUserTemplateResourceType = typeof MONITOR_USER_TEMPLATE | UnparsedObject;
+export const MONITOR_USER_TEMPLATE = 'monitor-user-template';

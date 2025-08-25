@@ -6,19 +6,24 @@
 import { AzureCredentialsUpdate } from "./AzureCredentialsUpdate";
 import { AzureIntegrationType } from "./AzureIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `AzureIntegrationUpdate` object.
- */
+*/
 export class AzureIntegrationUpdate {
   /**
    * The definition of the `AzureCredentialsUpdate` object.
-   */
+  */
   "credentials"?: AzureCredentialsUpdate;
   /**
    * The definition of the `AzureIntegrationType` object.
-   */
+  */
   "type": AzureIntegrationType;
 
   /**
@@ -37,27 +42,53 @@ export class AzureIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "AzureCredentialsUpdate",
+    "credentials": {
+      "baseName": "credentials",
+      "type": "AzureCredentialsUpdate",
     },
-    type: {
-      baseName: "type",
-      type: "AzureIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AzureIntegrationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AzureIntegrationUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,24 @@
  */
 import { IncidentAttachmentType } from "./IncidentAttachmentType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The attachment relationship data.
- */
+*/
 export class RelationshipToIncidentAttachmentData {
   /**
    * A unique identifier that represents the attachment.
-   */
+  */
   "id": string;
   /**
    * The incident attachment resource type.
-   */
+  */
   "type": IncidentAttachmentType;
 
   /**
@@ -36,28 +41,54 @@ export class RelationshipToIncidentAttachmentData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "IncidentAttachmentType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentAttachmentType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToIncidentAttachmentData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

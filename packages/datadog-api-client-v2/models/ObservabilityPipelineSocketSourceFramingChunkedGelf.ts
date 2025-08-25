@@ -5,15 +5,20 @@
  */
 import { ObservabilityPipelineSocketSourceFramingChunkedGelfMethod } from "./ObservabilityPipelineSocketSourceFramingChunkedGelfMethod";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Byte frames which are chunked GELF messages.
- */
+*/
 export class ObservabilityPipelineSocketSourceFramingChunkedGelf {
   /**
    * Byte frames which are chunked GELF messages.
-   */
+  */
   "method": ObservabilityPipelineSocketSourceFramingChunkedGelfMethod;
 
   /**
@@ -32,23 +37,49 @@ export class ObservabilityPipelineSocketSourceFramingChunkedGelf {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    method: {
-      baseName: "method",
-      type: "ObservabilityPipelineSocketSourceFramingChunkedGelfMethod",
-      required: true,
+    "method": {
+      "baseName": "method",
+      "type": "ObservabilityPipelineSocketSourceFramingChunkedGelfMethod",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSocketSourceFramingChunkedGelf.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

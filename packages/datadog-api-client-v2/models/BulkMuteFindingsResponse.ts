@@ -5,15 +5,20 @@
  */
 import { BulkMuteFindingsResponseData } from "./BulkMuteFindingsResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The expected response schema.
- */
+*/
 export class BulkMuteFindingsResponse {
   /**
    * Data object containing the ID of the request that was updated.
-   */
+  */
   "data": BulkMuteFindingsResponseData;
 
   /**
@@ -32,23 +37,49 @@ export class BulkMuteFindingsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "BulkMuteFindingsResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "BulkMuteFindingsResponseData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BulkMuteFindingsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

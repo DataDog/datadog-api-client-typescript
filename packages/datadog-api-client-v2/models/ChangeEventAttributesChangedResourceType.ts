@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of the changed resource.
- */
+*/
 
-export type ChangeEventAttributesChangedResourceType =
-  | typeof FEATURE_FLAG
-  | typeof CONFIGURATION
-  | UnparsedObject;
-export const FEATURE_FLAG = "feature_flag";
-export const CONFIGURATION = "configuration";
+export type ChangeEventAttributesChangedResourceType = typeof FEATURE_FLAG| typeof CONFIGURATION | UnparsedObject;
+export const FEATURE_FLAG = 'feature_flag';
+export const CONFIGURATION = 'configuration';

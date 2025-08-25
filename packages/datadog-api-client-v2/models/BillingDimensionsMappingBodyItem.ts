@@ -6,23 +6,28 @@
 import { ActiveBillingDimensionsType } from "./ActiveBillingDimensionsType";
 import { BillingDimensionsMappingBodyItemAttributes } from "./BillingDimensionsMappingBodyItemAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The mapping data for each billing dimension.
- */
+*/
 export class BillingDimensionsMappingBodyItem {
   /**
    * Mapping of billing dimensions to endpoint keys.
-   */
+  */
   "attributes"?: BillingDimensionsMappingBodyItemAttributes;
   /**
    * ID of the billing dimension.
-   */
+  */
   "id"?: string;
   /**
    * Type of active billing dimensions data.
-   */
+  */
   "type"?: ActiveBillingDimensionsType;
 
   /**
@@ -41,30 +46,56 @@ export class BillingDimensionsMappingBodyItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "BillingDimensionsMappingBodyItemAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "BillingDimensionsMappingBodyItemAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "ActiveBillingDimensionsType",
+    "type": {
+      "baseName": "type",
+      "type": "ActiveBillingDimensionsType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return BillingDimensionsMappingBodyItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

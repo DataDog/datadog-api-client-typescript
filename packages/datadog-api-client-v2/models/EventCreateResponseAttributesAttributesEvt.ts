@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * JSON object of event system attributes.
- */
+*/
 export class EventCreateResponseAttributesAttributesEvt {
   /**
    * Event identifier. This field is deprecated and will be removed in a future version. Use the `uid` field instead.
-   */
+  */
   "id"?: string;
   /**
    * A unique identifier for the event. You can use this identifier to query or reference the event.
-   */
+  */
   "uid"?: string;
 
   /**
@@ -35,26 +40,52 @@ export class EventCreateResponseAttributesAttributesEvt {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    uid: {
-      baseName: "uid",
-      type: "string",
+    "uid": {
+      "baseName": "uid",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventCreateResponseAttributesAttributesEvt.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -8,35 +8,40 @@ import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding } from "
 import { ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType } from "./ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType";
 import { ObservabilityPipelineTls } from "./ObservabilityPipelineTls";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The `crowdstrike_next_gen_siem` destination forwards logs to CrowdStrike Next Gen SIEM.
- */
+*/
 export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
   /**
    * Compression configuration for log events.
-   */
+  */
   "compression"?: ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression;
   /**
    * Encoding format for log events.
-   */
+  */
   "encoding": ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding;
   /**
    * The unique identifier for this component.
-   */
+  */
   "id": string;
   /**
    * A list of component IDs whose output is used as the `input` for this component.
-   */
+  */
   "inputs": Array<string>;
   /**
    * Configuration for enabling TLS encryption between the pipeline component and external services.
-   */
+  */
   "tls"?: ObservabilityPipelineTls;
   /**
    * The destination type. The value should always be `crowdstrike_next_gen_siem`.
-   */
+  */
   "type": ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType;
 
   /**
@@ -55,46 +60,72 @@ export class ObservabilityPipelineCrowdStrikeNextGenSiemDestination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    compression: {
-      baseName: "compression",
-      type: "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression",
+    "compression": {
+      "baseName": "compression",
+      "type": "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationCompression",
     },
-    encoding: {
-      baseName: "encoding",
-      type: "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding",
-      required: true,
+    "encoding": {
+      "baseName": "encoding",
+      "type": "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationEncoding",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    inputs: {
-      baseName: "inputs",
-      type: "Array<string>",
-      required: true,
+    "inputs": {
+      "baseName": "inputs",
+      "type": "Array<string>",
+      "required": true,
     },
-    tls: {
-      baseName: "tls",
-      type: "ObservabilityPipelineTls",
+    "tls": {
+      "baseName": "tls",
+      "type": "ObservabilityPipelineTls",
     },
-    type: {
-      baseName: "type",
-      type: "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "ObservabilityPipelineCrowdStrikeNextGenSiemDestinationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineCrowdStrikeNextGenSiemDestination.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON:API type for DORA failure events.
- */
+*/
 
 export type DORAFailureType = typeof DORA_FAILURE | UnparsedObject;
-export const DORA_FAILURE = "dora_failure";
+export const DORA_FAILURE = 'dora_failure';

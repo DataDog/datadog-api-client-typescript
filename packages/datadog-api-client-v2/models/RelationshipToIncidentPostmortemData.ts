@@ -5,19 +5,24 @@
  */
 import { IncidentPostmortemType } from "./IncidentPostmortemType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The postmortem relationship data.
- */
+*/
 export class RelationshipToIncidentPostmortemData {
   /**
    * A unique identifier that represents the postmortem.
-   */
+  */
   "id": string;
   /**
    * Incident postmortem resource type.
-   */
+  */
   "type": IncidentPostmortemType;
 
   /**
@@ -36,28 +41,54 @@ export class RelationshipToIncidentPostmortemData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "IncidentPostmortemType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "IncidentPostmortemType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToIncidentPostmortemData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

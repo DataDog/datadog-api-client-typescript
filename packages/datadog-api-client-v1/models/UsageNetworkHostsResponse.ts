@@ -5,15 +5,20 @@
  */
 import { UsageNetworkHostsHour } from "./UsageNetworkHostsHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the number of active NPM hosts for each hour for a given organization.
- */
+*/
 export class UsageNetworkHostsResponse {
   /**
    * Get hourly usage for NPM hosts.
-   */
+  */
   "usage"?: Array<UsageNetworkHostsHour>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageNetworkHostsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageNetworkHostsHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageNetworkHostsHour>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageNetworkHostsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

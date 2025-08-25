@@ -5,13 +5,15 @@
  */
 import { IncidentTodoAnonymousAssignee } from "./IncidentTodoAnonymousAssignee";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * A todo assignee.
- */
+*/
 
-export type IncidentTodoAssignee =
-  | string
-  | IncidentTodoAnonymousAssignee
-  | UnparsedObject;
+export type IncidentTodoAssignee = string | IncidentTodoAnonymousAssignee | UnparsedObject;

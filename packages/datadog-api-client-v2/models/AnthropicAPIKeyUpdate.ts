@@ -5,19 +5,24 @@
  */
 import { AnthropicAPIKeyType } from "./AnthropicAPIKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `AnthropicAPIKey` object.
- */
+*/
 export class AnthropicAPIKeyUpdate {
   /**
    * The `AnthropicAPIKeyUpdate` `api_token`.
-   */
+  */
   "apiToken"?: string;
   /**
    * The definition of the `AnthropicAPIKey` object.
-   */
+  */
   "type": AnthropicAPIKeyType;
 
   /**
@@ -36,27 +41,53 @@ export class AnthropicAPIKeyUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiToken: {
-      baseName: "api_token",
-      type: "string",
+    "apiToken": {
+      "baseName": "api_token",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AnthropicAPIKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AnthropicAPIKeyType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AnthropicAPIKeyUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

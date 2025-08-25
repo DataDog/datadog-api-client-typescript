@@ -8,28 +8,33 @@ import { AuditLogsQueryOptions } from "./AuditLogsQueryOptions";
 import { AuditLogsQueryPageOptions } from "./AuditLogsQueryPageOptions";
 import { AuditLogsSort } from "./AuditLogsSort";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The request for a Audit Logs events list.
- */
+*/
 export class AuditLogsSearchEventsRequest {
   /**
    * Search and filter query settings.
-   */
+  */
   "filter"?: AuditLogsQueryFilter;
   /**
    * Global query options that are used during the query.
    * Note: Specify either timezone or time offset, not both. Otherwise, the query fails.
-   */
+  */
   "options"?: AuditLogsQueryOptions;
   /**
    * Paging attributes for listing events.
-   */
+  */
   "page"?: AuditLogsQueryPageOptions;
   /**
    * Sort parameters when querying events.
-   */
+  */
   "sort"?: AuditLogsSort;
 
   /**
@@ -48,34 +53,60 @@ export class AuditLogsSearchEventsRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    filter: {
-      baseName: "filter",
-      type: "AuditLogsQueryFilter",
+    "filter": {
+      "baseName": "filter",
+      "type": "AuditLogsQueryFilter",
     },
-    options: {
-      baseName: "options",
-      type: "AuditLogsQueryOptions",
+    "options": {
+      "baseName": "options",
+      "type": "AuditLogsQueryOptions",
     },
-    page: {
-      baseName: "page",
-      type: "AuditLogsQueryPageOptions",
+    "page": {
+      "baseName": "page",
+      "type": "AuditLogsQueryPageOptions",
     },
-    sort: {
-      baseName: "sort",
-      type: "AuditLogsSort",
+    "sort": {
+      "baseName": "sort",
+      "type": "AuditLogsSort",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AuditLogsSearchEventsRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

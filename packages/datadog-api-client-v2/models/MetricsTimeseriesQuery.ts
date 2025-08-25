@@ -5,23 +5,28 @@
  */
 import { MetricsDataSource } from "./MetricsDataSource";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An individual timeseries metrics query.
- */
+*/
 export class MetricsTimeseriesQuery {
   /**
    * A data source that is powered by the Metrics platform.
-   */
+  */
   "dataSource": MetricsDataSource;
   /**
    * The variable name for use in formulas.
-   */
+  */
   "name"?: string;
   /**
    * A classic metrics query string.
-   */
+  */
   "query": string;
 
   /**
@@ -40,32 +45,58 @@ export class MetricsTimeseriesQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "MetricsDataSource",
-      required: true,
+    "dataSource": {
+      "baseName": "data_source",
+      "type": "MetricsDataSource",
+      "required": true,
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    query: {
-      baseName: "query",
-      type: "string",
-      required: true,
+    "query": {
+      "baseName": "query",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricsTimeseriesQuery.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

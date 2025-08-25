@@ -6,19 +6,24 @@
 import { CircleCICredentials } from "./CircleCICredentials";
 import { CircleCIIntegrationType } from "./CircleCIIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `CircleCIIntegration` object.
- */
+*/
 export class CircleCIIntegration {
   /**
    * The definition of the `CircleCICredentials` object.
-   */
+  */
   "credentials": CircleCICredentials;
   /**
    * The definition of the `CircleCIIntegrationType` object.
-   */
+  */
   "type": CircleCIIntegrationType;
 
   /**
@@ -37,28 +42,54 @@ export class CircleCIIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "CircleCICredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "CircleCICredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "CircleCIIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "CircleCIIntegrationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CircleCIIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

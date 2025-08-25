@@ -4,20 +4,26 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ScheduleTrigger } from "./ScheduleTrigger";
+import { StartStepNamesItem } from "./StartStepNamesItem";
+
+import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+
+
+
 /**
  * Schema for a Schedule-based trigger.
- */
+*/
 export class ScheduleTriggerWrapper {
   /**
    * Trigger a workflow from a Schedule. The workflow must be published.
-   */
+  */
   "scheduleTrigger": ScheduleTrigger;
   /**
    * A list of steps that run first after a trigger fires.
-   */
+  */
   "startStepNames"?: Array<string>;
 
   /**
@@ -36,27 +42,53 @@ export class ScheduleTriggerWrapper {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    scheduleTrigger: {
-      baseName: "scheduleTrigger",
-      type: "ScheduleTrigger",
-      required: true,
+    "scheduleTrigger": {
+      "baseName": "scheduleTrigger",
+      "type": "ScheduleTrigger",
+      "required": true,
     },
-    startStepNames: {
-      baseName: "startStepNames",
-      type: "Array<string>",
+    "startStepNames": {
+      "baseName": "startStepNames",
+      "type": "Array<string>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ScheduleTriggerWrapper.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,23 +5,28 @@
  */
 import { FreshserviceAPIKeyType } from "./FreshserviceAPIKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `FreshserviceAPIKey` object.
- */
+*/
 export class FreshserviceAPIKeyUpdate {
   /**
    * The `FreshserviceAPIKeyUpdate` `api_key`.
-   */
+  */
   "apiKey"?: string;
   /**
    * The `FreshserviceAPIKeyUpdate` `domain`.
-   */
+  */
   "domain"?: string;
   /**
    * The definition of the `FreshserviceAPIKey` object.
-   */
+  */
   "type": FreshserviceAPIKeyType;
 
   /**
@@ -40,31 +45,57 @@ export class FreshserviceAPIKeyUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "string",
+    "apiKey": {
+      "baseName": "api_key",
+      "type": "string",
     },
-    domain: {
-      baseName: "domain",
-      type: "string",
+    "domain": {
+      "baseName": "domain",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "FreshserviceAPIKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "FreshserviceAPIKeyType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return FreshserviceAPIKeyUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

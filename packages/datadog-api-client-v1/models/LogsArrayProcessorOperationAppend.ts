@@ -5,27 +5,32 @@
  */
 import { LogsArrayProcessorOperationAppendType } from "./LogsArrayProcessorOperationAppendType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Operation that appends a value to a target array attribute.
- */
+*/
 export class LogsArrayProcessorOperationAppend {
   /**
    * Remove or preserve the remapped source element.
-   */
+  */
   "preserveSource"?: boolean;
   /**
    * Attribute path containing the value to append.
-   */
+  */
   "source": string;
   /**
    * Attribute path of the array to append to.
-   */
+  */
   "target": string;
   /**
    * Operation type.
-   */
+  */
   "type": LogsArrayProcessorOperationAppendType;
 
   /**
@@ -44,37 +49,63 @@ export class LogsArrayProcessorOperationAppend {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    preserveSource: {
-      baseName: "preserve_source",
-      type: "boolean",
+    "preserveSource": {
+      "baseName": "preserve_source",
+      "type": "boolean",
     },
-    source: {
-      baseName: "source",
-      type: "string",
-      required: true,
+    "source": {
+      "baseName": "source",
+      "type": "string",
+      "required": true,
     },
-    target: {
-      baseName: "target",
-      type: "string",
-      required: true,
+    "target": {
+      "baseName": "target",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "LogsArrayProcessorOperationAppendType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "LogsArrayProcessorOperationAppendType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsArrayProcessorOperationAppend.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

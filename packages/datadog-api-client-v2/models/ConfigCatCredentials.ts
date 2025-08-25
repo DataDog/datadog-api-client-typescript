@@ -5,10 +5,15 @@
  */
 import { ConfigCatSDKKey } from "./ConfigCatSDKKey";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `ConfigCatCredentials` object.
- */
+*/
 
 export type ConfigCatCredentials = ConfigCatSDKKey | UnparsedObject;

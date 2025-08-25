@@ -4,15 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An array of service level objective objects.
- */
+*/
 export class CheckCanDeleteSLOResponseData {
   /**
    * An array of SLO IDs that can be safely deleted.
-   */
+  */
   "ok"?: Array<string>;
 
   /**
@@ -31,22 +36,48 @@ export class CheckCanDeleteSLOResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ok: {
-      baseName: "ok",
-      type: "Array<string>",
+    "ok": {
+      "baseName": "ok",
+      "type": "Array<string>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CheckCanDeleteSLOResponseData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

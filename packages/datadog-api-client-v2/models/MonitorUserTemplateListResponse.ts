@@ -5,15 +5,20 @@
  */
 import { MonitorUserTemplateResponseData } from "./MonitorUserTemplateResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response for retrieving all monitor user templates.
- */
+*/
 export class MonitorUserTemplateListResponse {
   /**
    * An array of monitor user templates.
-   */
+  */
   "data"?: Array<MonitorUserTemplateResponseData>;
 
   /**
@@ -32,22 +37,48 @@ export class MonitorUserTemplateListResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<MonitorUserTemplateResponseData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<MonitorUserTemplateResponseData>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorUserTemplateListResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

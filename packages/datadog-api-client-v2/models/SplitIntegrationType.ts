@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `SplitIntegrationType` object.
- */
+*/
 
 export type SplitIntegrationType = typeof SPLIT | UnparsedObject;
-export const SPLIT = "Split";
+export const SPLIT = 'Split';

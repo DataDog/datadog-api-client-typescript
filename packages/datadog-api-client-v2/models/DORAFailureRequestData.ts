@@ -5,15 +5,20 @@
  */
 import { DORAFailureRequestAttributes } from "./DORAFailureRequestAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API data.
- */
+*/
 export class DORAFailureRequestData {
   /**
    * Attributes to create a DORA failure event.
-   */
+  */
   "attributes": DORAFailureRequestAttributes;
 
   /**
@@ -32,23 +37,49 @@ export class DORAFailureRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DORAFailureRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DORAFailureRequestAttributes",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORAFailureRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

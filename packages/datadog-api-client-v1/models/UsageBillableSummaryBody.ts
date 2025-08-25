@@ -4,47 +4,52 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with properties for each aggregated usage type.
- */
+*/
 export class UsageBillableSummaryBody {
   /**
    * The total account usage.
-   */
+  */
   "accountBillableUsage"?: number;
   /**
    * The total account committed usage.
-   */
+  */
   "accountCommittedUsage"?: number;
   /**
    * The total account on-demand usage.
-   */
+  */
   "accountOnDemandUsage"?: number;
   /**
    * Elapsed usage hours for some billable product.
-   */
+  */
   "elapsedUsageHours"?: number;
   /**
    * The first billable hour for the org.
-   */
+  */
   "firstBillableUsageHour"?: Date;
   /**
    * The last billable hour for the org.
-   */
+  */
   "lastBillableUsageHour"?: Date;
   /**
    * The number of units used within the billable timeframe.
-   */
+  */
   "orgBillableUsage"?: number;
   /**
    * The percentage of account usage the org represents.
-   */
+  */
   "percentageInAccount"?: number;
   /**
    * Units pertaining to the usage.
-   */
+  */
   "usageUnit"?: string;
 
   /**
@@ -63,62 +68,88 @@ export class UsageBillableSummaryBody {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    accountBillableUsage: {
-      baseName: "account_billable_usage",
-      type: "number",
-      format: "int64",
+    "accountBillableUsage": {
+      "baseName": "account_billable_usage",
+      "type": "number",
+      "format": "int64",
     },
-    accountCommittedUsage: {
-      baseName: "account_committed_usage",
-      type: "number",
-      format: "int64",
+    "accountCommittedUsage": {
+      "baseName": "account_committed_usage",
+      "type": "number",
+      "format": "int64",
     },
-    accountOnDemandUsage: {
-      baseName: "account_on_demand_usage",
-      type: "number",
-      format: "int64",
+    "accountOnDemandUsage": {
+      "baseName": "account_on_demand_usage",
+      "type": "number",
+      "format": "int64",
     },
-    elapsedUsageHours: {
-      baseName: "elapsed_usage_hours",
-      type: "number",
-      format: "int64",
+    "elapsedUsageHours": {
+      "baseName": "elapsed_usage_hours",
+      "type": "number",
+      "format": "int64",
     },
-    firstBillableUsageHour: {
-      baseName: "first_billable_usage_hour",
-      type: "Date",
-      format: "date-time",
+    "firstBillableUsageHour": {
+      "baseName": "first_billable_usage_hour",
+      "type": "Date",
+      "format": "date-time",
     },
-    lastBillableUsageHour: {
-      baseName: "last_billable_usage_hour",
-      type: "Date",
-      format: "date-time",
+    "lastBillableUsageHour": {
+      "baseName": "last_billable_usage_hour",
+      "type": "Date",
+      "format": "date-time",
     },
-    orgBillableUsage: {
-      baseName: "org_billable_usage",
-      type: "number",
-      format: "int64",
+    "orgBillableUsage": {
+      "baseName": "org_billable_usage",
+      "type": "number",
+      "format": "int64",
     },
-    percentageInAccount: {
-      baseName: "percentage_in_account",
-      type: "number",
-      format: "double",
+    "percentageInAccount": {
+      "baseName": "percentage_in_account",
+      "type": "number",
+      "format": "double",
     },
-    usageUnit: {
-      baseName: "usage_unit",
-      type: "string",
+    "usageUnit": {
+      "baseName": "usage_unit",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageBillableSummaryBody.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

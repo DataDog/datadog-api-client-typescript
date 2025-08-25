@@ -6,23 +6,28 @@
 import { SensitiveDataScannerStandardPatternAttributes } from "./SensitiveDataScannerStandardPatternAttributes";
 import { SensitiveDataScannerStandardPatternType } from "./SensitiveDataScannerStandardPatternType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Standard pattern item.
- */
+*/
 export class SensitiveDataScannerStandardPatternsResponseItem {
   /**
    * Attributes of the Sensitive Data Scanner standard pattern.
-   */
+  */
   "attributes"?: SensitiveDataScannerStandardPatternAttributes;
   /**
    * ID of the standard pattern.
-   */
+  */
   "id"?: string;
   /**
    * Sensitive Data Scanner standard pattern type.
-   */
+  */
   "type"?: SensitiveDataScannerStandardPatternType;
 
   /**
@@ -41,30 +46,56 @@ export class SensitiveDataScannerStandardPatternsResponseItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "SensitiveDataScannerStandardPatternAttributes",
+    "attributes": {
+      "baseName": "attributes",
+      "type": "SensitiveDataScannerStandardPatternAttributes",
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "SensitiveDataScannerStandardPatternType",
+    "type": {
+      "baseName": "type",
+      "type": "SensitiveDataScannerStandardPatternType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SensitiveDataScannerStandardPatternsResponseItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

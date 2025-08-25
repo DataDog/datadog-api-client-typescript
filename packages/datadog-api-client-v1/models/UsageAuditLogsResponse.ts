@@ -5,15 +5,20 @@
  */
 import { UsageAuditLogsHour } from "./UsageAuditLogsHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response containing the audit logs usage for each hour for a given organization.
- */
+*/
 export class UsageAuditLogsResponse {
   /**
    * Get hourly usage for audit logs.
-   */
+  */
   "usage"?: Array<UsageAuditLogsHour>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageAuditLogsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageAuditLogsHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageAuditLogsHour>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageAuditLogsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

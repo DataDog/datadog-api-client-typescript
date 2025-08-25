@@ -5,19 +5,24 @@
  */
 import { PowerpackTemplateVariableContents } from "./PowerpackTemplateVariableContents";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Powerpack template variables.
- */
+*/
 export class PowerpackTemplateVariables {
   /**
    * Template variables controlled at the powerpack level.
-   */
+  */
   "controlledByPowerpack"?: Array<PowerpackTemplateVariableContents>;
   /**
    * Template variables controlled by the external resource, such as the dashboard this powerpack is on.
-   */
+  */
   "controlledExternally"?: Array<PowerpackTemplateVariableContents>;
 
   /**
@@ -36,26 +41,52 @@ export class PowerpackTemplateVariables {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    controlledByPowerpack: {
-      baseName: "controlled_by_powerpack",
-      type: "Array<PowerpackTemplateVariableContents>",
+    "controlledByPowerpack": {
+      "baseName": "controlled_by_powerpack",
+      "type": "Array<PowerpackTemplateVariableContents>",
     },
-    controlledExternally: {
-      baseName: "controlled_externally",
-      type: "Array<PowerpackTemplateVariableContents>",
+    "controlledExternally": {
+      "baseName": "controlled_externally",
+      "type": "Array<PowerpackTemplateVariableContents>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PowerpackTemplateVariables.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

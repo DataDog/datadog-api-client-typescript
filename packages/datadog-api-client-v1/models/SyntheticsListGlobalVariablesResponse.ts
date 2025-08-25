@@ -5,15 +5,20 @@
  */
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing an array of Synthetic global variables.
- */
+*/
 export class SyntheticsListGlobalVariablesResponse {
   /**
    * Array of Synthetic global variables.
-   */
+  */
   "variables"?: Array<SyntheticsGlobalVariable>;
 
   /**
@@ -32,22 +37,48 @@ export class SyntheticsListGlobalVariablesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    variables: {
-      baseName: "variables",
-      type: "Array<SyntheticsGlobalVariable>",
+    "variables": {
+      "baseName": "variables",
+      "type": "Array<SyntheticsGlobalVariable>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsListGlobalVariablesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

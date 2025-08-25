@@ -3,21 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SyntheticsTestRestrictionPolicyBindingPrincipalsItem } from "./SyntheticsTestRestrictionPolicyBindingPrincipalsItem";
 import { SyntheticsTestRestrictionPolicyBindingRelation } from "./SyntheticsTestRestrictionPolicyBindingRelation";
+
+import { HttpFile } from "../../datadog-api-client-common/http/http";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
+
+
+
 /**
  * Objects describing the binding used for a mobile test.
- */
+*/
 export class SyntheticsTestRestrictionPolicyBinding {
   /**
    * List of principals for a mobile test binding.
-   */
+  */
   "principals"?: Array<string>;
   /**
    * The type of relation for the binding.
-   */
+  */
   "relation"?: SyntheticsTestRestrictionPolicyBindingRelation;
 
   /**
@@ -36,26 +42,52 @@ export class SyntheticsTestRestrictionPolicyBinding {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    principals: {
-      baseName: "principals",
-      type: "Array<string>",
+    "principals": {
+      "baseName": "principals",
+      "type": "Array<string>",
     },
-    relation: {
-      baseName: "relation",
-      type: "SyntheticsTestRestrictionPolicyBindingRelation",
+    "relation": {
+      "baseName": "relation",
+      "type": "SyntheticsTestRestrictionPolicyBindingRelation",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestRestrictionPolicyBinding.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

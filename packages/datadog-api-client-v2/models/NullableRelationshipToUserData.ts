@@ -5,19 +5,24 @@
  */
 import { UsersType } from "./UsersType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to user object.
- */
+*/
 export class NullableRelationshipToUserData {
   /**
    * A unique identifier that represents the user.
-   */
+  */
   "id": string;
   /**
    * Users resource type.
-   */
+  */
   "type": UsersType;
 
   /**
@@ -36,28 +41,54 @@ export class NullableRelationshipToUserData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      required: true,
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "UsersType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UsersType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NullableRelationshipToUserData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

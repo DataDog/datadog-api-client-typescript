@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Request type for the histogram request.
- */
+*/
 
-export type DistributionWidgetHistogramRequestType =
-  | typeof HISTOGRAM
-  | UnparsedObject;
-export const HISTOGRAM = "histogram";
+export type DistributionWidgetHistogramRequestType = typeof HISTOGRAM | UnparsedObject;
+export const HISTOGRAM = 'histogram';

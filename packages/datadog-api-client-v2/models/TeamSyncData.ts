@@ -6,19 +6,24 @@
 import { TeamSyncAttributes } from "./TeamSyncAttributes";
 import { TeamSyncBulkType } from "./TeamSyncBulkType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Team sync data.
- */
+*/
 export class TeamSyncData {
   /**
    * Team sync attributes.
-   */
+  */
   "attributes": TeamSyncAttributes;
   /**
    * Team sync bulk type.
-   */
+  */
   "type": TeamSyncBulkType;
 
   /**
@@ -37,28 +42,54 @@ export class TeamSyncData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamSyncAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "TeamSyncAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamSyncBulkType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamSyncBulkType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamSyncData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Basic information about a service.
- */
+*/
 export class ServiceDefinitionV1Info {
   /**
    * Unique identifier of the service. Must be unique across all services and is used to match with a service in Datadog.
-   */
+  */
   "ddService": string;
   /**
    * A short description of the service.
-   */
+  */
   "description"?: string;
   /**
    * A friendly name of the service.
-   */
+  */
   "displayName"?: string;
   /**
    * Service tier.
-   */
+  */
   "serviceTier"?: string;
 
   /**
@@ -43,35 +48,61 @@ export class ServiceDefinitionV1Info {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ddService: {
-      baseName: "dd-service",
-      type: "string",
-      required: true,
+    "ddService": {
+      "baseName": "dd-service",
+      "type": "string",
+      "required": true,
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    displayName: {
-      baseName: "display-name",
-      type: "string",
+    "displayName": {
+      "baseName": "display-name",
+      "type": "string",
     },
-    serviceTier: {
-      baseName: "service-tier",
-      type: "string",
+    "serviceTier": {
+      "baseName": "service-tier",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ServiceDefinitionV1Info.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

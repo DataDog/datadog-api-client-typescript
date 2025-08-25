@@ -5,15 +5,20 @@
  */
 import { MetricAssetDashboardRelationship } from "./MetricAssetDashboardRelationship";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * An object containing the list of dashboards that can be referenced in the `included` data.
- */
+*/
 export class MetricAssetDashboardRelationships {
   /**
    * A list of dashboards that can be referenced in the `included` data.
-   */
+  */
   "data"?: Array<MetricAssetDashboardRelationship>;
 
   /**
@@ -32,22 +37,48 @@ export class MetricAssetDashboardRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<MetricAssetDashboardRelationship>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<MetricAssetDashboardRelationship>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricAssetDashboardRelationships.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

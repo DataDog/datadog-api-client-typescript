@@ -5,15 +5,20 @@
  */
 import { DORAFailureResponseData } from "./DORAFailureResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response after receiving a DORA failure event.
- */
+*/
 export class DORAFailureResponse {
   /**
    * Response after receiving a DORA failure event.
-   */
+  */
   "data": DORAFailureResponseData;
 
   /**
@@ -32,23 +37,49 @@ export class DORAFailureResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DORAFailureResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "DORAFailureResponseData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORAFailureResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

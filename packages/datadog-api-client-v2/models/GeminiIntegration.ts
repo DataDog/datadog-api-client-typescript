@@ -6,19 +6,24 @@
 import { GeminiCredentials } from "./GeminiCredentials";
 import { GeminiIntegrationType } from "./GeminiIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `GeminiIntegration` object.
- */
+*/
 export class GeminiIntegration {
   /**
    * The definition of the `GeminiCredentials` object.
-   */
+  */
   "credentials": GeminiCredentials;
   /**
    * The definition of the `GeminiIntegrationType` object.
-   */
+  */
   "type": GeminiIntegrationType;
 
   /**
@@ -37,28 +42,54 @@ export class GeminiIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "GeminiCredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "GeminiCredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "GeminiIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "GeminiIntegrationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return GeminiIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

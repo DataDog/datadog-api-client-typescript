@@ -4,27 +4,32 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Encapsulates the basic attributes of a Team reference, such as name, handle, and an optional avatar or description.
- */
+*/
 export class TeamReferenceAttributes {
   /**
    * URL or reference for the team's avatar (if available).
-   */
+  */
   "avatar"?: string;
   /**
    * A short text describing the team.
-   */
+  */
   "description"?: string;
   /**
    * A unique handle/slug for the team.
-   */
+  */
   "handle"?: string;
   /**
    * The full, human-readable name of the team.
-   */
+  */
   "name"?: string;
 
   /**
@@ -43,34 +48,60 @@ export class TeamReferenceAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    avatar: {
-      baseName: "avatar",
-      type: "string",
+    "avatar": {
+      "baseName": "avatar",
+      "type": "string",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamReferenceAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

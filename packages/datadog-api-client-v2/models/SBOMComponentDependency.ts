@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The dependencies of a component of the SBOM.
- */
+*/
 export class SBOMComponentDependency {
   /**
    * The components that are dependencies of the ref component.
-   */
+  */
   "dependsOn"?: Array<string>;
   /**
    * The identifier for the related component.
-   */
+  */
   "ref"?: string;
 
   /**
@@ -35,26 +40,52 @@ export class SBOMComponentDependency {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dependsOn: {
-      baseName: "dependsOn",
-      type: "Array<string>",
+    "dependsOn": {
+      "baseName": "dependsOn",
+      "type": "Array<string>",
     },
-    ref: {
-      baseName: "ref",
-      type: "string",
+    "ref": {
+      "baseName": "ref",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SBOMComponentDependency.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

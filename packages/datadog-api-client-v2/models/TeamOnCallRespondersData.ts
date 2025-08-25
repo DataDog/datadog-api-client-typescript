@@ -6,23 +6,28 @@
 import { TeamOnCallRespondersDataRelationships } from "./TeamOnCallRespondersDataRelationships";
 import { TeamOnCallRespondersDataType } from "./TeamOnCallRespondersDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines the main on-call responder object for a team, including relationships and metadata.
- */
+*/
 export class TeamOnCallRespondersData {
   /**
    * Unique identifier of the on-call responder configuration.
-   */
+  */
   "id"?: string;
   /**
    * Relationship objects linked to a team's on-call responder configuration, including escalations and responders.
-   */
+  */
   "relationships"?: TeamOnCallRespondersDataRelationships;
   /**
    * Represents the resource type for a group of users assigned to handle on-call duties within a team.
-   */
+  */
   "type": TeamOnCallRespondersDataType;
 
   /**
@@ -41,31 +46,57 @@ export class TeamOnCallRespondersData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "TeamOnCallRespondersDataRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "TeamOnCallRespondersDataRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "TeamOnCallRespondersDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "TeamOnCallRespondersDataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamOnCallRespondersData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

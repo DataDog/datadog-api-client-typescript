@@ -6,19 +6,24 @@
 import { AsanaCredentials } from "./AsanaCredentials";
 import { AsanaIntegrationType } from "./AsanaIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `AsanaIntegration` object.
- */
+*/
 export class AsanaIntegration {
   /**
    * The definition of the `AsanaCredentials` object.
-   */
+  */
   "credentials": AsanaCredentials;
   /**
    * The definition of the `AsanaIntegrationType` object.
-   */
+  */
   "type": AsanaIntegrationType;
 
   /**
@@ -37,28 +42,54 @@ export class AsanaIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "AsanaCredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "AsanaCredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "AsanaIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AsanaIntegrationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AsanaIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

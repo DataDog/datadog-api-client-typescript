@@ -5,15 +5,20 @@
  */
 import { ProjectCreate } from "./ProjectCreate";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Project create request
- */
+*/
 export class ProjectCreateRequest {
   /**
    * Project create
-   */
+  */
   "data": ProjectCreate;
 
   /**
@@ -32,23 +37,49 @@ export class ProjectCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "ProjectCreate",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "ProjectCreate",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ProjectCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

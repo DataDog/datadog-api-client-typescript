@@ -5,15 +5,20 @@
  */
 import { RelationshipToRole } from "./RelationshipToRole";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship of AuthN Mapping to a Role.
- */
+*/
 export class AuthNMappingRelationshipToRole {
   /**
    * Relationship to role.
-   */
+  */
   "role": RelationshipToRole;
 
   /**
@@ -32,23 +37,49 @@ export class AuthNMappingRelationshipToRole {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    role: {
-      baseName: "role",
-      type: "RelationshipToRole",
-      required: true,
+    "role": {
+      "baseName": "role",
+      "type": "RelationshipToRole",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AuthNMappingRelationshipToRole.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

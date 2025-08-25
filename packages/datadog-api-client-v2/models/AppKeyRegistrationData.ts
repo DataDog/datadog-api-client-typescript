@@ -5,19 +5,24 @@
  */
 import { AppKeyRegistrationDataType } from "./AppKeyRegistrationDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Data related to the app key registration.
- */
+*/
 export class AppKeyRegistrationData {
   /**
    * The app key registration identifier
-   */
+  */
   "id"?: string;
   /**
    * The definition of `AppKeyRegistrationDataType` object.
-   */
+  */
   "type": AppKeyRegistrationDataType;
 
   /**
@@ -36,28 +41,54 @@ export class AppKeyRegistrationData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    id: {
-      baseName: "id",
-      type: "string",
-      format: "uuid",
+    "id": {
+      "baseName": "id",
+      "type": "string",
+      "format": "uuid",
     },
-    type: {
-      baseName: "type",
-      type: "AppKeyRegistrationDataType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AppKeyRegistrationDataType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AppKeyRegistrationData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

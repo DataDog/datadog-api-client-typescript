@@ -5,27 +5,32 @@
  */
 import { State } from "./State";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Scorecard outcome for a specific rule, for a given service within a batched update.
- */
+*/
 export class OutcomesBatchRequestItem {
   /**
    * Any remarks regarding the scorecard rule's evaluation, and supports HTML hyperlinks.
-   */
+  */
   "remarks"?: string;
   /**
    * The unique ID for a scorecard rule.
-   */
+  */
   "ruleId": string;
   /**
    * The unique name for a service in the catalog.
-   */
+  */
   "serviceName": string;
   /**
    * The state of the rule evaluation.
-   */
+  */
   "state": State;
 
   /**
@@ -44,37 +49,63 @@ export class OutcomesBatchRequestItem {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    remarks: {
-      baseName: "remarks",
-      type: "string",
+    "remarks": {
+      "baseName": "remarks",
+      "type": "string",
     },
-    ruleId: {
-      baseName: "rule_id",
-      type: "string",
-      required: true,
+    "ruleId": {
+      "baseName": "rule_id",
+      "type": "string",
+      "required": true,
     },
-    serviceName: {
-      baseName: "service_name",
-      type: "string",
-      required: true,
+    "serviceName": {
+      "baseName": "service_name",
+      "type": "string",
+      "required": true,
     },
-    state: {
-      baseName: "state",
-      type: "State",
-      required: true,
+    "state": {
+      "baseName": "state",
+      "type": "State",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OutcomesBatchRequestItem.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

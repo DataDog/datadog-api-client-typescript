@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `DatadogIntegrationType` object.
- */
+*/
 
 export type DatadogIntegrationType = typeof DATADOG | UnparsedObject;
-export const DATADOG = "Datadog";
+export const DATADOG = 'Datadog';

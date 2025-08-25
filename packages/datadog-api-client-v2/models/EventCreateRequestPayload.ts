@@ -5,15 +5,20 @@
  */
 import { EventCreateRequest } from "./EventCreateRequest";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Payload for creating an event.
- */
+*/
 export class EventCreateRequestPayload {
   /**
    * An event object.
-   */
+  */
   "data": EventCreateRequest;
 
   /**
@@ -32,23 +37,49 @@ export class EventCreateRequestPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "EventCreateRequest",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "EventCreateRequest",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventCreateRequestPayload.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

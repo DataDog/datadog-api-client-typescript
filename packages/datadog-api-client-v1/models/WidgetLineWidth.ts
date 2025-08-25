@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Width of line displayed.
- */
+*/
 
-export type WidgetLineWidth =
-  | typeof NORMAL
-  | typeof THICK
-  | typeof THIN
-  | UnparsedObject;
-export const NORMAL = "normal";
-export const THICK = "thick";
-export const THIN = "thin";
+export type WidgetLineWidth = typeof NORMAL| typeof THICK| typeof THIN | UnparsedObject;
+export const NORMAL = 'normal';
+export const THICK = 'thick';
+export const THIN = 'thin';

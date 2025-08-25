@@ -5,19 +5,24 @@
  */
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Test configuration for Synthetics
- */
+*/
 export class SyntheticsTriggerTest {
   /**
    * Metadata for the Synthetic tests run.
-   */
+  */
   "metadata"?: SyntheticsCIBatchMetadata;
   /**
    * The public ID of the Synthetic test to trigger.
-   */
+  */
   "publicId": string;
 
   /**
@@ -36,27 +41,53 @@ export class SyntheticsTriggerTest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    metadata: {
-      baseName: "metadata",
-      type: "SyntheticsCIBatchMetadata",
+    "metadata": {
+      "baseName": "metadata",
+      "type": "SyntheticsCIBatchMetadata",
     },
-    publicId: {
-      baseName: "public_id",
-      type: "string",
-      required: true,
+    "publicId": {
+      "baseName": "public_id",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTriggerTest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

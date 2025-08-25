@@ -5,15 +5,20 @@
  */
 import { MemberTeam } from "./MemberTeam";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to add a member team to super team's hierarchy
- */
+*/
 export class AddMemberTeamRequest {
   /**
    * A member team
-   */
+  */
   "data": MemberTeam;
 
   /**
@@ -32,23 +37,49 @@ export class AddMemberTeamRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MemberTeam",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "MemberTeam",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AddMemberTeamRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

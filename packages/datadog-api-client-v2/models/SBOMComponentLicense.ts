@@ -5,15 +5,20 @@
  */
 import { SBOMComponentLicenseLicense } from "./SBOMComponentLicenseLicense";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The software license of the component of the SBOM.
- */
+*/
 export class SBOMComponentLicense {
   /**
    * The software license of the component of the SBOM.
-   */
+  */
   "license": SBOMComponentLicenseLicense;
 
   /**
@@ -32,23 +37,49 @@ export class SBOMComponentLicense {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    license: {
-      baseName: "license",
-      type: "SBOMComponentLicenseLicense",
-      required: true,
+    "license": {
+      "baseName": "license",
+      "type": "SBOMComponentLicenseLicense",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SBOMComponentLicense.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

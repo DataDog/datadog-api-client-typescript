@@ -6,19 +6,24 @@
 import { TeamOnCallRespondersData } from "./TeamOnCallRespondersData";
 import { TeamOnCallRespondersIncluded } from "./TeamOnCallRespondersIncluded";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Root object representing a team's on-call responder configuration.
- */
+*/
 export class TeamOnCallResponders {
   /**
    * Defines the main on-call responder object for a team, including relationships and metadata.
-   */
+  */
   "data"?: TeamOnCallRespondersData;
   /**
    * The `TeamOnCallResponders` `included`.
-   */
+  */
   "included"?: Array<TeamOnCallRespondersIncluded>;
 
   /**
@@ -37,26 +42,52 @@ export class TeamOnCallResponders {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "TeamOnCallRespondersData",
+    "data": {
+      "baseName": "data",
+      "type": "TeamOnCallRespondersData",
     },
-    included: {
-      baseName: "included",
-      type: "Array<TeamOnCallRespondersIncluded>",
+    "included": {
+      "baseName": "included",
+      "type": "Array<TeamOnCallRespondersIncluded>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamOnCallResponders.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

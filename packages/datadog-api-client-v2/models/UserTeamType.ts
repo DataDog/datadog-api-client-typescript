@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Team membership type
- */
+*/
 
 export type UserTeamType = typeof TEAM_MEMBERSHIPS | UnparsedObject;
-export const TEAM_MEMBERSHIPS = "team_memberships";
+export const TEAM_MEMBERSHIPS = 'team_memberships';

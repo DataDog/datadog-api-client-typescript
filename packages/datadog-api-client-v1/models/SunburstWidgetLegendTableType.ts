@@ -4,15 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Whether or not to show a table legend.
- */
+*/
 
-export type SunburstWidgetLegendTableType =
-  | typeof TABLE
-  | typeof NONE
-  | UnparsedObject;
-export const TABLE = "table";
-export const NONE = "none";
+export type SunburstWidgetLegendTableType = typeof TABLE| typeof NONE | UnparsedObject;
+export const TABLE = 'table';
+export const NONE = 'none';

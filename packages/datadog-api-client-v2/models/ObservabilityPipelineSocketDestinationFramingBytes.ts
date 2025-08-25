@@ -5,15 +5,20 @@
  */
 import { ObservabilityPipelineSocketDestinationFramingBytesMethod } from "./ObservabilityPipelineSocketDestinationFramingBytesMethod";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Event data is not delimited at all.
- */
+*/
 export class ObservabilityPipelineSocketDestinationFramingBytes {
   /**
    * The definition of `ObservabilityPipelineSocketDestinationFramingBytesMethod` object.
-   */
+  */
   "method": ObservabilityPipelineSocketDestinationFramingBytesMethod;
 
   /**
@@ -32,23 +37,49 @@ export class ObservabilityPipelineSocketDestinationFramingBytes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    method: {
-      baseName: "method",
-      type: "ObservabilityPipelineSocketDestinationFramingBytesMethod",
-      required: true,
+    "method": {
+      "baseName": "method",
+      "type": "ObservabilityPipelineSocketDestinationFramingBytesMethod",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSocketDestinationFramingBytes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

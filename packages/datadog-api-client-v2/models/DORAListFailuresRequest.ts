@@ -5,15 +5,20 @@
  */
 import { DORAListFailuresRequestData } from "./DORAListFailuresRequestData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request to get a list of failures.
- */
+*/
 export class DORAListFailuresRequest {
   /**
    * The JSON:API data.
-   */
+  */
   "data": DORAListFailuresRequestData;
 
   /**
@@ -32,23 +37,49 @@ export class DORAListFailuresRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "DORAListFailuresRequestData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "DORAListFailuresRequestData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORAListFailuresRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,43 +4,48 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Incident type's attributes.
- */
+*/
 export class IncidentTypeAttributes {
   /**
    * Timestamp when the incident type was created.
-   */
+  */
   "createdAt"?: Date;
   /**
    * A unique identifier that represents the user that created the incident type.
-   */
+  */
   "createdBy"?: string;
   /**
    * Text that describes the incident type.
-   */
+  */
   "description"?: string;
   /**
    * If true, this incident type will be used as the default incident type if a type is not specified during the creation of incident resources.
-   */
+  */
   "isDefault"?: boolean;
   /**
    * A unique identifier that represents the user that last modified the incident type.
-   */
+  */
   "lastModifiedBy"?: string;
   /**
    * Timestamp when the incident type was last modified.
-   */
+  */
   "modifiedAt"?: Date;
   /**
    * The name of the incident type.
-   */
+  */
   "name": string;
   /**
    * The string that will be prepended to the incident title across the Datadog app.
-   */
+  */
   "prefix"?: string;
 
   /**
@@ -59,53 +64,79 @@ export class IncidentTypeAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "createdAt",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "createdAt",
+      "type": "Date",
+      "format": "date-time",
     },
-    createdBy: {
-      baseName: "createdBy",
-      type: "string",
+    "createdBy": {
+      "baseName": "createdBy",
+      "type": "string",
     },
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    isDefault: {
-      baseName: "is_default",
-      type: "boolean",
+    "isDefault": {
+      "baseName": "is_default",
+      "type": "boolean",
     },
-    lastModifiedBy: {
-      baseName: "lastModifiedBy",
-      type: "string",
+    "lastModifiedBy": {
+      "baseName": "lastModifiedBy",
+      "type": "string",
     },
-    modifiedAt: {
-      baseName: "modifiedAt",
-      type: "Date",
-      format: "date-time",
+    "modifiedAt": {
+      "baseName": "modifiedAt",
+      "type": "Date",
+      "format": "date-time",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    prefix: {
-      baseName: "prefix",
-      type: "string",
+    "prefix": {
+      "baseName": "prefix",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IncidentTypeAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

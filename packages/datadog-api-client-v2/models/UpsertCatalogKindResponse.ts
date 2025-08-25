@@ -6,19 +6,24 @@
 import { KindData } from "./KindData";
 import { KindResponseMeta } from "./KindResponseMeta";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Upsert kind response.
- */
+*/
 export class UpsertCatalogKindResponse {
   /**
    * List of kind responses.
-   */
+  */
   "data"?: Array<KindData>;
   /**
    * Kind response metadata.
-   */
+  */
   "meta"?: KindResponseMeta;
 
   /**
@@ -37,26 +42,52 @@ export class UpsertCatalogKindResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<KindData>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<KindData>",
     },
-    meta: {
-      baseName: "meta",
-      type: "KindResponseMeta",
+    "meta": {
+      "baseName": "meta",
+      "type": "KindResponseMeta",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpsertCatalogKindResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

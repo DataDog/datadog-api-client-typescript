@@ -5,19 +5,24 @@
  */
 import { DashboardListItem } from "./DashboardListItem";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Dashboards within a list.
- */
+*/
 export class DashboardListItems {
   /**
    * List of dashboards in the dashboard list.
-   */
+  */
   "dashboards": Array<DashboardListItem>;
   /**
    * Number of dashboards in the dashboard list.
-   */
+  */
   "total"?: number;
 
   /**
@@ -36,28 +41,54 @@ export class DashboardListItems {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dashboards: {
-      baseName: "dashboards",
-      type: "Array<DashboardListItem>",
-      required: true,
+    "dashboards": {
+      "baseName": "dashboards",
+      "type": "Array<DashboardListItem>",
+      "required": true,
     },
-    total: {
-      baseName: "total",
-      type: "number",
-      format: "int64",
+    "total": {
+      "baseName": "total",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DashboardListItems.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

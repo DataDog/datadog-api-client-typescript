@@ -5,15 +5,20 @@
  */
 import { UsageBillableSummaryHour } from "./UsageBillableSummaryHour";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response with monthly summary of data billed by Datadog.
- */
+*/
 export class UsageBillableSummaryResponse {
   /**
    * An array of objects regarding usage of billable summary.
-   */
+  */
   "usage"?: Array<UsageBillableSummaryHour>;
 
   /**
@@ -32,22 +37,48 @@ export class UsageBillableSummaryResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    usage: {
-      baseName: "usage",
-      type: "Array<UsageBillableSummaryHour>",
+    "usage": {
+      "baseName": "usage",
+      "type": "Array<UsageBillableSummaryHour>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UsageBillableSummaryResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

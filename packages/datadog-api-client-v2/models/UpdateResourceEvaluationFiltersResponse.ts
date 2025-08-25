@@ -5,15 +5,20 @@
  */
 import { UpdateResourceEvaluationFiltersResponseData } from "./UpdateResourceEvaluationFiltersResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of `UpdateResourceEvaluationFiltersResponse` object.
- */
+*/
 export class UpdateResourceEvaluationFiltersResponse {
   /**
    * The definition of `UpdateResourceFilterResponseData` object.
-   */
+  */
   "data": UpdateResourceEvaluationFiltersResponseData;
 
   /**
@@ -32,23 +37,49 @@ export class UpdateResourceEvaluationFiltersResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "UpdateResourceEvaluationFiltersResponseData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "UpdateResourceEvaluationFiltersResponseData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UpdateResourceEvaluationFiltersResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,20 @@
  */
 import { MonitorUserTemplateCreateData } from "./MonitorUserTemplateCreateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request for creating a monitor user template.
- */
+*/
 export class MonitorUserTemplateCreateRequest {
   /**
    * Monitor user template data.
-   */
+  */
   "data": MonitorUserTemplateCreateData;
 
   /**
@@ -32,23 +37,49 @@ export class MonitorUserTemplateCreateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MonitorUserTemplateCreateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "MonitorUserTemplateCreateData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MonitorUserTemplateCreateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

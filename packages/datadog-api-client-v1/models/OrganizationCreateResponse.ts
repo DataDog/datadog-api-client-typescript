@@ -8,27 +8,32 @@ import { ApplicationKey } from "./ApplicationKey";
 import { Organization } from "./Organization";
 import { User } from "./User";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Response object for an organization creation.
- */
+*/
 export class OrganizationCreateResponse {
   /**
    * Datadog API key.
-   */
+  */
   "apiKey"?: ApiKey;
   /**
    * An application key with its associated metadata.
-   */
+  */
   "applicationKey"?: ApplicationKey;
   /**
    * Create, edit, and manage organizations.
-   */
+  */
   "org"?: Organization;
   /**
    * Create, edit, and disable users.
-   */
+  */
   "user"?: User;
 
   /**
@@ -47,34 +52,60 @@ export class OrganizationCreateResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "ApiKey",
+    "apiKey": {
+      "baseName": "api_key",
+      "type": "ApiKey",
     },
-    applicationKey: {
-      baseName: "application_key",
-      type: "ApplicationKey",
+    "applicationKey": {
+      "baseName": "application_key",
+      "type": "ApplicationKey",
     },
-    org: {
-      baseName: "org",
-      type: "Organization",
+    "org": {
+      "baseName": "org",
+      "type": "Organization",
     },
-    user: {
-      baseName: "user",
-      type: "User",
+    "user": {
+      "baseName": "user",
+      "type": "User",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OrganizationCreateResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

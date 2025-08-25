@@ -7,23 +7,28 @@ import { UserCreateAttributes } from "./UserCreateAttributes";
 import { UserRelationships } from "./UserRelationships";
 import { UsersType } from "./UsersType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object to create a user.
- */
+*/
 export class UserCreateData {
   /**
    * Attributes of the created user.
-   */
+  */
   "attributes": UserCreateAttributes;
   /**
    * Relationships of the user object.
-   */
+  */
   "relationships"?: UserRelationships;
   /**
    * Users resource type.
-   */
+  */
   "type": UsersType;
 
   /**
@@ -42,32 +47,58 @@ export class UserCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "UserCreateAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "UserCreateAttributes",
+      "required": true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "UserRelationships",
+    "relationships": {
+      "baseName": "relationships",
+      "type": "UserRelationships",
     },
-    type: {
-      baseName: "type",
-      type: "UsersType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "UsersType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return UserCreateData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

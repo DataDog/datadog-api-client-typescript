@@ -28,35 +28,15 @@ import { SplitIntegration } from "./SplitIntegration";
 import { StatsigIntegration } from "./StatsigIntegration";
 import { VirusTotalIntegration } from "./VirusTotalIntegration";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of `ActionConnectionIntegration` object.
- */
+*/
 
-export type ActionConnectionIntegration =
-  | AWSIntegration
-  | AnthropicIntegration
-  | AsanaIntegration
-  | AzureIntegration
-  | CircleCIIntegration
-  | ClickupIntegration
-  | CloudflareIntegration
-  | ConfigCatIntegration
-  | DatadogIntegration
-  | FastlyIntegration
-  | FreshserviceIntegration
-  | GCPIntegration
-  | GeminiIntegration
-  | GitlabIntegration
-  | GreyNoiseIntegration
-  | HTTPIntegration
-  | LaunchDarklyIntegration
-  | NotionIntegration
-  | OktaIntegration
-  | OpenAIIntegration
-  | ServiceNowIntegration
-  | SplitIntegration
-  | StatsigIntegration
-  | VirusTotalIntegration
-  | UnparsedObject;
+export type ActionConnectionIntegration = AWSIntegration | AnthropicIntegration | AsanaIntegration | AzureIntegration | CircleCIIntegration | ClickupIntegration | CloudflareIntegration | ConfigCatIntegration | DatadogIntegration | FastlyIntegration | FreshserviceIntegration | GCPIntegration | GeminiIntegration | GitlabIntegration | GreyNoiseIntegration | HTTPIntegration | LaunchDarklyIntegration | NotionIntegration | OktaIntegration | OpenAIIntegration | ServiceNowIntegration | SplitIntegration | StatsigIntegration | VirusTotalIntegration | UnparsedObject;

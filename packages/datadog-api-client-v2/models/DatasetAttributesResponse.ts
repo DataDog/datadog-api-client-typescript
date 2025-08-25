@@ -5,31 +5,36 @@
  */
 import { FiltersPerProduct } from "./FiltersPerProduct";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Dataset metadata and configuration(s).
- */
+*/
 export class DatasetAttributesResponse {
   /**
    * Timestamp when the dataset was created.
-   */
+  */
   "createdAt"?: Date;
   /**
    * Unique ID of the user who created the dataset.
-   */
+  */
   "createdBy"?: string;
   /**
    * Name of the dataset.
-   */
+  */
   "name"?: string;
   /**
    * List of access principals, formatted as `principal_type:id`. Principal can be 'team' or 'role'.
-   */
+  */
   "principals"?: Array<string>;
   /**
    * List of product-specific filters.
-   */
+  */
   "productFilters"?: Array<FiltersPerProduct>;
 
   /**
@@ -48,40 +53,66 @@ export class DatasetAttributesResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "Date",
+      "format": "date-time",
     },
-    createdBy: {
-      baseName: "created_by",
-      type: "string",
-      format: "uuid",
+    "createdBy": {
+      "baseName": "created_by",
+      "type": "string",
+      "format": "uuid",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    principals: {
-      baseName: "principals",
-      type: "Array<string>",
+    "principals": {
+      "baseName": "principals",
+      "type": "Array<string>",
     },
-    productFilters: {
-      baseName: "product_filters",
-      type: "Array<FiltersPerProduct>",
+    "productFilters": {
+      "baseName": "product_filters",
+      "type": "Array<FiltersPerProduct>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DatasetAttributesResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

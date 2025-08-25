@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Amount of log lines to display
- */
+*/
 
-export type WidgetMessageDisplay =
-  | typeof INLINE
-  | typeof EXPANDED_MEDIUM
-  | typeof EXPANDED_LARGE
-  | UnparsedObject;
-export const INLINE = "inline";
-export const EXPANDED_MEDIUM = "expanded-md";
-export const EXPANDED_LARGE = "expanded-lg";
+export type WidgetMessageDisplay = typeof INLINE| typeof EXPANDED_MEDIUM| typeof EXPANDED_LARGE | UnparsedObject;
+export const INLINE = 'inline';
+export const EXPANDED_MEDIUM = 'expanded-md';
+export const EXPANDED_LARGE = 'expanded-lg';

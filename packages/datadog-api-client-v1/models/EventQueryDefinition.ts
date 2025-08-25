@@ -4,19 +4,24 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The event query.
- */
+*/
 export class EventQueryDefinition {
   /**
    * The query being made on the event.
-   */
+  */
   "search": string;
   /**
    * The execution method for multi-value filters. Can be either and or or.
-   */
+  */
   "tagsExecution": string;
 
   /**
@@ -35,28 +40,54 @@ export class EventQueryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    search: {
-      baseName: "search",
-      type: "string",
-      required: true,
+    "search": {
+      "baseName": "search",
+      "type": "string",
+      "required": true,
     },
-    tagsExecution: {
-      baseName: "tags_execution",
-      type: "string",
-      required: true,
+    "tagsExecution": {
+      "baseName": "tags_execution",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return EventQueryDefinition.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

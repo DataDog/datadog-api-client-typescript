@@ -4,17 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Top list widget stacked legend behavior.
- */
+*/
 
-export type ToplistWidgetLegend =
-  | typeof AUTOMATIC
-  | typeof INLINE
-  | typeof NONE
-  | UnparsedObject;
-export const AUTOMATIC = "automatic";
-export const INLINE = "inline";
-export const NONE = "none";
+export type ToplistWidgetLegend = typeof AUTOMATIC| typeof INLINE| typeof NONE | UnparsedObject;
+export const AUTOMATIC = 'automatic';
+export const INLINE = 'inline';
+export const NONE = 'none';

@@ -4,31 +4,36 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Framework without requirements.
- */
+*/
 export class CustomFrameworkWithoutRequirements {
   /**
    * Framework Description
-   */
+  */
   "description"?: string;
   /**
    * Framework Handle
-   */
+  */
   "handle": string;
   /**
    * Framework Icon URL
-   */
+  */
   "iconUrl"?: string;
   /**
    * Framework Name
-   */
+  */
   "name": string;
   /**
    * Framework Version
-   */
+  */
   "version": string;
 
   /**
@@ -47,41 +52,67 @@ export class CustomFrameworkWithoutRequirements {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    description: {
-      baseName: "description",
-      type: "string",
+    "description": {
+      "baseName": "description",
+      "type": "string",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
-      required: true,
+    "handle": {
+      "baseName": "handle",
+      "type": "string",
+      "required": true,
     },
-    iconUrl: {
-      baseName: "icon_url",
-      type: "string",
+    "iconUrl": {
+      "baseName": "icon_url",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    version: {
-      baseName: "version",
-      type: "string",
-      required: true,
+    "version": {
+      "baseName": "version",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CustomFrameworkWithoutRequirements.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

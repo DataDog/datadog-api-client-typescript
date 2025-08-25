@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Incident search result type.
- */
+*/
 
-export type IncidentSearchResultsType =
-  | typeof INCIDENTS_SEARCH_RESULTS
-  | UnparsedObject;
-export const INCIDENTS_SEARCH_RESULTS = "incidents_search_results";
+export type IncidentSearchResultsType = typeof INCIDENTS_SEARCH_RESULTS | UnparsedObject;
+export const INCIDENTS_SEARCH_RESULTS = 'incidents_search_results';

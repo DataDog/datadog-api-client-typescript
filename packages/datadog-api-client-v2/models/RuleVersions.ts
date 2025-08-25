@@ -6,19 +6,24 @@
 import { RuleVersionUpdate } from "./RuleVersionUpdate";
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A rule version with a list of updates.
- */
+*/
 export class RuleVersions {
   /**
    * A list of changes.
-   */
+  */
   "changes"?: Array<RuleVersionUpdate>;
   /**
    * Create a new rule.
-   */
+  */
   "rule"?: SecurityMonitoringRuleResponse;
 
   /**
@@ -37,26 +42,52 @@ export class RuleVersions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    changes: {
-      baseName: "changes",
-      type: "Array<RuleVersionUpdate>",
+    "changes": {
+      "baseName": "changes",
+      "type": "Array<RuleVersionUpdate>",
     },
-    rule: {
-      baseName: "rule",
-      type: "SecurityMonitoringRuleResponse",
+    "rule": {
+      "baseName": "rule",
+      "type": "SecurityMonitoringRuleResponse",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RuleVersions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

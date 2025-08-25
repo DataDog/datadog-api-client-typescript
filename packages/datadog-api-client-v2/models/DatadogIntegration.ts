@@ -6,19 +6,24 @@
 import { DatadogCredentials } from "./DatadogCredentials";
 import { DatadogIntegrationType } from "./DatadogIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `DatadogIntegration` object.
- */
+*/
 export class DatadogIntegration {
   /**
    * The definition of the `DatadogCredentials` object.
-   */
+  */
   "credentials": DatadogCredentials;
   /**
    * The definition of the `DatadogIntegrationType` object.
-   */
+  */
   "type": DatadogIntegrationType;
 
   /**
@@ -37,28 +42,54 @@ export class DatadogIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "DatadogCredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "DatadogCredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DatadogIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "DatadogIntegrationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DatadogIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

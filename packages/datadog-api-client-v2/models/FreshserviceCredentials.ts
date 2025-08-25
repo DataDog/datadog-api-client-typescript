@@ -5,10 +5,15 @@
  */
 import { FreshserviceAPIKey } from "./FreshserviceAPIKey";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `FreshserviceCredentials` object.
- */
+*/
 
 export type FreshserviceCredentials = FreshserviceAPIKey | UnparsedObject;

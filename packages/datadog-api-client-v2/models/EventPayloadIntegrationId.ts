@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Integration ID sourced from integration manifests.
- */
+*/
 
 export type EventPayloadIntegrationId = typeof CUSTOM_EVENTS | UnparsedObject;
-export const CUSTOM_EVENTS = "custom-events";
+export const CUSTOM_EVENTS = 'custom-events';

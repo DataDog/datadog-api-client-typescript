@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The processor type. Always `generate_datadog_metrics`.
- */
+*/
 
-export type ObservabilityPipelineGenerateMetricsProcessorType =
-  | typeof GENERATE_DATADOG_METRICS
-  | UnparsedObject;
-export const GENERATE_DATADOG_METRICS = "generate_datadog_metrics";
+export type ObservabilityPipelineGenerateMetricsProcessorType = typeof GENERATE_DATADOG_METRICS | UnparsedObject;
+export const GENERATE_DATADOG_METRICS = 'generate_datadog_metrics';

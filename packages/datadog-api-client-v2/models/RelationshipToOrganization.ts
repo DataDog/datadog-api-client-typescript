@@ -5,15 +5,20 @@
  */
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Relationship to an organization.
- */
+*/
 export class RelationshipToOrganization {
   /**
    * Relationship to organization object.
-   */
+  */
   "data": RelationshipToOrganizationData;
 
   /**
@@ -32,23 +37,49 @@ export class RelationshipToOrganization {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RelationshipToOrganizationData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "RelationshipToOrganizationData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RelationshipToOrganization.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

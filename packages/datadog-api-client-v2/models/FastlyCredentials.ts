@@ -5,10 +5,15 @@
  */
 import { FastlyAPIKey } from "./FastlyAPIKey";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `FastlyCredentials` object.
- */
+*/
 
 export type FastlyCredentials = FastlyAPIKey | UnparsedObject;

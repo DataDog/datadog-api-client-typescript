@@ -5,15 +5,20 @@
  */
 import { TeamOnCallRespondersDataRelationshipsRespondersDataItems } from "./TeamOnCallRespondersDataRelationshipsRespondersDataItems";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Defines the list of users assigned as on-call responders for the team.
- */
+*/
 export class TeamOnCallRespondersDataRelationshipsResponders {
   /**
    * Array of user references associated as responders.
-   */
+  */
   "data"?: Array<TeamOnCallRespondersDataRelationshipsRespondersDataItems>;
 
   /**
@@ -32,22 +37,48 @@ export class TeamOnCallRespondersDataRelationshipsResponders {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<TeamOnCallRespondersDataRelationshipsRespondersDataItems>",
+    "data": {
+      "baseName": "data",
+      "type": "Array<TeamOnCallRespondersDataRelationshipsRespondersDataItems>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return TeamOnCallRespondersDataRelationshipsResponders.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

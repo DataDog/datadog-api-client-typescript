@@ -5,15 +5,20 @@
  */
 import { ObservabilityPipelineSocketSourceFramingNewlineDelimitedMethod } from "./ObservabilityPipelineSocketSourceFramingNewlineDelimitedMethod";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Byte frames which are delimited by a newline character.
- */
+*/
 export class ObservabilityPipelineSocketSourceFramingNewlineDelimited {
   /**
    * Byte frames which are delimited by a newline character.
-   */
+  */
   "method": ObservabilityPipelineSocketSourceFramingNewlineDelimitedMethod;
 
   /**
@@ -32,23 +37,49 @@ export class ObservabilityPipelineSocketSourceFramingNewlineDelimited {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    method: {
-      baseName: "method",
-      type: "ObservabilityPipelineSocketSourceFramingNewlineDelimitedMethod",
-      required: true,
+    "method": {
+      "baseName": "method",
+      "type": "ObservabilityPipelineSocketSourceFramingNewlineDelimitedMethod",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ObservabilityPipelineSocketSourceFramingNewlineDelimited.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

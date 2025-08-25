@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The JSON:API type for scorecard rules.
- */
+*/
 
 export type RuleType = typeof RULE | UnparsedObject;
-export const RULE = "rule";
+export const RULE = 'rule';

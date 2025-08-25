@@ -5,19 +5,24 @@
  */
 import { PowerpackInnerWidgetLayout } from "./PowerpackInnerWidgetLayout";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Powerpack group widget definition of individual widgets.
- */
+*/
 export class PowerpackInnerWidgets {
   /**
    * Information about widget.
-   */
-  "definition": { [key: string]: any };
+  */
+  "definition": { [key: string]: any; };
   /**
    * Powerpack inner widget layout.
-   */
+  */
   "layout"?: PowerpackInnerWidgetLayout;
 
   /**
@@ -36,27 +41,53 @@ export class PowerpackInnerWidgets {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    definition: {
-      baseName: "definition",
-      type: "{ [key: string]: any; }",
-      required: true,
+    "definition": {
+      "baseName": "definition",
+      "type": "{ [key: string]: any; }",
+      "required": true,
     },
-    layout: {
-      baseName: "layout",
-      type: "PowerpackInnerWidgetLayout",
+    "layout": {
+      "baseName": "layout",
+      "type": "PowerpackInnerWidgetLayout",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return PowerpackInnerWidgets.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -4,39 +4,44 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The set action applied on the scope matching the rule
- */
+*/
 export class CloudWorkloadSecurityAgentRuleActionSet {
   /**
    * Whether the value should be appended to the field
-   */
+  */
   "append"?: boolean;
   /**
    * The field of the set action
-   */
+  */
   "field"?: string;
   /**
    * The name of the set action
-   */
+  */
   "name"?: string;
   /**
    * The scope of the set action
-   */
+  */
   "scope"?: string;
   /**
    * The size of the set action
-   */
+  */
   "size"?: number;
   /**
    * The time to live of the set action
-   */
+  */
   "ttl"?: number;
   /**
    * The value of the set action
-   */
+  */
   "value"?: string;
 
   /**
@@ -55,48 +60,74 @@ export class CloudWorkloadSecurityAgentRuleActionSet {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    append: {
-      baseName: "append",
-      type: "boolean",
+    "append": {
+      "baseName": "append",
+      "type": "boolean",
     },
-    field: {
-      baseName: "field",
-      type: "string",
+    "field": {
+      "baseName": "field",
+      "type": "string",
     },
-    name: {
-      baseName: "name",
-      type: "string",
+    "name": {
+      "baseName": "name",
+      "type": "string",
     },
-    scope: {
-      baseName: "scope",
-      type: "string",
+    "scope": {
+      "baseName": "scope",
+      "type": "string",
     },
-    size: {
-      baseName: "size",
-      type: "number",
-      format: "int64",
+    "size": {
+      "baseName": "size",
+      "type": "number",
+      "format": "int64",
     },
-    ttl: {
-      baseName: "ttl",
-      type: "number",
-      format: "int64",
+    "ttl": {
+      "baseName": "ttl",
+      "type": "number",
+      "format": "int64",
     },
-    value: {
-      baseName: "value",
-      type: "string",
+    "value": {
+      "baseName": "value",
+      "type": "string",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CloudWorkloadSecurityAgentRuleActionSet.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

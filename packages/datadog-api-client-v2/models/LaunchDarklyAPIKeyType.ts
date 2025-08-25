@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The definition of the `LaunchDarklyAPIKey` object.
- */
+*/
 
 export type LaunchDarklyAPIKeyType = typeof LAUNCHDARKLYAPIKEY | UnparsedObject;
-export const LAUNCHDARKLYAPIKEY = "LaunchDarklyAPIKey";
+export const LAUNCHDARKLYAPIKEY = 'LaunchDarklyAPIKey';

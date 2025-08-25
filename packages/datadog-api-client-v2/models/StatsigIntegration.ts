@@ -6,19 +6,24 @@
 import { StatsigCredentials } from "./StatsigCredentials";
 import { StatsigIntegrationType } from "./StatsigIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `StatsigIntegration` object.
- */
+*/
 export class StatsigIntegration {
   /**
    * The definition of the `StatsigCredentials` object.
-   */
+  */
   "credentials": StatsigCredentials;
   /**
    * The definition of the `StatsigIntegrationType` object.
-   */
+  */
   "type": StatsigIntegrationType;
 
   /**
@@ -37,28 +42,54 @@ export class StatsigIntegration {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "StatsigCredentials",
-      required: true,
+    "credentials": {
+      "baseName": "credentials",
+      "type": "StatsigCredentials",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "StatsigIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "StatsigIntegrationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return StatsigIntegration.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

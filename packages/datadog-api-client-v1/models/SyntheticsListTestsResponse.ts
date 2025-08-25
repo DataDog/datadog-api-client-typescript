@@ -5,15 +5,20 @@
  */
 import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing an array of Synthetic tests configuration.
- */
+*/
 export class SyntheticsListTestsResponse {
   /**
    * Array of Synthetic tests configuration.
-   */
+  */
   "tests"?: Array<SyntheticsTestDetails>;
 
   /**
@@ -32,22 +37,48 @@ export class SyntheticsListTestsResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    tests: {
-      baseName: "tests",
-      type: "Array<SyntheticsTestDetails>",
+    "tests": {
+      "baseName": "tests",
+      "type": "Array<SyntheticsTestDetails>",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsListTestsResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

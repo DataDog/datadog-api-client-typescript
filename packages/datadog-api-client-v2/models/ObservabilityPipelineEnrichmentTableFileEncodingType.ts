@@ -4,13 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * Specifies the encoding format (e.g., CSV) used for enrichment tables.
- */
+*/
 
-export type ObservabilityPipelineEnrichmentTableFileEncodingType =
-  | typeof CSV
-  | UnparsedObject;
-export const CSV = "csv";
+export type ObservabilityPipelineEnrichmentTableFileEncodingType = typeof CSV | UnparsedObject;
+export const CSV = 'csv';

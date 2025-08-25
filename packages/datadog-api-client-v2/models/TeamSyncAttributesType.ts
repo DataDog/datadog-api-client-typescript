@@ -4,11 +4,16 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * The type of synchronization operation. Only "link" is supported, which links existing teams by matching names.
- */
+*/
 
 export type TeamSyncAttributesType = typeof LINK | UnparsedObject;
-export const LINK = "link";
+export const LINK = 'link';

@@ -6,13 +6,15 @@
 import { AlertEventCustomAttributes } from "./AlertEventCustomAttributes";
 import { ChangeEventCustomAttributes } from "./ChangeEventCustomAttributes";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
+
+
 import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 
 /**
  * JSON object for category-specific attributes. Schema is different per event category.
- */
+*/
 
-export type EventPayloadAttributes =
-  | ChangeEventCustomAttributes
-  | AlertEventCustomAttributes
-  | UnparsedObject;
+export type EventPayloadAttributes = ChangeEventCustomAttributes | AlertEventCustomAttributes | UnparsedObject;

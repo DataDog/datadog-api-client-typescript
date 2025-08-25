@@ -5,15 +5,20 @@
  */
 import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdateData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Request object that includes the metric that you would like to edit the tag configuration on.
- */
+*/
 export class MetricTagConfigurationUpdateRequest {
   /**
    * Object for a single tag configuration to be edited.
-   */
+  */
   "data": MetricTagConfigurationUpdateData;
 
   /**
@@ -32,23 +37,49 @@ export class MetricTagConfigurationUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MetricTagConfigurationUpdateData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "MetricTagConfigurationUpdateData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return MetricTagConfigurationUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

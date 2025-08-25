@@ -6,23 +6,28 @@
 import { ToplistWidgetDisplay } from "./ToplistWidgetDisplay";
 import { ToplistWidgetScaling } from "./ToplistWidgetScaling";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Style customization for a top list widget.
- */
+*/
 export class ToplistWidgetStyle {
   /**
    * Top list widget display options.
-   */
+  */
   "display"?: ToplistWidgetDisplay;
   /**
    * Color palette to apply to the widget.
-   */
+  */
   "palette"?: string;
   /**
    * Top list widget scaling definition.
-   */
+  */
   "scaling"?: ToplistWidgetScaling;
 
   /**
@@ -41,30 +46,56 @@ export class ToplistWidgetStyle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    display: {
-      baseName: "display",
-      type: "ToplistWidgetDisplay",
+    "display": {
+      "baseName": "display",
+      "type": "ToplistWidgetDisplay",
     },
-    palette: {
-      baseName: "palette",
-      type: "string",
+    "palette": {
+      "baseName": "palette",
+      "type": "string",
     },
-    scaling: {
-      baseName: "scaling",
-      type: "ToplistWidgetScaling",
+    "scaling": {
+      "baseName": "scaling",
+      "type": "ToplistWidgetScaling",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return ToplistWidgetStyle.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

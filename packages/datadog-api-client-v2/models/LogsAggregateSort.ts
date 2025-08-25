@@ -7,27 +7,32 @@ import { LogsAggregateSortType } from "./LogsAggregateSortType";
 import { LogsAggregationFunction } from "./LogsAggregationFunction";
 import { LogsSortOrder } from "./LogsSortOrder";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * A sort rule
- */
+*/
 export class LogsAggregateSort {
   /**
    * An aggregation function
-   */
+  */
   "aggregation"?: LogsAggregationFunction;
   /**
    * The metric to sort by (only used for `type=measure`)
-   */
+  */
   "metric"?: string;
   /**
    * The order to use, ascending or descending
-   */
+  */
   "order"?: LogsSortOrder;
   /**
    * The type of sorting algorithm
-   */
+  */
   "type"?: LogsAggregateSortType;
 
   /**
@@ -46,34 +51,60 @@ export class LogsAggregateSort {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregation: {
-      baseName: "aggregation",
-      type: "LogsAggregationFunction",
+    "aggregation": {
+      "baseName": "aggregation",
+      "type": "LogsAggregationFunction",
     },
-    metric: {
-      baseName: "metric",
-      type: "string",
+    "metric": {
+      "baseName": "metric",
+      "type": "string",
     },
-    order: {
-      baseName: "order",
-      type: "LogsSortOrder",
+    "order": {
+      "baseName": "order",
+      "type": "LogsSortOrder",
     },
-    type: {
-      baseName: "type",
-      type: "LogsAggregateSortType",
+    "type": {
+      "baseName": "type",
+      "type": "LogsAggregateSortType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return LogsAggregateSort.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

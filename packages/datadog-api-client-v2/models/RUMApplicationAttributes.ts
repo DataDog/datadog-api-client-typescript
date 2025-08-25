@@ -5,59 +5,64 @@
  */
 import { RUMProductScales } from "./RUMProductScales";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * RUM application attributes.
- */
+*/
 export class RUMApplicationAttributes {
   /**
    * ID of the RUM application.
-   */
+  */
   "applicationId": string;
   /**
    * Client token of the RUM application.
-   */
+  */
   "clientToken": string;
   /**
    * Timestamp in ms of the creation date.
-   */
+  */
   "createdAt": number;
   /**
    * Handle of the creator user.
-   */
+  */
   "createdByHandle": string;
   /**
    * Hash of the RUM application. Optional.
-   */
+  */
   "hash"?: string;
   /**
    * Indicates if the RUM application is active.
-   */
+  */
   "isActive"?: boolean;
   /**
    * Name of the RUM application.
-   */
+  */
   "name": string;
   /**
    * Org ID of the RUM application.
-   */
+  */
   "orgId": number;
   /**
    * Product Scales configuration for the RUM application.
-   */
+  */
   "productScales"?: RUMProductScales;
   /**
    * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
-   */
+  */
   "type": string;
   /**
    * Timestamp in ms of the last update date.
-   */
+  */
   "updatedAt": number;
   /**
    * Handle of the updater user.
-   */
+  */
   "updatedByHandle": string;
 
   /**
@@ -76,78 +81,104 @@ export class RUMApplicationAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    applicationId: {
-      baseName: "application_id",
-      type: "string",
-      required: true,
+    "applicationId": {
+      "baseName": "application_id",
+      "type": "string",
+      "required": true,
     },
-    clientToken: {
-      baseName: "client_token",
-      type: "string",
-      required: true,
+    "clientToken": {
+      "baseName": "client_token",
+      "type": "string",
+      "required": true,
     },
-    createdAt: {
-      baseName: "created_at",
-      type: "number",
-      required: true,
-      format: "int64",
+    "createdAt": {
+      "baseName": "created_at",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    createdByHandle: {
-      baseName: "created_by_handle",
-      type: "string",
-      required: true,
+    "createdByHandle": {
+      "baseName": "created_by_handle",
+      "type": "string",
+      "required": true,
     },
-    hash: {
-      baseName: "hash",
-      type: "string",
+    "hash": {
+      "baseName": "hash",
+      "type": "string",
     },
-    isActive: {
-      baseName: "is_active",
-      type: "boolean",
+    "isActive": {
+      "baseName": "is_active",
+      "type": "boolean",
     },
-    name: {
-      baseName: "name",
-      type: "string",
-      required: true,
+    "name": {
+      "baseName": "name",
+      "type": "string",
+      "required": true,
     },
-    orgId: {
-      baseName: "org_id",
-      type: "number",
-      required: true,
-      format: "int32",
+    "orgId": {
+      "baseName": "org_id",
+      "type": "number",
+      "required": true,
+      "format": "int32",
     },
-    productScales: {
-      baseName: "product_scales",
-      type: "RUMProductScales",
+    "productScales": {
+      "baseName": "product_scales",
+      "type": "RUMProductScales",
     },
-    type: {
-      baseName: "type",
-      type: "string",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "string",
+      "required": true,
     },
-    updatedAt: {
-      baseName: "updated_at",
-      type: "number",
-      required: true,
-      format: "int64",
+    "updatedAt": {
+      "baseName": "updated_at",
+      "type": "number",
+      "required": true,
+      "format": "int64",
     },
-    updatedByHandle: {
-      baseName: "updated_by_handle",
-      type: "string",
-      required: true,
+    "updatedByHandle": {
+      "baseName": "updated_by_handle",
+      "type": "string",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return RUMApplicationAttributes.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

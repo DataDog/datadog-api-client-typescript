@@ -5,19 +5,24 @@
  */
 import { NotionAPIKeyType } from "./NotionAPIKeyType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `NotionAPIKey` object.
- */
+*/
 export class NotionAPIKeyUpdate {
   /**
    * The `NotionAPIKeyUpdate` `api_token`.
-   */
+  */
   "apiToken"?: string;
   /**
    * The definition of the `NotionAPIKey` object.
-   */
+  */
   "type": NotionAPIKeyType;
 
   /**
@@ -36,27 +41,53 @@ export class NotionAPIKeyUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiToken: {
-      baseName: "api_token",
-      type: "string",
+    "apiToken": {
+      "baseName": "api_token",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "NotionAPIKeyType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "NotionAPIKeyType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return NotionAPIKeyUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,23 +6,28 @@
 import { AzureUCConfigPairAttributes } from "./AzureUCConfigPairAttributes";
 import { AzureUCConfigPairType } from "./AzureUCConfigPairType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Azure config pair.
- */
+*/
 export class AzureUCConfigPair {
   /**
    * Attributes for Azure config pair.
-   */
+  */
   "attributes": AzureUCConfigPairAttributes;
   /**
    * The ID of Cloud Cost Management account.
-   */
+  */
   "id"?: string;
   /**
    * Type of Azure config pair.
-   */
+  */
   "type": AzureUCConfigPairType;
 
   /**
@@ -41,32 +46,58 @@ export class AzureUCConfigPair {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AzureUCConfigPairAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "AzureUCConfigPairAttributes",
+      "required": true,
     },
-    id: {
-      baseName: "id",
-      type: "string",
+    "id": {
+      "baseName": "id",
+      "type": "string",
     },
-    type: {
-      baseName: "type",
-      type: "AzureUCConfigPairType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "AzureUCConfigPairType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return AzureUCConfigPair.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -6,19 +6,24 @@
 import { OpenAICredentialsUpdate } from "./OpenAICredentialsUpdate";
 import { OpenAIIntegrationType } from "./OpenAIIntegrationType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The definition of the `OpenAIIntegrationUpdate` object.
- */
+*/
 export class OpenAIIntegrationUpdate {
   /**
    * The definition of the `OpenAICredentialsUpdate` object.
-   */
+  */
   "credentials"?: OpenAICredentialsUpdate;
   /**
    * The definition of the `OpenAIIntegrationType` object.
-   */
+  */
   "type": OpenAIIntegrationType;
 
   /**
@@ -37,27 +42,53 @@ export class OpenAIIntegrationUpdate {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    credentials: {
-      baseName: "credentials",
-      type: "OpenAICredentialsUpdate",
+    "credentials": {
+      "baseName": "credentials",
+      "type": "OpenAICredentialsUpdate",
     },
-    type: {
-      baseName: "type",
-      type: "OpenAIIntegrationType",
-      required: true,
+    "type": {
+      "baseName": "type",
+      "type": "OpenAIIntegrationType",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return OpenAIIntegrationUpdate.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

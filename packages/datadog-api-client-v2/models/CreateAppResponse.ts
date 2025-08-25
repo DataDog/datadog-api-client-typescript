@@ -5,15 +5,20 @@
  */
 import { CreateAppResponseData } from "./CreateAppResponseData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The response object after a new app is successfully created, with the app ID.
- */
+*/
 export class CreateAppResponse {
   /**
    * The data object containing the app ID.
-   */
+  */
   "data"?: CreateAppResponseData;
 
   /**
@@ -32,22 +37,48 @@ export class CreateAppResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "CreateAppResponseData",
+    "data": {
+      "baseName": "data",
+      "type": "CreateAppResponseData",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return CreateAppResponse.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

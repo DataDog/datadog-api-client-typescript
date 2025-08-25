@@ -5,15 +5,20 @@
  */
 import { IPAllowlistData } from "./IPAllowlistData";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Update the IP allowlist.
- */
+*/
 export class IPAllowlistUpdateRequest {
   /**
    * IP allowlist data.
-   */
+  */
   "data": IPAllowlistData;
 
   /**
@@ -32,23 +37,49 @@ export class IPAllowlistUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "IPAllowlistData",
-      required: true,
+    "data": {
+      "baseName": "data",
+      "type": "IPAllowlistData",
+      "required": true,
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return IPAllowlistUpdateRequest.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

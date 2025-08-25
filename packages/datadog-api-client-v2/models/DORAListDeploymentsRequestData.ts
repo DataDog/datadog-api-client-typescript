@@ -6,19 +6,24 @@
 import { DORAListDeploymentsRequestAttributes } from "./DORAListDeploymentsRequestAttributes";
 import { DORAListDeploymentsRequestDataType } from "./DORAListDeploymentsRequestDataType";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * The JSON:API data.
- */
+*/
 export class DORAListDeploymentsRequestData {
   /**
    * Attributes to get a list of deployments.
-   */
+  */
   "attributes": DORAListDeploymentsRequestAttributes;
   /**
    * The definition of `DORAListDeploymentsRequestDataType` object.
-   */
+  */
   "type"?: DORAListDeploymentsRequestDataType;
 
   /**
@@ -37,27 +42,53 @@ export class DORAListDeploymentsRequestData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "DORAListDeploymentsRequestAttributes",
-      required: true,
+    "attributes": {
+      "baseName": "attributes",
+      "type": "DORAListDeploymentsRequestAttributes",
+      "required": true,
     },
-    type: {
-      baseName: "type",
-      type: "DORAListDeploymentsRequestDataType",
+    "type": {
+      "baseName": "type",
+      "type": "DORAListDeploymentsRequestDataType",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return DORAListDeploymentsRequestData.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+

@@ -5,29 +5,34 @@
  */
 import { SyntheticsTestOptionsMonitorOptionsNotificationPresetName } from "./SyntheticsTestOptionsMonitorOptionsNotificationPresetName";
 
+import { HttpFile } from "../../datadog-api-client-common/http/http";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+
+
 
 /**
  * Object containing the options for a Synthetic test as a monitor
  * (for example, renotification).
- */
+*/
 export class SyntheticsTestOptionsMonitorOptions {
   /**
    * Message to include in the escalation notification.
-   */
+  */
   "escalationMessage"?: string;
   /**
    * The name of the preset for the notification for the monitor.
-   */
+  */
   "notificationPresetName"?: SyntheticsTestOptionsMonitorOptionsNotificationPresetName;
   /**
    * Time interval before renotifying if the test is still failing
    * (in minutes).
-   */
+  */
   "renotifyInterval"?: number;
   /**
    * The number of times to renotify if the test is still failing.
-   */
+  */
   "renotifyOccurrences"?: number;
 
   /**
@@ -46,36 +51,62 @@ export class SyntheticsTestOptionsMonitorOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    escalationMessage: {
-      baseName: "escalation_message",
-      type: "string",
+    "escalationMessage": {
+      "baseName": "escalation_message",
+      "type": "string",
     },
-    notificationPresetName: {
-      baseName: "notification_preset_name",
-      type: "SyntheticsTestOptionsMonitorOptionsNotificationPresetName",
+    "notificationPresetName": {
+      "baseName": "notification_preset_name",
+      "type": "SyntheticsTestOptionsMonitorOptionsNotificationPresetName",
     },
-    renotifyInterval: {
-      baseName: "renotify_interval",
-      type: "number",
-      format: "int64",
+    "renotifyInterval": {
+      "baseName": "renotify_interval",
+      "type": "number",
+      "format": "int64",
     },
-    renotifyOccurrences: {
-      baseName: "renotify_occurrences",
-      type: "number",
-      format: "int64",
+    "renotifyOccurrences": {
+      "baseName": "renotify_occurrences",
+      "type": "number",
+      "format": "int64",
     },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "any",
+    }
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
+
+
+
+
     return SyntheticsTestOptionsMonitorOptions.attributeTypeMap;
+
   }
 
-  public constructor() {}
+  public constructor() {
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
+
+
+
+
+
+
+
+
+
