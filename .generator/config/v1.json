@@ -1,8 +1,0 @@
-{
-  "gitUserId": "DataDog",
-  "gitRepoId": "datadog-api-client-typescript",
-  "npmName": "@datadog/datadog-api-client",
-  "npmVersion": "0.1.0",
-  "moduleName": "v1",
-  "projectName": "datadog-api-client"
-}
